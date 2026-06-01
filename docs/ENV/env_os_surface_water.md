@@ -47,3 +47,4 @@ Ordnance Survey OS OpenMap Local — Surface Water (inland water) for Great Brit
 | `area_ha` | `double precision` | Area in hectares, computed at load from the geometry. Stale if the geometry is later edited. |
 | `fid` | `bigint` |  |
 | `geom` | `geometry(Polygon,27700)` | Polygon in EPSG:27700. Inland water polygon geometry. |
+| `gid` | `bigint` |  |

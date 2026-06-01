@@ -46,3 +46,4 @@ Ordnance Survey OS OpenMap Local — Woodland for Great Britain.
 | `area_ha` | `double precision` | Area in hectares, computed at load from the geometry. Stale if the geometry is later edited. |
 | `fid` | `bigint` |  |
 | `geom` | `geometry(Polygon,27700)` | Polygon in EPSG:27700. Woodland polygon geometry. |
+| `gid` | `bigint` |  |

@@ -65,3 +65,4 @@ ONS Built Up Areas (BUA), England & Wales extent, December 2024.
 | `area_ha` | `double precision` | Derived at load from ST_Area(geom)/10000 - area of THIS polygon part. Unit: "hectares". For whole-BUA area use areahectar. |
 | `fid` | `bigint` |  |
 | `geom` | `geometry(Polygon,27700)` | Source field "geometry"; Polygon in EPSG:27700 (British National Grid). |
+| `gid` | `bigint` |  |

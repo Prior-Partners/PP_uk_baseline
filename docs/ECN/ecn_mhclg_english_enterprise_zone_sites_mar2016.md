@@ -2,9 +2,9 @@
 
 `ecn_mhclg_english_enterprise_zone_sites_mar2016`
 
-<iframe src="../maps/ecn_mhclg_english_enterprise_zone_sites_mar2016.html" title="Interactive preview map of ecn_mhclg_english_enterprise_zone_sites_mar2016" loading="lazy" style="width:100%;height:480px;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></iframe>
+<iframe src="../../maps/ecn_mhclg_english_enterprise_zone_sites_mar2016.html" title="Interactive preview map of ecn_mhclg_english_enterprise_zone_sites_mar2016" loading="lazy" style="width:100%;height:480px;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></iframe>
 
-<a href="../maps/ecn_mhclg_english_enterprise_zone_sites_mar2016.html" target="_blank" rel="noopener">Open the map in a new tab &#8599;</a>
+<a href="../../maps/ecn_mhclg_english_enterprise_zone_sites_mar2016.html" target="_blank" rel="noopener">Open the map in a new tab &#8599;</a>
 
 **SOURCE**
 

@@ -2,9 +2,9 @@
 
 `dem_desnz_lsoa_fuel_poverty_2023`
 
-<iframe src="../maps/dem_desnz_lsoa_fuel_poverty_2023.html" title="Interactive preview map of dem_desnz_lsoa_fuel_poverty_2023" loading="lazy" style="width:100%;height:480px;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></iframe>
+<iframe src="../../maps/dem_desnz_lsoa_fuel_poverty_2023.html" title="Interactive preview map of dem_desnz_lsoa_fuel_poverty_2023" loading="lazy" style="width:100%;height:480px;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></iframe>
 
-<a href="../maps/dem_desnz_lsoa_fuel_poverty_2023.html" target="_blank" rel="noopener">Open the map in a new tab &#8599;</a>
+<a href="../../maps/dem_desnz_lsoa_fuel_poverty_2023.html" target="_blank" rel="noopener">Open the map in a new tab &#8599;</a>
 
 **SOURCE**
 

@@ -2,9 +2,9 @@
 
 `blt_os_important_buildings`
 
-<iframe src="../maps/blt_os_important_buildings.html" title="Interactive preview map of blt_os_important_buildings" loading="lazy" style="width:100%;height:480px;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></iframe>
+<iframe src="../../maps/blt_os_important_buildings.html" title="Interactive preview map of blt_os_important_buildings" loading="lazy" style="width:100%;height:480px;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></iframe>
 
-<a href="../maps/blt_os_important_buildings.html" target="_blank" rel="noopener">Open the map in a new tab &#8599;</a>
+<a href="../../maps/blt_os_important_buildings.html" target="_blank" rel="noopener">Open the map in a new tab &#8599;</a>
 
 **SOURCE**
 

@@ -2,9 +2,9 @@
 
 `ecn_voa_lad_stock_properties_2025`
 
-<iframe src="../maps/ecn_voa_lad_stock_properties_2025.html" title="Interactive preview map of ecn_voa_lad_stock_properties_2025" loading="lazy" style="width:100%;height:480px;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></iframe>
+<iframe src="../../maps/ecn_voa_lad_stock_properties_2025.html" title="Interactive preview map of ecn_voa_lad_stock_properties_2025" loading="lazy" style="width:100%;height:480px;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></iframe>
 
-<a href="../maps/ecn_voa_lad_stock_properties_2025.html" target="_blank" rel="noopener">Open the map in a new tab &#8599;</a>
+<a href="../../maps/ecn_voa_lad_stock_properties_2025.html" target="_blank" rel="noopener">Open the map in a new tab &#8599;</a>
 
 **SOURCE**
 

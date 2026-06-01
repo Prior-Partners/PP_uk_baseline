@@ -2,9 +2,9 @@
 
 `adm_ons_postcode_centroid_feb2026`
 
-<iframe src="../maps/adm_ons_postcode_centroid_feb2026.html" title="Interactive preview map of adm_ons_postcode_centroid_feb2026" loading="lazy" style="width:100%;height:480px;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></iframe>
+<iframe src="../../maps/adm_ons_postcode_centroid_feb2026.html" title="Interactive preview map of adm_ons_postcode_centroid_feb2026" loading="lazy" style="width:100%;height:480px;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></iframe>
 
-<a href="../maps/adm_ons_postcode_centroid_feb2026.html" target="_blank" rel="noopener">Open the map in a new tab &#8599;</a>
+<a href="../../maps/adm_ons_postcode_centroid_feb2026.html" target="_blank" rel="noopener">Open the map in a new tab &#8599;</a>
 
 **SOURCE**
 

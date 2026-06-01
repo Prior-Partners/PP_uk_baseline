@@ -2,9 +2,9 @@
 
 `dem_mhclg_lsoa_imd_2019`
 
-<iframe src="../maps/dem_mhclg_lsoa_imd_2019.html" title="Interactive preview map of dem_mhclg_lsoa_imd_2019" loading="lazy" style="width:100%;height:480px;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></iframe>
+<iframe src="../../maps/dem_mhclg_lsoa_imd_2019.html" title="Interactive preview map of dem_mhclg_lsoa_imd_2019" loading="lazy" style="width:100%;height:480px;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></iframe>
 
-<a href="../maps/dem_mhclg_lsoa_imd_2019.html" target="_blank" rel="noopener">Open the map in a new tab &#8599;</a>
+<a href="../../maps/dem_mhclg_lsoa_imd_2019.html" target="_blank" rel="noopener">Open the map in a new tab &#8599;</a>
 
 **SOURCE**
 

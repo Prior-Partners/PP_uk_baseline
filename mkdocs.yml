@@ -18,6 +18,8 @@ markdown_extensions:
   - tables
   - toc:
       permalink: true
+extra_css:
+  - stylesheets/extra.css
 nav:
   - Home: index.md
   - Administrative & Planning Boundaries (ADM):

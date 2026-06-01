@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <style>.leaflet-interactive:focus{outline:none;}path.leaflet-interactive:focus{outline:none;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_fc72abf37efe8dd76dbe8210b94657ff {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    
+                    <style>
+                        .foliumtooltip {
+                            
+                        }
+                       .foliumtooltip table{
+                            margin: auto;
+                        }
+                        .foliumtooltip tr{
+                            text-align: left;
+                        }
+                        .foliumtooltip th{
+                            padding: 2px; padding-right: 8px;
+                        }
+                    </style>
+            
+</head>
+<body>
+    
+    <div style="position:fixed;bottom:22px;right:12px;z-index:9999;background:#f1eedf;color:#2b242c;padding:8px 11px;border:1px solid #d9d3c4;border-radius:6px;font:12px/1.3 -apple-system,Segoe UI,sans-serif;max-width:240px;box-shadow:0 1px 4px #0003;"><div style="font-weight:700;margin-bottom:4px;">Nhs gp</div><div style="display:flex;align-items:center;gap:6px;margin:2px 0;"><span style="width:14px;height:14px;background:#005dff;border:1px solid #00000022;display:inline-block;border-radius:2px;"></span><span>Nhs gp</span></div></div>
+    <div style="position:fixed;top:10px;left:10px;z-index:9999;background:#2b242c;color:#fff;padding:4px 9px;border-radius:5px;font:12px -apple-system,Segoe UI,sans-serif;">hth_nhs_gp_jan2026<span style="opacity:.7;"> · Milton Keynes</span></div>
+    
+            <div class="folium-map" id="map_fc72abf37efe8dd76dbe8210b94657ff" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_fc72abf37efe8dd76dbe8210b94657ff = L.map(
+                "map_fc72abf37efe8dd76dbe8210b94657ff",
+                {
+                    center: [52.03376812951703, -0.7618774161450301],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_fc72abf37efe8dd76dbe8210b94657ff);
+
+            
+
+        
+    
+            var tile_layer_9f078c885924a66f7b7869e4b7f63ff6 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u00a9 OpenStreetMap, \u00a9 CARTO",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_9f078c885924a66f7b7869e4b7f63ff6.addTo(map_fc72abf37efe8dd76dbe8210b94657ff);
+        
+    
+        function geo_json_ab6a32cf382b47e9bcc3b5244ea4fd3e_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#005dff", "fillColor": "#005dff", "fillOpacity": 0.5, "opacity": 0.6, "weight": 0.6};
+            }
+        }
+        function geo_json_ab6a32cf382b47e9bcc3b5244ea4fd3e_highlighter(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#ffffff", "fillOpacity": 0.85, "weight": 3.0};
+            }
+        }
+        function geo_json_ab6a32cf382b47e9bcc3b5244ea4fd3e_pointToLayer(feature, latlng) {
+            var opts = {
+  "stroke": true,
+  "color": "#3388ff",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#3388ff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 4,
+};
+            
+            let style = geo_json_ab6a32cf382b47e9bcc3b5244ea4fd3e_styler(feature)
+            Object.assign(opts, style)
+            
+            return new L.CircleMarker(latlng, opts)
+        }
+
+        function geo_json_ab6a32cf382b47e9bcc3b5244ea4fd3e_onEachFeature(feature, layer) {
+
+            layer.on({
+                mouseout: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                            geo_json_ab6a32cf382b47e9bcc3b5244ea4fd3e.resetStyle(e.target);
+                    }
+                },
+                mouseover: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                        const highlightStyle = geo_json_ab6a32cf382b47e9bcc3b5244ea4fd3e_highlighter(e.target.feature)
+                        e.target.setStyle(highlightStyle);
+                    }
+                },
+            });
+        };
+        var geo_json_ab6a32cf382b47e9bcc3b5244ea4fd3e = L.geoJson(null, {
+                onEachFeature: geo_json_ab6a32cf382b47e9bcc3b5244ea4fd3e_onEachFeature,
+            
+                style: geo_json_ab6a32cf382b47e9bcc3b5244ea4fd3e_styler,
+                pointToLayer: geo_json_ab6a32cf382b47e9bcc3b5244ea4fd3e_pointToLayer,
+            ...{
+}
+        });
+
+        function geo_json_ab6a32cf382b47e9bcc3b5244ea4fd3e_add (data) {
+            geo_json_ab6a32cf382b47e9bcc3b5244ea4fd3e
+                .addData(data);
+        }
+            geo_json_ab6a32cf382b47e9bcc3b5244ea4fd3e_add({"features": [{"geometry": {"coordinates": [-0.883025461, 51.944855274], "type": "Point"}, "id": "0", "properties": {"label": "MK18 3DW", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.818170093, 52.033792256], "type": "Point"}, "id": "1", "properties": {"label": "MK8 1EQ", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.797879588, 52.035897738], "type": "Point"}, "id": "2", "properties": {"label": "MK8 9HN", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.797879588, 52.035897738], "type": "Point"}, "id": "3", "properties": {"label": "MK8 9HN", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.797879588, 52.035897738], "type": "Point"}, "id": "4", "properties": {"label": "MK8 9HN", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.814933714, 52.054196508], "type": "Point"}, "id": "5", "properties": {"label": "MK12 5DF", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.814933714, 52.054196508], "type": "Point"}, "id": "6", "properties": {"label": "MK12 5DF", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.853194098, 52.056265296], "type": "Point"}, "id": "7", "properties": {"label": "MK11 1YA", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.853194098, 52.056265296], "type": "Point"}, "id": "8", "properties": {"label": "MK11 1YA", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.853194098, 52.056265296], "type": "Point"}, "id": "9", "properties": {"label": "MK11 1YA", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.853194098, 52.056265296], "type": "Point"}, "id": "10", "properties": {"label": "MK11 1YA", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.853194098, 52.056265296], "type": "Point"}, "id": "11", "properties": {"label": "MK11 1YA", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.777874066, 52.068644384], "type": "Point"}, "id": "12", "properties": {"label": "MK14 6GL", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.777874066, 52.068644384], "type": "Point"}, "id": "13", "properties": {"label": "MK14 6GL", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.742697531, 52.074424354], "type": "Point"}, "id": "14", "properties": {"label": "MK14 5HR", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.729625631, 52.078474067], "type": "Point"}, "id": "15", "properties": {"label": "MK16 0JR", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.725297513, 52.086465399], "type": "Point"}, "id": "16", "properties": {"label": "MK16 8QT", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.725297513, 52.086465399], "type": "Point"}, "id": "17", "properties": {"label": "MK16 8QT", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.725297513, 52.086465399], "type": "Point"}, "id": "18", "properties": {"label": "MK16 8QT", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.725297513, 52.086465399], "type": "Point"}, "id": "19", "properties": {"label": "MK16 8QT", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.719830896, 52.062768497], "type": "Point"}, "id": "20", "properties": {"label": "MK15 9AB", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.745239334, 52.060784943], "type": "Point"}, "id": "21", "properties": {"label": "MK15 8AJ", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.748062024, 52.060518251], "type": "Point"}, "id": "22", "properties": {"label": "MK14 6JY", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.773915464, 52.061365445], "type": "Point"}, "id": "23", "properties": {"label": "MK14 6BL", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.775059181, 52.041947541], "type": "Point"}, "id": "24", "properties": {"label": "MK13 8RN", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.775059181, 52.041947541], "type": "Point"}, "id": "25", "properties": {"label": "MK13 8RN", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.761185662, 52.039051234], "type": "Point"}, "id": "26", "properties": {"label": "MK9 2EA", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.747516494, 52.036209402], "type": "Point"}, "id": "27", "properties": {"label": "MK6 2LR", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.697886283, 52.043880417], "type": "Point"}, "id": "28", "properties": {"label": "MK10 9BQ", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.67387281, 52.045293999], "type": "Point"}, "id": "29", "properties": {"label": "MK10 7LN", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.691237942, 52.021886199], "type": "Point"}, "id": "30", "properties": {"label": "MK7 7PB", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.727783448, 51.993334745], "type": "Point"}, "id": "31", "properties": {"label": "MK2 2DJ", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.722907695, 51.99628506], "type": "Point"}, "id": "32", "properties": {"label": "MK2 2EH", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.722907695, 51.99628506], "type": "Point"}, "id": "33", "properties": {"label": "MK2 2EH", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.739359101, 52.000715109], "type": "Point"}, "id": "34", "properties": {"label": "MK3 6RT", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.729782348, 51.995783949], "type": "Point"}, "id": "35", "properties": {"label": "MK2 2TX", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.747637975, 51.997413723], "type": "Point"}, "id": "36", "properties": {"label": "MK3 6EN", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.766275847, 52.000307747], "type": "Point"}, "id": "37", "properties": {"label": "MK3 7QU", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.766275847, 52.000307747], "type": "Point"}, "id": "38", "properties": {"label": "MK3 7QU", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.766275847, 52.000307747], "type": "Point"}, "id": "39", "properties": {"label": "MK3 7QU", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.766275847, 52.000307747], "type": "Point"}, "id": "40", "properties": {"label": "MK3 7QU", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.738272707, 52.019665928], "type": "Point"}, "id": "41", "properties": {"label": "MK6 4NE", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.736952444, 52.022043439], "type": "Point"}, "id": "42", "properties": {"label": "MK6 4JJ", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.735114482, 52.023651128], "type": "Point"}, "id": "43", "properties": {"label": "MK6 4NG", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.740364525, 52.0256135], "type": "Point"}, "id": "44", "properties": {"label": "MK6 5LR", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.735781034, 52.026373619], "type": "Point"}, "id": "45", "properties": {"label": "MK6 5LD", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.735781034, 52.026373619], "type": "Point"}, "id": "46", "properties": {"label": "MK6 5NG", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.735781034, 52.026373619], "type": "Point"}, "id": "47", "properties": {"label": "MK6 5NG", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.735781034, 52.026373619], "type": "Point"}, "id": "48", "properties": {"label": "MK6 5NG", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.735781034, 52.026373619], "type": "Point"}, "id": "49", "properties": {"label": "MK6 5NG", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.735781034, 52.026373619], "type": "Point"}, "id": "50", "properties": {"label": "MK6 5NG", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.78856891, 52.025462591], "type": "Point"}, "id": "51", "properties": {"label": "MK5 6EY", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.807743548, 52.013088555], "type": "Point"}, "id": "52", "properties": {"label": "MK4 4DA", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.811886576, 52.015656916], "type": "Point"}, "id": "53", "properties": {"label": "MK5 6AJ", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.795698826, 52.006366547], "type": "Point"}, "id": "54", "properties": {"label": "MK4 4EN", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.795698826, 52.006366547], "type": "Point"}, "id": "55", "properties": {"label": "MK4 4EN", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.725808327, 51.979278057], "type": "Point"}, "id": "56", "properties": {"label": "MK2 3HN", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.723249945, 51.9873245], "type": "Point"}, "id": "57", "properties": {"label": "MK2 3EJ", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.649820366, 52.01261641], "type": "Point"}, "id": "58", "properties": {"label": "MK17 8QP", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.649820366, 52.01261641], "type": "Point"}, "id": "59", "properties": {"label": "MK17 8QP", "value": null}, "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+    geo_json_ab6a32cf382b47e9bcc3b5244ea4fd3e.bindTooltip(
+    function(layer){
+    let div = L.DomUtil.create('div');
+    
+    let handleObject = feature => {
+        if (feature === null) {
+            return '';
+        } else if (typeof(feature)=='object') {
+            return JSON.stringify(feature);
+        } else {
+            return feature;
+        }
+    }
+    let fields = ["label"];
+    let aliases = ["Postcode"];
+    let table = '<table>' +
+        String(
+        fields.map(
+        (v,i)=>
+        `<tr>
+            <th>${aliases[i]}</th>
+            
+            <td>${handleObject(layer.feature.properties[v])}</td>
+        </tr>`).join(''))
+    +'</table>';
+    div.innerHTML=table;
+    
+    return div
+    }
+    ,{
+  "sticky": true,
+  "className": "foliumtooltip",
+});
+                     
+    
+            geo_json_ab6a32cf382b47e9bcc3b5244ea4fd3e.addTo(map_fc72abf37efe8dd76dbe8210b94657ff);
+        
+    
+            map_fc72abf37efe8dd76dbe8210b94657ff.fitBounds(
+                [[51.9194985934238, -0.947151892538538], [52.14803766561025, -0.5766029397515222]],
+                {}
+            );
+        
+</script>
+</html>

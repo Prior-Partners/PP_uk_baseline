@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <style>.leaflet-interactive:focus{outline:none;}path.leaflet-interactive:focus{outline:none;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_3132588859388ba488f945e00230f018 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    
+                    <style>
+                        .foliumtooltip {
+                            
+                        }
+                       .foliumtooltip table{
+                            margin: auto;
+                        }
+                        .foliumtooltip tr{
+                            text-align: left;
+                        }
+                        .foliumtooltip th{
+                            padding: 2px; padding-right: 8px;
+                        }
+                    </style>
+            
+</head>
+<body>
+    
+    <div style="position:fixed;bottom:22px;right:12px;z-index:9999;background:#f1eedf;color:#2b242c;padding:8px 11px;border:1px solid #d9d3c4;border-radius:6px;font:12px/1.3 -apple-system,Segoe UI,sans-serif;max-width:240px;box-shadow:0 1px 4px #0003;"><div style="font-weight:700;margin-bottom:4px;">Os electricity transmission line</div><div style="display:flex;align-items:center;gap:6px;margin:2px 0;"><span style="width:14px;height:14px;background:#991955;border:1px solid #00000022;display:inline-block;border-radius:2px;"></span><span>Os electricity transmission line</span></div></div>
+    <div style="position:fixed;top:10px;left:10px;z-index:9999;background:#2b242c;color:#fff;padding:4px 9px;border-radius:5px;font:12px -apple-system,Segoe UI,sans-serif;">utl_os_electricity_transmission_line<span style="opacity:.7;"> · Milton Keynes</span></div>
+    
+            <div class="folium-map" id="map_3132588859388ba488f945e00230f018" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_3132588859388ba488f945e00230f018 = L.map(
+                "map_3132588859388ba488f945e00230f018",
+                {
+                    center: [52.03376812951703, -0.7618774161450301],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_3132588859388ba488f945e00230f018);
+
+            
+
+        
+    
+            var tile_layer_cd29b2f51efd0ffafc91b3d3aa295c27 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u00a9 OpenStreetMap, \u00a9 CARTO",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_cd29b2f51efd0ffafc91b3d3aa295c27.addTo(map_3132588859388ba488f945e00230f018);
+        
+    
+        function geo_json_4c667439e88ab18f84f4e18fe37b8198_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#991955", "opacity": 0.9, "weight": 2.6};
+            }
+        }
+        function geo_json_4c667439e88ab18f84f4e18fe37b8198_highlighter(feature) {
+            switch(feature.id) {
+                default:
+                    return {"opacity": 1, "weight": 4.5};
+            }
+        }
+
+        function geo_json_4c667439e88ab18f84f4e18fe37b8198_onEachFeature(feature, layer) {
+
+            layer.on({
+                mouseout: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                            geo_json_4c667439e88ab18f84f4e18fe37b8198.resetStyle(e.target);
+                    }
+                },
+                mouseover: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                        const highlightStyle = geo_json_4c667439e88ab18f84f4e18fe37b8198_highlighter(e.target.feature)
+                        e.target.setStyle(highlightStyle);
+                    }
+                },
+            });
+        };
+        var geo_json_4c667439e88ab18f84f4e18fe37b8198 = L.geoJson(null, {
+                onEachFeature: geo_json_4c667439e88ab18f84f4e18fe37b8198_onEachFeature,
+            
+                style: geo_json_4c667439e88ab18f84f4e18fe37b8198_styler,
+            ...{
+}
+        });
+
+        function geo_json_4c667439e88ab18f84f4e18fe37b8198_add (data) {
+            geo_json_4c667439e88ab18f84f4e18fe37b8198
+                .addData(data);
+        }
+            geo_json_4c667439e88ab18f84f4e18fe37b8198_add({"features": [{"geometry": {"coordinates": [[-0.627545676, 51.90395668], [-0.584151176, 51.923038506], [-0.581079821, 51.925470223], [-0.577767185, 51.926750196], [-0.559285708, 51.936522637], [-0.545840273, 51.935705046]], "type": "LineString"}, "id": "0", "properties": {"label": "Central Bedfordshire", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [[-0.818108236, 51.969482885], [-0.886086254, 51.954822845], [-0.892631488, 51.949901936], [-0.898542711, 51.932486341]], "type": "LineString"}, "id": "1", "properties": {"label": "Buckinghamshire", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [[-0.868185794, 51.928217449], [-0.874712143, 51.928895588], [-0.901470353, 51.925602462]], "type": "LineString"}, "id": "2", "properties": {"label": "Buckinghamshire", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [[-0.906795444, 51.925117736], [-0.904696337, 51.921800839]], "type": "LineString"}, "id": "3", "properties": {"label": "Buckinghamshire", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [[-0.74836475, 51.914313505], [-0.756275211, 51.91510826], [-0.788403022, 51.920377826], [-0.835379383, 51.924805819], [-0.868185794, 51.928217449]], "type": "LineString"}, "id": "4", "properties": {"label": "Buckinghamshire", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [[-0.901470353, 51.925602462], [-0.905534517, 51.9252711], [-0.905821211, 51.924873836], [-0.907307259, 51.924707723], [-0.908071826, 51.924980327], [-0.909267923, 51.922100743], [-0.921492193, 51.9063927]], "type": "LineString"}, "id": "5", "properties": {"label": "Buckinghamshire", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [[-0.90715688, 51.928031991], [-0.931047681, 51.937353709], [-0.935709553, 51.948442975]], "type": "LineString"}, "id": "6", "properties": {"label": "Buckinghamshire", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [[-0.908791494, 51.927584915], [-0.915511396, 51.930817925], [-0.931775732, 51.937139133], [-0.939862653, 51.94408173], [-0.955575489, 51.95363747], [-0.962929745, 51.955324911]], "type": "LineString"}, "id": "7", "properties": {"label": "Buckinghamshire", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [[-0.935709553, 51.948442975], [-0.943219739, 51.966374749], [-0.950936674, 51.989294864]], "type": "LineString"}, "id": "8", "properties": {"label": "Buckinghamshire", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [[-0.949792453, 52.07976912], [-0.950393454, 52.0861748], [-0.938796128, 52.105337638], [-0.940847584, 52.125281682]], "type": "LineString"}, "id": "9", "properties": {"label": "West Northamptonshire", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [[-0.820101366, 52.040925583], [-0.825008527, 52.040661502], [-0.839390006, 52.036139795], [-0.853311544, 52.028768055]], "type": "LineString"}, "id": "10", "properties": {"label": "Milton Keynes", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [[-0.796597592, 52.049437851], [-0.801429393, 52.048193718], [-0.813497212, 52.044271092], [-0.81620679, 52.042887727], [-0.819119214, 52.040982062], [-0.820101366, 52.040925583]], "type": "LineString"}, "id": "11", "properties": {"label": "Milton Keynes", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [[-0.853311544, 52.028768055], [-0.867673338, 52.021083994], [-0.867801333, 52.019108084]], "type": "LineString"}, "id": "12", "properties": {"label": "Buckinghamshire", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [[-0.887302562, 51.99608561], [-0.871501711, 52.017497673], [-0.868085856, 52.019013354]], "type": "LineString"}, "id": "13", "properties": {"label": "Buckinghamshire", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [[-0.791463467, 51.987156318], [-0.808491969, 51.973811719], [-0.818108236, 51.969482885]], "type": "LineString"}, "id": "14", "properties": {"label": "Buckinghamshire", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [[-0.892599744, 51.988113928], [-0.887302562, 51.99608561]], "type": "LineString"}, "id": "15", "properties": {"label": "Buckinghamshire", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [[-0.905584725, 51.934658102], [-0.899321801, 51.954538734], [-0.899494719, 51.977712144], [-0.892599744, 51.988113928]], "type": "LineString"}, "id": "16", "properties": {"label": "Buckinghamshire", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [[-0.597681257, 52.11539843], [-0.575304132, 52.10426101]], "type": "LineString"}, "id": "17", "properties": {"label": "Bedford", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [[-0.688132752, 52.195723472], [-0.684921378, 52.19296979], [-0.674450782, 52.181557514], [-0.659974091, 52.153252926], [-0.603058037, 52.118066286], [-0.597681257, 52.11539843]], "type": "LineString"}, "id": "18", "properties": {"label": "Milton Keynes", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [[-0.940847584, 52.125281682], [-0.942375937, 52.140098873], [-0.992107334, 52.158236262], [-0.995053411, 52.165005432]], "type": "LineString"}, "id": "19", "properties": {"label": "West Northamptonshire", "value": null}, "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+    geo_json_4c667439e88ab18f84f4e18fe37b8198.bindTooltip(
+    function(layer){
+    let div = L.DomUtil.create('div');
+    
+    let handleObject = feature => {
+        if (feature === null) {
+            return '';
+        } else if (typeof(feature)=='object') {
+            return JSON.stringify(feature);
+        } else {
+            return feature;
+        }
+    }
+    let fields = ["label"];
+    let aliases = ["Name"];
+    let table = '<table>' +
+        String(
+        fields.map(
+        (v,i)=>
+        `<tr>
+            <th>${aliases[i]}</th>
+            
+            <td>${handleObject(layer.feature.properties[v])}</td>
+        </tr>`).join(''))
+    +'</table>';
+    div.innerHTML=table;
+    
+    return div
+    }
+    ,{
+  "sticky": true,
+  "className": "foliumtooltip",
+});
+                     
+    
+            geo_json_4c667439e88ab18f84f4e18fe37b8198.addTo(map_3132588859388ba488f945e00230f018);
+        
+    
+            map_3132588859388ba488f945e00230f018.fitBounds(
+                [[51.9194985934238, -0.947151892538538], [52.14803766561025, -0.5766029397515222]],
+                {}
+            );
+        
+</script>
+</html>

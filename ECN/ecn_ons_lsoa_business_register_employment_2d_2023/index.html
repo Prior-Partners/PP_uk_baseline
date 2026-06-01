@@ -1,0 +1,5658 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Plain-English guide to every layer in the uk_baseline database.">
+      
+      
+      
+      
+        <link rel="prev" href="../ecn_ons_lad_gross_value_added_2023/">
+      
+      
+        <link rel="next" href="../ecn_ons_lsoa_business_register_employment_2d_2024/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>ecn_ons_lsoa_business_register_employment_2d_2023 - uk_baseline data catalogue</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ecn_ons_lsoa_business_register_employment_2d_2023" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="uk_baseline data catalogue" class="md-header__button md-logo" aria-label="uk_baseline data catalogue" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            uk_baseline data catalogue
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ecn_ons_lsoa_business_register_employment_2d_2023
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="uk_baseline data catalogue" class="md-nav__button md-logo" aria-label="uk_baseline data catalogue" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    uk_baseline data catalogue
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administrative & Planning Boundaries (ADM)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Administrative & Planning Boundaries (ADM)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ADM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Administrative &amp; Planning Boundaries (ADM)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ADM/adm_mhclg_local_plan_boundary_jan2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    adm_mhclg_local_plan_boundary_jan2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ADM/adm_ons_lad_boundary_2011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    adm_ons_lad_boundary_2011
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ADM/adm_ons_lad_boundary_may2022/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    adm_ons_lad_boundary_may2022
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ADM/adm_ons_lad_boundary_may2024/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    adm_ons_lad_boundary_may2024
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ADM/adm_ons_lad_boundary_may2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    adm_ons_lad_boundary_may2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ADM/adm_ons_lsoa_boundary_2011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    adm_ons_lsoa_boundary_2011
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ADM/adm_ons_lsoa_boundary_2021/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    adm_ons_lsoa_boundary_2021
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ADM/adm_ons_msoa_boundary_2011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    adm_ons_msoa_boundary_2011
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ADM/adm_ons_msoa_boundary_2021/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    adm_ons_msoa_boundary_2021
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ADM/adm_ons_oa_boundaries_dec2021/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    adm_ons_oa_boundaries_dec2021
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ADM/adm_ons_ward_boundary_may2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    adm_ons_ward_boundary_may2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Built Environment & Land Use (BLT)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Built Environment & Land Use (BLT)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BLT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Built Environment &amp; Land Use (BLT)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BLT/blt_geods_poi_sep2024/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    blt_geods_poi_sep2024
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BLT/blt_geods_retail_centre_2022/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    blt_geods_retail_centre_2022
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BLT/blt_ons_built_up_areas_dec2024/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    blt_ons_built_up_areas_dec2024
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BLT/blt_os_functional_sites_oct2024/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    blt_os_functional_sites_oct2024
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BLT/blt_os_important_buildings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    blt_os_important_buildings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BLT/blt_os_named_places/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    blt_os_named_places
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Community & Social Infrastructure (COM)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Community & Social Infrastructure (COM)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../COM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Community &amp; Social Infrastructure (COM)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../COM/com_os_green_space_sport_activity_area/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    com_os_green_space_sport_activity_area
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../COM/com_sportengland_active_places_facilities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    com_sportengland_active_places_facilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Demographics & Socio-Economic (DEM)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Demographics & Socio-Economic (DEM)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DEM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Demographics &amp; Socio-Economic (DEM)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DEM/dem_desnz_lsoa_fuel_poverty_2023/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dem_desnz_lsoa_fuel_poverty_2023
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DEM/dem_mhclg_lsoa_imd_2019/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dem_mhclg_lsoa_imd_2019
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DEM/dem_mhclg_lsoa_imd_2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dem_mhclg_lsoa_imd_2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DEM/dem_ons_lsoa_access_healthy_assets_hazards_may2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dem_ons_lsoa_access_healthy_assets_hazards_may2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DEM/dem_ons_lsoa_accommodation_type_2021/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dem_ons_lsoa_accommodation_type_2021
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DEM/dem_ons_lsoa_age_alternate_bands_2021/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dem_ons_lsoa_age_alternate_bands_2021
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DEM/dem_ons_lsoa_car_availability_2021/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dem_ons_lsoa_car_availability_2021
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DEM/dem_ons_lsoa_education_2021/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dem_ons_lsoa_education_2021
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DEM/dem_ons_lsoa_english_proficiency_2021/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dem_ons_lsoa_english_proficiency_2021
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DEM/dem_ons_lsoa_ethnicity_2021/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dem_ons_lsoa_ethnicity_2021
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DEM/dem_ons_lsoa_household_composition_2021/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dem_ons_lsoa_household_composition_2021
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DEM/dem_ons_lsoa_household_population_2021/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dem_ons_lsoa_household_population_2021
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DEM/dem_ons_lsoa_household_size_2021/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dem_ons_lsoa_household_size_2021
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DEM/dem_ons_lsoa_housing_tenure_2021/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dem_ons_lsoa_housing_tenure_2021
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DEM/dem_ons_lsoa_industry_occupation_2011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dem_ons_lsoa_industry_occupation_2011
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DEM/dem_ons_lsoa_industry_occupation_2021/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dem_ons_lsoa_industry_occupation_2021
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DEM/dem_ons_lsoa_national_identity_2021/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dem_ons_lsoa_national_identity_2021
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DEM/dem_ons_lsoa_passport_held_2021/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dem_ons_lsoa_passport_held_2021
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DEM/dem_ons_lsoa_religion_2021/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dem_ons_lsoa_religion_2021
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DEM/dem_ons_lsoa_students_2011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dem_ons_lsoa_students_2011
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DEM/dem_ons_lsoa_students_2021/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dem_ons_lsoa_students_2021
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DEM/dem_ons_msoa_income_2011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dem_ons_msoa_income_2011
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DEM/dem_ons_oa_household_residents_2021/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dem_ons_oa_household_residents_2021
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DEM/dem_police_uk_stop_search_crime_monthly/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dem_police_uk_stop_search_crime_monthly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DEM/dem_police_uk_street_crime_monthly/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dem_police_uk_street_crime_monthly
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Economy & Employment (ECN)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Economy & Employment (ECN)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Economy &amp; Employment (ECN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ecn_geods_foodretail_accessibility_apr2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ecn_geods_foodretail_accessibility_apr2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ecn_mhclg_english_enterprise_zone_sites_mar2016/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ecn_mhclg_english_enterprise_zone_sites_mar2016
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ecn_ons_housing_affordability_ratio_2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ecn_ons_housing_affordability_ratio_2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ecn_ons_lad_business_register_employment_2d_2023/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ecn_ons_lad_business_register_employment_2d_2023
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ecn_ons_lad_business_register_employment_2d_2024/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ecn_ons_lad_business_register_employment_2d_2024
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ecn_ons_lad_business_register_employment_3d_2023/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ecn_ons_lad_business_register_employment_3d_2023
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ecn_ons_lad_business_register_employment_3d_2024/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ecn_ons_lad_business_register_employment_3d_2024
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ecn_ons_lad_gross_value_added_2023/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ecn_ons_lad_gross_value_added_2023
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ecn_ons_lsoa_business_register_employment_2d_2023
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ecn_ons_lsoa_business_register_employment_2d_2023
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#columns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Columns
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ecn_ons_lsoa_business_register_employment_2d_2024/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ecn_ons_lsoa_business_register_employment_2d_2024
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ecn_ons_lsoa_business_register_employment_3d_2023/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ecn_ons_lsoa_business_register_employment_3d_2023
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ecn_ons_lsoa_business_register_employment_3d_2024/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ecn_ons_lsoa_business_register_employment_3d_2024
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ecn_ons_lsoa_gross_value_added_2023/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ecn_ons_lsoa_gross_value_added_2023
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ecn_ons_msoa_business_register_employment_2d_2023/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ecn_ons_msoa_business_register_employment_2d_2023
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ecn_ons_msoa_business_register_employment_2d_2024/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ecn_ons_msoa_business_register_employment_2d_2024
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ecn_ons_msoa_business_register_employment_3d_2023/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ecn_ons_msoa_business_register_employment_3d_2023
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ecn_ons_msoa_business_register_employment_3d_2024/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ecn_ons_msoa_business_register_employment_3d_2024
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ecn_ons_msoa_gross_value_added_2023/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ecn_ons_msoa_gross_value_added_2023
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ecn_voa_lad_business_floorspace_2023/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ecn_voa_lad_business_floorspace_2023
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ecn_voa_lad_stock_properties_2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ecn_voa_lad_stock_properties_2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ecn_voa_lsoa_business_floorspace_2023/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ecn_voa_lsoa_business_floorspace_2023
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ecn_voa_lsoa_stock_properties_2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ecn_voa_lsoa_stock_properties_2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ecn_voa_msoa_business_floorspace_2023/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ecn_voa_msoa_business_floorspace_2023
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ecn_voa_msoa_stock_properties_2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ecn_voa_msoa_stock_properties_2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Education (EDU)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Education (EDU)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EDU/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Education (EDU)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EDU/edu_dfe_primary_school_may2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    edu_dfe_primary_school_may2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EDU/edu_dfe_school_may2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    edu_dfe_school_may2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EDU/edu_dfe_secondary_school_may2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    edu_dfe_secondary_school_may2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Environment & Natural Assets (ENV)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Environment & Natural Assets (ENV)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENV/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Environment &amp; Natural Assets (ENV)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENV/env_defra_flood_zone_jan2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    env_defra_flood_zone_jan2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENV/env_defra_flood_zones_2_3_river_sea_april2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    env_defra_flood_zones_2_3_river_sea_april2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENV/env_defra_flood_zones_plus_climate_change_july2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    env_defra_flood_zones_plus_climate_change_july2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENV/env_defra_historic_landfill_site/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    env_defra_historic_landfill_site
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENV/env_defra_national_nature_reserves_apr2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    env_defra_national_nature_reserves_apr2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENV/env_defra_predictive_agricultural_land_mar2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    env_defra_predictive_agricultural_land_mar2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENV/env_mhclg_brownfield_land_may2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    env_mhclg_brownfield_land_may2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENV/env_mhclg_green_belt_may2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    env_mhclg_green_belt_may2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENV/env_naturalengland_agri_land_nov2024/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    env_naturalengland_agri_land_nov2024
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENV/env_naturalengland_ancient_woodland_mar2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    env_naturalengland_ancient_woodland_mar2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENV/env_naturalengland_ancient_woodland_revised_apr2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    env_naturalengland_ancient_woodland_revised_apr2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENV/env_naturalengland_aonb_nov2024/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    env_naturalengland_aonb_nov2024
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENV/env_naturalengland_country_parks_jun2023/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    env_naturalengland_country_parks_jun2023
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENV/env_naturalengland_environmentally_sensitive_areas_jun2024/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    env_naturalengland_environmentally_sensitive_areas_jun2024
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENV/env_naturalengland_heathland_oct2018/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    env_naturalengland_heathland_oct2018
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENV/env_naturalengland_local_nature_reserves_apr2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    env_naturalengland_local_nature_reserves_apr2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENV/env_naturalengland_priority_habitats_inventory_apr2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    env_naturalengland_priority_habitats_inventory_apr2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENV/env_naturalengland_ramsar_oct2024/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    env_naturalengland_ramsar_oct2024
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENV/env_naturalengland_special_areas_conservation_oct2024/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    env_naturalengland_special_areas_conservation_oct2024
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENV/env_naturalengland_special_protection_areas_apr2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    env_naturalengland_special_protection_areas_apr2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENV/env_naturalengland_sssi_apr2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    env_naturalengland_sssi_apr2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENV/env_ons_access_to_public_parks_playing_fields_apr2020/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    env_ons_access_to_public_parks_playing_fields_apr2020
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENV/env_ons_national_park_may2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    env_ons_national_park_may2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENV/env_os_green_space_access_points_apr2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    env_os_green_space_access_points_apr2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENV/env_os_green_space_apr2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    env_os_green_space_apr2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENV/env_os_rivers_apr2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    env_os_rivers_apr2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENV/env_os_surface_water/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    env_os_surface_water
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENV/env_os_tidal_water/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    env_os_tidal_water
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENV/env_os_woodland/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    env_os_woodland
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ENV/env_rivertrust_msoa_accessible_green_blue_space_aug2024/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    env_rivertrust_msoa_accessible_green_blue_space_aug2024
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Heritage & Historical Assets (HER)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Heritage & Historical Assets (HER)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Heritage &amp; Historical Assets (HER)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HER/her_historicengland_battlefields_may2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    her_historicengland_battlefields_may2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HER/her_historicengland_conservation_areas_jul2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    her_historicengland_conservation_areas_jul2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HER/her_historicengland_heritage_at_risk_jan2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    her_historicengland_heritage_at_risk_jan2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HER/her_historicengland_listed_building_points_may2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    her_historicengland_listed_building_points_may2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HER/her_historicengland_listed_building_polygons_may2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    her_historicengland_listed_building_polygons_may2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HER/her_historicengland_national_trust_land_aug2024/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    her_historicengland_national_trust_land_aug2024
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HER/her_historicengland_parks_gardens_may2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    her_historicengland_parks_gardens_may2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HER/her_historicengland_protected_wrecks_may2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    her_historicengland_protected_wrecks_may2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HER/her_historicengland_scheduled_monuments_may2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    her_historicengland_scheduled_monuments_may2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HER/her_historicengland_world_heritage_sites_may2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    her_historicengland_world_heritage_sites_may2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HER/her_nationaltrust_always_open_oct2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    her_nationaltrust_always_open_oct2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HER/her_nationaltrust_limited_access_oct2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    her_nationaltrust_limited_access_oct2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Health & Wellbeing (HTH)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Health & Wellbeing (HTH)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HTH/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Health &amp; Wellbeing (HTH)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HTH/hth_nhs_facility_2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    hth_nhs_facility_2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HTH/hth_nhs_gp_jan2026/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    hth_nhs_gp_jan2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HTH/hth_ohid_msoa_childhood_obesity_2024/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    hth_ohid_msoa_childhood_obesity_2024
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HTH/hth_ohid_msoa_life_expectancy_2020/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    hth_ohid_msoa_life_expectancy_2020
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HTH/hth_ohid_msoa_life_expectancy_2023/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    hth_ohid_msoa_life_expectancy_2023
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HTH/hth_ohid_msoa_long_term_disability_2011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    hth_ohid_msoa_long_term_disability_2011
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HTH/hth_ohid_msoa_mortality_rate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    hth_ohid_msoa_mortality_rate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HTH/hth_ohid_msoa_unemployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    hth_ohid_msoa_unemployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transport & Mobility (MOB)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Transport & Mobility (MOB)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transport &amp; Mobility (MOB)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOB/mob_dft_bods_bus_routes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    mob_dft_bods_bus_routes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOB/mob_dft_bods_bus_stops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    mob_dft_bods_bus_stops
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOB/mob_os_open_roads_apr2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    mob_os_open_roads_apr2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOB/mob_os_railway_stations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    mob_os_railway_stations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOB/mob_os_railway_tracks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    mob_os_railway_tracks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOB/mob_os_railway_tunnels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    mob_os_railway_tunnels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOB/mob_osm_roads_may2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    mob_osm_roads_may2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOB/mob_public_right_of_way/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    mob_public_right_of_way
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOB/mob_wwct_national_cycle_network_sep2024/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    mob_wwct_national_cycle_network_sep2024
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Infrastructure & Utilities (UTL)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Infrastructure & Utilities (UTL)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UTL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Infrastructure &amp; Utilities (UTL)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UTL/utl_defra_permitted_waste_authorised_landfill/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utl_defra_permitted_waste_authorised_landfill
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UTL/utl_nationalgas_pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utl_nationalgas_pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UTL/utl_nationalgrid_cables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utl_nationalgrid_cables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UTL/utl_nationalgrid_over_head_line/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utl_nationalgrid_over_head_line
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UTL/utl_nationalgrid_substation_site/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utl_nationalgrid_substation_site
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UTL/utl_nationalgrid_towers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utl_nationalgrid_towers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../UTL/utl_os_electricity_transmission_line/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utl_os_electricity_transmission_line
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#columns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Columns
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="ecn_ons_lsoa_business_register_employment_2d_2023"><code>ecn_ons_lsoa_business_register_employment_2d_2023</code><a class="headerlink" href="#ecn_ons_lsoa_business_register_employment_2d_2023" title="Permanent link">&para;</a></h1>
+<p>ONS Business Register and Employment Survey (BRES) employment counts for 2023 at Lower Layer Super Output Area (LSOA), broken down by 2-digit SIC2007 industry division.</p>
+<p><strong>SOURCE</strong></p>
+<ul>
+<li>Office for National Statistics (ONS). Distributed via Nomis dataset NM_189_1 ("Business Register and Employment Survey : open access").</li>
+</ul>
+<p><strong>DOCUMENTATION</strong></p>
+<ul>
+<li>Nomis dataset page : https://www.nomisweb.co.uk/datasets/newbres6pub</li>
+<li>ONS BRES methodology : https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/methodologies/businessregisterandemploymentsurveybres</li>
+<li>ONS BRES QMI : https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/methodologies/businessregisteremploymentsurveybresqmi</li>
+</ul>
+<p><strong>DEFINITIONS</strong></p>
+<ul>
+<li>"anyone working on the BRES reference date who is aged 16 years or over that the contributor directly pays from its payroll(s), in return for carrying out a full-time or part-time job or being on a training scheme." (ONS BRES Quality and Methodology Information, "Employees")</li>
+<li>"sole traders, sole proprietors and partners who receive drawings or a share of profits but are not paid via PAYE." (ONS BRES QMI, "Working owners")</li>
+<li>"employees plus working owners." (ONS BRES QMI, "Employment" — the measure stored in this table; Employment = Employees + Working owners)</li>
+<li>"Persons" (Nomis NM_189_1 dataset metadata, Units annotation)</li>
+</ul>
+<p><strong>SCOPE</strong></p>
+<ul>
+<li>England and Wales. Lower Layer Super Output Area (LSOA) 2021; 35,672 rows. Filter applied at download: EMPLOYMENT_STATUS=4 (Employment), MEASURE=1 (Count), MEASURES=20100 (Value); reference date 1 January 2023.</li>
+</ul>
+<p><strong>CRS</strong></p>
+<ul>
+<li>EPSG:27700 (OSGB 1936 / British National Grid).</li>
+</ul>
+<p><strong>LICENCE</strong></p>
+<ul>
+<li>Open Government Licence v3.0 (OGL v3.0).</li>
+</ul>
+<p><strong>DATA QUALITY CAVEATS</strong></p>
+<ul>
+<li>NULL means the cell was suppressed by ONS for disclosure control; 0 means genuinely zero employment. Suppression bites harder at fine geographies (LSOA) and small industries, so expect many NULLs across the industry row.</li>
+<li>Reading values: a NULL in an industry column does NOT mean the area has no employment in that industry. It means ONS withheld the value because fewer than ~3 businesses operate there in that division/group. Sum across industries with caution.</li>
+</ul>
+<p><strong>NOT IN THIS DATASET</strong></p>
+<ul>
+<li>The narrower Employees-only measure (payroll only, excluding working owners).</li>
+<li>Full-time and part-time breakdowns of Employees.</li>
+<li>Industry percentage form (Nomis MEASURE=2). All three are separate slices the Nomis API can serve.</li>
+<li>Scotland and Northern Ireland: the LSOA 2021 boundary covers only England and Wales.</li>
+</ul>
+<p><strong>LOADED INTO uk_baseline</strong></p>
+<ul>
+<li>Loaded by PNC, 27 May 2026.</li>
+</ul>
+<h2 id="columns">Columns<a class="headerlink" href="#columns" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Type</th>
+<th>Description / unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fid</code></td>
+<td><code>integer</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>lsoa21cd</code></td>
+<td><code>character varying(20)</code></td>
+<td>Source field <code>GEOGRAPHY_CODE</code>.</td>
+</tr>
+<tr>
+<td><code>lsoa21nm</code></td>
+<td><code>character varying(255)</code></td>
+<td>Source field <code>GEOGRAPHY_NAME</code>.</td>
+</tr>
+<tr>
+<td><code>a_01_crop_animal_prd_hunting_related</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 01: Crop and animal production, hunting and related service activities.</td>
+</tr>
+<tr>
+<td><code>a_02_forestry_logging</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 02: Forestry and logging.</td>
+</tr>
+<tr>
+<td><code>a_03_fishing_aquaculture</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 03: Fishing and aquaculture.</td>
+</tr>
+<tr>
+<td><code>b_05_mining_coal_lignite</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 05: Mining of coal and lignite.</td>
+</tr>
+<tr>
+<td><code>b_06_extraction_crude_petroleum_&amp;ng</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 06: Extraction of crude petroleum and natural gas.</td>
+</tr>
+<tr>
+<td><code>b_07_mining_metal_ores</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 07: Mining of metal ores.</td>
+</tr>
+<tr>
+<td><code>b_08_other_mining_quarrying</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 08: Other mining and quarrying.</td>
+</tr>
+<tr>
+<td><code>b_09_mining_support_svc_actvs</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 09: Mining support service activities.</td>
+</tr>
+<tr>
+<td><code>c_10_mfct_food_prod</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 10: Manufacture of food products.</td>
+</tr>
+<tr>
+<td><code>c_11_mfct_beverages</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 11: Manufacture of beverages.</td>
+</tr>
+<tr>
+<td><code>c_12_mfct_tobacco_prod</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 12: Manufacture of tobacco products.</td>
+</tr>
+<tr>
+<td><code>c_13_mfct_textiles</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 13: Manufacture of textiles.</td>
+</tr>
+<tr>
+<td><code>c_14_mfct_wearing_apparel</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 14: Manufacture of wearing apparel.</td>
+</tr>
+<tr>
+<td><code>c_15_mfct_leather_related_prod</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 15: Manufacture of leather and related products.</td>
+</tr>
+<tr>
+<td><code>c_16_mfct_wood_prod_wood_cork</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 16: Manufacture of wood and of products of wood and cork, except furniture;manufacture of articles of straw and plaiting materials.</td>
+</tr>
+<tr>
+<td><code>c_17_mfct_paper_paper_prod</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 17: Manufacture of paper and paper products.</td>
+</tr>
+<tr>
+<td><code>c_18_printing_reprd_recorded_media</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 18: Printing and reproduction of recorded media.</td>
+</tr>
+<tr>
+<td><code>c_19_mfct_coke_refined_petrol_prod</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 19: Manufacture of coke and refined petroleum products.</td>
+</tr>
+<tr>
+<td><code>c_20_mfct_chem_chemical_prod</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 20: Manufacture of chemicals and chemical products.</td>
+</tr>
+<tr>
+<td><code>c_21_mfct_basic_pharma_prod_pharma_prep</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 21: Manufacture of basic pharmaceutical products and pharmaceutical preparations.</td>
+</tr>
+<tr>
+<td><code>c_22_mfct_rubber_plastic_prod</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 22: Manufacture of rubber and plastic products.</td>
+</tr>
+<tr>
+<td><code>c_23_mfct_other_non_metallic_mineral_prod</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 23: Manufacture of other non-metallic mineral products.</td>
+</tr>
+<tr>
+<td><code>c_24_mfct_basic_metals</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 24: Manufacture of basic metals.</td>
+</tr>
+<tr>
+<td><code>c_25_mfct_fabricated_metal_prod</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 25: Manufacture of fabricated metal products, except machinery and equipment.</td>
+</tr>
+<tr>
+<td><code>c_26_mfct_comp_electronic_optical_prod</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 26: Manufacture of computer, electronic and optical products.</td>
+</tr>
+<tr>
+<td><code>c_27_mfct_electrical_equip</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 27: Manufacture of electrical equipment.</td>
+</tr>
+<tr>
+<td><code>c_28_mfct_machinery_equip_nec</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 28: Manufacture of machinery and equipment n.e.c.</td>
+</tr>
+<tr>
+<td><code>c_29_mfct_motor_vehicles_trailers_semi_trailers</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 29: Manufacture of motor vehicles, trailers and semi-trailers.</td>
+</tr>
+<tr>
+<td><code>c_30_mfct_other_transport_equip</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 30: Manufacture of other transport equipment.</td>
+</tr>
+<tr>
+<td><code>c_31_mfct_furniture</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 31: Manufacture of furniture.</td>
+</tr>
+<tr>
+<td><code>c_32_other_manufacturing</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 32: Other manufacturing.</td>
+</tr>
+<tr>
+<td><code>c_33_repair_installation_machinery_equip</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 33: Repair and installation of machinery and equipment.</td>
+</tr>
+<tr>
+<td><code>d_35_electricity_gas_steam_ac_supply</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 35: Electricity, gas, steam and air conditioning supply.</td>
+</tr>
+<tr>
+<td><code>e_36_water_collection_treatment_supply</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 36: Water collection, treatment and supply.</td>
+</tr>
+<tr>
+<td><code>e_37_sewerage</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 37: Sewerage.</td>
+</tr>
+<tr>
+<td><code>e_38_waste_collection_treatment_disposal_actvs</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 38: Waste collection, treatment and disposal activities; materials recovery.</td>
+</tr>
+<tr>
+<td><code>e_39_remediation_actvs_other_waste_mgmt</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 39: Remediation activities and other waste management services. This division includes the provision of remediation services, i.e. the cleanup of contaminated buildings and sites, soil, surface or ground water.</td>
+</tr>
+<tr>
+<td><code>f_41_construction_buildings</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 41: Construction of buildings.</td>
+</tr>
+<tr>
+<td><code>f_42_civil_engineering</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 42: Civil engineering.</td>
+</tr>
+<tr>
+<td><code>f_43_specialised_construction_actvs</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 43: Specialised construction activities.</td>
+</tr>
+<tr>
+<td><code>g_45_wholesale_retail_trd_repair_motor_vehicles</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 45: Wholesale and retail trade and repair of motor vehicles and motorcycles.</td>
+</tr>
+<tr>
+<td><code>g_46_wholesale_trd</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 46: Wholesale trade, except of motor vehicles and motorcycles.</td>
+</tr>
+<tr>
+<td><code>g_47_retail_trd</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 47: Retail trade, except of motor vehicles and motorcycles.</td>
+</tr>
+<tr>
+<td><code>h_49_land&amp;_transport_transport_via_pipelines</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 49: Land transport and transport via pipelines.</td>
+</tr>
+<tr>
+<td><code>h_50_water_transport</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 50: Water transport.</td>
+</tr>
+<tr>
+<td><code>h_51_air_transport</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 51: Air transport.</td>
+</tr>
+<tr>
+<td><code>h_52_warehousing_support_actvs_for_transport</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 52: Warehousing and support activities for transportation.</td>
+</tr>
+<tr>
+<td><code>h_53_postal_courier_actvs</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 53: Postal and courier activities.</td>
+</tr>
+<tr>
+<td><code>i_55_accommodation</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 55: Accommodation.</td>
+</tr>
+<tr>
+<td><code>i_56_food_beverage_svc_actvs</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 56: Food and beverage service activities.</td>
+</tr>
+<tr>
+<td><code>j_58_publishing_actvs</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 58: Publishing activities.</td>
+</tr>
+<tr>
+<td><code>j_59_motion_picture_video_television_programme_prd</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 59: Motion picture, video and television programme production, sound recording and music publishing activities.</td>
+</tr>
+<tr>
+<td><code>j_60_programming_broadcasting_actvs</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 60: Programming and broadcasting activities.</td>
+</tr>
+<tr>
+<td><code>j_61_telecommunications</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 61: Telecommunications.</td>
+</tr>
+<tr>
+<td><code>j_62_comp_programming_consultancy_related_actvs</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 62: Computer programming, consultancy and related activities.</td>
+</tr>
+<tr>
+<td><code>j_63_information_svc_actvs</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 63: Information service activities.</td>
+</tr>
+<tr>
+<td><code>k_64_fincl_svc_actvs</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 64: Financial service activities, except insurance and pension funding.</td>
+</tr>
+<tr>
+<td><code>k_65_insurance_reinsurance_pension_funding</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 65: Insurance, reinsurance and pension funding, except compulsory social security.</td>
+</tr>
+<tr>
+<td><code>k_66_actvs_auxiliary_to_fincl_svcs_insurance_actvs</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 66: Activities auxiliary to financial services and insurance activities.</td>
+</tr>
+<tr>
+<td><code>l_68_real_estate_actvs</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 68: Real estate activities.</td>
+</tr>
+<tr>
+<td><code>m_69_legal_accounting_actvs</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 69: Legal and accounting activities.</td>
+</tr>
+<tr>
+<td><code>m_70_actvs_head_offices;_mgmt_consultancy_actvs</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 70: Activities of head offices; management consultancy activities.</td>
+</tr>
+<tr>
+<td><code>m_71_arch_engnrng_actvs;_tchncl_testing_analysis</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 71: Architectural and engineering activities; technical testing and analysis.</td>
+</tr>
+<tr>
+<td><code>m_72_scientfc_rsrch_development</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 72: Scientific research and development.</td>
+</tr>
+<tr>
+<td><code>m_73_advertising_market_rsrch</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 73: Advertising and market research.</td>
+</tr>
+<tr>
+<td><code>m_74_other_professional_scientfc_technical_actvs</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 74: Other professional, scientific and technical activities.</td>
+</tr>
+<tr>
+<td><code>m_75_veterinary_actvs</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 75: Veterinary activities.</td>
+</tr>
+<tr>
+<td><code>n_77_rental_leasing_actvs</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 77: Rental and leasing activities.</td>
+</tr>
+<tr>
+<td><code>n_78_employment_actvs</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 78: Employment activities.</td>
+</tr>
+<tr>
+<td><code>n_79_travel_agency_tour_operator_other</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 79: Travel agency, tour operator and other reservation service and related activities.</td>
+</tr>
+<tr>
+<td><code>n_80_security_investigation_actvs</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 80: Security and investigation activities.</td>
+</tr>
+<tr>
+<td><code>n_81_svcs_to_buildings_lscape_actvs</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 81: Services to buildings and landscape activities.</td>
+</tr>
+<tr>
+<td><code>n_82_office_admin_office_support_other_bs_actvs</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 82: Office administrative, office support and other business support activities.</td>
+</tr>
+<tr>
+<td><code>o_84_pub_admin_defence;_compulsory_ss</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 84: Public administration and defence; compulsory social security.</td>
+</tr>
+<tr>
+<td><code>p_85_education</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 85: Education.</td>
+</tr>
+<tr>
+<td><code>q_86_human_health_actvs</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 86: Human health activities.</td>
+</tr>
+<tr>
+<td><code>q_87_residential_care_actvs</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 87: Residential care activities.</td>
+</tr>
+<tr>
+<td><code>q_88_social_work_actvs_</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 88: Social work activities without accommodation.</td>
+</tr>
+<tr>
+<td><code>r_90_creative_arts_entmt_actvs</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 90: Creative, arts and entertainment activities.</td>
+</tr>
+<tr>
+<td><code>r_91_libraries_archives_museums_other</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 91: Libraries, archives, museums and other cultural activities.</td>
+</tr>
+<tr>
+<td><code>r_92_gambling_betting_actvs</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 92: Gambling and betting activities.</td>
+</tr>
+<tr>
+<td><code>r_93_sports_actvs_amusement_rec</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 93: Sports activities and amusement and recreation activities.</td>
+</tr>
+<tr>
+<td><code>s_94_actvs_membership_orgs</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 94: Activities of membership organisations.</td>
+</tr>
+<tr>
+<td><code>s_95_repair_comps_personal_hh_goods</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 95: Repair of computers and personal and household goods.</td>
+</tr>
+<tr>
+<td><code>s_96_other_personal_svc_actvs</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 96: Other personal service activities.</td>
+</tr>
+<tr>
+<td><code>t_97_actvs_hhs_as_employers_dom_personnel</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 97: Activities of households as employers of domestic personnel.</td>
+</tr>
+<tr>
+<td><code>t_98_undiff_goods__svcs_producing_actvs</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 98: Undifferentiated goods- and services-producing activities of private households for own use.</td>
+</tr>
+<tr>
+<td><code>u_99_actvs_extratt_orgs_bodies</code></td>
+<td><code>integer</code></td>
+<td>Unit: "Persons". SIC2007 2-digit code 99: Activities of extraterritorial organisations and bodies.</td>
+</tr>
+<tr>
+<td><code>geom</code></td>
+<td><code>geometry(MultiPolygon,27700)</code></td>
+<td>Geometry from uk_baseline.adm_ons_lsoa_boundary_2021.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "search.highlight", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

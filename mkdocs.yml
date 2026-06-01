@@ -152,6 +152,9 @@ nav:
     - "Historic England World Heritage Sites (England), May 2026": HER/her_historicengland_world_heritage_sites_may2026.md
     - "National Trust Land — Always Open (England & Wales), October 2025": HER/her_nationaltrust_always_open_oct2025.md
     - "National Trust Land — Limited Access (England & Wales), October 2025": HER/her_nationaltrust_limited_access_oct2025.md
+  - "Housing & Living Conditions (HOU)":
+    - HOU/index.md
+    - "HM Land Registry Price Paid Data (PPD), England & Wales, residential property transactions, January 1995 to 2026-04-30": HOU/hou_hmlandregistry_house_price_paid_jun2026.md
   - "Health & Wellbeing (HTH)":
     - HTH/index.md
     - "NHS health and care facility directory for England, November 2025": HTH/hth_nhs_facility_2025.md

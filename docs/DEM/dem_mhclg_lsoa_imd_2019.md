@@ -2,6 +2,10 @@
 
 `dem_mhclg_lsoa_imd_2019`
 
+<iframe src="../maps/dem_mhclg_lsoa_imd_2019.html" title="Interactive preview map of dem_mhclg_lsoa_imd_2019" loading="lazy" style="width:100%;height:480px;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></iframe>
+
+<a href="../maps/dem_mhclg_lsoa_imd_2019.html" target="_blank" rel="noopener">Open the map in a new tab &#8599;</a>
+
 **SOURCE**
 
 - Ministry of Housing, Communities and Local Government (MHCLG), English Indices of Deprivation 2019. Statistical release 26 September 2019. Score / rank / decile columns, sub-domain columns, supplementary index columns (IDACI, IDAOPI), and historical 2010 / 2015 rank columns derive directly from MHCLG's File 1 ("Index of Multiple Deprivation") and File 5 ("Scores for the Indices of Deprivation").

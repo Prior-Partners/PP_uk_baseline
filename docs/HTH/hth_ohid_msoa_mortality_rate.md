@@ -2,6 +2,10 @@
 
 `hth_ohid_msoa_mortality_rate`
 
+<iframe src="../maps/hth_ohid_msoa_mortality_rate.html" title="Interactive preview map of hth_ohid_msoa_mortality_rate" loading="lazy" style="width:100%;height:480px;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></iframe>
+
+<a href="../maps/hth_ohid_msoa_mortality_rate.html" target="_blank" rel="noopener">Open the map in a new tab &#8599;</a>
+
 Via the Fingertips platform.
 
 **SOURCE**

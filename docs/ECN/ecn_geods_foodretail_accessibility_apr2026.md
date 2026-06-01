@@ -2,6 +2,10 @@
 
 `ecn_geods_foodretail_accessibility_apr2026`
 
+<iframe src="../maps/ecn_geods_foodretail_accessibility_apr2026.html" title="Interactive preview map of ecn_geods_foodretail_accessibility_apr2026" loading="lazy" style="width:100%;height:480px;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></iframe>
+
+<a href="../maps/ecn_geods_foodretail_accessibility_apr2026.html" target="_blank" rel="noopener">Open the map in a new tab &#8599;</a>
+
 **SOURCE**
 
 - Geographic Data Service (GeoDS), Smart Data Research UK (SDR UK): University College London (UCL), University of Liverpool, University of Oxford, University of Edinburgh.

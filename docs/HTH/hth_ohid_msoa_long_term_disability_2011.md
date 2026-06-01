@@ -2,6 +2,10 @@
 
 `hth_ohid_msoa_long_term_disability_2011`
 
+<iframe src="../maps/hth_ohid_msoa_long_term_disability_2011.html" title="Interactive preview map of hth_ohid_msoa_long_term_disability_2011" loading="lazy" style="width:100%;height:480px;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></iframe>
+
+<a href="../maps/hth_ohid_msoa_long_term_disability_2011.html" target="_blank" rel="noopener">Open the map in a new tab &#8599;</a>
+
 **SOURCE**
 
 - Office for Health Improvement and Disparities (OHID), via the Fingertips public health data platform. Underlying source: 2011 Census (Office for National Statistics).

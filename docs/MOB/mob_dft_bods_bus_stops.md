@@ -2,6 +2,10 @@
 
 `mob_dft_bods_bus_stops`
 
+<iframe src="../maps/mob_dft_bods_bus_stops.html" title="Interactive preview map of mob_dft_bods_bus_stops" loading="lazy" style="width:100%;height:480px;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></iframe>
+
+<a href="../maps/mob_dft_bods_bus_stops.html" target="_blank" rel="noopener">Open the map in a new tab &#8599;</a>
+
 **SOURCE**
 
 - Bus Open Data Service (BODS), Department for Transport (DfT). atco_code is the National Public Transport Access Node (NaPTAN) identifier from the BODS GTFS stops; routes_served is derived by reverse-lookup from uk_baseline.mob_bus_routes.

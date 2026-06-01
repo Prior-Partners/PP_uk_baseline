@@ -2,6 +2,10 @@
 
 `hth_nhs_gp_jan2026`
 
+<iframe src="../maps/hth_nhs_gp_jan2026.html" title="Interactive preview map of hth_nhs_gp_jan2026" loading="lazy" style="width:100%;height:480px;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></iframe>
+
+<a href="../maps/hth_nhs_gp_jan2026.html" target="_blank" rel="noopener">Open the map in a new tab &#8599;</a>
+
 **SOURCE**
 
 - NHS England (formerly NHS Digital). GP practice register (Organisation Data Service), Patients Registered at a GP Practice, and General Practice Workforce. Compiled by Prior + Partners.

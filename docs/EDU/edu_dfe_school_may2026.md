@@ -2,6 +2,10 @@
 
 `edu_dfe_school_may2026`
 
+<iframe src="../maps/edu_dfe_school_may2026.html" title="Interactive preview map of edu_dfe_school_may2026" loading="lazy" style="width:100%;height:480px;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></iframe>
+
+<a href="../maps/edu_dfe_school_may2026.html" target="_blank" rel="noopener">Open the map in a new tab &#8599;</a>
+
 **SOURCE**
 
 - Department for Education (DfE), Get Information About Schools — the canonical UK national register of schools, academies, colleges, and other educational establishments. May 2026 download / extract.

@@ -2,6 +2,10 @@
 
 `env_ons_access_to_public_parks_playing_fields_apr2020`
 
+<iframe src="../maps/env_ons_access_to_public_parks_playing_fields_apr2020.html" title="Interactive preview map of env_ons_access_to_public_parks_playing_fields_apr2020" loading="lazy" style="width:100%;height:480px;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></iframe>
+
+<a href="../maps/env_ons_access_to_public_parks_playing_fields_apr2020.html" target="_blank" rel="noopener">Open the map in a new tab &#8599;</a>
+
 **SOURCE**
 
 - Office for National Statistics (ONS). "Access to public parks and playing fields, Great Britain, April 2020", part of the dataset "Access to gardens and public green space in Great Britain". Values are the LSOA-level figures from the reference workbook (file ospublicgreenspacereferencetables.xlsx, sheet "LSOA Parks and Playing Fields"). Underlying source: Ordnance Survey greenspace data.

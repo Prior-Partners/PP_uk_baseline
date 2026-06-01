@@ -3,3 +3,8 @@ site/
 
 # Local build fingerprint (used by the local generator, not part of the site)
 .catalogue_fingerprint.json
+
+# Interactive preview maps — large generated artefacts (build_maps.py), ~80 MB.
+# mkdocs gh-deploy copies them to the published site from disk, so they reach
+# the live site without bloating main's history on every regeneration.
+docs/maps/

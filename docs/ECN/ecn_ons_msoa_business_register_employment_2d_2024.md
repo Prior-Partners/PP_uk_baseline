@@ -2,6 +2,10 @@
 
 `ecn_ons_msoa_business_register_employment_2d_2024`
 
+<iframe src="../maps/ecn_ons_msoa_business_register_employment_2d_2024.html" title="Interactive preview map of ecn_ons_msoa_business_register_employment_2d_2024" loading="lazy" style="width:100%;height:480px;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></iframe>
+
+<a href="../maps/ecn_ons_msoa_business_register_employment_2d_2024.html" target="_blank" rel="noopener">Open the map in a new tab &#8599;</a>
+
 **SOURCE**
 
 - Office for National Statistics (ONS). Distributed via Nomis dataset NM_189_1 ("Business Register and Employment Survey : open access").

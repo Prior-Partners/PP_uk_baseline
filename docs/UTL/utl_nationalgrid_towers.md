@@ -2,6 +2,10 @@
 
 `utl_nationalgrid_towers`
 
+<iframe src="../maps/utl_nationalgrid_towers.html" title="Interactive preview map of utl_nationalgrid_towers" loading="lazy" style="width:100%;height:480px;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></iframe>
+
+<a href="../maps/utl_nationalgrid_towers.html" target="_blank" rel="noopener">Open the map in a new tab &#8599;</a>
+
 **SOURCE**
 
 - National Grid Electricity Transmission. High-voltage transmission tower (pylon) assets.

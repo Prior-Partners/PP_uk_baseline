@@ -3,7 +3,7 @@
 This is the P+P `uk_baseline` database layer catalogue. Generated automatically
 from the database's own documentation on **01 June 2026**.
 
-**138 layers across 11 themes.**
+**139 layers across 12 themes.**
 
 | Code | Theme | Typical contents | Layers |
 |---|---|---|---:|
@@ -15,6 +15,7 @@ from the database's own documentation on **01 June 2026**.
 | **EDU** | [Education](EDU/index.md) | Schools database, Ofsted ratings, university locations | 3 |
 | **ENV** | [Environment & Natural Assets](ENV/index.md) | Protected sites, woodland, green spaces, flood zones, air quality, noise monitoring, radiation monitoring | 30 |
 | **HER** | [Heritage & Historical Assets](HER/index.md) | Listed buildings, conservation areas, historic parks, archaeological sites | 12 |
+| **HOU** | [Housing & Living Conditions](HOU/index.md) | House prices, housing tenure, property types, energy efficiency ratings, overcrowding metrics, rental costs | 1 |
 | **HTH** | [Health & Wellbeing](HTH/index.md) | GP surgeries, hospitals, health inequalities, disease prevalence, obesity | 8 |
 | **MOB** | [Transport & Mobility](MOB/index.md) | Road networks, railway lines, public transport routes, cycling infrastructure, stations, paths, trails | 9 |
 | **UTL** | [Infrastructure & Utilities](UTL/index.md) | Electricity networks, gas pipelines, water infrastructure, telecoms masts, waste facilities | 7 |

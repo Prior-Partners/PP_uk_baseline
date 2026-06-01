@@ -2,6 +2,10 @@
 
 `env_os_tidal_water`
 
+<iframe src="../maps/env_os_tidal_water.html" title="Interactive preview map of env_os_tidal_water" loading="lazy" style="width:100%;height:480px;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></iframe>
+
+<a href="../maps/env_os_tidal_water.html" target="_blank" rel="noopener">Open the map in a new tab &#8599;</a>
+
 **SOURCE**
 
 - Ordnance Survey (OS), OS OpenMap Local product.

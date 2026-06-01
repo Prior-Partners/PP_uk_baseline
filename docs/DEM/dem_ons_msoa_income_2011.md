@@ -2,6 +2,10 @@
 
 `dem_ons_msoa_income_2011`
 
+<iframe src="../maps/dem_ons_msoa_income_2011.html" title="Interactive preview map of dem_ons_msoa_income_2011" loading="lazy" style="width:100%;height:480px;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></iframe>
+
+<a href="../maps/dem_ons_msoa_income_2011.html" target="_blank" rel="noopener">Open the map in a new tab &#8599;</a>
+
 **SOURCE**
 
 - Office for National Statistics (ONS), "Small Area Income Estimates for Middle layer Super Output Areas, England and Wales". Reference period 2011/12 (financial year ending 2012). Loaded via an earlier Prior + Partners pass.

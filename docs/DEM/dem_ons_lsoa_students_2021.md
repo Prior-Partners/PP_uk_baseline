@@ -2,6 +2,10 @@
 
 `dem_ons_lsoa_students_2021`
 
+<iframe src="../maps/dem_ons_lsoa_students_2021.html" title="Interactive preview map of dem_ons_lsoa_students_2021" loading="lazy" style="width:100%;height:480px;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></iframe>
+
+<a href="../maps/dem_ons_lsoa_students_2021.html" target="_blank" rel="noopener">Open the map in a new tab &#8599;</a>
+
 **SOURCE**
 
 - Office for National Statistics (ONS), Census 2021, England and Wales. Primary source table TS068 (schoolchildren and full-time students), augmented with student-related cross-tabs from TS062 (NS-SEC) and TS067 (qualifications). Reference date 21 March 2021. Loaded via an earlier Prior + Partners pass; exact source combination not recorded.

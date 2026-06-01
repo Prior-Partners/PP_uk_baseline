@@ -2,6 +2,10 @@
 
 `utl_os_electricity_transmission_line`
 
+<iframe src="../maps/utl_os_electricity_transmission_line.html" title="Interactive preview map of utl_os_electricity_transmission_line" loading="lazy" style="width:100%;height:480px;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></iframe>
+
+<a href="../maps/utl_os_electricity_transmission_line.html" target="_blank" rel="noopener">Open the map in a new tab &#8599;</a>
+
 **SOURCE**
 
 - Ordnance Survey (OS), OS OpenMap Local product.

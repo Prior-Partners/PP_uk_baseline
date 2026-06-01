@@ -1,6 +1,6 @@
-# `dem_ons_lsoa_age_alternate_bands_2021`
+# ONS Census 2021 usual residents by age band at Lower-layer Super Output Area (LSOA) 2021
 
-ONS Census 2021 usual residents by age band at Lower-layer Super Output Area (LSOA) 2021.
+`dem_ons_lsoa_age_alternate_bands_2021`
 
 **SOURCE**
 

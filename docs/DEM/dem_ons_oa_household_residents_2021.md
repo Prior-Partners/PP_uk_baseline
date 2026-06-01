@@ -1,6 +1,6 @@
-# `dem_ons_oa_household_residents_2021`
+# ONS Census 2021 usual residents at Output Area (OA) 2021
 
-ONS Census 2021 usual residents at Output Area (OA) 2021.
+`dem_ons_oa_household_residents_2021`
 
 **SOURCE**
 

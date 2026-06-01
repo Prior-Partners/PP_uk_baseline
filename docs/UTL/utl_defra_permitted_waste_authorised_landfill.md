@@ -1,6 +1,6 @@
-# `utl_defra_permitted_waste_authorised_landfill`
+# Defra - Department for Environment, Food and Rural Affairs — Environment Agency Permitted Waste Sites, Authorised Landfill Site Boundaries (England)
 
-Defra - Department for Environment, Food and Rural Affairs — Environment Agency Permitted Waste Sites, Authorised Landfill Site Boundaries (England).
+`utl_defra_permitted_waste_authorised_landfill`
 
 **SOURCE**
 

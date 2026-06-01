@@ -1,6 +1,6 @@
-# `ecn_ons_lsoa_business_register_employment_3d_2024`
+# ONS Business Register and Employment Survey (BRES) employment counts for 2024 at Lower Layer Super Output Area (LSOA), broken down by 3-digit SIC2007 industry group
 
-ONS Business Register and Employment Survey (BRES) employment counts for 2024 at Lower Layer Super Output Area (LSOA), broken down by 3-digit SIC2007 industry group.
+`ecn_ons_lsoa_business_register_employment_3d_2024`
 
 **SOURCE**
 

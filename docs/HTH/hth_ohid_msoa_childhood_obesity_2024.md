@@ -1,6 +1,8 @@
-# `hth_ohid_msoa_childhood_obesity_2024`
+# Office for Health Improvement and Disparities (OHID) childhood obesity and overweight prevalence at Middle-layer Super Output Area (MSOA) 2011, period 2021/22-2023/24
 
-Office for Health Improvement and Disparities (OHID) childhood obesity and overweight prevalence at Middle-layer Super Output Area (MSOA) 2011, period 2021/22-2023/24. From the National Child Measurement Programme via the Fingertips platform.
+`hth_ohid_msoa_childhood_obesity_2024`
+
+From the National Child Measurement Programme via the Fingertips platform.
 
 **SOURCE**
 

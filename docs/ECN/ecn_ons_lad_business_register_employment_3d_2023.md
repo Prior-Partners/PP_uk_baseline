@@ -1,6 +1,6 @@
-# `ecn_ons_lad_business_register_employment_3d_2023`
+# ONS Business Register and Employment Survey (BRES) employment counts for 2023 at Local Authority District (LAD), broken down by 3-digit SIC2007 industry group
 
-ONS Business Register and Employment Survey (BRES) employment counts for 2023 at Local Authority District (LAD), broken down by 3-digit SIC2007 industry group.
+`ecn_ons_lad_business_register_employment_3d_2023`
 
 **SOURCE**
 

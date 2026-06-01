@@ -1,6 +1,8 @@
-# `env_mhclg_green_belt_may2026`
+# Ministry of Housing, Communities and Local Government (MHCLG) Green Belt boundaries for England, May 2026
 
-Ministry of Housing, Communities and Local Government (MHCLG) Green Belt boundaries for England, May 2026. Published via planning.data.gov.uk (digital-land).
+`env_mhclg_green_belt_may2026`
+
+Published via planning.data.gov.uk (digital-land).
 
 **SOURCE**
 

@@ -1,6 +1,6 @@
-# `dem_police_uk_street_crime_monthly`
+# data.police.uk street-level crime events, monthly archives
 
-data.police.uk street-level crime events, monthly archives.
+`dem_police_uk_street_crime_monthly`
 
 **SOURCE**
 

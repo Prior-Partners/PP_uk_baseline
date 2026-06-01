@@ -1,6 +1,6 @@
-# `utl_os_electricity_transmission_line`
+# Ordnance Survey OS OpenMap Local - Electricity Transmission Lines for Great Britain
 
-Ordnance Survey OS OpenMap Local - Electricity Transmission Lines for Great Britain.
+`utl_os_electricity_transmission_line`
 
 **SOURCE**
 

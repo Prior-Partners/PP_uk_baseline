@@ -1,6 +1,6 @@
-# `dem_ons_lsoa_students_2011`
+# ONS Census 2011 schoolchildren and full-time students at Lower-layer Super Output Area (LSOA) 2011
 
-ONS Census 2011 schoolchildren and full-time students at Lower-layer Super Output Area (LSOA) 2011.
+`dem_ons_lsoa_students_2011`
 
 **SOURCE**
 

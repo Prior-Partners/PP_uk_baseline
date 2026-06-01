@@ -1,6 +1,6 @@
-# `her_nationaltrust_always_open_oct2025`
+# National Trust Land — Always Open (England & Wales), October 2025
 
-National Trust Land — Always Open (England & Wales), October 2025.
+`her_nationaltrust_always_open_oct2025`
 
 **SOURCE**
 

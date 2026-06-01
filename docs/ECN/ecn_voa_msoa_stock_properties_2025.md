@@ -1,6 +1,6 @@
-# `ecn_voa_msoa_stock_properties_2025`
+# Valuation Office Agency (VOA) Stock of Properties at Middle Super Output Area (MSOA), 2025
 
-Valuation Office Agency (VOA) Stock of Properties at Middle Super Output Area (MSOA), 2025.
+`ecn_voa_msoa_stock_properties_2025`
 
 **SOURCE**
 

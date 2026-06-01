@@ -1,6 +1,6 @@
-# `edu_dfe_primary_school_may2026`
+# Department for Education (DfE) primary-phase schools in England, May 2026
 
-Department for Education (DfE) primary-phase schools in England, May 2026.
+`edu_dfe_primary_school_may2026`
 
 **SOURCE**
 

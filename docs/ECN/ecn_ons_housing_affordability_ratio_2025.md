@@ -1,6 +1,6 @@
-# `ecn_ons_housing_affordability_ratio_2025`
+# ONS Housing Affordability Ratio at Local Authority District (LAD), 2025
 
-ONS Housing Affordability Ratio at Local Authority District (LAD), 2025.
+`ecn_ons_housing_affordability_ratio_2025`
 
 **SOURCE**
 

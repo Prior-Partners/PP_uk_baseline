@@ -1,6 +1,6 @@
-# `ecn_geods_foodretail_accessibility_apr2026`
+# GeoDS London Nighttime Access to Food Retail Options, April 2026
 
-GeoDS London Nighttime Access to Food Retail Options, April 2026.
+`ecn_geods_foodretail_accessibility_apr2026`
 
 **SOURCE**
 

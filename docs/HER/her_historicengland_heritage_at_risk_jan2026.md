@@ -1,6 +1,8 @@
-# `her_historicengland_heritage_at_risk_jan2026`
+# Historic England Heritage at Risk Register (England), January 2026
 
-Historic England Heritage at Risk Register (England), January 2026. Published via planning.data.gov.uk (digital-land).
+`her_historicengland_heritage_at_risk_jan2026`
+
+Published via planning.data.gov.uk (digital-land).
 
 **SOURCE**
 

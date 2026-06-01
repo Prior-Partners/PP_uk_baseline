@@ -1,6 +1,6 @@
-# `dem_mhclg_lsoa_imd_2025`
+# MHCLG Index of Multiple Deprivation (IMD) 2025 at LSOA 2021, England
 
-MHCLG Index of Multiple Deprivation (IMD) 2025 at LSOA 2021, England.
+`dem_mhclg_lsoa_imd_2025`
 
 **SOURCE**
 

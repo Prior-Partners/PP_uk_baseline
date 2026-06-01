@@ -1,6 +1,8 @@
-# `env_mhclg_brownfield_land_may2026`
+# Ministry of Housing, Communities and Local Government (MHCLG) Brownfield Land register for England, May 2026
 
-Ministry of Housing, Communities and Local Government (MHCLG) Brownfield Land register for England, May 2026. Published via planning.data.gov.uk (digital-land).
+`env_mhclg_brownfield_land_may2026`
+
+Published via planning.data.gov.uk (digital-land).
 
 **SOURCE**
 

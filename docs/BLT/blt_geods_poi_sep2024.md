@@ -1,6 +1,6 @@
-# `blt_geods_poi_sep2024`
+# GeoDS UK Points of Interest, September 2024
 
-GeoDS UK Points of Interest, September 2024.
+`blt_geods_poi_sep2024`
 
 **SOURCE**
 

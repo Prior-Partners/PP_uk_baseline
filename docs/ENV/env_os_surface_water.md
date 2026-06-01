@@ -1,6 +1,6 @@
-# `env_os_surface_water`
+# Ordnance Survey OS OpenMap Local — Surface Water (inland water) for Great Britain
 
-Ordnance Survey OS OpenMap Local — Surface Water (inland water) for Great Britain.
+`env_os_surface_water`
 
 **SOURCE**
 

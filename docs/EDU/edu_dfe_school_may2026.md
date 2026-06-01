@@ -1,6 +1,6 @@
-# `edu_dfe_school_may2026`
+# Department for Education (DfE) register of educational establishments in England, May 2026
 
-Department for Education (DfE) register of educational establishments in England, May 2026.
+`edu_dfe_school_may2026`
 
 **SOURCE**
 

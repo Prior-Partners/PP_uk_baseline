@@ -1,6 +1,6 @@
-# `dem_ons_lsoa_english_proficiency_2021`
+# ONS Census 2021 English-language proficiency at Lower-layer Super Output Area (LSOA) 2021
 
-ONS Census 2021 English-language proficiency at Lower-layer Super Output Area (LSOA) 2021.
+`dem_ons_lsoa_english_proficiency_2021`
 
 **SOURCE**
 

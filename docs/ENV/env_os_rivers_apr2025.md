@@ -1,6 +1,6 @@
-# `env_os_rivers_apr2025`
+# Ordnance Survey OS Open Rivers — watercourse network for Great Britain, April 2025
 
-Ordnance Survey OS Open Rivers — watercourse network for Great Britain, April 2025.
+`env_os_rivers_apr2025`
 
 **SOURCE**
 

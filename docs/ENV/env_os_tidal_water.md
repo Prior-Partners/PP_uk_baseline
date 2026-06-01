@@ -1,6 +1,6 @@
-# `env_os_tidal_water`
+# Ordnance Survey OS OpenMap Local — Tidal Water for Great Britain
 
-Ordnance Survey OS OpenMap Local — Tidal Water for Great Britain.
+`env_os_tidal_water`
 
 **SOURCE**
 

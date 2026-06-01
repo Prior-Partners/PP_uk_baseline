@@ -1,6 +1,6 @@
-# `hth_ohid_msoa_long_term_disability_2011`
+# Office for Health Improvement and Disparities (OHID) limiting long-term illness or disability at Middle-layer Super Output Area (MSOA) 2011, 2011 Census
 
-Office for Health Improvement and Disparities (OHID) limiting long-term illness or disability at Middle-layer Super Output Area (MSOA) 2011, 2011 Census.
+`hth_ohid_msoa_long_term_disability_2011`
 
 **SOURCE**
 

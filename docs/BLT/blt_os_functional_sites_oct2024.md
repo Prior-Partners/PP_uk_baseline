@@ -1,6 +1,6 @@
-# `blt_os_functional_sites_oct2024`
+# OS OpenMap Local Functional Sites - polygon features for sites of functions or activities, October 2024
 
-OS OpenMap Local Functional Sites - polygon features for sites of functions or activities, October 2024.
+`blt_os_functional_sites_oct2024`
 
 **SOURCE**
 

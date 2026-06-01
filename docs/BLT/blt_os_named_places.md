@@ -1,6 +1,6 @@
-# `blt_os_named_places`
+# OS OpenMap Local Named Places - point features carrying place-name labels
 
-OS OpenMap Local Named Places - point features carrying place-name labels.
+`blt_os_named_places`
 
 **SOURCE**
 

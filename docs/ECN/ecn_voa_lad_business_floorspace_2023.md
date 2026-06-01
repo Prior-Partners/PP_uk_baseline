@@ -1,6 +1,6 @@
-# `ecn_voa_lad_business_floorspace_2023`
+# Valuation Office Agency (VOA) Business Floorspace at Local Authority District (LAD), 2023
 
-Valuation Office Agency (VOA) Business Floorspace at Local Authority District (LAD), 2023.
+`ecn_voa_lad_business_floorspace_2023`
 
 **SOURCE**
 

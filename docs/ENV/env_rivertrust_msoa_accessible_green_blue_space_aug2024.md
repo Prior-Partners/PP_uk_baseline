@@ -1,6 +1,6 @@
-# `env_rivertrust_msoa_accessible_green_blue_space_aug2024`
+# The Rivers Trust — accessible green and blue space per 1,000 population at Middle-layer Super Output Area (MSOA), August 2024
 
-The Rivers Trust — accessible green and blue space per 1,000 population at Middle-layer Super Output Area (MSOA), August 2024.
+`env_rivertrust_msoa_accessible_green_blue_space_aug2024`
 
 **SOURCE**
 

@@ -1,6 +1,6 @@
-# `mob_dft_bods_bus_stops`
+# Department for Transport (DfT) Bus Open Data Service (BODS) bus stop points, Great Britain
 
-Department for Transport (DfT) Bus Open Data Service (BODS) bus stop points, Great Britain.
+`mob_dft_bods_bus_stops`
 
 **SOURCE**
 

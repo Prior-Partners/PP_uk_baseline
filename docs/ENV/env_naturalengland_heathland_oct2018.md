@@ -1,6 +1,6 @@
-# `env_naturalengland_heathland_oct2018`
+# Natural England Lowland Heathland Extent and Potential (England), October 2018
 
-Natural England Lowland Heathland Extent and Potential (England), October 2018.
+`env_naturalengland_heathland_oct2018`
 
 **SOURCE**
 

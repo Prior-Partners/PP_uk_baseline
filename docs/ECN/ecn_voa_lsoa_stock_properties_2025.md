@@ -1,6 +1,6 @@
-# `ecn_voa_lsoa_stock_properties_2025`
+# Valuation Office Agency (VOA) Stock of Properties at Lower Super Output Area (LSOA), 2025
 
-Valuation Office Agency (VOA) Stock of Properties at Lower Super Output Area (LSOA), 2025.
+`ecn_voa_lsoa_stock_properties_2025`
 
 **SOURCE**
 

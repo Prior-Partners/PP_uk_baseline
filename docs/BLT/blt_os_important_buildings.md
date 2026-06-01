@@ -1,6 +1,6 @@
-# `blt_os_important_buildings`
+# OS OpenMap Local Important Buildings - generalised buildings of public importance
 
-OS OpenMap Local Important Buildings - generalised buildings of public importance.
+`blt_os_important_buildings`
 
 **SOURCE**
 

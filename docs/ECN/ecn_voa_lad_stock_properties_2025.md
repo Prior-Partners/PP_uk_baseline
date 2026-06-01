@@ -1,6 +1,6 @@
-# `ecn_voa_lad_stock_properties_2025`
+# Valuation Office Agency (VOA) Stock of Properties at Local Authority District (LAD), 2025
 
-Valuation Office Agency (VOA) Stock of Properties at Local Authority District (LAD), 2025.
+`ecn_voa_lad_stock_properties_2025`
 
 **SOURCE**
 

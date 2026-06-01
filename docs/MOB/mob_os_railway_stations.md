@@ -1,6 +1,6 @@
-# `mob_os_railway_stations`
+# Ordnance Survey OS OpenMap Local - Railway Stations for Great Britain
 
-Ordnance Survey OS OpenMap Local - Railway Stations for Great Britain.
+`mob_os_railway_stations`
 
 **SOURCE**
 

@@ -1,6 +1,6 @@
-# `com_sportengland_active_places_facilities`
+# Sport England Active Places - point features for individual sports facilities
 
-Sport England Active Places - point features for individual sports facilities.
+`com_sportengland_active_places_facilities`
 
 **SOURCE**
 

@@ -1,6 +1,6 @@
-# `dem_police_uk_stop_search_crime_monthly`
+# data.police.uk stop-and-search events, monthly archives
 
-data.police.uk stop-and-search events, monthly archives.
+`dem_police_uk_stop_search_crime_monthly`
 
 **SOURCE**
 

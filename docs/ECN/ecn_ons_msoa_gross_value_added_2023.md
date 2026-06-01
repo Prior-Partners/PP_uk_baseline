@@ -1,6 +1,6 @@
-# `ecn_ons_msoa_gross_value_added_2023`
+# ONS Gross value added (GVA) at middle layer super output area (MSOA), 1998-2023, England & Wales extent, MSOA 2011 boundary
 
-ONS Gross value added (GVA) at middle layer super output area (MSOA), 1998-2023, England & Wales extent, MSOA 2011 boundary.
+`ecn_ons_msoa_gross_value_added_2023`
 
 **SOURCE**
 

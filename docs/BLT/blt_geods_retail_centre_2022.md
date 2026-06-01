@@ -1,6 +1,6 @@
-# `blt_geods_retail_centre_2022`
+# GeoDS Retail Centre Boundaries, 2022
 
-GeoDS Retail Centre Boundaries, 2022.
+`blt_geods_retail_centre_2022`
 
 **SOURCE**
 

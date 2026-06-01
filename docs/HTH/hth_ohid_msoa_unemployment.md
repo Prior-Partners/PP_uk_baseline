@@ -1,6 +1,8 @@
-# `hth_ohid_msoa_unemployment`
+# Office for Health Improvement and Disparities (OHID) unemployment at Middle-layer Super Output Area (MSOA) 2011, period 2021/22
 
-Office for Health Improvement and Disparities (OHID) unemployment at Middle-layer Super Output Area (MSOA) 2011, period 2021/22. Via the Fingertips platform.
+`hth_ohid_msoa_unemployment`
+
+Via the Fingertips platform.
 
 **SOURCE**
 

@@ -1,6 +1,6 @@
-# `adm_ons_lsoa_boundary_2011`
+# ONS Lower layer Super Output Areas (LSOA), England & Wales extent, December 2011
 
-ONS Lower layer Super Output Areas (LSOA), England & Wales extent, December 2011.
+`adm_ons_lsoa_boundary_2011`
 
 **SOURCE**
 

@@ -1,6 +1,6 @@
-# `com_os_green_space_sport_activity_area`
+# OS Open Greenspace Sport and activity provision, polygon layer with analytical attributes
 
-OS Open Greenspace Sport and activity provision, polygon layer with analytical attributes.
+`com_os_green_space_sport_activity_area`
 
 **SOURCE**
 

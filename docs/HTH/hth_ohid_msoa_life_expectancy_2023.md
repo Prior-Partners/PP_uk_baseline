@@ -1,6 +1,6 @@
-# `hth_ohid_msoa_life_expectancy_2023`
+# Office for Health Improvement and Disparities (OHID) Life expectancy at birth by sex for Middle Layer Super Output Areas (MSOA), England: 2019 to 2023
 
-Office for Health Improvement and Disparities (OHID) Life expectancy at birth by sex for Middle Layer Super Output Areas (MSOA), England: 2019 to 2023.
+`hth_ohid_msoa_life_expectancy_2023`
 
 **SOURCE**
 

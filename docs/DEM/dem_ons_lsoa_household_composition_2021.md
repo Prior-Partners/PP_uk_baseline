@@ -1,6 +1,6 @@
-# `dem_ons_lsoa_household_composition_2021`
+# ONS Census 2021 household composition at Lower-layer Super Output Area (LSOA) 2021
 
-ONS Census 2021 household composition at Lower-layer Super Output Area (LSOA) 2021.
+`dem_ons_lsoa_household_composition_2021`
 
 **SOURCE**
 

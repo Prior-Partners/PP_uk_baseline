@@ -1,6 +1,8 @@
-# `hth_ohid_msoa_mortality_rate`
+# Office for Health Improvement and Disparities (OHID) mortality rates at Middle-layer Super Output Area (MSOA) 2011, period 2016-2020
 
-Office for Health Improvement and Disparities (OHID) mortality rates at Middle-layer Super Output Area (MSOA) 2011, period 2016-2020. Via the Fingertips platform.
+`hth_ohid_msoa_mortality_rate`
+
+Via the Fingertips platform.
 
 **SOURCE**
 

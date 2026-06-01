@@ -1,6 +1,6 @@
-# `edu_dfe_secondary_school_may2026`
+# Department for Education (DfE) secondary-phase schools in England, May 2026
 
-Department for Education (DfE) secondary-phase schools in England, May 2026.
+`edu_dfe_secondary_school_may2026`
 
 **SOURCE**
 

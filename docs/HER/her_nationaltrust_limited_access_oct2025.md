@@ -1,6 +1,6 @@
-# `her_nationaltrust_limited_access_oct2025`
+# National Trust Land — Limited Access (England & Wales), October 2025
 
-National Trust Land — Limited Access (England & Wales), October 2025.
+`her_nationaltrust_limited_access_oct2025`
 
 **SOURCE**
 

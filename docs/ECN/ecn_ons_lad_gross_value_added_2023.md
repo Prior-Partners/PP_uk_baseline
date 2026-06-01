@@ -1,6 +1,6 @@
-# `ecn_ons_lad_gross_value_added_2023`
+# ONS Gross value added (GVA) at local authority district (LAD), 1998-2023, UK extent, May 2024 LAD boundary
 
-ONS Gross value added (GVA) at local authority district (LAD), 1998-2023, UK extent, May 2024 LAD boundary.
+`ecn_ons_lad_gross_value_added_2023`
 
 **SOURCE**
 

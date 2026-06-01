@@ -1,6 +1,6 @@
-# `mob_dft_bods_bus_routes`
+# Department for Transport (DfT) Bus Open Data Service (BODS) bus route polylines, Great Britain
 
-Department for Transport (DfT) Bus Open Data Service (BODS) bus route polylines, Great Britain.
+`mob_dft_bods_bus_routes`
 
 **SOURCE**
 

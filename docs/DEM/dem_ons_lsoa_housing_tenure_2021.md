@@ -1,6 +1,6 @@
-# `dem_ons_lsoa_housing_tenure_2021`
+# ONS Census 2021 housing tenure at Lower-layer Super Output Area (LSOA) 2021
 
-ONS Census 2021 housing tenure at Lower-layer Super Output Area (LSOA) 2021.
+`dem_ons_lsoa_housing_tenure_2021`
 
 **SOURCE**
 

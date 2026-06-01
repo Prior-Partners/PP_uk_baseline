@@ -1,8 +1,7 @@
 # uk_baseline data catalogue
 
-A plain-English guide to every layer held in the `uk_baseline` database.
-Generated automatically from the database's own documentation on **01 June 2026** —
-the database is the single source of truth.
+This is the P+P `uk_baseline` database layer catalogue. Generated automatically
+from the database's own documentation on **01 June 2026**.
 
 **137 layers across 11 themes.**
 
@@ -21,7 +20,7 @@ the database is the single source of truth.
 | **UTL** | [Infrastructure & Utilities](UTL/index.md) | Electricity networks, gas pipelines, water infrastructure, telecoms masts, waste facilities | 7 |
 
 !!! note "How to read a layer page"
-    Each layer page shows a plain-English description, where the data came from
+    Each layer page shows a short description, where the data came from
     (source, documentation links, licence), the area and detail it covers, and a
     table of every column with its meaning and units — all taken verbatim from
     the database documentation.

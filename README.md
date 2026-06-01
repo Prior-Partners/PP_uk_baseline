@@ -1,8 +1,8 @@
 # uk_baseline data catalogue
 
-A plain-English, browsable catalogue of every spatial layer held in the
-`uk_baseline` database — what each layer is, where it came from, its licence,
-and a description of every column.
+The P+P `uk_baseline` database layer catalogue: a browsable guide to every
+spatial layer — what each layer is, where it came from, its licence, and a
+description of every column.
 
 **Browse the catalogue:** https://prior-partners.github.io/PP_uk_baseline/
 

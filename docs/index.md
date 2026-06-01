@@ -3,11 +3,11 @@
 This is the P+P `uk_baseline` database layer catalogue. Generated automatically
 from the database's own documentation on **01 June 2026**.
 
-**137 layers across 11 themes.**
+**138 layers across 11 themes.**
 
 | Code | Theme | Typical contents | Layers |
 |---|---|---|---:|
-| **ADM** | [Administrative & Planning Boundaries](ADM/index.md) | Local authority, wards, output areas, built-up areas, postcode boundaries, planning zones, workplace zones | 11 |
+| **ADM** | [Administrative & Planning Boundaries](ADM/index.md) | Local authority, wards, output areas, built-up areas, postcode boundaries, planning zones, workplace zones | 12 |
 | **BLT** | [Built Environment & Land Use](BLT/index.md) | Building footprints, land use classifications, planning applications, retail centres, points of interest | 6 |
 | **COM** | [Community & Social Infrastructure](COM/index.md) | Sports facilities, libraries, community centres, places of worship, cultural venues | 2 |
 | **DEM** | [Demographics & Socio-Economic](DEM/index.md) | Census data (age, ethnicity, religion), deprivation indices, income data, household, travel-to-work data | 25 |

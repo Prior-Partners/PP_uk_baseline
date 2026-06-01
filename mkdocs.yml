@@ -34,6 +34,7 @@ nav:
     - "ONS Middle layer Super Output Areas (MSOA), England & Wales extent, December 2011": ADM/adm_ons_msoa_boundary_2011.md
     - "ONS Middle layer Super Output Areas (MSOA), England & Wales extent, December 2021": ADM/adm_ons_msoa_boundary_2021.md
     - "ONS Output Areas (OA), England & Wales extent, 2021 Census geography, December 2021": ADM/adm_ons_oa_boundaries_dec2021.md
+    - "ONS Postcode Directory (ONSPD), United Kingdom, February 2026 edition": ADM/adm_ons_postcode_centroid_feb2026.md
     - "ONS Wards (electoral wards), England & Wales extent, May 2025": ADM/adm_ons_ward_boundary_may2025.md
   - "Built Environment & Land Use (BLT)":
     - BLT/index.md

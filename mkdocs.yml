@@ -1,0 +1,181 @@
+site_name: uk_baseline data catalogue
+site_description: Plain-English guide to every layer in the uk_baseline database.
+theme:
+  name: material
+  palette:
+    primary: deep orange
+    accent: deep orange
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+plugins:
+  - search
+markdown_extensions:
+  - admonition
+  - tables
+  - toc:
+      permalink: true
+nav:
+  - Home: index.md
+  - Administrative & Planning Boundaries (ADM):
+    - ADM/index.md
+    - adm_mhclg_local_plan_boundary_jan2026: ADM/adm_mhclg_local_plan_boundary_jan2026.md
+    - adm_ons_lad_boundary_2011: ADM/adm_ons_lad_boundary_2011.md
+    - adm_ons_lad_boundary_may2022: ADM/adm_ons_lad_boundary_may2022.md
+    - adm_ons_lad_boundary_may2024: ADM/adm_ons_lad_boundary_may2024.md
+    - adm_ons_lad_boundary_may2025: ADM/adm_ons_lad_boundary_may2025.md
+    - adm_ons_lsoa_boundary_2011: ADM/adm_ons_lsoa_boundary_2011.md
+    - adm_ons_lsoa_boundary_2021: ADM/adm_ons_lsoa_boundary_2021.md
+    - adm_ons_msoa_boundary_2011: ADM/adm_ons_msoa_boundary_2011.md
+    - adm_ons_msoa_boundary_2021: ADM/adm_ons_msoa_boundary_2021.md
+    - adm_ons_oa_boundaries_dec2021: ADM/adm_ons_oa_boundaries_dec2021.md
+    - adm_ons_ward_boundary_may2025: ADM/adm_ons_ward_boundary_may2025.md
+  - Built Environment & Land Use (BLT):
+    - BLT/index.md
+    - blt_geods_poi_sep2024: BLT/blt_geods_poi_sep2024.md
+    - blt_geods_retail_centre_2022: BLT/blt_geods_retail_centre_2022.md
+    - blt_ons_built_up_areas_dec2024: BLT/blt_ons_built_up_areas_dec2024.md
+    - blt_os_functional_sites_oct2024: BLT/blt_os_functional_sites_oct2024.md
+    - blt_os_important_buildings: BLT/blt_os_important_buildings.md
+    - blt_os_named_places: BLT/blt_os_named_places.md
+  - Community & Social Infrastructure (COM):
+    - COM/index.md
+    - com_os_green_space_sport_activity_area: COM/com_os_green_space_sport_activity_area.md
+    - com_sportengland_active_places_facilities: COM/com_sportengland_active_places_facilities.md
+  - Demographics & Socio-Economic (DEM):
+    - DEM/index.md
+    - dem_desnz_lsoa_fuel_poverty_2023: DEM/dem_desnz_lsoa_fuel_poverty_2023.md
+    - dem_mhclg_lsoa_imd_2019: DEM/dem_mhclg_lsoa_imd_2019.md
+    - dem_mhclg_lsoa_imd_2025: DEM/dem_mhclg_lsoa_imd_2025.md
+    - dem_ons_lsoa_access_healthy_assets_hazards_may2026: DEM/dem_ons_lsoa_access_healthy_assets_hazards_may2026.md
+    - dem_ons_lsoa_accommodation_type_2021: DEM/dem_ons_lsoa_accommodation_type_2021.md
+    - dem_ons_lsoa_age_alternate_bands_2021: DEM/dem_ons_lsoa_age_alternate_bands_2021.md
+    - dem_ons_lsoa_car_availability_2021: DEM/dem_ons_lsoa_car_availability_2021.md
+    - dem_ons_lsoa_education_2021: DEM/dem_ons_lsoa_education_2021.md
+    - dem_ons_lsoa_english_proficiency_2021: DEM/dem_ons_lsoa_english_proficiency_2021.md
+    - dem_ons_lsoa_ethnicity_2021: DEM/dem_ons_lsoa_ethnicity_2021.md
+    - dem_ons_lsoa_household_composition_2021: DEM/dem_ons_lsoa_household_composition_2021.md
+    - dem_ons_lsoa_household_population_2021: DEM/dem_ons_lsoa_household_population_2021.md
+    - dem_ons_lsoa_household_size_2021: DEM/dem_ons_lsoa_household_size_2021.md
+    - dem_ons_lsoa_housing_tenure_2021: DEM/dem_ons_lsoa_housing_tenure_2021.md
+    - dem_ons_lsoa_industry_occupation_2011: DEM/dem_ons_lsoa_industry_occupation_2011.md
+    - dem_ons_lsoa_industry_occupation_2021: DEM/dem_ons_lsoa_industry_occupation_2021.md
+    - dem_ons_lsoa_national_identity_2021: DEM/dem_ons_lsoa_national_identity_2021.md
+    - dem_ons_lsoa_passport_held_2021: DEM/dem_ons_lsoa_passport_held_2021.md
+    - dem_ons_lsoa_religion_2021: DEM/dem_ons_lsoa_religion_2021.md
+    - dem_ons_lsoa_students_2011: DEM/dem_ons_lsoa_students_2011.md
+    - dem_ons_lsoa_students_2021: DEM/dem_ons_lsoa_students_2021.md
+    - dem_ons_msoa_income_2011: DEM/dem_ons_msoa_income_2011.md
+    - dem_ons_oa_household_residents_2021: DEM/dem_ons_oa_household_residents_2021.md
+    - dem_police_uk_stop_search_crime_monthly: DEM/dem_police_uk_stop_search_crime_monthly.md
+    - dem_police_uk_street_crime_monthly: DEM/dem_police_uk_street_crime_monthly.md
+  - Economy & Employment (ECN):
+    - ECN/index.md
+    - ecn_geods_foodretail_accessibility_apr2026: ECN/ecn_geods_foodretail_accessibility_apr2026.md
+    - ecn_mhclg_english_enterprise_zone_sites_mar2016: ECN/ecn_mhclg_english_enterprise_zone_sites_mar2016.md
+    - ecn_ons_housing_affordability_ratio_2025: ECN/ecn_ons_housing_affordability_ratio_2025.md
+    - ecn_ons_lad_business_register_employment_2d_2023: ECN/ecn_ons_lad_business_register_employment_2d_2023.md
+    - ecn_ons_lad_business_register_employment_2d_2024: ECN/ecn_ons_lad_business_register_employment_2d_2024.md
+    - ecn_ons_lad_business_register_employment_3d_2023: ECN/ecn_ons_lad_business_register_employment_3d_2023.md
+    - ecn_ons_lad_business_register_employment_3d_2024: ECN/ecn_ons_lad_business_register_employment_3d_2024.md
+    - ecn_ons_lad_gross_value_added_2023: ECN/ecn_ons_lad_gross_value_added_2023.md
+    - ecn_ons_lsoa_business_register_employment_2d_2023: ECN/ecn_ons_lsoa_business_register_employment_2d_2023.md
+    - ecn_ons_lsoa_business_register_employment_2d_2024: ECN/ecn_ons_lsoa_business_register_employment_2d_2024.md
+    - ecn_ons_lsoa_business_register_employment_3d_2023: ECN/ecn_ons_lsoa_business_register_employment_3d_2023.md
+    - ecn_ons_lsoa_business_register_employment_3d_2024: ECN/ecn_ons_lsoa_business_register_employment_3d_2024.md
+    - ecn_ons_lsoa_gross_value_added_2023: ECN/ecn_ons_lsoa_gross_value_added_2023.md
+    - ecn_ons_msoa_business_register_employment_2d_2023: ECN/ecn_ons_msoa_business_register_employment_2d_2023.md
+    - ecn_ons_msoa_business_register_employment_2d_2024: ECN/ecn_ons_msoa_business_register_employment_2d_2024.md
+    - ecn_ons_msoa_business_register_employment_3d_2023: ECN/ecn_ons_msoa_business_register_employment_3d_2023.md
+    - ecn_ons_msoa_business_register_employment_3d_2024: ECN/ecn_ons_msoa_business_register_employment_3d_2024.md
+    - ecn_ons_msoa_gross_value_added_2023: ECN/ecn_ons_msoa_gross_value_added_2023.md
+    - ecn_voa_lad_business_floorspace_2023: ECN/ecn_voa_lad_business_floorspace_2023.md
+    - ecn_voa_lad_stock_properties_2025: ECN/ecn_voa_lad_stock_properties_2025.md
+    - ecn_voa_lsoa_business_floorspace_2023: ECN/ecn_voa_lsoa_business_floorspace_2023.md
+    - ecn_voa_lsoa_stock_properties_2025: ECN/ecn_voa_lsoa_stock_properties_2025.md
+    - ecn_voa_msoa_business_floorspace_2023: ECN/ecn_voa_msoa_business_floorspace_2023.md
+    - ecn_voa_msoa_stock_properties_2025: ECN/ecn_voa_msoa_stock_properties_2025.md
+  - Education (EDU):
+    - EDU/index.md
+    - edu_dfe_primary_school_may2026: EDU/edu_dfe_primary_school_may2026.md
+    - edu_dfe_school_may2026: EDU/edu_dfe_school_may2026.md
+    - edu_dfe_secondary_school_may2026: EDU/edu_dfe_secondary_school_may2026.md
+  - Environment & Natural Assets (ENV):
+    - ENV/index.md
+    - env_defra_flood_zone_jan2025: ENV/env_defra_flood_zone_jan2025.md
+    - env_defra_flood_zones_2_3_river_sea_april2026: ENV/env_defra_flood_zones_2_3_river_sea_april2026.md
+    - env_defra_flood_zones_plus_climate_change_july2025: ENV/env_defra_flood_zones_plus_climate_change_july2025.md
+    - env_defra_historic_landfill_site: ENV/env_defra_historic_landfill_site.md
+    - env_defra_national_nature_reserves_apr2026: ENV/env_defra_national_nature_reserves_apr2026.md
+    - env_defra_predictive_agricultural_land_mar2026: ENV/env_defra_predictive_agricultural_land_mar2026.md
+    - env_mhclg_brownfield_land_may2026: ENV/env_mhclg_brownfield_land_may2026.md
+    - env_mhclg_green_belt_may2026: ENV/env_mhclg_green_belt_may2026.md
+    - env_naturalengland_agri_land_nov2024: ENV/env_naturalengland_agri_land_nov2024.md
+    - env_naturalengland_ancient_woodland_mar2026: ENV/env_naturalengland_ancient_woodland_mar2026.md
+    - env_naturalengland_ancient_woodland_revised_apr2026: ENV/env_naturalengland_ancient_woodland_revised_apr2026.md
+    - env_naturalengland_aonb_nov2024: ENV/env_naturalengland_aonb_nov2024.md
+    - env_naturalengland_country_parks_jun2023: ENV/env_naturalengland_country_parks_jun2023.md
+    - env_naturalengland_environmentally_sensitive_areas_jun2024: ENV/env_naturalengland_environmentally_sensitive_areas_jun2024.md
+    - env_naturalengland_heathland_oct2018: ENV/env_naturalengland_heathland_oct2018.md
+    - env_naturalengland_local_nature_reserves_apr2026: ENV/env_naturalengland_local_nature_reserves_apr2026.md
+    - env_naturalengland_priority_habitats_inventory_apr2026: ENV/env_naturalengland_priority_habitats_inventory_apr2026.md
+    - env_naturalengland_ramsar_oct2024: ENV/env_naturalengland_ramsar_oct2024.md
+    - env_naturalengland_special_areas_conservation_oct2024: ENV/env_naturalengland_special_areas_conservation_oct2024.md
+    - env_naturalengland_special_protection_areas_apr2026: ENV/env_naturalengland_special_protection_areas_apr2026.md
+    - env_naturalengland_sssi_apr2026: ENV/env_naturalengland_sssi_apr2026.md
+    - env_ons_access_to_public_parks_playing_fields_apr2020: ENV/env_ons_access_to_public_parks_playing_fields_apr2020.md
+    - env_ons_national_park_may2026: ENV/env_ons_national_park_may2026.md
+    - env_os_green_space_access_points_apr2025: ENV/env_os_green_space_access_points_apr2025.md
+    - env_os_green_space_apr2025: ENV/env_os_green_space_apr2025.md
+    - env_os_rivers_apr2025: ENV/env_os_rivers_apr2025.md
+    - env_os_surface_water: ENV/env_os_surface_water.md
+    - env_os_tidal_water: ENV/env_os_tidal_water.md
+    - env_os_woodland: ENV/env_os_woodland.md
+    - env_rivertrust_msoa_accessible_green_blue_space_aug2024: ENV/env_rivertrust_msoa_accessible_green_blue_space_aug2024.md
+  - Heritage & Historical Assets (HER):
+    - HER/index.md
+    - her_historicengland_battlefields_may2026: HER/her_historicengland_battlefields_may2026.md
+    - her_historicengland_conservation_areas_jul2025: HER/her_historicengland_conservation_areas_jul2025.md
+    - her_historicengland_heritage_at_risk_jan2026: HER/her_historicengland_heritage_at_risk_jan2026.md
+    - her_historicengland_listed_building_points_may2026: HER/her_historicengland_listed_building_points_may2026.md
+    - her_historicengland_listed_building_polygons_may2026: HER/her_historicengland_listed_building_polygons_may2026.md
+    - her_historicengland_national_trust_land_aug2024: HER/her_historicengland_national_trust_land_aug2024.md
+    - her_historicengland_parks_gardens_may2026: HER/her_historicengland_parks_gardens_may2026.md
+    - her_historicengland_protected_wrecks_may2026: HER/her_historicengland_protected_wrecks_may2026.md
+    - her_historicengland_scheduled_monuments_may2026: HER/her_historicengland_scheduled_monuments_may2026.md
+    - her_historicengland_world_heritage_sites_may2026: HER/her_historicengland_world_heritage_sites_may2026.md
+    - her_nationaltrust_always_open_oct2025: HER/her_nationaltrust_always_open_oct2025.md
+    - her_nationaltrust_limited_access_oct2025: HER/her_nationaltrust_limited_access_oct2025.md
+  - Health & Wellbeing (HTH):
+    - HTH/index.md
+    - hth_nhs_facility_2025: HTH/hth_nhs_facility_2025.md
+    - hth_nhs_gp_jan2026: HTH/hth_nhs_gp_jan2026.md
+    - hth_ohid_msoa_childhood_obesity_2024: HTH/hth_ohid_msoa_childhood_obesity_2024.md
+    - hth_ohid_msoa_life_expectancy_2020: HTH/hth_ohid_msoa_life_expectancy_2020.md
+    - hth_ohid_msoa_life_expectancy_2023: HTH/hth_ohid_msoa_life_expectancy_2023.md
+    - hth_ohid_msoa_long_term_disability_2011: HTH/hth_ohid_msoa_long_term_disability_2011.md
+    - hth_ohid_msoa_mortality_rate: HTH/hth_ohid_msoa_mortality_rate.md
+    - hth_ohid_msoa_unemployment: HTH/hth_ohid_msoa_unemployment.md
+  - Transport & Mobility (MOB):
+    - MOB/index.md
+    - mob_dft_bods_bus_routes: MOB/mob_dft_bods_bus_routes.md
+    - mob_dft_bods_bus_stops: MOB/mob_dft_bods_bus_stops.md
+    - mob_os_open_roads_apr2025: MOB/mob_os_open_roads_apr2025.md
+    - mob_os_railway_stations: MOB/mob_os_railway_stations.md
+    - mob_os_railway_tracks: MOB/mob_os_railway_tracks.md
+    - mob_os_railway_tunnels: MOB/mob_os_railway_tunnels.md
+    - mob_osm_roads_may2025: MOB/mob_osm_roads_may2025.md
+    - mob_public_right_of_way: MOB/mob_public_right_of_way.md
+    - mob_wwct_national_cycle_network_sep2024: MOB/mob_wwct_national_cycle_network_sep2024.md
+  - Infrastructure & Utilities (UTL):
+    - UTL/index.md
+    - utl_defra_permitted_waste_authorised_landfill: UTL/utl_defra_permitted_waste_authorised_landfill.md
+    - utl_nationalgas_pipeline: UTL/utl_nationalgas_pipeline.md
+    - utl_nationalgrid_cables: UTL/utl_nationalgrid_cables.md
+    - utl_nationalgrid_over_head_line: UTL/utl_nationalgrid_over_head_line.md
+    - utl_nationalgrid_substation_site: UTL/utl_nationalgrid_substation_site.md
+    - utl_nationalgrid_towers: UTL/utl_nationalgrid_towers.md
+    - utl_os_electricity_transmission_line: UTL/utl_os_electricity_transmission_line.md

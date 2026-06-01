@@ -1,0 +1,5 @@
+# MkDocs build output (regenerated; gh-deploy builds it fresh)
+site/
+
+# Local build fingerprint (used by the local generator, not part of the site)
+.catalogue_fingerprint.json

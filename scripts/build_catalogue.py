@@ -71,9 +71,27 @@ def dashboard_link(table: str) -> str:
     return f"{DASHBOARD_BASE}?layer=uk_baseline.{table}"
 
 
+# Shared styles file; its "_approved" list gates which themes' previews go live
+# (themes are reviewed + deployed one at a time).
+STYLES_JSON = Path(os.environ.get(
+    "UK_BASELINE_STYLES",
+    r"P:\0_Practice\10_Data management resources\XX_Working\uk_baseline_styles.json"))
+
+
+def _approved_themes() -> set:
+    try:
+        return set(json.loads(STYLES_JSON.read_text(encoding="utf-8")).get("_approved", []))
+    except Exception:
+        return set()
+
+
+APPROVED = _approved_themes()
+
+
 def has_map(table: str) -> bool:
-    """True if a static preview snapshot (PNG) has been built for this layer."""
-    return (MAPS_DIR / f"{table}.png").exists()
+    """True if a preview snapshot exists AND its theme is approved for the site."""
+    theme = table.split("_", 1)[0].upper()
+    return theme in APPROVED and (MAPS_DIR / f"{table}.png").exists()
 
 # Theme prefix -> full label. From the firm's 12-theme taxonomy (P+P brand /
 # data-management standard), so colleagues unfamiliar with the codes can read

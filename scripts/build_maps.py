@@ -49,7 +49,20 @@ WINDOWS = {
 }
 WINDOW_LABEL = {"MK": "Milton Keynes", "south_downs": "South Downs",
                 "england": "England"}
-MK_CENTRE_BNG = (485000, 238000)   # Milton Keynes centre, for local "cover" views
+MK_CENTRE_BNG = (485000, 238000)       # Milton Keynes centre
+BHAM_CENTRE_BNG = (407000, 287000)     # Birmingham centre (denser sample for some BLT)
+# Layers that read best as a local cover-the-frame view: table substring ->
+# (centre_bng, zoom). Fine admin grains and detail layers that vanish or become
+# an unreadable scatter at national extent.
+LOCAL_VIEWS = {
+    "lsoa_boundary": (MK_CENTRE_BNG, 12), "oa_boundaries": (MK_CENTRE_BNG, 13),
+    "ward_boundary": (MK_CENTRE_BNG, 11), "postcode_centroid": (MK_CENTRE_BNG, 12),
+    "geods_poi": (MK_CENTRE_BNG, 13), "named_places": (MK_CENTRE_BNG, 13),
+    "functional_sites": (MK_CENTRE_BNG, 12),
+    "important_buildings": (BHAM_CENTRE_BNG, 13),   # Birmingham — far denser
+    "geods_retail_centre": (BHAM_CENTRE_BNG, 12),
+    "built_up_areas": (BHAM_CENTRE_BNG, 11),
+}
 
 # Brand palette (matches the catalogue theme colours).
 THEME_COLOURS = {
@@ -353,7 +366,7 @@ def render(cur, spec):
                                     or window_bounds_4326(cur, win, bbox))
         fmap = folium.Map(location=[(south + north) / 2, (west + east) / 2],
                           tiles=None, control_scale=True, zoom_start=12,
-                          prefer_canvas=True)  # canvas render: smooth pan/zoom
+                          zoom_control=False, prefer_canvas=True)  # static snapshot
     folium.TileLayer(tiles=CARTO["tiles"], attr=CARTO["attr"], control=False).add_to(fmap)
     # Remove the browser's default focus outline (the "black square" drawn
     # around an SVG feature when clicked).
@@ -411,6 +424,11 @@ def render(cur, spec):
         if kind == "point":
             return {"fillColor": c, "color": c, "fillOpacity": 0.5,
                     "weight": 0.6, "opacity": 0.6}
+        # 'Other' bucket (grey) on any polygon layer: grey + transparent so it
+        # recedes behind the named categories.
+        if ctype == "categorical" and c == GREY:
+            return {"fillColor": GREY, "color": GREY, "weight": 0.6,
+                    "fillOpacity": 0.18}
         fo = 0.9 if null_seq else fill_op   # white void reads solid
         return {"fillColor": c, "color": outline, "weight": outline_weight, "fillOpacity": fo}
 
@@ -520,11 +538,14 @@ PILOT = [
      "bbox": (445000, 198000, 525000, 278000)},
     {"table": "blt_os_functional_sites_oct2024", "theme": "BLT", "window": "MK",
      # 30 (mostly compound) classifications reduced to 3 (approved 2026-06-02)
+     # Transport is now explicit; anything unmatched falls to a grey 'Other'
+     # bucket rather than being mislabelled Transport.
      "colour_by": (
          "CASE "
          "WHEN classification ILIKE '%Education%' THEN 'Education' "
          "WHEN classification IN ('Medical Care Accommodation','Hospital','Hospice') THEN 'Health & Medical' "
-         "ELSE 'Transport' END"),
+         "WHEN classification ~* 'Airfield|Airport|Helicopter|Heliport|Bus Station|Coach Station|Ferry Terminal|Port|Road User Services' THEN 'Transport' "
+         "ELSE 'Other' END"),
      "ctype": "categorical", "legend_title": "Site type"},
     {"table": "blt_os_important_buildings", "theme": "BLT", "window": "MK",
      "colour_by": "building_theme", "ctype": "categorical", "legend_title": "Building theme"},
@@ -662,21 +683,18 @@ def build_specs(cur):
         # its denser mesh reads better thin. Fine/dense grains (LSOA, Output Area,
         # ward) and postcode points use a local extent; nationally they collapse
         # to a solid block.
-        if lyr["theme"] == "ADM":
-            if kind == "polygon":
-                spec["fill_opacity"] = 0.0
-                spec["outline"] = THEME_COLOURS.get("ADM", "#e9511d")
-                spec["outline_weight"] = (0.49 if "msoa_boundary" in lyr["table"]
-                                          else 1.95)
-            # Local grains: cover the frame at a fixed MK centre + zoom (fetch
-            # exactly the visible bbox, no fit_bounds), so the mesh fills the view
-            # and runs off the edges instead of floating in the middle.
-            for grain, zoom in (("ward_boundary", 11), ("lsoa_boundary", 12),
-                                ("oa_boundaries", 13), ("postcode_centroid", 12)):
-                if grain in lyr["table"]:
-                    spec["window"] = "MK"
-                    spec["view"] = {"center_bng": MK_CENTRE_BNG, "zoom": zoom}
-                    break
+        if lyr["theme"] == "ADM" and kind == "polygon":
+            spec["fill_opacity"] = 0.0
+            spec["outline"] = THEME_COLOURS.get("ADM", "#e9511d")
+            spec["outline_weight"] = (0.49 if "msoa_boundary" in lyr["table"]
+                                      else 1.95)
+        # Local cover-the-frame view (fixed MK centre + zoom, no fit_bounds) for
+        # fine grains / detail layers that don't read at national extent.
+        for key, (center, zoom) in LOCAL_VIEWS.items():
+            if key in lyr["table"]:
+                spec["window"] = "MK"      # local simplify / precision / caps
+                spec["view"] = {"center_bng": center, "zoom": zoom}
+                break
         specs.append(spec)
     return specs
 

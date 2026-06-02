@@ -18,7 +18,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_b62c396e8855e368cfb8c618f1506a6a {
+                #map_c2a89b94178e4ca74db5bf112dc16dcf {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -73,32 +73,32 @@
     <div style="position:fixed;bottom:22px;right:12px;z-index:9999;background:#f1eedf;color:#2b242c;padding:8px 11px;border:1px solid #d9d3c4;border-radius:6px;font:12px/1.3 -apple-system,Segoe UI,sans-serif;max-width:240px;box-shadow:0 1px 4px #0003;"><div style="font-weight:700;margin-bottom:4px;">Naturalengland local nature reserves</div><div style="display:flex;align-items:center;gap:6px;margin:2px 0;"><span style="width:14px;height:14px;background:#219900;border:1px solid #00000022;display:inline-block;border-radius:2px;"></span><span>Naturalengland local nature reserves</span></div></div>
     <div style="position:fixed;top:10px;left:10px;z-index:9999;background:#2b242c;color:#fff;padding:4px 9px;border-radius:5px;font:12px -apple-system,Segoe UI,sans-serif;">env_naturalengland_local_nature_reserves_apr2026<span style="opacity:.7;"></span></div>
     
-            <div class="folium-map" id="map_b62c396e8855e368cfb8c618f1506a6a" ></div>
+            <div class="folium-map" id="map_c2a89b94178e4ca74db5bf112dc16dcf" ></div>
         
 </body>
 <script>
     
     
-            var map_b62c396e8855e368cfb8c618f1506a6a = L.map(
-                "map_b62c396e8855e368cfb8c618f1506a6a",
+            var map_c2a89b94178e4ca74db5bf112dc16dcf = L.map(
+                "map_c2a89b94178e4ca74db5bf112dc16dcf",
                 {
                     center: [52.03376812951703, -0.7618774161450301],
                     crs: L.CRS.EPSG3857,
                     ...{
   "zoom": 12,
   "zoomControl": true,
-  "preferCanvas": false,
+  "preferCanvas": true,
 }
 
                 }
             );
-            L.control.scale().addTo(map_b62c396e8855e368cfb8c618f1506a6a);
+            L.control.scale().addTo(map_c2a89b94178e4ca74db5bf112dc16dcf);
 
             
 
         
     
-            var tile_layer_ed95d0c78f95c91ddb60261984841685 = L.tileLayer(
+            var tile_layer_e196e59fc45a7f5bd938937f1d9880d2 = L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
                 {
   "minZoom": 0,
@@ -115,55 +115,55 @@
             );
         
     
-            tile_layer_ed95d0c78f95c91ddb60261984841685.addTo(map_b62c396e8855e368cfb8c618f1506a6a);
+            tile_layer_e196e59fc45a7f5bd938937f1d9880d2.addTo(map_c2a89b94178e4ca74db5bf112dc16dcf);
         
     
-        function geo_json_940ec7df3ec684c7e467dc92c69b32e6_styler(feature) {
+        function geo_json_1919a92ac2f3672bce039322c16ed4e5_styler(feature) {
             switch(feature.properties.label) {
                 default:
                     return {"color": "#ffffff", "fillColor": "#219900", "fillOpacity": 0.6, "weight": 1.0};
             }
         }
-        function geo_json_940ec7df3ec684c7e467dc92c69b32e6_highlighter(feature) {
+        function geo_json_1919a92ac2f3672bce039322c16ed4e5_highlighter(feature) {
             switch(feature.properties.label) {
                 default:
                     return {"color": "#ffffff", "fillOpacity": 0.85, "weight": 3.0};
             }
         }
 
-        function geo_json_940ec7df3ec684c7e467dc92c69b32e6_onEachFeature(feature, layer) {
+        function geo_json_1919a92ac2f3672bce039322c16ed4e5_onEachFeature(feature, layer) {
 
             layer.on({
                 mouseout: function(e) {
                     if(typeof e.target.setStyle === "function"){
-                            geo_json_940ec7df3ec684c7e467dc92c69b32e6.resetStyle(e.target);
+                            geo_json_1919a92ac2f3672bce039322c16ed4e5.resetStyle(e.target);
                     }
                 },
                 mouseover: function(e) {
                     if(typeof e.target.setStyle === "function"){
-                        const highlightStyle = geo_json_940ec7df3ec684c7e467dc92c69b32e6_highlighter(e.target.feature)
+                        const highlightStyle = geo_json_1919a92ac2f3672bce039322c16ed4e5_highlighter(e.target.feature)
                         e.target.setStyle(highlightStyle);
                     }
                 },
             });
         };
-        var geo_json_940ec7df3ec684c7e467dc92c69b32e6 = L.geoJson(null, {
-                onEachFeature: geo_json_940ec7df3ec684c7e467dc92c69b32e6_onEachFeature,
+        var geo_json_1919a92ac2f3672bce039322c16ed4e5 = L.geoJson(null, {
+                onEachFeature: geo_json_1919a92ac2f3672bce039322c16ed4e5_onEachFeature,
             
-                style: geo_json_940ec7df3ec684c7e467dc92c69b32e6_styler,
+                style: geo_json_1919a92ac2f3672bce039322c16ed4e5_styler,
             ...{
 }
         });
 
-        function geo_json_940ec7df3ec684c7e467dc92c69b32e6_add (data) {
-            geo_json_940ec7df3ec684c7e467dc92c69b32e6
+        function geo_json_1919a92ac2f3672bce039322c16ed4e5_add (data) {
+            geo_json_1919a92ac2f3672bce039322c16ed4e5
                 .addData(data);
         }
-            geo_json_940ec7df3ec684c7e467dc92c69b32e6_add({"features": [{"geometry": {"coordinates": [[[-0.58817195, 52.063126439], [-0.585952672, 52.06259503], [-0.58195591, 52.060708105], [-0.58024138, 52.062182464], [-0.579740143, 52.063405179], [-0.578428048, 52.065033843], [-0.57717646, 52.066087857], [-0.575127915, 52.067077394], [-0.575658283, 52.067560654], [-0.578715809, 52.069226762], [-0.577569601, 52.069925109], [-0.577192409, 52.070343565], [-0.578927107, 52.071335449], [-0.582855495, 52.07026653], [-0.583711154, 52.069738212], [-0.584438811, 52.068597032], [-0.58483997, 52.068414794], [-0.586354197, 52.06687172], [-0.587322858, 52.065484336], [-0.587790735, 52.064527883], [-0.588303118, 52.063318931], [-0.58817195, 52.063126439]]], "type": "Polygon"}, "properties": {"label": "MARSTON THRIFT", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [[[-0.73369219, 51.985725258], [-0.734346239, 51.987551234], [-0.735256642, 51.988450081], [-0.736171897, 51.988917698], [-0.737819572, 51.989362057], [-0.738986415, 51.989428486], [-0.741765222, 51.989009127], [-0.740151639, 51.987840972], [-0.740282212, 51.987809111], [-0.740198286, 51.987222602], [-0.73871062, 51.981660673], [-0.732788549, 51.982296518], [-0.732825452, 51.982431025], [-0.733227466, 51.98240344], [-0.733337789, 51.982774151], [-0.732613888, 51.982810409], [-0.732803879, 51.982863689], [-0.733699416, 51.985596797], [-0.732882919, 51.985764194], [-0.73369219, 51.985725258]]], "type": "Polygon"}, "properties": {"label": "BLUE LAGOON", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [[[-0.934290076, 51.987199078], [-0.933840248, 51.987185929], [-0.933346478, 51.987738838], [-0.934310142, 51.988002923], [-0.934612873, 51.987394262], [-0.934290076, 51.987199078]]], "type": "Polygon"}, "properties": {"label": "COOMBES QUARRY", "value": null}, "type": "Feature"}], "type": "FeatureCollection"});
+            geo_json_1919a92ac2f3672bce039322c16ed4e5_add({"features": [{"geometry": {"coordinates": [[[-0.588172, 52.063126], [-0.585953, 52.062595], [-0.581956, 52.060708], [-0.580241, 52.062182], [-0.57974, 52.063405], [-0.578428, 52.065034], [-0.577176, 52.066088], [-0.575128, 52.067077], [-0.575658, 52.067561], [-0.578716, 52.069227], [-0.57757, 52.069925], [-0.577192, 52.070344], [-0.578927, 52.071335], [-0.582855, 52.070267], [-0.583711, 52.069738], [-0.584439, 52.068597], [-0.58484, 52.068415], [-0.586354, 52.066872], [-0.587323, 52.065484], [-0.587791, 52.064528], [-0.588303, 52.063319], [-0.588172, 52.063126]]], "type": "Polygon"}, "properties": {"label": "MARSTON THRIFT", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [[[-0.733692, 51.985725], [-0.734346, 51.987551], [-0.735257, 51.98845], [-0.736172, 51.988918], [-0.73782, 51.989362], [-0.738986, 51.989428], [-0.741765, 51.989009], [-0.740152, 51.987841], [-0.740282, 51.987809], [-0.740198, 51.987223], [-0.738711, 51.981661], [-0.732789, 51.982297], [-0.732825, 51.982431], [-0.733227, 51.982403], [-0.733338, 51.982774], [-0.732614, 51.98281], [-0.732804, 51.982864], [-0.733699, 51.985597], [-0.732883, 51.985764], [-0.733692, 51.985725]]], "type": "Polygon"}, "properties": {"label": "BLUE LAGOON", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [[[-0.93429, 51.987199], [-0.93384, 51.987186], [-0.933346, 51.987739], [-0.93431, 51.988003], [-0.934613, 51.987394], [-0.93429, 51.987199]]], "type": "Polygon"}, "properties": {"label": "COOMBES QUARRY", "value": null}, "type": "Feature"}], "type": "FeatureCollection"});
 
         
     
-    geo_json_940ec7df3ec684c7e467dc92c69b32e6.bindTooltip(
+    geo_json_1919a92ac2f3672bce039322c16ed4e5.bindTooltip(
     function(layer){
     let div = L.DomUtil.create('div');
     
@@ -198,10 +198,10 @@
 });
                      
     
-            geo_json_940ec7df3ec684c7e467dc92c69b32e6.addTo(map_b62c396e8855e368cfb8c618f1506a6a);
+            geo_json_1919a92ac2f3672bce039322c16ed4e5.addTo(map_c2a89b94178e4ca74db5bf112dc16dcf);
         
     
-            map_b62c396e8855e368cfb8c618f1506a6a.fitBounds(
+            map_c2a89b94178e4ca74db5bf112dc16dcf.fitBounds(
                 [[51.9194985934238, -0.947151892538538], [52.14803766561025, -0.5766029397515222]],
                 {}
             );

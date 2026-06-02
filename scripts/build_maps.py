@@ -64,6 +64,139 @@ LOCAL_VIEWS = {
     "built_up_areas": (BHAM_CENTRE_BNG, 11),
     "green_space_sport": (BHAM_CENTRE_BNG, 12),      # COM — detail, blank nationally
     "active_places": (BHAM_CENTRE_BNG, 12),
+    "oa_household_residents": (BHAM_CENTRE_BNG, 13),  # DEM — Output-Area grain, too fine nationally
+    "msoa_income": (BHAM_CENTRE_BNG, 11),             # DEM — MSOA, zoom to a local area
+}
+
+# Sequential colour ramps (stops listed vmin -> vmax). Estimated from the owner's
+# brand colour-wheel images; tweak hexes here.
+RAMP_IMD = ["#6d1250", "#d81e7f", "#ed1c24", "#f7901e"]   # decile 1 dark -> 10 orange (dark = deprived)
+RAMP_FUEL = ["#79d3a6", "#2ba6e0", "#1666c8", "#15206b"]  # low mint -> high navy (dark = poorer)
+RAMP_AHAH = ["#e6b8d8", "#6d1250"]                        # low light -> high dark (dark = less healthy)
+RAMP_CAR = ["#d4efe6", "#0b6e5e"]                         # soft teal (dark = more no-car)
+RAMP_SEQ = ["#efe3cf", "#945f14"]                         # neutral DEM-brown, low light -> high dark
+RAMP_SEQ_R = ["#945f14", "#efe3cf"]                       # inverted (dark = low %, i.e. more diverse)
+RAMP_ORANGE = ["#fde4cf", "#e0631c"]                      # light -> orange (dark = more)
+RAMP_BLUE = ["#d6e2ff", "#0050e6"]                        # light -> blue (dark = more)
+RAMP_PINK_R = ["#c2185b", "#fbd0e4"]                      # dark -> light pink (dark = low %, inverted)
+
+RAMP_BLUEGREEN = ["#d6f2ea", "#0e7a6b"]                   # light -> teal (dark = more)
+RAMP_YELLOW_R = ["#caa300", "#fff7c2"]                    # gold -> pale yellow (dark = low %, inverted)
+RAMP_GREEN_R = ["#1b5e20", "#dcedc8"]                     # dark green -> pale (dark = low %, inverted)
+RAMP_DARKRED = ["#fcdcd6", "#7a0a12"]                     # light -> dark red (dark = more)
+RAMP_PURPLE = ["#e7ddf2", "#5b2d8c"]                      # light lavender -> deep purple (dark = more)
+
+
+def _greatest_case(items):
+    """CASE picking the label of the largest expression; COALESCE so every row
+    gets a value (no gaps), with an 'Other' fallback for all-null/zero rows."""
+    exprs = [(f"COALESCE({e}, 0)" if e[0] != "(" else e, lab) for e, lab in items]
+    return ("CASE GREATEST(" + ", ".join(e for e, _ in exprs) + ") "
+            + " ".join(f"WHEN {e} THEN '{lab}'" for e, lab in exprs) + " ELSE 'Other' END")
+
+
+# Dominant household size: largest of the per-size counts (cols are oddly named —
+# digits / spaces — so quote them). Replaces the messy dominant_household_size_group.
+_HSIZE_CASE = _greatest_case([
+    ('"1 person in household_count"', "1 person"),
+    ('"2_people_in_household_count"', "2 people"),
+    ('"3_people_in_household_count"', "3 people"),
+    ('"4_people_in_household_count"', "4 people"),
+    ('"5_people_in_household_count"', "5 people"),
+    ('"6_people_in_household_count"', "6 people"),
+    ('"7_people_in_household_count"', "7 people"),
+    ('"8_or_more_people_in_household_count"', "8+ people"),
+])
+
+# Dominant industry by the standard 8 ONS broad groups, so 2011 and 2021 match.
+# 2021 has these natively (int8); 2011 (21 detailed text counts) is summed to them.
+_IND_GROUPS = ["Agriculture, energy & water", "Manufacturing", "Construction",
+               "Distribution, hotels & restaurants", "Transport & communication",
+               "Finance, real estate, professional & admin",
+               "Public admin, education & health", "Other"]
+_IND2011_MAP = {
+    "Agriculture, energy & water": ["agriculture_forestry_fishing", "mining_quarrying",
+                                    "electricity_gas_steam_aircon_supply", "water_waste_sewerage"],
+    "Manufacturing": ["manufacturing"],
+    "Construction": ["construction"],
+    "Distribution, hotels & restaurants": ["wholesale_retail_motor_repair",
+                                           "accommodation_food_service"],
+    "Transport & communication": ["transport_storage", "information_communication"],
+    "Finance, real estate, professional & admin": ["financial_insurance", "real_estate",
+                                                   "professional_scientific_technical",
+                                                   "admin_support_service"],
+    "Public admin, education & health": ["public_admin_defence_social_security",
+                                         "education", "health_social_work"],
+    "Other": ["arts_entertainment_recreation", "other_service",
+              "activities_of_household_employers_goods_services", "extraterritorial_orgs"],
+}
+_IND_CASE = _greatest_case([   # 2011 counts are text → cast to numeric
+    ("(" + " + ".join(f"COALESCE(NULLIF({c}_count,'')::numeric, 0)" for c in _IND2011_MAP[lab]) + ")", lab)
+    for lab in _IND_GROUPS])
+_IND2021_COLS = {  # native 2021 group counts (int8)
+    "Agriculture, energy & water": "agriculture_energy_and_water_count",
+    "Manufacturing": "manufacturinge_count", "Construction": "construction_count",
+    "Distribution, hotels & restaurants": "distribution_hotels_and_restaurants_count",
+    "Transport & communication": "transport_and_communication_count",
+    "Finance, real estate, professional & admin": "finance_realestate_prof_admin_activity_count",
+    "Public admin, education & health": "public_administration_education_health_count",
+    "Other": "other_industries_count",
+}
+_IND2021_CASE = _greatest_case([(_IND2021_COLS[lab], lab) for lab in _IND_GROUPS])
+
+# Explicit DEM colouring plan (owner-approved). Table substring -> spec overrides.
+DEM_PLAN = {
+    "imd_2025": dict(colour_by="imd_decile", ctype="sequential", ramp=RAMP_IMD,
+                     legend_title="IMD 2025 decile (1 = most deprived)"),
+    "imd_2019": dict(colour_by="index_of_multiple_deprivation_decile", ctype="sequential",
+                     ramp=RAMP_IMD, legend_title="IMD 2019 decile (1 = most deprived)"),
+    "fuel_poverty": dict(colour_by="fuel_poor_households_perc", ctype="sequential",
+                         ramp=RAMP_FUEL, legend_title="Fuel-poor households (%)"),
+    "access_healthy_assets": dict(colour_by="ahah_pct", ctype="sequential", ramp=RAMP_AHAH,
+                                  legend_title="AHAH percentile (higher = less healthy)"),
+    "car_availability": dict(colour_by='"No cars or vans in household _perc"', ctype="sequential",
+                             ramp=RAMP_CAR, legend_title="No car/van households (%)"),
+    "students_2011": dict(colour_by="total_students_count", ctype="sequential", ramp=RAMP_PURPLE,
+                          legend_title="Total students"),
+    "students_2021": dict(colour_by="total_students", ctype="sequential", ramp=RAMP_PURPLE,
+                          legend_title="Total students"),
+    "msoa_income_2011": dict(colour_by="total_annual_income", ctype="sequential", ramp=RAMP_DARKRED,
+                             legend_title="Total annual income (£)"),
+    "oa_household_residents": dict(colour_by="total_residents", ctype="sequential", ramp=RAMP_BLUE,
+                                   legend_title="Total residents"),
+    "national_identity": dict(colour_by="british_only_identity_perc", ctype="sequential",
+                              ramp=RAMP_YELLOW_R, legend_title="British-only identity (%)"),
+    "passport_held": dict(colour_by="united_kingdom_perc", ctype="sequential", ramp=RAMP_GREEN_R,
+                          legend_title="UK passport (%)"),
+    "household_population": dict(colour_by="mid_2021_people_per_ha", ctype="sequential",
+                                ramp=RAMP_BLUEGREEN, legend_title="Population density (people/ha)"),
+    "age_alternate_bands": dict(
+        colour_by="aged_65_to_69_years_perc + aged_70_to_79_years_perc + aged_80_and_above_years_perc",
+        ctype="sequential", ramp=RAMP_ORANGE, legend_title="Aged 65 and over (%)"),
+    "lsoa_education": dict(colour_by="level_4_qualifications_or_above_perc", ctype="sequential",
+                           ramp=RAMP_BLUE, legend_title="Level 4+ qualifications (%)"),
+    "housing_tenure": dict(colour_by="dominant_housing_tenure_group", ctype="categorical",
+                           legend_title="Dominant housing tenure"),
+    "household_composition": dict(colour_by="dominant_household_composition_group",
+                                  ctype="categorical", legend_title="Dominant household composition"),
+    "household_size": dict(colour_by=_HSIZE_CASE, ctype="categorical",
+                           legend_title="Dominant household size"),
+    "industry_occupation_2021": dict(
+        colour_by=_IND2021_CASE, ctype="categorical", legend_title="Dominant industry",
+        note=("In 2021, 'Public admin, education & health' is the largest sector in "
+              "~83% of LSOAs (vs 40% in 2011), so this dominant-sector map is "
+              "largely one colour — the concentration is real, not a styling artefact.")),
+    "industry_occupation_2011": dict(colour_by=_IND_CASE, ctype="categorical",
+                                     legend_title="Dominant industry"),
+    "english_proficiency": dict(colour_by="main_language_english_perc", ctype="sequential",
+                                ramp=RAMP_PINK_R, legend_title="Main language English (%)"),
+    "religion": dict(colour_by="dominant_relegious_group", ctype="categorical",
+                     legend_title="Dominant religious group"),
+    "ethnicity": dict(colour_by="dominant_ethnic_group", ctype="categorical",
+                      legend_title="Dominant ethnic group"),
+    "street_crime": dict(colour_by="crime_type", ctype="categorical", legend_title="Crime type"),
+    "stop_search": dict(colour_by="object_of_search", ctype="categorical",
+                        legend_title="Object of search"),
 }
 
 # Brand palette (matches the catalogue theme colours).
@@ -310,14 +443,14 @@ def _fmt_num(x):
     return f"{int(x)}" if float(x).is_integer() else f"{x:.1f}"
 
 
-def legend_html_sequential(title, low, high, vmin, vmax):
+def legend_html_sequential(title, ramp, vmin, vmax):
     """Vertical gradient legend for sequential layers.
 
     Replaces branca's horizontal colorbar (which a full re-render overwrites)
     with a self-contained vertical bar in the same brand box as the categorical
-    key, high value at the top.
+    key, high value at the top. ``ramp`` is the list of stops (vmin -> vmax).
     """
-    grad = f"linear-gradient(to top, {low}, {high})"
+    grad = "linear-gradient(to top, " + ", ".join(ramp) + ")"
     mid = (vmin + vmax) / 2
     return (
         '<div style="position:fixed;bottom:22px;right:12px;z-index:9999;'
@@ -404,12 +537,12 @@ def render(cur, spec):
         vmin, vmax = (min(vals), max(vals)) if vals else (0, 1)
         if vmin == vmax:
             vmax = vmin + 1
-        low = _tint(base)
-        colormap = cm.LinearColormap([low, base], vmin=vmin, vmax=vmax)
+        ramp = spec.get("ramp") or [_tint(base), base]
+        colormap = cm.LinearColormap(ramp, vmin=vmin, vmax=vmax)
         # Custom vertical legend instead of branca's horizontal colorbar (which a
         # full re-render overwrites). colormap is still used to colour features.
         fmap.get_root().html.add_child(Element(
-            legend_html_sequential(title, low, base, vmin, vmax)))
+            legend_html_sequential(title, ramp, vmin, vmax)))
     else:  # single
         fmap.get_root().html.add_child(Element(legend_html(title, [(title, base)])))
 
@@ -684,6 +817,13 @@ def build_specs(cur):
         spec["gtype"] = lyr["gtype"]
         spec["est_rows"] = lyr.get("est_rows", 0)
         kind = kind_of(lyr["gtype"])
+        # DEM explicit colouring plan (owner-approved): apply the first matching
+        # DEM_PLAN entry. (LSOA-scale choropleths get a local view below.)
+        if lyr["theme"] == "DEM":
+            for key, ov in DEM_PLAN.items():
+                if key in lyr["table"]:
+                    spec.update(ov)
+                    break
         # Default extent: full England, tuned per layer/theme as the styling is
         # approved (the previews are static snapshots, so the frame is chosen for
         # readability — not an interactive viewport).
@@ -706,6 +846,14 @@ def build_specs(cur):
                 spec["window"] = "MK"      # local simplify / precision / caps
                 spec["view"] = {"center_bng": center, "zoom": zoom}
                 break
+        # Fine-grained choropleths (LSOA scale, ~35k units) are illegible as a
+        # static national PNG — units are sub-pixel. Show them at a Birmingham
+        # local cover view so the colour-by reads; the national pattern is the
+        # Dashboard's interactive job. Coarse grains (LAD/MSOA) stay national.
+        if (kind == "polygon" and spec.get("colour_by")
+                and spec["est_rows"] > 20000 and not spec.get("view")):
+            spec["window"] = "MK"
+            spec["view"] = {"center_bng": BHAM_CENTRE_BNG, "zoom": 11}
         specs.append(spec)
     return specs
 
@@ -750,7 +898,7 @@ def style_entry(spec, comp):
         e["categories"] = [{"value": str(v), "colour": c}
                            for v, c in comp["cat_map"].items()]
     elif spec["ctype"] == "sequential":
-        e["ramp"] = [_tint(comp["base"]), comp["base"]]
+        e["ramp"] = spec.get("ramp") or [_tint(comp["base"]), comp["base"]]
         e["domain"] = [comp["vmin"], comp["vmax"]]
     else:                                       # single
         e["colour"] = spec.get("outline") if spec.get("fill_opacity") == 0.0 \
@@ -763,6 +911,8 @@ def style_entry(spec, comp):
     else:                                       # point
         e["point_radius"] = 4
     e["extent"] = spec.get("extent")            # 4326 [w,s,e,n]; None = full layer
+    if spec.get("note"):                        # layer-info caveat for the Dashboard
+        e["note"] = spec["note"]
     return e
 
 
@@ -779,13 +929,16 @@ def write_styles(entries):
 
 def main() -> None:
     import sys
-    only = {t.upper() for t in sys.argv[1:]} or None     # e.g. `build_maps.py ADM BLT`
+    args = sys.argv[1:]                                  # themes (ADM) or table substrings
+    themes, subs = {a.upper() for a in args}, [a.lower() for a in args]
+
+    def keep(s):
+        return (not args) or s["theme"] in themes or any(x in s["table"] for x in subs)
+
     with psycopg.connect(conninfo()) as conn, conn.cursor() as cur:
-        specs = build_specs(cur)
-        if only:
-            specs = [s for s in specs if s["theme"] in only]
+        specs = [s for s in build_specs(cur) if keep(s)]
         log.info("Rendering %d layer maps to %s%s", len(specs), OUT,
-                 f" (themes: {', '.join(sorted(only))})" if only else "")
+                 f" ({', '.join(args)})" if args else "")
         try:
             driver = new_driver()
         except Exception as exc:                 # render HTML even if no browser

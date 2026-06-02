@@ -277,6 +277,45 @@ GREY = "#9a958c"
 GREENS = ["#9cca3c", "#5cb82d", "#229a45", "#0c9472", "#0b8a8a", "#0a6b6b"]
 CARTO = {"tiles": "CartoDB positron", "attr": "© OpenStreetMap, © CARTO"}
 
+# Ofsted overall effectiveness — ordinal, semantic green (Outstanding) -> red
+# (Inadequate); 'Not Judged' and unrated/null fall to grey. Used via cat_colours.
+OFSTED_COLOURS = {
+    "Outstanding": "#0b6e2e",            # dark green
+    "Good": "#79c44d",                   # green
+    "Requires Improvement": "#f2a900",   # amber
+    "Inadequate": "#d62d20",             # red
+    "Not Judged": GREY,
+}
+
+# School phase — Primary/Secondary as the clear dominant pair, the middle-deemed
+# phases as related lighter shades, and 'Not applicable' (non-phase establishments,
+# ~23%) greyed so it recedes instead of dominating with a loud hue.
+PHASE_COLOURS = {
+    "Primary": "#005dff",                 # blue
+    "Secondary": "#e9511d",               # orange
+    "Middle deemed primary": "#6da2ed",   # light blue (relates to Primary)
+    "Middle deemed secondary": "#f2a900", # amber (relates to Secondary)
+    "Nursery": "#4bb400",                 # green
+    "16 plus": "#920f67",                 # plum
+    "All-through": "#00a3a3",             # teal
+    "Not applicable": GREY,
+}
+
+# EDU colouring plan (owner-approved). Table substring -> spec overrides. The
+# all-schools layer is coloured by phase (level); the primary/secondary subsets are
+# coloured by Ofsted rating (phase is ~uniform there).
+EDU_PLAN = {
+    "primary_school": dict(colour_by="ofsted_overall_rate", ctype="categorical",
+                           cat_colours=OFSTED_COLOURS, legend_title="Ofsted rating",
+                           label="establishment_name", label_title="School"),
+    "secondary_school": dict(colour_by="ofsted_overall_rate", ctype="categorical",
+                             cat_colours=OFSTED_COLOURS, legend_title="Ofsted rating",
+                             label="establishment_name", label_title="School"),
+    "dfe_school": dict(colour_by="phase_of_education_name", ctype="categorical",
+                       cat_colours=PHASE_COLOURS, legend_title="Phase of education",
+                       label="establishment_name", label_title="School"),
+}
+
 # Acronyms to upper-case wherever they appear as a whole word in a legend
 # title or category label (key tidy-up: "Os named places" -> "OS named places").
 ACRONYMS = {"OS", "OSM", "ONS", "NHS", "GP", "POI", "VOA", "NDR", "IMD", "LSOA",
@@ -594,21 +633,37 @@ def render(cur, spec):
     vmin = vmax = None
     qbreaks = None
     if ctype == "categorical":
-        palette = spec.get("palette", QUAL)              # per-layer palette override
+        cat_colours = spec.get("cat_colours")            # explicit value->hex (ordinal scales)
         cats = sorted({f["properties"]["value"] for f in feats
                        if f["properties"]["value"] not in (None, "")})
-        legend_items, grey_used, pi = [], False, 0
-        for c in cats:
-            label = prettify_acronyms(str(c))
-            # only the literal 'Other' bucket greys (not e.g. 'Other Sports Facility')
-            if str(c).strip().lower() == "other" or pi >= len(palette):
-                cat_map[c], grey_used = GREY, True       # 'Other' + overflow -> grey
-            else:
-                cat_map[c] = palette[pi]; pi += 1
-                legend_items.append((label, cat_map[c]))
-        if grey_used:
-            legend_items.append(("Other", GREY))
-        fmap.get_root().html.add_child(Element(legend_html(title, legend_items)))
+        if cat_colours:
+            # Explicit semantic mapping (e.g. Ofsted rating green->red). Legend
+            # follows the spec's value order; any unlisted value falls to grey.
+            legend_items = []
+            for v, col in cat_colours.items():
+                if v in cats:
+                    cat_map[v] = col
+                    legend_items.append((prettify_acronyms(str(v)), col))
+            leftover = [v for v in cats if v not in cat_map]
+            for v in leftover:
+                cat_map[v] = GREY
+            if leftover:
+                legend_items.append(("Other", GREY))
+            fmap.get_root().html.add_child(Element(legend_html(title, legend_items)))
+        else:
+            palette = spec.get("palette", QUAL)          # per-layer palette override
+            legend_items, grey_used, pi = [], False, 0
+            for c in cats:
+                label = prettify_acronyms(str(c))
+                # only the literal 'Other' bucket greys (not e.g. 'Other Sports Facility')
+                if str(c).strip().lower() == "other" or pi >= len(palette):
+                    cat_map[c], grey_used = GREY, True    # 'Other' + overflow -> grey
+                else:
+                    cat_map[c] = palette[pi]; pi += 1
+                    legend_items.append((label, cat_map[c]))
+            if grey_used:
+                legend_items.append(("Other", GREY))
+            fmap.get_root().html.add_child(Element(legend_html(title, legend_items)))
     elif ctype == "sequential":
         vals = [f["properties"]["value"] for f in feats
                 if isinstance(f["properties"]["value"], (int, float))]
@@ -906,6 +961,13 @@ def build_specs(cur):
         # DEM_PLAN entry. (LSOA-scale choropleths get a local view below.)
         if lyr["theme"] == "DEM":
             for key, ov in DEM_PLAN.items():
+                if key in lyr["table"]:
+                    spec.update(ov)
+                    break
+        # EDU plan: primary/secondary subsets coloured by Ofsted rating; the
+        # all-schools layer keeps its PILOT phase colouring (no matching key).
+        if lyr["theme"] == "EDU":
+            for key, ov in EDU_PLAN.items():
                 if key in lyr["table"]:
                     spec.update(ov)
                     break

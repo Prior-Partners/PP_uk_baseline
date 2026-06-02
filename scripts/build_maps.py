@@ -51,6 +51,8 @@ WINDOW_LABEL = {"MK": "Milton Keynes", "south_downs": "South Downs",
                 "england": "England"}
 MK_CENTRE_BNG = (485000, 238000)       # Milton Keynes centre
 BHAM_CENTRE_BNG = (407000, 287000)     # Birmingham centre (denser sample for some BLT)
+LONDON_CENTRE_BNG = (531000, 180000)   # central London (some layers are London-only)
+WMIDS_CENTRE_BNG = (403000, 293000)    # West Midlands (Birmingham + Black Country — densest ECN enterprise-zone cluster)
 # Layers that read best as a local cover-the-frame view: table substring ->
 # (centre_bng, zoom). Fine admin grains and detail layers that vanish or become
 # an unreadable scatter at national extent.
@@ -66,6 +68,8 @@ LOCAL_VIEWS = {
     "active_places": (BHAM_CENTRE_BNG, 12),
     "oa_household_residents": (BHAM_CENTRE_BNG, 13),  # DEM — Output-Area grain, too fine nationally
     "msoa_income": (BHAM_CENTRE_BNG, 11),             # DEM — MSOA, zoom to a local area
+    "foodretail_accessibility": (LONDON_CENTRE_BNG, 11),  # ECN — London-only hex grid
+    "enterprise_zone": (WMIDS_CENTRE_BNG, 11),       # ECN — sub-pixel nationally; frame the densest cluster
 }
 
 # Sequential colour ramps (stops listed vmin -> vmax). Estimated from the owner's
@@ -85,6 +89,32 @@ RAMP_YELLOW_R = ["#caa300", "#fff7c2"]                    # gold -> pale yellow 
 RAMP_GREEN_R = ["#1b5e20", "#dcedc8"]                     # dark green -> pale (dark = low %, inverted)
 RAMP_DARKRED = ["#fcdcd6", "#7a0a12"]                     # light -> dark red (dark = more)
 RAMP_PURPLE = ["#e7ddf2", "#5b2d8c"]                      # light lavender -> deep purple (dark = more)
+RAMP_GREEN = ["#dcedc8", "#1b5e20"]                       # light -> dark green (dark = more)
+
+# ECN colouring plan (owner-approved). Table substring -> spec overrides.
+# Employment layers (business_register_employment) are handled separately in
+# build_specs (total employment = sum of the SIC industry count columns).
+ECN_PLAN = {
+    "gross_value_added": dict(colour_by="gva_2023", ctype="sequential", ramp=RAMP_GREEN,
+                              scale="quantile", legend_title="GVA 2023"),
+    "business_floorspace": dict(colour_by="floorspace_all_2023", ctype="sequential",
+                                ramp=RAMP_BLUE, scale="quantile",
+                                legend_title="Business floorspace 2023 (m²)"),
+    "stock_properties": dict(colour_by="count_all_2025", ctype="sequential", ramp=RAMP_PURPLE,
+                             scale="quantile", legend_title="Commercial properties 2025"),
+    "housing_affordability_ratio": dict(colour_by="medratio_2025", ctype="sequential",
+                                        ramp=RAMP_DARKRED,
+                                        legend_title="Affordability ratio 2025 (price ÷ income)"),
+    "foodretail_accessibility": dict(colour_by="travel_time_friday_18", ctype="sequential",
+                                     ramp=RAMP_ORANGE,
+                                     legend_title="Travel time to food retail, Fri 18:00 (min)"),
+    # 535 small scattered multipolygons (avg ~360 m across) → sub-pixel at national
+    # extent. Framed on the densest cluster (West Midlands, via LOCAL_VIEWS) and given
+    # a red outline + solid red fill so even the smallest sites read clearly.
+    "enterprise_zone": dict(colour_by=None, ctype="single", colour="#dd1220",
+                            outline="#dd1220", outline_weight=1.5, fill_opacity=0.85,
+                            legend_title="Enterprise zone site"),
+}
 
 
 def _greatest_case(items):
@@ -431,6 +461,53 @@ def legend_html(title, items):
         f'<div style="font-weight:700;margin-bottom:4px;">{title}</div>{rows}</div>')
 
 
+def quantile_step(ramp, vals, n=6):
+    """StepColormap with equal-count (quantile) classes whose colours are spread
+    evenly across ``ramp`` by class RANK, not by value position.
+
+    branca's own ``to_step(method="quantiles")`` colours each class by where its
+    break sits on the linear value axis ``[min, max]``. For heavily skewed data
+    (GVA, floorspace, property stock, employment — median ≪ max) every lower
+    quantile edge sits near 0 on that axis, so the bottom classes all collapse to
+    the lightest shade and only the top class reads dark. Spreading the colours by
+    class rank instead gives the n classes the n evenly-spaced shades of the ramp,
+    so the whole gradient is visible.
+    """
+    svals = sorted(v for v in vals if isinstance(v, (int, float)))
+
+    def pct(p):                                # linear-interpolated percentile
+        if not svals:
+            return 0.0
+        k = p / 100.0 * (len(svals) - 1)
+        lo = int(k)
+        hi = min(lo + 1, len(svals) - 1)
+        return svals[lo] + (svals[hi] - svals[lo]) * (k - lo)
+
+    # quantile edges (n+1), then dedupe ties so the index is strictly increasing
+    # (zero-heavy / very skewed data can repeat an edge).
+    breaks = []
+    for b in (pct(100.0 * i / n) for i in range(n + 1)):
+        if not breaks or b > breaks[-1]:
+            breaks.append(b)
+    if len(breaks) < 2:                        # degenerate (all values equal)
+        breaks = [svals[0], svals[0] + 1] if svals else [0, 1]
+    k = len(breaks) - 1                         # class count after dedupe
+    ramp_cm = cm.LinearColormap(ramp, vmin=0, vmax=1)
+    colours = ([ramp_cm.rgb_hex_str(0.5)] if k == 1
+               else [ramp_cm.rgb_hex_str(i / (k - 1)) for i in range(k)])
+    return cm.StepColormap(colours, index=breaks, vmin=breaks[0], vmax=breaks[-1])
+
+
+def legend_html_steps(title, step):
+    """Discrete legend for a quantile StepColormap — one swatch per class with its
+    value range, highest class at top (reuses the categorical legend box)."""
+    idx = list(step.index)
+    items = [(f"{_fmt_num(idx[i])}–{_fmt_num(idx[i + 1])}",
+              step.rgb_hex_str((idx[i] + idx[i + 1]) / 2))
+             for i in range(len(idx) - 1)]
+    return legend_html(title, items[::-1])
+
+
 def _fmt_num(x):
     """Compact human number for a legend tick (1.2M, 34k, 72, 8.4)."""
     ax = abs(x)
@@ -515,6 +592,7 @@ def render(cur, spec):
     colormap = None
     cat_map = {}
     vmin = vmax = None
+    qbreaks = None
     if ctype == "categorical":
         palette = spec.get("palette", QUAL)              # per-layer palette override
         cats = sorted({f["properties"]["value"] for f in feats
@@ -538,11 +616,18 @@ def render(cur, spec):
         if vmin == vmax:
             vmax = vmin + 1
         ramp = spec.get("ramp") or [_tint(base), base]
-        colormap = cm.LinearColormap(ramp, vmin=vmin, vmax=vmax)
-        # Custom vertical legend instead of branca's horizontal colorbar (which a
-        # full re-render overwrites). colormap is still used to colour features.
-        fmap.get_root().html.add_child(Element(
-            legend_html_sequential(title, ramp, vmin, vmax)))
+        lin = cm.LinearColormap(ramp, vmin=vmin, vmax=vmax)
+        # Skewed magnitudes (GVA, floorspace, employment…) wash out under a linear
+        # ramp; `scale="quantile"` switches to equal-count classes so the spatial
+        # pattern reads. Otherwise a continuous linear ramp + gradient legend.
+        if spec.get("scale") == "quantile" and len(set(vals)) > 6:
+            colormap = quantile_step(ramp, vals, n=6)
+            qbreaks = list(colormap.index)
+            fmap.get_root().html.add_child(Element(legend_html_steps(title, colormap)))
+        else:
+            colormap = lin
+            fmap.get_root().html.add_child(Element(
+                legend_html_sequential(title, ramp, vmin, vmax)))
     else:  # single
         fmap.get_root().html.add_child(Element(legend_html(title, [(title, base)])))
 
@@ -609,7 +694,7 @@ def render(cur, spec):
     # Return the computed style so the styles JSON carries the EXACT colours /
     # domain the preview used (so the Dashboard matches the Beta).
     return {"cat_map": cat_map, "vmin": vmin, "vmax": vmax, "base": base,
-            "n": len(feats), "total": total, "sampled": sampled}
+            "breaks": qbreaks, "n": len(feats), "total": total, "sampled": sampled}
 
 
 # --- pilot manifest (16 layers; expand to all later) ----------------------
@@ -824,6 +909,22 @@ def build_specs(cur):
                 if key in lyr["table"]:
                     spec.update(ov)
                     break
+        # ECN plan: overrides for the headline layers; employment layers get
+        # total employment = sum of their SIC industry count columns.
+        if lyr["theme"] == "ECN":
+            for key, ov in ECN_PLAN.items():
+                if key in lyr["table"]:
+                    spec.update(ov)
+                    break
+            if "business_register_employment" in lyr["table"]:
+                ind = [c for c in lyr["columns"]
+                       if c not in ("fid", "id", "geom", "area_ha")
+                       and not re.search(r"(cd|nm)$", c)
+                       and not c.startswith("data_") and "boundary" not in c]
+                spec["colour_by"] = "(" + " + ".join(f'COALESCE("{c}",0)' for c in ind) + ")"
+                spec["ctype"], spec["ramp"] = "sequential", RAMP_BLUEGREEN
+                spec["scale"] = "quantile"     # employment is skewed → equal-count classes
+                spec["legend_title"] = "Total employment"
         # Default extent: full England, tuned per layer/theme as the styling is
         # approved (the previews are static snapshots, so the frame is chosen for
         # readability — not an interactive viewport).
@@ -900,6 +1001,8 @@ def style_entry(spec, comp):
     elif spec["ctype"] == "sequential":
         e["ramp"] = spec.get("ramp") or [_tint(comp["base"]), comp["base"]]
         e["domain"] = [comp["vmin"], comp["vmax"]]
+        if spec.get("scale") == "quantile" and comp.get("breaks"):
+            e["scale"], e["breaks"] = "quantile", comp["breaks"]
     else:                                       # single
         e["colour"] = spec.get("outline") if spec.get("fill_opacity") == 0.0 \
             else comp["base"]

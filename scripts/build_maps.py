@@ -62,6 +62,8 @@ LOCAL_VIEWS = {
     "important_buildings": (BHAM_CENTRE_BNG, 13),   # Birmingham — far denser
     "geods_retail_centre": (BHAM_CENTRE_BNG, 12),
     "built_up_areas": (BHAM_CENTRE_BNG, 11),
+    "green_space_sport": (BHAM_CENTRE_BNG, 12),      # COM — detail, blank nationally
+    "active_places": (BHAM_CENTRE_BNG, 12),
 }
 
 # Brand palette (matches the catalogue theme colours).
@@ -108,6 +110,8 @@ PRECISION = {"england": 4, "MK": 6, "south_downs": 6}
 QUAL = ["#e9511d", "#005dff", "#4bb400", "#920f67", "#ff2a8e", "#dadf50",
         "#554596", "#009476", "#c8b5e2", "#945f14", "#f2a900", "#00a3a3"]
 GREY = "#9a958c"
+# Green->teal ramp (lime to dark teal), for layers a spec pins via "palette".
+GREENS = ["#9cca3c", "#5cb82d", "#229a45", "#0c9472", "#0b8a8a", "#0a6b6b"]
 CARTO = {"tiles": "CartoDB positron", "attr": "© OpenStreetMap, © CARTO"}
 
 # Acronyms to upper-case wherever they appear as a whole word in a legend
@@ -379,15 +383,17 @@ def render(cur, spec):
     cat_map = {}
     vmin = vmax = None
     if ctype == "categorical":
+        palette = spec.get("palette", QUAL)              # per-layer palette override
         cats = sorted({f["properties"]["value"] for f in feats
                        if f["properties"]["value"] not in (None, "")})
         legend_items, grey_used, pi = [], False, 0
         for c in cats:
             label = prettify_acronyms(str(c))
-            if str(c).lower().startswith("other") or pi >= len(QUAL):
+            # only the literal 'Other' bucket greys (not e.g. 'Other Sports Facility')
+            if str(c).strip().lower() == "other" or pi >= len(palette):
                 cat_map[c], grey_used = GREY, True       # 'Other' + overflow -> grey
             else:
-                cat_map[c] = QUAL[pi]; pi += 1
+                cat_map[c] = palette[pi]; pi += 1
                 legend_items.append((label, cat_map[c]))
         if grey_used:
             legend_items.append(("Other", GREY))
@@ -552,7 +558,12 @@ PILOT = [
     {"table": "blt_os_named_places", "theme": "BLT", "window": "MK",
      "colour_by": "classification", "ctype": "categorical", "legend_title": "Named place type"},
     {"table": "com_sportengland_active_places_facilities", "theme": "COM", "window": "MK",
-     "colour_by": "facility_type", "ctype": "categorical", "legend_title": "Facility type"},
+     "colour_by": "facility_type", "ctype": "categorical", "legend_title": "Facility type",
+     # 4 well-separated greens (chartreuse / green / bright teal / dark teal)
+     "palette": ["#b5d320", "#2e9e3f", "#00a99d", "#0b6157"]},
+    {"table": "com_os_green_space_sport_activity_area", "theme": "COM", "window": "MK",
+     "colour_by": "attribute", "ctype": "categorical", "legend_title": "Green space type",
+     "palette": GREENS},                                        # green->teal ramp (image 1)
     {"table": "edu_dfe_school_may2026", "theme": "EDU", "window": "MK",
      "colour_by": "phase_of_education_name", "ctype": "categorical", "legend_title": "Phase of education"},
     {"table": "hth_ohid_msoa_life_expectancy_2023", "theme": "HTH", "window": "MK",

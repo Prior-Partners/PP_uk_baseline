@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <style>.leaflet-interactive:focus{outline:none;}path.leaflet-interactive:focus{outline:none;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_3943d5fae919831b5ba0ad9432478cd4 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    
+                    <style>
+                        .foliumtooltip {
+                            
+                        }
+                       .foliumtooltip table{
+                            margin: auto;
+                        }
+                        .foliumtooltip tr{
+                            text-align: left;
+                        }
+                        .foliumtooltip th{
+                            padding: 2px; padding-right: 8px;
+                        }
+                    </style>
+            
+</head>
+<body>
+    
+    <div style="position:fixed;bottom:22px;right:12px;z-index:9999;background:#f1eedf;color:#2b242c;padding:8px 11px;border:1px solid #d9d3c4;border-radius:6px;font:12px/1.3 -apple-system,Segoe UI,sans-serif;max-width:240px;box-shadow:0 1px 4px #0003;"><div style="font-weight:700;margin-bottom:4px;">Named place type</div><div style="display:flex;align-items:center;gap:6px;margin:2px 0;"><span style="width:14px;height:14px;background:#e9511d;border:1px solid #00000022;display:inline-block;border-radius:2px;"></span><span>Hydrography</span></div><div style="display:flex;align-items:center;gap:6px;margin:2px 0;"><span style="width:14px;height:14px;background:#005dff;border:1px solid #00000022;display:inline-block;border-radius:2px;"></span><span>Landcover</span></div><div style="display:flex;align-items:center;gap:6px;margin:2px 0;"><span style="width:14px;height:14px;background:#4bb400;border:1px solid #00000022;display:inline-block;border-radius:2px;"></span><span>Landform</span></div><div style="display:flex;align-items:center;gap:6px;margin:2px 0;"><span style="width:14px;height:14px;background:#920f67;border:1px solid #00000022;display:inline-block;border-radius:2px;"></span><span>Populated Place</span></div><div style="display:flex;align-items:center;gap:6px;margin:2px 0;"><span style="width:14px;height:14px;background:#ff2a8e;border:1px solid #00000022;display:inline-block;border-radius:2px;"></span><span>Woodland Or Forest</span></div></div>
+    <div style="position:fixed;top:10px;left:10px;z-index:9999;background:#2b242c;color:#fff;padding:4px 9px;border-radius:5px;font:12px -apple-system,Segoe UI,sans-serif;">blt_os_named_places<span style="opacity:.7;"></span></div>
+    
+            <div class="folium-map" id="map_3943d5fae919831b5ba0ad9432478cd4" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_3943d5fae919831b5ba0ad9432478cd4 = L.map(
+                "map_3943d5fae919831b5ba0ad9432478cd4",
+                {
+                    center: [52.03390238008336, -0.762333836151231],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 13,
+  "zoomControl": false,
+  "preferCanvas": true,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_3943d5fae919831b5ba0ad9432478cd4);
+
+            
+
+        
+    
+            var tile_layer_d086abe3ecc7589c86bda641602ccbdf = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u00a9 OpenStreetMap, \u00a9 CARTO",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_d086abe3ecc7589c86bda641602ccbdf.addTo(map_3943d5fae919831b5ba0ad9432478cd4);
+        
+    
+        function geo_json_0794c1772a2fb54168fd2a12badd8dbe_styler(feature) {
+            switch(feature.id) {
+                case "0": case "1": case "3": case "4": case "5": case "6": case "7": case "8": case "9": case "10": case "11": case "12": case "13": case "16": case "17": case "19": case "20": case "21": case "22": case "24": case "25": case "26": case "28": case "30": case "31": case "32": case "33": case "34": case "35": case "36": case "37": case "38": case "39": case "40": case "42": case "43": case "44": case "45": case "46": case "47": case "51": case "52": case "53": case "54": case "55": case "58": case "60": case "61": case "64": case "65": case "67": case "68": case "70": case "72": case "73": case "74": case "75": case "76": case "77": case "78": case "80": case "82": case "83": case "84": case "85": case "86": case "87": case "88": case "89": case "90": case "91": case "92": case "93": case "94": case "95": case "96": case "97": case "99": case "101": case "102": case "105": case "108": case "109": case "112": case "117": case "118": case "119": case "121": case "123": case "124": case "125": case "126": case "127": case "128": case "129": case "131": case "132": case "134": case "135": case "136": case "137": case "139": case "140": case "141": case "142": case "144": case "145": case "146": case "147": case "148": case "149": case "150": case "151": case "152": case "153": case "154": case "155": case "156": case "157": case "158": case "159": case "161": case "162": case "163": case "164": case "165": case "166": case "167": case "168": case "169": case "171": case "172": case "173": case "174": case "175": 
+                    return {"color": "#920f67", "fillColor": "#920f67", "fillOpacity": 0.5, "opacity": 0.6, "weight": 0.6};
+                case "2": case "18": case "29": case "81": case "98": case "100": case "103": case "104": case "106": case "107": case "110": case "111": case "113": case "114": case "120": case "122": case "130": case "133": case "138": case "160": case "170": 
+                    return {"color": "#e9511d", "fillColor": "#e9511d", "fillOpacity": 0.5, "opacity": 0.6, "weight": 0.6};
+                case "14": case "15": case "23": case "41": case "48": case "49": case "56": case "59": case "62": case "63": case "66": case "69": case "71": case "79": case "115": case "116": case "143": 
+                    return {"color": "#ff2a8e", "fillColor": "#ff2a8e", "fillOpacity": 0.5, "opacity": 0.6, "weight": 0.6};
+                case "27": case "57": 
+                    return {"color": "#005dff", "fillColor": "#005dff", "fillOpacity": 0.5, "opacity": 0.6, "weight": 0.6};
+                default:
+                    return {"color": "#4bb400", "fillColor": "#4bb400", "fillOpacity": 0.5, "opacity": 0.6, "weight": 0.6};
+            }
+        }
+        function geo_json_0794c1772a2fb54168fd2a12badd8dbe_highlighter(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#ffffff", "fillOpacity": 0.85, "weight": 3.0};
+            }
+        }
+        function geo_json_0794c1772a2fb54168fd2a12badd8dbe_pointToLayer(feature, latlng) {
+            var opts = {
+  "stroke": true,
+  "color": "#3388ff",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#3388ff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 4,
+};
+            
+            let style = geo_json_0794c1772a2fb54168fd2a12badd8dbe_styler(feature)
+            Object.assign(opts, style)
+            
+            return new L.CircleMarker(latlng, opts)
+        }
+
+        function geo_json_0794c1772a2fb54168fd2a12badd8dbe_onEachFeature(feature, layer) {
+
+            layer.on({
+                mouseout: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                            geo_json_0794c1772a2fb54168fd2a12badd8dbe.resetStyle(e.target);
+                    }
+                },
+                mouseover: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                        const highlightStyle = geo_json_0794c1772a2fb54168fd2a12badd8dbe_highlighter(e.target.feature)
+                        e.target.setStyle(highlightStyle);
+                    }
+                },
+            });
+        };
+        var geo_json_0794c1772a2fb54168fd2a12badd8dbe = L.geoJson(null, {
+                onEachFeature: geo_json_0794c1772a2fb54168fd2a12badd8dbe_onEachFeature,
+            
+                style: geo_json_0794c1772a2fb54168fd2a12badd8dbe_styler,
+                pointToLayer: geo_json_0794c1772a2fb54168fd2a12badd8dbe_pointToLayer,
+            ...{
+}
+        });
+
+        function geo_json_0794c1772a2fb54168fd2a12badd8dbe_add (data) {
+            geo_json_0794c1772a2fb54168fd2a12badd8dbe
+                .addData(data);
+        }
+            geo_json_0794c1772a2fb54168fd2a12badd8dbe_add({"features": [{"geometry": {"coordinates": [-0.683081, 52.023234], "type": "Point"}, "id": "0", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.717829, 52.02315], "type": "Point"}, "id": "1", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.717423, 52.024602], "type": "Point"}, "id": "2", "properties": {"label": null, "value": "Hydrography"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.708752, 52.02457], "type": "Point"}, "id": "3", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.703833, 52.015732], "type": "Point"}, "id": "4", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.70569, 52.019052], "type": "Point"}, "id": "5", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.722227, 52.019682], "type": "Point"}, "id": "6", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.715925, 52.015325], "type": "Point"}, "id": "7", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.72544, 52.014816], "type": "Point"}, "id": "8", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.689826, 52.010847], "type": "Point"}, "id": "9", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.684326, 52.014562], "type": "Point"}, "id": "10", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.694052, 52.019346], "type": "Point"}, "id": "11", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.677689, 52.016781], "type": "Point"}, "id": "12", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.680689, 52.002455], "type": "Point"}, "id": "13", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.677341, 51.998417], "type": "Point"}, "id": "14", "properties": {"label": null, "value": "Woodland Or Forest"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.683872, 51.994291], "type": "Point"}, "id": "15", "properties": {"label": null, "value": "Woodland Or Forest"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.71817, 51.997942], "type": "Point"}, "id": "16", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.70245, 52.006123], "type": "Point"}, "id": "17", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.705348, 52.006676], "type": "Point"}, "id": "18", "properties": {"label": null, "value": "Hydrography"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.733517, 52.002792], "type": "Point"}, "id": "19", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.738302, 51.993232], "type": "Point"}, "id": "20", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.78624, 51.99735], "type": "Point"}, "id": "21", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.777672, 52.004949], "type": "Point"}, "id": "22", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.761016, 52.009325], "type": "Point"}, "id": "23", "properties": {"label": null, "value": "Woodland Or Forest"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.765086, 52.009682], "type": "Point"}, "id": "24", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.776406, 52.017721], "type": "Point"}, "id": "25", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.761804, 52.019322], "type": "Point"}, "id": "26", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.760327, 52.018974], "type": "Point"}, "id": "27", "properties": {"label": null, "value": "Landcover"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.767284, 52.016107], "type": "Point"}, "id": "28", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.762013, 52.012788], "type": "Point"}, "id": "29", "properties": {"label": null, "value": "Hydrography"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.752967, 52.0153], "type": "Point"}, "id": "30", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.744206, 52.013858], "type": "Point"}, "id": "31", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.73856, 52.017223], "type": "Point"}, "id": "32", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.749543, 52.017376], "type": "Point"}, "id": "33", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.746261, 52.022718], "type": "Point"}, "id": "34", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.730687, 52.020969], "type": "Point"}, "id": "35", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.769713, 52.024224], "type": "Point"}, "id": "36", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.809776, 52.023269], "type": "Point"}, "id": "37", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.790126, 52.022853], "type": "Point"}, "id": "38", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.797066, 52.015686], "type": "Point"}, "id": "39", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.807979, 52.013019], "type": "Point"}, "id": "40", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.816344, 52.013499], "type": "Point"}, "id": "41", "properties": {"label": null, "value": "Woodland Or Forest"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.811121, 52.017043], "type": "Point"}, "id": "42", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.804675, 52.018875], "type": "Point"}, "id": "43", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.8134, 52.02015], "type": "Point"}, "id": "44", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.823371, 52.020025], "type": "Point"}, "id": "45", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.845861, 52.013657], "type": "Point"}, "id": "46", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.829556, 52.024834], "type": "Point"}, "id": "47", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.853125, 52.014528], "type": "Point"}, "id": "48", "properties": {"label": null, "value": "Woodland Or Forest"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.841696, 51.994941], "type": "Point"}, "id": "49", "properties": {"label": null, "value": "Woodland Or Forest"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.829003, 51.99745], "type": "Point"}, "id": "50", "properties": {"label": null, "value": "Landform"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.82817, 52.000346], "type": "Point"}, "id": "51", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.822601, 52.001055], "type": "Point"}, "id": "52", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.836795, 52.000836], "type": "Point"}, "id": "53", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.841978, 51.99926], "type": "Point"}, "id": "54", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.830387, 52.008631], "type": "Point"}, "id": "55", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.821903, 52.009347], "type": "Point"}, "id": "56", "properties": {"label": null, "value": "Woodland Or Forest"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.820357, 52.005537], "type": "Point"}, "id": "57", "properties": {"label": null, "value": "Landcover"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.807172, 52.007176], "type": "Point"}, "id": "58", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.802144, 52.011611], "type": "Point"}, "id": "59", "properties": {"label": null, "value": "Woodland Or Forest"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.78777, 52.010799], "type": "Point"}, "id": "60", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.798007, 52.004484], "type": "Point"}, "id": "61", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.810217, 52.001137], "type": "Point"}, "id": "62", "properties": {"label": null, "value": "Woodland Or Forest"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.807773, 51.999386], "type": "Point"}, "id": "63", "properties": {"label": null, "value": "Woodland Or Forest"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.803646, 51.997915], "type": "Point"}, "id": "64", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.814852, 51.993874], "type": "Point"}, "id": "65", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.788847, 51.992504], "type": "Point"}, "id": "66", "properties": {"label": null, "value": "Woodland Or Forest"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.80075, 51.992356], "type": "Point"}, "id": "67", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.771652, 51.99282], "type": "Point"}, "id": "68", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.676659, 51.991899], "type": "Point"}, "id": "69", "properties": {"label": null, "value": "Woodland Or Forest"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.850782, 52.041128], "type": "Point"}, "id": "70", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.851611, 52.032109], "type": "Point"}, "id": "71", "properties": {"label": null, "value": "Woodland Or Forest"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.834479, 52.032237], "type": "Point"}, "id": "72", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.843582, 52.038765], "type": "Point"}, "id": "73", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.844256, 52.038645], "type": "Point"}, "id": "74", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.822835, 52.038245], "type": "Point"}, "id": "75", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.828197, 52.035007], "type": "Point"}, "id": "76", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.829307, 52.031008], "type": "Point"}, "id": "77", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.814705, 52.031959], "type": "Point"}, "id": "78", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.815538, 52.033559], "type": "Point"}, "id": "79", "properties": {"label": null, "value": "Woodland Or Forest"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.794288, 52.034476], "type": "Point"}, "id": "80", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.789156, 52.038272], "type": "Point"}, "id": "81", "properties": {"label": null, "value": "Hydrography"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.806013, 52.040332], "type": "Point"}, "id": "82", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.793337, 52.041633], "type": "Point"}, "id": "83", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.786529, 52.048585], "type": "Point"}, "id": "84", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.796578, 52.047447], "type": "Point"}, "id": "85", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.821202, 52.046015], "type": "Point"}, "id": "86", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.832578, 52.049841], "type": "Point"}, "id": "87", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.832943, 52.055419], "type": "Point"}, "id": "88", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.824093, 52.053632], "type": "Point"}, "id": "89", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.811261, 52.050248], "type": "Point"}, "id": "90", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.803191, 52.0521], "type": "Point"}, "id": "91", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.798048, 52.055158], "type": "Point"}, "id": "92", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.791715, 52.054734], "type": "Point"}, "id": "93", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.810761, 52.059738], "type": "Point"}, "id": "94", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.798645, 52.058455], "type": "Point"}, "id": "95", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.799742, 52.061622], "type": "Point"}, "id": "96", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.791946, 52.064564], "type": "Point"}, "id": "97", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.796387, 52.067028], "type": "Point"}, "id": "98", "properties": {"label": null, "value": "Hydrography"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.813945, 52.067296], "type": "Point"}, "id": "99", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.819816, 52.064298], "type": "Point"}, "id": "100", "properties": {"label": null, "value": "Hydrography"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.830719, 52.059605], "type": "Point"}, "id": "101", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.836097, 52.058651], "type": "Point"}, "id": "102", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.844512, 52.062627], "type": "Point"}, "id": "103", "properties": {"label": null, "value": "Hydrography"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.835342, 52.066924], "type": "Point"}, "id": "104", "properties": {"label": null, "value": "Hydrography"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.846158, 52.054812], "type": "Point"}, "id": "105", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.853128, 52.049719], "type": "Point"}, "id": "106", "properties": {"label": null, "value": "Hydrography"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.850828, 52.068317], "type": "Point"}, "id": "107", "properties": {"label": null, "value": "Hydrography"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.851447, 52.070922], "type": "Point"}, "id": "108", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.847297, 52.076294], "type": "Point"}, "id": "109", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.818811, 52.074187], "type": "Point"}, "id": "110", "properties": {"label": null, "value": "Hydrography"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.835288, 52.07462], "type": "Point"}, "id": "111", "properties": {"label": null, "value": "Hydrography"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.841609, 52.07337], "type": "Point"}, "id": "112", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.835667, 52.070686], "type": "Point"}, "id": "113", "properties": {"label": null, "value": "Hydrography"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.825786, 52.070273], "type": "Point"}, "id": "114", "properties": {"label": null, "value": "Hydrography"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.757622, 52.073468], "type": "Point"}, "id": "115", "properties": {"label": null, "value": "Woodland Or Forest"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.761453, 52.070523], "type": "Point"}, "id": "116", "properties": {"label": null, "value": "Woodland Or Forest"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.75455, 52.06903], "type": "Point"}, "id": "117", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.729492, 52.067746], "type": "Point"}, "id": "118", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.738104, 52.072262], "type": "Point"}, "id": "119", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.734259, 52.072014], "type": "Point"}, "id": "120", "properties": {"label": null, "value": "Hydrography"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.711407, 52.075183], "type": "Point"}, "id": "121", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.725368, 52.075281], "type": "Point"}, "id": "122", "properties": {"label": null, "value": "Hydrography"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.717763, 52.072834], "type": "Point"}, "id": "123", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.699555, 52.066781], "type": "Point"}, "id": "124", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.672461, 52.068835], "type": "Point"}, "id": "125", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.706984, 52.052495], "type": "Point"}, "id": "126", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.701388, 52.050357], "type": "Point"}, "id": "127", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.71143, 52.049532], "type": "Point"}, "id": "128", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.720171, 52.050868], "type": "Point"}, "id": "129", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.719339, 52.053448], "type": "Point"}, "id": "130", "properties": {"label": null, "value": "Hydrography"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.721907, 52.060543], "type": "Point"}, "id": "131", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.696452, 52.059114], "type": "Point"}, "id": "132", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.711908, 52.062341], "type": "Point"}, "id": "133", "properties": {"label": null, "value": "Hydrography"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.73783, 52.063862], "type": "Point"}, "id": "134", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.733702, 52.060248], "type": "Point"}, "id": "135", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.743561, 52.061873], "type": "Point"}, "id": "136", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.751092, 52.059606], "type": "Point"}, "id": "137", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.743534, 52.064381], "type": "Point"}, "id": "138", "properties": {"label": null, "value": "Hydrography"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.768544, 52.064142], "type": "Point"}, "id": "139", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.78196, 52.060019], "type": "Point"}, "id": "140", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.763395, 52.056221], "type": "Point"}, "id": "141", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.77585, 52.051945], "type": "Point"}, "id": "142", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.769457, 52.051096], "type": "Point"}, "id": "143", "properties": {"label": null, "value": "Woodland Or Forest"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.758906, 52.049781], "type": "Point"}, "id": "144", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.746558, 52.053795], "type": "Point"}, "id": "145", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.737968, 52.056895], "type": "Point"}, "id": "146", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.731714, 52.050103], "type": "Point"}, "id": "147", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.726844, 52.044404], "type": "Point"}, "id": "148", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.73554, 52.041126], "type": "Point"}, "id": "149", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.754062, 52.043022], "type": "Point"}, "id": "150", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.742593, 52.047486], "type": "Point"}, "id": "151", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.770818, 52.045059], "type": "Point"}, "id": "152", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.780195, 52.041299], "type": "Point"}, "id": "153", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.762556, 52.039066], "type": "Point"}, "id": "154", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.781556, 52.030362], "type": "Point"}, "id": "155", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.755868, 52.031569], "type": "Point"}, "id": "156", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.744447, 52.0365], "type": "Point"}, "id": "157", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.732283, 52.034626], "type": "Point"}, "id": "158", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.722079, 52.031009], "type": "Point"}, "id": "159", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.715755, 52.033988], "type": "Point"}, "id": "160", "properties": {"label": null, "value": "Hydrography"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.711891, 52.035016], "type": "Point"}, "id": "161", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.698518, 52.0362], "type": "Point"}, "id": "162", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.713826, 52.044316], "type": "Point"}, "id": "163", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.70107, 52.042693], "type": "Point"}, "id": "164", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.694384, 52.047474], "type": "Point"}, "id": "165", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.684388, 52.037796], "type": "Point"}, "id": "166", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.686822, 52.030837], "type": "Point"}, "id": "167", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.671913, 52.030733], "type": "Point"}, "id": "168", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.698533, 52.028638], "type": "Point"}, "id": "169", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.729993, 52.02695], "type": "Point"}, "id": "170", "properties": {"label": null, "value": "Hydrography"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.73816, 52.029357], "type": "Point"}, "id": "171", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.747122, 52.028428], "type": "Point"}, "id": "172", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.765326, 52.029016], "type": "Point"}, "id": "173", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.802452, 52.028473], "type": "Point"}, "id": "174", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}, {"geometry": {"coordinates": [-0.831667, 52.028298], "type": "Point"}, "id": "175", "properties": {"label": null, "value": "Populated Place"}, "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+    geo_json_0794c1772a2fb54168fd2a12badd8dbe.bindTooltip(
+    function(layer){
+    let div = L.DomUtil.create('div');
+    
+    let handleObject = feature => {
+        if (feature === null) {
+            return '';
+        } else if (typeof(feature)=='object') {
+            return JSON.stringify(feature);
+        } else {
+            return feature;
+        }
+    }
+    let fields = ["label", "value"];
+    let aliases = ["Name", "Named place type"];
+    let table = '<table>' +
+        String(
+        fields.map(
+        (v,i)=>
+        `<tr>
+            <th>${aliases[i]}</th>
+            
+            <td>${handleObject(layer.feature.properties[v])}</td>
+        </tr>`).join(''))
+    +'</table>';
+    div.innerHTML=table;
+    
+    return div
+    }
+    ,{
+  "sticky": true,
+  "className": "foliumtooltip",
+});
+                     
+    
+            geo_json_0794c1772a2fb54168fd2a12badd8dbe.addTo(map_3943d5fae919831b5ba0ad9432478cd4);
+        
+</script>
+</html>

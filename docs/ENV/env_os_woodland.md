@@ -2,6 +2,8 @@
 
 `env_os_woodland`
 
+<img src="../../maps/env_os_woodland.png" alt="Styling preview of env_os_woodland" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+
 <a href="http://localhost:7800/?layer=uk_baseline.env_os_woodland" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
 
 **SOURCE**

@@ -21,6 +21,7 @@ import json
 import logging
 import os
 import re
+from decimal import Decimal
 from pathlib import Path
 
 import branca.colormap as cm
@@ -53,6 +54,8 @@ MK_CENTRE_BNG = (485000, 238000)       # Milton Keynes centre
 BHAM_CENTRE_BNG = (407000, 287000)     # Birmingham centre (denser sample for some BLT)
 LONDON_CENTRE_BNG = (531000, 180000)   # central London (some layers are London-only)
 WMIDS_CENTRE_BNG = (403000, 293000)    # West Midlands (Birmingham + Black Country — densest ECN enterprise-zone cluster)
+SOLENT_CENTRE_BNG = (452000, 97000)    # the Solent (coastal — for tidal-water, which is empty inland)
+FENS_CENTRE_BNG = (540000, 288000)     # the Fens NE of Peterborough — extensive flood coverage (for flood layers)
 # Layers that read best as a local cover-the-frame view: table substring ->
 # (centre_bng, zoom). Fine admin grains and detail layers that vanish or become
 # an unreadable scatter at national extent.
@@ -70,6 +73,11 @@ LOCAL_VIEWS = {
     "msoa_income": (BHAM_CENTRE_BNG, 11),             # DEM — MSOA, zoom to a local area
     "foodretail_accessibility": (LONDON_CENTRE_BNG, 11),  # ECN — London-only hex grid
     "enterprise_zone": (WMIDS_CENTRE_BNG, 11),       # ECN — sub-pixel nationally; frame the densest cluster
+    # ENV dense small-feature single-colour layers — sub-pixel & blank nationally.
+    "os_surface_water": (BHAM_CENTRE_BNG, 11), "os_woodland": (BHAM_CENTRE_BNG, 11),
+    "historic_landfill": (BHAM_CENTRE_BNG, 11),
+    "os_tidal_water": (SOLENT_CENTRE_BNG, 10),       # coastal — Birmingham is inland (no tidal water)
+    "flood_zone": (FENS_CENTRE_BNG, 10),             # all 3 flood layers — Birmingham barely floods
 }
 
 # Sequential colour ramps (stops listed vmin -> vmax). Estimated from the owner's
@@ -316,6 +324,138 @@ EDU_PLAN = {
                        label="establishment_name", label_title="School"),
 }
 
+# --- ENV palettes & plan ---------------------------------------------------
+WATER_BLUE = "#3a86c8"
+TIDAL_BLUE = "#2c6a9e"
+WOOD_GREEN = "#2e7d32"
+LANDFILL_BROWN = "#7a6a53"
+# Graduated-point ramp: a near-white low end vanishes on the basemap for small
+# points, so start saturated (visible orange -> dark brown).
+BROWNFIELD_RAMP = ["#fdae6b", "#7f2704"]
+
+# OS rivers `form`, relabelled to readable text via CASE.
+RIVER_FORM_COLOURS = {"Inland river": "#2b7bba", "Tidal river": "#5bb8c4",
+                      "Lake": "#1f5f8b", "Canal": "#b06a2c"}
+_RIVER_FORM_CASE = ("CASE form WHEN 'inlandRiver' THEN 'Inland river' "
+                    "WHEN 'tidalRiver' THEN 'Tidal river' WHEN 'lake' THEN 'Lake' "
+                    "WHEN 'canal' THEN 'Canal' END")
+
+# Ancient woodland status: ASNW (semi-natural) darkest, PAWS (plantation) mid, AWP pale.
+AW_STATUS_COLOURS = {"ASNW": "#1b5e20", "PAWS": "#7cb342", "AWP": "#c5e1a5"}
+# Flood zone: FZ3 (higher risk) darker than FZ2.
+FLOOD_ZONE_COLOURS = {"FZ2": "#9ecae1", "FZ3": "#2171b5"}
+FLOOD_SOURCE_COLOURS = {"river": "#2171b5", "sea": "#41b6c4",
+                        "river and sea": "#5e4fa2", "unknown": GREY}
+
+# Agricultural Land Classification — ordinal best (Grade 1, dark green) -> poor
+# (Grade 5, brown); urban / non-agricultural / exclusion greyed. Both agri layers
+# map to these labels (the predictive layer's `alc` codes relabelled via CASE).
+ALC_COLOURS = {"Grade 1": "#1a9850", "Grade 2": "#66bd63", "Grade 3": "#a6d96a",
+               "Grade 3a": "#a6d96a", "Grade 3b": "#cfe08a", "Grade 4": "#fdae61",
+               "Grade 5": "#a6611a", "Urban": GREY, "Non Agricultural": GREY,
+               "Exclusion": GREY}
+_ALC_PRED_CASE = ("CASE alc WHEN '1' THEN 'Grade 1' WHEN '2' THEN 'Grade 2' "
+                  "WHEN '3a' THEN 'Grade 3a' WHEN '3b' THEN 'Grade 3b' "
+                  "WHEN '4' THEN 'Grade 4' WHEN '5' THEN 'Grade 5' "
+                  "WHEN 'NA' THEN 'Non Agricultural' WHEN 'U' THEN 'Urban' END")
+
+# Priority Habitats — 83 `mainhabs` types rolled up into 8 broad classes.
+HABITAT_GROUP_COLOURS = {"Woodland": "#1b5e20", "Grassland & meadow": "#9acd32",
+                         "Heathland": "#9c5fb0", "Wetland, fen & bog": "#2c7fb8",
+                         "Coastal": "#c9a227", "Moorland": "#8d6e63",
+                         "Traditional orchard": "#e377c2", "Other": GREY}
+_HABITAT_CASE = (
+    "CASE "
+    "WHEN mainhabs ILIKE '%woodland%' THEN 'Woodland' "
+    "WHEN mainhabs ILIKE '%orchard%' THEN 'Traditional orchard' "
+    "WHEN mainhabs ILIKE '%heath%' THEN 'Heathland' "
+    "WHEN mainhabs ILIKE '%grazing marsh%' THEN 'Wetland, fen & bog' "
+    "WHEN mainhabs ILIKE '%saltmarsh%' OR mainhabs ILIKE '%mudflat%' "
+    "OR mainhabs ILIKE '%sand dune%' OR mainhabs ILIKE '%shingle%' "
+    "OR mainhabs ILIKE '%maritime%' OR mainhabs ILIKE '%lagoon%' "
+    "OR mainhabs ILIKE '%coastal%' THEN 'Coastal' "
+    "WHEN mainhabs ILIKE '%bog%' OR mainhabs ILIKE '%fen%' "
+    "OR mainhabs ILIKE '%reedbed%' OR mainhabs ILIKE '%marsh%' "
+    "OR mainhabs ILIKE '%flush%' OR mainhabs ILIKE '%swamp%' "
+    "OR mainhabs ILIKE '%pond%' OR mainhabs ILIKE '%lake%' "
+    "OR mainhabs ILIKE '%saline%' THEN 'Wetland, fen & bog' "
+    "WHEN mainhabs ILIKE '%moorland%' THEN 'Moorland' "
+    "WHEN mainhabs ILIKE '%grassland%' OR mainhabs ILIKE '%meadow%' "
+    "OR mainhabs ILIKE '%pasture%' OR mainhabs ILIKE '%limestone pavement%' "
+    "OR mainhabs ILIKE '%calaminarian%' OR mainhabs ILIKE '%moor grass%' "
+    "THEN 'Grassland & meadow' "
+    "ELSE 'Other' END")
+
+# ENV protected-area designations: uniform semi-transparent green fill + darker
+# green outline, national (owner-approved 2 Jun 2026). Applied to any ENV polygon
+# whose table matches one of these and has no ENV_PLAN colour-by override.
+ENV_DESIGNATIONS = ("sssi", "special_areas_conservation", "special_protection_areas",
+                    "ramsar", "national_nature_reserves", "local_nature_reserves",
+                    "aonb", "country_parks", "environmentally_sensitive_areas",
+                    "heathland", "national_park", "green_belt")
+ENV_DESIGNATION_STYLE = dict(colour="#219900", fill_opacity=0.45,
+                             outline="#0b6e2e", outline_weight=0.8)
+
+# ENV colouring plan (owner-approved). Table substring -> spec overrides. Layers
+# not matched here AND in ENV_DESIGNATIONS get the uniform designation style.
+ENV_PLAN = {
+    # water (blue)
+    "os_rivers": dict(colour_by=_RIVER_FORM_CASE, ctype="categorical",
+                      cat_colours=RIVER_FORM_COLOURS, legend_title="Watercourse type",
+                      line_weight=1.1),
+    "os_surface_water": dict(colour_by=None, ctype="single", colour=WATER_BLUE,
+                             legend_title="Surface water"),
+    "os_tidal_water": dict(colour_by=None, ctype="single", colour=TIDAL_BLUE,
+                           legend_title="Tidal water"),
+    # woodland (green)
+    "os_woodland": dict(colour_by=None, ctype="single", colour=WOOD_GREEN,
+                        legend_title="Woodland"),
+    "ancient_woodland": dict(colour_by="status", ctype="categorical",
+                             cat_colours=AW_STATUS_COLOURS,
+                             legend_title="Ancient woodland status"),
+    # flood (blue, by zone / source)
+    # Flood is a near-continuous coverage layer: random sampling leaves big gaps,
+    # so dissolve (ST_Union) all polygons per zone inside the viewport into one
+    # merged geometry — solid extent, no gaps. Border = fill so zones read clean.
+    "flood_zone_jan2025": dict(colour_by="flood_zone", ctype="categorical",
+                               cat_colours=FLOOD_ZONE_COLOURS, legend_title="Flood zone",
+                               dissolve=True, outline_match_fill=True, fill_opacity=0.8),
+    "flood_zones_2_3": dict(colour_by="flood_zone", ctype="categorical",
+                            cat_colours=FLOOD_ZONE_COLOURS, legend_title="Flood zone",
+                            dissolve=True, outline_match_fill=True, fill_opacity=0.8),
+    "flood_zones_plus": dict(colour_by="flood_source", ctype="categorical",
+                             cat_colours=FLOOD_SOURCE_COLOURS, legend_title="Flood source",
+                             dissolve=True, outline_match_fill=True, fill_opacity=0.8),
+    # agricultural land (ordinal grade)
+    "predictive_agricultural_land": dict(colour_by=_ALC_PRED_CASE, ctype="categorical",
+                                         cat_colours=ALC_COLOURS,
+                                         legend_title="Agricultural land grade"),
+    "agri_land_nov2024": dict(colour_by="alc_grade", ctype="categorical",
+                              cat_colours=ALC_COLOURS,
+                              legend_title="Agricultural land grade"),
+    # green space & access
+    "green_space_apr2025": dict(colour_by='"function"', ctype="categorical",
+                                legend_title="Green space function"),
+    "green_space_access_points": dict(colour_by="accesstype", ctype="categorical",
+                                      legend_title="Access type"),
+    "access_to_public_parks": dict(
+        colour_by="average_distance_to_nearest_park_public_garden_or_playing_field",
+        ctype="sequential", ramp=RAMP_DARKRED, scale="quantile",
+        legend_title="Distance to nearest park (m)"),
+    "rivertrust_msoa": dict(colour_by="gb_sp_perc", ctype="sequential",
+                            ramp=RAMP_GREEN, scale="quantile",
+                            legend_title="Accessible green/blue space (%)"),
+    # habitats & other
+    "priority_habitats": dict(colour_by=_HABITAT_CASE, ctype="categorical",
+                              cat_colours=HABITAT_GROUP_COLOURS,
+                              legend_title="Broad habitat"),
+    "historic_landfill": dict(colour_by=None, ctype="single", colour=LANDFILL_BROWN,
+                              legend_title="Historic landfill site"),
+    "brownfield_land": dict(colour_by="NULLIF(hectares,'')::numeric", ctype="sequential",
+                            ramp=BROWNFIELD_RAMP, scale="quantile",
+                            legend_title="Brownfield site area (ha)"),
+}
+
 # Acronyms to upper-case wherever they appear as a whole word in a legend
 # title or category label (key tidy-up: "Os named places" -> "OS named places").
 ACRONYMS = {"OS", "OSM", "ONS", "NHS", "GP", "POI", "VOA", "NDR", "IMD", "LSOA",
@@ -420,7 +560,7 @@ def viewport_bng(center_bng, zoom, frame=FRAME):
 
 
 def fetch_features(cur, table, colour_by, label, window_key, kind,
-                   bbox=None, where=None, est_rows=0):
+                   bbox=None, where=None, est_rows=0, cap_override=None, dissolve=False):
     """Return (features, total_in_window, sampled?).
 
     Dense point/polygon layers are randomly sampled to the per-kind cap so the
@@ -446,6 +586,33 @@ def fetch_features(cur, table, colour_by, label, window_key, kind,
     else:
         cap = CAPS[kind]
         tol = SIMPLIFY[window_key]["line" if kind == "line" else "other"]
+    if cap_override:                     # per-layer cap (dense coverage layers)
+        cap = cap_override
+    # Dissolve mode: near-continuous coverage layers (e.g. flood zones) look
+    # gap-ridden when randomly sampled. Instead union all polygons per colour-by
+    # category inside the viewport into one merged geometry — no sampling, no
+    # gaps, and far fewer vertices. Pre-simplify each polygon (sub-pixel) so the
+    # union is cheap.
+    if dissolve:
+        prec = PRECISION.get(window_key, 6)
+        cur.execute(
+            f"""SELECT {val} AS v, NULL AS lbl,
+                       ST_AsGeoJSON(ST_SimplifyPreserveTopology(
+                           ST_Transform(
+                               ST_Union(ST_MakeValid(ST_SnapToGrid(geom, 10))), 4326),
+                           {tol}), {prec}) AS gj
+                FROM {SCHEMA}.{table}
+                WHERE geom && {env} AND ST_Intersects(geom, {env}){extra}
+                GROUP BY {val}""")
+        feats = []
+        for v, lab, gj in cur.fetchall():
+            if not gj:
+                continue
+            if isinstance(v, Decimal):
+                v = float(v)
+            feats.append({"type": "Feature", "geometry": json.loads(gj),
+                          "properties": {"value": v, "label": lab}})
+        return feats, 0, False
     # Full-extent counts span the whole dataset; an exact count(*) over tens of
     # millions of rows is a needless scan — use the planner's row estimate.
     if full and est_rows:
@@ -479,6 +646,12 @@ def fetch_features(cur, table, colour_by, label, window_key, kind,
     for v, lab, gj in cur.fetchall():
         if not gj:
             continue
+        # numeric columns come back as Decimal; sequential colouring tests
+        # isinstance(v, (int, float)), which Decimal fails -> coerce so the
+        # value reads as numeric (else every feature falls to the white "no data"
+        # branch and the layer renders blank).
+        if isinstance(v, Decimal):
+            v = float(v)
         feats.append({"type": "Feature",
                       "geometry": json.loads(gj),
                       "properties": {"value": v, "label": lab}})
@@ -593,6 +766,7 @@ def render(cur, spec):
     line_weight = spec.get("line_weight", 2.6)   # line layers; per-layer override
     outline = spec.get("outline", "#ffffff")     # polygon stroke; default white
     outline_weight = spec.get("outline_weight", 1.0)   # polygon stroke width; ADM bumped +50%
+    outline_match = spec.get("outline_match_fill", False)  # stroke = fill colour (coverage layers merge)
     kind = kind_of(spec.get("gtype"))
     # A "view" (fixed centre + zoom) covers the frame: fetch exactly the visible
     # bbox and pin the map there (no fit_bounds). Otherwise fetch the window/bbox.
@@ -603,7 +777,7 @@ def render(cur, spec):
         bbox = spec.get("bbox")
     feats, total, sampled = fetch_features(
         cur, table, colour_by, label, win, kind, bbox, spec.get("where"),
-        spec.get("est_rows", 0))
+        spec.get("est_rows", 0), spec.get("cap"), spec.get("dissolve"))
     if not feats:
         log.warning("  %s — no features in %s window, skipped", table, win)
         return False
@@ -709,6 +883,8 @@ def render(cur, spec):
             return {"fillColor": GREY, "color": GREY, "weight": 0.6,
                     "fillOpacity": 0.18}
         fo = 0.9 if null_seq else fill_op   # white void reads solid
+        if outline_match:                   # border = fill colour: coverage layers merge solid
+            return {"fillColor": c, "color": c, "weight": 0.6, "fillOpacity": fo}
         return {"fillColor": c, "color": outline, "weight": outline_weight, "fillOpacity": fo}
 
     def highlight(_feature):  # hover emphasis — outline stays white, thicker
@@ -971,6 +1147,19 @@ def build_specs(cur):
                 if key in lyr["table"]:
                     spec.update(ov)
                     break
+        # ENV plan: per-layer colour-by (water/woodland/flood/agri/green space/
+        # habitats); designation polygons not matched here get the uniform green
+        # designation style.
+        if lyr["theme"] == "ENV":
+            matched = False
+            for key, ov in ENV_PLAN.items():
+                if key in lyr["table"]:
+                    spec.update(ov)
+                    matched = True
+                    break
+            if (not matched and kind == "polygon"
+                    and any(d in lyr["table"] for d in ENV_DESIGNATIONS)):
+                spec.update(ENV_DESIGNATION_STYLE)
         # ECN plan: overrides for the headline layers; employment layers get
         # total employment = sum of their SIC industry count columns.
         if lyr["theme"] == "ECN":

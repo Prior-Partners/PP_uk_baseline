@@ -730,11 +730,14 @@ def new_driver(size=FRAME):
 
 
 def snapshot(driver, table, delay=4.0):
-    """Save a static PNG of the rendered map (basemap tiles need a moment)."""
+    """Save a static PNG of the rendered map (basemap tiles need a moment), then
+    drop the intermediate HTML — the catalogue ships only the PNG."""
     import time
-    driver.get((OUT / f"{table}.html").resolve().as_uri())
+    html = OUT / f"{table}.html"
+    driver.get(html.resolve().as_uri())
     time.sleep(delay)
     driver.save_screenshot(str(OUT / f"{table}.png"))
+    html.unlink(missing_ok=True)
 
 
 def style_entry(spec, comp):

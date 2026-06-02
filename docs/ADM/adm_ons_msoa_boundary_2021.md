@@ -2,9 +2,9 @@
 
 `adm_ons_msoa_boundary_2021`
 
-<iframe src="../../maps/adm_ons_msoa_boundary_2021.html" title="Interactive preview map of adm_ons_msoa_boundary_2021" loading="lazy" style="width:100%;height:480px;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></iframe>
+<img src="../../maps/adm_ons_msoa_boundary_2021.png" alt="Styling preview of adm_ons_msoa_boundary_2021" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
 
-<a href="../../maps/adm_ons_msoa_boundary_2021.html" target="_blank" rel="noopener">Open the map in a new tab &#8599;</a>
+<a href="http://localhost:7800/?layer=uk_baseline.adm_ons_msoa_boundary_2021" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
 
 **SOURCE**
 

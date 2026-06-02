@@ -1,16 +1,19 @@
-r"""Build per-layer interactive preview maps for the uk_baseline catalogue.
+r"""Build per-layer STATIC preview snapshots + the shared styles contract.
 
 Input/output CRS: reads EPSG:27700, renders in EPSG:4326 (Leaflet). Data layer:
 catalogue map generation.
 
-Reuses the sdf_console preview-map approach (folium / Leaflet, CartoDB Positron
-basemap, brand colours, GeoJSON style_function + tooltip). For each layer it
-pulls only the geometries in a fixed window from PostGIS (Milton Keynes for
-layers with data there; the South Downs countryside window otherwise), reprojects
-and simplifies, styles by the layer's most significant column, adds a legend/key,
-and saves a standalone interactive HTML to catalogue/docs/maps/<table>.html.
+Each layer is styled with folium / Leaflet (CartoDB Positron basemap, brand
+colours, GeoJSON style_function, legend/key), framed at a per-layer readable
+extent, saved as HTML, then screenshotted to a static PNG (headless Chrome via
+selenium) at catalogue/docs/maps/<table>.png. The catalogue embeds the PNG; the
+"Open in the Dashboard" link points at the interactive, full-extent Dashboard
+(Stream 1) — this catalogue no longer hosts the interactive map itself.
 
-Two fixed windows keep snapshots repeatable across frequent data updates.
+The per-layer styling decided here is the source of truth: it is written to the
+shared styles JSON (STYLES_JSON) that the Dashboard reads, so both look identical.
+Run `python build_maps.py` for all layers, or `python build_maps.py ADM BLT` to
+(re)style named themes as they are approved.
 """
 from __future__ import annotations
 
@@ -25,6 +28,7 @@ import folium
 import psycopg
 from branca.element import Element
 from dotenv import dotenv_values
+from pyproj import Transformer
 
 logging.basicConfig(level=logging.INFO, format="%(message)s")
 log = logging.getLogger(__name__)
@@ -45,6 +49,7 @@ WINDOWS = {
 }
 WINDOW_LABEL = {"MK": "Milton Keynes", "south_downs": "South Downs",
                 "england": "England"}
+MK_CENTRE_BNG = (485000, 238000)   # Milton Keynes centre, for local "cover" views
 
 # Brand palette (matches the catalogue theme colours).
 THEME_COLOURS = {
@@ -57,30 +62,29 @@ THEME_COLOURS = {
 # HTML stays small; lines are kept whole (sampling breaks a network) but
 # simplified harder. Tolerance is in degrees (4326): coarser for the England
 # overview window, finer for the 25 km local windows.
-CAPS = {"point": 3000, "polygon": 4000, "line": 200000}
-# Full-extent (England-wide) caps. Points lift to 5000 so the national spread
-# reads as a distribution; polygons lift to 60000 so admin choropleths (~35k
-# LSOAs / ~7k MSOAs / ~360 LADs) render every unit with no sampling holes.
-CAPS_FULL = {"point": 5000, "polygon": 60000, "line": 200000}
-# Polygon layers above this row estimate stay windowed (Group C) — too dense for
-# one static HTML at national extent. Line layers always stay windowed. The
-# ceiling sits just above LSOA grain (~35k units) so every LSOA / MSOA / ward
-# choropleth renders whole (no sampling holes) while Output-Area grain (~188k)
-# and dense coverage layers (built-up areas, green space, tidal water, …) fall
-# back to a local window.
-HEAVY_POLY_ROWS = 50_000
-# At full extent, layers above this estimate are sampled server-side via
-# TABLESAMPLE: an ORDER BY random() over tens of millions of rows would
-# full-scan + sort the whole table (minutes per layer); TABLESAMPLE picks pages
-# first, then we trim to the cap.
+CAPS = {"point": 3000, "polygon": 4000, "line": 200000}   # local-window caps (legacy)
+# Full-extent (England-wide) caps. Every layer renders nationally; dense layers
+# are sampled to keep each HTML manageable. Coloured polygons (choropleths) keep
+# enough units for the pattern to read (LSOA ~35k renders whole); single-colour
+# polygons need only a national distribution sketch; lines are sampled too (a
+# preview, so the broken network is acceptable — the caption notes the sample).
+CAPS_FULL = {"point": 5000, "line": 30000,
+             "polygon_colour": 60000, "polygon_single": 15000}
+NONE_LIMIT = 1_000_000     # effective "no limit" for whole-layer renders (total <= cap)
+# Above this estimate, sample server-side via TABLESAMPLE: an ORDER BY random()
+# over tens of millions of rows would full-scan + sort the whole table (minutes
+# per layer); TABLESAMPLE picks pages first, then we trim to the cap.
 TABLESAMPLE_ROWS = 200_000
-SAMPLE_KINDS = {"point", "polygon"}      # lines are never sampled
+SAMPLE_KINDS = {"point", "polygon", "line"}   # at full extent, all kinds may sample
 # ~10 m (0.0001°) is sub-pixel in a 25 km-wide preview, so simplifying this hard
 # keeps the HTML small with no visible quality loss; the England overview is
 # coarser still.
 SIMPLIFY = {"MK": {"line": 0.00012, "other": 0.0001},
             "south_downs": {"line": 0.00012, "other": 0.0001},
-            "england": {"line": 0.0008, "other": 0.001}}   # ~110 m: sub-pixel at national zoom
+            # national tolerances (~110-165 m, sub-pixel at country zoom): coloured
+            # polygons keep more fidelity than single-colour extent-only fills.
+            "england": {"line": 0.001, "polygon_colour": 0.001,
+                        "polygon_single": 0.0015}}
 # GeoJSON coordinate decimal places (EPSG:4326). The default 9 (~0.1 mm) bloats
 # the HTML pointlessly; 4 (~11 m) is sub-pixel at national zoom, 6 (~0.1 m) in the
 # 25 km local windows.
@@ -147,6 +151,55 @@ def kind_of(gtype):
     return "polygon"
 
 
+def geojson_bounds(feats):
+    """(south, west, north, east) enclosing all feature coords, or None.
+
+    Lets the map fit to the actual data extent so the layer fills the frame
+    rather than floating inside the window box.
+    """
+    xs, ys = [], []
+
+    def walk(coords):
+        if not coords:
+            return
+        if isinstance(coords[0], (int, float)):
+            xs.append(coords[0]); ys.append(coords[1])
+        else:
+            for c in coords:
+                walk(c)
+
+    for f in feats:
+        walk(f["geometry"].get("coordinates"))
+    if not xs:
+        return None
+    return (min(ys), min(xs), max(ys), max(xs))
+
+
+# Output frame (must match the screenshot window size) so a fixed-zoom "view"
+# fetches exactly what the PNG shows.
+FRAME = (1000, 720)
+_BNG_WGS = Transformer.from_crs("EPSG:27700", "EPSG:4326", always_xy=True)
+_BNG_3857 = Transformer.from_crs("EPSG:27700", "EPSG:3857", always_xy=True)
+_3857_BNG = Transformer.from_crs("EPSG:3857", "EPSG:27700", always_xy=True)
+
+
+def viewport_bng(center_bng, zoom, frame=FRAME):
+    """BNG bbox + (lon, lat) centre for what a frame-sized Leaflet map shows at
+    ``zoom`` centred on ``center_bng``. Used to *cover* the viewport: fetch this
+    bbox and set the map to this centre/zoom (no fit_bounds), so contiguous
+    layers fill the frame edge-to-edge and overflow off-screen.
+    """
+    e, n = center_bng
+    lon, lat = _BNG_WGS.transform(e, n)
+    cx, cy = _BNG_3857.transform(e, n)
+    res = 156543.03392804097 / (2 ** zoom)        # 3857 metres per pixel
+    margin = 1.08                                 # over-fetch so edges never gap
+    hw, hh = frame[0] / 2 * res * margin, frame[1] / 2 * res * margin
+    x0, y0 = _3857_BNG.transform(cx - hw, cy - hh)
+    x1, y1 = _3857_BNG.transform(cx + hw, cy + hh)
+    return (x0, y0, x1, y1), (lon, lat)
+
+
 def fetch_features(cur, table, colour_by, label, window_key, kind,
                    bbox=None, where=None, est_rows=0):
     """Return (features, total_in_window, sampled?).
@@ -163,7 +216,17 @@ def fetch_features(cur, table, colour_by, label, window_key, kind,
     lbl = label if label else "NULL"
     extra = f" AND ({where})" if where else ""   # per-layer row filter
     full = window_key == "england"
-    cap = (CAPS_FULL if full else CAPS)[kind]
+    coloured = bool(colour_by)
+    if full:
+        if kind == "polygon":
+            cap = CAPS_FULL["polygon_colour" if coloured else "polygon_single"]
+            tol = SIMPLIFY["england"]["polygon_colour" if coloured else "polygon_single"]
+        else:
+            cap = CAPS_FULL[kind]
+            tol = SIMPLIFY["england"]["line" if kind == "line" else "polygon_single"]
+    else:
+        cap = CAPS[kind]
+        tol = SIMPLIFY[window_key]["line" if kind == "line" else "other"]
     # Full-extent counts span the whole dataset; an exact count(*) over tens of
     # millions of rows is a needless scan — use the planner's row estimate.
     if full and est_rows:
@@ -172,19 +235,19 @@ def fetch_features(cur, table, colour_by, label, window_key, kind,
         cur.execute(f"SELECT count(*) FROM {SCHEMA}.{table} "
                     f"WHERE geom && {env} AND ST_Intersects(geom, {env}){extra}")
         total = cur.fetchone()[0]
-    # Server-side sampling for dense full-extent layers (page-level, fast); else
-    # ORDER BY random() over the (already small) windowed set.
-    tablesample = full and kind in SAMPLE_KINDS and total > TABLESAMPLE_ROWS
+    sample_kinds = SAMPLE_KINDS if full else {"point", "polygon"}
+    # Server-side sampling for dense layers (page-level, fast); else ORDER BY
+    # random() over the (already small) set.
+    tablesample = full and kind in sample_kinds and total > TABLESAMPLE_ROWS
     if tablesample:
         pct = min(100.0, 100.0 * cap * 5.0 / max(total, 1))  # over-sample ~5x, then trim
         src = f"{SCHEMA}.{table} TABLESAMPLE SYSTEM ({pct:.4f})"
         sampled = True
     else:
         src = f"{SCHEMA}.{table}"
-        sampled = kind in SAMPLE_KINDS and total > cap
+        sampled = kind in sample_kinds and total > cap
     order = "ORDER BY random() " if sampled else ""
-    limit = cap if sampled else CAPS["line"]
-    tol = SIMPLIFY[window_key]["line" if kind == "line" else "other"]
+    limit = cap if sampled else NONE_LIMIT
     prec = PRECISION.get(window_key, 6)
     cur.execute(
         f"""SELECT {val} AS v, {lbl} AS lbl,
@@ -263,8 +326,15 @@ def render(cur, spec):
     fill_op = spec.get("fill_opacity", 0.6)
     line_weight = spec.get("line_weight", 2.6)   # line layers; per-layer override
     outline = spec.get("outline", "#ffffff")     # polygon stroke; default white
-    bbox = spec.get("bbox")
+    outline_weight = spec.get("outline_weight", 1.0)   # polygon stroke width; ADM bumped +50%
     kind = kind_of(spec.get("gtype"))
+    # A "view" (fixed centre + zoom) covers the frame: fetch exactly the visible
+    # bbox and pin the map there (no fit_bounds). Otherwise fetch the window/bbox.
+    view = spec.get("view")
+    if view:
+        bbox, (view_lon, view_lat) = viewport_bng(view["center_bng"], view["zoom"])
+    else:
+        bbox = spec.get("bbox")
     feats, total, sampled = fetch_features(
         cur, table, colour_by, label, win, kind, bbox, spec.get("where"),
         spec.get("est_rows", 0))
@@ -272,11 +342,18 @@ def render(cur, spec):
         log.warning("  %s — no features in %s window, skipped", table, win)
         return False
     base = THEME_COLOURS.get(theme, "#444")
-    south, west, north, east = window_bounds_4326(cur, win, bbox)
-
-    fmap = folium.Map(location=[(south + north) / 2, (west + east) / 2],
-                      tiles=None, control_scale=True, zoom_start=12,
-                      prefer_canvas=True)  # canvas render: smooth pan/zoom for 10k+ features
+    if view:
+        fmap = folium.Map(location=[view_lat, view_lon], tiles=None,
+                          control_scale=True, zoom_start=view["zoom"],
+                          zoom_control=False, prefer_canvas=True)
+    else:
+        # Fit to the data extent so the layer fills the frame; fall back to the
+        # window box only if bounds can't be derived.
+        south, west, north, east = (geojson_bounds(feats)
+                                    or window_bounds_4326(cur, win, bbox))
+        fmap = folium.Map(location=[(south + north) / 2, (west + east) / 2],
+                          tiles=None, control_scale=True, zoom_start=12,
+                          prefer_canvas=True)  # canvas render: smooth pan/zoom
     folium.TileLayer(tiles=CARTO["tiles"], attr=CARTO["attr"], control=False).add_to(fmap)
     # Remove the browser's default focus outline (the "black square" drawn
     # around an SVG feature when clicked).
@@ -287,6 +364,7 @@ def render(cur, spec):
     # --- colour assignment + legend ---
     colormap = None
     cat_map = {}
+    vmin = vmax = None
     if ctype == "categorical":
         cats = sorted({f["properties"]["value"] for f in feats
                        if f["properties"]["value"] not in (None, "")})
@@ -334,7 +412,7 @@ def render(cur, spec):
             return {"fillColor": c, "color": c, "fillOpacity": 0.5,
                     "weight": 0.6, "opacity": 0.6}
         fo = 0.9 if null_seq else fill_op   # white void reads solid
-        return {"fillColor": c, "color": outline, "weight": 1.0, "fillOpacity": fo}
+        return {"fillColor": c, "color": outline, "weight": outline_weight, "fillOpacity": fo}
 
     def highlight(_feature):  # hover emphasis — outline stays white, thicker
         if kind == "line":
@@ -356,7 +434,8 @@ def render(cur, spec):
     folium.GeoJson({"type": "FeatureCollection", "features": feats},
                    name=table, **gj_kwargs).add_to(fmap)
 
-    fmap.fit_bounds([[south, west], [north, east]])
+    if not view:                       # view maps are pinned to centre+zoom
+        fmap.fit_bounds([[south, west], [north, east]], padding=(6, 6))
     # caption (top-left) — layer name only (no location); note any dense-layer sample
     note = (f' · sample of {len(feats):,} of {total:,}' if sampled
             else '')
@@ -370,7 +449,10 @@ def render(cur, spec):
     fmap.save(str(OUT / f"{table}.html"))
     log.info("  %-52s %-11s %-11s %6d feats%s", table, win, ctype, len(feats),
              f"  (sampled of {total:,})" if sampled else "")
-    return True
+    # Return the computed style so the styles JSON carries the EXACT colours /
+    # domain the preview used (so the Dashboard matches the Beta).
+    return {"cat_map": cat_map, "vmin": vmin, "vmax": vmax, "base": base,
+            "n": len(feats), "total": total, "sampled": sampled}
 
 
 # --- pilot manifest (16 layers; expand to all later) ----------------------
@@ -570,38 +652,130 @@ def build_specs(cur):
         spec["gtype"] = lyr["gtype"]
         spec["est_rows"] = lyr.get("est_rows", 0)
         kind = kind_of(lyr["gtype"])
-        heavy = kind == "line" or (kind == "polygon"
-                                   and spec["est_rows"] > HEAVY_POLY_ROWS)
-        # Render at full England extent when it earns its file size:
-        #   * points — cheap (~1 MB sampled) and the national spread is the point;
-        #   * non-heavy polygons that are actually coloured (a real choropleth).
-        # A single-colour polygon at national extent is a uniform fill — no
-        # information and ~16 MB for LSOA grain — so those stay windowed; they
-        # promote to full extent automatically once a colour-by is assigned.
-        full = kind == "point" or (kind == "polygon" and not heavy
-                                   and spec.get("colour_by"))
-        if full:
-            spec["window"] = "england"
-            spec.pop("bbox", None)
-        elif spec.get("window"):
-            pass                       # respect a curated window / bbox
-        else:
-            spec["window"] = pick_window(cur, lyr["table"], spec.get("bbox"))
+        # Default extent: full England, tuned per layer/theme as the styling is
+        # approved (the previews are static snapshots, so the frame is chosen for
+        # readability — not an interactive viewport).
+        spec["window"] = "england"
+        spec.pop("bbox", None)
+        # ADM boundary polygons: transparent fill + theme-colour outline. LAD /
+        # ward / LSOA boundaries at 1.95 (+50%); MSOA lighter (-50% => 0.98) as
+        # its denser mesh reads better thin. Fine/dense grains (LSOA, Output Area,
+        # ward) and postcode points use a local extent; nationally they collapse
+        # to a solid block.
+        if lyr["theme"] == "ADM":
+            if kind == "polygon":
+                spec["fill_opacity"] = 0.0
+                spec["outline"] = THEME_COLOURS.get("ADM", "#e9511d")
+                spec["outline_weight"] = (0.49 if "msoa_boundary" in lyr["table"]
+                                          else 1.95)
+            # Local grains: cover the frame at a fixed MK centre + zoom (fetch
+            # exactly the visible bbox, no fit_bounds), so the mesh fills the view
+            # and runs off the edges instead of floating in the middle.
+            for grain, zoom in (("ward_boundary", 11), ("lsoa_boundary", 12),
+                                ("oa_boundaries", 13), ("postcode_centroid", 12)):
+                if grain in lyr["table"]:
+                    spec["window"] = "MK"
+                    spec["view"] = {"center_bng": MK_CENTRE_BNG, "zoom": zoom}
+                    break
         specs.append(spec)
     return specs
 
 
+# --- static snapshot + shared styles contract -----------------------------
+# Shared per-layer style file: this script WRITES it, the Dashboard READS it.
+# Neutral location (sibling of the tileserver folder), overridable for testing.
+STYLES_JSON = Path(os.environ.get(
+    "UK_BASELINE_STYLES",
+    r"P:\0_Practice\10_Data management resources\XX_Working\uk_baseline_styles.json"))
+
+
+def new_driver(size=FRAME):
+    """Headless Chrome for screenshotting the folium HTML to PNG."""
+    from selenium import webdriver
+    from selenium.webdriver.chrome.options import Options
+    opts = Options()
+    for a in ("--headless=new", f"--window-size={size[0]},{size[1]}",
+              "--hide-scrollbars", "--force-device-scale-factor=1", "--no-sandbox"):
+        opts.add_argument(a)
+    return webdriver.Chrome(options=opts)
+
+
+def snapshot(driver, table, delay=4.0):
+    """Save a static PNG of the rendered map (basemap tiles need a moment)."""
+    import time
+    driver.get((OUT / f"{table}.html").resolve().as_uri())
+    time.sleep(delay)
+    driver.save_screenshot(str(OUT / f"{table}.png"))
+
+
+def style_entry(spec, comp):
+    """Build the shared-contract style dict for one layer from its rendered style."""
+    kind = kind_of(spec.get("gtype"))
+    e = {"colour_by": spec.get("colour_by"), "ctype": spec["ctype"],
+         "legend_title": prettify_acronyms(spec["legend_title"])}
+    if spec["ctype"] == "categorical":
+        # exact value->colour map the preview used (incl. the grey 'Other')
+        e["categories"] = [{"value": str(v), "colour": c}
+                           for v, c in comp["cat_map"].items()]
+    elif spec["ctype"] == "sequential":
+        e["ramp"] = [_tint(comp["base"]), comp["base"]]
+        e["domain"] = [comp["vmin"], comp["vmax"]]
+    else:                                       # single
+        e["colour"] = spec.get("outline") if spec.get("fill_opacity") == 0.0 \
+            else comp["base"]
+    if kind == "polygon":
+        e["fill_opacity"] = spec.get("fill_opacity", 0.6)
+        e["line_weight"] = spec.get("outline_weight", 1.0)
+    elif kind == "line":
+        e["line_weight"] = spec.get("line_weight", 2.6)
+    else:                                       # point
+        e["point_radius"] = 4
+    e["extent"] = spec.get("extent")            # 4326 [w,s,e,n]; None = full layer
+    return e
+
+
+def write_styles(entries):
+    """Merge style entries into the shared JSON, preserving its other content."""
+    if STYLES_JSON.exists():
+        data = json.loads(STYLES_JSON.read_text(encoding="utf-8"))
+    else:
+        data = {"version": 1, "layers": {}}
+    data.setdefault("layers", {}).update(entries)
+    STYLES_JSON.write_text(json.dumps(data, indent=2, ensure_ascii=False),
+                           encoding="utf-8")
+
+
 def main() -> None:
+    import sys
+    only = {t.upper() for t in sys.argv[1:]} or None     # e.g. `build_maps.py ADM BLT`
     with psycopg.connect(conninfo()) as conn, conn.cursor() as cur:
         specs = build_specs(cur)
-        log.info("Rendering %d layer maps to %s", len(specs), OUT)
-        ok = 0
+        if only:
+            specs = [s for s in specs if s["theme"] in only]
+        log.info("Rendering %d layer maps to %s%s", len(specs), OUT,
+                 f" (themes: {', '.join(sorted(only))})" if only else "")
+        try:
+            driver = new_driver()
+        except Exception as exc:                 # render HTML even if no browser
+            driver = None
+            log.warning("No Chrome driver (%s) — HTML only, no PNG snapshots", exc)
+        ok, entries = 0, {}
         for spec in specs:
             try:
-                ok += render(cur, spec)
-            except Exception as exc:  # keep going; report the failure
+                comp = render(cur, spec)
+                if comp:
+                    ok += 1
+                    if driver:
+                        snapshot(driver, spec["table"])
+                    entries[spec["table"]] = style_entry(spec, comp)
+            except Exception as exc:             # keep going; report the failure
                 log.warning("  %s — FAILED: %s", spec["table"], exc)
-        log.info("Done: %d/%d rendered.", ok, len(specs))
+        if driver:
+            driver.quit()
+    if entries:
+        write_styles(entries)
+        log.info("Wrote %d style entries to %s", len(entries), STYLES_JSON)
+    log.info("Done: %d/%d rendered.", ok, len(specs))
 
 
 if __name__ == "__main__":

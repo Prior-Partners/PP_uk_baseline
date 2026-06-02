@@ -2,9 +2,7 @@
 
 `hth_ohid_msoa_childhood_obesity_2024`
 
-<iframe src="../../maps/hth_ohid_msoa_childhood_obesity_2024.html" title="Interactive preview map of hth_ohid_msoa_childhood_obesity_2024" loading="lazy" style="width:100%;height:480px;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></iframe>
-
-<a href="../../maps/hth_ohid_msoa_childhood_obesity_2024.html" target="_blank" rel="noopener">Open the map in a new tab &#8599;</a>
+<a href="http://localhost:7800/?layer=uk_baseline.hth_ohid_msoa_childhood_obesity_2024" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
 
 From the National Child Measurement Programme via the Fingertips platform.
 

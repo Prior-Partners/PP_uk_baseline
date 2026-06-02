@@ -56,15 +56,24 @@ OUT = ROOT / "catalogue"                             # MkDocs site source (local
 DOCS = OUT / "docs"
 # Colleague-facing single-file deliverables live on the practice share.
 SHARE = Path(r"P:\0_Practice\10_Data management resources\04_Spreadsheets")
-# Interactive preview maps (built by build_maps.py) live under docs/maps/ and
-# deploy with the MkDocs site. The standalone HTML links to the published copies.
+# Static preview snapshots (built by build_maps.py) live under docs/maps/ as
+# <table>.png and deploy with the MkDocs site. Interactive / full-extent viewing
+# is now the Dashboard's job (Stream 1); each layer links out to it.
 MAPS_DIR = DOCS / "maps"
 MAP_SITE_BASE = "https://prior-partners.github.io/PP_uk_baseline/maps/"
+# The Dashboard runs per-user locally (BYO-local model); the base URL is the same
+# localhost for every colleague. Deep-link keys on the bare uk_baseline table name.
+DASHBOARD_BASE = "http://localhost:7800/"
+
+
+def dashboard_link(table: str) -> str:
+    """Deep-link that opens this layer in the colleague's local Dashboard."""
+    return f"{DASHBOARD_BASE}?layer=uk_baseline.{table}"
 
 
 def has_map(table: str) -> bool:
-    """True if an interactive preview map has been built for this layer."""
-    return (MAPS_DIR / f"{table}.html").exists()
+    """True if a static preview snapshot (PNG) has been built for this layer."""
+    return (MAPS_DIR / f"{table}.png").exists()
 
 # Theme prefix -> full label. From the firm's 12-theme taxonomy (P+P brand /
 # data-management standard), so colleagues unfamiliar with the codes can read
@@ -467,11 +476,10 @@ def render_html(records: list[dict[str, Any]], built: str, path: Path) -> None:
                 f"<td>{html.escape(c['comment'] or '')}</td></tr>"
                 for c in r["columns"]
             )
-            map_link = ""
-            if has_map(r["table"]):
-                map_link = (
-                    f'<p class="maplink"><a href="{MAP_SITE_BASE}{r["table"]}.html" '
-                    f'target="_blank" rel="noopener">&#128506; Open interactive map</a></p>')
+            # The Dashboard serves every layer, so always offer the deep-link.
+            map_link = (
+                f'<p class="maplink"><a href="{dashboard_link(r["table"])}" '
+                f'target="_blank" rel="noopener">&#128506; Open in the Dashboard</a></p>')
             cards.append(f"""
         <details class="layer" data-theme="{t}" data-search="{html.escape((r['table'] + ' ' + r['description']).lower())}" style="border-left:4px solid {colour}">
           <summary><span class="badge" style="background:{colour};color:{fg}">{t}</span>
@@ -681,18 +689,22 @@ from the database's own documentation on **{built}**.
             fs = first_sentence(r["description"])
             rest = r["description"][len(fs):].strip()
             rest_block = f"{rest}\n\n" if rest else ""
-            map_block = ""
+            # Static styling snapshot (PNG) shows only where built — themes are
+            # converted one at a time. The Dashboard deep-link is offered for
+            # every layer (it serves them all). With use_directory_urls the layer
+            # page is at /<THEME>/<table>/, so the image (site /maps/) is two
+            # levels up; mkdocs does not rewrite raw-HTML attributes.
+            img = ""
             if has_map(r["table"]):
-                # With use_directory_urls the layer page is served at
-                # /<THEME>/<table>/, so the map (site /maps/) is two levels up.
-                # mkdocs does not rewrite raw-HTML attributes, so spell it out.
-                map_block = (
-                    f'<iframe src="../../maps/{r["table"]}.html" '
-                    f'title="Interactive preview map of {r["table"]}" loading="lazy" '
-                    f'style="width:100%;height:480px;border:1px solid #d9d3c4;'
-                    f'border-radius:8px;margin:6px 0 4px;"></iframe>\n\n'
-                    f'<a href="../../maps/{r["table"]}.html" target="_blank" '
-                    f'rel="noopener">Open the map in a new tab &#8599;</a>\n\n')
+                img = (f'<img src="../../maps/{r["table"]}.png" '
+                       f'alt="Styling preview of {r["table"]}" loading="lazy" '
+                       f'style="width:100%;border:1px solid #d9d3c4;'
+                       f'border-radius:8px;margin:6px 0 4px;">\n\n')
+            map_block = (
+                f'{img}<a href="{dashboard_link(r["table"])}" target="_blank" '
+                f'rel="noopener">Open in the Dashboard &#8599;</a> '
+                f'<span style="opacity:.6;font-size:.85em;">'
+                f'(start your local Dashboard first)</span>\n\n')
             (tdir / f"{r['table']}.md").write_text(
                 f"""# {_title(r)}
 

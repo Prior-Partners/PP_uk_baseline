@@ -2,6 +2,8 @@
 
 `blt_geods_poi_sep2024`
 
+<img src="../../maps/blt_geods_poi_sep2024.png" alt="Styling preview of blt_geods_poi_sep2024" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+
 <a href="http://localhost:7800/?layer=uk_baseline.blt_geods_poi_sep2024" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
 
 **SOURCE**

@@ -58,7 +58,7 @@ LOCAL_VIEWS = {
     "lsoa_boundary": (MK_CENTRE_BNG, 12), "oa_boundaries": (MK_CENTRE_BNG, 13),
     "ward_boundary": (MK_CENTRE_BNG, 11), "postcode_centroid": (MK_CENTRE_BNG, 12),
     "geods_poi": (MK_CENTRE_BNG, 13), "named_places": (MK_CENTRE_BNG, 13),
-    "functional_sites": (MK_CENTRE_BNG, 12),
+    "functional_sites": (BHAM_CENTRE_BNG, 12),      # Birmingham — cleaner than MK
     "important_buildings": (BHAM_CENTRE_BNG, 13),   # Birmingham — far denser
     "geods_retail_centre": (BHAM_CENTRE_BNG, 12),
     "built_up_areas": (BHAM_CENTRE_BNG, 11),
@@ -354,7 +354,7 @@ def render(cur, spec):
     if not feats:
         log.warning("  %s — no features in %s window, skipped", table, win)
         return False
-    base = THEME_COLOURS.get(theme, "#444")
+    base = spec.get("colour", THEME_COLOURS.get(theme, "#444"))  # per-layer shade override
     if view:
         fmap = folium.Map(location=[view_lat, view_lon], tiles=None,
                           control_scale=True, zoom_start=view["zoom"],
@@ -513,7 +513,8 @@ PILOT = [
      # named 'No data available for publication by HE')
      "where": "name <> 'No data available for publication by HE'"},
     {"table": "blt_ons_built_up_areas_dec2024", "theme": "BLT", "window": "MK",
-     "colour_by": None, "ctype": "single", "legend_title": "Built up area"},
+     "colour_by": None, "ctype": "single", "legend_title": "Built up area",
+     "colour": "#c887b3"},   # lighter BLT-magenta tint (per owner)
     {"table": "blt_geods_poi_sep2024", "theme": "BLT", "window": "MK",
      # 1,836 raw GeoDS categories reduced to 12 broad classes (approved 2026-06-02)
      "colour_by": (
@@ -534,8 +535,7 @@ PILOT = [
      "ctype": "categorical", "legend_title": "POI category"},
     {"table": "blt_geods_retail_centre_2022", "theme": "BLT", "window": "MK",
      "colour_by": None, "ctype": "single", "legend_title": "Retail centre",
-     # zoomed out to show more centres (±40 km around MK)
-     "bbox": (445000, 198000, 525000, 278000)},
+     "colour": "#e1241c"},   # brand red (per owner image), not the BLT magenta
     {"table": "blt_os_functional_sites_oct2024", "theme": "BLT", "window": "MK",
      # 30 (mostly compound) classifications reduced to 3 (approved 2026-06-02)
      # Transport is now explicit; anything unmatched falls to a grey 'Other'

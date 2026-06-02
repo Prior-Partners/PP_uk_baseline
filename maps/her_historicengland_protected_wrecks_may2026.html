@@ -18,7 +18,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_f1886b6fc163868191105599489877ee {
+                #map_5f72a52fe701de9b941a2cd4823e0668 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -71,16 +71,16 @@
 <body>
     
     <div style="position:fixed;bottom:22px;right:12px;z-index:9999;background:#f1eedf;color:#2b242c;padding:8px 11px;border:1px solid #d9d3c4;border-radius:6px;font:12px/1.3 -apple-system,Segoe UI,sans-serif;max-width:240px;box-shadow:0 1px 4px #0003;"><div style="font-weight:700;margin-bottom:4px;">Historicengland protected wrecks</div><div style="display:flex;align-items:center;gap:6px;margin:2px 0;"><span style="width:14px;height:14px;background:#2b242c;border:1px solid #00000022;display:inline-block;border-radius:2px;"></span><span>Historicengland protected wrecks</span></div></div>
-    <div style="position:fixed;top:10px;left:10px;z-index:9999;background:#2b242c;color:#fff;padding:4px 9px;border-radius:5px;font:12px -apple-system,Segoe UI,sans-serif;">her_historicengland_protected_wrecks_may2026<span style="opacity:.7;"> · England</span></div>
+    <div style="position:fixed;top:10px;left:10px;z-index:9999;background:#2b242c;color:#fff;padding:4px 9px;border-radius:5px;font:12px -apple-system,Segoe UI,sans-serif;">her_historicengland_protected_wrecks_may2026<span style="opacity:.7;"></span></div>
     
-            <div class="folium-map" id="map_f1886b6fc163868191105599489877ee" ></div>
+            <div class="folium-map" id="map_5f72a52fe701de9b941a2cd4823e0668" ></div>
         
 </body>
 <script>
     
     
-            var map_f1886b6fc163868191105599489877ee = L.map(
-                "map_f1886b6fc163868191105599489877ee",
+            var map_5f72a52fe701de9b941a2cd4823e0668 = L.map(
+                "map_5f72a52fe701de9b941a2cd4823e0668",
                 {
                     center: [52.95989968246449, -1.2092821511085252],
                     crs: L.CRS.EPSG3857,
@@ -92,13 +92,13 @@
 
                 }
             );
-            L.control.scale().addTo(map_f1886b6fc163868191105599489877ee);
+            L.control.scale().addTo(map_5f72a52fe701de9b941a2cd4823e0668);
 
             
 
         
     
-            var tile_layer_a51448f3d701b7aceb57f8800e14cf3f = L.tileLayer(
+            var tile_layer_28407385f5bf529ae703f324291c7657 = L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
                 {
   "minZoom": 0,
@@ -115,55 +115,55 @@
             );
         
     
-            tile_layer_a51448f3d701b7aceb57f8800e14cf3f.addTo(map_f1886b6fc163868191105599489877ee);
+            tile_layer_28407385f5bf529ae703f324291c7657.addTo(map_5f72a52fe701de9b941a2cd4823e0668);
         
     
-        function geo_json_e1cd5a216c5f37d227e69852b9ce8fd8_styler(feature) {
+        function geo_json_a2fb129e8439e0361ff298c7a35ce904_styler(feature) {
             switch(feature.properties.label) {
                 default:
                     return {"color": "#ffffff", "fillColor": "#2b242c", "fillOpacity": 0.6, "weight": 1.0};
             }
         }
-        function geo_json_e1cd5a216c5f37d227e69852b9ce8fd8_highlighter(feature) {
+        function geo_json_a2fb129e8439e0361ff298c7a35ce904_highlighter(feature) {
             switch(feature.properties.label) {
                 default:
                     return {"color": "#ffffff", "fillOpacity": 0.85, "weight": 3.0};
             }
         }
 
-        function geo_json_e1cd5a216c5f37d227e69852b9ce8fd8_onEachFeature(feature, layer) {
+        function geo_json_a2fb129e8439e0361ff298c7a35ce904_onEachFeature(feature, layer) {
 
             layer.on({
                 mouseout: function(e) {
                     if(typeof e.target.setStyle === "function"){
-                            geo_json_e1cd5a216c5f37d227e69852b9ce8fd8.resetStyle(e.target);
+                            geo_json_a2fb129e8439e0361ff298c7a35ce904.resetStyle(e.target);
                     }
                 },
                 mouseover: function(e) {
                     if(typeof e.target.setStyle === "function"){
-                        const highlightStyle = geo_json_e1cd5a216c5f37d227e69852b9ce8fd8_highlighter(e.target.feature)
+                        const highlightStyle = geo_json_a2fb129e8439e0361ff298c7a35ce904_highlighter(e.target.feature)
                         e.target.setStyle(highlightStyle);
                     }
                 },
             });
         };
-        var geo_json_e1cd5a216c5f37d227e69852b9ce8fd8 = L.geoJson(null, {
-                onEachFeature: geo_json_e1cd5a216c5f37d227e69852b9ce8fd8_onEachFeature,
+        var geo_json_a2fb129e8439e0361ff298c7a35ce904 = L.geoJson(null, {
+                onEachFeature: geo_json_a2fb129e8439e0361ff298c7a35ce904_onEachFeature,
             
-                style: geo_json_e1cd5a216c5f37d227e69852b9ce8fd8_styler,
+                style: geo_json_a2fb129e8439e0361ff298c7a35ce904_styler,
             ...{
 }
         });
 
-        function geo_json_e1cd5a216c5f37d227e69852b9ce8fd8_add (data) {
-            geo_json_e1cd5a216c5f37d227e69852b9ce8fd8
+        function geo_json_a2fb129e8439e0361ff298c7a35ce904_add (data) {
+            geo_json_a2fb129e8439e0361ff298c7a35ce904
                 .addData(data);
         }
-            geo_json_e1cd5a216c5f37d227e69852b9ce8fd8_add({"features": [{"geometry": {"coordinates": [[[1.342806358, 51.127329127], [1.342771605, 51.127160809], [1.342794938, 51.127457072], [1.342806358, 51.127329127]]], "type": "Polygon"}, "properties": {"label": "Langdon Bay", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [[[[-1.591500188, 50.662272291], [-1.590658618, 50.662411747], [-1.590713289, 50.662345175], [-1.591500188, 50.662272291]]], [[[-1.589195854, 50.662758993], [-1.589601932, 50.662574803], [-1.58978522, 50.662667231], [-1.589195854, 50.662758993]]]], "type": "MultiPolygon"}, "properties": {"label": "THE NEEDLES SITE", "value": null}, "type": "Feature"}], "type": "FeatureCollection"});
+            geo_json_a2fb129e8439e0361ff298c7a35ce904_add({"features": [{"geometry": {"coordinates": [[[1.342806358, 51.127329127], [1.342771605, 51.127160809], [1.342794938, 51.127457072], [1.342806358, 51.127329127]]], "type": "Polygon"}, "properties": {"label": "Langdon Bay", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [[[[-1.591500188, 50.662272291], [-1.590658618, 50.662411747], [-1.590713289, 50.662345175], [-1.591500188, 50.662272291]]], [[[-1.589195854, 50.662758993], [-1.589601932, 50.662574803], [-1.58978522, 50.662667231], [-1.589195854, 50.662758993]]]], "type": "MultiPolygon"}, "properties": {"label": "THE NEEDLES SITE", "value": null}, "type": "Feature"}], "type": "FeatureCollection"});
 
         
     
-    geo_json_e1cd5a216c5f37d227e69852b9ce8fd8.bindTooltip(
+    geo_json_a2fb129e8439e0361ff298c7a35ce904.bindTooltip(
     function(layer){
     let div = L.DomUtil.create('div');
     
@@ -198,10 +198,10 @@
 });
                      
     
-            geo_json_e1cd5a216c5f37d227e69852b9ce8fd8.addTo(map_f1886b6fc163868191105599489877ee);
+            geo_json_a2fb129e8439e0361ff298c7a35ce904.addTo(map_5f72a52fe701de9b941a2cd4823e0668);
         
     
-            map_f1886b6fc163868191105599489877ee.fitBounds(
+            map_5f72a52fe701de9b941a2cd4823e0668.fitBounds(
                 [[50.29262715245509, -4.542806628547909], [55.62717221247389, 2.124242326330859]],
                 {}
             );

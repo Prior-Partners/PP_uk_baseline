@@ -18,7 +18,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_6a5f97087a4e3234855c4f798461cf57 {
+                #map_e011a686d12543548c35974b6a09cea7 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -70,17 +70,17 @@
 </head>
 <body>
     
-    <div style="position:fixed;bottom:22px;right:12px;z-index:9999;background:#f1eedf;color:#2b242c;padding:8px 11px;border:1px solid #d9d3c4;border-radius:6px;font:12px/1.3 -apple-system,Segoe UI,sans-serif;max-width:240px;box-shadow:0 1px 4px #0003;"><div style="font-weight:700;margin-bottom:4px;">Os railway stations</div><div style="display:flex;align-items:center;gap:6px;margin:2px 0;"><span style="width:14px;height:14px;background:#7a7a72;border:1px solid #00000022;display:inline-block;border-radius:2px;"></span><span>Os railway stations</span></div></div>
-    <div style="position:fixed;top:10px;left:10px;z-index:9999;background:#2b242c;color:#fff;padding:4px 9px;border-radius:5px;font:12px -apple-system,Segoe UI,sans-serif;">mob_os_railway_stations<span style="opacity:.7;"> · Milton Keynes</span></div>
+    <div style="position:fixed;bottom:22px;right:12px;z-index:9999;background:#f1eedf;color:#2b242c;padding:8px 11px;border:1px solid #d9d3c4;border-radius:6px;font:12px/1.3 -apple-system,Segoe UI,sans-serif;max-width:240px;box-shadow:0 1px 4px #0003;"><div style="font-weight:700;margin-bottom:4px;">OS railway stations</div><div style="display:flex;align-items:center;gap:6px;margin:2px 0;"><span style="width:14px;height:14px;background:#7a7a72;border:1px solid #00000022;display:inline-block;border-radius:2px;"></span><span>OS railway stations</span></div></div>
+    <div style="position:fixed;top:10px;left:10px;z-index:9999;background:#2b242c;color:#fff;padding:4px 9px;border-radius:5px;font:12px -apple-system,Segoe UI,sans-serif;">mob_os_railway_stations<span style="opacity:.7;"></span></div>
     
-            <div class="folium-map" id="map_6a5f97087a4e3234855c4f798461cf57" ></div>
+            <div class="folium-map" id="map_e011a686d12543548c35974b6a09cea7" ></div>
         
 </body>
 <script>
     
     
-            var map_6a5f97087a4e3234855c4f798461cf57 = L.map(
-                "map_6a5f97087a4e3234855c4f798461cf57",
+            var map_e011a686d12543548c35974b6a09cea7 = L.map(
+                "map_e011a686d12543548c35974b6a09cea7",
                 {
                     center: [52.03376812951703, -0.7618774161450301],
                     crs: L.CRS.EPSG3857,
@@ -92,13 +92,13 @@
 
                 }
             );
-            L.control.scale().addTo(map_6a5f97087a4e3234855c4f798461cf57);
+            L.control.scale().addTo(map_e011a686d12543548c35974b6a09cea7);
 
             
 
         
     
-            var tile_layer_9a4ef5df96443e26e1c7eae0a2756e6c = L.tileLayer(
+            var tile_layer_37a031a8e2a66515bce490b379c5a1c6 = L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
                 {
   "minZoom": 0,
@@ -115,22 +115,22 @@
             );
         
     
-            tile_layer_9a4ef5df96443e26e1c7eae0a2756e6c.addTo(map_6a5f97087a4e3234855c4f798461cf57);
+            tile_layer_37a031a8e2a66515bce490b379c5a1c6.addTo(map_e011a686d12543548c35974b6a09cea7);
         
     
-        function geo_json_c8c3594bce099097d594da2b2d20e8e2_styler(feature) {
+        function geo_json_8b2d1639fef4a3d9747d87ff6b7efdc9_styler(feature) {
             switch(feature.id) {
                 default:
                     return {"color": "#7a7a72", "fillColor": "#7a7a72", "fillOpacity": 0.5, "opacity": 0.6, "weight": 0.6};
             }
         }
-        function geo_json_c8c3594bce099097d594da2b2d20e8e2_highlighter(feature) {
+        function geo_json_8b2d1639fef4a3d9747d87ff6b7efdc9_highlighter(feature) {
             switch(feature.id) {
                 default:
                     return {"color": "#ffffff", "fillOpacity": 0.85, "weight": 3.0};
             }
         }
-        function geo_json_c8c3594bce099097d594da2b2d20e8e2_pointToLayer(feature, latlng) {
+        function geo_json_8b2d1639fef4a3d9747d87ff6b7efdc9_pointToLayer(feature, latlng) {
             var opts = {
   "stroke": true,
   "color": "#3388ff",
@@ -148,46 +148,46 @@
   "radius": 4,
 };
             
-            let style = geo_json_c8c3594bce099097d594da2b2d20e8e2_styler(feature)
+            let style = geo_json_8b2d1639fef4a3d9747d87ff6b7efdc9_styler(feature)
             Object.assign(opts, style)
             
             return new L.CircleMarker(latlng, opts)
         }
 
-        function geo_json_c8c3594bce099097d594da2b2d20e8e2_onEachFeature(feature, layer) {
+        function geo_json_8b2d1639fef4a3d9747d87ff6b7efdc9_onEachFeature(feature, layer) {
 
             layer.on({
                 mouseout: function(e) {
                     if(typeof e.target.setStyle === "function"){
-                            geo_json_c8c3594bce099097d594da2b2d20e8e2.resetStyle(e.target);
+                            geo_json_8b2d1639fef4a3d9747d87ff6b7efdc9.resetStyle(e.target);
                     }
                 },
                 mouseover: function(e) {
                     if(typeof e.target.setStyle === "function"){
-                        const highlightStyle = geo_json_c8c3594bce099097d594da2b2d20e8e2_highlighter(e.target.feature)
+                        const highlightStyle = geo_json_8b2d1639fef4a3d9747d87ff6b7efdc9_highlighter(e.target.feature)
                         e.target.setStyle(highlightStyle);
                     }
                 },
             });
         };
-        var geo_json_c8c3594bce099097d594da2b2d20e8e2 = L.geoJson(null, {
-                onEachFeature: geo_json_c8c3594bce099097d594da2b2d20e8e2_onEachFeature,
+        var geo_json_8b2d1639fef4a3d9747d87ff6b7efdc9 = L.geoJson(null, {
+                onEachFeature: geo_json_8b2d1639fef4a3d9747d87ff6b7efdc9_onEachFeature,
             
-                style: geo_json_c8c3594bce099097d594da2b2d20e8e2_styler,
-                pointToLayer: geo_json_c8c3594bce099097d594da2b2d20e8e2_pointToLayer,
+                style: geo_json_8b2d1639fef4a3d9747d87ff6b7efdc9_styler,
+                pointToLayer: geo_json_8b2d1639fef4a3d9747d87ff6b7efdc9_pointToLayer,
             ...{
 }
         });
 
-        function geo_json_c8c3594bce099097d594da2b2d20e8e2_add (data) {
-            geo_json_c8c3594bce099097d594da2b2d20e8e2
+        function geo_json_8b2d1639fef4a3d9747d87ff6b7efdc9_add (data) {
+            geo_json_8b2d1639fef4a3d9747d87ff6b7efdc9
                 .addData(data);
         }
-            geo_json_c8c3594bce099097d594da2b2d20e8e2_add({"features": [{"geometry": {"coordinates": [-0.632625629, 51.937833528], "type": "Point"}, "id": "0", "properties": {"label": "Central Bedfordshire", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.804601758, 52.065886308], "type": "Point"}, "id": "1", "properties": {"label": "Milton Keynes", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.774430498, 52.034279391], "type": "Point"}, "id": "2", "properties": {"label": "Milton Keynes", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.696171009, 52.004263672], "type": "Point"}, "id": "3", "properties": {"label": "Milton Keynes", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.718035061, 51.999985796], "type": "Point"}, "id": "4", "properties": {"label": "Milton Keynes", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.736402782, 51.995346336], "type": "Point"}, "id": "5", "properties": {"label": "Milton Keynes", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.654189459, 52.018150624], "type": "Point"}, "id": "6", "properties": {"label": "Milton Keynes", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.632257875, 52.021241654], "type": "Point"}, "id": "7", "properties": {"label": "Central Bedfordshire", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.594981599, 52.026344104], "type": "Point"}, "id": "8", "properties": {"label": "Central Bedfordshire", "value": null}, "type": "Feature"}], "type": "FeatureCollection"});
+            geo_json_8b2d1639fef4a3d9747d87ff6b7efdc9_add({"features": [{"geometry": {"coordinates": [-0.632625629, 51.937833528], "type": "Point"}, "id": "0", "properties": {"label": "Central Bedfordshire", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.804601758, 52.065886308], "type": "Point"}, "id": "1", "properties": {"label": "Milton Keynes", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.774430498, 52.034279391], "type": "Point"}, "id": "2", "properties": {"label": "Milton Keynes", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.696171009, 52.004263672], "type": "Point"}, "id": "3", "properties": {"label": "Milton Keynes", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.718035061, 51.999985796], "type": "Point"}, "id": "4", "properties": {"label": "Milton Keynes", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.736402782, 51.995346336], "type": "Point"}, "id": "5", "properties": {"label": "Milton Keynes", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.654189459, 52.018150624], "type": "Point"}, "id": "6", "properties": {"label": "Milton Keynes", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.632257875, 52.021241654], "type": "Point"}, "id": "7", "properties": {"label": "Central Bedfordshire", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [-0.594981599, 52.026344104], "type": "Point"}, "id": "8", "properties": {"label": "Central Bedfordshire", "value": null}, "type": "Feature"}], "type": "FeatureCollection"});
 
         
     
-    geo_json_c8c3594bce099097d594da2b2d20e8e2.bindTooltip(
+    geo_json_8b2d1639fef4a3d9747d87ff6b7efdc9.bindTooltip(
     function(layer){
     let div = L.DomUtil.create('div');
     
@@ -222,10 +222,10 @@
 });
                      
     
-            geo_json_c8c3594bce099097d594da2b2d20e8e2.addTo(map_6a5f97087a4e3234855c4f798461cf57);
+            geo_json_8b2d1639fef4a3d9747d87ff6b7efdc9.addTo(map_e011a686d12543548c35974b6a09cea7);
         
     
-            map_6a5f97087a4e3234855c4f798461cf57.fitBounds(
+            map_e011a686d12543548c35974b6a09cea7.fitBounds(
                 [[51.9194985934238, -0.947151892538538], [52.14803766561025, -0.5766029397515222]],
                 {}
             );

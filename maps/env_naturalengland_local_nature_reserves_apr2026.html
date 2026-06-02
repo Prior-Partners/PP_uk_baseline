@@ -18,7 +18,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_2aa2d48a78f8f0cb3ef05dcd69e66b0c {
+                #map_b62c396e8855e368cfb8c618f1506a6a {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -71,16 +71,16 @@
 <body>
     
     <div style="position:fixed;bottom:22px;right:12px;z-index:9999;background:#f1eedf;color:#2b242c;padding:8px 11px;border:1px solid #d9d3c4;border-radius:6px;font:12px/1.3 -apple-system,Segoe UI,sans-serif;max-width:240px;box-shadow:0 1px 4px #0003;"><div style="font-weight:700;margin-bottom:4px;">Naturalengland local nature reserves</div><div style="display:flex;align-items:center;gap:6px;margin:2px 0;"><span style="width:14px;height:14px;background:#219900;border:1px solid #00000022;display:inline-block;border-radius:2px;"></span><span>Naturalengland local nature reserves</span></div></div>
-    <div style="position:fixed;top:10px;left:10px;z-index:9999;background:#2b242c;color:#fff;padding:4px 9px;border-radius:5px;font:12px -apple-system,Segoe UI,sans-serif;">env_naturalengland_local_nature_reserves_apr2026<span style="opacity:.7;"> · Milton Keynes</span></div>
+    <div style="position:fixed;top:10px;left:10px;z-index:9999;background:#2b242c;color:#fff;padding:4px 9px;border-radius:5px;font:12px -apple-system,Segoe UI,sans-serif;">env_naturalengland_local_nature_reserves_apr2026<span style="opacity:.7;"></span></div>
     
-            <div class="folium-map" id="map_2aa2d48a78f8f0cb3ef05dcd69e66b0c" ></div>
+            <div class="folium-map" id="map_b62c396e8855e368cfb8c618f1506a6a" ></div>
         
 </body>
 <script>
     
     
-            var map_2aa2d48a78f8f0cb3ef05dcd69e66b0c = L.map(
-                "map_2aa2d48a78f8f0cb3ef05dcd69e66b0c",
+            var map_b62c396e8855e368cfb8c618f1506a6a = L.map(
+                "map_b62c396e8855e368cfb8c618f1506a6a",
                 {
                     center: [52.03376812951703, -0.7618774161450301],
                     crs: L.CRS.EPSG3857,
@@ -92,13 +92,13 @@
 
                 }
             );
-            L.control.scale().addTo(map_2aa2d48a78f8f0cb3ef05dcd69e66b0c);
+            L.control.scale().addTo(map_b62c396e8855e368cfb8c618f1506a6a);
 
             
 
         
     
-            var tile_layer_9d9ee160fcc9f2052eefe44b23aef61c = L.tileLayer(
+            var tile_layer_ed95d0c78f95c91ddb60261984841685 = L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
                 {
   "minZoom": 0,
@@ -115,55 +115,55 @@
             );
         
     
-            tile_layer_9d9ee160fcc9f2052eefe44b23aef61c.addTo(map_2aa2d48a78f8f0cb3ef05dcd69e66b0c);
+            tile_layer_ed95d0c78f95c91ddb60261984841685.addTo(map_b62c396e8855e368cfb8c618f1506a6a);
         
     
-        function geo_json_03b781495e0d247eafc1d4de58986c84_styler(feature) {
+        function geo_json_940ec7df3ec684c7e467dc92c69b32e6_styler(feature) {
             switch(feature.properties.label) {
                 default:
                     return {"color": "#ffffff", "fillColor": "#219900", "fillOpacity": 0.6, "weight": 1.0};
             }
         }
-        function geo_json_03b781495e0d247eafc1d4de58986c84_highlighter(feature) {
+        function geo_json_940ec7df3ec684c7e467dc92c69b32e6_highlighter(feature) {
             switch(feature.properties.label) {
                 default:
                     return {"color": "#ffffff", "fillOpacity": 0.85, "weight": 3.0};
             }
         }
 
-        function geo_json_03b781495e0d247eafc1d4de58986c84_onEachFeature(feature, layer) {
+        function geo_json_940ec7df3ec684c7e467dc92c69b32e6_onEachFeature(feature, layer) {
 
             layer.on({
                 mouseout: function(e) {
                     if(typeof e.target.setStyle === "function"){
-                            geo_json_03b781495e0d247eafc1d4de58986c84.resetStyle(e.target);
+                            geo_json_940ec7df3ec684c7e467dc92c69b32e6.resetStyle(e.target);
                     }
                 },
                 mouseover: function(e) {
                     if(typeof e.target.setStyle === "function"){
-                        const highlightStyle = geo_json_03b781495e0d247eafc1d4de58986c84_highlighter(e.target.feature)
+                        const highlightStyle = geo_json_940ec7df3ec684c7e467dc92c69b32e6_highlighter(e.target.feature)
                         e.target.setStyle(highlightStyle);
                     }
                 },
             });
         };
-        var geo_json_03b781495e0d247eafc1d4de58986c84 = L.geoJson(null, {
-                onEachFeature: geo_json_03b781495e0d247eafc1d4de58986c84_onEachFeature,
+        var geo_json_940ec7df3ec684c7e467dc92c69b32e6 = L.geoJson(null, {
+                onEachFeature: geo_json_940ec7df3ec684c7e467dc92c69b32e6_onEachFeature,
             
-                style: geo_json_03b781495e0d247eafc1d4de58986c84_styler,
+                style: geo_json_940ec7df3ec684c7e467dc92c69b32e6_styler,
             ...{
 }
         });
 
-        function geo_json_03b781495e0d247eafc1d4de58986c84_add (data) {
-            geo_json_03b781495e0d247eafc1d4de58986c84
+        function geo_json_940ec7df3ec684c7e467dc92c69b32e6_add (data) {
+            geo_json_940ec7df3ec684c7e467dc92c69b32e6
                 .addData(data);
         }
-            geo_json_03b781495e0d247eafc1d4de58986c84_add({"features": [{"geometry": {"coordinates": [[[-0.58817195, 52.063126439], [-0.585952672, 52.06259503], [-0.58195591, 52.060708105], [-0.58024138, 52.062182464], [-0.579740143, 52.063405179], [-0.578428048, 52.065033843], [-0.57717646, 52.066087857], [-0.575127915, 52.067077394], [-0.575658283, 52.067560654], [-0.578715809, 52.069226762], [-0.577569601, 52.069925109], [-0.577192409, 52.070343565], [-0.578927107, 52.071335449], [-0.582855495, 52.07026653], [-0.583711154, 52.069738212], [-0.584438811, 52.068597032], [-0.58483997, 52.068414794], [-0.586354197, 52.06687172], [-0.587322858, 52.065484336], [-0.587790735, 52.064527883], [-0.588303118, 52.063318931], [-0.58817195, 52.063126439]]], "type": "Polygon"}, "properties": {"label": "MARSTON THRIFT", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [[[-0.73369219, 51.985725258], [-0.734346239, 51.987551234], [-0.735256642, 51.988450081], [-0.736171897, 51.988917698], [-0.737819572, 51.989362057], [-0.738986415, 51.989428486], [-0.741765222, 51.989009127], [-0.740151639, 51.987840972], [-0.740282212, 51.987809111], [-0.740198286, 51.987222602], [-0.73871062, 51.981660673], [-0.732788549, 51.982296518], [-0.732825452, 51.982431025], [-0.733227466, 51.98240344], [-0.733337789, 51.982774151], [-0.732613888, 51.982810409], [-0.732803879, 51.982863689], [-0.733699416, 51.985596797], [-0.732882919, 51.985764194], [-0.73369219, 51.985725258]]], "type": "Polygon"}, "properties": {"label": "BLUE LAGOON", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [[[-0.934290076, 51.987199078], [-0.933840248, 51.987185929], [-0.933346478, 51.987738838], [-0.934310142, 51.988002923], [-0.934612873, 51.987394262], [-0.934290076, 51.987199078]]], "type": "Polygon"}, "properties": {"label": "COOMBES QUARRY", "value": null}, "type": "Feature"}], "type": "FeatureCollection"});
+            geo_json_940ec7df3ec684c7e467dc92c69b32e6_add({"features": [{"geometry": {"coordinates": [[[-0.58817195, 52.063126439], [-0.585952672, 52.06259503], [-0.58195591, 52.060708105], [-0.58024138, 52.062182464], [-0.579740143, 52.063405179], [-0.578428048, 52.065033843], [-0.57717646, 52.066087857], [-0.575127915, 52.067077394], [-0.575658283, 52.067560654], [-0.578715809, 52.069226762], [-0.577569601, 52.069925109], [-0.577192409, 52.070343565], [-0.578927107, 52.071335449], [-0.582855495, 52.07026653], [-0.583711154, 52.069738212], [-0.584438811, 52.068597032], [-0.58483997, 52.068414794], [-0.586354197, 52.06687172], [-0.587322858, 52.065484336], [-0.587790735, 52.064527883], [-0.588303118, 52.063318931], [-0.58817195, 52.063126439]]], "type": "Polygon"}, "properties": {"label": "MARSTON THRIFT", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [[[-0.73369219, 51.985725258], [-0.734346239, 51.987551234], [-0.735256642, 51.988450081], [-0.736171897, 51.988917698], [-0.737819572, 51.989362057], [-0.738986415, 51.989428486], [-0.741765222, 51.989009127], [-0.740151639, 51.987840972], [-0.740282212, 51.987809111], [-0.740198286, 51.987222602], [-0.73871062, 51.981660673], [-0.732788549, 51.982296518], [-0.732825452, 51.982431025], [-0.733227466, 51.98240344], [-0.733337789, 51.982774151], [-0.732613888, 51.982810409], [-0.732803879, 51.982863689], [-0.733699416, 51.985596797], [-0.732882919, 51.985764194], [-0.73369219, 51.985725258]]], "type": "Polygon"}, "properties": {"label": "BLUE LAGOON", "value": null}, "type": "Feature"}, {"geometry": {"coordinates": [[[-0.934290076, 51.987199078], [-0.933840248, 51.987185929], [-0.933346478, 51.987738838], [-0.934310142, 51.988002923], [-0.934612873, 51.987394262], [-0.934290076, 51.987199078]]], "type": "Polygon"}, "properties": {"label": "COOMBES QUARRY", "value": null}, "type": "Feature"}], "type": "FeatureCollection"});
 
         
     
-    geo_json_03b781495e0d247eafc1d4de58986c84.bindTooltip(
+    geo_json_940ec7df3ec684c7e467dc92c69b32e6.bindTooltip(
     function(layer){
     let div = L.DomUtil.create('div');
     
@@ -198,10 +198,10 @@
 });
                      
     
-            geo_json_03b781495e0d247eafc1d4de58986c84.addTo(map_2aa2d48a78f8f0cb3ef05dcd69e66b0c);
+            geo_json_940ec7df3ec684c7e467dc92c69b32e6.addTo(map_b62c396e8855e368cfb8c618f1506a6a);
         
     
-            map_2aa2d48a78f8f0cb3ef05dcd69e66b0c.fitBounds(
+            map_b62c396e8855e368cfb8c618f1506a6a.fitBounds(
                 [[51.9194985934238, -0.947151892538538], [52.14803766561025, -0.5766029397515222]],
                 {}
             );

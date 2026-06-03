@@ -82,6 +82,7 @@ LOCAL_VIEWS = {
     "flood_zone": (FENS_CENTRE_BNG, 10),             # all 3 flood layers — Birmingham barely floods
     "listed_building_polygons": (LONDON_CENTRE_BNG, 14),  # HER — footprints, dense in central London
     "protected_wrecks": (SOUTH_COAST_CENTRE_BNG, 7),  # HER — 9 offshore wrecks span Cornwall→Dover (need a wide frame)
+    "house_price_paid": (LONDON_CENTRE_BNG, 12),     # HOU — 31M points; intra-London price gradient (avoids national scan)
 }
 
 # Sequential colour ramps (stops listed vmin -> vmax). Estimated from the owner's
@@ -497,6 +498,47 @@ HER_PLAN = {
                              outline="#2b242c", outline_weight=2.6, fill_opacity=0.9,
                              legend_title="Protected wreck",
                              label="name", label_title="Wreck"),
+}
+
+# --- HOU plan --------------------------------------------------------------
+# Single layer: HM Land Registry price paid (31M points). Price is extremely
+# skewed (£100 -> £154M) so quantile; framed on London (intra-city price gradient,
+# and avoids a national scan of 31M rows).
+HOU_PLAN = {
+    "house_price_paid": dict(colour_by="price", ctype="sequential", ramp=RAMP_DARKRED,
+                             scale="quantile", legend_title="Price paid (£)",
+                             label="concat_ws(', ', street, town_city)", label_title="Address"),
+}
+
+# --- HTH plan --------------------------------------------------------------
+# OHID MSOA health choropleths + two NHS point layers. Per-indicator intuitive
+# ramps; skewed indicators (mortality, GP list size) use quantile.
+# Life expectancy: dark = LOW (worse), teal (high) -> navy (low), per owner's scheme.
+RAMP_LIFE_EXP = ["#2a1c6e", "#1c3fcb", "#33a8d8", "#45c4b0"]   # vmin (low/dark) -> vmax (high/teal)
+HTH_PLAN = {
+    # MSOA choropleths (national; MSOA ~7k is coarse enough to read)
+    "life_expectancy": dict(colour_by="male_life_expectancy", ctype="sequential",
+                            ramp=RAMP_LIFE_EXP, legend_title="Male life expectancy (years)"),
+    # Value is a ratio to expected (100 = national average), not a true %. Reuse the
+    # life-expectancy teal->navy scheme but reversed so dark = high = worse (consistent
+    # with life expectancy where dark = low = worse).
+    "mortality_rate": dict(colour_by="deaths_from_all_causes_all_ages_under_75_years_perc",
+                           ctype="sequential", ramp=RAMP_LIFE_EXP[::-1], scale="quantile",
+                           legend_title="Under-75 mortality ratio — >100 worse, <100 better than average"),
+    "childhood_obesity": dict(colour_by="year_6_prevalence_of_obesity_perc", ctype="sequential",
+                              ramp=RAMP_ORANGE, legend_title="Year 6 obesity (%)"),
+    "long_term_disability": dict(colour_by="limiting_long_term_illness_or_disability_perc",
+                                 ctype="sequential", ramp=RAMP_PURPLE,
+                                 legend_title="Limiting long-term illness or disability (%)"),
+    "unemployment": dict(colour_by="unemployment_perc", ctype="sequential", ramp=RAMP_BLUE,
+                         scale="quantile", legend_title="Unemployment (%)"),
+    # NHS point layers (national)
+    "nhs_facility": dict(colour_by="organisation_type", ctype="categorical",
+                         legend_title="NHS facility type",
+                         label="organisation_name", label_title="Facility"),
+    "nhs_gp": dict(colour_by="total_patients", ctype="sequential", ramp=RAMP_BLUE,
+                   scale="quantile", legend_title="Registered patients",
+                   label="practice_name", label_title="GP practice"),
 }
 
 # Acronyms to upper-case wherever they appear as a whole word in a legend
@@ -1231,6 +1273,18 @@ def build_specs(cur):
             if (not matched and kind == "polygon"
                     and any(d in lyr["table"] for d in HER_DESIGNATIONS)):
                 spec.update(HER_DESIGNATION_STYLE)
+        # HOU plan: house price paid (framed on London via LOCAL_VIEWS).
+        if lyr["theme"] == "HOU":
+            for key, ov in HOU_PLAN.items():
+                if key in lyr["table"]:
+                    spec.update(ov)
+                    break
+        # HTH plan: OHID MSOA choropleths + NHS point layers.
+        if lyr["theme"] == "HTH":
+            for key, ov in HTH_PLAN.items():
+                if key in lyr["table"]:
+                    spec.update(ov)
+                    break
         # ECN plan: overrides for the headline layers; employment layers get
         # total employment = sum of their SIC industry count columns.
         if lyr["theme"] == "ECN":

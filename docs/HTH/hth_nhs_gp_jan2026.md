@@ -2,6 +2,8 @@
 
 `hth_nhs_gp_jan2026`
 
+<img src="../../maps/hth_nhs_gp_jan2026.png" alt="Styling preview of hth_nhs_gp_jan2026" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+
 <a href="http://localhost:7800/?layer=uk_baseline.hth_nhs_gp_jan2026" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
 
 **SOURCE**

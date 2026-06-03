@@ -611,7 +611,7 @@ UTL_PLAN = {
     "nationalgrid_cables": dict(colour_by=None, ctype="single", colour=UTL_MAGENTA,
         line_weight=1.2, legend_title="Underground cable"),
     "nationalgrid_towers": dict(colour_by=None, ctype="single", colour=UTL_MAGENTA,
-        point_radius=1.5, legend_title="Transmission tower"),   # dense along routes -> small dots
+        point_radius=0.75, legend_title="Transmission tower"),   # dense along routes -> tiny dots
     # 499 small substation polygons — sub-pixel nationally, so a bold outline makes
     # each read as a magenta speck (cf. enterprise-zone sites).
     "substation_site": dict(colour_by=None, ctype="single", colour=UTL_MAGENTA,

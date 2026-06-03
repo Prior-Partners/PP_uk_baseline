@@ -594,6 +594,35 @@ MOB_PLAN = {
         line_weight=1.2, cap=30000, legend_title="Right of way type"),
 }
 
+# --- UTL plan --------------------------------------------------------------
+# Electricity network = theme magenta; gas = orange; waste = brown. Overhead
+# transmission lines coloured by voltage (magenta shades, 400 kV dark -> 132 kV light).
+UTL_MAGENTA = "#991955"
+GAS_ORANGE = "#e0850b"
+WASTE_BROWN = "#7a6a53"
+VOLTAGE_COLOURS = {"400": "#6d0f3f", "275": "#b03a7e", "132": "#d98cb3"}  # kV: high dark -> low light
+
+UTL_PLAN = {
+    "over_head_line": dict(colour_by="operating_", ctype="categorical",
+        cat_colours=VOLTAGE_COLOURS, line_weight=1.6,
+        legend_title="Overhead line voltage (kV)"),
+    "os_electricity_transmission_line": dict(colour_by=None, ctype="single",
+        colour=UTL_MAGENTA, line_weight=1.4, legend_title="Electricity transmission line"),
+    "nationalgrid_cables": dict(colour_by=None, ctype="single", colour=UTL_MAGENTA,
+        line_weight=1.2, legend_title="Underground cable"),
+    "nationalgrid_towers": dict(colour_by=None, ctype="single", colour=UTL_MAGENTA,
+        legend_title="Transmission tower"),
+    # 499 small substation polygons — sub-pixel nationally, so a bold outline makes
+    # each read as a magenta speck (cf. enterprise-zone sites).
+    "substation_site": dict(colour_by=None, ctype="single", colour=UTL_MAGENTA,
+        outline=UTL_MAGENTA, outline_weight=2.6, fill_opacity=0.9, legend_title="Substation"),
+    "nationalgas_pipeline": dict(colour_by=None, ctype="single", colour=GAS_ORANGE,
+        outline=GAS_ORANGE, outline_weight=0.8, fill_opacity=0.85, legend_title="Gas pipeline"),
+    "authorised_landfill": dict(colour_by=None, ctype="single", colour=WASTE_BROWN,
+        outline=WASTE_BROWN, outline_weight=0.8, fill_opacity=0.85,
+        legend_title="Authorised landfill"),
+}
+
 # Acronyms to upper-case wherever they appear as a whole word in a legend
 # title or category label (key tidy-up: "Os named places" -> "OS named places").
 ACRONYMS = {"OS", "OSM", "ONS", "NHS", "GP", "POI", "VOA", "NDR", "IMD", "LSOA",
@@ -1382,6 +1411,12 @@ def build_specs(cur):
                 if key in lyr["table"]:
                     spec.update(ov)
                     break
+        # UTL plan: electricity network (magenta; overhead by voltage), gas, waste.
+        if lyr["theme"] == "UTL":
+            for key, ov in UTL_PLAN.items():
+                if key in lyr["table"]:
+                    spec.update(ov)
+                    break
         # ECN plan: overrides for the headline layers; employment layers get
         # total employment = sum of their SIC industry count columns.
         if lyr["theme"] == "ECN":
@@ -1484,6 +1519,10 @@ def style_entry(spec, comp):
         e["line_weight"] = spec.get("outline_weight", 1.0)
     elif kind == "line":
         e["line_weight"] = spec.get("line_weight", 2.6)
+        if spec.get("weight_by"):               # roads: single colour, width per class
+            e["weight_by"] = spec["weight_by"]
+        if spec.get("dash"):
+            e["dash"] = True
     else:                                       # point
         e["point_radius"] = 4
     e["extent"] = spec.get("extent")            # 4326 [w,s,e,n]; None = full layer

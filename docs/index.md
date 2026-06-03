@@ -1,7 +1,7 @@
 # uk_baseline data catalogue
 
 This is the P+P `uk_baseline` database layer catalogue. Generated automatically
-from the database's own documentation on **02 June 2026**.
+from the database's own documentation on **03 June 2026**.
 
 **139 layers across 12 themes.**
 

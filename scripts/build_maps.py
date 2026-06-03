@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import json
 import logging
+import math
 import os
 import re
 from decimal import Decimal
@@ -56,6 +57,7 @@ LONDON_CENTRE_BNG = (531000, 180000)   # central London (some layers are London-
 WMIDS_CENTRE_BNG = (403000, 293000)    # West Midlands (Birmingham + Black Country — densest ECN enterprise-zone cluster)
 SOLENT_CENTRE_BNG = (452000, 97000)    # the Solent (coastal — for tidal-water, which is empty inland)
 FENS_CENTRE_BNG = (540000, 288000)     # the Fens NE of Peterborough — extensive flood coverage (for flood layers)
+SOUTH_COAST_CENTRE_BNG = (399000, 80000)  # south coast + Channel — for protected wrecks (offshore, all along the coast)
 # Layers that read best as a local cover-the-frame view: table substring ->
 # (centre_bng, zoom). Fine admin grains and detail layers that vanish or become
 # an unreadable scatter at national extent.
@@ -78,6 +80,8 @@ LOCAL_VIEWS = {
     "historic_landfill": (BHAM_CENTRE_BNG, 11),
     "os_tidal_water": (SOLENT_CENTRE_BNG, 10),       # coastal — Birmingham is inland (no tidal water)
     "flood_zone": (FENS_CENTRE_BNG, 10),             # all 3 flood layers — Birmingham barely floods
+    "listed_building_polygons": (LONDON_CENTRE_BNG, 14),  # HER — footprints, dense in central London
+    "protected_wrecks": (SOUTH_COAST_CENTRE_BNG, 7),  # HER — 9 offshore wrecks span Cornwall→Dover (need a wide frame)
 }
 
 # Sequential colour ramps (stops listed vmin -> vmax). Estimated from the owner's
@@ -456,6 +460,45 @@ ENV_PLAN = {
                             legend_title="Brownfield site area (ha)"),
 }
 
+# --- HER palettes & plan ---------------------------------------------------
+# Listed-building / parks-and-gardens grade — ordinal importance: Grade I (rarest,
+# most important) darkest -> Grade II (commonest) lightest.
+HER_GRADE_COLOURS = {"I": "#6d1250", "II*": "#b54a9a", "II": "#d9a3c7"}
+
+# HER designations: uniform dark-plum (theme colour) semi-transparent fill + outline.
+HER_DESIGNATIONS = ("battlefields", "conservation_areas", "heritage_at_risk",
+                    "national_trust_land", "scheduled_monuments", "world_heritage_sites",
+                    "always_open", "limited_access", "protected_wrecks")
+HER_DESIGNATION_STYLE = dict(colour="#2b242c", fill_opacity=0.4,
+                             outline="#2b242c", outline_weight=0.8)
+
+# HER colouring plan (owner-approved). Table substring -> spec overrides. Layers not
+# matched here AND in HER_DESIGNATIONS get the uniform designation style.
+HER_PLAN = {
+    "listed_building_points": dict(colour_by="grade", ctype="categorical",
+                                   cat_colours=HER_GRADE_COLOURS,
+                                   legend_title="Listed building grade",
+                                   label="name", label_title="Listed building"),
+    "listed_building_polygons": dict(colour_by="grade", ctype="categorical",
+                                     cat_colours=HER_GRADE_COLOURS,
+                                     legend_title="Listed building grade",
+                                     label="name", label_title="Listed building"),
+    # Registered parks & gardens are small park-sized polygons — sub-pixel and
+    # blank at national extent, so colour each polygon's border to match its grade
+    # fill (outline_match_fill) with a visible weight so they read as graded specks.
+    "parks_gardens": dict(colour_by="grade", ctype="categorical",
+                          cat_colours=HER_GRADE_COLOURS,
+                          legend_title="Registered park/garden grade",
+                          label="name", label_title="Park/garden",
+                          outline_match_fill=True, outline_weight=1.8, fill_opacity=0.85),
+    # 9 small offshore wrecks — most fall outside the national land bbox, so frame
+    # on the south coast (via LOCAL_VIEWS) with a visible speck style.
+    "protected_wrecks": dict(colour_by=None, ctype="single", colour="#2b242c",
+                             outline="#2b242c", outline_weight=2.6, fill_opacity=0.9,
+                             legend_title="Protected wreck",
+                             label="name", label_title="Wreck"),
+}
+
 # Acronyms to upper-case wherever they appear as a whole word in a legend
 # title or category label (key tidy-up: "Os named places" -> "OS named places").
 ACRONYMS = {"OS", "OSM", "ONS", "NHS", "GP", "POI", "VOA", "NDR", "IMD", "LSOA",
@@ -540,6 +583,18 @@ FRAME = (1000, 720)
 _BNG_WGS = Transformer.from_crs("EPSG:27700", "EPSG:4326", always_xy=True)
 _BNG_3857 = Transformer.from_crs("EPSG:27700", "EPSG:3857", always_xy=True)
 _3857_BNG = Transformer.from_crs("EPSG:3857", "EPSG:27700", always_xy=True)
+_WGS_3857 = Transformer.from_crs("EPSG:4326", "EPSG:3857", always_xy=True)
+
+
+def fit_zoom(south, west, north, east, frame=FRAME, margin=1.10):
+    """Web-Mercator zoom that fits a 4326 bbox into ``frame``. Used to set the map's
+    initial zoom so the extent is correct even when Leaflet's fitBounds is prevented
+    from running (a folium tooltip-on-markers JS error can halt the page script
+    before fitBounds — without this the map stays at the default zoom)."""
+    xw, ys = _WGS_3857.transform(west, south)
+    xe, yn = _WGS_3857.transform(east, north)
+    res = max(abs(xe - xw) * margin / frame[0], abs(yn - ys) * margin / frame[1], 1e-6)
+    return max(2, min(18, int(math.log2(156543.03392804097 / res))))
 
 
 def viewport_bng(center_bng, zoom, frame=FRAME):
@@ -622,12 +677,14 @@ def fetch_features(cur, table, colour_by, label, window_key, kind,
                     f"WHERE geom && {env} AND ST_Intersects(geom, {env}){extra}")
         total = cur.fetchone()[0]
     sample_kinds = SAMPLE_KINDS if full else {"point", "polygon"}
-    # Server-side sampling for dense layers (page-level, fast); else ORDER BY
-    # random() over the (already small) set.
+    # Server-side sampling for dense layers; else ORDER BY random() over the
+    # (already small) set. Use BERNOULLI (true per-row random), NOT SYSTEM: SYSTEM
+    # samples disk pages, so a table stored in spatial order yields a clustered
+    # regional blob instead of a national spread (e.g. listed buildings).
     tablesample = full and kind in sample_kinds and total > TABLESAMPLE_ROWS
     if tablesample:
         pct = min(100.0, 100.0 * cap * 5.0 / max(total, 1))  # over-sample ~5x, then trim
-        src = f"{SCHEMA}.{table} TABLESAMPLE SYSTEM ({pct:.4f})"
+        src = f"{SCHEMA}.{table} TABLESAMPLE BERNOULLI ({pct:.4f})"
         sampled = True
     else:
         src = f"{SCHEMA}.{table}"
@@ -788,11 +845,13 @@ def render(cur, spec):
                           zoom_control=False, prefer_canvas=True)
     else:
         # Fit to the data extent so the layer fills the frame; fall back to the
-        # window box only if bounds can't be derived.
+        # window box only if bounds can't be derived. Set zoom_start to the computed
+        # fit-zoom so the extent is right even if Leaflet's fitBounds is prevented.
         south, west, north, east = (geojson_bounds(feats)
                                     or window_bounds_4326(cur, win, bbox))
         fmap = folium.Map(location=[(south + north) / 2, (west + east) / 2],
-                          tiles=None, control_scale=True, zoom_start=12,
+                          tiles=None, control_scale=True,
+                          zoom_start=fit_zoom(south, west, north, east),
                           zoom_control=False, prefer_canvas=True)  # static snapshot
     folium.TileLayer(tiles=CARTO["tiles"], attr=CARTO["attr"], control=False).add_to(fmap)
     # Remove the browser's default focus outline (the "black square" drawn
@@ -883,8 +942,8 @@ def render(cur, spec):
             return {"fillColor": GREY, "color": GREY, "weight": 0.6,
                     "fillOpacity": 0.18}
         fo = 0.9 if null_seq else fill_op   # white void reads solid
-        if outline_match:                   # border = fill colour: coverage layers merge solid
-            return {"fillColor": c, "color": c, "weight": 0.6, "fillOpacity": fo}
+        if outline_match:                   # border = fill colour: coverage layers merge
+            return {"fillColor": c, "color": c, "weight": outline_weight, "fillOpacity": fo}
         return {"fillColor": c, "color": outline, "weight": outline_weight, "fillOpacity": fo}
 
     def highlight(_feature):  # hover emphasis — outline stays white, thicker
@@ -1160,6 +1219,18 @@ def build_specs(cur):
             if (not matched and kind == "polygon"
                     and any(d in lyr["table"] for d in ENV_DESIGNATIONS)):
                 spec.update(ENV_DESIGNATION_STYLE)
+        # HER plan: grade-based layers coloured by listing grade; designation
+        # polygons not matched get the uniform dark-plum designation style.
+        if lyr["theme"] == "HER":
+            matched = False
+            for key, ov in HER_PLAN.items():
+                if key in lyr["table"]:
+                    spec.update(ov)
+                    matched = True
+                    break
+            if (not matched and kind == "polygon"
+                    and any(d in lyr["table"] for d in HER_DESIGNATIONS)):
+                spec.update(HER_DESIGNATION_STYLE)
         # ECN plan: overrides for the headline layers; employment layers get
         # total employment = sum of their SIC industry count columns.
         if lyr["theme"] == "ECN":

@@ -611,7 +611,7 @@ UTL_PLAN = {
     "nationalgrid_cables": dict(colour_by=None, ctype="single", colour=UTL_MAGENTA,
         line_weight=1.2, legend_title="Underground cable"),
     "nationalgrid_towers": dict(colour_by=None, ctype="single", colour=UTL_MAGENTA,
-        legend_title="Transmission tower"),
+        point_radius=1.5, legend_title="Transmission tower"),   # dense along routes -> small dots
     # 499 small substation polygons — sub-pixel nationally, so a bold outline makes
     # each read as a magenta speck (cf. enterprise-zone sites).
     "substation_site": dict(colour_by=None, ctype="single", colour=UTL_MAGENTA,
@@ -1123,7 +1123,8 @@ def render(cur, spec):
 
     gj_kwargs = dict(style_function=style, highlight_function=highlight, tooltip=tooltip)
     if kind == "point":
-        gj_kwargs["marker"] = folium.CircleMarker(radius=4, fill=True)
+        gj_kwargs["marker"] = folium.CircleMarker(
+            radius=spec.get("point_radius", 4), fill=True)
     folium.GeoJson({"type": "FeatureCollection", "features": feats},
                    name=table, **gj_kwargs).add_to(fmap)
 
@@ -1524,7 +1525,7 @@ def style_entry(spec, comp):
         if spec.get("dash"):
             e["dash"] = True
     else:                                       # point
-        e["point_radius"] = 4
+        e["point_radius"] = spec.get("point_radius", 4)
     e["extent"] = spec.get("extent")            # 4326 [w,s,e,n]; None = full layer
     if spec.get("note"):                        # layer-info caveat for the Dashboard
         e["note"] = spec["note"]

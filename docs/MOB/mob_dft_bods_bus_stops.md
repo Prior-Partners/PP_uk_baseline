@@ -2,6 +2,8 @@
 
 `mob_dft_bods_bus_stops`
 
+<img src="../../maps/mob_dft_bods_bus_stops.png" alt="Styling preview of mob_dft_bods_bus_stops" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+
 <a href="http://localhost:7800/?layer=uk_baseline.mob_dft_bods_bus_stops" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
 
 **SOURCE**

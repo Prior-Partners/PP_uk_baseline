@@ -58,6 +58,7 @@ WMIDS_CENTRE_BNG = (403000, 293000)    # West Midlands (Birmingham + Black Count
 SOLENT_CENTRE_BNG = (452000, 97000)    # the Solent (coastal — for tidal-water, which is empty inland)
 FENS_CENTRE_BNG = (540000, 288000)     # the Fens NE of Peterborough — extensive flood coverage (for flood layers)
 SOUTH_COAST_CENTRE_BNG = (399000, 80000)  # south coast + Channel — for protected wrecks (offshore, all along the coast)
+PEAK_DISTRICT_BNG = (410000, 380000)   # densest published public-rights-of-way network (for PRoW)
 # Layers that read best as a local cover-the-frame view: table substring ->
 # (centre_bng, zoom). Fine admin grains and detail layers that vanish or become
 # an unreadable scatter at national extent.
@@ -83,6 +84,10 @@ LOCAL_VIEWS = {
     "listed_building_polygons": (LONDON_CENTRE_BNG, 14),  # HER — footprints, dense in central London
     "protected_wrecks": (SOUTH_COAST_CENTRE_BNG, 7),  # HER — 9 offshore wrecks span Cornwall→Dover (need a wide frame)
     "house_price_paid": (LONDON_CENTRE_BNG, 12),     # HOU — 31M points; intra-London price gradient (avoids national scan)
+    "public_right_of_way": (PEAK_DISTRICT_BNG, 10),  # MOB — dense path network; framed on the Peak District
+    # MOB roads: large-regional view (Midlands motorway hub) so the major network is
+    # connected and the width-by-class hierarchy reads (national sampling fragments it).
+    "os_open_roads": (BHAM_CENTRE_BNG, 9), "osm_roads": (BHAM_CENTRE_BNG, 9),
 }
 
 # Sequential colour ramps (stops listed vmin -> vmax). Estimated from the owner's
@@ -541,6 +546,54 @@ HTH_PLAN = {
                    label="practice_name", label_title="GP practice"),
 }
 
+# --- MOB plan --------------------------------------------------------------
+# Roads: single grey, WIDTH encodes class (Motorway thick -> B thin); the preview
+# shows only the major tier (the Dashboard reveals minor classes on zoom-in).
+ROAD_GREY = "#6b6b6b"
+RAIL_PURPLE = "#7b3fa0"
+BUS_AMBER = "#e0850b"
+OS_ROAD_WEIGHTS = {"Motorway": 3.4, "A Road": 2.1, "B Road": 1.1}
+OSM_ROAD_WEIGHTS = {"Motorway": 3.4, "Trunk": 2.4, "Primary": 1.3}
+_OSM_ROAD_CASE = ("CASE WHEN fclass IN ('motorway','motorway_link') THEN 'Motorway' "
+                  "WHEN fclass IN ('trunk','trunk_link') THEN 'Trunk' "
+                  "WHEN fclass IN ('primary','primary_link') THEN 'Primary' END")
+NCN_COLOURS = {"NCN": "#1a9850", "RCN": "#7cc043", "LINK": "#c8b5e2"}  # national / regional / link
+_PROW_CASE = ("CASE prow_type_norm WHEN 'footpath' THEN 'Footpath' "
+              "WHEN 'bridleway' THEN 'Bridleway' WHEN 'boat' THEN 'BOAT' "
+              "WHEN 'restricted_byway' THEN 'Restricted byway' "
+              "WHEN 'cycle_track' THEN 'Cycle track' ELSE 'Other' END")
+
+MOB_PLAN = {
+    # Roads — grey, width by class; preview filtered to the major tier (national).
+    "os_open_roads": dict(colour_by="road_classification", ctype="categorical",
+        colour=ROAD_GREY, weight_by=OS_ROAD_WEIGHTS, cap=40000,
+        where="road_classification IN ('Motorway','A Road','B Road')",
+        legend_title="Road classification", label="name_1", label_title="Road"),
+    "osm_roads": dict(colour_by=_OSM_ROAD_CASE, ctype="categorical",
+        colour=ROAD_GREY, weight_by=OSM_ROAD_WEIGHTS, cap=40000,
+        where="fclass IN ('motorway','motorway_link','trunk','trunk_link','primary','primary_link')",
+        legend_title="Road class (OSM)", label="name", label_title="Road"),
+    # Rail — purple; tracks solid, tunnels dashed (per owner's scheme).
+    "railway_tracks": dict(colour_by=None, ctype="single", colour=RAIL_PURPLE,
+        line_weight=1.4, legend_title="Railway track"),
+    "railway_tunnels": dict(colour_by=None, ctype="single", colour=RAIL_PURPLE,
+        line_weight=1.4, legend_title="Railway tunnel"),
+    "railway_stations": dict(colour_by=None, ctype="single", colour=RAIL_PURPLE,
+        legend_title="Railway station"),
+    # Cycle / bus
+    "national_cycle_network": dict(colour_by="routetype", ctype="categorical",
+        cat_colours=NCN_COLOURS, line_weight=1.5, legend_title="Cycle network"),
+    "bus_routes": dict(colour_by="route_class", ctype="categorical",
+        where="route_class IN ('local','regional')",   # local + regional only (hide intercity + coach)
+        line_weight=1.0, legend_title="Bus route class"),
+    "bus_stops": dict(colour_by=None, ctype="single", colour=BUS_AMBER,
+        legend_title="Bus stop"),
+    # PRoW — flood-zone strategy: framed on the densest area (Peak District) at a
+    # raised cap, coloured by type (no natural major/minor hierarchy).
+    "public_right_of_way": dict(colour_by=_PROW_CASE, ctype="categorical",
+        line_weight=1.2, cap=30000, legend_title="Right of way type"),
+}
+
 # Acronyms to upper-case wherever they appear as a whole word in a legend
 # title or category label (key tidy-up: "Os named places" -> "OS named places").
 ACRONYMS = {"OS", "OSM", "ONS", "NHS", "GP", "POI", "VOA", "NDR", "IMD", "LSOA",
@@ -718,7 +771,11 @@ def fetch_features(cur, table, colour_by, label, window_key, kind,
         cur.execute(f"SELECT count(*) FROM {SCHEMA}.{table} "
                     f"WHERE geom && {env} AND ST_Intersects(geom, {env}){extra}")
         total = cur.fetchone()[0]
-    sample_kinds = SAMPLE_KINDS if full else {"point", "polygon"}
+    # Lines are normally kept whole locally, but a dense regional line layer with an
+    # explicit cap (roads, PRoW) must be sampled or the browser can't render it.
+    sample_kinds = (SAMPLE_KINDS if full
+                    else {"point", "polygon", "line"} if cap_override
+                    else {"point", "polygon"})
     # Server-side sampling for dense layers; else ORDER BY random() over the
     # (already small) set. Use BERNOULLI (true per-row random), NOT SYSTEM: SYSTEM
     # samples disk pages, so a table stored in spatial order yields a clustered
@@ -764,6 +821,22 @@ def legend_html(title, items):
         f'display:inline-block;border-radius:2px;"></span>'
         f'<span>{lab}</span></div>'
         for lab, c in items)
+    return (
+        '<div style="position:fixed;bottom:22px;right:12px;z-index:9999;'
+        'background:#f1eedf;color:#2b242c;padding:8px 11px;border:1px solid #d9d3c4;'
+        'border-radius:6px;font:12px/1.3 -apple-system,Segoe UI,sans-serif;'
+        'max-width:240px;box-shadow:0 1px 4px #0003;">'
+        f'<div style="font-weight:700;margin-bottom:4px;">{title}</div>{rows}</div>')
+
+
+def legend_html_line_weights(title, items, colour):
+    """Legend for a single-colour line layer styled by WIDTH (e.g. roads: Motorway
+    thick -> B thin). ``items`` is [(label, weight)] in display order."""
+    rows = "".join(
+        f'<div style="display:flex;align-items:center;gap:6px;margin:3px 0;">'
+        f'<span style="width:26px;border-top:{max(1, round(w))}px solid {colour};'
+        f'display:inline-block;"></span><span>{lab}</span></div>'
+        for lab, w in items)
     return (
         '<div style="position:fixed;bottom:22px;right:12px;z-index:9999;'
         'background:#f1eedf;color:#2b242c;padding:8px 11px;border:1px solid #d9d3c4;'
@@ -863,6 +936,8 @@ def render(cur, spec):
     label, label_title = spec.get("label"), spec.get("label_title", "Name")
     fill_op = spec.get("fill_opacity", 0.6)
     line_weight = spec.get("line_weight", 2.6)   # line layers; per-layer override
+    weight_for = spec.get("weight_by")           # line layers: per-class width (roads)
+    dash = spec.get("dash", False)               # line layers: dashed (e.g. rail tunnels)
     outline = spec.get("outline", "#ffffff")     # polygon stroke; default white
     outline_weight = spec.get("outline_weight", 1.0)   # polygon stroke width; ADM bumped +50%
     outline_match = spec.get("outline_match_fill", False)  # stroke = fill colour (coverage layers merge)
@@ -909,9 +984,20 @@ def render(cur, spec):
     qbreaks = None
     if ctype == "categorical":
         cat_colours = spec.get("cat_colours")            # explicit value->hex (ordinal scales)
+        weight_by = spec.get("weight_by")                # line layers: width encodes the class
         cats = sorted({f["properties"]["value"] for f in feats
                        if f["properties"]["value"] not in (None, "")})
-        if cat_colours:
+        if weight_by:
+            # Single-colour line layer styled by WIDTH (e.g. roads grey, Motorway
+            # thick -> B thin). All classes share one colour; weight encodes the class.
+            road_colour = spec.get("colour", "#6b6b6b")
+            for v in cats:
+                cat_map[v] = road_colour
+            items = [(prettify_acronyms(str(v)), weight_by[v])
+                     for v in weight_by if v in cats]   # legend in weight_by order
+            fmap.get_root().html.add_child(
+                Element(legend_html_line_weights(title, items, road_colour)))
+        elif cat_colours:
             # Explicit semantic mapping (e.g. Ofsted rating green->red). Legend
             # follows the spec's value order; any unlisted value falls to grey.
             legend_items = []
@@ -974,7 +1060,11 @@ def render(cur, spec):
         else:
             c = base
         if kind == "line":
-            return {"color": c, "weight": line_weight, "opacity": 0.9}
+            w = weight_for.get(v, line_weight) if weight_for else line_weight
+            st = {"color": c, "weight": w, "opacity": 0.9}
+            if dash:
+                st["dashArray"] = "5,5"
+            return st
         if kind == "point":
             return {"fillColor": c, "color": c, "fillOpacity": 0.5,
                     "weight": 0.6, "opacity": 0.6}
@@ -1282,6 +1372,13 @@ def build_specs(cur):
         # HTH plan: OHID MSOA choropleths + NHS point layers.
         if lyr["theme"] == "HTH":
             for key, ov in HTH_PLAN.items():
+                if key in lyr["table"]:
+                    spec.update(ov)
+                    break
+        # MOB plan: road hierarchy (grey, width by class), rail (solid/dashed),
+        # cycle / bus, PRoW (Peak District via LOCAL_VIEWS).
+        if lyr["theme"] == "MOB":
+            for key, ov in MOB_PLAN.items():
                 if key in lyr["table"]:
                     spec.update(ov)
                     break

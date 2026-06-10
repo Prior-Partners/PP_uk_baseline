@@ -1,10 +1,8 @@
 # Natural England Agricultural Land Classification (ALC) survey for England, November 2024
 
-`env_naturalengland_agri_land_nov2024`
+`env_naturalengland_agricultural_land_class_nov2024`
 
-<img src="../../maps/env_naturalengland_agri_land_nov2024.png" alt="Styling preview of env_naturalengland_agri_land_nov2024" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
-
-<a href="http://localhost:7800/?layer=uk_baseline.env_naturalengland_agri_land_nov2024" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
+<a href="http://localhost:7800/?layer=uk_baseline.env_naturalengland_agricultural_land_class_nov2024" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
 
 **SOURCE**
 
@@ -31,6 +29,11 @@
 **LICENCE**
 
 - Open Government Licence v3.0. © Natural England.
+
+**DATA QUALITY CAVEATS**
+
+- Surveyed layer — this is the original, field-surveyed Agricultural Land Classification (not a model or prediction).
+- RELATED: for a modelled national prediction that splits grade 3 into 3a/3b, see uk_baseline.env_defra_predictive_agricultural_land_class_mar2026 — that layer is a prediction, not a survey.
 
 **LOADED INTO uk_baseline**
 

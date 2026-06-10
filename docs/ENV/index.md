@@ -9,10 +9,10 @@
 - [Defra - Department for Environment, Food and Rural Affairs — Environment Agency Flood Map for Planning, Flood Zones with climate-change allowance, July 2025](env_defra_flood_zones_plus_climate_change_july2025.md) · `env_defra_flood_zones_plus_climate_change_july2025`
 - [Defra - Department for Environment, Food and Rural Affairs — Environment Agency Historic Landfill Sites for England](env_defra_historic_landfill_site.md) · `env_defra_historic_landfill_site`
 - [Defra - Department for Environment, Food and Rural Affairs — Environment Agency National Nature Reserves (NNRs) in England, April 2026](env_defra_national_nature_reserves_apr2026.md) · `env_defra_national_nature_reserves_apr2026`
-- [Defra - Department for Environment, Food and Rural Affairs Predictive Agricultural Land Classification (ALC) for England, March 2026](env_defra_predictive_agricultural_land_mar2026.md) · `env_defra_predictive_agricultural_land_mar2026`
+- [Defra - Department for Environment, Food and Rural Affairs Predictive Agricultural Land Classification (ALC) for England, March 2026](env_defra_predictive_agricultural_land_class_mar2026.md) · `env_defra_predictive_agricultural_land_class_mar2026`
 - [Ministry of Housing, Communities and Local Government (MHCLG) Brownfield Land register for England, May 2026](env_mhclg_brownfield_land_may2026.md) · `env_mhclg_brownfield_land_may2026`
 - [Ministry of Housing, Communities and Local Government (MHCLG) Green Belt boundaries for England, May 2026](env_mhclg_green_belt_may2026.md) · `env_mhclg_green_belt_may2026`
-- [Natural England Agricultural Land Classification (ALC) survey for England, November 2024](env_naturalengland_agri_land_nov2024.md) · `env_naturalengland_agri_land_nov2024`
+- [Natural England Agricultural Land Classification (ALC) survey for England, November 2024](env_naturalengland_agricultural_land_class_nov2024.md) · `env_naturalengland_agricultural_land_class_nov2024`
 - [Natural England Ancient Woodland Inventory (England), March 2026](env_naturalengland_ancient_woodland_mar2026.md) · `env_naturalengland_ancient_woodland_mar2026`
 - [Natural England Ancient Woodland Revised Inventory (England), April 2026](env_naturalengland_ancient_woodland_revised_apr2026.md) · `env_naturalengland_ancient_woodland_revised_apr2026`
 - [Natural England Areas of Outstanding Natural Beauty (AONB) for England, November 2024](env_naturalengland_aonb_nov2024.md) · `env_naturalengland_aonb_nov2024`

@@ -1,10 +1,8 @@
 # Defra - Department for Environment, Food and Rural Affairs Predictive Agricultural Land Classification (ALC) for England, March 2026
 
-`env_defra_predictive_agricultural_land_mar2026`
+`env_defra_predictive_agricultural_land_class_mar2026`
 
-<img src="../../maps/env_defra_predictive_agricultural_land_mar2026.png" alt="Styling preview of env_defra_predictive_agricultural_land_mar2026" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
-
-<a href="http://localhost:7800/?layer=uk_baseline.env_defra_predictive_agricultural_land_mar2026" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
+<a href="http://localhost:7800/?layer=uk_baseline.env_defra_predictive_agricultural_land_class_mar2026" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
 
 **SOURCE**
 
@@ -29,6 +27,11 @@
 **LICENCE**
 
 - Open Government Licence v3.0. © Defra.
+
+**DATA QUALITY CAVEATS**
+
+- Predictive / modelled: every grade (1, 2, 3a, 3b, 4, 5, NA, U) is a prediction of likely ALC, not a field survey. Use for screening; confirm with a site survey for planning decisions.
+- RELATED: for the authoritative surveyed classification (Natural England, grades 1–5), see uk_baseline.env_naturalengland_agricultural_land_class_nov2024.
 
 **LOADED INTO uk_baseline**
 

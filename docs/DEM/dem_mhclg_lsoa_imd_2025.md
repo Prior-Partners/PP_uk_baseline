@@ -41,7 +41,6 @@
 
 **DATA QUALITY CAVEATS**
 
-- Multipolygon explosion: 33,890 geometry rows for 33,755 distinct LSOAs (0.4% over-count).
 - Not directly comparable to IMD 2019 (dem_mhclg_lsoa_imd_2019) — MHCLG used new datasets, new and modified indicators, and the LSOA 2021 boundary (rather than LSOA 2011). Cross-year analyses should treat 2025 as a fresh baseline.
 
 **LOADED INTO uk_baseline**

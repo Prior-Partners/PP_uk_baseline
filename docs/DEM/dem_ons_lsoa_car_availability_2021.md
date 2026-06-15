@@ -36,7 +36,7 @@
 **DATA QUALITY CAVEATS**
 
 - Category column names contain SPACES (`"1 or more cars or vans in household"`, `"Does not apply"`, `"No cars or vans in household"`). Use double-quoted identifiers in SQL.
-- This table also carries MSOA 2011 (`msoa11cd`/`msoa11nm`) AND a Ward 2021 (`wd21cd`/`wd21nm`) admin code set in addition to the later `wd22cd`/`wd22nm`. The earlier load pre-dated the standardised admin key approach; both boundaries are preserved.
+- This table carries a Ward 2021 (`wd21cd`/`wd21nm`) admin code set in addition to the later `wd22cd`/`wd22nm`. The earlier load pre-dated the standardised admin key approach; both ward boundaries are preserved.
 
 **LOADED INTO uk_baseline**
 
@@ -54,8 +54,6 @@
 | `msoa21nm` | `text` | Joined at load from ONS LSOA->MSOA lookup; 2021 MSOA name. |
 | `lad22cd` | `text` | Joined at load from ONS LSOA->LAD lookup; 2022 LAD GSS code. |
 | `lad22nm` | `text` | Joined at load from ONS LSOA->LAD lookup; 2022 LAD name. |
-| `msoa11cd` | `text` | Joined at load from ONS LSOA->MSOA 2011 lookup; 2011 MSOA GSS code. |
-| `msoa11nm` | `text` | Joined at load from ONS LSOA->MSOA 2011 lookup; 2011 MSOA name. |
 | `wd21cd` | `text` | Joined at load from ONS LSOA->Ward lookup; 2021 Ward GSS code. |
 | `wd21nm` | `text` | Joined at load from ONS LSOA->Ward lookup; 2021 Ward name. |
 | `1 or more cars or vans in household` | `bigint` | Source field; count of households with 1 or more cars or vans in household. |

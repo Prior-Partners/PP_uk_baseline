@@ -5243,7 +5243,7 @@
 <p><strong>SCOPE</strong></p>
 <ul>
 <li>England only (DESNZ does not publish sub-regional fuel-poverty estimates for Scotland, Wales, or Northern Ireland - separate devolved publications).</li>
-<li>33,890 rows at LSOA 2021 grain.</li>
+<li>33,755 rows at LSOA 2021 grain.</li>
 </ul>
 <p><strong>CRS</strong></p>
 <ul>
@@ -5261,7 +5261,6 @@
 <ul>
 <li>msoa21cd, msoa21nm : joined from ONS LSOA -&gt; MSOA lookup.</li>
 <li>lad22cd, lad22nm : joined from ONS LSOA -&gt; LAD lookup.</li>
-<li>msoa11cd, msoa11nm : joined from ONS LSOA -&gt; 2011 MSOA lookup (kept for legacy cross-walks; DESNZ historically published at MSOA 2011 grain).</li>
 <li>wd21cd, wd21nm : joined from ONS LSOA -&gt; Ward lookup.</li>
 <li>geom, area_ha : geometry from LSOA21 boundary; area_ha derived from geom at load.</li>
 </ul>
@@ -5311,16 +5310,6 @@
 <td>Joined at load from ONS LSOA-&gt;LAD lookup; 2022 LAD name.</td>
 </tr>
 <tr>
-<td><code>msoa11cd</code></td>
-<td><code>text</code></td>
-<td>Joined at load from ONS LSOA-&gt;MSOA2011 lookup; legacy 2011 MSOA code (kept for cross-walking to older DESNZ publications).</td>
-</tr>
-<tr>
-<td><code>msoa11nm</code></td>
-<td><code>text</code></td>
-<td>Joined at load from ONS LSOA-&gt;MSOA2011 lookup; 2011 MSOA name.</td>
-</tr>
-<tr>
 <td><code>wd21cd</code></td>
 <td><code>text</code></td>
 <td>Joined at load from ONS LSOA-&gt;Ward lookup; 2021 Ward GSS code.</td>
@@ -5356,14 +5345,14 @@
 <td>Joined at load from LSOA21 boundary set; MultiPolygon in EPSG:27700.</td>
 </tr>
 <tr>
-<td><code>fid</code></td>
-<td><code>bigint</code></td>
-<td></td>
-</tr>
-<tr>
 <td><code>area_ha</code></td>
 <td><code>double precision</code></td>
 <td>Derived at load from ST_Area(geom)/10000. Unit: "hectares".</td>
+</tr>
+<tr>
+<td><code>fid</code></td>
+<td><code>bigint</code></td>
+<td></td>
 </tr>
 </tbody>
 </table>

@@ -5254,7 +5254,7 @@
 <p><strong>DATA QUALITY CAVEATS</strong></p>
 <ul>
 <li>Category column names contain SPACES (<code>"1 or more cars or vans in household"</code>, <code>"Does not apply"</code>, <code>"No cars or vans in household"</code>). Use double-quoted identifiers in SQL.</li>
-<li>This table also carries MSOA 2011 (<code>msoa11cd</code>/<code>msoa11nm</code>) AND a Ward 2021 (<code>wd21cd</code>/<code>wd21nm</code>) admin code set in addition to the later <code>wd22cd</code>/<code>wd22nm</code>. The earlier load pre-dated the standardised admin key approach; both boundaries are preserved.</li>
+<li>This table carries a Ward 2021 (<code>wd21cd</code>/<code>wd21nm</code>) admin code set in addition to the later <code>wd22cd</code>/<code>wd22nm</code>. The earlier load pre-dated the standardised admin key approach; both ward boundaries are preserved.</li>
 </ul>
 <p><strong>LOADED INTO uk_baseline</strong></p>
 <ul>
@@ -5304,16 +5304,6 @@
 <td><code>lad22nm</code></td>
 <td><code>text</code></td>
 <td>Joined at load from ONS LSOA-&gt;LAD lookup; 2022 LAD name.</td>
-</tr>
-<tr>
-<td><code>msoa11cd</code></td>
-<td><code>text</code></td>
-<td>Joined at load from ONS LSOA-&gt;MSOA 2011 lookup; 2011 MSOA GSS code.</td>
-</tr>
-<tr>
-<td><code>msoa11nm</code></td>
-<td><code>text</code></td>
-<td>Joined at load from ONS LSOA-&gt;MSOA 2011 lookup; 2011 MSOA name.</td>
 </tr>
 <tr>
 <td><code>wd21cd</code></td>

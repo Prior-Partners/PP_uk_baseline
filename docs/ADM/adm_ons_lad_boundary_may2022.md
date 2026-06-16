@@ -1,10 +1,10 @@
 # ONS Local Authority Districts (LAD), UK extent, May 2022
 
+<p class="layer-short">Boundary</p>
+
 `adm_ons_lad_boundary_may2022`
 
 <img src="../../maps/adm_ons_lad_boundary_may2022.png" alt="Styling preview of adm_ons_lad_boundary_may2022" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
-
-<a href="http://localhost:7800/?layer=uk_baseline.adm_ons_lad_boundary_may2022" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
 
 **SOURCE**
 

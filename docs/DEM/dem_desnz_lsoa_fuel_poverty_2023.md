@@ -1,10 +1,10 @@
 # Department for Energy Security and Net Zero (DESNZ) sub-regional fuel poverty estimates at LSOA (England), 2023
 
+<p class="layer-short">Fuel Poverty</p>
+
 `dem_desnz_lsoa_fuel_poverty_2023`
 
 <img src="../../maps/dem_desnz_lsoa_fuel_poverty_2023.png" alt="Styling preview of dem_desnz_lsoa_fuel_poverty_2023" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
-
-<a href="http://localhost:7800/?layer=uk_baseline.dem_desnz_lsoa_fuel_poverty_2023" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
 
 **SOURCE**
 
@@ -15,7 +15,7 @@
 
 - Statistical release : https://www.gov.uk/government/statistics/sub-regional-fuel-poverty-2023-2021-data
 - Methodology : https://www.gov.uk/government/publications/fuel-poverty-sub-regional-methodology-and-documentation/sub-regional-fuel-poverty-statistics-methodology
-- data.gov.uk catalog : https://www.data.gov.uk/dataset/f3009590-2bc9-40d9-8dc3-571e6fddae45/fuel-poverty-in-england-sub-regional
+- data.gov.uk catalogue : https://www.data.gov.uk/dataset/f3009590-2bc9-40d9-8dc3-571e6fddae45/fuel-poverty-in-england-sub-regional
 
 **DEFINITIONS**
 

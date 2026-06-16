@@ -4,8 +4,6 @@
 
 <img src="../../maps/edu_dfe_primary_school_may2026.png" alt="Styling preview of edu_dfe_primary_school_may2026" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
 
-<a href="http://localhost:7800/?layer=uk_baseline.edu_dfe_primary_school_may2026" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
-
 **SOURCE**
 
 - Department for Education (DfE), Get Information About Schools, May 2026 extract. This table is a filtered subset of uk_baseline.edu_dfe_school_may2026 (the parent / all-establishments register).

@@ -93,6 +93,37 @@ def has_map(table: str) -> bool:
     theme = table.split("_", 1)[0].upper()
     return theme in APPROVED and (MAPS_DIR / f"{table}.png").exists()
 
+
+# Layer short names — a concise human label shown between the full title and the
+# table name — come from the PP data register's ``data_short_name`` column (the
+# firm's curated short-name field). The catalogue is otherwise DB-driven; this is
+# the one external lookup, and a blank/missing value simply renders no line.
+REGISTER = Path(os.environ.get(
+    "UK_BASELINE_REGISTER",
+    r"P:\0_Practice\10_Data management resources\04_Spreadsheets\DI"
+    r"\uk_baseline_data_register.xlsx"))
+
+
+def read_short_names() -> dict[str, str]:
+    """Map ``table_name`` -> short name (first letter capitalised) from the register."""
+    out: dict[str, str] = {}
+    try:
+        wb = load_workbook(REGISTER, read_only=True, data_only=True)
+        ws = wb["uk_baseline_current"]
+        rows = ws.iter_rows(values_only=True)
+        hdr = list(next(rows))
+        ti, si = hdr.index("table_name"), hdr.index("data_short_name")
+        for row in rows:
+            table, short = row[ti], row[si]
+            if table and short and str(short).strip():
+                s = str(short).strip()
+                out[str(table)] = s[0].upper() + s[1:]
+        wb.close()
+    except Exception as exc:  # noqa: BLE001 - the register is an optional adornment
+        log.warning("Short names unavailable (%s): %s", REGISTER.name, exc)
+    return out
+
+
 # Theme prefix -> full label. From the firm's 12-theme taxonomy (P+P brand /
 # data-management standard), so colleagues unfamiliar with the codes can read
 # the catalogue. HOU is in the taxonomy but has no layers loaded yet; it is
@@ -494,10 +525,8 @@ def render_html(records: list[dict[str, Any]], built: str, path: Path) -> None:
                 f"<td>{html.escape(c['comment'] or '')}</td></tr>"
                 for c in r["columns"]
             )
-            # The Dashboard serves every layer, so always offer the deep-link.
-            map_link = (
-                f'<p class="maplink"><a href="{dashboard_link(r["table"])}" '
-                f'target="_blank" rel="noopener">&#128506; Open in the Dashboard</a></p>')
+            # Dashboard not yet released — no deep-link for now.
+            map_link = ""
             cards.append(f"""
         <details class="layer" data-theme="{t}" data-search="{html.escape((r['table'] + ' ' + r['description']).lower())}" style="border-left:4px solid {colour}">
           <summary><span class="badge" style="background:{colour};color:{fg}">{t}</span>
@@ -647,7 +676,14 @@ def render_mkdocs(records: list[dict[str, Any]], built: str) -> None:
         "  word-break: break-word;\n"
         "  line-height: 1.3;\n"
         "}\n"
-        ".md-nav__link { align-items: flex-start; }\n",
+        ".md-nav__link { align-items: flex-start; }\n"
+        "/* Layer short name: sits between the page title and the table name. */\n"
+        ".layer-short {\n"
+        "  font-size: 1.15rem;\n"
+        "  font-weight: 600;\n"
+        "  color: #e9511d;\n"
+        "  margin: -0.4rem 0 0.2rem;\n"
+        "}\n",
         encoding="utf-8",
     )
     themes = sorted({r["theme"] for r in records})
@@ -660,8 +696,24 @@ def render_mkdocs(records: list[dict[str, Any]], built: str) -> None:
     (DOCS / "index.md").write_text(
         f"""# uk_baseline data catalogue
 
-This is the P+P `uk_baseline` database layer catalogue. Generated automatically
-from the database's own documentation on **{built}**.
+A plain-English guide to every layer in Prior + Partners' `uk_baseline` spatial
+database. Generated automatically from the database's own documentation on **{built}**.
+
+## New here? Start with this
+
+**What is `uk_baseline`?** A single, central store of the UK-wide spatial datasets the
+practice uses across projects — administrative boundaries, demographics, environment,
+economy, transport, heritage and more. Everyone works from the same maintained source,
+instead of copies scattered across folders and machines.
+
+**How to use this catalogue.** Browse by theme below, or use the search box. Every layer
+has its own page with a plain-English description, a short name, its database table name,
+a preview map, where the data came from (source, licence and documentation), and a table
+of every column with its meaning and units.
+
+**Prior + Partners staff** — to connect QGIS to the database and use it on a project, see
+the *Staff Data Management Handbook* on the practice share (ask the Digital Innovation
+team if you need a link).
 
 **{len(records)} layers across {len(themes)} themes.**
 
@@ -691,7 +743,7 @@ from the database's own documentation on **{built}**.
                         for r in layers)
         blurb = THEME_DESC.get(t, "")
         (tdir / "index.md").write_text(
-            f"# {THEME_LABELS.get(t, t)} ({t})\n\n*{blurb}*\n\n{len(layers)} layers.\n\n{lst}\n",
+            f"# {THEME_LABELS.get(t, t)} ({t})\n\n*{blurb}*\n\n{len(layers)} layer{'s' if len(layers) != 1 else ''}.\n\n{lst}\n",
             encoding="utf-8",
         )
         # nav label = plain-English title (table name stays on the page)
@@ -718,15 +770,14 @@ from the database's own documentation on **{built}**.
                        f'alt="Styling preview of {r["table"]}" loading="lazy" '
                        f'style="width:100%;border:1px solid #d9d3c4;'
                        f'border-radius:8px;margin:6px 0 4px;">\n\n')
-            map_block = (
-                f'{img}<a href="{dashboard_link(r["table"])}" target="_blank" '
-                f'rel="noopener">Open in the Dashboard &#8599;</a> '
-                f'<span style="opacity:.6;font-size:.85em;">'
-                f'(start your local Dashboard first)</span>\n\n')
+            # Dashboard not yet released — show the preview image only (no deep-link).
+            map_block = f"{img}" if img else ""
+            sn = r.get("short_name", "")
+            short_html = f'<p class="layer-short">{html.escape(sn)}</p>\n\n' if sn else ""
             (tdir / f"{r['table']}.md").write_text(
                 f"""# {_title(r)}
 
-`{r['table']}`
+{short_html}`{r['table']}`
 
 {map_block}{rest_block}{_section_md(r['sections'])}
 
@@ -792,7 +843,11 @@ def _yaml_nav(items: list[Any], indent: int) -> list[str]:
 def main() -> None:
     built = datetime.now(timezone.utc).strftime("%d %B %Y")
     records = read_metadata()
-    log.info("Read %d layers from %s", len(records), SCHEMA)
+    shorts = read_short_names()
+    for r in records:
+        r["short_name"] = shorts.get(r["table"], "")
+    log.info("Read %d layers from %s (%d short names from register)",
+             len(records), SCHEMA, sum(1 for r in records if r["short_name"]))
 
     OUT.mkdir(parents=True, exist_ok=True)
     SHARE.mkdir(parents=True, exist_ok=True)

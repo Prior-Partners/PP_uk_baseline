@@ -1,10 +1,10 @@
 # OS Open Greenspace Sport and activity provision, polygon layer with analytical attributes
 
+<p class="layer-short">Sport activity provision</p>
+
 `com_os_green_space_sport_activity_area`
 
 <img src="../../maps/com_os_green_space_sport_activity_area.png" alt="Styling preview of com_os_green_space_sport_activity_area" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
-
-<a href="http://localhost:7800/?layer=uk_baseline.com_os_green_space_sport_activity_area" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
 
 **SOURCE**
 
@@ -37,7 +37,7 @@
 **DATA QUALITY CAVEATS**
 
 - id_original is NOT strictly unique per row - 74,573 distinct values across 87,983 rows. Multipolygon sites have been exploded.
-- Upstream derivation pipeline for the analytical attributes is not yet documented here; values should be cross-checked against the originating source before being used in published outputs. at load time.
+- Upstream derivation pipeline for the analytical attributes is not yet documented here; values should be cross-checked against the originating source before being used in published outputs.
 
 **ENRICHMENT**
 

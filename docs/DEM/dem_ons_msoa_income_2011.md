@@ -1,10 +1,10 @@
 # ONS small area model-based income estimates at Middle-layer Super Output Area (MSOA) 2011
 
+<p class="layer-short">Income</p>
+
 `dem_ons_msoa_income_2011`
 
 <img src="../../maps/dem_ons_msoa_income_2011.png" alt="Styling preview of dem_ons_msoa_income_2011" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
-
-<a href="http://localhost:7800/?layer=uk_baseline.dem_ons_msoa_income_2011" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
 
 **SOURCE**
 
@@ -38,7 +38,7 @@
 
 - ONS methodology warning: "The modelling process tends to shrink estimates towards the average level, so the true distribution of MSOA average incomes will have more extreme high and low values than the estimated values." (ONS methodology page) Translation: high-income areas under-stated, low-income areas over-stated. Use with care.
 - ONS methodology warning: "Care is needed when ranking areas due to uncertainty surrounding estimates." (ONS methodology) The 90% confidence intervals overlap heavily between adjacent MSOAs.
-- 2011/12 — significantly out of date for current analysis (14 years old at audit). ONS has not published an LSOA-level update since.
+- 2011/12 — significantly out of date for current analysis (14 years old). ONS has not published an LSOA-level update since.
 
 **LOADED INTO uk_baseline**
 

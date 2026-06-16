@@ -1,10 +1,10 @@
 # GeoDS London Nighttime Access to Food Retail Options, April 2026
 
+<p class="layer-short">Foodretail_accessibility</p>
+
 `ecn_geods_foodretail_accessibility_apr2026`
 
 <img src="../../maps/ecn_geods_foodretail_accessibility_apr2026.png" alt="Styling preview of ecn_geods_foodretail_accessibility_apr2026" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
-
-<a href="http://localhost:7800/?layer=uk_baseline.ecn_geods_foodretail_accessibility_apr2026" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
 
 **SOURCE**
 

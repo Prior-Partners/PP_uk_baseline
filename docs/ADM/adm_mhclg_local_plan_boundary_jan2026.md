@@ -1,10 +1,10 @@
 # MHCLG Local plan boundary, January 2026
 
+<p class="layer-short">Local Plan Boundary</p>
+
 `adm_mhclg_local_plan_boundary_jan2026`
 
 <img src="../../maps/adm_mhclg_local_plan_boundary_jan2026.png" alt="Styling preview of adm_mhclg_local_plan_boundary_jan2026" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
-
-<a href="http://localhost:7800/?layer=uk_baseline.adm_mhclg_local_plan_boundary_jan2026" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
 
 **SOURCE**
 

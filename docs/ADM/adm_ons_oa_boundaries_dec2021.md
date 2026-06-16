@@ -1,10 +1,10 @@
 # ONS Output Areas (OA), England & Wales extent, 2021 Census geography, December 2021
 
+<p class="layer-short">Oa boundaries</p>
+
 `adm_ons_oa_boundaries_dec2021`
 
 <img src="../../maps/adm_ons_oa_boundaries_dec2021.png" alt="Styling preview of adm_ons_oa_boundaries_dec2021" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
-
-<a href="http://localhost:7800/?layer=uk_baseline.adm_ons_oa_boundaries_dec2021" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
 
 **SOURCE**
 

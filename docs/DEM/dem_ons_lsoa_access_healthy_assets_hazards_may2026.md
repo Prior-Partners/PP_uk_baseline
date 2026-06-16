@@ -1,10 +1,10 @@
 # ONS Access to Healthy Assets and Hazards (AHAH) composite index, version 5.1, May 2026
 
+<p class="layer-short">AHAH</p>
+
 `dem_ons_lsoa_access_healthy_assets_hazards_may2026`
 
 <img src="../../maps/dem_ons_lsoa_access_healthy_assets_hazards_may2026.png" alt="Styling preview of dem_ons_lsoa_access_healthy_assets_hazards_may2026" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
-
-<a href="http://localhost:7800/?layer=uk_baseline.dem_ons_lsoa_access_healthy_assets_hazards_may2026" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
 
 **SOURCE**
 

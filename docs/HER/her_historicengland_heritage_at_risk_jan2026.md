@@ -1,10 +1,10 @@
 # Historic England Heritage at Risk Register (England), January 2026
 
+<p class="layer-short">Heritage at risk</p>
+
 `her_historicengland_heritage_at_risk_jan2026`
 
 <img src="../../maps/her_historicengland_heritage_at_risk_jan2026.png" alt="Styling preview of her_historicengland_heritage_at_risk_jan2026" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
-
-<a href="http://localhost:7800/?layer=uk_baseline.her_historicengland_heritage_at_risk_jan2026" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
 
 Published via planning.data.gov.uk (digital-land).
 

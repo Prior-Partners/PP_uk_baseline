@@ -1,10 +1,10 @@
 # Natural England Priority Habitats Inventory (England), April 2026
 
+<p class="layer-short">Priority Habitats Inventory</p>
+
 `env_naturalengland_priority_habitats_inventory_apr2026`
 
 <img src="../../maps/env_naturalengland_priority_habitats_inventory_apr2026.png" alt="Styling preview of env_naturalengland_priority_habitats_inventory_apr2026" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
-
-<a href="http://localhost:7800/?layer=uk_baseline.env_naturalengland_priority_habitats_inventory_apr2026" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
 
 **SOURCE**
 

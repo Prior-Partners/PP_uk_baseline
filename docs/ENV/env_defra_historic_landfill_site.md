@@ -1,10 +1,10 @@
 # Defra - Department for Environment, Food and Rural Affairs — Environment Agency Historic Landfill Sites for England
 
+<p class="layer-short">Historic Landfill Site</p>
+
 `env_defra_historic_landfill_site`
 
 <img src="../../maps/env_defra_historic_landfill_site.png" alt="Styling preview of env_defra_historic_landfill_site" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
-
-<a href="http://localhost:7800/?layer=uk_baseline.env_defra_historic_landfill_site" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
 
 **SOURCE**
 

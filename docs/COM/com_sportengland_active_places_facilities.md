@@ -1,10 +1,10 @@
 # Sport England Active Places - point features for individual sports facilities
 
+<p class="layer-short">Open Greenspace sport activity</p>
+
 `com_sportengland_active_places_facilities`
 
 <img src="../../maps/com_sportengland_active_places_facilities.png" alt="Styling preview of com_sportengland_active_places_facilities" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
-
-<a href="http://localhost:7800/?layer=uk_baseline.com_sportengland_active_places_facilities" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
 
 **SOURCE**
 
@@ -41,7 +41,7 @@
 
 **NOT IN THIS DATASET**
 
-- Sports facilities outside England (Scotland, Wales, Northern Ireland) are out of Sport England's remit and not in this product. Sport England - edition = download date at load time. Renamed 2026-05-27 from com_os_green_space_sport_activity_point.
+- Sports facilities outside England (Scotland, Wales, Northern Ireland) are out of Sport England's remit and not in this product.
 
 
 ## Columns

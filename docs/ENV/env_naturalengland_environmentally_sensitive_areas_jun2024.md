@@ -1,10 +1,10 @@
 # Natural England Environmentally Sensitive Areas (ESA) for England, June 2024
 
+<p class="layer-short">Environmentally Sensitive Areas</p>
+
 `env_naturalengland_environmentally_sensitive_areas_jun2024`
 
 <img src="../../maps/env_naturalengland_environmentally_sensitive_areas_jun2024.png" alt="Styling preview of env_naturalengland_environmentally_sensitive_areas_jun2024" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
-
-<a href="http://localhost:7800/?layer=uk_baseline.env_naturalengland_environmentally_sensitive_areas_jun2024" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
 
 **SOURCE**
 

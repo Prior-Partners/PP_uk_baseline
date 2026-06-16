@@ -1,10 +1,10 @@
 # ONS Business Register and Employment Survey (BRES) employment counts for 2023 at Middle Layer Super Output Area (MSOA), broken down by 3-digit SIC2007 industry group
 
+<p class="layer-short">BRES Employment - MSOA, 2023, 3-digit SIC2007</p>
+
 `ecn_ons_msoa_business_register_employment_3d_2023`
 
 <img src="../../maps/ecn_ons_msoa_business_register_employment_3d_2023.png" alt="Styling preview of ecn_ons_msoa_business_register_employment_3d_2023" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
-
-<a href="http://localhost:7800/?layer=uk_baseline.ecn_ons_msoa_business_register_employment_3d_2023" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
 
 **SOURCE**
 

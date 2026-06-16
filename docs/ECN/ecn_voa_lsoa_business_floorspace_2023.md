@@ -1,10 +1,10 @@
 # Valuation Office Agency (VOA) Business Floorspace at Lower Super Output Area (LSOA), 2023
 
+<p class="layer-short">Business_floorspace_lsoa</p>
+
 `ecn_voa_lsoa_business_floorspace_2023`
 
 <img src="../../maps/ecn_voa_lsoa_business_floorspace_2023.png" alt="Styling preview of ecn_voa_lsoa_business_floorspace_2023" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
-
-<a href="http://localhost:7800/?layer=uk_baseline.ecn_voa_lsoa_business_floorspace_2023" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
 
 **SOURCE**
 

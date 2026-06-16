@@ -1,10 +1,10 @@
 # Office for Health Improvement and Disparities (OHID) mortality rates at Middle-layer Super Output Area (MSOA) 2011, period 2016-2020
 
+<p class="layer-short">Mortality Rate</p>
+
 `hth_ohid_msoa_mortality_rate`
 
 <img src="../../maps/hth_ohid_msoa_mortality_rate.png" alt="Styling preview of hth_ohid_msoa_mortality_rate" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
-
-<a href="http://localhost:7800/?layer=uk_baseline.hth_ohid_msoa_mortality_rate" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
 
 Via the Fingertips platform.
 

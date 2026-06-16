@@ -4,8 +4,6 @@
 
 <img src="../../maps/edu_dfe_school_may2026.png" alt="Styling preview of edu_dfe_school_may2026" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
 
-<a href="http://localhost:7800/?layer=uk_baseline.edu_dfe_school_may2026" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
-
 **SOURCE**
 
 - Department for Education (DfE), Get Information About Schools — the canonical UK national register of schools, academies, colleges, and other educational establishments. May 2026 download / extract.

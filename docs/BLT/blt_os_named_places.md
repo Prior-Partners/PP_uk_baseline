@@ -1,10 +1,10 @@
 # OS OpenMap Local Named Places - point features carrying place-name labels
 
+<p class="layer-short">Named Places</p>
+
 `blt_os_named_places`
 
 <img src="../../maps/blt_os_named_places.png" alt="Styling preview of blt_os_named_places" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
-
-<a href="http://localhost:7800/?layer=uk_baseline.blt_os_named_places" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
 
 **SOURCE**
 
@@ -41,7 +41,7 @@
 
 **NOT IN THIS DATASET**
 
-- ESRI Shapefile format does not natively support Welsh diacritics. The OS Product Guide documents alternative encodings (DISTNAME plain ASCII, HTMLNAME with numeric HTML entities). Our load preserves UTF-8 text, so distinctive_name should render Welsh characters correctly in PostGIS / QGIS. at load time.
+- ESRI Shapefile format does not natively support Welsh diacritics. The OS Product Guide documents alternative encodings (DISTNAME plain ASCII, HTMLNAME with numeric HTML entities). Our load preserves UTF-8 text, so distinctive_name should render Welsh characters correctly in PostGIS / QGIS.
 
 
 ## Columns

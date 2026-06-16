@@ -1,10 +1,10 @@
 # ONS Census 2011 schoolchildren and full-time students at Lower-layer Super Output Area (LSOA) 2011
 
+<p class="layer-short">Students</p>
+
 `dem_ons_lsoa_students_2011`
 
 <img src="../../maps/dem_ons_lsoa_students_2011.png" alt="Styling preview of dem_ons_lsoa_students_2011" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
-
-<a href="http://localhost:7800/?layer=uk_baseline.dem_ons_lsoa_students_2011" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
 
 **SOURCE**
 

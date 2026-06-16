@@ -1,10 +1,10 @@
 # ONS Census 2011 industry of employment at Lower-layer Super Output Area (LSOA) 2011
 
+<p class="layer-short">Industry Occupation</p>
+
 `dem_ons_lsoa_industry_occupation_2011`
 
 <img src="../../maps/dem_ons_lsoa_industry_occupation_2011.png" alt="Styling preview of dem_ons_lsoa_industry_occupation_2011" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
-
-<a href="http://localhost:7800/?layer=uk_baseline.dem_ons_lsoa_industry_occupation_2011" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
 
 **SOURCE**
 

@@ -1,10 +1,10 @@
 # ONS Access to public parks and playing fields, Great Britain, April 2020
 
+<p class="layer-short">Access to public parks and playing fields</p>
+
 `env_ons_access_to_public_parks_playing_fields_apr2020`
 
 <img src="../../maps/env_ons_access_to_public_parks_playing_fields_apr2020.png" alt="Styling preview of env_ons_access_to_public_parks_playing_fields_apr2020" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
-
-<a href="http://localhost:7800/?layer=uk_baseline.env_ons_access_to_public_parks_playing_fields_apr2020" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
 
 **SOURCE**
 

@@ -4,8 +4,6 @@
 
 <img src="../../maps/adm_ons_postcode_centroid_feb2026.png" alt="Styling preview of adm_ons_postcode_centroid_feb2026" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
 
-<a href="http://localhost:7800/?layer=uk_baseline.adm_ons_postcode_centroid_feb2026" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
-
 **SOURCE**
 
 - Office for National Statistics (ONS), ONS Geography. Postcode centroids derived from Code-Point Open (Ordnance Survey) and Royal Mail postcode data via the Gridlink process. Northern Ireland grid references from Land and Property Services (LPS) 'Pointer'.

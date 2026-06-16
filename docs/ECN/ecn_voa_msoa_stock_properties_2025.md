@@ -1,10 +1,10 @@
 # Valuation Office Agency (VOA) Stock of Properties at Middle Super Output Area (MSOA), 2025
 
+<p class="layer-short">Stock_properties_msoa</p>
+
 `ecn_voa_msoa_stock_properties_2025`
 
 <img src="../../maps/ecn_voa_msoa_stock_properties_2025.png" alt="Styling preview of ecn_voa_msoa_stock_properties_2025" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
-
-<a href="http://localhost:7800/?layer=uk_baseline.ecn_voa_msoa_stock_properties_2025" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
 
 **SOURCE**
 

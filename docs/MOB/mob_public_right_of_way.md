@@ -4,8 +4,6 @@
 
 <img src="../../maps/mob_public_right_of_way.png" alt="Styling preview of mob_public_right_of_way" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
 
-<a href="http://localhost:7800/?layer=uk_baseline.mob_public_right_of_way" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
-
 **SOURCE**
 
 - Local surveying authorities (local highway authorities) of England, via their published definitive-map / PRoW open data, aggregated through the Public Rights of Way open-data project (osm.mathmos.net/prow). Per-row provenance in authority_name, source_url, source_licence and source_published_date.

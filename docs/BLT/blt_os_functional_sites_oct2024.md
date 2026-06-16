@@ -1,10 +1,10 @@
 # OS OpenMap Local Functional Sites - polygon features for sites of functions or activities, October 2024
 
+<p class="layer-short">Functional Sites</p>
+
 `blt_os_functional_sites_oct2024`
 
 <img src="../../maps/blt_os_functional_sites_oct2024.png" alt="Styling preview of blt_os_functional_sites_oct2024" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
-
-<a href="http://localhost:7800/?layer=uk_baseline.blt_os_functional_sites_oct2024" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
 
 **SOURCE**
 

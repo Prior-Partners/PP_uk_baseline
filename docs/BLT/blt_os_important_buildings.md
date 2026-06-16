@@ -1,10 +1,10 @@
 # OS OpenMap Local Important Buildings - generalised buildings of public importance
 
+<p class="layer-short">Important Buildings</p>
+
 `blt_os_important_buildings`
 
 <img src="../../maps/blt_os_important_buildings.png" alt="Styling preview of blt_os_important_buildings" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
-
-<a href="http://localhost:7800/?layer=uk_baseline.blt_os_important_buildings" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
 
 **SOURCE**
 
@@ -37,8 +37,8 @@
 
 **DATA QUALITY CAVEATS**
 
-- 641 id values appear more than once (238,089 distinct id across 238,730 rows). Cause not investigated; likely upstream artifacts of partial-update cycles.
-- The OS Product Guide says BuildingTheme uses the "SiteThemeType code list", but the BuildingTheme code list contains 11 values while SiteTheme contains only 5 - the published code lists are different. Use the actual values observed in the column rather than the SiteTheme list. at load time.
+- 641 id values appear more than once (238,089 distinct id across 238,730 rows). Cause not investigated; likely upstream artefacts of partial-update cycles.
+- The OS Product Guide says BuildingTheme uses the "SiteThemeType code list", but the BuildingTheme code list contains 11 values while SiteTheme contains only 5 - the published code lists are different. Use the actual values observed in the column rather than the SiteTheme list.
 
 **ENRICHMENT**
 

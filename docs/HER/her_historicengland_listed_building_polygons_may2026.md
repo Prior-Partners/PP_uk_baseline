@@ -1,10 +1,10 @@
 # Historic England Listed Buildings (England) — polygon geometry, May 2026
 
+<p class="layer-short">Listed Building polygons</p>
+
 `her_historicengland_listed_building_polygons_may2026`
 
 <img src="../../maps/her_historicengland_listed_building_polygons_may2026.png" alt="Styling preview of her_historicengland_listed_building_polygons_may2026" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
-
-<a href="http://localhost:7800/?layer=uk_baseline.her_historicengland_listed_building_polygons_may2026" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
 
 **SOURCE**
 

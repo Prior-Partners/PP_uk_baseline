@@ -1,10 +1,10 @@
 # ONS Gross value added (GVA) at middle layer super output area (MSOA), 1998-2023, England & Wales extent, MSOA 2011 boundary
 
+<p class="layer-short">Gross_value_added_msoa</p>
+
 `ecn_ons_msoa_gross_value_added_2023`
 
 <img src="../../maps/ecn_ons_msoa_gross_value_added_2023.png" alt="Styling preview of ecn_ons_msoa_gross_value_added_2023" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
-
-<a href="http://localhost:7800/?layer=uk_baseline.ecn_ons_msoa_gross_value_added_2023" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
 
 **SOURCE**
 

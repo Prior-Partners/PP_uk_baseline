@@ -1,7 +1,23 @@
 # uk_baseline data catalogue
 
-This is the P+P `uk_baseline` database layer catalogue. Generated automatically
-from the database's own documentation on **15 June 2026**.
+A plain-English guide to every layer in Prior + Partners' `uk_baseline` spatial
+database. Generated automatically from the database's own documentation on **16 June 2026**.
+
+## New here? Start with this
+
+**What is `uk_baseline`?** A single, central store of the UK-wide spatial datasets the
+practice uses across projects — administrative boundaries, demographics, environment,
+economy, transport, heritage and more. Everyone works from the same maintained source,
+instead of copies scattered across folders and machines.
+
+**How to use this catalogue.** Browse by theme below, or use the search box. Every layer
+has its own page with a plain-English description, a short name, its database table name,
+a preview map, where the data came from (source, licence and documentation), and a table
+of every column with its meaning and units.
+
+**Prior + Partners staff** — to connect QGIS to the database and use it on a project, see
+the *Staff Data Management Handbook* on the practice share (ask the Digital Innovation
+team if you need a link).
 
 **139 layers across 12 themes.**
 

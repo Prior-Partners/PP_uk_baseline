@@ -1,14 +1,14 @@
 # data.police.uk stop-and-search events, monthly archives
 
+<p class="layer-short">Stop and search</p>
+
 `dem_police_uk_stop_search_crime_monthly`
 
 <img src="../../maps/dem_police_uk_stop_search_crime_monthly.png" alt="Styling preview of dem_police_uk_stop_search_crime_monthly" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
 
-<a href="http://localhost:7800/?layer=uk_baseline.dem_police_uk_stop_search_crime_monthly" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
-
 **SOURCE**
 
-- Data published by data.police.uk (Home Office). 43 territorial police forces in England and Wales contribute CSV files. No Crime ID in the source - this table is an independent entity, cannot be joined to dem_police_uk_street_crime_monthly.
+- Data published by data.police.uk (Home Office). 43 territorial police forces in England and Wales contribute CSV files. No Crime ID in the source — this table is an independent entity, cannot be joined to dem_police_uk_street_crime_monthly.
 
 **DOCUMENTATION**
 
@@ -23,7 +23,7 @@
 **SCOPE**
 
 - Police forces in England and Wales (plus British Transport Police for the rail network).
-- Rolling 36-month window - months falling out of the window freeze at their last-published state.
+- Rolling 36-month window — months falling out of the window freeze at their last-published state.
 
 **CRS**
 
@@ -35,9 +35,8 @@
 
 **DATA QUALITY CAVEATS**
 
-- No upstream Crime ID - rows cannot be linked to dem_police_uk_street_crime_monthly.
-- 100% row-stable across archive releases (verified by internal archive-comparison checks)
-- no case progression to worry about, unlike the street table.
+- No upstream Crime ID — rows cannot be linked to dem_police_uk_street_crime_monthly.
+- 100% row-stable across archive releases (verified by internal archive-comparison checks) — no case progression to worry about, unlike the street table.
 - Some rows have NULL geom where the source CSV had blank lat/lon.
 
 **ENRICHMENT**

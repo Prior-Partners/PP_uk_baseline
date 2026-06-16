@@ -1,10 +1,10 @@
 # data.police.uk street-level crime events, monthly archives
 
+<p class="layer-short">Street crime</p>
+
 `dem_police_uk_street_crime_monthly`
 
 <img src="../../maps/dem_police_uk_street_crime_monthly.png" alt="Styling preview of dem_police_uk_street_crime_monthly" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
-
-<a href="http://localhost:7800/?layer=uk_baseline.dem_police_uk_street_crime_monthly" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span>
 
 **SOURCE**
 
@@ -23,7 +23,7 @@
 **SCOPE**
 
 - Police forces in England and Wales, plus British Transport Police.
-- Rolling 36-month window - months that fall out of the window freeze at their last-published state.
+- Rolling 36-month window — months that fall out of the window freeze at their last-published state.
 
 **CRS**
 
@@ -35,10 +35,10 @@
 
 **DATA QUALITY CAVEATS**
 
-- crime_id is nullable - blank for Anti-Social Behaviour (ASB) rows in the source CSV.
+- crime_id is nullable — blank for Anti-Social Behaviour (ASB) rows in the source CSV.
 - last_outcome is a SNAPSHOT, not a live status. Cases in published months outside the rolling 36-month window are frozen and may not reflect current case state.
 - Some rows have NULL geom where the source CSV had blank lat/lon (anonymised or unrecorded location).
-- ~17-67% of "Last outcome category" values mutate across releases for the same row - verified by internal archive-comparison checks. Treat the column as a historical-snapshot, not a current-state indicator.
+- ~17-67% of "Last outcome category" values mutate across releases for the same row — verified by internal archive-comparison checks. Treat the column as a historical-snapshot, not a current-state indicator.
 
 **NOT IN THIS DATASET**
 

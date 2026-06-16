@@ -15,9 +15,10 @@ has its own page with a plain-English description, a short name, its database ta
 a preview map, where the data came from (source, licence and documentation), and a table
 of every column with its meaning and units.
 
-**Prior + Partners staff** — to connect QGIS to the database and use it on a project, see
-the *Staff Data Management Handbook* on the practice share (ask the Digital Innovation
-team if you need a link).
+**New to the database?** The **Staff Data Management Handbook** explains what the geodatabase
+is, how to connect QGIS, and how to use the data on a project.
+
+[📕 Read the Staff Handbook (PDF)](PP_Staff_Data_Management_Handbook.pdf){ .md-button .md-button--primary }
 
 **139 layers across 12 themes.**
 

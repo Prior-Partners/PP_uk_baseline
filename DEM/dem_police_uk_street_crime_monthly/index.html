@@ -5221,9 +5221,10 @@
 
 
 <h1 id="datapoliceuk-street-level-crime-events-monthly-archives">data.police.uk street-level crime events, monthly archives<a class="headerlink" href="#datapoliceuk-street-level-crime-events-monthly-archives" title="Permanent link">&para;</a></h1>
+<p class="layer-short">Street crime</p>
+
 <p><code>dem_police_uk_street_crime_monthly</code></p>
 <p><img src="../../maps/dem_police_uk_street_crime_monthly.png" alt="Styling preview of dem_police_uk_street_crime_monthly" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></p>
-<p><a href="http://localhost:7800/?layer=uk_baseline.dem_police_uk_street_crime_monthly" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span></p>
 <p><strong>SOURCE</strong></p>
 <ul>
 <li>Data published by data.police.uk (Home Office). 43 territorial police forces in England and Wales, plus British Transport Police, contribute CSV files.</li>
@@ -5241,7 +5242,7 @@
 <p><strong>SCOPE</strong></p>
 <ul>
 <li>Police forces in England and Wales, plus British Transport Police.</li>
-<li>Rolling 36-month window - months that fall out of the window freeze at their last-published state.</li>
+<li>Rolling 36-month window — months that fall out of the window freeze at their last-published state.</li>
 </ul>
 <p><strong>CRS</strong></p>
 <ul>
@@ -5253,10 +5254,10 @@
 </ul>
 <p><strong>DATA QUALITY CAVEATS</strong></p>
 <ul>
-<li>crime_id is nullable - blank for Anti-Social Behaviour (ASB) rows in the source CSV.</li>
+<li>crime_id is nullable — blank for Anti-Social Behaviour (ASB) rows in the source CSV.</li>
 <li>last_outcome is a SNAPSHOT, not a live status. Cases in published months outside the rolling 36-month window are frozen and may not reflect current case state.</li>
 <li>Some rows have NULL geom where the source CSV had blank lat/lon (anonymised or unrecorded location).</li>
-<li>~17-67% of "Last outcome category" values mutate across releases for the same row - verified by internal archive-comparison checks. Treat the column as a historical-snapshot, not a current-state indicator.</li>
+<li>~17-67% of "Last outcome category" values mutate across releases for the same row — verified by internal archive-comparison checks. Treat the column as a historical-snapshot, not a current-state indicator.</li>
 </ul>
 <p><strong>NOT IN THIS DATASET</strong></p>
 <ul>

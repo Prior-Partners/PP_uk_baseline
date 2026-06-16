@@ -5221,12 +5221,13 @@
 
 
 <h1 id="datapoliceuk-stop-and-search-events-monthly-archives">data.police.uk stop-and-search events, monthly archives<a class="headerlink" href="#datapoliceuk-stop-and-search-events-monthly-archives" title="Permanent link">&para;</a></h1>
+<p class="layer-short">Stop and search</p>
+
 <p><code>dem_police_uk_stop_search_crime_monthly</code></p>
 <p><img src="../../maps/dem_police_uk_stop_search_crime_monthly.png" alt="Styling preview of dem_police_uk_stop_search_crime_monthly" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></p>
-<p><a href="http://localhost:7800/?layer=uk_baseline.dem_police_uk_stop_search_crime_monthly" target="_blank" rel="noopener">Open in the Dashboard &#8599;</a> <span style="opacity:.6;font-size:.85em;">(start your local Dashboard first)</span></p>
 <p><strong>SOURCE</strong></p>
 <ul>
-<li>Data published by data.police.uk (Home Office). 43 territorial police forces in England and Wales contribute CSV files. No Crime ID in the source - this table is an independent entity, cannot be joined to dem_police_uk_street_crime_monthly.</li>
+<li>Data published by data.police.uk (Home Office). 43 territorial police forces in England and Wales contribute CSV files. No Crime ID in the source — this table is an independent entity, cannot be joined to dem_police_uk_street_crime_monthly.</li>
 </ul>
 <p><strong>DOCUMENTATION</strong></p>
 <ul>
@@ -5241,7 +5242,7 @@
 <p><strong>SCOPE</strong></p>
 <ul>
 <li>Police forces in England and Wales (plus British Transport Police for the rail network).</li>
-<li>Rolling 36-month window - months falling out of the window freeze at their last-published state.</li>
+<li>Rolling 36-month window — months falling out of the window freeze at their last-published state.</li>
 </ul>
 <p><strong>CRS</strong></p>
 <ul>
@@ -5253,9 +5254,8 @@
 </ul>
 <p><strong>DATA QUALITY CAVEATS</strong></p>
 <ul>
-<li>No upstream Crime ID - rows cannot be linked to dem_police_uk_street_crime_monthly.</li>
-<li>100% row-stable across archive releases (verified by internal archive-comparison checks)</li>
-<li>no case progression to worry about, unlike the street table.</li>
+<li>No upstream Crime ID — rows cannot be linked to dem_police_uk_street_crime_monthly.</li>
+<li>100% row-stable across archive releases (verified by internal archive-comparison checks) — no case progression to worry about, unlike the street table.</li>
 <li>Some rows have NULL geom where the source CSV had blank lat/lon.</li>
 </ul>
 <p><strong>ENRICHMENT</strong></p>

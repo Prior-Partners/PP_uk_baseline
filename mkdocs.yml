@@ -1,5 +1,6 @@
 site_name: uk_baseline data catalogue
-site_description: Plain-English guide to every layer in the uk_baseline database.
+site_description: A guide to every layer in the uk_baseline database.
+copyright: Developed by the Digital Innovation team, Prior + Partners — last updated 17 June 2026
 theme:
   name: material
   palette:
@@ -8,6 +9,7 @@ theme:
   features:
     - navigation.instant
     - navigation.tracking
+    - toc.integrate
     - search.highlight
     - search.suggest
     - content.code.copy
@@ -23,6 +25,7 @@ extra_css:
   - stylesheets/extra.css
 nav:
   - "Home": index.md
+  - "📕 Staff Handbook (PDF)": https://prior-partners.github.io/PP_uk_baseline/PP_Staff_Data_Management_Handbook.pdf
   - "Administrative & Planning Boundaries (ADM)":
     - ADM/index.md
     - "MHCLG Local plan boundary, January 2026": ADM/adm_mhclg_local_plan_boundary_jan2026.md

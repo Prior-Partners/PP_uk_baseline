@@ -435,7 +435,7 @@ def _build_about_sheet(wb, records, built, head_fill, head_font, bold) -> None:
         (f"{len(records)} layers across {n_themes} themes  ·  generated from the live database on {built}", None),
         ("", None),
         ("What this workbook is", head),
-        ("A plain-English guide to every spatial layer held in the uk_baseline database. It is generated", None),
+        ("A guide to every spatial layer held in the uk_baseline database. It is generated", None),
         ("automatically from each table's own documentation, so it always matches the live database —", None),
         ("the database is the single source of truth. Do not hand-edit this file; it is overwritten on each rebuild.", None),
         ("", None),
@@ -443,7 +443,7 @@ def _build_about_sheet(wb, records, built, head_fill, head_font, bold) -> None:
         ("1.  \"Layers\"  — one row per layer (database table). Use this to find out WHAT layers exist.", bold),
         ("        Theme            two/three-letter theme code (see legend below).", None),
         ("        Layer            the database table name.", None),
-        ("        Description      one-line plain-English summary of the layer.", None),
+        ("        Description      one-line summary of the layer.", None),
         ("        Source           the publishing organisation.", None),
         ("        Datasource link  the documentation / source URL for the dataset.", None),
         ("        Definitions      the publisher's own definition of the core concept.", None),
@@ -683,7 +683,18 @@ def render_mkdocs(records: list[dict[str, Any]], built: str) -> None:
         "  font-weight: 600;\n"
         "  color: #e9511d;\n"
         "  margin: -0.4rem 0 0.2rem;\n"
-        "}\n",
+        "}\n"
+        "/* Brand-orange admonition (note) instead of Material blue. */\n"
+        ".md-typeset .admonition.note,\n"
+        ".md-typeset details.note { border-color: #e9511d; }\n"
+        ".md-typeset .note > .admonition-title { background-color: #fbe6db; }\n"
+        ".md-typeset .note > .admonition-title::before { background-color: #e9511d; }\n"
+        "/* Homepage footer block (data info, contact, version). */\n"
+        ".cat-footer { display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 3rem;\n"
+        "  padding-top: 1.5rem; border-top: 1px solid #d9d3c4; color: #6b6357; font-size: .8rem; }\n"
+        ".cat-footer > div { flex: 1; min-width: 200px; }\n"
+        ".cat-footer strong { color: #2b242c; }\n"
+        ".cat-footer a { color: #e9511d; }\n",
         encoding="utf-8",
     )
     themes = sorted({r["theme"] for r in records})
@@ -696,10 +707,9 @@ def render_mkdocs(records: list[dict[str, Any]], built: str) -> None:
     (DOCS / "index.md").write_text(
         f"""# uk_baseline data catalogue
 
-A plain-English guide to every layer in Prior + Partners' `uk_baseline` spatial
-database. Generated automatically from the database's own documentation on **{built}**.
+A guide to every layer in Prior + Partners' `uk_baseline` spatial database.
 
-## New here? Start with this
+## Getting started
 
 **What is `uk_baseline`?** A single, central store of the UK-wide spatial datasets the
 practice uses across projects — administrative boundaries, demographics, environment,
@@ -707,14 +717,12 @@ economy, transport, heritage and more. Everyone works from the same maintained s
 instead of copies scattered across folders and machines.
 
 **How to use this catalogue.** Browse by theme below, or use the search box. Every layer
-has its own page with a plain-English description, a short name, its database table name,
-a preview map, where the data came from (source, licence and documentation), and a table
-of every column with its meaning and units.
+has its own page with a description, a short name, its database table name, a preview map,
+where the data came from (source, licence and documentation), and a table of every column
+with its meaning and units.
 
 **New to the database?** The **[Staff Data Management Handbook](PP_Staff_Data_Management_Handbook.pdf){{ target="_blank" }}** explains what the geodatabase
 is, how to connect QGIS, and how to use the data on a project — it opens straight in your browser.
-
-[📕 Open the Staff Handbook (PDF)](PP_Staff_Data_Management_Handbook.pdf){{ .md-button .md-button--primary target="_blank" }}
 
 **{len(records)} layers across {len(themes)} themes.**
 
@@ -727,6 +735,17 @@ is, how to connect QGIS, and how to use the data on a project — it opens strai
     (source, documentation links, licence), the area and detail it covers, and a
     table of every column with its meaning and units — all taken verbatim from
     the database documentation.
+
+<div class="cat-footer">
+  <div><strong>About this catalogue</strong><br>
+  Built from the <code>uk_baseline</code> PostGIS database — one page per layer, drawn from each layer's own documentation.</div>
+  <div><strong>Contact</strong><br>
+  Digital Innovation team, Prior + Partners<br>
+  <a href="mailto:info@priorpartners.com">info@priorpartners.com</a></div>
+  <div><strong>Version</strong><br>
+  Last updated {built}<br>
+  Developed by the Digital Innovation team</div>
+</div>
 """,
         encoding="utf-8",
     )
@@ -791,11 +810,14 @@ is, how to connect QGIS, and how to use the data on a project — it opens strai
                 encoding="utf-8",
             )
 
-    nav = [{"Home": "index.md"}] + nav_themes
+    nav = [{"Home": "index.md"},
+           {"📕 Staff Handbook (PDF)":
+            "https://prior-partners.github.io/PP_uk_baseline/PP_Staff_Data_Management_Handbook.pdf"}] + nav_themes
     mkdocs_yml = OUT / "mkdocs.yml"
     yaml_lines = [
         "site_name: uk_baseline data catalogue",
-        "site_description: Plain-English guide to every layer in the uk_baseline database.",
+        "site_description: A guide to every layer in the uk_baseline database.",
+        f"copyright: Developed by the Digital Innovation team, Prior + Partners — last updated {built}",
         "theme:",
         "  name: material",
         "  palette:",
@@ -804,6 +826,7 @@ is, how to connect QGIS, and how to use the data on a project — it opens strai
         "  features:",
         "    - navigation.instant",
         "    - navigation.tracking",
+        "    - toc.integrate",
         "    - search.highlight",
         "    - search.suggest",
         "    - content.code.copy",

@@ -22,7 +22,6 @@
 **DEFINITIONS**
 
 - "This dataset contains Point of Interest (POI) data for the United Kingdom, obtained from the Overture Maps Foundation." (GeoDS dataset page)
-- "Users should be cautious of utilising POIs sourced entirely from Microsoft, as these often exhibit high levels of attribute incompleteness." (GeoDS dataset page)
 
 **SCOPE**
 

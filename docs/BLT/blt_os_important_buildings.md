@@ -17,9 +17,7 @@
 
 **DEFINITIONS**
 
-- ImportantBuilding feature type: "A generalised building that belongs to a FunctionalSite." (OS OpenMap Local Product Guide, Land Use / ImportantBuilding)
-- "Buildings that fall within the extent of a functional site are identified as Important Buildings. These buildings share attribution with their associated functional site." (OS OpenMap Local Product Guide)
-- "Not all Important Building are represented within a functional site. Those without a functional site are deemed as important for navigational aid." (OS OpenMap Local Product Guide)
+- "A generalised building that belongs to a FunctionalSite." (OS OpenMap Local Product Guide, Land Use / ImportantBuilding)
 - Building themes (11): Attraction and Leisure, Air Transport, Cultural Facility, Education facility, Emergency Services, Medical Facility, Religious Building, Retail, Road Transport, Sports and Leisure Facility, Water Transport.
 
 **SCOPE**

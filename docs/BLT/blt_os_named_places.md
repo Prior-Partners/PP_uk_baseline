@@ -17,9 +17,8 @@
 
 **DEFINITIONS**
 
-- NamedPlace feature type: "A representative point feature giving the general location of a settlement name or geographic place name, for the purposes of text placement." (OS OpenMap Local Product Guide, Land Use / NamedPlace)
+- "A representative point feature giving the general location of a settlement name or geographic place name, for the purposes of text placement." (OS OpenMap Local Product Guide, Land Use / NamedPlace)
 - Classifications (5): Populated Place, Landform, Woodland or Forest, Hydrography, Landcover. (OS OpenMap Local Product Guide)
-- Welsh / Gaelic dual-name rule: "When a place is dual named, the Welsh or Gaelic name is presented first, followed by a space, a forward slash, a space and then the English name." (OS OpenMap Local Product Guide)
 
 **SCOPE**
 

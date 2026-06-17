@@ -17,10 +17,8 @@
 
 **DEFINITIONS**
 
-- FunctionalSite feature type: "A polygon feature that represents the area or extent of certain types of function or activity with appropriate attribution." (OS OpenMap Local Product Guide, Land Use / FunctionalSite)
+- "A polygon feature that represents the area or extent of certain types of function or activity with appropriate attribution." (OS OpenMap Local Product Guide, Land Use / FunctionalSite)
 - "Each site has a theme, classification and is named (where appropriate)." (OS OpenMap Local Product Guide, Functional Sites)
-- Site themes (5): Air transport, Education, Medical care, Road transport, Water transport. (OS OpenMap Local Product Guide)
-- "Only available in the vector product." (OS OpenMap Local Product Guide)
 
 **SCOPE**
 

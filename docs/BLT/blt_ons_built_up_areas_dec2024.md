@@ -17,8 +17,7 @@
 
 **DEFINITIONS**
 
-- BGG boundary type: "The built up area boundaries are generalised and created using an automated approach based on a 25m grid squares (BGG) and have been created from OS Open Built Up Areas." (data.gov.uk / ONS-OS background)
-- Note: ONS does not formally document BGG on its digitalboundaries page (which covers BFE/BFC/BGC/BUC). BGG is specific to the Built Up Areas product family — automated 25m-grid generalisation.
+- "The built up area boundaries are generalised and created using an automated approach based on a 25m grid squares (BGG) and have been created from OS Open Built Up Areas." (data.gov.uk / ONS-OS background)
 
 **SCOPE**
 

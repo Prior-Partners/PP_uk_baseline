@@ -14,3 +14,14 @@
   color: #e9511d;
   margin: -0.4rem 0 0.2rem;
 }
+/* Brand-orange admonition (note) instead of Material blue. */
+.md-typeset .admonition.note,
+.md-typeset details.note { border-color: #e9511d; }
+.md-typeset .note > .admonition-title { background-color: #fbe6db; }
+.md-typeset .note > .admonition-title::before { background-color: #e9511d; }
+/* Homepage footer block (data info, contact, version). */
+.cat-footer { display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 3rem;
+  padding-top: 1.5rem; border-top: 1px solid #d9d3c4; color: #6b6357; font-size: .8rem; }
+.cat-footer > div { flex: 1; min-width: 200px; }
+.cat-footer strong { color: #2b242c; }
+.cat-footer a { color: #e9511d; }

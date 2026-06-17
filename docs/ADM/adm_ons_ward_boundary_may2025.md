@@ -1,6 +1,6 @@
 # ONS Wards (electoral wards), England & Wales extent, May 2025
 
-<p class="layer-short">Boundary</p>
+<p class="layer-short">Ward Boundary</p>
 
 `adm_ons_ward_boundary_may2025`
 
@@ -17,7 +17,7 @@
 
 **DEFINITIONS**
 
-- "Generalised (20m) - clipped to the coastline (Mean High Water mark)." (ONS digitalboundaries page, definition of BGC)
+- Wards (electoral wards) are the base unit of UK electoral geography.
 
 **SCOPE**
 

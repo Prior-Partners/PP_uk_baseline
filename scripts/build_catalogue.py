@@ -203,6 +203,7 @@ def first_sentence(text: str) -> str:
 
 # Section headers used in the firm's COMMENT template, in display order.
 SECTION_HEADERS = [
+    "SHORT NAME",
     "SOURCE", "DOCUMENTATION", "DEFINITIONS", "SCOPE", "CRS", "LICENCE",
     "DATA QUALITY CAVEATS", "ENRICHMENT", "UPDATE REQUIRED",
     "NOT IN THIS DATASET", "DERIVED FROM", "LOADED INTO uk_baseline",
@@ -494,6 +495,8 @@ def _linkify(escaped: str) -> str:
 def _section_html(sections: dict[str, str]) -> str:
     out = []
     for head in SECTION_HEADERS:
+        if head == "SHORT NAME":          # used for the title line, not a section
+            continue
         if head not in sections or not sections[head].strip():
             continue
         items = parse_bullets(sections[head])
@@ -645,6 +648,8 @@ def render_html(records: list[dict[str, Any]], built: str, path: Path) -> None:
 def _section_md(sections: dict[str, str]) -> str:
     out = []
     for head in SECTION_HEADERS:
+        if head == "SHORT NAME":          # used for the title line, not a section
+            continue
         if head not in sections or not sections[head].strip():
             continue
         out.append(f"**{head}**\n")
@@ -870,8 +875,11 @@ def main() -> None:
     records = read_metadata()
     shorts = read_short_names()
     for r in records:
-        r["short_name"] = shorts.get(r["table"], "")
-    log.info("Read %d layers from %s (%d short names from register)",
+        # Short name: prefer the DB comment's SHORT NAME section (Option B);
+        # fall back to the register for themes not yet migrated.
+        r["short_name"] = (first_bullet(r["sections"].get("SHORT NAME", ""))
+                           or shorts.get(r["table"], ""))
+    log.info("Read %d layers from %s (%d short names)",
              len(records), SCHEMA, sum(1 for r in records if r["short_name"]))
 
     OUT.mkdir(parents=True, exist_ok=True)

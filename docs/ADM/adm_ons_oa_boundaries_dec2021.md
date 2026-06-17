@@ -1,6 +1,6 @@
 # ONS Output Areas (OA), England & Wales extent, 2021 Census geography, December 2021
 
-<p class="layer-short">Oa boundaries</p>
+<p class="layer-short">Output Area Boundary</p>
 
 `adm_ons_oa_boundaries_dec2021`
 
@@ -17,7 +17,7 @@
 
 **DEFINITIONS**
 
-- "Generalised (20m) - clipped to the coastline (Mean High Water mark)." (ONS digitalboundaries page, definition of BGC)
+- Output Areas (OAs) are the smallest census geography, built from postcodes to be socially homogeneous, with at least 100 residents and 40 households (about 125 households on average).
 
 **SCOPE**
 

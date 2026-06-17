@@ -1,5 +1,7 @@
 # ONS Postcode Directory (ONSPD), United Kingdom, February 2026 edition
 
+<p class="layer-short">Postcode Centroid</p>
+
 `adm_ons_postcode_centroid_feb2026`
 
 <img src="../../maps/adm_ons_postcode_centroid_feb2026.png" alt="Styling preview of adm_ons_postcode_centroid_feb2026" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
@@ -17,7 +19,6 @@
 **DEFINITIONS**
 
 - "The ONS Postcode Directory (ONSPD) relates both current and terminated postcodes in the United Kingdom to a range of current statutory administrative, electoral, health and other area geographies." (ONSPD User Guide)
-- Postcode centroid positional quality is given per row by `gridind`; the grid reference is the mean of the postcode's addresses snapped to the closest address.
 
 **SCOPE**
 

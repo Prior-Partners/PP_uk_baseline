@@ -1,6 +1,6 @@
 # ONS Middle layer Super Output Areas (MSOA), England & Wales extent, December 2021
 
-<p class="layer-short">Boundary</p>
+<p class="layer-short">Middle Layer Super Output Area Boundary</p>
 
 `adm_ons_msoa_boundary_2021`
 
@@ -17,7 +17,7 @@
 
 **DEFINITIONS**
 
-- "Generalised (20m) - clipped to the coastline (Mean High Water mark)." (ONS digitalboundaries page, definition of BGC)
+- Middle Layer Super Output Areas (MSOAs) are census statistical areas built from groups of LSOAs, of similar population size — about 7,200 residents on average (roughly 5,000–15,000 people).
 
 **SCOPE**
 

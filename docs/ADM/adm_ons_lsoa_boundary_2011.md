@@ -1,6 +1,6 @@
 # ONS Lower layer Super Output Areas (LSOA), England & Wales extent, December 2011
 
-<p class="layer-short">Boundary</p>
+<p class="layer-short">Lower Layer Super Output Area Boundary</p>
 
 `adm_ons_lsoa_boundary_2011`
 
@@ -17,7 +17,7 @@
 
 **DEFINITIONS**
 
-- "Full resolution - clipped to the coastline (Mean High Water mark)." (ONS digitalboundaries page, definition of BFC)
+- Lower Layer Super Output Areas (LSOAs) are small, stable census statistical areas built from groups of Output Areas, of similar population size — about 1,500 residents on average (roughly 1,000–3,000 people).
 
 **SCOPE**
 

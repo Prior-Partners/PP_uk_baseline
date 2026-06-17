@@ -17,7 +17,7 @@
 
 **DEFINITIONS**
 
-- "The boundary covered by a local plan." (digital-land.github.io specification page)
+- Local plan boundary is the development plan area prepared by a local planning authority.
 
 **SCOPE**
 

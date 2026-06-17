@@ -1,6 +1,6 @@
 # ONS Local Authority Districts (LAD), UK extent, May 2022
 
-<p class="layer-short">Boundary</p>
+<p class="layer-short">Local Authority District Boundary</p>
 
 `adm_ons_lad_boundary_may2022`
 
@@ -17,7 +17,7 @@
 
 **DEFINITIONS**
 
-- "Full resolution - extent of the realm (usually this is the Mean Low Water mark but, in some cases, boundaries extend beyond this to include offshore islands)." (ONS digitalboundaries page, definition of BFE)
+- In England, Local Authority (LA) boundaries define the exact geographic limits of a council's jurisdiction.
 
 **SCOPE**
 

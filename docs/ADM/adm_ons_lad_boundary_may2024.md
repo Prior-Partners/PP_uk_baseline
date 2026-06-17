@@ -17,7 +17,7 @@
 
 **DEFINITIONS**
 
-- In England, Local Authority (LA) boundaries define the exact geographic limits of a council's jurisdiction.
+- Local Authority (LA) boundaries define the exact geographic limits of a council's jurisdiction.
 
 **SCOPE**
 

@@ -18,8 +18,7 @@
 
 **DEFINITIONS**
 
-- OS Open Greenspace: "OS Open Greenspace depicts the location and extent of spaces, such as parks and sports facilities, which are likely to be accessible to the public." (OS Open Greenspace product page)
-- ANGST: Accessible Natural Greenspace Standard, a Natural England standard defining sizes/distances within which residents should be able to reach natural greenspace.
+- "OS Open Greenspace depicts the location and extent of spaces, such as parks and sports facilities, which are likely to be accessible to the public." (OS Open Greenspace product page)
 
 **SCOPE**
 

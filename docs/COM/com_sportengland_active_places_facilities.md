@@ -18,8 +18,7 @@
 
 **DEFINITIONS**
 
-- "Sport facility data for England maintained by Sport England on behalf of the sport sector." (activeplaces.github.io)
-- "The Active Places database contains information on around 41,000 sports sites nationwide, with details on 115,000 sports facilities." (Sport England Active Places Power summary)
+- "Sport facility data for England maintained by Sport England on behalf of the sport sector. The Active Places database contains information on around 41,000 sports sites nationwide, with details on 115,000 sports facilities."
 
 **SCOPE**
 

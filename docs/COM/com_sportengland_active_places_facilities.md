@@ -1,6 +1,6 @@
-# Sport England Active Places - point features for individual sports facilities
+# Sport England Active Places (point)
 
-<p class="layer-short">Open Greenspace sport activity</p>
+<p class="layer-short">Sport England sport facilities</p>
 
 `com_sportengland_active_places_facilities`
 

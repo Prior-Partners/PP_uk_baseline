@@ -1,6 +1,6 @@
 site_name: uk_baseline data catalogue
 site_description: A guide to every layer in the uk_baseline database.
-copyright: Developed by the Digital Innovation team, Prior + Partners — last updated 17 June 2026
+copyright: Developed by the Digital Innovation team, Prior + Partners — last updated 19 June 2026
 theme:
   name: material
   palette:
@@ -50,8 +50,8 @@ nav:
     - "OS OpenMap Local Named Places - point features carrying place-name labels": BLT/blt_os_named_places.md
   - "Community & Social Infrastructure (COM)":
     - COM/index.md
-    - "OS Open Greenspace Sport and activity provision, polygon layer with analytical attributes": COM/com_os_green_space_sport_activity_area.md
-    - "Sport England Active Places - point features for individual sports facilities": COM/com_sportengland_active_places_facilities.md
+    - "OS Open Greenspace Sport and activity provision (polygon)": COM/com_os_green_space_sport_activity_area.md
+    - "Sport England Active Places (point)": COM/com_sportengland_active_places_facilities.md
   - "Demographics & Socio-Economic (DEM)":
     - DEM/index.md
     - "Department for Energy Security and Net Zero (DESNZ) sub-regional fuel poverty estimates at LSOA (England), 2023": DEM/dem_desnz_lsoa_fuel_poverty_2023.md

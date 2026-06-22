@@ -1,6 +1,6 @@
 # MHCLG Index of Multiple Deprivation (IMD) 2019 at LSOA 2011, England
 
-<p class="layer-short">IMD</p>
+<p class="layer-short">IMD 2019</p>
 
 `dem_mhclg_lsoa_imd_2019`
 
@@ -8,8 +8,7 @@
 
 **SOURCE**
 
-- Ministry of Housing, Communities and Local Government (MHCLG), English Indices of Deprivation 2019. Statistical release 26 September 2019. Score / rank / decile columns, sub-domain columns, supplementary index columns (IDACI, IDAOPI), and historical 2010 / 2015 rank columns derive directly from MHCLG's File 1 ("Index of Multiple Deprivation") and File 5 ("Scores for the Indices of Deprivation").
-- Several non-MHCLG columns (ONS Mid-2022 population denominators; total_students / age-band counts; data_source / data_resolution / data_time_period / data_web_link fixed-string annotations; rank-change and rank-trend columns) were added during an earlier Prior + Partners loading pass. Original load author, date, and methodology no longer recorded. Provenance for those columns is documented in their individual column comments.
+- Ministry of Housing, Communities and Local Government (MHCLG). Includes score / rank / decile columns, sub-domain columns, supplementary index columns (IDACI, IDAOPI), and historical data from 2010 / 2015.
 
 **DOCUMENTATION**
 
@@ -17,18 +16,15 @@
 - Statistical Release (PDF) : https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/835115/IoD2019_Statistical_Release.pdf
 - Technical Report (PDF) : https://assets.publishing.service.gov.uk/media/5d8b387740f0b609909b5908/IoD2019_Technical_Report.pdf
 - Frequently Asked Questions (PDF) : https://assets.publishing.service.gov.uk/media/5dfb3d7ce5274a3432700cf3/IoD2019_FAQ_v4.pdf
-- Mapping resources : https://www.gov.uk/guidance/english-indices-of-deprivation-2019-mapping-resources
 
 **DEFINITIONS**
 
-- "The Index of Multiple Deprivation (IMD) is the most widely used of the deprivation indices. [It] measures relative deprivation in small areas in England called lower-layer super output areas." (gov.uk IoD 2019 landing page)
-- "It is a relative measure of deprivation; the neighbourhoods on which the IMD is built, lower layer super output areas (LSOAs), are ranked from 1 (most deprived) to 32,844 (least deprived)." (IoD 2019 FAQ)
-- "Deciles are calculated by ranking the 32,844 small areas in England, from most deprived to least deprived, and dividing them into 10 equal groups. LSOAs in decile 1 fall within the most deprived 10% of LSOAs nationally and LSOAs in decile 10 fall within the least deprived 10% of LSOAs nationally." (IoD 2019 FAQ)
-- "The Index of Deprivation 2019 was produced using the same approach, structure and methodology as the Index of Deprivation 2015 and previous releases, and keeping a consistent methodology does allow relative rankings between iterations to be compared over time." (gov.uk IoD 2019 landing page)
+- The Index of Multiple Deprivation (IMD) measures relative deprivation across small areas in England (Lower Layer Super Output Area, LSOA).
+- LSOAs are ranked from 1 (most deprived) to 32,844 (least deprived) and divided into ten equal deciles (decile 1 = most deprived 10%, decile 10 = least deprived 10%).
 
 **SCOPE**
 
-- LSOA 2011 boundary coverage: England + Wales (34,753 distinct lsoa11cd). IMD score / rank / decile columns are populated for English LSOAs only — 1,940 rows for Welsh LSOAs (lsoa11cd starting "W") carry NULL IMD values, because IMD is an England-only index. The Welsh equivalent is the Welsh Index of Multiple Deprivation, published separately by the Welsh Government and not in this table.
+- LSOA 2011 coverage: England + Wales (34,753 distinct lsoa11cd). IMD values are populated for England only; the 1,940 Welsh LSOA rows carry NULL IMD.
 
 **CRS**
 

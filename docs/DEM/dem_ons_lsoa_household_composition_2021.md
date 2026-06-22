@@ -17,8 +17,14 @@
 
 **DEFINITIONS**
 
-- "Classifies households according to the relationships between the household members. Households containing at least one married couple, with or without dependent children, are classified as married couple households regardless of the presence of any other person, except where that person is part of another couple." (ONS Census 2021 Household composition variable)
+- "Classifies households according to the relationships between the household members." (ONS Census 2021 Household composition variable)
 - Dependent children definition: aged 0-15, or aged 16-18 in full-time education and living with parent(s).
+
+A household containing at least one married couple is classified as a married couple household:
+
+- with or without dependent children
+- regardless of the presence of any other person
+- except where that other person is part of another couple
 
 **SCOPE**
 

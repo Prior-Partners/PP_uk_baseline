@@ -1,6 +1,6 @@
 # ONS Census 2021 households-by-accommodation-type at Lower-layer Super Output Area (LSOA) 2021
 
-<p class="layer-short">Accommodation Type</p>
+<p class="layer-short">Households by Accommodation Type</p>
 
 `dem_ons_lsoa_accommodation_type_2021`
 
@@ -8,7 +8,7 @@
 
 **SOURCE**
 
-- Office for National Statistics (ONS), Census 2021, England and Wales. Table TS044 "Accommodation type". Reference date 21 March 2021. Loaded via an earlier Prior + Partners pass; original load pathway not recorded.
+- Office for National Statistics (ONS), Census 2021, England and Wales.
 
 **DOCUMENTATION**
 
@@ -18,13 +18,20 @@
 
 **DEFINITIONS**
 
-- "Classification of households by accommodation type." (ONS TS044 dataset description)
-- Census 2021 categorises accommodation type as: detached; semi-detached; terraced; in a purpose-built block of flats or tenement; part of a converted or shared house, including bedsits; part of another converted building; in a commercial building; caravan or other mobile or temporary structure.
+- Census 2021 categorises accommodation type as:
+- detached
+- semi-detached
+- terraced
+- in a purpose-built block of flats or tenement
+- part of a converted or shared house, including bedsits
+- part of another converted building
+- in a commercial building
+- caravan or other mobile or temporary structure
 - "Census Day was 21 March 2021. The information collected in the census reflects the population of England and Wales on that day." (ONS Census 2021 landing page)
 
 **SCOPE**
 
-- England and Wales. LSOA 2021 boundary; 35,672 distinct lsoa21cd (no multipolygon explosion).
+- England and Wales.
 - Base population: households.
 
 **CRS**
@@ -35,19 +42,13 @@
 
 - Open Government Licence v3.0.
 
-**DATA QUALITY CAVEATS**
-
-- Column name spelling drift inherited from the earlier load: `dominant_accomodation_type_group` (typo: "accomodation" should be "accommodation").
-- Column names `in_commercial building_count` / `_perc` contain a SPACE — use double-quoted identifiers in SQL.
-- Two `fid` columns: uppercase `FID` (Esri export legacy) and lowercase `fid` (PostgreSQL surrogate). Both are pure surrogates; use either as a row key but not in joins.
-
 **ENRICHMENT**
 
 - `msoa21hclnm` — House of Commons Library readable MSOA name, joined at load on msoa21cd from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.
 
 **LOADED INTO uk_baseline**
 
-- Data: Census Day 21 March 2021 (ONS TS044 publication 2022-2023).
+- Data: Census Day 21 March 2021.
 
 
 ## Columns

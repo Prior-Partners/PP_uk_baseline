@@ -38,7 +38,7 @@
 
 **UPDATE REQUIRED**
 
-- Upstream "new data last found on" 2026-03-18. This load is 2026-01-09. Refresh planned.
+- New data found from data source on 18/03/2026. Current data is 09/01/2026. An update is scheduled in the next turn.
 
 **LOADED INTO uk_baseline**
 

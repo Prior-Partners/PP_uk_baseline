@@ -19,12 +19,12 @@
 
 **DEFINITIONS**
 
-- "An interactive map for indicators of domestic energy efficiency and energy consumption is available which includes the percentage of households in fuel poverty down to Lower Layer Super Output Area." (DESNZ sub-regional release)
-- LILEE definition (Low Income Low Energy Efficiency - the fuel-poverty measure used since 2021): a household is fuel-poor if it lives in a property rated EPC band D or below AND its disposable income after housing and fuel costs falls below the official poverty line.
+- Estimated percentage of households in fuel poverty in each LSOA.
+- LILEE: Low Income Low Energy Efficiency. A household is classified as "fuel-poor" when the property is rated EPC band D or below and income after housing and fuel costs falls below the official poverty line.
 
 **SCOPE**
 
-- England only (DESNZ does not publish sub-regional fuel-poverty estimates for Scotland, Wales, or Northern Ireland - separate devolved publications).
+- England only.
 - 33,755 rows at LSOA 2021 grain.
 
 **CRS**
@@ -37,7 +37,7 @@
 
 **DATA QUALITY CAVEATS**
 
-- "Estimates of fuel poverty at Lower Super Output Area (LSOA) should be treated with caution and should only be used to look at general trends and identify areas of particularly high or low fuel poverty, not to identify trends over time within an LSOA or to compare LSOAs with similar fuel poverty levels due to very small sample sizes and consequent instability in estimates at this level." (DESNZ sub-regional methodology)
+- Fuel poverty estimates at LSOA have very small sample sizes; focus on general trends and area comparison, not on identifying trends over time within an LSOA or comparing LSOAs with similar fuel poverty levels.
 
 **ENRICHMENT**
 

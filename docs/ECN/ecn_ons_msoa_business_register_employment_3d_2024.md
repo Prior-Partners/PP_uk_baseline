@@ -40,6 +40,10 @@
 - NULL means the cell was suppressed by ONS for disclosure control; 0 means genuinely zero employment. Suppression bites harder at fine geographies (LSOA) and small industries, so expect many NULLs across the industry row.
 - Reading values: a NULL in an industry column does NOT mean the area has no employment in that industry. It means ONS withheld the value because fewer than ~3 businesses operate there in that division/group. Sum across industries with caution.
 
+**ENRICHMENT**
+
+- `msoa21hclnm` — House of Commons Library readable MSOA name, joined at load on msoa21cd from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.
+
 **NOT IN THIS DATASET**
 
 - The narrower Employees-only measure (payroll only, excluding working owners).
@@ -333,3 +337,4 @@
 | `sic990_actvts_extraterritorial_organisations&bodies` | `integer` |  Unit: "Persons". SIC2007 3-digit code 990: Activities of extraterritorial organisations and bodies.  |
 | `sic010` | `integer` | SIC2007 code 010 (Employment). Unit: Number of jobs (persons). Source field `OBS_VALUE` for industry code 010. |
 | `geom` | `geometry(MultiPolygon,27700)` | Geometry from uk_baseline.adm_ons_msoa_boundary_2021. |
+| `msoa21hclnm` | `text` | House of Commons Library readable MSOA name. Source field `msoa21hclnm` from House of Commons Library MSOA Names v2.3 (13 February 2026), joined at load on msoa21cd. Open Parliament Licence. |

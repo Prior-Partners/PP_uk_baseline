@@ -41,6 +41,10 @@
 - Suppression rule: "Life expectancy values have not been presented for areas where: the person-years in any given age interval is zero; the population is less than 5,000; there are no deaths in the 90 years and over age group; the number of deaths in an age group is greater than the population estimate for that age group; the confidence interval around the life expectancy value is greater than 20 years." (Fingertips indicator 93283 metadata, Disclosure control). Where suppression applies, the value columns are NULL and the corresponding *_value_note column carries the publisher's suppression text.
 - Boundary attributes (lad22cd, lad22nm, rgn22cd, rgn22nm) are LAD May 2022 / Region 2022 vintage. The April 2023 LAD reorganisations (creation of Cumberland, Westmorland and Furness, North Yorkshire UA, Somerset UA, and the Buckinghamshire merger) are not reflected. Region codes E12000001 to E12000009 are stable across vintages, so rgn22cd values would be identical if labelled rgn23cd or rgn24cd.
 
+**ENRICHMENT**
+
+- `msoa21hclnm` — House of Commons Library readable MSOA name, joined at load on msoa21cd from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.
+
 **LOADED INTO uk_baseline**
 
 - Loaded by PNC, 29 May 2026.
@@ -99,3 +103,4 @@
 | `female_new_data` | `text` | Female: Source field `New data`. |
 | `male_vs_goal` | `text` | Male: Source field `Compared to goal`. |
 | `female_vs_goal` | `text` | Female: Source field `Compared to goal`. |
+| `msoa21hclnm` | `text` | House of Commons Library readable MSOA name. Source field `msoa21hclnm` from House of Commons Library MSOA Names v2.3 (13 February 2026), joined at load on msoa21cd. Open Parliament Licence. |

@@ -45,6 +45,7 @@
 
 **ENRICHMENT**
 
+- `msoa21hclnm` — House of Commons Library readable MSOA name, joined at load on `msoa_code` from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.
 - ofsted_overall_rate_code, ofsted_overall_rate — headline Ofsted grade (1-4 code + text: Outstanding / Good / Requires Improvement / Inadequate) merged in from the Ofsted Establishment Inspection File via uk.edu_ofsted_state_funded_mis_feb2026 (28 Feb 2026 snapshot). Joined on URN. NULL when no clean grade is available. Includes "Fallback option B" — for URNs whose OEIF graded inspection was NULL, the rate is filled from the latest ungraded reaffirm outcome where it maps unambiguously ("School remains Outstanding" / "School remains Good" -> respective grade). Applied 14 May 2026. See column comments for the full rule.
 - lad25cd, lad25nm — joined at load from ONS LAD 2025 lookup.
 - rgn22cd, rgn22nm — joined at load from ONS Region 2022 lookup.
@@ -208,3 +209,4 @@
 | `fid` | `bigint` |  |
 | `ofsted_overall_rate_code` | `smallint` | Headline Ofsted grade code 1-4 (1=Outstanding, 2=Good, 3=Requires Improvement, 4=Inadequate). NULL when no clean grade is available (includes 'Not Judged' and ambiguous ungraded outcomes). Sourced from OEIF + extended ungraded-reaffirm fallback. Fallback option B applied 14 May 2026. |
 | `ofsted_overall_rate` | `text` | Headline Ofsted rating text (Title Case). Sourced from OEIF graded inspection (col 67); for rows where OEIF was NULL, filled from the latest ungraded reaffirm outcome: 'School remains Outstanding' and 'School remains Outstanding (Concerns) - S5 Next' -> 'Outstanding'; 'School remains Good', 'School remains Good (Concerns) - S5 Next' and 'School remains Good (Improving) - S5 Next' -> 'Good'. Other ungraded outcomes (Standards maintained, Improved significantly, Some aspects not as strong) intentionally left NULL. Fallback option B applied 14 May 2026. |
+| `msoa21hclnm` | `text` | House of Commons Library readable MSOA name. Joined at load on this table's `msoa_code` (a 2021 MSOA code) from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence. |

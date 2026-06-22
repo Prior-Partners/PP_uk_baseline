@@ -38,6 +38,11 @@
 - Postcode-to-area assignment can be imprecise near boundaries (straddling) or for new postcodes (imputed grid references); see `gridind`.
 - This is a postcode-centroid reference layer for joining postcode-only datasets (e.g. HM Land Registry Price Paid Data) to coordinates and admin geographies; it is not address-level.
 
+**ENRICHMENT**
+
+- `msoa21nm` — Office for National Statistics MSOA 2021 name, joined at load on msoa21cd from uk_baseline.adm_ons_msoa_boundary_2021.
+- `msoa21hclnm` — House of Commons Library readable MSOA name, joined at load on msoa21cd from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.
+
 **LOADED INTO uk_baseline**
 
 - Loaded by PNC, 1 June 2026.
@@ -101,3 +106,5 @@
 | `msoa21cd` | `text` | Source field `msoa21cd`. 2021 Census Middle Layer Super Output Area code (England, Wales, Scotland). |
 | `ruc21ind` | `text` | Source field `ruc21ind`. |
 | `geom` | `geometry(Point,27700)` | Point geometry in EPSG:27700, derived at load from `east1m`/`north1m` for Great Britain postcodes (England, Wales, Scotland) only. NULL for Northern Ireland (grid is Irish National Grid, not BNG), Channel Islands, Isle of Man, and postcodes with no grid reference. |
+| `msoa21nm` | `text` | Office for National Statistics MSOA 2021 name, joined at load on msoa21cd from uk_baseline.adm_ons_msoa_boundary_2021. |
+| `msoa21hclnm` | `text` | House of Commons Library readable MSOA name. Source field `msoa21hclnm` from House of Commons Library MSOA Names v2.3 (13 February 2026), joined at load on msoa21cd. Open Parliament Licence. |

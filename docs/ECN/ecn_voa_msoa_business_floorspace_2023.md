@@ -37,6 +37,10 @@
 
 - VOA disclosure-suppressed cells ('-' in source CSVs) preserved as NULL, not 0.
 
+**ENRICHMENT**
+
+- `msoa21hclnm` — House of Commons Library readable MSOA name, joined at load on msoa21cd from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.
+
 **LOADED INTO uk_baseline**
 
 - Loaded by PNC, May 2026.
@@ -280,3 +284,4 @@
 | `rateable_value_industrial_2023` | `integer` | Unit: "rateable value per metre squared (£ per metre squared of floorspace)" |
 | `rateable_value_other_2023` | `integer` | Unit: "rateable value per metre squared (£ per metre squared of floorspace)" |
 | `geom` | `geometry(MultiPolygon,27700)` | Geometry from uk_baseline.adm_ons_msoa_boundary_2021 |
+| `msoa21hclnm` | `text` | House of Commons Library readable MSOA name. Source field `msoa21hclnm` from House of Commons Library MSOA Names v2.3 (13 February 2026), joined at load on msoa21cd. Open Parliament Licence. |

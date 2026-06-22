@@ -34,6 +34,10 @@
 
 - Students are counted at their term-time address. This means university towns / cities show artificially high student counts in term time; home addresses show artificially low counts. Use this layer for term-time demographic analysis, not for home-residence analysis.
 
+**ENRICHMENT**
+
+- `msoa21hclnm` — House of Commons Library readable MSOA name, joined at load on msoa21cd from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.
+
 **LOADED INTO uk_baseline**
 
 - Data: Census Day 21 March 2021.
@@ -174,3 +178,4 @@
 | `wd22cd` | `character varying` | Joined at load from ONS LSOA->Ward lookup; 2022 Ward GSS code. |
 | `wd22nm` | `character varying` | Joined at load from ONS LSOA->Ward lookup; 2022 Ward name. |
 | `fid` | `bigint` |  |
+| `msoa21hclnm` | `text` | House of Commons Library readable MSOA name. Source field `msoa21hclnm` from House of Commons Library MSOA Names v2.3 (13 February 2026), joined at load on msoa21cd. Open Parliament Licence. |

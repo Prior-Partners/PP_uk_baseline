@@ -34,6 +34,10 @@
 - Column `dominant_relegious_group` misspells "religious" as "relegious" — preserved from the earlier P+P load.
 - "Not answered" is not the same as "No religion" — the religion question is voluntary; "Not answered" counts those who chose not to respond.
 
+**ENRICHMENT**
+
+- `msoa21hclnm` — House of Commons Library readable MSOA name, joined at load on msoa21cd from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.
+
 **LOADED INTO uk_baseline**
 
 - Data: Census Day 21 March 2021.
@@ -81,3 +85,4 @@
 | `wd22cd` | `character varying` | Joined at load from ONS LSOA->Ward lookup; 2022 Ward GSS code. |
 | `wd22nm` | `character varying` | Joined at load from ONS LSOA->Ward lookup; 2022 Ward name. |
 | `fid` | `bigint` |  |
+| `msoa21hclnm` | `text` | House of Commons Library readable MSOA name. Source field `msoa21hclnm` from House of Commons Library MSOA Names v2.3 (13 February 2026), joined at load on msoa21cd. Open Parliament Licence. |

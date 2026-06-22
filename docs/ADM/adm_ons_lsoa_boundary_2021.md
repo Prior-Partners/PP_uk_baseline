@@ -34,6 +34,7 @@
 
 **ENRICHMENT**
 
+- `msoa21hclnm` — House of Commons Library readable MSOA name, joined at load on msoa21cd from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.
 - msoa21cd, msoa21nm : joined from ONS LSOA -> MSOA lookup (2021 MSOA).
 - wd22cd, wd22nm : joined from ONS LSOA -> Ward lookup (2022 ward).
 - lad22cd, lad22nm : joined from ONS LSOA -> LAD lookup (2022 LAD).
@@ -59,3 +60,4 @@
 | `rgn22cd` | `character varying` | Joined at load from ONS LSOA->Region lookup; 2022 Region GSS code. |
 | `rgn22nm` | `character varying` | Joined at load from ONS LSOA->Region lookup; 2022 Region name. |
 | `sds_boundary` | `character varying` | Internal categorisation: Spatial Development Strategy (SDS) area where the geometry falls (e.g. "Greater London", "West Midlands", "Greater Manchester"). Blank or NULL where the geometry is outside any SDS area. |
+| `msoa21hclnm` | `text` | House of Commons Library readable MSOA name. Source field `msoa21hclnm` from House of Commons Library MSOA Names v2.3 (13 February 2026), joined at load on msoa21cd. Open Parliament Licence. |

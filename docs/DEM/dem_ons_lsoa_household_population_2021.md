@@ -38,6 +38,10 @@
 - The 173-column shape combines multiple Census 2021 cross-tabs. The exact source-table-per-column mapping was not recorded by the earlier load; some columns may be derived (sums of category sub-groups). Treat aggregate sums with care — confirm column groupings against ONS source tables before use.
 - Base population varies per column (some columns count all usual residents, others count households). Each column comment names its base.
 
+**ENRICHMENT**
+
+- `msoa21hclnm` — House of Commons Library readable MSOA name, joined at load on msoa21cd from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.
+
 **LOADED INTO uk_baseline**
 
 - Data: Census Day 21 March 2021.
@@ -220,3 +224,4 @@
 | `dominant_age_group` | `text` | Derived during an earlier Prior + Partners loading pass; label of the modal category for this LSOA. |
 | `geom` | `geometry(MultiPolygon,27700)` | MultiPolygon in EPSG:27700. Boundary geometry joined at load. |
 | `fid` | `bigint` |  |
+| `msoa21hclnm` | `text` | House of Commons Library readable MSOA name. Source field `msoa21hclnm` from House of Commons Library MSOA Names v2.3 (13 February 2026), joined at load on msoa21cd. Open Parliament Licence. |

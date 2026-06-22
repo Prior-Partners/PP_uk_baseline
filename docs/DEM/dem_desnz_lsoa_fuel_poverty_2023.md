@@ -41,6 +41,7 @@
 
 **ENRICHMENT**
 
+- `msoa21hclnm` — House of Commons Library readable MSOA name, joined at load on msoa21cd from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.
 - msoa21cd, msoa21nm : joined from ONS LSOA -> MSOA lookup.
 - lad22cd, lad22nm : joined from ONS LSOA -> LAD lookup.
 - wd21cd, wd21nm : joined from ONS LSOA -> Ward lookup.
@@ -67,3 +68,4 @@
 | `geom` | `geometry(MultiPolygon,27700)` | Joined at load from LSOA21 boundary set; MultiPolygon in EPSG:27700. |
 | `area_ha` | `double precision` | Derived at load from ST_Area(geom)/10000. Unit: "hectares". |
 | `fid` | `bigint` |  |
+| `msoa21hclnm` | `text` | House of Commons Library readable MSOA name. Source field `msoa21hclnm` from House of Commons Library MSOA Names v2.3 (13 February 2026), joined at load on msoa21cd. Open Parliament Licence. |

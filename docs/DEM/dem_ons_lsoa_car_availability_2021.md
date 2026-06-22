@@ -38,6 +38,10 @@
 - Category column names contain SPACES (`"1 or more cars or vans in household"`, `"Does not apply"`, `"No cars or vans in household"`). Use double-quoted identifiers in SQL.
 - This table carries a Ward 2021 (`wd21cd`/`wd21nm`) admin code set in addition to the later `wd22cd`/`wd22nm`. The earlier load pre-dated the standardised admin key approach; both ward boundaries are preserved.
 
+**ENRICHMENT**
+
+- `msoa21hclnm` — House of Commons Library readable MSOA name, joined at load on msoa21cd from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.
+
 **LOADED INTO uk_baseline**
 
 - Data: Census Day 21 March 2021 (ONS TS045 publication 2022).
@@ -66,3 +70,4 @@
 | `wd22cd` | `character varying` | Joined at load from ONS LSOA->Ward lookup; 2022 Ward GSS code. |
 | `wd22nm` | `character varying` | Joined at load from ONS LSOA->Ward lookup; 2022 Ward name. |
 | `fid` | `bigint` |  |
+| `msoa21hclnm` | `text` | House of Commons Library readable MSOA name. Source field `msoa21hclnm` from House of Commons Library MSOA Names v2.3 (13 February 2026), joined at load on msoa21cd. Open Parliament Licence. |

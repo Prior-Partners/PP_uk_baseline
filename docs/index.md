@@ -47,6 +47,6 @@ is, how to connect QGIS, and how to use the data on a project — it opens strai
   Digital Innovation team, Prior + Partners<br>
   <a href="mailto:info@priorpartners.com">info@priorpartners.com</a></div>
   <div><strong>Version</strong><br>
-  Last updated 19 June 2026<br>
+  Last updated 22 June 2026<br>
   Developed by the Digital Innovation team</div>
 </div>

@@ -39,6 +39,10 @@
 - This is Census 2011 data — superseded by Census 2021 (`dem_ons_lsoa_industry_occupation_2021`). Use the 2021 layer for current analysis; this layer for historic comparison only.
 - LSOA 2011 boundary; NOT directly comparable cell-by-cell to LSOA 2021 (boundaries changed in ~10% of areas). Use ONS LSOA11->LSOA21 best-fit lookup for cross-year comparison.
 
+**ENRICHMENT**
+
+- `msoa21hclnm` — House of Commons Library readable MSOA name, joined at load on msoa21cd from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.
+
 **LOADED INTO uk_baseline**
 
 - Data: Census Day 27 March 2011.
@@ -109,3 +113,4 @@
 | `geom` | `geometry(MultiPolygon,27700)` | MultiPolygon in EPSG:27700. Boundary geometry joined at load. |
 | `fid` | `bigint` |  |
 | `area_ha` | `double precision` | Area in hectares, computed at load from the geometry. Unit: hectares. Stale if geometry is later edited. |
+| `msoa21hclnm` | `text` | House of Commons Library readable MSOA name. Source field `msoa21hclnm` from House of Commons Library MSOA Names v2.3 (13 February 2026), joined at load on msoa21cd. Open Parliament Licence. |

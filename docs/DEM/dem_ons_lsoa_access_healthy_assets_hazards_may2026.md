@@ -52,6 +52,7 @@
 
 **ENRICHMENT**
 
+- `msoa21hclnm` — House of Commons Library readable MSOA name, joined at load on msoa21cd from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.
 - Geography codes/names joined from uk_baseline.adm_ons_lsoa_boundary_2021 by `lsoa21cd`: lsoa21nm, msoa21cd, msoa21nm, wd22cd, wd22nm, lad22cd, lad22nm, rgn22cd, rgn22nm. NULL for Scottish rows.
 - MSOA 2011 code/name spatially joined from uk_baseline.adm_ons_msoa_boundary_2011, matching each area's representative point to the MSOA 2011 polygon that contains it: msoa11cd, msoa11nm. NULL for Scottish rows.
 - area_ha is the area in hectares, computed at load from the geometry. Goes stale if geometry is subsequently edited.
@@ -146,3 +147,4 @@
 | `rgn22nm` | `character varying` | Joined at load from uk_baseline.adm_ons_lsoa_boundary_2021 by `lsoa21cd`; ONS Region 2022 name (England only — NULL for Wales and Scotland). |
 | `area_ha` | `double precision` | Area in hectares, computed at load from the geometry. Goes stale if geometry is subsequently edited. |
 | `geom` | `geometry(MultiPolygon,27700)` | Polygon geometry from GeoDS parquet geofile ahah_v5_geo_1.parquet. |
+| `msoa21hclnm` | `text` | House of Commons Library readable MSOA name. Source field `msoa21hclnm` from House of Commons Library MSOA Names v2.3 (13 February 2026), joined at load on msoa21cd. Open Parliament Licence. |

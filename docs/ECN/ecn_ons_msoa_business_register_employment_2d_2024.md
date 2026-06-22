@@ -40,6 +40,10 @@
 - NULL means the cell was suppressed by ONS for disclosure control; 0 means genuinely zero employment. Suppression bites harder at fine geographies (LSOA) and small industries, so expect many NULLs across the industry row.
 - Reading values: a NULL in an industry column does NOT mean the area has no employment in that industry. It means ONS withheld the value because fewer than ~3 businesses operate there in that division/group. Sum across industries with caution.
 
+**ENRICHMENT**
+
+- `msoa21hclnm` — House of Commons Library readable MSOA name, joined at load on msoa21cd from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.
+
 **NOT IN THIS DATASET**
 
 - The narrower Employees-only measure (payroll only, excluding working owners).
@@ -148,3 +152,4 @@
 | `t_98_undiff_goods__svcs_producing_actvs` | `integer` |  Unit: "Persons". SIC2007 2-digit code 98: Undifferentiated goods- and services-producing activities of private households for own use.  |
 | `u_99_actvs_extratt_orgs_bodies` | `integer` |  Unit: "Persons". SIC2007 2-digit code 99: Activities of extraterritorial organisations and bodies.  |
 | `geom` | `geometry(MultiPolygon,27700)` | Geometry from uk_baseline.adm_ons_msoa_boundary_2021. |
+| `msoa21hclnm` | `text` | House of Commons Library readable MSOA name. Source field `msoa21hclnm` from House of Commons Library MSOA Names v2.3 (13 February 2026), joined at load on msoa21cd. Open Parliament Licence. |

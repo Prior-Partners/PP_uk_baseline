@@ -285,33 +285,46 @@ def parse_bullets(text: str) -> list[str]:
 
 
 def parse_blocks(text: str) -> list[tuple[str, Any]]:
-    """Section body -> ordered blocks: ``('para', str)`` or ``('list', [items])``.
+    """Section body -> ordered blocks: ``('para', str)`` or ``('list', items)``.
 
-    A column-0 line starting with ``- `` is a bullet (builds a list block). A
-    column-0 line that is NOT a bullet is a paragraph block — a lead-in or a
-    sub-heading between lists. An indented line continues the current bullet or
-    paragraph. This lets one section interleave prose and bullet lists.
+    A column-0 ``- `` line is a top-level bullet; an indented ``- `` line is a
+    nested sub-bullet of the preceding bullet. A column-0 non-bullet line is a
+    paragraph (lead-in / sub-heading between lists). Any other indented line
+    continues the current sub-bullet, bullet, or paragraph. List items are
+    ``{'text': str, 'subs': [str]}`` dicts so one level of nesting is supported.
     """
     blocks: list[tuple[str, Any]] = []
-    cur_list: list[str] | None = None
+    cur_list: list[dict[str, Any]] | None = None
     for raw in text.splitlines():
         if not raw.strip():
             continue
-        if raw.startswith("- "):                       # column-0 bullet
+        stripped = raw.lstrip()
+        if raw.startswith("- "):                                  # column-0 bullet
             if cur_list is None:
                 cur_list = []
                 blocks.append(("list", cur_list))
-            cur_list.append(raw[2:].strip())
-        elif raw[0].isspace():                         # indented continuation
-            if cur_list is not None:
-                cur_list[-1] = f"{cur_list[-1]} {raw.strip()}"
-            elif blocks and blocks[-1][0] == "para":
-                blocks[-1] = ("para", f"{blocks[-1][1]} {raw.strip()}")
+            cur_list.append({"text": raw[2:].strip(), "subs": []})
+        elif raw[:1].isspace() and stripped.startswith("- "):     # indented -> sub-bullet
+            if not cur_list:
+                cur_list = []
+                blocks.append(("list", cur_list))
+                cur_list.append({"text": stripped[2:].strip(), "subs": []})
             else:
-                blocks.append(("para", raw.strip()))
-        else:                                          # column-0 non-bullet -> paragraph
+                cur_list[-1]["subs"].append(stripped[2:].strip())
+        elif raw[:1].isspace():                                   # indented continuation
+            if cur_list:
+                item = cur_list[-1]
+                if item["subs"]:
+                    item["subs"][-1] = f'{item["subs"][-1]} {stripped}'
+                else:
+                    item["text"] = f'{item["text"]} {stripped}'
+            elif blocks and blocks[-1][0] == "para":
+                blocks[-1] = ("para", f"{blocks[-1][1]} {stripped}")
+            else:
+                blocks.append(("para", stripped))
+        else:                                                     # column-0 non-bullet -> paragraph
             cur_list = None
-            blocks.append(("para", raw.strip()))
+            blocks.append(("para", stripped))
     return blocks
 
 
@@ -535,7 +548,13 @@ def _section_html(sections: dict[str, str]) -> str:
             if kind == "para":
                 block += f"<p>{_linkify(html.escape(content))}</p>"
             else:
-                lis = "".join(f"<li>{_linkify(html.escape(it))}</li>" for it in content)
+                lis = ""
+                for it in content:
+                    subs = ""
+                    if it["subs"]:
+                        subs = "<ul>" + "".join(
+                            f"<li>{_linkify(html.escape(s))}</li>" for s in it["subs"]) + "</ul>"
+                    lis += f'<li>{_linkify(html.escape(it["text"]))}{subs}</li>'
                 block += f"<ul>{lis}</ul>"
         if not block:
             continue
@@ -693,8 +712,10 @@ def _section_md(sections: dict[str, str]) -> str:
                 out.append(content)
                 out.append("")
             else:
-                for bullet in content:
-                    out.append(f"- {bullet}")
+                for it in content:
+                    out.append(f'- {it["text"]}')
+                    for s in it["subs"]:
+                        out.append(f'    - {s}')
                 out.append("")
     return "\n".join(out)
 

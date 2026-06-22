@@ -22,7 +22,11 @@
 The categories are:
 
 - Main language is English (English or Welsh in Wales)
-- Main language is not English (English or Welsh in Wales): can speak English very well; can speak English well; cannot speak English well; cannot speak English
+- Main language is not English (English or Welsh in Wales):
+    - can speak English very well
+    - can speak English well
+    - cannot speak English well
+    - cannot speak English
 
 **SCOPE**
 

@@ -5244,10 +5244,6 @@
 <ul>
 <li>Open Government Licence v3.0.</li>
 </ul>
-<p><strong>DATA QUALITY CAVEATS</strong></p>
-<ul>
-<li>Multipolygon explosion: 35,796 geometry rows for 34,753 distinct LSOAs (3% over-count).</li>
-</ul>
 <h2 id="columns">Columns<a class="headerlink" href="#columns" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -5892,16 +5888,6 @@
 <td><code>age_18_and_above_count</code></td>
 <td><code>double precision</code></td>
 <td>Added during an earlier Prior + Partners loading pass. Source dataset and age-band definitions not recorded; the column appears to be an ONS Census 2021 student / age-band count but this has not been verified against the publisher. Unit: "persons" (presumed). Use with care.</td>
-</tr>
-<tr>
-<td><code>wd22cd</code></td>
-<td><code>character varying</code></td>
-<td>Joined at load from ONS LSOA-&gt;Ward lookup; 2022 Ward GSS code.</td>
-</tr>
-<tr>
-<td><code>wd22nm</code></td>
-<td><code>character varying</code></td>
-<td>Joined at load from ONS LSOA-&gt;Ward lookup; 2022 Ward name.</td>
 </tr>
 <tr>
 <td><code>fid</code></td>

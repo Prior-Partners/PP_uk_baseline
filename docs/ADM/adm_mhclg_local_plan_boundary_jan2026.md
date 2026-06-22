@@ -38,7 +38,7 @@
 
 **UPDATE REQUIRED**
 
-- New data found from data source on 18/03/2026. Current data is 09/01/2026. An update is scheduled in the next turn.
+- New data found from data source on 18 March 2026. Current data is 9 January 2026. An update is scheduled in the next turn.
 
 **LOADED INTO uk_baseline**
 

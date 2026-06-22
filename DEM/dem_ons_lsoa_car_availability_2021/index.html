@@ -5249,6 +5249,10 @@
 <li>Category column names contain SPACES (<code>"1 or more cars or vans in household"</code>, <code>"Does not apply"</code>, <code>"No cars or vans in household"</code>). Use double-quoted identifiers in SQL.</li>
 <li>This table carries a Ward 2021 (<code>wd21cd</code>/<code>wd21nm</code>) admin code set in addition to the later <code>wd22cd</code>/<code>wd22nm</code>. The earlier load pre-dated the standardised admin key approach; both ward boundaries are preserved.</li>
 </ul>
+<p><strong>ENRICHMENT</strong></p>
+<ul>
+<li><code>msoa21hclnm</code> — House of Commons Library readable MSOA name, joined at load on msoa21cd from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.</li>
+</ul>
 <p><strong>LOADED INTO uk_baseline</strong></p>
 <ul>
 <li>Data: Census Day 21 March 2021 (ONS TS045 publication 2022).</li>
@@ -5358,6 +5362,11 @@
 <td><code>bigint</code></td>
 <td></td>
 </tr>
+<tr>
+<td><code>msoa21hclnm</code></td>
+<td><code>text</code></td>
+<td>House of Commons Library readable MSOA name. Source field <code>msoa21hclnm</code> from House of Commons Library MSOA Names v2.3 (13 February 2026), joined at load on msoa21cd. Open Parliament Licence.</td>
+</tr>
 </tbody>
 </table>
 
@@ -5389,7 +5398,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Developed by the Digital Innovation team, Prior + Partners — last updated 19 June 2026
+      Developed by the Digital Innovation team, Prior + Partners — last updated 22 June 2026
     </div>
   
   

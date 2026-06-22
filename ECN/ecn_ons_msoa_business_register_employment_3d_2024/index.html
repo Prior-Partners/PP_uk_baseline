@@ -5251,6 +5251,10 @@
 <li>NULL means the cell was suppressed by ONS for disclosure control; 0 means genuinely zero employment. Suppression bites harder at fine geographies (LSOA) and small industries, so expect many NULLs across the industry row.</li>
 <li>Reading values: a NULL in an industry column does NOT mean the area has no employment in that industry. It means ONS withheld the value because fewer than ~3 businesses operate there in that division/group. Sum across industries with caution.</li>
 </ul>
+<p><strong>ENRICHMENT</strong></p>
+<ul>
+<li><code>msoa21hclnm</code> — House of Commons Library readable MSOA name, joined at load on msoa21cd from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.</li>
+</ul>
 <p><strong>NOT IN THIS DATASET</strong></p>
 <ul>
 <li>The narrower Employees-only measure (payroll only, excluding working owners).</li>
@@ -6657,6 +6661,11 @@
 <td><code>geometry(MultiPolygon,27700)</code></td>
 <td>Geometry from uk_baseline.adm_ons_msoa_boundary_2021.</td>
 </tr>
+<tr>
+<td><code>msoa21hclnm</code></td>
+<td><code>text</code></td>
+<td>House of Commons Library readable MSOA name. Source field <code>msoa21hclnm</code> from House of Commons Library MSOA Names v2.3 (13 February 2026), joined at load on msoa21cd. Open Parliament Licence.</td>
+</tr>
 </tbody>
 </table>
 
@@ -6688,7 +6697,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Developed by the Digital Innovation team, Prior + Partners — last updated 19 June 2026
+      Developed by the Digital Innovation team, Prior + Partners — last updated 22 June 2026
     </div>
   
   

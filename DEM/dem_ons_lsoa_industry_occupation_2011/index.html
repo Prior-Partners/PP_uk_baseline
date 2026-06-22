@@ -5250,6 +5250,10 @@
 <li>This is Census 2011 data — superseded by Census 2021 (<code>dem_ons_lsoa_industry_occupation_2021</code>). Use the 2021 layer for current analysis; this layer for historic comparison only.</li>
 <li>LSOA 2011 boundary; NOT directly comparable cell-by-cell to LSOA 2021 (boundaries changed in ~10% of areas). Use ONS LSOA11-&gt;LSOA21 best-fit lookup for cross-year comparison.</li>
 </ul>
+<p><strong>ENRICHMENT</strong></p>
+<ul>
+<li><code>msoa21hclnm</code> — House of Commons Library readable MSOA name, joined at load on msoa21cd from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.</li>
+</ul>
 <p><strong>LOADED INTO uk_baseline</strong></p>
 <ul>
 <li>Data: Census Day 27 March 2011.</li>
@@ -5569,6 +5573,11 @@
 <td><code>double precision</code></td>
 <td>Area in hectares, computed at load from the geometry. Unit: hectares. Stale if geometry is later edited.</td>
 </tr>
+<tr>
+<td><code>msoa21hclnm</code></td>
+<td><code>text</code></td>
+<td>House of Commons Library readable MSOA name. Source field <code>msoa21hclnm</code> from House of Commons Library MSOA Names v2.3 (13 February 2026), joined at load on msoa21cd. Open Parliament Licence.</td>
+</tr>
 </tbody>
 </table>
 
@@ -5600,7 +5609,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Developed by the Digital Innovation team, Prior + Partners — last updated 19 June 2026
+      Developed by the Digital Innovation team, Prior + Partners — last updated 22 June 2026
     </div>
   
   

@@ -5249,6 +5249,10 @@
 <li>The 173-column shape combines multiple Census 2021 cross-tabs. The exact source-table-per-column mapping was not recorded by the earlier load; some columns may be derived (sums of category sub-groups). Treat aggregate sums with care — confirm column groupings against ONS source tables before use.</li>
 <li>Base population varies per column (some columns count all usual residents, others count households). Each column comment names its base.</li>
 </ul>
+<p><strong>ENRICHMENT</strong></p>
+<ul>
+<li><code>msoa21hclnm</code> — House of Commons Library readable MSOA name, joined at load on msoa21cd from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.</li>
+</ul>
 <p><strong>LOADED INTO uk_baseline</strong></p>
 <ul>
 <li>Data: Census Day 21 March 2021.</li>
@@ -6128,6 +6132,11 @@
 <td><code>bigint</code></td>
 <td></td>
 </tr>
+<tr>
+<td><code>msoa21hclnm</code></td>
+<td><code>text</code></td>
+<td>House of Commons Library readable MSOA name. Source field <code>msoa21hclnm</code> from House of Commons Library MSOA Names v2.3 (13 February 2026), joined at load on msoa21cd. Open Parliament Licence.</td>
+</tr>
 </tbody>
 </table>
 
@@ -6159,7 +6168,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Developed by the Digital Innovation team, Prior + Partners — last updated 19 June 2026
+      Developed by the Digital Innovation team, Prior + Partners — last updated 22 June 2026
     </div>
   
   

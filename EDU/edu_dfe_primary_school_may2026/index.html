@@ -5256,6 +5256,7 @@
 </ul>
 <p><strong>ENRICHMENT</strong></p>
 <ul>
+<li><code>msoa21hclnm</code> — House of Commons Library readable MSOA name, joined at load on <code>msoa_code</code> from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.</li>
 <li>ofsted_overall_rate_code, ofsted_overall_rate — headline Ofsted grade (1-4 code + text: Outstanding / Good / Requires Improvement / Inadequate) merged in from the Ofsted Establishment Inspection File via uk.edu_ofsted_state_funded_mis_feb2026 (28 Feb 2026 snapshot). Joined on URN. NULL when no clean grade is available. Includes "Fallback option B" — for URNs whose OEIF graded inspection was NULL, the rate is filled from the latest ungraded reaffirm outcome where it maps unambiguously ("School remains Outstanding" / "School remains Good" -&gt; respective grade). Applied 14 May 2026. See column comments for the full rule.</li>
 <li>lad25cd, lad25nm — joined at load from ONS LAD 2025 lookup.</li>
 <li>rgn22cd, rgn22nm — joined at load from ONS Region 2022 lookup.</li>
@@ -6004,6 +6005,11 @@
 <td><code>text</code></td>
 <td>Headline Ofsted rating text (Title Case). Sourced from OEIF graded inspection (col 67); for rows where OEIF was NULL, filled from the latest ungraded reaffirm outcome: 'School remains Outstanding' and 'School remains Outstanding (Concerns) - S5 Next' -&gt; 'Outstanding'; 'School remains Good', 'School remains Good (Concerns) - S5 Next' and 'School remains Good (Improving) - S5 Next' -&gt; 'Good'. Other ungraded outcomes (Standards maintained, Improved significantly, Some aspects not as strong) intentionally left NULL. Fallback option B applied 14 May 2026.</td>
 </tr>
+<tr>
+<td><code>msoa21hclnm</code></td>
+<td><code>text</code></td>
+<td>House of Commons Library readable MSOA name. Joined at load on this table's <code>msoa_code</code> (a 2021 MSOA code) from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.</td>
+</tr>
 </tbody>
 </table>
 
@@ -6035,7 +6041,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Developed by the Digital Innovation team, Prior + Partners — last updated 19 June 2026
+      Developed by the Digital Innovation team, Prior + Partners — last updated 22 June 2026
     </div>
   
   

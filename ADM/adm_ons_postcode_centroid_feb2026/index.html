@@ -5249,6 +5249,11 @@
 <li>Postcode-to-area assignment can be imprecise near boundaries (straddling) or for new postcodes (imputed grid references); see <code>gridind</code>.</li>
 <li>This is a postcode-centroid reference layer for joining postcode-only datasets (e.g. HM Land Registry Price Paid Data) to coordinates and admin geographies; it is not address-level.</li>
 </ul>
+<p><strong>ENRICHMENT</strong></p>
+<ul>
+<li><code>msoa21nm</code> — Office for National Statistics MSOA 2021 name, joined at load on msoa21cd from uk_baseline.adm_ons_msoa_boundary_2021.</li>
+<li><code>msoa21hclnm</code> — House of Commons Library readable MSOA name, joined at load on msoa21cd from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.</li>
+</ul>
 <p><strong>LOADED INTO uk_baseline</strong></p>
 <ul>
 <li>Loaded by PNC, 1 June 2026.</li>
@@ -5533,6 +5538,16 @@
 <td><code>geometry(Point,27700)</code></td>
 <td>Point geometry in EPSG:27700, derived at load from <code>east1m</code>/<code>north1m</code> for Great Britain postcodes (England, Wales, Scotland) only. NULL for Northern Ireland (grid is Irish National Grid, not BNG), Channel Islands, Isle of Man, and postcodes with no grid reference.</td>
 </tr>
+<tr>
+<td><code>msoa21nm</code></td>
+<td><code>text</code></td>
+<td>Office for National Statistics MSOA 2021 name, joined at load on msoa21cd from uk_baseline.adm_ons_msoa_boundary_2021.</td>
+</tr>
+<tr>
+<td><code>msoa21hclnm</code></td>
+<td><code>text</code></td>
+<td>House of Commons Library readable MSOA name. Source field <code>msoa21hclnm</code> from House of Commons Library MSOA Names v2.3 (13 February 2026), joined at load on msoa21cd. Open Parliament Licence.</td>
+</tr>
 </tbody>
 </table>
 
@@ -5564,7 +5579,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Developed by the Digital Innovation team, Prior + Partners — last updated 19 June 2026
+      Developed by the Digital Innovation team, Prior + Partners — last updated 22 June 2026
     </div>
   
   

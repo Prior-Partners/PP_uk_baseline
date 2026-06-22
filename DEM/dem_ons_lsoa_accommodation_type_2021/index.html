@@ -5252,6 +5252,10 @@
 <li>Column names <code>in_commercial building_count</code> / <code>_perc</code> contain a SPACE — use double-quoted identifiers in SQL.</li>
 <li>Two <code>fid</code> columns: uppercase <code>FID</code> (Esri export legacy) and lowercase <code>fid</code> (PostgreSQL surrogate). Both are pure surrogates; use either as a row key but not in joins.</li>
 </ul>
+<p><strong>ENRICHMENT</strong></p>
+<ul>
+<li><code>msoa21hclnm</code> — House of Commons Library readable MSOA name, joined at load on msoa21cd from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.</li>
+</ul>
 <p><strong>LOADED INTO uk_baseline</strong></p>
 <ul>
 <li>Data: Census Day 21 March 2021 (ONS TS044 publication 2022-2023).</li>
@@ -5441,6 +5445,11 @@
 <td><code>bigint</code></td>
 <td></td>
 </tr>
+<tr>
+<td><code>msoa21hclnm</code></td>
+<td><code>text</code></td>
+<td>House of Commons Library readable MSOA name. Source field <code>msoa21hclnm</code> from House of Commons Library MSOA Names v2.3 (13 February 2026), joined at load on msoa21cd. Open Parliament Licence.</td>
+</tr>
 </tbody>
 </table>
 
@@ -5472,7 +5481,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Developed by the Digital Innovation team, Prior + Partners — last updated 19 June 2026
+      Developed by the Digital Innovation team, Prior + Partners — last updated 22 June 2026
     </div>
   
   

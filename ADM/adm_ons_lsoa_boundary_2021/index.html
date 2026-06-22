@@ -5245,6 +5245,7 @@
 </ul>
 <p><strong>ENRICHMENT</strong></p>
 <ul>
+<li><code>msoa21hclnm</code> — House of Commons Library readable MSOA name, joined at load on msoa21cd from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.</li>
 <li>msoa21cd, msoa21nm : joined from ONS LSOA -&gt; MSOA lookup (2021 MSOA).</li>
 <li>wd22cd, wd22nm : joined from ONS LSOA -&gt; Ward lookup (2022 ward).</li>
 <li>lad22cd, lad22nm : joined from ONS LSOA -&gt; LAD lookup (2022 LAD).</li>
@@ -5331,6 +5332,11 @@
 <td><code>character varying</code></td>
 <td>Internal categorisation: Spatial Development Strategy (SDS) area where the geometry falls (e.g. "Greater London", "West Midlands", "Greater Manchester"). Blank or NULL where the geometry is outside any SDS area.</td>
 </tr>
+<tr>
+<td><code>msoa21hclnm</code></td>
+<td><code>text</code></td>
+<td>House of Commons Library readable MSOA name. Source field <code>msoa21hclnm</code> from House of Commons Library MSOA Names v2.3 (13 February 2026), joined at load on msoa21cd. Open Parliament Licence.</td>
+</tr>
 </tbody>
 </table>
 
@@ -5362,7 +5368,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Developed by the Digital Innovation team, Prior + Partners — last updated 19 June 2026
+      Developed by the Digital Innovation team, Prior + Partners — last updated 22 June 2026
     </div>
   
   

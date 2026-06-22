@@ -5263,6 +5263,7 @@
 </ul>
 <p><strong>ENRICHMENT</strong></p>
 <ul>
+<li><code>msoa21hclnm</code> — House of Commons Library readable MSOA name, joined at load on msoa21cd from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.</li>
 <li>Geography codes/names joined from uk_baseline.adm_ons_lsoa_boundary_2021 by <code>lsoa21cd</code>: lsoa21nm, msoa21cd, msoa21nm, wd22cd, wd22nm, lad22cd, lad22nm, rgn22cd, rgn22nm. NULL for Scottish rows.</li>
 <li>MSOA 2011 code/name spatially joined from uk_baseline.adm_ons_msoa_boundary_2011, matching each area's representative point to the MSOA 2011 polygon that contains it: msoa11cd, msoa11nm. NULL for Scottish rows.</li>
 <li>area_ha is the area in hectares, computed at load from the geometry. Goes stale if geometry is subsequently edited.</li>
@@ -5666,6 +5667,11 @@
 <td><code>geometry(MultiPolygon,27700)</code></td>
 <td>Polygon geometry from GeoDS parquet geofile ahah_v5_geo_1.parquet.</td>
 </tr>
+<tr>
+<td><code>msoa21hclnm</code></td>
+<td><code>text</code></td>
+<td>House of Commons Library readable MSOA name. Source field <code>msoa21hclnm</code> from House of Commons Library MSOA Names v2.3 (13 February 2026), joined at load on msoa21cd. Open Parliament Licence.</td>
+</tr>
 </tbody>
 </table>
 
@@ -5697,7 +5703,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Developed by the Digital Innovation team, Prior + Partners — last updated 19 June 2026
+      Developed by the Digital Innovation team, Prior + Partners — last updated 22 June 2026
     </div>
   
   

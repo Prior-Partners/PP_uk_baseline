@@ -52,7 +52,7 @@ Excludes:
 
 **LOADED INTO uk_baseline**
 
-- Data: Census Day 21 March 2021 (ONS TS045 publication 2022).
+- Data: Census Day 21 March 2021.
 
 
 ## Columns

@@ -7,7 +7,7 @@
 - [Department for Energy Security and Net Zero (DESNZ) sub-regional fuel poverty estimates at LSOA (England), 2023](dem_desnz_lsoa_fuel_poverty_2023.md) · `dem_desnz_lsoa_fuel_poverty_2023`
 - [MHCLG Index of Multiple Deprivation (IMD) 2019 at LSOA 2011, England](dem_mhclg_lsoa_imd_2019.md) · `dem_mhclg_lsoa_imd_2019`
 - [MHCLG Index of Multiple Deprivation (IMD) 2025 at LSOA 2021, England](dem_mhclg_lsoa_imd_2025.md) · `dem_mhclg_lsoa_imd_2025`
-- [ONS Access to Healthy Assets and Hazards (AHAH) composite index, version 5.1, May 2026](dem_ons_lsoa_access_healthy_assets_hazards_may2026.md) · `dem_ons_lsoa_access_healthy_assets_hazards_may2026`
+- [ONS Access to Healthy Assets and Hazards (AHAH) composite index, May 2026](dem_ons_lsoa_access_healthy_assets_hazards_may2026.md) · `dem_ons_lsoa_access_healthy_assets_hazards_may2026`
 - [ONS Census 2021 households-by-accommodation-type at Lower-layer Super Output Area (LSOA) 2021](dem_ons_lsoa_accommodation_type_2021.md) · `dem_ons_lsoa_accommodation_type_2021`
 - [ONS Census 2021 usual residents by age band at Lower-layer Super Output Area (LSOA) 2021](dem_ons_lsoa_age_alternate_bands_2021.md) · `dem_ons_lsoa_age_alternate_bands_2021`
 - [ONS Census 2021 car or van availability at Lower-layer Super Output Area (LSOA) 2021](dem_ons_lsoa_car_availability_2021.md) · `dem_ons_lsoa_car_availability_2021`

@@ -8,7 +8,7 @@
 
 **SOURCE**
 
-- Office for National Statistics (ONS), Census 2021, England and Wales. Primary source table TS001 "Number of usual residents in households and communal establishments", augmented with related cross-tabs (likely from TS001a / TS001b / TS003 variants and possibly TS006 area-population-density). Reference date 21 March 2021. Loaded via an earlier Prior + Partners pass; the exact combination of source tables not recorded.
+- Office for National Statistics (ONS), Census 2021, England and Wales.
 
 **DOCUMENTATION**
 

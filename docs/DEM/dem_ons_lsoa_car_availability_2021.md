@@ -8,7 +8,7 @@
 
 **SOURCE**
 
-- Office for National Statistics (ONS), Census 2021, England and Wales. Table TS045 "Car or van availability". Reference date 21 March 2021. Loaded via an earlier Prior + Partners pass; original load pathway not recorded.
+- Office for National Statistics (ONS), Census 2021, England and Wales.
 
 **DOCUMENTATION**
 
@@ -17,8 +17,17 @@
 
 **DEFINITIONS**
 
-- "The number of cars or vans that are owned, or available for use, by one or more members of a household. Includes company cars and vans that are available for private use. Excludes motorbikes or scooters. Pick-ups, campers and motor homes are included; minibuses are excluded." (ONS Census 2021 Car or van availability variable)
-- "Does not apply" means the response refers to households whose head was visiting or who otherwise fell outside the response frame.
+"The number of cars or vans that are owned, or available for use, by one or more members of a household." (ONS Census 2021 Car or van availability variable)
+
+Includes:
+
+- company cars and vans that are available for private use
+- pick-ups, campers and motor homes
+
+Excludes:
+
+- motorbikes or scooters
+- minibuses
 
 **SCOPE**
 
@@ -35,8 +44,7 @@
 
 **DATA QUALITY CAVEATS**
 
-- Category column names contain SPACES (`"1 or more cars or vans in household"`, `"Does not apply"`, `"No cars or vans in household"`). Use double-quoted identifiers in SQL.
-- This table carries a Ward 2021 (`wd21cd`/`wd21nm`) admin code set in addition to the later `wd22cd`/`wd22nm`. The earlier load pre-dated the standardised admin key approach; both ward boundaries are preserved.
+- "Does not apply" means the response refers to households whose head was visiting or who otherwise fell outside the response frame.
 
 **ENRICHMENT**
 

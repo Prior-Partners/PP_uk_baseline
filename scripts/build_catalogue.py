@@ -284,19 +284,35 @@ def parse_bullets(text: str) -> list[str]:
     return bullets
 
 
-def split_lead_bullets(text: str) -> tuple[str, list[str]]:
-    """Split a section body into an optional lead-in paragraph and its bullets.
+def parse_blocks(text: str) -> list[tuple[str, Any]]:
+    """Section body -> ordered blocks: ``('para', str)`` or ``('list', [items])``.
 
-    A non-bullet line that precedes the first ``- `` bullet is rendered as a
-    lead-in paragraph above the list. Bodies that are all bullets, or all prose,
-    keep the previous behaviour (empty lead-in; ``parse_bullets`` handles them).
+    A column-0 line starting with ``- `` is a bullet (builds a list block). A
+    column-0 line that is NOT a bullet is a paragraph block — a lead-in or a
+    sub-heading between lists. An indented line continues the current bullet or
+    paragraph. This lets one section interleave prose and bullet lists.
     """
-    lines = [ln for ln in text.splitlines() if ln.strip()]
-    fb = next((i for i, ln in enumerate(lines) if ln.strip().startswith("- ")), None)
-    if fb is None or fb == 0:
-        return "", parse_bullets(text)
-    lead = " ".join(ln.strip() for ln in lines[:fb])
-    return lead, parse_bullets("\n".join(lines[fb:]))
+    blocks: list[tuple[str, Any]] = []
+    cur_list: list[str] | None = None
+    for raw in text.splitlines():
+        if not raw.strip():
+            continue
+        if raw.startswith("- "):                       # column-0 bullet
+            if cur_list is None:
+                cur_list = []
+                blocks.append(("list", cur_list))
+            cur_list.append(raw[2:].strip())
+        elif raw[0].isspace():                         # indented continuation
+            if cur_list is not None:
+                cur_list[-1] = f"{cur_list[-1]} {raw.strip()}"
+            elif blocks and blocks[-1][0] == "para":
+                blocks[-1] = ("para", f"{blocks[-1][1]} {raw.strip()}")
+            else:
+                blocks.append(("para", raw.strip()))
+        else:                                          # column-0 non-bullet -> paragraph
+            cur_list = None
+            blocks.append(("para", raw.strip()))
+    return blocks
 
 
 def first_bullet(text: str) -> str:
@@ -514,13 +530,13 @@ def _section_html(sections: dict[str, str]) -> str:
             continue
         if head not in sections or not sections[head].strip():
             continue
-        lead, items = split_lead_bullets(sections[head])
         block = ""
-        if lead:
-            block += f"<p>{_linkify(html.escape(lead))}</p>"
-        if items:
-            lis = "".join(f"<li>{_linkify(html.escape(it))}</li>" for it in items)
-            block += f"<ul>{lis}</ul>"
+        for kind, content in parse_blocks(sections[head]):
+            if kind == "para":
+                block += f"<p>{_linkify(html.escape(content))}</p>"
+            else:
+                lis = "".join(f"<li>{_linkify(html.escape(it))}</li>" for it in content)
+                block += f"<ul>{lis}</ul>"
         if not block:
             continue
         out.append(f'<div class="sec"><span class="sechead">{html.escape(head)}</span>{block}</div>')
@@ -672,13 +688,14 @@ def _section_md(sections: dict[str, str]) -> str:
         if head not in sections or not sections[head].strip():
             continue
         out.append(f"**{head}**\n")
-        lead, items = split_lead_bullets(sections[head])
-        if lead:
-            out.append(lead)
-            out.append("")
-        for bullet in items:
-            out.append(f"- {bullet}")
-        out.append("")
+        for kind, content in parse_blocks(sections[head]):
+            if kind == "para":
+                out.append(content)
+                out.append("")
+            else:
+                for bullet in content:
+                    out.append(f"- {bullet}")
+                out.append("")
     return "\n".join(out)
 
 

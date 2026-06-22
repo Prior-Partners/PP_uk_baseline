@@ -8,7 +8,7 @@
 
 **SOURCE**
 
-- Office for National Statistics (ONS), Census 2021, England and Wales. Primary source table TS068 (schoolchildren and full-time students), augmented with student-related cross-tabs from TS062 (NS-SEC) and TS067 (qualifications). Reference date 21 March 2021. Loaded via an earlier Prior + Partners pass; exact source combination not recorded.
+- Office for National Statistics (ONS), Census 2021, England and Wales.
 
 **DOCUMENTATION**
 

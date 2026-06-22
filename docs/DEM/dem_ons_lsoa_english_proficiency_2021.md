@@ -8,7 +8,7 @@
 
 **SOURCE**
 
-- Office for National Statistics (ONS), Census 2021, England and Wales. Table TS029 "Proficiency in English". Reference date 21 March 2021. Loaded via an earlier Prior + Partners pass.
+- Office for National Statistics (ONS), Census 2021, England and Wales.
 
 **DOCUMENTATION**
 
@@ -17,8 +17,12 @@
 
 **DEFINITIONS**
 
-- "How well people whose main language is not English (English or Welsh in Wales) speak English. The categories are: Main language is English (English or Welsh in Wales); Main language is not English (English or Welsh in Wales): can speak English very well; can speak English well; cannot speak English well; cannot speak English." (ONS Census 2021 Proficiency in English variable)
-- Asked of usual residents aged 3 years and over.
+- "How well people whose main language is not English (English or Welsh in Wales) speak English." (ONS Census 2021 Proficiency in English variable) Asked of usual residents aged 3 years and over.
+
+The categories are:
+
+- Main language is English (English or Welsh in Wales)
+- Main language is not English (English or Welsh in Wales): can speak English very well; can speak English well; cannot speak English well; cannot speak English
 
 **SCOPE**
 

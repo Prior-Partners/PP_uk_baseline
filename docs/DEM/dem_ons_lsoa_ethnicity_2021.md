@@ -8,7 +8,7 @@
 
 **SOURCE**
 
-- Office for National Statistics (ONS), Census 2021, England and Wales. Table TS021 "Ethnic group". Reference date 21 March 2021. Loaded via an earlier Prior + Partners pass.
+- Office for National Statistics (ONS), Census 2021, England and Wales.
 
 **DOCUMENTATION**
 
@@ -17,8 +17,15 @@
 
 **DEFINITIONS**
 
-- "The ethnic group that a person feels they belong to. This could be based on their culture, family background, identity or physical appearance. Respondents could choose one option from the tick-box list, or write in their ethnicity." (ONS Census 2021 Ethnic group variable)
-- 19 detailed categories grouped into 5 high-level categories: "Asian, Asian British or Asian Welsh"; "Black, Black British, Black Welsh, Caribbean or African"; "Mixed or Multiple ethnic groups"; "White"; "Other ethnic group".
+- "The ethnic group that a person feels they belong to. This could be based on their culture, family background, identity or physical appearance." (ONS Census 2021 Ethnic group variable)
+
+19 detailed categories grouped into 5 high-level categories:
+
+- Asian, Asian British or Asian Welsh
+- Black, Black British, Black Welsh, Caribbean or African
+- Mixed or Multiple ethnic groups
+- White
+- Other ethnic group
 
 **SCOPE**
 

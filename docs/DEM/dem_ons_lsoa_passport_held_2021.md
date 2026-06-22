@@ -8,7 +8,7 @@
 
 **SOURCE**
 
-- Office for National Statistics (ONS), Census 2021, England and Wales. Tables TS013 "Passports held" and TS005 (summary version). Reference date 21 March 2021. Loaded via an earlier Prior + Partners pass.
+- Office for National Statistics (ONS), Census 2021, England and Wales.
 
 **DOCUMENTATION**
 

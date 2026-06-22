@@ -1,6 +1,6 @@
 # ONS Census 2021 highest level of qualification at Lower-layer Super Output Area (LSOA) 2021
 
-<p class="layer-short">Education</p>
+<p class="layer-short">Education - highest level of qualification</p>
 
 `dem_ons_lsoa_education_2021`
 
@@ -8,7 +8,7 @@
 
 **SOURCE**
 
-- Office for National Statistics (ONS), Census 2021, England and Wales. Table TS067 "Highest level of qualification". Reference date 21 March 2021. Loaded via an earlier Prior + Partners pass.
+- Office for National Statistics (ONS), Census 2021, England and Wales.
 
 **DOCUMENTATION**
 
@@ -18,7 +18,16 @@
 **DEFINITIONS**
 
 - "The highest level of qualification of usual residents aged 16 years and over. Levels are categorised based on the formal qualifications gained." (ONS Census 2021 Highest level of qualification variable)
-- Level definitions (ONS): "No qualifications. Level 1: 1 to 4 GCSEs grade A* to C or 9 to 4 / Entry Level / Foundation Diploma. Level 2: 5 or more GCSEs grade A* to C or 9 to 4 / O Level passes / Intermediate apprenticeship. Apprenticeship. Level 3: 2 or more A Levels / NVQ Level 3 / Advanced apprenticeship. Level 4 or above: degree (BA, BSc), higher degree (MA, PhD, PGCE), NVQ Level 4 to 5, HNC, HND, RSA Higher Diploma, BTEC Higher level, professional qualifications. Other: vocational or work-related qualifications, foreign qualifications not stated."
+
+Level definitions (ONS):
+
+- No qualifications
+- Level 1: 1 to 4 GCSEs grade A* to C or 9 to 4 / Entry Level / Foundation Diploma
+- Level 2: 5 or more GCSEs grade A* to C or 9 to 4 / O Level passes / Intermediate apprenticeship
+- Apprenticeship
+- Level 3: 2 or more A Levels / NVQ Level 3 / Advanced apprenticeship
+- Level 4 or above: degree (BA, BSc), higher degree (MA, PhD, PGCE), NVQ Level 4 to 5, HNC, HND, RSA Higher Diploma, BTEC Higher level, professional qualifications
+- Other: vocational or work-related qualifications, foreign qualifications not stated
 
 **SCOPE**
 

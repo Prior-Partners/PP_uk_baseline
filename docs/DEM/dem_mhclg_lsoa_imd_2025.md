@@ -1,6 +1,6 @@
 # MHCLG Index of Multiple Deprivation (IMD) 2025 at LSOA 2021, England
 
-<p class="layer-short">IMD</p>
+<p class="layer-short">IMD 2025</p>
 
 `dem_mhclg_lsoa_imd_2025`
 
@@ -8,28 +8,23 @@
 
 **SOURCE**
 
-- Ministry of Housing, Communities and Local Government (MHCLG), English Indices of Deprivation 2025. Score / rank / decile columns for the IMD, the seven domains, the two supplementary income indices (IDACI, IDAOPI) and the six sub-domains derive directly from MHCLG's File 1 ("Index of Multiple Deprivation 2025").
+- Ministry of Housing, Communities and Local Government (MHCLG). Includes score / rank / decile columns for the IMD, its seven domains and six sub-domains, and the two supplementary income indices (IDACI, IDAOPI).
 - Population denominator columns derive from Office for National Statistics (ONS) Mid-2022 Population Estimates by LSOA.
 
 **DOCUMENTATION**
 
 - IoD 2025 landing page : https://www.gov.uk/government/statistics/english-indices-of-deprivation-2025
 - Statistical Release : https://www.gov.uk/government/statistics/english-indices-of-deprivation-2025/english-indices-of-deprivation-2025-statistical-release
-- Frequently Asked Questions : https://www.gov.uk/government/statistics/english-indices-of-deprivation-2025/english-indices-of-deprivation-2025-frequently-asked-questions
 - Technical Report (PDF) : https://assets.publishing.service.gov.uk/media/68ff59c80f801e57b5bef907/ID_2025_Technical_Report.pdf
-- Research Report (PDF) : https://assets.publishing.service.gov.uk/media/68ff547a49d08dd781b48351/ID_2025_Research_Report.pdf
-- Glossary : https://deprivation.communities.gov.uk/glossary
 
 **DEFINITIONS**
 
-- "The Index of Multiple Deprivation (IMD) is the official measure of relative deprivation in England" (gov.uk IoD 2025 statistical release)
-- "The IoD25 uses LSOAs from the 2021 Census to measure deprivation at a small area or neighbourhood level" — 33,755 LSOAs in England. (gov.uk IoD 2025 statistical release)
-- "The IoD25 ranks every neighbourhood in England from 1 (most deprived area) to 33,755 (least deprived area)." (gov.uk IoD 2025 FAQ)
-- "New datasets, methodologies and geographies have been used to produce the IoD25, meaning outputs are less directly comparable to previous Indices." (gov.uk IoD 2025 FAQ)
+- The Index of Multiple Deprivation (IMD) measures relative deprivation across small areas in England (Lower Layer Super Output Area, LSOA).
+- LSOAs are ranked from 1 (most deprived) to 33,755 (least deprived) and divided into ten equal deciles (decile 1 = most deprived 10%, decile 10 = least deprived 10%).
 
 **SCOPE**
 
-- England only. LSOA 2021 boundary coverage: 33,755 distinct lsoa21cd.
+- IMD values are populated for England only in LSOA 2021.
 
 **CRS**
 

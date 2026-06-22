@@ -20,7 +20,7 @@
 **DEFINITIONS**
 
 - Estimated percentage of households in fuel poverty in each LSOA.
-- LILEE: Low Income Low Energy Efficiency. A household is classified as "fuel-poor" when the property is rated EPC band D or below and income after housing and fuel costs falls below the official poverty line.
+- LILEE (Low Income Low Energy Efficiency). A household is fuel poor if: 1. their home has a Fuel Poverty Energy Efficiency Rating of band D or below, and 2. after modelled energy and housing costs, their residual income is below the poverty line.
 
 **SCOPE**
 
@@ -37,7 +37,7 @@
 
 **DATA QUALITY CAVEATS**
 
-- Fuel poverty estimates at LSOA have very small sample sizes; focus on general trends and area comparison, not on identifying trends over time within an LSOA or comparing LSOAs with similar fuel poverty levels.
+- Fuel poverty estimates at LSOA have very small sample sizes; focus on general trends and area comparison, not on identifying trends over time within an LSOA.
 
 **ENRICHMENT**
 

@@ -8,11 +8,11 @@
 
 **SOURCE**
 
-- Office for National Statistics (ONS), Census 2021, England and Wales. Source: table TS001 "Number of usual residents in households and communal establishments" at OA grain. Reference date 21 March 2021. Loaded via an earlier Prior + Partners pass.
+- Office for National Statistics (ONS), Census 2021, England and Wales. Source: table TS001 "Number of usual residents in households and communal establishments" at OA level. Reference date 21 March 2021. Loaded via an earlier Prior + Partners pass.
 
 **DOCUMENTATION**
 
-- ONS dataset (TS001 at OA grain) : https://www.ons.gov.uk/datasets/TS001/editions/2021/versions/3
+- ONS dataset (TS001 at OA level) : https://www.ons.gov.uk/datasets/TS001/editions/2021/versions/3
 - ONS Census 2021 landing page : https://www.ons.gov.uk/census/2021
 
 **DEFINITIONS**

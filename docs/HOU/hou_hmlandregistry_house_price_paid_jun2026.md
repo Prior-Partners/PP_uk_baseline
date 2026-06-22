@@ -16,7 +16,7 @@
 **DEFINITIONS**
 
 - "Price Paid Data includes information on all property sales in England and Wales that are sold for value and are lodged with us for registration." (HM Land Registry, About the Price Paid Data)
-- Grain: one row per registered transaction (transaction unique identifier).
+- One row per registered transaction (transaction unique identifier).
 
 **SCOPE**
 

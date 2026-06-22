@@ -46,7 +46,7 @@
 - The narrower Employees-only measure (payroll only, excluding working owners).
 - Full-time and part-time breakdowns of Employees.
 - Industry percentage form (Nomis MEASURE=2). All three are separate slices the Nomis API can serve.
-- Scotland LADs (S12*): BRES open-access publishes no data for Scotland at LAD grain (all cells were zero). 32 Scotland LADs were removed post-load.
+- Scotland LADs (S12*): BRES open-access publishes no data for Scotland at LAD level (all cells were zero). 32 Scotland LADs were removed post-load.
 
 **LOADED INTO uk_baseline**
 

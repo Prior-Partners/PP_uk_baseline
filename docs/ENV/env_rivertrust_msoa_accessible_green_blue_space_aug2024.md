@@ -16,7 +16,7 @@
 
 **SCOPE**
 
-- England. 6,791 rows (MSOA grain).
+- England. 6,791 rows (MSOA level).
 
 **CRS**
 

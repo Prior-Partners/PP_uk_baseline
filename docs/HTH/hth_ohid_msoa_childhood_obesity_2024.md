@@ -24,7 +24,7 @@ From the National Child Measurement Programme via the Fingertips platform.
 
 **SCOPE**
 
-- England. 7,283 rows (MSOA 2011 grain).
+- England. 7,283 rows (MSOA 2011 level).
 
 **CRS**
 

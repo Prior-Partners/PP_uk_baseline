@@ -20,7 +20,7 @@
 
 **SCOPE**
 
-- Great Britain (LSOA grain). 34,753 rows. Carries both LSOA 2011 and LSOA 2021 codes.
+- Great Britain (LSOA level). 34,753 rows. Carries both LSOA 2011 and LSOA 2021 codes.
 
 **CRS**
 

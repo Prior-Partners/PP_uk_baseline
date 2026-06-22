@@ -9,7 +9,7 @@
 **SOURCE**
 
 - Department for Energy Security and Net Zero (DESNZ), formerly the Department for Business, Energy & Industrial Strategy (BEIS); department split April 2023.
-- Modelled from the English Housing Survey (EHS) and aggregated to LSOA21 grain.
+- Modelled from the English Housing Survey (EHS) and aggregated to Lower layer Super Output Areas 2021.
 
 **DOCUMENTATION**
 
@@ -25,7 +25,7 @@
 **SCOPE**
 
 - England only.
-- 33,755 rows at LSOA 2021 grain.
+- 33,755 rows at LSOA 2021 level.
 
 **CRS**
 

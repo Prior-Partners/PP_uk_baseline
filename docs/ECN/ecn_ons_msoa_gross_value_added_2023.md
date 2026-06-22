@@ -8,7 +8,7 @@
 
 **SOURCE**
 
-- Office for National Statistics (ONS), Regional Accounts. ONS publishes GVA at small-area grain (LSOA in E+W, DZ in Scotland, SOA in NI) only; there is no MSOA-grain GVA series from the publisher. This table is therefore a derivation.
+- Office for National Statistics (ONS), Regional Accounts. ONS publishes GVA at small-area level (LSOA in E+W, DZ in Scotland, SOA in NI) only; there is no MSOA-level GVA series from the publisher. This table is therefore a derivation.
 
 **DOCUMENTATION**
 

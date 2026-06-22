@@ -18,7 +18,8 @@
 
 **DEFINITIONS**
 
-- Census 2021 categorises accommodation type as:
+Census 2021 categorises accommodation type as:
+
 - detached
 - semi-detached
 - terraced
@@ -27,7 +28,6 @@
 - part of another converted building
 - in a commercial building
 - caravan or other mobile or temporary structure
-- "Census Day was 21 March 2021. The information collected in the census reflects the population of England and Wales on that day." (ONS Census 2021 landing page)
 
 **SCOPE**
 

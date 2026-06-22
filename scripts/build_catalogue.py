@@ -284,6 +284,21 @@ def parse_bullets(text: str) -> list[str]:
     return bullets
 
 
+def split_lead_bullets(text: str) -> tuple[str, list[str]]:
+    """Split a section body into an optional lead-in paragraph and its bullets.
+
+    A non-bullet line that precedes the first ``- `` bullet is rendered as a
+    lead-in paragraph above the list. Bodies that are all bullets, or all prose,
+    keep the previous behaviour (empty lead-in; ``parse_bullets`` handles them).
+    """
+    lines = [ln for ln in text.splitlines() if ln.strip()]
+    fb = next((i for i, ln in enumerate(lines) if ln.strip().startswith("- ")), None)
+    if fb is None or fb == 0:
+        return "", parse_bullets(text)
+    lead = " ".join(ln.strip() for ln in lines[:fb])
+    return lead, parse_bullets("\n".join(lines[fb:]))
+
+
 def first_bullet(text: str) -> str:
     """First complete bullet of a section body; '' if none."""
     b = parse_bullets(text)
@@ -499,11 +514,15 @@ def _section_html(sections: dict[str, str]) -> str:
             continue
         if head not in sections or not sections[head].strip():
             continue
-        items = parse_bullets(sections[head])
-        if not items:
+        lead, items = split_lead_bullets(sections[head])
+        block = ""
+        if lead:
+            block += f"<p>{_linkify(html.escape(lead))}</p>"
+        if items:
+            lis = "".join(f"<li>{_linkify(html.escape(it))}</li>" for it in items)
+            block += f"<ul>{lis}</ul>"
+        if not block:
             continue
-        lis = "".join(f"<li>{_linkify(html.escape(it))}</li>" for it in items)
-        block = f"<ul>{lis}</ul>"
         out.append(f'<div class="sec"><span class="sechead">{html.escape(head)}</span>{block}</div>')
     return "".join(out)
 
@@ -653,7 +672,11 @@ def _section_md(sections: dict[str, str]) -> str:
         if head not in sections or not sections[head].strip():
             continue
         out.append(f"**{head}**\n")
-        for bullet in parse_bullets(sections[head]):
+        lead, items = split_lead_bullets(sections[head])
+        if lead:
+            out.append(lead)
+            out.append("")
+        for bullet in items:
             out.append(f"- {bullet}")
         out.append("")
     return "\n".join(out)

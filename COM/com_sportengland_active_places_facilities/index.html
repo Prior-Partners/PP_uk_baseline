@@ -5246,6 +5246,7 @@
 </ul>
 <p><strong>ENRICHMENT</strong></p>
 <ul>
+<li><code>msoa21cd</code> / <code>msoa21nm</code> / <code>msoa21hclnm</code> — 2021 MSOA code, name and House of Commons Library readable name, assigned at load by point-in-polygon of each facility against uk_baseline.adm_ons_msoa_boundary_2021 (House of Commons Library MSOA Names v2.3, Open Parliament Licence). The source <code>msoa_code</code> is a 2011 MSOA code.</li>
 <li>lad22cd, lad22nm : spatial intersect with ONS 2022 LAD boundaries (in addition to source local_authority_code / _name).</li>
 <li>wd21cd, wd21nm : spatial intersect with ONS 2021 Ward boundaries.</li>
 </ul>
@@ -5372,6 +5373,21 @@
 <td><code>fid</code></td>
 <td><code>bigint</code></td>
 <td></td>
+</tr>
+<tr>
+<td><code>msoa21cd</code></td>
+<td><code>text</code></td>
+<td>MSOA 2021 code assigned at load by point-in-polygon of the facility location against uk_baseline.adm_ons_msoa_boundary_2021. The source <code>msoa_code</code> column is an older 2011 MSOA code.</td>
+</tr>
+<tr>
+<td><code>msoa21nm</code></td>
+<td><code>text</code></td>
+<td>MSOA 2021 name for the spatially-assigned msoa21cd, from uk_baseline.adm_ons_msoa_boundary_2021.</td>
+</tr>
+<tr>
+<td><code>msoa21hclnm</code></td>
+<td><code>text</code></td>
+<td>House of Commons Library readable MSOA name for the spatially-assigned msoa21cd, via uk_baseline.adm_ons_msoa_boundary_2021 (House of Commons Library MSOA Names v2.3, 13 February 2026). Open Parliament Licence.</td>
 </tr>
 </tbody>
 </table>

@@ -1,6 +1,6 @@
 # ONS Census 2021 household population / usual residents at Lower-layer Super Output Area (LSOA) 2021
 
-<p class="layer-short">Pop Hholds</p>
+<p class="layer-short">Household Population</p>
 
 `dem_ons_lsoa_household_population_2021`
 
@@ -17,8 +17,8 @@
 
 **DEFINITIONS**
 
-- "The number of usual residents living in households or in communal establishments. A communal establishment is an establishment providing managed full-time or part-time supervision of residential accommodation (e.g. care home, prison, hostel, boarding school)." (ONS Census 2021 Resident type variable)
-- "Census Day was 21 March 2021. The information collected in the census reflects the population of England and Wales on that day." (ONS Census 2021 landing page)
+- "The number of usual residents living in households or in communal establishments." (ONS Census 2021 Resident type variable)
+- "A communal establishment is an establishment providing managed full-time or part-time supervision of residential accommodation (e.g. care home, prison, hostel, boarding school)." (ONS Census 2021 Resident type variable)
 
 **SCOPE**
 
@@ -35,8 +35,8 @@
 
 **DATA QUALITY CAVEATS**
 
-- The 173-column shape combines multiple Census 2021 cross-tabs. The exact source-table-per-column mapping was not recorded by the earlier load; some columns may be derived (sums of category sub-groups). Treat aggregate sums with care — confirm column groupings against ONS source tables before use.
-- Base population varies per column (some columns count all usual residents, others count households). Each column comment names its base.
+- Some columns are aggregations (sums of sub-category counts); refer to the column descriptions.
+- Population base may vary by column; refer to the column descriptions.
 
 **ENRICHMENT**
 

@@ -15,7 +15,6 @@
 - IoD 2019 landing page : https://www.gov.uk/government/statistics/english-indices-of-deprivation-2019
 - Statistical Release (PDF) : https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/835115/IoD2019_Statistical_Release.pdf
 - Technical Report (PDF) : https://assets.publishing.service.gov.uk/media/5d8b387740f0b609909b5908/IoD2019_Technical_Report.pdf
-- Frequently Asked Questions (PDF) : https://assets.publishing.service.gov.uk/media/5dfb3d7ce5274a3432700cf3/IoD2019_FAQ_v4.pdf
 
 **DEFINITIONS**
 
@@ -24,7 +23,7 @@
 
 **SCOPE**
 
-- LSOA 2011 coverage: England + Wales (34,753 distinct lsoa11cd). IMD values are populated for England only; the 1,940 Welsh LSOA rows carry NULL IMD.
+- IMD values are populated for England only in LSOA 2011.
 
 **CRS**
 

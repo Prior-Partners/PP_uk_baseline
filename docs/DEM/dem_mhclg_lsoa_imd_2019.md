@@ -33,10 +33,6 @@
 
 - Open Government Licence v3.0.
 
-**DATA QUALITY CAVEATS**
-
-- Multipolygon explosion: 35,796 geometry rows for 34,753 distinct LSOAs (3% over-count).
-
 
 ## Columns
 
@@ -169,6 +165,4 @@
 | `age_25_29_count` | `double precision` | Added during an earlier Prior + Partners loading pass. Source dataset and age-band definitions not recorded; the column appears to be an ONS Census 2021 student / age-band count but this has not been verified against the publisher. Unit: "persons" (presumed). Use with care. |
 | `age_30_over_count` | `double precision` | Added during an earlier Prior + Partners loading pass. Source dataset and age-band definitions not recorded; the column appears to be an ONS Census 2021 student / age-band count but this has not been verified against the publisher. Unit: "persons" (presumed). Use with care. |
 | `age_18_and_above_count` | `double precision` | Added during an earlier Prior + Partners loading pass. Source dataset and age-band definitions not recorded; the column appears to be an ONS Census 2021 student / age-band count but this has not been verified against the publisher. Unit: "persons" (presumed). Use with care. |
-| `wd22cd` | `character varying` | Joined at load from ONS LSOA->Ward lookup; 2022 Ward GSS code. |
-| `wd22nm` | `character varying` | Joined at load from ONS LSOA->Ward lookup; 2022 Ward name. |
 | `fid` | `bigint` |  |

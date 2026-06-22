@@ -40,7 +40,7 @@
 **DATA QUALITY CAVEATS**
 
 - Higher AHAH score / rank = less healthy environment.
-- The firm does not hold Scottish DZ-to-LAD lookups. `rgn22cd` / `rgn22nm` are also NULL for the 1,917 Welsh rows because regions are an England-only geography.
+- `rgn22cd` / `rgn22nm` are empty for Welsh and Scottish rows. Regions are an England-only geography.
 
 **ENRICHMENT**
 

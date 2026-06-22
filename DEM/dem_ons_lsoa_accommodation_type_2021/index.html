@@ -5213,13 +5213,13 @@
 
 
 <h1 id="ons-census-2021-households-by-accommodation-type-at-lower-layer-super-output-area-lsoa-2021">ONS Census 2021 households-by-accommodation-type at Lower-layer Super Output Area (LSOA) 2021<a class="headerlink" href="#ons-census-2021-households-by-accommodation-type-at-lower-layer-super-output-area-lsoa-2021" title="Permanent link">&para;</a></h1>
-<p class="layer-short">Accommodation Type</p>
+<p class="layer-short">Households by Accommodation Type</p>
 
 <p><code>dem_ons_lsoa_accommodation_type_2021</code></p>
 <p><img src="../../maps/dem_ons_lsoa_accommodation_type_2021.png" alt="Styling preview of dem_ons_lsoa_accommodation_type_2021" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></p>
 <p><strong>SOURCE</strong></p>
 <ul>
-<li>Office for National Statistics (ONS), Census 2021, England and Wales. Table TS044 "Accommodation type". Reference date 21 March 2021. Loaded via an earlier Prior + Partners pass; original load pathway not recorded.</li>
+<li>Office for National Statistics (ONS), Census 2021, England and Wales.</li>
 </ul>
 <p><strong>DOCUMENTATION</strong></p>
 <ul>
@@ -5229,13 +5229,20 @@
 </ul>
 <p><strong>DEFINITIONS</strong></p>
 <ul>
-<li>"Classification of households by accommodation type." (ONS TS044 dataset description)</li>
-<li>Census 2021 categorises accommodation type as: detached; semi-detached; terraced; in a purpose-built block of flats or tenement; part of a converted or shared house, including bedsits; part of another converted building; in a commercial building; caravan or other mobile or temporary structure.</li>
+<li>Census 2021 categorises accommodation type as:</li>
+<li>detached</li>
+<li>semi-detached</li>
+<li>terraced</li>
+<li>in a purpose-built block of flats or tenement</li>
+<li>part of a converted or shared house, including bedsits</li>
+<li>part of another converted building</li>
+<li>in a commercial building</li>
+<li>caravan or other mobile or temporary structure</li>
 <li>"Census Day was 21 March 2021. The information collected in the census reflects the population of England and Wales on that day." (ONS Census 2021 landing page)</li>
 </ul>
 <p><strong>SCOPE</strong></p>
 <ul>
-<li>England and Wales. LSOA 2021 boundary; 35,672 distinct lsoa21cd (no multipolygon explosion).</li>
+<li>England and Wales.</li>
 <li>Base population: households.</li>
 </ul>
 <p><strong>CRS</strong></p>
@@ -5246,19 +5253,13 @@
 <ul>
 <li>Open Government Licence v3.0.</li>
 </ul>
-<p><strong>DATA QUALITY CAVEATS</strong></p>
-<ul>
-<li>Column name spelling drift inherited from the earlier load: <code>dominant_accomodation_type_group</code> (typo: "accomodation" should be "accommodation").</li>
-<li>Column names <code>in_commercial building_count</code> / <code>_perc</code> contain a SPACE — use double-quoted identifiers in SQL.</li>
-<li>Two <code>fid</code> columns: uppercase <code>FID</code> (Esri export legacy) and lowercase <code>fid</code> (PostgreSQL surrogate). Both are pure surrogates; use either as a row key but not in joins.</li>
-</ul>
 <p><strong>ENRICHMENT</strong></p>
 <ul>
 <li><code>msoa21hclnm</code> — House of Commons Library readable MSOA name, joined at load on msoa21cd from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.</li>
 </ul>
 <p><strong>LOADED INTO uk_baseline</strong></p>
 <ul>
-<li>Data: Census Day 21 March 2021 (ONS TS044 publication 2022-2023).</li>
+<li>Data: Census Day 21 March 2021.</li>
 </ul>
 <h2 id="columns">Columns<a class="headerlink" href="#columns" title="Permanent link">&para;</a></h2>
 <table>

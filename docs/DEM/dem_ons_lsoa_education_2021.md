@@ -22,7 +22,7 @@
 
 **SCOPE**
 
-- England and Wales. LSOA 2021 boundary; 35,672 distinct lsoa21cd.
+- England and Wales.
 - Base population: usual residents aged 16 years and over.
 
 **CRS**

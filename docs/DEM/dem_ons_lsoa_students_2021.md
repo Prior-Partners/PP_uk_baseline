@@ -23,7 +23,7 @@
 
 **SCOPE**
 
-- England and Wales. LSOA 2021 boundary; 35,672 distinct lsoa21cd.
+- England and Wales.
 - Base population: schoolchildren and full-time students; some columns subset further by age band or accommodation type.
 
 **CRS**

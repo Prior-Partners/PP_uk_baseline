@@ -24,7 +24,7 @@
 
 **SCOPE**
 
-- Lower Super Output Area (LSOA) 2021 boundaries, England and Wales. 35,672 rows (E: 33,755; W: 1,917). Source CSV rows filtered to geography = 'LSOA'.
+- Lower Super Output Area (LSOA) 2021 boundaries, England and Wales. Source CSV rows filtered to geography = 'LSOA'.
 
 **CRS**
 

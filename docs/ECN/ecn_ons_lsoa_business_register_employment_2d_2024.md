@@ -25,7 +25,7 @@
 
 **SCOPE**
 
-- England and Wales. Lower Layer Super Output Area (LSOA) 2021; 35,672 rows. Filter applied at download: EMPLOYMENT_STATUS=4 (Employment), MEASURE=1 (Count), MEASURES=20100 (Value); reference date 1 January 2024.
+- England and Wales. Lower Layer Super Output Area (LSOA) 2021. Filter applied at download: EMPLOYMENT_STATUS=4 (Employment), MEASURE=1 (Count), MEASURES=20100 (Value); reference date 1 January 2024.
 
 **CRS**
 

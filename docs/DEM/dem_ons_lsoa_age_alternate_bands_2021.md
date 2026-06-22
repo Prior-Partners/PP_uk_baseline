@@ -8,14 +8,13 @@
 
 **SOURCE**
 
-- Office for National Statistics (ONS), Census 2021, England and Wales. ONS publishes age in multiple alternative bandings — single-year (TS007a), 5-year (TS007a, alternative variant), broad bands (TS007b). This table holds several of those bandings side-by-side. Reference date 21 March 2021. Loaded via an earlier Prior + Partners pass; original load pathway not recorded.
+- Office for National Statistics (ONS), Census 2021, England and Wales.
 
 **DOCUMENTATION**
 
 - ONS Census 2021 age variable : https://www.ons.gov.uk/census/census2021dictionary/variablesbytopic/demographyvariablescensus2021/age
 - ONS dataset (TS007a) : https://www.ons.gov.uk/datasets/TS007A/editions/2021/versions/1
 - ONS Census 2021 landing page : https://www.ons.gov.uk/census/2021
-- NOMIS bulk download : https://www.nomisweb.co.uk/sources/census_2021
 
 **DEFINITIONS**
 
@@ -24,7 +23,7 @@
 
 **SCOPE**
 
-- England and Wales. LSOA 2021 boundary; 35,672 distinct lsoa21cd.
+- England and Wales.
 - Base population: all usual residents.
 
 **CRS**
@@ -37,8 +36,7 @@
 
 **DATA QUALITY CAVEATS**
 
-- The 103-column shape combines several age bandings (single-year, 5-year, broad). Be precise about which banding you sum — different bandings overlap and double-counting is easy. Confirm the column-list grouping at first use; see the column comments for which banding each column belongs to.
-- The `dominant_age_*` column (if present) is a derived label from the earlier load; methodology not recorded.
+- The 103-column shape combines several age bandings (single-year, 5-year, broad).
 
 **ENRICHMENT**
 

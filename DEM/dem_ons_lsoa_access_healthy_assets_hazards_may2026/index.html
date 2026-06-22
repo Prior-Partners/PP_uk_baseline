@@ -25,7 +25,7 @@
     
     
       
-        <title>ONS Access to Healthy Assets and Hazards (AHAH) composite index, version 5.1, May 2026 - uk_baseline data catalogue</title>
+        <title>ONS Access to Healthy Assets and Hazards (AHAH) composite index, May 2026 - uk_baseline data catalogue</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ons-access-to-healthy-assets-and-hazards-ahah-composite-index-version-51-may-2026" class="md-skip">
+        <a href="#ons-access-to-healthy-assets-and-hazards-ahah-composite-index-may-2026" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ONS Access to Healthy Assets and Hazards (AHAH) composite index, version 5.1, May 2026
+              ONS Access to Healthy Assets and Hazards (AHAH) composite index, May 2026
             
           </span>
         </div>
@@ -1249,7 +1249,7 @@
   <span class="md-ellipsis">
     
   
-    ONS Access to Healthy Assets and Hazards (AHAH) composite index, version 5.1, May 2026
+    ONS Access to Healthy Assets and Hazards (AHAH) composite index, May 2026
   
 
     
@@ -1267,7 +1267,7 @@
   <span class="md-ellipsis">
     
   
-    ONS Access to Healthy Assets and Hazards (AHAH) composite index, version 5.1, May 2026
+    ONS Access to Healthy Assets and Hazards (AHAH) composite index, May 2026
   
 
     
@@ -5212,16 +5212,15 @@
 
 
 
-<h1 id="ons-access-to-healthy-assets-and-hazards-ahah-composite-index-version-51-may-2026">ONS Access to Healthy Assets and Hazards (AHAH) composite index, version 5.1, May 2026<a class="headerlink" href="#ons-access-to-healthy-assets-and-hazards-ahah-composite-index-version-51-may-2026" title="Permanent link">&para;</a></h1>
-<p class="layer-short">AHAH</p>
+<h1 id="ons-access-to-healthy-assets-and-hazards-ahah-composite-index-may-2026">ONS Access to Healthy Assets and Hazards (AHAH) composite index, May 2026<a class="headerlink" href="#ons-access-to-healthy-assets-and-hazards-ahah-composite-index-may-2026" title="Permanent link">&para;</a></h1>
+<p class="layer-short">Access to Healthy Assets and Hazards (AHAH)</p>
 
 <p><code>dem_ons_lsoa_access_healthy_assets_hazards_may2026</code></p>
 <p><img src="../../maps/dem_ons_lsoa_access_healthy_assets_hazards_may2026.png" alt="Styling preview of dem_ons_lsoa_access_healthy_assets_hazards_may2026" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></p>
 <p><strong>SOURCE</strong></p>
 <ul>
-<li>Geographic Data Service (GeoDS), part of Smart Data Research UK, hosted by UCL, University of Liverpool, University of Oxford, and University of Edinburgh. v5 maintainers: Mark Green, Cillian Berragan. Index originally developed under the Consumer Data Research Centre; now published by GeoDS. Maintainer email: data@geods.ac.uk.</li>
-<li>Composite index built from inputs published by NHS Digital, NHS Scotland, NHS Organisation Data Service, Spatial Hub Scotland, DEFRA Pollution Climate Mapping, Sentinel-2 (via Google Earth Engine), OS Open Greenspace, OS Open Rivers, OpenStreetMap, the Local Data Company, and the ONS Postcode Directory. See ahah_v5_technical_methodology.pdf for the full source inventory.</li>
-<li>Despite the legacy <code>_ons_lsoa_</code> tokens in this table name, the publisher is Geographic Data Service (not ONS) and the geography is mixed LSOA 2021 (England + Wales) + Data Zone 2022 (Scotland). Name retained for continuity with v4.</li>
+<li>Geographic Data Service (GeoDS), part of Smart Data Research UK, hosted by UCL, University of Liverpool, University of Oxford, and University of Edinburgh.</li>
+<li>Composite index built from inputs published by NHS Digital, NHS Scotland, NHS Organisation Data Service, Spatial Hub Scotland, DEFRA Pollution Climate Mapping, Sentinel-2 (via Google Earth Engine), OS Open Greenspace, OS Open Rivers, OpenStreetMap, the Local Data Company, and the ONS Postcode Directory.</li>
 </ul>
 <p><strong>DOCUMENTATION</strong></p>
 <ul>
@@ -5233,18 +5232,17 @@
 </ul>
 <p><strong>DEFINITIONS</strong></p>
 <ul>
-<li>"a multi-dimensional index developed by the Geographic Data Service for Great Britain measuring how 'healthy' neighbourhoods are based on accessibility to health-promoting and health-damaging features of the built environment." (GeoDS AHAH dataset page)</li>
-<li>Four domains: Retail environment (fast food, pubs/bars/nightclubs, tobacconists/vape stores, gambling outlets), Health services (GP surgeries, hospitals with A&amp;E, pharmacies, dentists, leisure centres), Physical environment (Blue Space, Active Greenspace, Passive Greenspace via NDVI), Air quality (NO2, PM10, SO2). (GeoDS AHAH dataset page)</li>
-<li>Methodology: indicator accessibility measured as drive-time (minutes) via the Valhalla routing engine over an OpenStreetMap road network; passive greenspace as median NDVI from Sentinel-2 (2025 growing season); air quality as area-weighted mean concentration (ugm3) from DEFRA PCM 2024. Each indicator is ranked, probit-transformed, and combined into domain scores; domains are exponentially transformed and averaged with equal weights to produce the composite AHAH score. See ahah_v5_technical_methodology.pdf for the full pipeline.</li>
+<li>AHAH is a multi-dimensional index measuring how 'healthy' a neighbourhood is, based on accessibility to health-promoting and health-damaging features of the built environment.</li>
+<li>Four domains: Retail environment (e.g. fast food, gambling outlets), Health services (e.g. GP surgeries, pharmacies, A&amp;E), Physical environment (greenspace, blue space), and Air quality (NO2, PM10, SO2).</li>
 </ul>
 <p><strong>SCOPE</strong></p>
 <ul>
-<li>Great Britain. 43,064 small areas: LSOA 2021 codes (E01<em>, W01</em>) for England + Wales, Data Zone 2022 codes (S01*) for Scotland. All codes carried in a single <code>lsoa21cd</code> column per the publisher's convention.</li>
+<li>Great Britain. 43,064 areas: LSOA 2021 codes (E01, W01) for England + Wales and Data Zone 2022 codes (S01*) for Scotland.</li>
 <li>Natural key: <code>lsoa21cd</code>. Geometry: small-area polygon from the GeoDS parquet geofile.</li>
 </ul>
 <p><strong>CRS</strong></p>
 <ul>
-<li>EPSG:27700 (OSGB 1936 / British National Grid). Confirmed from parquet metadata; no reprojection performed at load.</li>
+<li>EPSG:27700 (OSGB 1936 / British National Grid).</li>
 </ul>
 <p><strong>LICENCE</strong></p>
 <ul>
@@ -5252,21 +5250,13 @@
 </ul>
 <p><strong>DATA QUALITY CAVEATS</strong></p>
 <ul>
-<li>Direction convention is OPPOSITE to Indices of Multiple Deprivation (IMD): higher AHAH score / rank = LESS healthy environment. Easy to misread.</li>
-<li>Drive-times assume private vehicle access under free-flow traffic conditions; peak-hour congestion not modelled.</li>
-<li>The <code>lsoa21cd</code> column carries Data Zone 2022 codes for Scottish rows (codes starting <code>S01</code>). The column name follows the publisher's CSV.</li>
-<li>The <code>lsoa_dz_sdz_21_22</code> column appears in the parquet geofile but is NOT defined in the publisher's variable dictionary. Carried forward by its source name only; meaning undocumented.</li>
-<li>Enrichment columns (lsoa21nm, msoa21cd, msoa21nm, msoa11cd, msoa11nm, wd22cd, wd22nm, lad22cd, lad22nm, rgn22cd, rgn22nm) are joined from Office for National Statistics (ONS) boundary tables and are NULL for the 7,392 Scottish Data Zone rows (codes starting <code>S01</code>). The firm does not yet hold Scottish DZ-to-LAD lookups. <code>rgn22cd</code> / <code>rgn22nm</code> are also NULL for the 1,917 Welsh rows because regions are an England-only geography.</li>
-<li>v5.1 cannot be directly compared to earlier AHAH versions: domain composition and the hospital definition changed in v5.1. Previous version (v4) is preserved at uk.dem_ons_lsoa_access_healthy_assets_hazards_2024 and covered England + Wales only (35,828 rows).</li>
-<li>v4 carried 18 <code>*_decile</code> columns derived via an undocumented Prior + Partners-era formula (which inconsistently produced an anomalous bin 0 for some indicators). NOT reproduced in v5.1. Deciles can be derived by splitting each indicator's rank into ten equal-sized bins (1 = lowest … 10 = highest), or obtained from the Data Intelligence team's archived decile outputs.</li>
-<li>v4 carried <code>population</code> and <code>total_households</code> columns joined from an earlier snapshot of the Census 2021 population table no longer accessible. NOT reproduced in v5.1. Current Census 2021 day-count population and household figures are held in uk_baseline.dem_ons_lsoa_household_population_2021, keyed by <code>lsoa21cd</code>; or contact the Data Intelligence team.</li>
+<li>Higher AHAH score / rank = less healthy environment.</li>
+<li>The firm does not hold Scottish DZ-to-LAD lookups. <code>rgn22cd</code> / <code>rgn22nm</code> are also NULL for the 1,917 Welsh rows because regions are an England-only geography.</li>
 </ul>
 <p><strong>ENRICHMENT</strong></p>
 <ul>
 <li><code>msoa21hclnm</code> — House of Commons Library readable MSOA name, joined at load on msoa21cd from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.</li>
 <li>Geography codes/names joined from uk_baseline.adm_ons_lsoa_boundary_2021 by <code>lsoa21cd</code>: lsoa21nm, msoa21cd, msoa21nm, wd22cd, wd22nm, lad22cd, lad22nm, rgn22cd, rgn22nm. NULL for Scottish rows.</li>
-<li>MSOA 2011 code/name spatially joined from uk_baseline.adm_ons_msoa_boundary_2011, matching each area's representative point to the MSOA 2011 polygon that contains it: msoa11cd, msoa11nm. NULL for Scottish rows.</li>
-<li>area_ha is the area in hectares, computed at load from the geometry. Goes stale if geometry is subsequently edited.</li>
 </ul>
 <p><strong>NOT IN THIS DATASET</strong></p>
 <ul>

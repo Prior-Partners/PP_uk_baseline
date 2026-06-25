@@ -1,6 +1,6 @@
 # ONS Census 2021 household size at Lower-layer Super Output Area (LSOA) 2021
 
-<p class="layer-short">Household Size</p>
+<p class="layer-short">Census 2021 Household Size</p>
 
 `dem_ons_lsoa_household_size_2021`
 

@@ -1,6 +1,6 @@
 # ONS Census 2021 housing tenure at Lower-layer Super Output Area (LSOA) 2021
 
-<p class="layer-short">Housing Tenure</p>
+<p class="layer-short">Census 2021 Housing Tenure</p>
 
 `dem_ons_lsoa_housing_tenure_2021`
 
@@ -18,7 +18,14 @@
 **DEFINITIONS**
 
 - "Whether a household owns or rents the accommodation that it occupies." (ONS Census 2021 Tenure of household variable)
-- Categories: "Owned" (owned outright or with a mortgage / loan); "Shared ownership" (part owns, part rents); "Social rented" (rented from council or housing association); "Private rented" (rented from private landlord or letting agency, or other); "Lives rent free".
+
+Categories:
+
+- "Owned" (owned outright or with a mortgage / loan)
+- "Shared ownership" (part owns, part rents)
+- "Social rented" (rented from council or housing association)
+- "Private rented" (rented from private landlord or letting agency, or other)
+- "Lives rent free"
 
 **SCOPE**
 

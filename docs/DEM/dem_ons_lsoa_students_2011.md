@@ -8,7 +8,7 @@
 
 **SOURCE**
 
-- Office for National Statistics (ONS), Census 2011, England and Wales. Primary source: table KS501UK "Qualifications and students" augmented with student-related cross-tabs. Reference date 27 March 2011. Loaded via an earlier Prior + Partners pass; exact source combination not recorded.
+- Office for National Statistics (ONS), Census 2011, England and Wales.
 
 **DOCUMENTATION**
 

@@ -1,6 +1,6 @@
 # ONS Census 2021 ethnic group at Lower-layer Super Output Area (LSOA) 2021
 
-<p class="layer-short">Ethnicity</p>
+<p class="layer-short">Census 2021 Ethnicity</p>
 
 `dem_ons_lsoa_ethnicity_2021`
 

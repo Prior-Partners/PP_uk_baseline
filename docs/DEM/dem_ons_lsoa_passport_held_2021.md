@@ -1,6 +1,6 @@
 # ONS Census 2021 passport(s) held at Lower-layer Super Output Area (LSOA) 2021
 
-<p class="layer-short">Passport Held</p>
+<p class="layer-short">Census 2021 Passport Held</p>
 
 `dem_ons_lsoa_passport_held_2021`
 
@@ -18,7 +18,20 @@
 **DEFINITIONS**
 
 - "Passports held identifies whether a person holds a current valid passport and, if so, the country or countries that issued the passport(s)." (ONS Census 2021 Passports held variable)
-- Categories: "United Kingdom passport"; "Republic of Ireland passport"; "Other passport" (broken into EU countries; Europe (non-EU); Africa; Middle East and Asia; The Americas and the Caribbean; Antarctica and Oceania; British Overseas Territories); "No passport".
+
+Categories:
+
+- "United Kingdom passport"
+- "Republic of Ireland passport"
+- "Other passport":
+    - EU countries
+    - Europe (non-EU)
+    - Africa
+    - Middle East and Asia
+    - The Americas and the Caribbean
+    - Antarctica and Oceania
+    - British Overseas Territories
+- "No passport"
 
 **SCOPE**
 

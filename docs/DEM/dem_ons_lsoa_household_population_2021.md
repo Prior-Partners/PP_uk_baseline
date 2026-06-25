@@ -1,6 +1,6 @@
 # ONS Census 2021 household population / usual residents at Lower-layer Super Output Area (LSOA) 2021
 
-<p class="layer-short">Household Population</p>
+<p class="layer-short">Census 2021 Household Population</p>
 
 `dem_ons_lsoa_household_population_2021`
 

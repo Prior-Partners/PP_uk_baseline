@@ -1,6 +1,6 @@
 # ONS Census 2021 car or van availability at Lower-layer Super Output Area (LSOA) 2021
 
-<p class="layer-short">Car Availability</p>
+<p class="layer-short">Census 2021 Car Availability</p>
 
 `dem_ons_lsoa_car_availability_2021`
 

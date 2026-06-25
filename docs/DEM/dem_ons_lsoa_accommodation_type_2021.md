@@ -1,6 +1,6 @@
 # ONS Census 2021 households-by-accommodation-type at Lower-layer Super Output Area (LSOA) 2021
 
-<p class="layer-short">Households by Accommodation Type</p>
+<p class="layer-short">Census 2021 Households by Accommodation Type</p>
 
 `dem_ons_lsoa_accommodation_type_2021`
 

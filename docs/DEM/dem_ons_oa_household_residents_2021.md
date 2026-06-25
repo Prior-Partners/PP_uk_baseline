@@ -1,6 +1,6 @@
 # ONS Census 2021 usual residents at Output Area (OA) 2021
 
-<p class="layer-short">Census_residents_hholds</p>
+<p class="layer-short">Census 2021 Residents Households</p>
 
 `dem_ons_oa_household_residents_2021`
 

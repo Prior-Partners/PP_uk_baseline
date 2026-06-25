@@ -1,6 +1,6 @@
 # ONS Census 2021 religion at Lower-layer Super Output Area (LSOA) 2021
 
-<p class="layer-short">Religion</p>
+<p class="layer-short">Census 2021 Religion</p>
 
 `dem_ons_lsoa_religion_2021`
 
@@ -18,7 +18,18 @@
 **DEFINITIONS**
 
 - "The religion people connect or identify with (their religious affiliation), whether or not they practise or have belief in it. The question on religion in the census is voluntary; people could choose not to answer." (ONS Census 2021 Religion variable)
-- Tick-box categories: "No religion"; "Christian"; "Buddhist"; "Hindu"; "Jewish"; "Muslim"; "Sikh"; "Other religion". Plus "Not answered" (the question is voluntary).
+
+Categories:
+
+- "No religion"
+- "Christian"
+- "Buddhist"
+- "Hindu"
+- "Jewish"
+- "Muslim"
+- "Sikh"
+- "Other religion"
+- "Not answered" (the question is voluntary)
 
 **SCOPE**
 

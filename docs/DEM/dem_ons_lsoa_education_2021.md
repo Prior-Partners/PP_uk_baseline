@@ -1,6 +1,6 @@
 # ONS Census 2021 highest level of qualification at Lower-layer Super Output Area (LSOA) 2021
 
-<p class="layer-short">Education - highest level of qualification</p>
+<p class="layer-short">Census 2021 Education - highest level of qualification</p>
 
 `dem_ons_lsoa_education_2021`
 

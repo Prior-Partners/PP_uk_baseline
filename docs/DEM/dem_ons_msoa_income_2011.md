@@ -8,7 +8,7 @@
 
 **SOURCE**
 
-- Office for National Statistics (ONS), "Small Area Income Estimates for Middle layer Super Output Areas, England and Wales". Reference period 2011/12 (financial year ending 2012). Loaded via an earlier Prior + Partners pass.
+- Office for National Statistics (ONS), "Small Area Income Estimates for Middle layer Super Output Areas, England and Wales".
 
 **DOCUMENTATION**
 

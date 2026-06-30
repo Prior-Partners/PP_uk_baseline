@@ -67,11 +67,16 @@ Published via planning.data.gov.uk (digital-land).
 | `ownership_status` | `character varying` | Source field "ownership-status". Observed values: "not-owned-by-a-public-authority", "owned-by-a-public-authority", "mixed-ownership", "unknown-ownership", "Unknown". |
 | `maximum_net_dwellings` | `character varying` | Source field "maximum-net-dwellings"; LPA estimate. Stored as text. |
 | `planning_permission_type` | `character varying` | Source field "planning-permission-type". |
-| `lad25cd` | `character varying(9)` | Joined at load from ONS LAD 2025 lookup; 2025 LAD GSS code. |
-| `lad25nm` | `character varying(100)` | Joined at load from ONS LAD 2025 lookup; 2025 LAD name. |
+| `lad25cd` | `character varying(9)` | Local Authority District 2025 code (current administering authority). Assigned at load by point-in-polygon location against uk_baseline.adm_ons_lad_boundary_may2025. Open Government Licence v3.0. |
+| `lad25nm` | `character varying(100)` | Local Authority District 2025 name (current administering authority). Assigned at load by point-in-polygon location against uk_baseline.adm_ons_lad_boundary_may2025. Open Government Licence v3.0. |
 | `rgn22cd` | `character varying` | Joined at load from ONS LAD->Region lookup; 2022 Region GSS code. |
 | `rgn22nm` | `character varying` | Joined at load from ONS LAD->Region lookup; 2022 Region name. |
 | `sds_boundary` | `character varying` | Internal categorisation: SDS area where the point falls. Blank or NULL where outside any SDS area. |
 | `geom` | `geometry(MultiPoint,27700)` | MultiPoint in EPSG:27700. Brownfield site point. |
 | `fid` | `bigint` |  |
 | `planning_permission_status_clean` | `text` | Canonical Title Case value derived from planning_permission_status via uk_baseline.lut_planning_permission_status. 'No Data' = source was NULL OR was an unmappable/ambiguous value (REC, bare numeric codes, 'Mixed ownership', 'Finally Disposed Of', explicit 'Unknown'). 'Unknown' merged into 'No Data' on 13 May 2026. |
+| `msoa21cd` | `text` | Middle Layer Super Output Area (MSOA) 2021 code. Assigned at load by point-in-polygon location against uk_baseline.adm_ons_msoa_boundary_2021. Open Government Licence v3.0. |
+| `msoa21nm` | `text` | Official ONS Middle Layer Super Output Area 2021 name. Assigned at load via the point's 2021 MSOA (point-in-polygon against uk_baseline.adm_ons_msoa_boundary_2021). Open Government Licence v3.0. |
+| `msoa21hclnm` | `text` | House of Commons Library readable MSOA name. Assigned at load via the point's 2021 MSOA (point-in-polygon against uk_baseline.adm_ons_msoa_boundary_2021, which carries the House of Commons Library name). Open Parliament Licence. |
+| `lad22cd` | `text` | Local Authority District 2022 code (2021 LAD geography, anchored to the MSOA 2021 name scoping). Assigned at load by point-in-polygon location against uk_baseline.adm_ons_lad_boundary_may2022. Open Government Licence v3.0. |
+| `lad22nm` | `text` | Local Authority District 2022 name (2021 LAD geography). Assigned at load by point-in-polygon location against uk_baseline.adm_ons_lad_boundary_may2022. Open Government Licence v3.0. |

@@ -201,8 +201,8 @@
 | `fsm` | `integer` | Source field "FSM"; absolute count of pupils eligible for and claiming free school meals at the census_date. Unit: "pupils". |
 | `accreditation_expiry_date` | `text` | Source field "AccreditationExpiryDate"; date the establishment's accreditation expires (for accredited independent schools). Stored as text. |
 | `fid_original` | `integer` | ArcGIS source identifier preserved at load; row identifier from the originating file. |
-| `lad25cd` | `character varying(9)` | Joined at load from ONS LAD25 lookup; 2025 LAD GSS code. |
-| `lad25nm` | `character varying(100)` | Joined at load from ONS LAD25 lookup; 2025 LAD name. |
+| `lad25cd` | `character varying(9)` | Local Authority District 2025 code: the current geographic district of the school, best-fit from msoa21cd via the ONS MSOA (2021) to LAD (2025) best-fit lookup. Maintaining education authority is in `gss_la_code`/`la_name`. Open Government Licence v3.0. |
+| `lad25nm` | `character varying(100)` | Local Authority District 2025 name: the current geographic district of the school, best-fit from msoa21cd via the ONS MSOA (2021) to LAD (2025) best-fit lookup. Maintaining education authority is in `gss_la_code`/`la_name`. Open Government Licence v3.0. |
 | `rgn22cd` | `character varying` | Joined at load from ONS LAD->Region lookup; 2022 Region GSS code. |
 | `rgn22nm` | `character varying` | Joined at load from ONS LAD->Region lookup; 2022 Region name. |
 | `sds_boundary` | `character varying` | Internal categorisation: Spatial Development Strategy (SDS) area where the school point falls. Blank or NULL where outside any SDS area. |
@@ -210,4 +210,8 @@
 | `fid` | `bigint` |  |
 | `ofsted_overall_rate_code` | `smallint` | Headline Ofsted grade code 1-4 (1=Outstanding, 2=Good, 3=Requires Improvement, 4=Inadequate). NULL when no clean grade is available (includes 'Not Judged' and ambiguous ungraded outcomes). Sourced from OEIF + extended ungraded-reaffirm fallback. Fallback option B applied 14 May 2026. |
 | `ofsted_overall_rate` | `text` | Headline Ofsted rating text (Title Case). Sourced from OEIF graded inspection (col 67); for rows where OEIF was NULL, filled from the latest ungraded reaffirm outcome: 'School remains Outstanding' and 'School remains Outstanding (Concerns) - S5 Next' -> 'Outstanding'; 'School remains Good', 'School remains Good (Concerns) - S5 Next' and 'School remains Good (Improving) - S5 Next' -> 'Good'. Other ungraded outcomes (Standards maintained, Improved significantly, Some aspects not as strong) intentionally left NULL. Fallback option B applied 14 May 2026. |
-| `msoa21hclnm` | `text` | House of Commons Library readable MSOA name. Joined at load on this table's `msoa_code` (a 2021 MSOA code) from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence. |
+| `msoa21hclnm` | `text` | House of Commons Library readable MSOA name, joined on the source `msoa_code` from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence. |
+| `msoa21cd` | `text` | Source field `msoa_code` (Department for Education, the school's 2021 Middle Layer Super Output Area). Populated only where the source code is a valid 2021 MSOA. Open Government Licence v3.0. |
+| `msoa21nm` | `text` | Official ONS Middle Layer Super Output Area 2021 name, joined on msoa21cd from uk_baseline.adm_ons_msoa_boundary_2021. Open Government Licence v3.0. |
+| `lad22cd` | `text` | Local Authority District 2022 code: the geographic district of the school (2021 LAD geography), best-fit from msoa21cd via the ONS MSOA (2021) to LAD (2022) best-fit lookup. The school's maintaining education authority (county-level in two-tier areas) is held separately in `gss_la_code`/`la_name`. Open Government Licence v3.0. |
+| `lad22nm` | `text` | Local Authority District 2022 name: the geographic district of the school, best-fit from msoa21cd via the ONS MSOA (2021) to LAD (2022) best-fit lookup. Maintaining education authority is in `gss_la_code`/`la_name`. Open Government Licence v3.0. |

@@ -5283,6 +5283,10 @@
 <ul>
 <li>Loaded by PNC, January 2026.</li>
 </ul>
+<p>MSOA SPLIT (added 30 June 2026)</p>
+<ul>
+<li>Geometry split to one row per (source feature x MSOA 2021). Each row carries that MSOA's msoa21cd / msoa21nm / msoa21hclnm and best-fit lad22 / lad25. The source feature's original primary key is preserved as <code>source_fid</code>; <code>gid</code> is a fresh surrogate primary key.</li>
+</ul>
 <h2 id="columns">Columns<a class="headerlink" href="#columns" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -5294,16 +5298,6 @@
 </thead>
 <tbody>
 <tr>
-<td><code>id</code></td>
-<td><code>integer</code></td>
-<td></td>
-</tr>
-<tr>
-<td><code>geom</code></td>
-<td><code>geometry(Polygon,27700)</code></td>
-<td>Source field "geometry" (multipolygon per upstream spec; exploded to Polygon at load); EPSG:27700.</td>
-</tr>
-<tr>
 <td><code>fid</code></td>
 <td><code>bigint</code></td>
 <td></td>
@@ -5311,67 +5305,117 @@
 <tr>
 <td><code>dataset</code></td>
 <td><code>character varying</code></td>
-<td>Source field "dataset"; constant value "local-plan-boundary".</td>
+<td></td>
 </tr>
 <tr>
 <td><code>end_date</code></td>
 <td><code>character varying</code></td>
-<td>Source field "end-date"; date the boundary was retired upstream (blank if still active). All rows currently active in this load.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>entity</code></td>
 <td><code>character varying</code></td>
-<td>Source field "entity"; numeric ID assigned by Planning Data; 364 distinct entities in this load.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>entry_date</code></td>
 <td><code>date</code></td>
-<td>Source field "entry-date"; date this row was first published in the upstream Planning Data dataset.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>name</code></td>
 <td><code>character varying</code></td>
-<td>Source field "name"; human-readable name of the local-plan area (e.g. "London Borough of Camden").</td>
+<td></td>
 </tr>
 <tr>
 <td><code>organisation_entity</code></td>
 <td><code>character varying</code></td>
-<td>Source field "organisation-entity"; numeric ID of the publishing organisation.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>prefix</code></td>
 <td><code>character varying</code></td>
-<td>Source field "prefix"; constant value "local-plan-boundary" (mirrors dataset).</td>
+<td></td>
 </tr>
 <tr>
 <td><code>quality</code></td>
 <td><code>character varying</code></td>
-<td>Source field "quality"; upstream data-quality tag (e.g. "authoritative").</td>
+<td></td>
 </tr>
 <tr>
 <td><code>reference</code></td>
 <td><code>character varying</code></td>
-<td>Source field "reference"; alphanumeric identifier (often matches the LPA GSS code, e.g. "E60000188").</td>
+<td></td>
 </tr>
 <tr>
 <td><code>start_date</code></td>
 <td><code>character varying</code></td>
-<td>Source field "start-date"; date the boundary became effective upstream (often blank).</td>
+<td></td>
 </tr>
 <tr>
 <td><code>typology</code></td>
 <td><code>character varying</code></td>
-<td>Source field "typology"; upstream taxonomy class. Constant "geography" for this dataset.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>organisations</code></td>
 <td><code>character varying</code></td>
-<td>Source field "organisations"; ":"-delimited list of upstream organisation slugs (e.g. "local-authority:CMD").</td>
+<td></td>
 </tr>
 <tr>
 <td><code>local_planning_authorities</code></td>
 <td><code>character varying</code></td>
-<td>Source field "local-planning-authorities"; LPA reference(s).</td>
+<td></td>
+</tr>
+<tr>
+<td><code>msoa21cd</code></td>
+<td><code>character varying</code></td>
+<td>Middle Layer Super Output Area (MSOA) 2021 code of this piece. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>msoa21nm</code></td>
+<td><code>character varying</code></td>
+<td>Official ONS MSOA 2021 name of this piece. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>msoa21hclnm</code></td>
+<td><code>text</code></td>
+<td>House of Commons Library readable MSOA name of this piece. Open Parliament Licence.</td>
+</tr>
+<tr>
+<td><code>lad22cd</code></td>
+<td><code>text</code></td>
+<td>Local Authority District 2022 code (2021 LAD geography, anchored to the MSOA 2021 name scoping), best-fit from this piece's msoa21cd. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>lad22nm</code></td>
+<td><code>text</code></td>
+<td>Local Authority District 2022 name (2021 LAD geography), best-fit from this piece's msoa21cd. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>lad25cd</code></td>
+<td><code>text</code></td>
+<td>Local Authority District 2025 code (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>lad25nm</code></td>
+<td><code>text</code></td>
+<td>Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>geom</code></td>
+<td><code>geometry(MultiPolygon,27700)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>source_fid</code></td>
+<td><code>integer</code></td>
+<td>Primary key of the source feature in the pre-split layer uk.adm_mhclg_local_plan_boundary_jan2026__preswap_jun30 (non-unique here: a feature spanning N MSOAs has N rows).</td>
+</tr>
+<tr>
+<td><code>gid</code></td>
+<td><code>bigint</code></td>
+<td></td>
 </tr>
 </tbody>
 </table>

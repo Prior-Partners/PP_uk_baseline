@@ -5279,6 +5279,7 @@
 </ul>
 <p><strong>ENRICHMENT</strong></p>
 <ul>
+<li><code>msoa21hclnm</code> — House of Commons Library readable MSOA name, assigned at load via the polygon's 2021 MSOA (representative interior point in uk_baseline.adm_ons_msoa_boundary_2021). Open Parliament Licence.</li>
 <li>lad22cd, lad22nm : spatial intersect with ONS 2022 LAD boundaries. NULL for Scottish sites in this load.</li>
 <li>wd21cd, wd21nm : spatial intersect with ONS 2021 Ward boundaries (Scottish S-codes populated where applicable).</li>
 <li>area_ha : derived from geom at load (area in hectares, computed from the geometry at load).</li>
@@ -5286,6 +5287,11 @@
 <p><strong>LOADED INTO uk_baseline</strong></p>
 <ul>
 <li>Loaded October 2024.</li>
+</ul>
+<p>MSOA SPLIT (added 30 June 2026)</p>
+<ul>
+<li>Geometry split to one row per (source feature x MSOA 2021). Each row carries that MSOA's msoa21cd / msoa21nm / msoa21hclnm and best-fit lad22 / lad25. The source feature's original primary key is preserved as <code>source_fid</code>; <code>gid</code> is a fresh surrogate primary key.</li>
+<li>Features lying within a single MSOA are kept whole (one row, primary-tagged); only features spanning more than one MSOA are split into per-MSOA pieces.</li>
 </ul>
 <h2 id="columns">Columns<a class="headerlink" href="#columns" title="Permanent link">&para;</a></h2>
 <table>
@@ -5300,60 +5306,90 @@
 <tr>
 <td><code>classification</code></td>
 <td><code>character varying</code></td>
-<td>Source field "classification". "A description of the actual function of a site (that is, airfield, junior school, hospital and so on.) The valid values are defined in the SiteClassification code list. For sites with multiple functions, the values will be provided together and separated by a ','." (OS Product Guide). Length 90.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>distinctive_name</code></td>
 <td><code>character varying</code></td>
-<td>Source field "distinctiveName". "The name of the site (for example, 'Brighton College'). Note this may be null if the captured value is a house number." (OS Product Guide). Length 120.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>feature_code</code></td>
 <td><code>integer</code></td>
-<td>Source field "featureCode". "A unique feature code to facilitate styling." (OS Product Guide).</td>
+<td></td>
 </tr>
 <tr>
 <td><code>site_theme</code></td>
 <td><code>character varying</code></td>
-<td>Source field "siteTheme". "A description of the theme that a particular site falls under (that is, air transport, education, medical care and so on.). The valid values are defined in the SiteThemeType code list." (OS Product Guide). 5 valid values.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>id_original</code></td>
 <td><code>character varying</code></td>
-<td>Source upstream OS identifier (UUID) preserved at load. NOT strictly unique per row - see caveats.</td>
-</tr>
-<tr>
-<td><code>lad22nm</code></td>
-<td><code>character varying</code></td>
-<td>Joined at load from spatial intersection with ONS 2022 LAD boundaries; LAD name. NULL for Scottish sites.</td>
-</tr>
-<tr>
-<td><code>lad22cd</code></td>
-<td><code>character varying</code></td>
-<td>Joined at load from spatial intersection with ONS 2022 LAD boundaries; LAD GSS code. NULL for Scottish sites.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>wd21nm</code></td>
 <td><code>character varying</code></td>
-<td>Joined at load from spatial intersection with ONS 2021 Ward boundaries; Ward name.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>wd21cd</code></td>
 <td><code>character varying</code></td>
-<td>Joined at load from spatial intersection with ONS 2021 Ward boundaries; Ward GSS code (includes Scottish S-codes).</td>
-</tr>
-<tr>
-<td><code>geom</code></td>
-<td><code>geometry(Polygon,27700)</code></td>
-<td>Source field "geometry". "Polygon representing the extent of the functional site." (OS Product Guide). EPSG:27700.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>area_ha</code></td>
 <td><code>double precision</code></td>
-<td>Derived at load from ST_Area(geom)/10000. Unit: "hectares". Stale if geometry edited later.</td>
+<td></td>
 </tr>
 <tr>
-<td><code>fid</code></td>
+<td><code>msoa21cd</code></td>
+<td><code>text</code></td>
+<td>Middle Layer Super Output Area (MSOA) 2021 code of this piece. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>msoa21nm</code></td>
+<td><code>text</code></td>
+<td>Official ONS MSOA 2021 name of this piece. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>msoa21hclnm</code></td>
+<td><code>text</code></td>
+<td>House of Commons Library readable MSOA name of this piece. Open Parliament Licence.</td>
+</tr>
+<tr>
+<td><code>lad22cd</code></td>
+<td><code>character varying</code></td>
+<td>Local Authority District 2022 code (2021 LAD geography, anchored to the MSOA 2021 name scoping), best-fit from this piece's msoa21cd. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>lad22nm</code></td>
+<td><code>character varying</code></td>
+<td>Local Authority District 2022 name (2021 LAD geography), best-fit from this piece's msoa21cd. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>lad25cd</code></td>
+<td><code>text</code></td>
+<td>Local Authority District 2025 code (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>lad25nm</code></td>
+<td><code>text</code></td>
+<td>Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>geom</code></td>
+<td><code>geometry(MultiPolygon,27700)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>source_fid</code></td>
+<td><code>bigint</code></td>
+<td>Primary key of the source feature in the pre-split layer uk.blt_os_functional_sites_oct2024__preswap_jun30 (non-unique here: a feature spanning N MSOAs has N rows).</td>
+</tr>
+<tr>
+<td><code>gid</code></td>
 <td><code>bigint</code></td>
 <td></td>
 </tr>

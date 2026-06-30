@@ -5279,6 +5279,7 @@
 </ul>
 <p><strong>ENRICHMENT</strong></p>
 <ul>
+<li><code>msoa21hclnm</code> — House of Commons Library readable MSOA name, assigned at load via the polygon's 2021 MSOA (representative interior point in uk_baseline.adm_ons_msoa_boundary_2021). Open Parliament Licence.</li>
 <li>lad22cd, lad22nm : spatial intersect with ONS 2022 LAD boundaries.</li>
 <li>wd21cd, wd21nm : spatial intersect with ONS 2021 Ward boundaries.</li>
 <li>area_ha : derived from geom at load (area in hectares, computed from the geometry at load).</li>
@@ -5326,12 +5327,12 @@
 <tr>
 <td><code>lad22nm</code></td>
 <td><code>character varying</code></td>
-<td>Joined at load from spatial intersection with ONS 2022 LAD boundaries; LAD name.</td>
+<td>Local Authority District 2022 name (2021 LAD geography), best-fit assigned from the feature's MSOA 2021 code. Joined at load from the ONS MSOA (2021) to LAD (2022) best-fit lookup on msoa21cd. Open Government Licence v3.0.</td>
 </tr>
 <tr>
 <td><code>lad22cd</code></td>
 <td><code>character varying</code></td>
-<td>Joined at load from spatial intersection with ONS 2022 LAD boundaries; LAD GSS code.</td>
+<td>Local Authority District 2022 code (2021 LAD geography, anchored to the MSOA 2021 name scoping), best-fit assigned from the feature's MSOA 2021 code. Joined at load from the ONS MSOA (2021) to LAD (2022) best-fit lookup on msoa21cd. Open Government Licence v3.0.</td>
 </tr>
 <tr>
 <td><code>wd21nm</code></td>
@@ -5357,6 +5358,31 @@
 <td><code>fid</code></td>
 <td><code>bigint</code></td>
 <td></td>
+</tr>
+<tr>
+<td><code>msoa21cd</code></td>
+<td><code>text</code></td>
+<td>Middle Layer Super Output Area (MSOA) 2021 code. Assigned at load from the polygon's representative interior point, located in uk_baseline.adm_ons_msoa_boundary_2021. Where a feature spans more than one MSOA this records the representative point's primary MSOA. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>msoa21nm</code></td>
+<td><code>text</code></td>
+<td>Official ONS Middle Layer Super Output Area 2021 name. Assigned at load via the polygon's 2021 MSOA (representative interior point in uk_baseline.adm_ons_msoa_boundary_2021). Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>msoa21hclnm</code></td>
+<td><code>text</code></td>
+<td>House of Commons Library readable MSOA name. Assigned at load via the polygon's 2021 MSOA (representative interior point in uk_baseline.adm_ons_msoa_boundary_2021, which carries the House of Commons Library name). Open Parliament Licence.</td>
+</tr>
+<tr>
+<td><code>lad25cd</code></td>
+<td><code>text</code></td>
+<td>Local Authority District 2025 code (current administering authority), best-fit assigned from the feature's MSOA 2021 code. Joined at load from the ONS MSOA (2021) to Ward (2025) to LAD (2025) best-fit lookup on msoa21cd. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>lad25nm</code></td>
+<td><code>text</code></td>
+<td>Local Authority District 2025 name (current administering authority), best-fit assigned from the feature's MSOA 2021 code. Joined at load from the ONS MSOA (2021) to Ward (2025) to LAD (2025) best-fit lookup on msoa21cd. Open Government Licence v3.0.</td>
 </tr>
 </tbody>
 </table>

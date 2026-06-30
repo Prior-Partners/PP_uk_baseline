@@ -3497,6 +3497,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../ENV/env_ncea_peaty_soil_extent_may2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    env_ncea_peaty_soil_extent_may2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../ENV/env_ons_access_to_public_parks_playing_fields_apr2020/" class="md-nav__link">
         
   
@@ -5630,12 +5658,12 @@
 <tr>
 <td><code>lad22cd</code></td>
 <td><code>character varying</code></td>
-<td>Joined at load from uk_baseline.adm_ons_lsoa_boundary_2021 by <code>lsoa21cd</code>; Local Authority District 2022 code. NULL for Scottish Data Zone rows.</td>
+<td>Local Authority District 2022 code, best-fit assigned from the feature's Middle Layer Super Output Area (MSOA) 2021 code. The 2022 reference is the 2021 LAD geography that the MSOA 2021 names are scoped to. Joined at load from the ONS MSOA (2021) to LAD (2022) best-fit lookup on msoa21cd. Open Government Licence v3.0.</td>
 </tr>
 <tr>
 <td><code>lad22nm</code></td>
 <td><code>character varying</code></td>
-<td>Joined at load from uk_baseline.adm_ons_lsoa_boundary_2021 by <code>lsoa21cd</code>; Local Authority District 2022 name. NULL for Scottish Data Zone rows.</td>
+<td>Local Authority District 2022 name, best-fit assigned from the feature's MSOA 2021 code (the 2021 LAD geography matching the MSOA 2021 name scoping). Joined at load from the ONS MSOA (2021) to LAD (2022) best-fit lookup on msoa21cd. Open Government Licence v3.0.</td>
 </tr>
 <tr>
 <td><code>rgn22cd</code></td>
@@ -5661,6 +5689,16 @@
 <td><code>msoa21hclnm</code></td>
 <td><code>text</code></td>
 <td>House of Commons Library readable MSOA name. Source field <code>msoa21hclnm</code> from House of Commons Library MSOA Names v2.3 (13 February 2026), joined at load on msoa21cd. Open Parliament Licence.</td>
+</tr>
+<tr>
+<td><code>lad25cd</code></td>
+<td><code>text</code></td>
+<td>Local Authority District 2025 code (current administering authority), best-fit assigned from the feature's MSOA 2021 code. Joined at load from the ONS MSOA (2021) to Ward (2025) to LAD (2025) best-fit lookup on msoa21cd. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>lad25nm</code></td>
+<td><code>text</code></td>
+<td>Local Authority District 2025 name (current administering authority), best-fit assigned from the feature's MSOA 2021 code. Joined at load from the ONS MSOA (2021) to Ward (2025) to LAD (2025) best-fit lookup on msoa21cd. Open Government Licence v3.0.</td>
 </tr>
 </tbody>
 </table>
@@ -5693,7 +5731,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Developed by the Digital Innovation team, Prior + Partners — last updated 22 June 2026
+      Developed by the Digital Innovation team, Prior + Partners — last updated 30 June 2026
     </div>
   
   

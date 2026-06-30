@@ -64,8 +64,8 @@
 | `wd21nm` | `character varying` | Joined at load from ONS LSOA->Ward lookup; 2021 Ward name. |
 | `lsoa21cd` | `character varying` | Source field "LSOA21CD"; ONS GSS 9-character LSOA 2021 code. |
 | `lsoa21nm` | `character varying` | Source field "LSOA21NM"; human-readable LSOA 2021 name. |
-| `lad22cd` | `character varying` | Joined at load from ONS LSOA->LAD lookup; 2022 LAD GSS code. |
-| `lad22nm` | `character varying` | Joined at load from ONS LSOA->LAD lookup; 2022 LAD name. |
+| `lad22cd` | `character varying` | Local Authority District 2022 code, best-fit assigned from the feature's Middle Layer Super Output Area (MSOA) 2021 code. The 2022 reference is the 2021 LAD geography that the MSOA 2021 names are scoped to. Joined at load from the ONS MSOA (2021) to LAD (2022) best-fit lookup on msoa21cd. Open Government Licence v3.0. |
+| `lad22nm` | `character varying` | Local Authority District 2022 name, best-fit assigned from the feature's MSOA 2021 code (the 2021 LAD geography matching the MSOA 2021 name scoping). Joined at load from the ONS MSOA (2021) to LAD (2022) best-fit lookup on msoa21cd. Open Government Licence v3.0. |
 | `lsoa11nm` | `character varying` | Source field "LSOA11NM"; human-readable LSOA 2011 name. |
 | `agriculture_forestry_fishing_count` | `character varying` | Source field; count of usual residents aged 16-74 in employment classified as "Agriculture, forestry and fishing" (SIC 2007). Stored as text in this table. |
 | `mining_quarrying_count` | `character varying` | Source field; count of usual residents aged 16-74 in employment classified as "Mining and quarrying" (SIC 2007). Stored as text in this table. |
@@ -114,3 +114,5 @@
 | `fid` | `bigint` |  |
 | `area_ha` | `double precision` | Area in hectares, computed at load from the geometry. Unit: hectares. Stale if geometry is later edited. |
 | `msoa21hclnm` | `text` | House of Commons Library readable MSOA name. Source field `msoa21hclnm` from House of Commons Library MSOA Names v2.3 (13 February 2026), joined at load on msoa21cd. Open Parliament Licence. |
+| `lad25cd` | `text` | Local Authority District 2025 code (current administering authority), best-fit assigned from the feature's MSOA 2021 code. Joined at load from the ONS MSOA (2021) to Ward (2025) to LAD (2025) best-fit lookup on msoa21cd. Open Government Licence v3.0. |
+| `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit assigned from the feature's MSOA 2021 code. Joined at load from the ONS MSOA (2021) to Ward (2025) to LAD (2025) best-fit lookup on msoa21cd. Open Government Licence v3.0. |

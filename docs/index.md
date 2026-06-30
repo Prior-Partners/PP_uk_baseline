@@ -17,7 +17,7 @@ with its meaning and units.
 **New to the database?** The **[Staff Data Management Handbook](PP_Staff_Data_Management_Handbook.pdf){ target="_blank" }** explains what the geodatabase
 is, how to connect QGIS, and how to use the data on a project — it opens straight in your browser.
 
-**139 layers across 12 themes.**
+**140 layers across 12 themes.**
 
 | Code | Theme | Typical contents | Layers |
 |---|---|---|---:|
@@ -27,7 +27,7 @@ is, how to connect QGIS, and how to use the data on a project — it opens strai
 | **DEM** | [Demographics & Socio-Economic](DEM/index.md) | Census data (age, ethnicity, religion), deprivation indices, income data, household, travel-to-work data | 25 |
 | **ECN** | [Economy & Employment](ECN/index.md) | Employment by sector, business registers, economic output, unemployment rates | 24 |
 | **EDU** | [Education](EDU/index.md) | Schools database, Ofsted ratings, university locations | 3 |
-| **ENV** | [Environment & Natural Assets](ENV/index.md) | Protected sites, woodland, green spaces, flood zones, air quality, noise monitoring, radiation monitoring | 30 |
+| **ENV** | [Environment & Natural Assets](ENV/index.md) | Protected sites, woodland, green spaces, flood zones, air quality, noise monitoring, radiation monitoring | 31 |
 | **HER** | [Heritage & Historical Assets](HER/index.md) | Listed buildings, conservation areas, historic parks, archaeological sites | 12 |
 | **HOU** | [Housing & Living Conditions](HOU/index.md) | House prices, housing tenure, property types, energy efficiency ratings, overcrowding metrics, rental costs | 1 |
 | **HTH** | [Health & Wellbeing](HTH/index.md) | GP surgeries, hospitals, health inequalities, disease prevalence, obesity | 8 |
@@ -47,6 +47,6 @@ is, how to connect QGIS, and how to use the data on a project — it opens strai
   Digital Innovation team, Prior + Partners<br>
   <a href="mailto:info@priorpartners.com">info@priorpartners.com</a></div>
   <div><strong>Version</strong><br>
-  Last updated 22 June 2026<br>
+  Last updated 30 June 2026<br>
   Developed by the Digital Innovation team</div>
 </div>

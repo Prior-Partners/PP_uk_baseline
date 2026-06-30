@@ -36,6 +36,10 @@
 - Category B entries are included; filter on `ppd_category_type` = 'A' for standard residential sales only.
 - `geom` is postcode-centroid precision, not exact address location; postcodes may have been reallocated since the sale.
 
+**ENRICHMENT**
+
+- `msoa21hclnm` — House of Commons Library readable MSOA name, assigned at load from the transaction's postcode MSOA (via uk_baseline.adm_ons_postcode_centroid_feb2026). Open Parliament Licence.
+
 **LOADED INTO uk_baseline**
 
 - Loaded by PNC, 1 June 2026.
@@ -45,20 +49,27 @@
 
 | Column | Type | Description / unit |
 |---|---|---|
-| `transaction_id` | `text` | Source field, HM Land Registry transaction unique identifier. "A reference number which is generated automatically recording each published sale." Primary key. |
-| `price` | `bigint` | Source field `Price`. "Sale price stated on the transfer deed." Unit: pounds sterling. Cast to bigint at load. |
-| `transfer_date` | `date` | Source field `Date of Transfer`. "Date when the sale was completed, as stated on the transfer deed." Cast to date at load. |
-| `postcode` | `text` | Source field `Postcode`. Postcode at the time of the transaction; reallocations since are not reflected. Used to derive `geom`. |
-| `property_type` | `text` | Source field `Property Type`. D = Detached; S = Semi-Detached; T = Terraced; F = Flats/Maisonettes; O = Other. |
-| `old_new` | `text` | Source field `Old/New`. Y = newly built property; N = established building. |
-| `duration` | `text` | Source field `Duration`. F = Freehold; L = Leasehold. Leases of 7 years or less are excluded. |
-| `paon` | `text` | Source field `PAON`. Primary Addressable Object Name (typically the house number or name). |
-| `saon` | `text` | Source field `SAON`. Secondary Addressable Object Name (where a property is sub-divided, e.g. flats). |
-| `street` | `text` | Source field `Street`. |
-| `locality` | `text` | Source field `Locality`. |
-| `town_city` | `text` | Source field `Town/City`. |
-| `district` | `text` | Source field `District`. |
-| `county` | `text` | Source field `County`. |
-| `ppd_category_type` | `text` | Source field `PPD Category Type`. A = Standard Price Paid entry (single residential property sold for value); B = Additional Price Paid entry (repossessions / power-of-sale, buy-to-lets identifiable by a mortgage, transfers to non-private individuals, and sales where property type is 'Other'). |
-| `record_status` | `text` | Source field `Record Status`. Monthly-file change indicator: A = addition, C = change, D = delete. The complete-file load is a current snapshot (status A). |
-| `geom` | `geometry(Point,27700)` | Point geometry in EPSG:27700, derived at load by joining the normalised `postcode` to uk_baseline.adm_ons_postcode_centroid_feb2026 (GB postcode-unit centroid). NULL where the postcode is blank or unmatched. Postcode-centroid precision, not exact address location. |
+| `transaction_id` | `text` |  |
+| `price` | `bigint` |  |
+| `transfer_date` | `date` |  |
+| `postcode` | `text` |  |
+| `property_type` | `text` |  |
+| `old_new` | `text` |  |
+| `duration` | `text` |  |
+| `paon` | `text` |  |
+| `saon` | `text` |  |
+| `street` | `text` |  |
+| `locality` | `text` |  |
+| `town_city` | `text` |  |
+| `district` | `text` |  |
+| `county` | `text` |  |
+| `ppd_category_type` | `text` |  |
+| `record_status` | `text` |  |
+| `geom` | `geometry(Point,27700)` |  |
+| `msoa21cd` | `text` | Middle Layer Super Output Area (MSOA) 2021 code. Assigned at load from the transaction's postcode via uk_baseline.adm_ons_postcode_centroid_feb2026 (pcds). Open Government Licence v3.0. |
+| `msoa21nm` | `text` | Official ONS MSOA 2021 name for the postcode's MSOA (via uk_baseline.adm_ons_postcode_centroid_feb2026). Open Government Licence v3.0. |
+| `msoa21hclnm` | `text` | House of Commons Library readable MSOA name for the postcode's MSOA (via uk_baseline.adm_ons_postcode_centroid_feb2026, which carries the House of Commons Library name). Open Parliament Licence. |
+| `lad22cd` | `text` | Local Authority District 2022 code (2021 LAD geography, anchored to the MSOA 2021 name scoping), best-fit from the postcode's msoa21cd. Joined at load from the ONS MSOA (2021) to LAD (2022) best-fit lookup. Open Government Licence v3.0. |
+| `lad22nm` | `text` | Local Authority District 2022 name (2021 LAD geography), best-fit from the postcode's msoa21cd. Joined at load from the ONS MSOA (2021) to LAD (2022) best-fit lookup. Open Government Licence v3.0. |
+| `lad25cd` | `text` | Local Authority District 2025 code (current administering authority) for the postcode, from uk_baseline.adm_ons_postcode_centroid_feb2026. Open Government Licence v3.0. |
+| `lad25nm` | `character varying(100)` | Local Authority District 2025 name for the postcode's lad25cd, from uk_baseline.adm_ons_lad_boundary_may2025. Open Government Licence v3.0. |

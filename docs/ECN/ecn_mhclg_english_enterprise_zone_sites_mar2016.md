@@ -38,6 +38,10 @@
 - This is a 2016 snapshot. The Enterprise Zones programme has since been extended (further zones added in 2016-2017) and some zones have wound down. Does not represent the current position.
 - `date_start` is stored as text (varchar(20)), not a typed date.
 
+**ENRICHMENT**
+
+- `msoa21hclnm` — House of Commons Library readable MSOA name, assigned at load via the polygon's 2021 MSOA (representative interior point in uk_baseline.adm_ons_msoa_boundary_2021). Open Parliament Licence.
+
 **UPDATE REQUIRED**
 
 - This dataset is a 2016 release of an ongoing programme. The current Enterprise Zones position is published via gov.uk and the Cities and Local Growth Unit. If a current-edition layer is needed, refresh from the latest publication.
@@ -46,24 +50,37 @@
 
 - Loaded by PNC, March 2026.
 
+MSOA SPLIT (added 30 June 2026)
+
+- Geometry split to one row per (source feature x MSOA 2021). Each row carries that MSOA's msoa21cd / msoa21nm / msoa21hclnm and best-fit lad22 / lad25. The source feature's original primary key is preserved as `source_fid`; `gid` is a fresh surrogate primary key.
+- Features lying within a single MSOA are kept whole (one row, primary-tagged); only features spanning more than one MSOA are split into per-MSOA pieces.
+
 
 ## Columns
 
 | Column | Type | Description / unit |
 |---|---|---|
-| `id` | `integer` | Source field "id"; row identifier preserved at load. |
-| `geom` | `geometry(MultiPolygonZ,27700)` | MultiPolygonZ in EPSG:27700. Z values inherited from source shapefile; not analytically meaningful. |
-| `ez` | `character varying(50)` | Source field "EZ"; Enterprise Zone name. |
-| `shape_leng` | `double precision` | Source field "Shape_Length"; legacy ArcGIS shape perimeter. Unit: "metres" (EPSG:27700 perimeter). |
-| `shape_area` | `double precision` | Source field "Shape_Area"; legacy ArcGIS shape area. Unit: "square metres" (EPSG:27700 area). |
-| `brd` | `character varying(5)` | Source field "BRD"; "Yes" / "No" flag - site qualifies for the Business Rates Discount (BRD) incentive. |
-| `brr` | `character varying(5)` | Source field "BRR"; "Yes" / "No" flag - site qualifies for the Business Rates Retention (BRR) arrangement. |
-| `eca` | `character varying(5)` | Source field "ECA"; "Yes" / "No" flag - site qualifies for Enhanced Capital Allowances (ECA). |
-| `ldo` | `character varying(5)` | Source field "LDO"; "Yes" / "No" flag - site is covered by a Local Development Order (LDO). |
-| `ez_website` | `character varying(75)` | Source field "EZ_Website"; URL of the Enterprise Zone's lead website. |
-| `sectors` | `character varying(150)` | Source field "Sectors"; comma-separated list of priority sectors for the site (e.g. "Advanced Manufacturing/Engineering"). |
-| `subez` | `character varying(50)` | Source field "SubEZ"; sub-Enterprise Zone identifier where the EZ is sub-divided. |
-| `date_start` | `character varying(20)` | Source field "Date_Start"; date the Enterprise Zone designation became active. Stored as varchar(20) - not a typed date. |
-| `ons_ez_cod` | `character varying(10)` | Source field "ONS_EZ_Cod"; ONS-issued Enterprise Zone identifier code. |
-| `poly_name` | `character varying(75)` | Source field "Poly_Name"; polygon site name within the Enterprise Zone. |
-| `desig_site` | `character varying(75)` | Source field "Desig_Site"; designated site descriptor. |
+| `ez` | `character varying(50)` |  |
+| `shape_leng` | `double precision` |  |
+| `shape_area` | `double precision` |  |
+| `brd` | `character varying(5)` |  |
+| `brr` | `character varying(5)` |  |
+| `eca` | `character varying(5)` |  |
+| `ldo` | `character varying(5)` |  |
+| `ez_website` | `character varying(75)` |  |
+| `sectors` | `character varying(150)` |  |
+| `subez` | `character varying(50)` |  |
+| `date_start` | `character varying(20)` |  |
+| `ons_ez_cod` | `character varying(10)` |  |
+| `poly_name` | `character varying(75)` |  |
+| `desig_site` | `character varying(75)` |  |
+| `msoa21cd` | `text` | Middle Layer Super Output Area (MSOA) 2021 code of this piece. Open Government Licence v3.0. |
+| `msoa21nm` | `text` | Official ONS MSOA 2021 name of this piece. Open Government Licence v3.0. |
+| `msoa21hclnm` | `text` | House of Commons Library readable MSOA name of this piece. Open Parliament Licence. |
+| `lad22cd` | `text` | Local Authority District 2022 code (2021 LAD geography, anchored to the MSOA 2021 name scoping), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad22nm` | `text` | Local Authority District 2022 name (2021 LAD geography), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad25cd` | `text` | Local Authority District 2025 code (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `geom` | `geometry(MultiPolygon,27700)` |  |
+| `source_fid` | `integer` | Primary key of the source feature in the pre-split layer uk.ecn_mhclg_english_enterprise_zone_sites_mar2016__preswap_jun30 (non-unique here: a feature spanning N MSOAs has N rows). |
+| `gid` | `bigint` |  |

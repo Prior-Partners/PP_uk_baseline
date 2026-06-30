@@ -32,52 +32,67 @@
 
 - Open Government Licence v3.0. © Environment Agency.
 
+**ENRICHMENT**
+
+- `msoa21hclnm` — House of Commons Library readable MSOA name, assigned at load via the polygon's 2021 MSOA (representative interior point in uk_baseline.adm_ons_msoa_boundary_2021). Open Parliament Licence.
+
+MSOA SPLIT (added 30 June 2026)
+
+- Geometry split to one row per (source feature x MSOA 2021). Each row carries that MSOA's msoa21cd / msoa21nm / msoa21hclnm and best-fit lad22 / lad25. The source feature's original primary key is preserved as `source_fid`; `gid` is a fresh surrogate primary key.
+- Features lying within a single MSOA are kept whole (one row, primary-tagged); only features spanning more than one MSOA are split into per-MSOA pieces.
+
 
 ## Columns
 
 | Column | Type | Description / unit |
 |---|---|---|
-| `hld_ref` | `character varying` | Source field "hld_ref"; Historic Landfill reference number (EA primary identifier for the site). |
-| `site_name` | `character varying` | Source field "site_name"; site name. |
-| `site_add` | `character varying` | Source field "site_add"; site address. |
-| `ea_wmlr` | `integer` | Source field "ea_wmlr"; integer reference. WMLR = Waste Management Licensing Regulations. |
-| `regis_no` | `character varying` | Source field "regis_no"; registration number reference. |
-| `wrc_ref` | `character varying` | Source field "wrc_ref"; reference number. |
-| `bgs_num` | `character varying` | Source field "bgs_num"; reference number. BGS = British Geological Survey. |
-| `site_ref` | `character varying` | Source field "site_ref"; internal site reference. |
-| `lic_hold` | `character varying` | Source field "lic_hold"; licence holder name. |
-| `licholdadd` | `character varying` | Source field "licholdadd"; licence holder address. |
-| `siteopname` | `character varying` | Source field "siteopname"; site operator name. |
-| `siteopadd` | `character varying` | Source field "siteopadd"; site operator address. |
-| `os_prefix` | `character varying` | Source field "os_prefix"; 2-letter Ordnance Survey National Grid letter prefix. |
-| `easting` | `integer` | Source field "easting"; site easting. Unit: "metres" (EPSG:27700). |
-| `northing` | `integer` | Source field "northing"; site northing. Unit: "metres" (EPSG:27700). |
-| `ea_region` | `character varying` | Source field "ea_region"; Environment Agency region code. |
-| `ea_area` | `character varying` | Source field "ea_area"; Environment Agency area code. |
-| `lic_issue` | `timestamp without time zone` | Source field "lic_issue"; licence issue date. Typed timestamp. |
-| `lic_surren` | `timestamp without time zone` | Source field "lic_surren"; licence surrender date. Typed timestamp. |
-| `firstinput` | `timestamp without time zone` | Source field "firstinput"; date the record was first entered. Typed timestamp. |
-| `lastinput` | `timestamp without time zone` | Source field "lastinput"; date the record was last edited. Typed timestamp. |
-| `inert` | `character varying` | Source field "inert"; flag. |
-| `industrial` | `character varying` | Source field "industrial"; flag. |
-| `commercial` | `character varying` | Source field "commercial"; flag. |
-| `household` | `character varying` | Source field "household"; flag. |
-| `special` | `character varying` | Source field "special"; flag. |
-| `liqsludge` | `character varying` | Source field "liqsludge"; flag. |
-| `wasteunk` | `character varying` | Source field "wasteunk"; flag. |
-| `gascontrol` | `character varying` | Source field "gascontrol"; flag. |
-| `leachatcnt` | `character varying` | Source field "leachatcnt"; flag. |
-| `exempt` | `character varying` | Source field "exempt"; flag. |
-| `licenced` | `character varying` | Source field "licenced"; flag. |
-| `nolicreq` | `character varying` | Source field "nolicreq"; flag. |
-| `buff_point` | `character varying` | Source field "buff_point"; flag. |
-| `gdb_geomattr_data` | `character varying` | Source field "gdb_geomattr_data"; ArcGIS geodatabase legacy geometry-attribute storage. |
-| `id_original` | `character varying` | Original feature id preserved at load. |
-| `lad22nm` | `character varying` | Joined at load from ONS LSOA->LAD 2022 lookup; 2022 LAD name. |
-| `lad22cd` | `character varying` | Joined at load from ONS LSOA->LAD 2022 lookup; 2022 LAD GSS code. |
-| `wd21nm` | `character varying` | Joined at load from ONS Ward 2021 lookup; 2021 Ward name. |
-| `wd21cd` | `character varying` | Joined at load from ONS Ward 2021 lookup; 2021 Ward GSS code. |
-| `area_ha` | `double precision` | Area in hectares, computed at load from the geometry. Stale if the geometry is later edited. |
+| `hld_ref` | `character varying` |  |
+| `site_name` | `character varying` |  |
+| `site_add` | `character varying` |  |
+| `ea_wmlr` | `integer` |  |
+| `regis_no` | `character varying` |  |
+| `wrc_ref` | `character varying` |  |
+| `bgs_num` | `character varying` |  |
+| `site_ref` | `character varying` |  |
+| `lic_hold` | `character varying` |  |
+| `licholdadd` | `character varying` |  |
+| `siteopname` | `character varying` |  |
+| `siteopadd` | `character varying` |  |
+| `os_prefix` | `character varying` |  |
+| `easting` | `integer` |  |
+| `northing` | `integer` |  |
+| `ea_region` | `character varying` |  |
+| `ea_area` | `character varying` |  |
+| `lic_issue` | `timestamp without time zone` |  |
+| `lic_surren` | `timestamp without time zone` |  |
+| `firstinput` | `timestamp without time zone` |  |
+| `lastinput` | `timestamp without time zone` |  |
+| `inert` | `character varying` |  |
+| `industrial` | `character varying` |  |
+| `commercial` | `character varying` |  |
+| `household` | `character varying` |  |
+| `special` | `character varying` |  |
+| `liqsludge` | `character varying` |  |
+| `wasteunk` | `character varying` |  |
+| `gascontrol` | `character varying` |  |
+| `leachatcnt` | `character varying` |  |
+| `exempt` | `character varying` |  |
+| `licenced` | `character varying` |  |
+| `nolicreq` | `character varying` |  |
+| `buff_point` | `character varying` |  |
+| `gdb_geomattr_data` | `character varying` |  |
+| `id_original` | `character varying` |  |
+| `wd21nm` | `character varying` |  |
+| `wd21cd` | `character varying` |  |
+| `area_ha` | `double precision` |  |
 | `fid` | `bigint` |  |
-| `geom` | `geometry(Polygon,27700)` | Polygon in EPSG:27700. Historic landfill site geometry. |
+| `msoa21cd` | `text` | Middle Layer Super Output Area (MSOA) 2021 code of this piece. Open Government Licence v3.0. |
+| `msoa21nm` | `text` | Official ONS MSOA 2021 name of this piece. Open Government Licence v3.0. |
+| `msoa21hclnm` | `text` | House of Commons Library readable MSOA name of this piece. Open Parliament Licence. |
+| `lad22cd` | `character varying` | Local Authority District 2022 code (2021 LAD geography, anchored to the MSOA 2021 name scoping), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad22nm` | `character varying` | Local Authority District 2022 name (2021 LAD geography), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad25cd` | `text` | Local Authority District 2025 code (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `geom` | `geometry(MultiPolygon,27700)` |  |
+| `source_fid` | `bigint` | Primary key of the source feature in the pre-split layer uk.env_defra_historic_landfill_site__preswap_jun30 (non-unique here: a feature spanning N MSOAs has N rows). |
 | `gid` | `bigint` |  |

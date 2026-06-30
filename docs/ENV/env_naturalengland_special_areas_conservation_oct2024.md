@@ -31,40 +31,54 @@
 
 - Open Government Licence v3.0. © Natural England.
 
+**DATA QUALITY CAVEATS**
+
+- Land-only: Special Areas of Conservation extend offshore, but the MSOA backbone is terrestrial, so the marine and intertidal extent (about 15% of area, and the wholly-marine sites) is not represented here. Use the pre-split layer uk.env_naturalengland_special_areas_conservation_oct2024__preswap_jun30 for the full extent.
+
 **LOADED INTO uk_baseline**
 
 - Loaded by PNC, May 2026.
+
+MSOA SPLIT (added 30 June 2026)
+
+- Geometry split to one row per (source feature x MSOA 2021). Each row carries that MSOA's msoa21cd / msoa21nm / msoa21hclnm and best-fit lad22 / lad25. The source feature's original primary key is preserved as `source_fid`; `gid` is a fresh surrogate primary key.
 
 
 ## Columns
 
 | Column | Type | Description / unit |
 |---|---|---|
-| `objectid` | `bigint` | Source field "OBJECTID"; ArcGIS surrogate key preserved from upstream. |
-| `sac_name` | `character varying` | Source field "sac_name"; SAC name. |
-| `sac_code` | `character varying` | Source field "sac_code"; SAC code. |
-| `sac_area` | `double precision` | Source field "sac_area"; SAC area as published by Natural England. |
-| `grid_ref` | `character varying` | Source field "grid_ref"; Ordnance Survey grid reference. |
-| `easting` | `double precision` | Source field "easting"; site easting. Unit: "metres" (EPSG:27700). |
-| `northing` | `double precision` | Source field "northing"; site northing. Unit: "metres" (EPSG:27700). |
-| `latitude` | `character varying` | Source field "latitude"; site latitude (WGS84 degrees). |
-| `longitude` | `character varying` | Source field "longitude"; site longitude (WGS84 degrees). |
-| `name` | `character varying` | Source field "name"; secondary name field carried through from the Natural England ArcGIS Online export (blank in this dataset). |
-| `status` | `character varying` | Source field "status"; designation status. Observed value: "Designated". |
-| `id` | `bigint` | Source field "id"; carried through from the Natural England ArcGIS Online export. |
-| `file_` | `character varying` | Source field "file_"; carried through from the Natural England ArcGIS Online export. |
-| `area` | `double precision` | Source field "area"; secondary area value carried through from the Natural England ArcGIS Online export. |
-| `easting0` | `double precision` | Source field "easting0"; secondary easting value carried through from the Natural England ArcGIS Online export. |
-| `northing0` | `double precision` | Source field "northing0"; secondary northing value carried through from the Natural England ArcGIS Online export. |
-| `gis_date` | `character varying` | Source field "gis_date"; date field carried through from the Natural England ArcGIS Online export. |
-| `version` | `bigint` | Source field "version"; source version number. |
-| `globalid` | `character varying` | Source field "GlobalID"; ArcGIS GlobalID GUID. |
-| `fid_original` | `integer` | Original feature id preserved at load. |
-| `lad22nm` | `character varying` | Joined at load from ONS LSOA->LAD 2022 lookup; 2022 LAD name. |
-| `lad22cd` | `character varying` | Joined at load from ONS LSOA->LAD 2022 lookup; 2022 LAD GSS code. |
-| `wd21nm` | `character varying` | Joined at load from ONS Ward 2021 lookup; 2021 Ward name. |
-| `wd21cd` | `character varying` | Joined at load from ONS Ward 2021 lookup; 2021 Ward GSS code. |
+| `objectid` | `bigint` |  |
+| `sac_name` | `character varying` |  |
+| `sac_code` | `character varying` |  |
+| `sac_area` | `double precision` |  |
+| `grid_ref` | `character varying` |  |
+| `easting` | `double precision` |  |
+| `northing` | `double precision` |  |
+| `latitude` | `character varying` |  |
+| `longitude` | `character varying` |  |
+| `name` | `character varying` |  |
+| `status` | `character varying` |  |
+| `id` | `bigint` |  |
+| `file_` | `character varying` |  |
+| `area` | `double precision` |  |
+| `easting0` | `double precision` |  |
+| `northing0` | `double precision` |  |
+| `gis_date` | `character varying` |  |
+| `version` | `bigint` |  |
+| `globalid` | `character varying` |  |
+| `fid_original` | `integer` |  |
+| `wd21nm` | `character varying` |  |
+| `wd21cd` | `character varying` |  |
 | `fid` | `bigint` |  |
-| `area_ha` | `double precision` | Area in hectares, computed at load from the geometry. Stale if the geometry is later edited. |
-| `geom` | `geometry(Polygon,27700)` | Polygon in EPSG:27700. SAC boundary geometry. |
+| `area_ha` | `double precision` |  |
+| `msoa21cd` | `character varying` | Middle Layer Super Output Area (MSOA) 2021 code of this piece. Open Government Licence v3.0. |
+| `msoa21nm` | `character varying` | Official ONS MSOA 2021 name of this piece. Open Government Licence v3.0. |
+| `msoa21hclnm` | `text` | House of Commons Library readable MSOA name of this piece. Open Parliament Licence. |
+| `lad22cd` | `text` | Local Authority District 2022 code (2021 LAD geography, anchored to the MSOA 2021 name scoping), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad22nm` | `text` | Local Authority District 2022 name (2021 LAD geography), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad25cd` | `text` | Local Authority District 2025 code (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `geom` | `geometry(MultiPolygon,27700)` |  |
+| `source_fid` | `bigint` | Primary key of the source feature in the pre-split layer uk.env_naturalengland_special_areas_conservation_oct2024__preswap_jun30 (non-unique here: a feature spanning N MSOAs has N rows). |
 | `gid` | `bigint` |  |

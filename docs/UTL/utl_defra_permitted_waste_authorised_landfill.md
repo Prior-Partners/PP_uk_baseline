@@ -30,41 +30,56 @@
 
 - Open Government Licence v3.0. © Environment Agency.
 
+**ENRICHMENT**
+
+- `msoa21hclnm` — House of Commons Library readable MSOA name, assigned at load via the polygon's 2021 MSOA (representative interior point in uk_baseline.adm_ons_msoa_boundary_2021). Open Parliament Licence.
+
+MSOA SPLIT (added 30 June 2026)
+
+- Geometry split to one row per (source feature x MSOA 2021). Each row carries that MSOA's msoa21cd / msoa21nm / msoa21hclnm and best-fit lad22 / lad25. The source feature's original primary key is preserved as `source_fid`; `gid` is a fresh surrogate primary key.
+- Features lying within a single MSOA are kept whole (one row, primary-tagged); only features spanning more than one MSOA are split into per-MSOA pieces.
+
 
 ## Columns
 
 | Column | Type | Description / unit |
 |---|---|---|
-| `lic_admin` | `character varying` | Source field "lic_admin"; Environment Agency licensing administration area. |
-| `lic_nmbr` | `character varying` | Source field "lic_nmbr"; licence number. |
-| `lic_ippcr` | `character varying` | Source field "lic_ippcr"; Integrated Pollution Prevention and Control (IPPC) reference. |
-| `lic_wml` | `double precision` | Source field "lic_wml"; Waste Management Licence number. |
-| `cust_nmbr` | `character varying` | Source field "cust_nmbr"; customer number. |
-| `status` | `character varying` | Source field "status"; permit status. Observed values: "Closure", "Issued", "Effective", "Expired", "Part Suspended". |
-| `lic_ltype` | `character varying` | Source field "lic_ltype"; licence type code (e.g. "A05", "L05", "5.2 A(1) a)"). |
-| `lic_name` | `character varying` | Source field "lic_name"; licence holder name. |
-| `lic_site` | `character varying` | Source field "lic_site"; licensed site reference (name truncated from the source shapefile). |
-| `site_name` | `character varying` | Source field "site_name"; site name. |
-| `site_build` | `character varying` | Source field "site_build"; site address — building. |
-| `site_strt` | `character varying` | Source field "site_strt"; site address — street. |
-| `site_area` | `character varying` | Source field "site_area"; site address — area / locality. |
-| `site_town` | `character varying` | Source field "site_town"; site address — town. |
-| `site_cnty` | `character varying` | Source field "site_cnty"; site address — county. |
-| `site_pcode` | `character varying` | Source field "site_pcode"; site postcode. |
-| `type_desc` | `character varying` | Source field "type_desc"; permit type description (e.g. "A04: Household, Commercial & Industrial Waste Landfill"). |
-| `ngr` | `character varying` | Source field "ngr"; National Grid Reference. |
-| `ctroid_x` | `integer` | Source field "ctroid_x"; centroid easting. Unit: metres (EPSG:27700). |
-| `ctroid_y` | `integer` | Source field "ctroid_y"; centroid northing. Unit: metres (EPSG:27700). |
-| `area` | `character varying` | Source field "area"; site area as published. |
-| `date_issue` | `timestamp without time zone` | Source field "date_issue"; permit issue date. |
-| `lic_epr` | `character varying` | Source field "lic_epr"; Environmental Permitting Regulations (EPR) permit reference. |
-| `gdb_geomattr_data` | `character varying` | Source field "gdb_geomattr_data"; ArcGIS geodatabase legacy geometry-attribute storage. |
-| `id_original` | `character varying` | Original feature id preserved at load. |
-| `lad22nm` | `character varying` | Joined at load from ONS LAD 2022 lookup; 2022 LAD name. |
-| `lad22cd` | `character varying` | Joined at load from ONS LAD 2022 lookup; 2022 LAD GSS code. |
-| `wd21nm` | `character varying` | Joined at load from ONS Ward 2021 lookup; 2021 Ward name. |
-| `wd21cd` | `character varying` | Joined at load from ONS Ward 2021 lookup; 2021 Ward GSS code. |
-| `area_ha` | `double precision` | Area in hectares, computed at load from the geometry. Stale if the geometry is later edited. |
+| `lic_admin` | `character varying` |  |
+| `lic_nmbr` | `character varying` |  |
+| `lic_ippcr` | `character varying` |  |
+| `lic_wml` | `double precision` |  |
+| `cust_nmbr` | `character varying` |  |
+| `status` | `character varying` |  |
+| `lic_ltype` | `character varying` |  |
+| `lic_name` | `character varying` |  |
+| `lic_site` | `character varying` |  |
+| `site_name` | `character varying` |  |
+| `site_build` | `character varying` |  |
+| `site_strt` | `character varying` |  |
+| `site_area` | `character varying` |  |
+| `site_town` | `character varying` |  |
+| `site_cnty` | `character varying` |  |
+| `site_pcode` | `character varying` |  |
+| `type_desc` | `character varying` |  |
+| `ngr` | `character varying` |  |
+| `ctroid_x` | `integer` |  |
+| `ctroid_y` | `integer` |  |
+| `area` | `character varying` |  |
+| `date_issue` | `timestamp without time zone` |  |
+| `lic_epr` | `character varying` |  |
+| `gdb_geomattr_data` | `character varying` |  |
+| `id_original` | `character varying` |  |
+| `wd21nm` | `character varying` |  |
+| `wd21cd` | `character varying` |  |
+| `area_ha` | `double precision` |  |
 | `fid` | `bigint` |  |
-| `geom` | `geometry(Polygon,27700)` | Polygon in EPSG:27700. Authorised landfill site boundary. |
+| `msoa21cd` | `text` | Middle Layer Super Output Area (MSOA) 2021 code of this piece. Open Government Licence v3.0. |
+| `msoa21nm` | `text` | Official ONS MSOA 2021 name of this piece. Open Government Licence v3.0. |
+| `msoa21hclnm` | `text` | House of Commons Library readable MSOA name of this piece. Open Parliament Licence. |
+| `lad22cd` | `character varying` | Local Authority District 2022 code (2021 LAD geography, anchored to the MSOA 2021 name scoping), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad22nm` | `character varying` | Local Authority District 2022 name (2021 LAD geography), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad25cd` | `text` | Local Authority District 2025 code (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `geom` | `geometry(MultiPolygon,27700)` |  |
+| `source_fid` | `bigint` | Primary key of the source feature in the pre-split layer uk.utl_defra_permitted_waste_authorised_landfill__preswap_jun30 (non-unique here: a feature spanning N MSOAs has N rows). |
 | `gid` | `bigint` |  |

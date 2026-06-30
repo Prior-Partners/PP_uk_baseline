@@ -5992,12 +5992,12 @@
 <tr>
 <td><code>lad25cd</code></td>
 <td><code>character varying(9)</code></td>
-<td>Joined at load from ONS LAD25 lookup; 2025 LAD GSS code.</td>
+<td>Local Authority District 2025 code: the current geographic district of the school, best-fit from msoa21cd via the ONS MSOA (2021) to LAD (2025) best-fit lookup. Maintaining education authority is in <code>gss_la_code</code>/<code>la_name</code>. Open Government Licence v3.0.</td>
 </tr>
 <tr>
 <td><code>lad25nm</code></td>
 <td><code>character varying(100)</code></td>
-<td>Joined at load from ONS LAD25 lookup; 2025 LAD name.</td>
+<td>Local Authority District 2025 name: the current geographic district of the school, best-fit from msoa21cd via the ONS MSOA (2021) to LAD (2025) best-fit lookup. Maintaining education authority is in <code>gss_la_code</code>/<code>la_name</code>. Open Government Licence v3.0.</td>
 </tr>
 <tr>
 <td><code>rgn22cd</code></td>
@@ -6037,7 +6037,27 @@
 <tr>
 <td><code>msoa21hclnm</code></td>
 <td><code>text</code></td>
-<td>House of Commons Library readable MSOA name. Joined at load on this table's <code>msoa_code</code> (a 2021 MSOA code) from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.</td>
+<td>House of Commons Library readable MSOA name, joined on the source <code>msoa_code</code> from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.</td>
+</tr>
+<tr>
+<td><code>msoa21cd</code></td>
+<td><code>text</code></td>
+<td>Source field <code>msoa_code</code> (Department for Education, the school's 2021 Middle Layer Super Output Area). Populated only where the source code is a valid 2021 MSOA. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>msoa21nm</code></td>
+<td><code>text</code></td>
+<td>Official ONS Middle Layer Super Output Area 2021 name, joined on msoa21cd from uk_baseline.adm_ons_msoa_boundary_2021. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>lad22cd</code></td>
+<td><code>text</code></td>
+<td>Local Authority District 2022 code: the geographic district of the school (2021 LAD geography), best-fit from msoa21cd via the ONS MSOA (2021) to LAD (2022) best-fit lookup. The school's maintaining education authority (county-level in two-tier areas) is held separately in <code>gss_la_code</code>/<code>la_name</code>. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>lad22nm</code></td>
+<td><code>text</code></td>
+<td>Local Authority District 2022 name: the geographic district of the school, best-fit from msoa21cd via the ONS MSOA (2021) to LAD (2022) best-fit lookup. Maintaining education authority is in <code>gss_la_code</code>/<code>la_name</code>. Open Government Licence v3.0.</td>
 </tr>
 </tbody>
 </table>

@@ -5275,6 +5275,10 @@
 <li>Category B entries are included; filter on <code>ppd_category_type</code> = 'A' for standard residential sales only.</li>
 <li><code>geom</code> is postcode-centroid precision, not exact address location; postcodes may have been reallocated since the sale.</li>
 </ul>
+<p><strong>ENRICHMENT</strong></p>
+<ul>
+<li><code>msoa21hclnm</code> — House of Commons Library readable MSOA name, assigned at load from the transaction's postcode MSOA (via uk_baseline.adm_ons_postcode_centroid_feb2026). Open Parliament Licence.</li>
+</ul>
 <p><strong>LOADED INTO uk_baseline</strong></p>
 <ul>
 <li>Loaded by PNC, 1 June 2026.</li>
@@ -5292,87 +5296,122 @@
 <tr>
 <td><code>transaction_id</code></td>
 <td><code>text</code></td>
-<td>Source field, HM Land Registry transaction unique identifier. "A reference number which is generated automatically recording each published sale." Primary key.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>price</code></td>
 <td><code>bigint</code></td>
-<td>Source field <code>Price</code>. "Sale price stated on the transfer deed." Unit: pounds sterling. Cast to bigint at load.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>transfer_date</code></td>
 <td><code>date</code></td>
-<td>Source field <code>Date of Transfer</code>. "Date when the sale was completed, as stated on the transfer deed." Cast to date at load.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>postcode</code></td>
 <td><code>text</code></td>
-<td>Source field <code>Postcode</code>. Postcode at the time of the transaction; reallocations since are not reflected. Used to derive <code>geom</code>.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>property_type</code></td>
 <td><code>text</code></td>
-<td>Source field <code>Property Type</code>. D = Detached; S = Semi-Detached; T = Terraced; F = Flats/Maisonettes; O = Other.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>old_new</code></td>
 <td><code>text</code></td>
-<td>Source field <code>Old/New</code>. Y = newly built property; N = established building.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>duration</code></td>
 <td><code>text</code></td>
-<td>Source field <code>Duration</code>. F = Freehold; L = Leasehold. Leases of 7 years or less are excluded.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>paon</code></td>
 <td><code>text</code></td>
-<td>Source field <code>PAON</code>. Primary Addressable Object Name (typically the house number or name).</td>
+<td></td>
 </tr>
 <tr>
 <td><code>saon</code></td>
 <td><code>text</code></td>
-<td>Source field <code>SAON</code>. Secondary Addressable Object Name (where a property is sub-divided, e.g. flats).</td>
+<td></td>
 </tr>
 <tr>
 <td><code>street</code></td>
 <td><code>text</code></td>
-<td>Source field <code>Street</code>.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>locality</code></td>
 <td><code>text</code></td>
-<td>Source field <code>Locality</code>.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>town_city</code></td>
 <td><code>text</code></td>
-<td>Source field <code>Town/City</code>.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>district</code></td>
 <td><code>text</code></td>
-<td>Source field <code>District</code>.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>county</code></td>
 <td><code>text</code></td>
-<td>Source field <code>County</code>.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>ppd_category_type</code></td>
 <td><code>text</code></td>
-<td>Source field <code>PPD Category Type</code>. A = Standard Price Paid entry (single residential property sold for value); B = Additional Price Paid entry (repossessions / power-of-sale, buy-to-lets identifiable by a mortgage, transfers to non-private individuals, and sales where property type is 'Other').</td>
+<td></td>
 </tr>
 <tr>
 <td><code>record_status</code></td>
 <td><code>text</code></td>
-<td>Source field <code>Record Status</code>. Monthly-file change indicator: A = addition, C = change, D = delete. The complete-file load is a current snapshot (status A).</td>
+<td></td>
 </tr>
 <tr>
 <td><code>geom</code></td>
 <td><code>geometry(Point,27700)</code></td>
-<td>Point geometry in EPSG:27700, derived at load by joining the normalised <code>postcode</code> to uk_baseline.adm_ons_postcode_centroid_feb2026 (GB postcode-unit centroid). NULL where the postcode is blank or unmatched. Postcode-centroid precision, not exact address location.</td>
+<td></td>
+</tr>
+<tr>
+<td><code>msoa21cd</code></td>
+<td><code>text</code></td>
+<td>Middle Layer Super Output Area (MSOA) 2021 code. Assigned at load from the transaction's postcode via uk_baseline.adm_ons_postcode_centroid_feb2026 (pcds). Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>msoa21nm</code></td>
+<td><code>text</code></td>
+<td>Official ONS MSOA 2021 name for the postcode's MSOA (via uk_baseline.adm_ons_postcode_centroid_feb2026). Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>msoa21hclnm</code></td>
+<td><code>text</code></td>
+<td>House of Commons Library readable MSOA name for the postcode's MSOA (via uk_baseline.adm_ons_postcode_centroid_feb2026, which carries the House of Commons Library name). Open Parliament Licence.</td>
+</tr>
+<tr>
+<td><code>lad22cd</code></td>
+<td><code>text</code></td>
+<td>Local Authority District 2022 code (2021 LAD geography, anchored to the MSOA 2021 name scoping), best-fit from the postcode's msoa21cd. Joined at load from the ONS MSOA (2021) to LAD (2022) best-fit lookup. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>lad22nm</code></td>
+<td><code>text</code></td>
+<td>Local Authority District 2022 name (2021 LAD geography), best-fit from the postcode's msoa21cd. Joined at load from the ONS MSOA (2021) to LAD (2022) best-fit lookup. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>lad25cd</code></td>
+<td><code>text</code></td>
+<td>Local Authority District 2025 code (current administering authority) for the postcode, from uk_baseline.adm_ons_postcode_centroid_feb2026. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>lad25nm</code></td>
+<td><code>character varying(100)</code></td>
+<td>Local Authority District 2025 name for the postcode's lad25cd, from uk_baseline.adm_ons_lad_boundary_may2025. Open Government Licence v3.0.</td>
 </tr>
 </tbody>
 </table>

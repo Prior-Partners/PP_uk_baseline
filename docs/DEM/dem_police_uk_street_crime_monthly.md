@@ -17,7 +17,21 @@
 
 **DEFINITIONS**
 
-- Crime types: 14 standardised categories assigned by the police force at time of recording (e.g. "Anti-social behaviour", "Burglary", "Violence and sexual offences"). Full list at https://data.police.uk/about/.
+- Crime types: 14 standardised categories assigned by the police force at time of recording (full list at https://data.police.uk/about/):
+    - Anti-social behaviour
+    - Bicycle theft
+    - Burglary
+    - Criminal damage and arson
+    - Drugs
+    - Other theft
+    - Possession of weapons
+    - Public order
+    - Robbery
+    - Shoplifting
+    - Theft from the person
+    - Vehicle crime
+    - Violence and sexual offences
+    - Other crime
 - Last outcome category: a snapshot, as of the archive publication month, of the case progression status. Mutates over time as cases progress; the loader's rolling window picks up corrections to the trailing 35 months automatically.
 
 **SCOPE**
@@ -42,12 +56,11 @@
 
 **NOT IN THIS DATASET**
 
-- *-outcomes.csv (case-progression log) is deliberately NOT loaded. last_outcome on this table is sufficient for planning/baseline work.
 - Northern Ireland (PSNI) and Scotland (Police Scotland) do not publish via data.police.uk archives.
 
 **LOADED INTO uk_baseline**
 
-- Loaded by PNC, Monthly. Idempotent on source_file (DELETE-then-COPY per CSV per archive).
+- Loaded by PNC, Monthly.
 
 
 ## Columns

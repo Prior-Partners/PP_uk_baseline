@@ -354,6 +354,14 @@ def read_metadata() -> list[dict[str, Any]]:
                 FROM pg_class c
                 JOIN pg_namespace n ON n.oid = c.relnamespace
                 WHERE n.nspname = %s AND c.relkind = 'r'
+                  -- Exclude vertex-subdivided scratch tables (split working
+                  -- artefacts named '<layer>_sub'); they are internal staging,
+                  -- not published layers, and must not appear in the catalogue.
+                  AND c.relname !~ '_sub$'
+                  -- Only publish documented layers; an undocumented table is
+                  -- work-in-progress (no COMMENT yet) and must not leak into
+                  -- the catalogue.
+                  AND obj_description(c.oid) IS NOT NULL
                 ORDER BY theme, c.relname
                 """,
                 (SCHEMA,),

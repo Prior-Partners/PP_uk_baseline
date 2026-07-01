@@ -35,7 +35,7 @@
 
 **DATA QUALITY CAVEATS**
 
-- Output Area is the lowest published Census geography. Confidentiality protection (ONS "cell key perturbation") can move single residents around between cells; treat single-digit counts with care.
+- Output Area is the lowest published Census geography.
 
 **LOADED INTO uk_baseline**
 

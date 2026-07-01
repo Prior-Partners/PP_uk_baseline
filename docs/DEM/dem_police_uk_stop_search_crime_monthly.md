@@ -1,6 +1,6 @@
 # data.police.uk stop-and-search events, monthly archives
 
-<p class="layer-short">Stop and search</p>
+<p class="layer-short">Crime - Stop and search</p>
 
 `dem_police_uk_stop_search_crime_monthly`
 
@@ -51,7 +51,7 @@
 
 **LOADED INTO uk_baseline**
 
-- Loaded by PNC, Monthly. Idempotent on source_file.
+- Loaded by PNC, Monthly.
 
 
 ## Columns

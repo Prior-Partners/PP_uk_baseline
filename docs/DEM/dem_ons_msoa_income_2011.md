@@ -23,7 +23,7 @@
 
 **SCOPE**
 
-- England and Wales. MSOA 2011 boundary; 7,201 distinct msoa11cd.
+- England and Wales. MSOA 2011 boundary.
 - Reference period: financial year 2011/12.
 
 **CRS**
@@ -36,9 +36,7 @@
 
 **DATA QUALITY CAVEATS**
 
-- ONS methodology warning: "The modelling process tends to shrink estimates towards the average level, so the true distribution of MSOA average incomes will have more extreme high and low values than the estimated values." (ONS methodology page) Translation: high-income areas under-stated, low-income areas over-stated. Use with care.
-- ONS methodology warning: "Care is needed when ranking areas due to uncertainty surrounding estimates." (ONS methodology) The 90% confidence intervals overlap heavily between adjacent MSOAs.
-- 2011/12 — significantly out of date for current analysis (14 years old). ONS has not published an LSOA-level update since.
+- "The modelling process tends to shrink estimates towards the average level, so the true distribution of MSOA average incomes will have more extreme high and low values than the estimated values." (ONS methodology page)
 
 **LOADED INTO uk_baseline**
 

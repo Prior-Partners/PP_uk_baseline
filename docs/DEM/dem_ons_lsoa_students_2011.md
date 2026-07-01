@@ -1,6 +1,6 @@
 # ONS Census 2011 schoolchildren and full-time students at Lower-layer Super Output Area (LSOA) 2011
 
-<p class="layer-short">Students</p>
+<p class="layer-short">Census 2011 Students</p>
 
 `dem_ons_lsoa_students_2011`
 
@@ -35,7 +35,7 @@
 
 **DATA QUALITY CAVEATS**
 
-- This is Census 2011 data — superseded by Census 2021 (`dem_ons_lsoa_students_2021`). Use the 2021 layer for current analysis; this layer for historic comparison.
+- This is Census 2011 data — superseded by Census 2021 (`dem_ons_lsoa_students_2021`); use the 2021 layer for current analysis. The two are not directly comparable: different source table (2011 NOMIS KS501UK, 2021 ONS TS068), different LSOA boundaries (2011 vs the redrawn 2021 set), a different student definition (2021 additionally counts those enrolled on a course at any UK educational establishment), and different age bands (2011 uses 4-15, 16-17, 18-19, 20-24, 25+; 2021 uses under 4, 5-15, 16-17, 18-20, 21-24, 25-29, 30+). Only the six living-arrangement categories match across both. For cross-year change, harmonise geography and age banding first.
 - Census 2011 counted higher-education students at their term-time address (same convention as 2021). University-town LSOAs show inflated student counts in term time.
 
 **LOADED INTO uk_baseline**

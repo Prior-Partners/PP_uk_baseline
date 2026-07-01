@@ -29,10 +29,6 @@
 
 - EPSG:27700. Open Government Licence v3.0.
 
-**DATA QUALITY CAVEATS**
-
-- Respondents could select more than one national identity. Counts of combined identities (e.g. "British and English") and counts of individual identities are NOT mutually exclusive — sum-across-categories will exceed total population.
-
 **ENRICHMENT**
 
 - `msoa21hclnm` — House of Commons Library readable MSOA name, joined at load on msoa21cd from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.

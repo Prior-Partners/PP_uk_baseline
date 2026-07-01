@@ -17,8 +17,7 @@
 
 **DEFINITIONS**
 
-- "The number of people in the household, including children." (ONS Census 2021 Household size variable)
-- A household is defined as: "One person living alone, or a group of people (not necessarily related) living at the same address who share cooking facilities and share a living room, sitting room or dining area."
+- "The number of people in the household, including children", where a household is defined as "One person living alone, or a group of people (not necessarily related) living at the same address who share cooking facilities and share a living room, sitting room or dining area". (ONS Census 2021 Household size variable)
 
 **SCOPE**
 
@@ -28,12 +27,6 @@
 **CRS**
 
 - EPSG:27700. Open Government Licence v3.0.
-
-**DATA QUALITY CAVEATS**
-
-- Column names are digit-led: `"0_people_in_household_count"`, `"2_people_in_household_count"`,.. `"8_or_more_people_in_household_count"`. Use double-quoted identifiers in SQL.
-- One column has a SPACE: `"1 person in household_count"` / `"_perc"`. Double-quote.
-- "0 people in household" is unusual but appears in the data; treat as a residual / edge category.
 
 **ENRICHMENT**
 

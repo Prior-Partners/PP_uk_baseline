@@ -38,24 +38,34 @@ AONBs are now known as National Landscapes (non-statutory rebrand, 2023).
 
 - Loaded by PNC, May 2026.
 
+MSOA SPLIT (added 3 July 2026)
+
+- Geometry split to one row per (source feature x MSOA 2021). Each row carries that MSOA's msoa21cd / msoa21nm / msoa21hclnm and best-fit lad22 / lad25. The source feature's original primary key is preserved as `source_fid`; `gid` is a fresh surrogate primary key. Features with no MSOA overlap (offshore or outside England & Wales) are kept whole with NULL geography columns.
+
 
 ## Columns
 
 | Column | Type | Description / unit |
 |---|---|---|
-| `fid_original` | `integer` | Original feature id preserved at load. |
-| `code` | `character varying` | Source field "code"; AONB code. |
-| `name` | `character varying` | Source field "name"; AONB name. |
-| `desig_date` | `character varying` | Source field "desig_date"; designation date. Stored as text (e.g. "Dec-72"). |
-| `hotlink` | `character varying` | Source field "hotlink"; URL to the Natural England record. |
-| `stat_area` | `double precision` | Source field "stat_area"; statutory area as published by Natural England. |
-| `globalid` | `character varying` | Source field "GlobalID"; ArcGIS GlobalID GUID. |
-| `lad25cd` | `character varying` | Joined at load from ONS LAD 2025 lookup; 2025 LAD GSS code. |
-| `lad25nm` | `character varying` | Joined at load from ONS LAD 2025 lookup; 2025 LAD name. |
-| `geom` | `geometry(MultiPolygon,27700)` | MultiPolygon in EPSG:27700. AONB / National Landscape boundary geometry. |
-| `area_ha` | `double precision` | Area in hectares, computed at load from the geometry. Stale if the geometry is later edited. |
-| `fid` | `bigint` |  |
-| `rgn22cd` | `text` | Joined at load from ONS LAD->Region lookup; 2022 Region GSS code. |
-| `rgn22nm` | `text` | Joined at load from ONS LAD->Region lookup; 2022 Region name. |
-| `sds_boundary` | `text` | Internal categorisation: Spatial Development Strategy (SDS) area where the polygon falls. Blank or NULL where outside any SDS area. |
-| `layer` | `character(100)` | Source field "layer"; fixed-string source-layer annotation. Single observed value: "Areas of Outstanding Natural Beauty". |
+| `source_fid` | `bigint` | Primary key of the source feature in the pre-split layer uk.env_naturalengland_aonb_nov2024__preswap_jul03 (non-unique here: a feature spanning N MSOAs has N rows). |
+| `fid_original` | `integer` |  |
+| `code` | `character varying` |  |
+| `name` | `character varying` |  |
+| `desig_date` | `character varying` |  |
+| `hotlink` | `character varying` |  |
+| `stat_area` | `double precision` |  |
+| `globalid` | `character varying` |  |
+| `area_ha` | `double precision` |  |
+| `rgn22cd` | `text` |  |
+| `rgn22nm` | `text` |  |
+| `sds_boundary` | `text` |  |
+| `layer` | `character(100)` |  |
+| `msoa21cd` | `character varying` | Middle Layer Super Output Area (MSOA) 2021 code of this piece. Open Government Licence v3.0. |
+| `msoa21nm` | `character varying` | Official ONS MSOA 2021 name of this piece. Open Government Licence v3.0. |
+| `msoa21hclnm` | `text` | House of Commons Library readable MSOA name of this piece. Open Parliament Licence. |
+| `lad22cd` | `text` | Local Authority District 2022 code (2021 LAD geography, anchored to the MSOA 2021 name scoping), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad22nm` | `text` | Local Authority District 2022 name (2021 LAD geography), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad25cd` | `text` | Local Authority District 2025 code (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `geom` | `geometry(MultiPolygon,27700)` |  |
+| `gid` | `bigint` |  |

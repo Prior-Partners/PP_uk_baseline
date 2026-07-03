@@ -35,36 +35,47 @@
 
 - Loaded by PNC, May 2026.
 
+MSOA SPLIT (added 3 July 2026)
+
+- Geometry split to one row per (source feature x MSOA 2021). Each row carries that MSOA's msoa21cd / msoa21nm / msoa21hclnm and best-fit lad22 / lad25. The source feature's original primary key is preserved as `source_fid`; `gid` is a fresh surrogate primary key. Features with no MSOA overlap (offshore or outside England & Wales) are kept whole with NULL geography columns.
+- Coastal note: MSOA coverage stops at the coastline (roughly Mean High Water), so split pieces retain 41.95% of the pre-split area of features that overlap an MSOA; 321 wholly estuarine or offshore sites are kept whole with NULL geography columns. The full pre-split extent is uk.env_naturalengland_ramsar_oct2024__preswap_jul03.
+
 
 ## Columns
 
 | Column | Type | Description / unit |
 |---|---|---|
-| `fid_original` | `integer` | Original feature id preserved at load. |
-| `name` | `character varying` | Source field "name"; Ramsar site name. |
-| `code` | `character varying` | Source field "code"; Ramsar site code. |
-| `area` | `double precision` | Source field "area"; site area as published by Natural England. |
-| `grid_ref` | `character varying` | Source field "grid_ref"; Ordnance Survey grid reference. |
-| `easting` | `double precision` | Source field "easting"; site easting. Unit: "metres" (EPSG:27700). |
-| `northing` | `double precision` | Source field "northing"; site northing. Unit: "metres" (EPSG:27700). |
-| `latitude` | `character varying` | Source field "latitude"; site latitude (WGS84 degrees). |
-| `longitude` | `character varying` | Source field "longitude"; site longitude (WGS84 degrees). |
-| `name0` | `character varying` | Source field "name0"; secondary name field carried through from the Natural England ArcGIS Online export (blank in this dataset). |
-| `status` | `character varying` | Source field "status"; designation status. Observed value: "Listed". |
-| `id` | `double precision` | Source field "id"; carried through from the Natural England ArcGIS Online export. |
-| `file_` | `character varying` | Source field "file_"; carried through from the Natural England ArcGIS Online export. |
-| `area0` | `double precision` | Source field "area0"; secondary area value carried through from the Natural England ArcGIS Online export. |
-| `easting0` | `double precision` | Source field "easting0"; secondary easting value carried through from the Natural England ArcGIS Online export. |
-| `northing0` | `double precision` | Source field "northing0"; secondary northing value carried through from the Natural England ArcGIS Online export. |
-| `gis_date` | `character varying` | Source field "gis_date"; date field carried through from the Natural England ArcGIS Online export. |
-| `version` | `integer` | Source field "version"; source version number. |
-| `globalid` | `character varying` | Source field "GlobalID"; ArcGIS GlobalID GUID. |
-| `lad25cd` | `character varying` | Joined at load from ONS LAD 2025 lookup; 2025 LAD GSS code. |
-| `lad25nm` | `character varying` | Joined at load from ONS LAD 2025 lookup; 2025 LAD name. |
-| `geom` | `geometry(MultiPolygon,27700)` | MultiPolygon in EPSG:27700. Ramsar site boundary geometry. |
-| `area_ha` | `double precision` | Area in hectares, computed at load from the geometry. Stale if the geometry is later edited. |
-| `fid` | `bigint` |  |
-| `rgn22cd` | `text` | Joined at load from ONS LAD->Region lookup; 2022 Region GSS code. |
-| `rgn22nm` | `text` | Joined at load from ONS LAD->Region lookup; 2022 Region name. |
-| `sds_boundary` | `text` | Internal categorisation: Spatial Development Strategy (SDS) area where the polygon falls. Blank or NULL where outside any SDS area. |
-| `layer` | `character(100)` | Source field "layer"; fixed-string source-layer annotation. Single observed value: "Ramsar". |
+| `source_fid` | `bigint` | Primary key of the source feature in the pre-split layer uk.env_naturalengland_ramsar_oct2024__preswap_jul03 (non-unique here: a feature spanning N MSOAs has N rows). |
+| `fid_original` | `integer` |  |
+| `name` | `character varying` |  |
+| `code` | `character varying` |  |
+| `area` | `double precision` |  |
+| `grid_ref` | `character varying` |  |
+| `easting` | `double precision` |  |
+| `northing` | `double precision` |  |
+| `latitude` | `character varying` |  |
+| `longitude` | `character varying` |  |
+| `name0` | `character varying` |  |
+| `status` | `character varying` |  |
+| `id` | `double precision` |  |
+| `file_` | `character varying` |  |
+| `area0` | `double precision` |  |
+| `easting0` | `double precision` |  |
+| `northing0` | `double precision` |  |
+| `gis_date` | `character varying` |  |
+| `version` | `integer` |  |
+| `globalid` | `character varying` |  |
+| `area_ha` | `double precision` |  |
+| `rgn22cd` | `text` |  |
+| `rgn22nm` | `text` |  |
+| `sds_boundary` | `text` |  |
+| `layer` | `character(100)` |  |
+| `msoa21cd` | `character varying` | Middle Layer Super Output Area (MSOA) 2021 code of this piece. Open Government Licence v3.0. |
+| `msoa21nm` | `character varying` | Official ONS MSOA 2021 name of this piece. Open Government Licence v3.0. |
+| `msoa21hclnm` | `text` | House of Commons Library readable MSOA name of this piece. Open Parliament Licence. |
+| `lad22cd` | `text` | Local Authority District 2022 code (2021 LAD geography, anchored to the MSOA 2021 name scoping), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad22nm` | `text` | Local Authority District 2022 name (2021 LAD geography), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad25cd` | `text` | Local Authority District 2025 code (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `geom` | `geometry(MultiPolygon,27700)` |  |
+| `gid` | `bigint` |  |

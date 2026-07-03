@@ -5246,6 +5246,11 @@
 <ul>
 <li>Loaded by PNC, May 2026.</li>
 </ul>
+<p>MSOA SPLIT (added 3 July 2026)</p>
+<ul>
+<li>Geometry split to one row per (source feature x MSOA 2021). Each row carries that MSOA's msoa21cd / msoa21nm / msoa21hclnm and best-fit lad22 / lad25. The source feature's original primary key is preserved as <code>source_fid</code>; <code>gid</code> is a fresh surrogate primary key. Features with no MSOA overlap (offshore or outside England &amp; Wales) are kept whole with NULL geography columns.</li>
+<li>Coastal note: MSOA coverage stops at the coastline (roughly Mean High Water), so split pieces retain 68.34% of the pre-split area of features that overlap an MSOA; 123 wholly marine sites are kept whole with NULL geography columns. The full pre-split extent is uk.env_naturalengland_special_protection_areas_apr2026__preswap_ju.</li>
+</ul>
 <h2 id="columns">Columns<a class="headerlink" href="#columns" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -5257,139 +5262,169 @@
 </thead>
 <tbody>
 <tr>
+<td><code>source_fid</code></td>
+<td><code>bigint</code></td>
+<td>Primary key of the source feature in the pre-split layer uk.env_naturalengland_special_protection_areas_apr2026__preswap_ju (non-unique here: a feature spanning N MSOAs has N rows).</td>
+</tr>
+<tr>
 <td><code>fid_original</code></td>
 <td><code>integer</code></td>
-<td>Original feature id preserved at load.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>spa_name</code></td>
 <td><code>character varying</code></td>
-<td>Source field "spa_name"; SPA name.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>spa_code</code></td>
 <td><code>character varying</code></td>
-<td>Source field "spa_code"; SPA code.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>spa_area</code></td>
 <td><code>double precision</code></td>
-<td>Source field "spa_area"; SPA area as published by Natural England.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>grid_ref</code></td>
 <td><code>character varying</code></td>
-<td>Source field "grid_ref"; Ordnance Survey grid reference.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>easting</code></td>
 <td><code>double precision</code></td>
-<td>Source field "easting"; site easting. Unit: "metres" (EPSG:27700).</td>
+<td></td>
 </tr>
 <tr>
 <td><code>northing</code></td>
 <td><code>double precision</code></td>
-<td>Source field "northing"; site northing. Unit: "metres" (EPSG:27700).</td>
+<td></td>
 </tr>
 <tr>
 <td><code>latitude</code></td>
 <td><code>character varying</code></td>
-<td>Source field "latitude"; site latitude (WGS84 degrees).</td>
+<td></td>
 </tr>
 <tr>
 <td><code>longitude</code></td>
 <td><code>character varying</code></td>
-<td>Source field "longitude"; site longitude (WGS84 degrees).</td>
+<td></td>
 </tr>
 <tr>
 <td><code>name</code></td>
 <td><code>character varying</code></td>
-<td>Source field "name"; secondary name field carried through from the Natural England ArcGIS Online export (blank in this dataset).</td>
+<td></td>
 </tr>
 <tr>
 <td><code>status</code></td>
 <td><code>character varying</code></td>
-<td>Source field "status"; designation status.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>id</code></td>
 <td><code>double precision</code></td>
-<td>Source field "id"; carried through from the Natural England ArcGIS Online export.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>file_</code></td>
 <td><code>character varying</code></td>
-<td>Source field "file_"; carried through from the Natural England ArcGIS Online export.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>area</code></td>
 <td><code>double precision</code></td>
-<td>Source field "area"; secondary area value carried through from the Natural England ArcGIS Online export.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>easting0</code></td>
 <td><code>double precision</code></td>
-<td>Source field "easting0"; secondary easting value carried through from the Natural England ArcGIS Online export.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>northing0</code></td>
 <td><code>double precision</code></td>
-<td>Source field "northing0"; secondary northing value carried through from the Natural England ArcGIS Online export.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>gis_date</code></td>
 <td><code>character varying</code></td>
-<td>Source field "gis_date"; date field carried through from the Natural England ArcGIS Online export.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>version</code></td>
 <td><code>integer</code></td>
-<td>Source field "version"; source version number.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>globalid</code></td>
 <td><code>character varying</code></td>
-<td>Source field "GlobalID"; ArcGIS GlobalID GUID.</td>
-</tr>
-<tr>
-<td><code>lad25cd</code></td>
-<td><code>character varying</code></td>
-<td>Joined at load from ONS LAD 2025 lookup; 2025 LAD GSS code.</td>
-</tr>
-<tr>
-<td><code>lad25nm</code></td>
-<td><code>character varying</code></td>
-<td>Joined at load from ONS LAD 2025 lookup; 2025 LAD name.</td>
-</tr>
-<tr>
-<td><code>geom</code></td>
-<td><code>geometry(MultiPolygon,27700)</code></td>
-<td>MultiPolygon in EPSG:27700. SPA boundary geometry.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>area_ha</code></td>
 <td><code>double precision</code></td>
-<td>Area in hectares, computed at load from the geometry. Stale if the geometry is later edited.</td>
-</tr>
-<tr>
-<td><code>fid</code></td>
-<td><code>bigint</code></td>
 <td></td>
 </tr>
 <tr>
 <td><code>rgn22cd</code></td>
 <td><code>text</code></td>
-<td>Joined at load from ONS LAD-&gt;Region lookup; 2022 Region GSS code.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>rgn22nm</code></td>
 <td><code>text</code></td>
-<td>Joined at load from ONS LAD-&gt;Region lookup; 2022 Region name.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>sds_boundary</code></td>
 <td><code>text</code></td>
-<td>Internal categorisation: Spatial Development Strategy (SDS) area where the polygon falls. Blank or NULL where outside any SDS area.</td>
+<td></td>
+</tr>
+<tr>
+<td><code>msoa21cd</code></td>
+<td><code>character varying</code></td>
+<td>Middle Layer Super Output Area (MSOA) 2021 code of this piece. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>msoa21nm</code></td>
+<td><code>character varying</code></td>
+<td>Official ONS MSOA 2021 name of this piece. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>msoa21hclnm</code></td>
+<td><code>text</code></td>
+<td>House of Commons Library readable MSOA name of this piece. Open Parliament Licence.</td>
+</tr>
+<tr>
+<td><code>lad22cd</code></td>
+<td><code>text</code></td>
+<td>Local Authority District 2022 code (2021 LAD geography, anchored to the MSOA 2021 name scoping), best-fit from this piece's msoa21cd. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>lad22nm</code></td>
+<td><code>text</code></td>
+<td>Local Authority District 2022 name (2021 LAD geography), best-fit from this piece's msoa21cd. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>lad25cd</code></td>
+<td><code>text</code></td>
+<td>Local Authority District 2025 code (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>lad25nm</code></td>
+<td><code>text</code></td>
+<td>Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>geom</code></td>
+<td><code>geometry(MultiPolygon,27700)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>gid</code></td>
+<td><code>bigint</code></td>
+<td></td>
 </tr>
 </tbody>
 </table>

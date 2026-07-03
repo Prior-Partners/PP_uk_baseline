@@ -36,28 +36,38 @@
 
 - Loaded by PNC, May 2026.
 
+MSOA SPLIT (added 3 July 2026)
+
+- Geometry split to one row per (source feature x MSOA 2021). Each row carries that MSOA's msoa21cd / msoa21nm / msoa21hclnm and best-fit lad22 / lad25. The source feature's original primary key is preserved as `source_fid`; `gid` is a fresh surrogate primary key. Features with no MSOA overlap (offshore or outside England & Wales) are kept whole with NULL geography columns.
+
 
 ## Columns
 
 | Column | Type | Description / unit |
 |---|---|---|
-| `fid_original` | `integer` | ArcGIS source identifier preserved at load; not stable across Historic England re-publications. |
-| `listentry` | `integer` | Source field "ListEntry"; National Heritage List for England (NHLE) List Entry Number — the canonical national identifier for the heritage asset. |
-| `name` | `character varying` | Source field "Name"; heritage asset name as published on the NHLE. |
-| `desigdate` | `timestamp with time zone` | Source field "DesigDate"; date the wreck site was designated. |
-| `amenddate` | `timestamp with time zone` | Source field "AmendDate"; date of the most recent amendment to the listing. |
-| `capturescale` | `character varying` | Source field "CaptureScale"; cartographic scale at which the geometry was captured (e.g. "1:1250"). |
-| `hyperlink` | `character varying` | Source field "Hyperlink"; URL of the listing page on the Historic England website. |
-| `ngr` | `character varying` | Source field "NGR"; alphanumeric National Grid Reference (e.g. "SP 12345 67890"). |
-| `latitude` | `double precision` | Source field "Latitude"; site latitude (WGS84 degrees). |
-| `longitude` | `double precision` | Source field "Longitude"; site longitude (WGS84 degrees). |
-| `wd25cd` | `character varying` | Joined at load from ONS Ward 2025 lookup; 2025 Ward GSS code. |
-| `wd25nm` | `character varying` | Joined at load from ONS Ward 2025 lookup; 2025 Ward name. |
-| `lad25cd` | `character varying` | Joined at load from ONS LAD 2025 lookup; 2025 LAD GSS code. |
-| `lad25nm` | `character varying` | Joined at load from ONS LAD 2025 lookup; 2025 LAD name. |
-| `geom` | `geometry(MultiPolygon,27700)` | MultiPolygon in EPSG:27700. Protected wreck site boundary. |
-| `area_ha` | `double precision` | Area in hectares, computed at load from the geometry. Stale if the geometry is later edited. |
-| `fid` | `bigint` |  |
-| `rgn22cd` | `text` | Joined at load from ONS LAD->Region lookup; 2022 Region GSS code. |
-| `rgn22nm` | `text` | Joined at load from ONS LAD->Region lookup; 2022 Region name. |
-| `sds_boundary` | `text` | Internal categorisation: Spatial Development Strategy (SDS) area where the geometry falls. Blank or NULL where outside any SDS area. |
+| `source_fid` | `bigint` | Primary key of the source feature in the pre-split layer uk.her_historicengland_protected_wrecks_may2026__preswap_jul03 (non-unique here: a feature spanning N MSOAs has N rows). |
+| `fid_original` | `integer` |  |
+| `listentry` | `integer` |  |
+| `name` | `character varying` |  |
+| `desigdate` | `timestamp with time zone` |  |
+| `amenddate` | `timestamp with time zone` |  |
+| `capturescale` | `character varying` |  |
+| `hyperlink` | `character varying` |  |
+| `ngr` | `character varying` |  |
+| `latitude` | `double precision` |  |
+| `longitude` | `double precision` |  |
+| `wd25cd` | `character varying` |  |
+| `wd25nm` | `character varying` |  |
+| `area_ha` | `double precision` |  |
+| `rgn22cd` | `text` |  |
+| `rgn22nm` | `text` |  |
+| `sds_boundary` | `text` |  |
+| `msoa21cd` | `character varying` | Middle Layer Super Output Area (MSOA) 2021 code of this piece. Open Government Licence v3.0. |
+| `msoa21nm` | `character varying` | Official ONS MSOA 2021 name of this piece. Open Government Licence v3.0. |
+| `msoa21hclnm` | `text` | House of Commons Library readable MSOA name of this piece. Open Parliament Licence. |
+| `lad22cd` | `text` | Local Authority District 2022 code (2021 LAD geography, anchored to the MSOA 2021 name scoping), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad22nm` | `text` | Local Authority District 2022 name (2021 LAD geography), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad25cd` | `text` | Local Authority District 2025 code (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `geom` | `geometry(MultiPolygon,27700)` |  |
+| `gid` | `bigint` |  |

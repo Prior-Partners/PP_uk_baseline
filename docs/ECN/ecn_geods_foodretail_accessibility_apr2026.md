@@ -50,27 +50,39 @@
 - Data published: 2026-04-15
 - Imported: 2026-05-28 by PNC
 
+MSOA SPLIT (added 3 July 2026)
+
+- Geometry split to one row per (source feature x MSOA 2021). Each row carries that MSOA's msoa21cd / msoa21nm / msoa21hclnm and best-fit lad22 / lad25. The source feature's original primary key is preserved as `source_fid`; `gid` is a fresh surrogate primary key. Features with no MSOA overlap (offshore or outside England & Wales) are kept whole with NULL geography columns.
+
 
 ## Columns
 
 | Column | Type | Description / unit |
 |---|---|---|
-| `geom` | `geometry(Polygon,27700)` | Geometry from publisher GPKG (hex_foodretail_accessibility.gpkg). EPSG:27700 (OSGB36 / British National Grid). Polygon - one 350-metre bespoke hexagonal cell per row. |
-| `fid` | `bigint` |  |
-| `hex_id` | `double precision` | Source field `Hex_ID`. "Unique cell ID of bespoke BT hexagonal grid" (hex_food_variable_dictionary.csv). Stored as double precision in DB; publisher data summary reports type=integer with range 10,631,211 - 12,541,266. |
-| `travel_time_friday_06` | `double precision` | Source field `travel_time_friday_06`. Unit: "Travel-time to the closest open food retail outlet on day xxxx (Friday or Saturday) at yy (hour of the day)" - unit inferred as MINUTES (publisher does not state). Friday 06:00 snapshot (daytime, 3-hourly cadence). |
-| `travel_time_friday_09` | `double precision` | Source field `travel_time_friday_09`. Unit: minutes (inferred; publisher does not state). Friday 09:00 snapshot (daytime, 3-hourly cadence). |
-| `travel_time_friday_12` | `double precision` | Source field `travel_time_friday_12`. Unit: minutes (inferred; publisher does not state). Friday 12:00 snapshot (daytime, 3-hourly cadence). |
-| `travel_time_friday_15` | `double precision` | Source field `travel_time_friday_15`. Unit: minutes (inferred; publisher does not state). Friday 15:00 snapshot (daytime, 3-hourly cadence). |
-| `travel_time_friday_18` | `double precision` | Source field `travel_time_friday_18`. Unit: minutes (inferred; publisher does not state). Friday 18:00 snapshot (daytime, 3-hourly cadence). |
-| `travel_time_friday_19` | `double precision` | Source field `travel_time_friday_19`. Unit: minutes (inferred; publisher does not state). Friday 19:00 snapshot (nighttime, hourly cadence). |
-| `travel_time_friday_20` | `double precision` | Source field `travel_time_friday_20`. Unit: minutes (inferred; publisher does not state). Friday 20:00 snapshot (nighttime, hourly cadence). |
-| `travel_time_friday_21` | `double precision` | Source field `travel_time_friday_21`. Unit: minutes (inferred; publisher does not state). Friday 21:00 snapshot (nighttime, hourly cadence). |
-| `travel_time_friday_22` | `double precision` | Source field `travel_time_friday_22`. Unit: minutes (inferred; publisher does not state). Friday 22:00 snapshot (nighttime, hourly cadence). |
-| `travel_time_friday_23` | `double precision` | Source field `travel_time_friday_23`. Unit: minutes (inferred; publisher does not state). Friday 23:00 snapshot (nighttime, hourly cadence). |
-| `travel_time_saturday_00` | `double precision` | Source field `travel_time_saturday_00`. Unit: minutes (inferred; publisher does not state). Saturday 00:00 snapshot (nighttime, hourly cadence). |
-| `travel_time_saturday_01` | `double precision` | Source field `travel_time_saturday_01`. Unit: minutes (inferred; publisher does not state). Saturday 01:00 snapshot (nighttime, hourly cadence). |
-| `travel_time_saturday_02` | `double precision` | Source field `travel_time_saturday_02`. Unit: minutes (inferred; publisher does not state). Saturday 02:00 snapshot (nighttime, hourly cadence). |
-| `travel_time_saturday_03` | `double precision` | Source field `travel_time_saturday_03`. Unit: minutes (inferred; publisher does not state). Saturday 03:00 snapshot (nighttime, hourly cadence). |
-| `travel_time_saturday_04` | `double precision` | Source field `travel_time_saturday_04`. Unit: minutes (inferred; publisher does not state). Saturday 04:00 snapshot (nighttime, hourly cadence). |
-| `travel_time_saturday_05` | `double precision` | Source field `travel_time_saturday_05`. Unit: minutes (inferred; publisher does not state). Saturday 05:00 snapshot (nighttime, hourly cadence). |
+| `source_fid` | `bigint` | Primary key of the source feature in the pre-split layer uk.ecn_geods_foodretail_accessibility_apr2026__preswap_jul03 (non-unique here: a feature spanning N MSOAs has N rows). |
+| `hex_id` | `double precision` |  |
+| `travel_time_friday_06` | `double precision` |  |
+| `travel_time_friday_09` | `double precision` |  |
+| `travel_time_friday_12` | `double precision` |  |
+| `travel_time_friday_15` | `double precision` |  |
+| `travel_time_friday_18` | `double precision` |  |
+| `travel_time_friday_19` | `double precision` |  |
+| `travel_time_friday_20` | `double precision` |  |
+| `travel_time_friday_21` | `double precision` |  |
+| `travel_time_friday_22` | `double precision` |  |
+| `travel_time_friday_23` | `double precision` |  |
+| `travel_time_saturday_00` | `double precision` |  |
+| `travel_time_saturday_01` | `double precision` |  |
+| `travel_time_saturday_02` | `double precision` |  |
+| `travel_time_saturday_03` | `double precision` |  |
+| `travel_time_saturday_04` | `double precision` |  |
+| `travel_time_saturday_05` | `double precision` |  |
+| `msoa21cd` | `character varying` | Middle Layer Super Output Area (MSOA) 2021 code of this piece. Open Government Licence v3.0. |
+| `msoa21nm` | `character varying` | Official ONS MSOA 2021 name of this piece. Open Government Licence v3.0. |
+| `msoa21hclnm` | `text` | House of Commons Library readable MSOA name of this piece. Open Parliament Licence. |
+| `lad22cd` | `text` | Local Authority District 2022 code (2021 LAD geography, anchored to the MSOA 2021 name scoping), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad22nm` | `text` | Local Authority District 2022 name (2021 LAD geography), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad25cd` | `text` | Local Authority District 2025 code (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `geom` | `geometry(MultiPolygon,27700)` |  |
+| `gid` | `bigint` |  |

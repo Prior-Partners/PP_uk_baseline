@@ -30,24 +30,34 @@
 
 - © National Gas. Licence - confirm with National Gas before re-publication.
 
+MSOA SPLIT (added 3 July 2026)
+
+- Geometry split to one row per (source feature x MSOA 2021). Each row carries that MSOA's msoa21cd / msoa21nm / msoa21hclnm and best-fit lad22 / lad25. The source feature's original primary key is preserved as `source_fid`; `gid` is a fresh surrogate primary key. Features with no MSOA overlap (offshore or outside England & Wales) are kept whole with NULL geography columns.
+
 
 ## Columns
 
 | Column | Type | Description / unit |
 |---|---|---|
-| `actualinte` | `double precision` | Source field "actualinte"; attribute carried from source (name truncated). |
-| `owner` | `character varying(3)` | Source field "owner"; pipeline owner. Observed value: "NGT" (National Gas Transmission). |
-| `pipegrade` | `character varying(15)` | Source field "pipegrade"; steel pipe grade (e.g. "X60", "X52", "X80", "L555"). |
-| `inserviced` | `date` | Source field "inserviced"; in-service date (name truncated). |
-| `pipe_name` | `character varying(100)` | Source field "pipe_name"; pipeline name. |
-| `featureid` | `double precision` | Source field "featureid"; source feature identifier. |
-| `shape_leng` | `double precision` | Source field "Shape_Length"; legacy ArcGIS shape length. |
-| `id_original` | `integer` | Original feature id preserved at load. |
-| `lad22nm` | `character varying` | Joined at load from ONS LAD 2022 lookup; 2022 LAD name. |
-| `lad22cd` | `character varying` | Joined at load from ONS LAD 2022 lookup; 2022 LAD GSS code. |
-| `wd21nm` | `character varying` | Joined at load from ONS Ward 2021 lookup; 2021 Ward name. |
-| `wd21cd` | `character varying` | Joined at load from ONS Ward 2021 lookup; 2021 Ward GSS code. |
-| `area_ha` | `double precision` | Area in hectares, computed at load from the geometry. Stale if the geometry is later edited. |
+| `source_fid` | `bigint` | Primary key of the source feature in the pre-split layer uk.utl_nationalgas_pipeline__preswap_jul03 (non-unique here: a feature spanning N MSOAs has N rows). |
+| `actualinte` | `double precision` |  |
+| `owner` | `character varying(3)` |  |
+| `pipegrade` | `character varying(15)` |  |
+| `inserviced` | `date` |  |
+| `pipe_name` | `character varying(100)` |  |
+| `featureid` | `double precision` |  |
+| `shape_leng` | `double precision` |  |
+| `id_original` | `integer` |  |
+| `wd21nm` | `character varying` |  |
+| `wd21cd` | `character varying` |  |
+| `area_ha` | `double precision` |  |
 | `fid` | `bigint` |  |
-| `geom` | `geometry(Polygon,27700)` | Polygon in EPSG:27700. Gas transmission pipeline corridor. |
+| `msoa21cd` | `character varying` | Middle Layer Super Output Area (MSOA) 2021 code of this piece. Open Government Licence v3.0. |
+| `msoa21nm` | `character varying` | Official ONS MSOA 2021 name of this piece. Open Government Licence v3.0. |
+| `msoa21hclnm` | `text` | House of Commons Library readable MSOA name of this piece. Open Parliament Licence. |
+| `lad22cd` | `text` | Local Authority District 2022 code (2021 LAD geography, anchored to the MSOA 2021 name scoping), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad22nm` | `text` | Local Authority District 2022 name (2021 LAD geography), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad25cd` | `text` | Local Authority District 2025 code (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `geom` | `geometry(MultiPolygon,27700)` |  |
 | `gid` | `bigint` |  |

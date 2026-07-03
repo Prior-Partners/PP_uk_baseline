@@ -39,20 +39,30 @@
 
 - Loaded by PNC, May 2026.
 
+MSOA SPLIT (added 3 July 2026)
+
+- Geometry split to one row per (source feature x MSOA 2021). Each row carries that MSOA's msoa21cd / msoa21nm / msoa21hclnm and best-fit lad22 / lad25. The source feature's original primary key is preserved as `source_fid`; `gid` is a fresh surrogate primary key. Features with no MSOA overlap (offshore or outside England & Wales) are kept whole with NULL geography columns.
+
 
 ## Columns
 
 | Column | Type | Description / unit |
 |---|---|---|
-| `id` | `integer` | Source identifier preserved at load. |
-| `fid_original` | `bigint` | Original feature id preserved at load. |
-| `alcgrade` | `bigint` | Source field "alcgrade"; numeric sort key 1-8 paired with `alc`. Mapping observed: 1->"1", 2->"2", 3->"3a", 4->"3b", 5->"4", 6->"5", 7->"NA", 8->"U". |
-| `alc` | `character varying(2)` | Source field "alc"; Agricultural Land Classification grade as published. Observed values: "1", "2", "3a", "3b", "4", "5", "NA", "U". |
-| `lad25cd` | `character varying` | Joined at load from ONS LAD 2025 lookup; 2025 LAD GSS code. |
-| `lad25nm` | `character varying` | Joined at load from ONS LAD 2025 lookup; 2025 LAD name. |
-| `geom` | `geometry(MultiPolygon,27700)` | MultiPolygon in EPSG:27700. ALC polygon geometry. |
-| `area_ha` | `double precision` | Area in hectares, computed at load from the geometry. Stale if the geometry is later edited. |
-| `fid` | `bigint` |  |
-| `rgn22cd` | `text` | Joined at load from ONS LAD->Region lookup; 2022 Region GSS code. |
-| `rgn22nm` | `text` | Joined at load from ONS LAD->Region lookup; 2022 Region name. |
-| `sds_boundary` | `text` | Internal categorisation: Spatial Development Strategy (SDS) area where the polygon falls. Blank or NULL where outside any SDS area. |
+| `source_fid` | `bigint` | Primary key of the source feature in the pre-split layer uk.env_defra_predictive_agricultural_land_class_mar2026__preswap_j (non-unique here: a feature spanning N MSOAs has N rows). |
+| `id` | `integer` |  |
+| `fid_original` | `bigint` |  |
+| `alcgrade` | `bigint` |  |
+| `alc` | `character varying(2)` |  |
+| `area_ha` | `double precision` |  |
+| `rgn22cd` | `text` |  |
+| `rgn22nm` | `text` |  |
+| `sds_boundary` | `text` |  |
+| `msoa21cd` | `character varying` | Middle Layer Super Output Area (MSOA) 2021 code of this piece. Open Government Licence v3.0. |
+| `msoa21nm` | `character varying` | Official ONS MSOA 2021 name of this piece. Open Government Licence v3.0. |
+| `msoa21hclnm` | `text` | House of Commons Library readable MSOA name of this piece. Open Parliament Licence. |
+| `lad22cd` | `text` | Local Authority District 2022 code (2021 LAD geography, anchored to the MSOA 2021 name scoping), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad22nm` | `text` | Local Authority District 2022 name (2021 LAD geography), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad25cd` | `text` | Local Authority District 2025 code (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `geom` | `geometry(MultiPolygon,27700)` |  |
+| `gid` | `bigint` |  |

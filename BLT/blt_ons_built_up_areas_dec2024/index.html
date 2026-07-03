@@ -3497,6 +3497,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../ENV/env_ncea_peaty_soil_extent_may2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    env_ncea_peaty_soil_extent_may2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../ENV/env_ons_access_to_public_parks_playing_fields_apr2020/" class="md-nav__link">
         
   
@@ -5258,6 +5286,10 @@
 <ul>
 <li>Loaded November 2024.</li>
 </ul>
+<p>MSOA SPLIT (added 3 July 2026)</p>
+<ul>
+<li>Geometry split to one row per (source feature x MSOA 2021). Each row carries that MSOA's msoa21cd / msoa21nm / msoa21hclnm and best-fit lad22 / lad25. The source feature's original primary key is preserved as <code>source_fid</code>; <code>gid</code> is a fresh surrogate primary key. Features with no MSOA overlap (offshore or outside England &amp; Wales) are kept whole with NULL geography columns.</li>
+</ul>
 <h2 id="columns">Columns<a class="headerlink" href="#columns" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -5269,74 +5301,69 @@
 </thead>
 <tbody>
 <tr>
+<td><code>source_fid</code></td>
+<td><code>bigint</code></td>
+<td>Primary key of the source feature in the pre-split layer uk.blt_ons_built_up_areas_dec2024__preswap_jul03 (non-unique here: a feature spanning N MSOAs has N rows).</td>
+</tr>
+<tr>
 <td><code>objectid</code></td>
 <td><code>integer</code></td>
-<td>Source field "OBJECTID"; ArcGIS surrogate from upstream.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>gsscode</code></td>
 <td><code>character varying(10)</code></td>
-<td>Source field "GSSCode"; ONS GSS code for the BUA (mirrors bua24cd).</td>
+<td></td>
 </tr>
 <tr>
 <td><code>bua24cd</code></td>
 <td><code>character varying(10)</code></td>
-<td>Source field "BUA24CD"; ONS GSS code for the Built Up Area (e.g. "E63011973"). NOT unique per row - see table comment.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>bua24nm</code></td>
 <td><code>character varying(100)</code></td>
-<td>Source field "BUA24NM"; human-readable BUA name (English).</td>
+<td></td>
 </tr>
 <tr>
 <td><code>bua24nmw</code></td>
 <td><code>character varying(100)</code></td>
-<td>Source field "BUA24NMW"; human-readable BUA name (Welsh, populated where applicable).</td>
+<td></td>
 </tr>
 <tr>
 <td><code>geometry_a</code></td>
 <td><code>double precision</code></td>
-<td>Source field "Geometry_Area"; whole-BUA area. Unit: "square metres". Constant within a bua24cd group.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>areahectar</code></td>
 <td><code>double precision</code></td>
-<td>Source field "AreaHectares"; whole-BUA area. Unit: "hectares". Constant within a bua24cd group.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>globalid</code></td>
 <td><code>character varying(38)</code></td>
-<td>Source field "GlobalID"; ArcGIS GUID.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>id_original</code></td>
 <td><code>integer</code></td>
-<td>Source numeric identifier preserved at load.</td>
-</tr>
-<tr>
-<td><code>lad22nm</code></td>
-<td><code>character varying</code></td>
-<td>Joined at load from spatial intersection with ONS 2022 LAD boundaries; LAD name.</td>
-</tr>
-<tr>
-<td><code>lad22cd</code></td>
-<td><code>character varying</code></td>
-<td>Joined at load from spatial intersection with ONS 2022 LAD boundaries; LAD GSS code.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>wd21nm</code></td>
 <td><code>character varying</code></td>
-<td>Joined at load from spatial intersection with ONS 2021 Ward boundaries; Ward name.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>wd21cd</code></td>
 <td><code>character varying</code></td>
-<td>Joined at load from spatial intersection with ONS 2021 Ward boundaries; Ward GSS code.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>area_ha</code></td>
 <td><code>double precision</code></td>
-<td>Derived at load from ST_Area(geom)/10000 - area of THIS polygon part. Unit: "hectares". For whole-BUA area use areahectar.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>fid</code></td>
@@ -5344,9 +5371,44 @@
 <td></td>
 </tr>
 <tr>
+<td><code>msoa21cd</code></td>
+<td><code>character varying</code></td>
+<td>Middle Layer Super Output Area (MSOA) 2021 code of this piece. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>msoa21nm</code></td>
+<td><code>character varying</code></td>
+<td>Official ONS MSOA 2021 name of this piece. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>msoa21hclnm</code></td>
+<td><code>text</code></td>
+<td>House of Commons Library readable MSOA name of this piece. Open Parliament Licence.</td>
+</tr>
+<tr>
+<td><code>lad22cd</code></td>
+<td><code>text</code></td>
+<td>Local Authority District 2022 code (2021 LAD geography, anchored to the MSOA 2021 name scoping), best-fit from this piece's msoa21cd. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>lad22nm</code></td>
+<td><code>text</code></td>
+<td>Local Authority District 2022 name (2021 LAD geography), best-fit from this piece's msoa21cd. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>lad25cd</code></td>
+<td><code>text</code></td>
+<td>Local Authority District 2025 code (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>lad25nm</code></td>
+<td><code>text</code></td>
+<td>Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0.</td>
+</tr>
+<tr>
 <td><code>geom</code></td>
-<td><code>geometry(Polygon,27700)</code></td>
-<td>Source field "geometry"; Polygon in EPSG:27700 (British National Grid).</td>
+<td><code>geometry(MultiPolygon,27700)</code></td>
+<td></td>
 </tr>
 <tr>
 <td><code>gid</code></td>

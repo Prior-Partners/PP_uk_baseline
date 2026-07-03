@@ -33,7 +33,8 @@
 
 **DATA QUALITY CAVEATS**
 
-- Land-only: Special Areas of Conservation extend offshore, but the MSOA backbone is terrestrial, so the marine and intertidal extent (about 15% of area, and the wholly-marine sites) is not represented here. Use the pre-split layer uk.env_naturalengland_special_areas_conservation_oct2024__preswap_jun30 for the full extent.
+- Marine and intertidal extent restored 3 July 2026: wholly-marine sites and offshore remainders are held as rows with NULL geography columns; the layer holds the complete source extent.
+- Keep-everything (3 July 2026): geometry outside every MSOA — offshore, estuarine, or beyond the generalised coastline — is retained as rows with NULL geography columns (source_fid links the parts), so the layer holds the complete source geometry.
 
 **LOADED INTO uk_baseline**
 

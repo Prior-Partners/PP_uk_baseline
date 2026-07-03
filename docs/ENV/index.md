@@ -2,7 +2,7 @@
 
 *Protected sites, woodland, green spaces, flood zones, air quality, noise monitoring, radiation monitoring*
 
-30 layers.
+31 layers.
 
 - [Defra - Department for Environment, Food and Rural Affairs — Environment Agency Flood Map for Planning, Flood Zones 2 and 3, January 2025](env_defra_flood_zone_jan2025.md) · `env_defra_flood_zone_jan2025`
 - [Defra - Department for Environment, Food and Rural Affairs — Environment Agency Flood Map for Planning, Flood Zones 2 and 3 (river and sea), April 2026](env_defra_flood_zones_2_3_river_sea_april2026.md) · `env_defra_flood_zones_2_3_river_sea_april2026`
@@ -25,6 +25,7 @@
 - [Natural England Special Areas of Conservation (SAC) for England, October 2024](env_naturalengland_special_areas_conservation_oct2024.md) · `env_naturalengland_special_areas_conservation_oct2024`
 - [Natural England Special Protection Areas (SPA) for England, April 2026](env_naturalengland_special_protection_areas_apr2026.md) · `env_naturalengland_special_protection_areas_apr2026`
 - [Natural England Sites of Special Scientific Interest (SSSI) for England, April 2026](env_naturalengland_sssi_apr2026.md) · `env_naturalengland_sssi_apr2026`
+- [env_ncea_peaty_soil_extent_may2025](env_ncea_peaty_soil_extent_may2025.md) · `env_ncea_peaty_soil_extent_may2025`
 - [ONS Access to public parks and playing fields, Great Britain, April 2020](env_ons_access_to_public_parks_playing_fields_apr2020.md) · `env_ons_access_to_public_parks_playing_fields_apr2020`
 - [ONS National Parks (England), May 2026](env_ons_national_park_may2026.md) · `env_ons_national_park_may2026`
 - [Ordnance Survey OS Open Greenspace — Access Points for Great Britain, April 2025](env_os_green_space_access_points_apr2025.md) · `env_os_green_space_access_points_apr2025`

@@ -42,27 +42,37 @@ Published by Natural England as "completed counties" coverage.
 
 - Loaded by PNC, May 2026.
 
+MSOA SPLIT (added 3 July 2026)
+
+- Geometry split to one row per (source feature x MSOA 2021). Each row carries that MSOA's msoa21cd / msoa21nm / msoa21hclnm and best-fit lad22 / lad25. The source feature's original primary key is preserved as `source_fid`; `gid` is a fresh surrogate primary key. Features with no MSOA overlap (offshore or outside England & Wales) are kept whole with NULL geography columns.
+
 
 ## Columns
 
 | Column | Type | Description / unit |
 |---|---|---|
-| `fid_original` | `integer` | Original feature id preserved at load. |
-| `name` | `character varying` | Source field "name"; woodland site name. |
-| `theme` | `character varying` | Source field "theme"; theme classification. |
-| `themename` | `character varying` | Source field "themename"; theme name. Observed themename/status pairs: "Ancient & Semi-Natural Woodland"/ASNW, "Ancient Replanted Woodland"/ARW, "Infilled Ancient Wood Pasture"/IAWPP, "Ancient Wood Pasture"/AWPP. |
-| `status` | `character varying` | Source field "status"; status code. Observed values: "ASNW", "ARW", "IAWPP", "AWPP". |
-| `x_coord` | `integer` | Source field "x_coord"; representative point easting. Unit: "metres" (EPSG:27700). |
-| `y_coord` | `integer` | Source field "y_coord"; representative point northing. Unit: "metres" (EPSG:27700). |
-| `themeid` | `character varying` | Source field "themeid"; theme identifier. |
-| `area` | `double precision` | Source field "area"; legacy shape area carried from the source. |
-| `perimeter` | `double precision` | Source field "perimeter"; legacy shape perimeter carried from the source. |
-| `globalid` | `character varying` | Source field "GlobalID"; ArcGIS GlobalID GUID. |
-| `lad25cd` | `character varying` | Joined at load from ONS LAD 2025 lookup; 2025 LAD GSS code. |
-| `lad25nm` | `character varying` | Joined at load from ONS LAD 2025 lookup; 2025 LAD name. |
-| `geom` | `geometry(MultiPolygon,27700)` | MultiPolygon in EPSG:27700. Ancient woodland polygon geometry. |
-| `area_ha` | `double precision` | Area in hectares, computed at load from the geometry. Stale if the geometry is later edited. |
-| `fid` | `bigint` |  |
-| `rgn22cd` | `text` | Joined at load from ONS LAD->Region lookup; 2022 Region GSS code. |
-| `rgn22nm` | `text` | Joined at load from ONS LAD->Region lookup; 2022 Region name. |
-| `sds_boundary` | `text` | Internal categorisation: Spatial Development Strategy (SDS) area where the polygon falls. Blank or NULL where outside any SDS area. |
+| `source_fid` | `bigint` | Primary key of the source feature in the pre-split layer uk.env_naturalengland_ancient_woodland_revised_apr2026__preswap_ju (non-unique here: a feature spanning N MSOAs has N rows). |
+| `fid_original` | `integer` |  |
+| `name` | `character varying` |  |
+| `theme` | `character varying` |  |
+| `themename` | `character varying` |  |
+| `status` | `character varying` |  |
+| `x_coord` | `integer` |  |
+| `y_coord` | `integer` |  |
+| `themeid` | `character varying` |  |
+| `area` | `double precision` |  |
+| `perimeter` | `double precision` |  |
+| `globalid` | `character varying` |  |
+| `area_ha` | `double precision` |  |
+| `rgn22cd` | `text` |  |
+| `rgn22nm` | `text` |  |
+| `sds_boundary` | `text` |  |
+| `msoa21cd` | `character varying` | Middle Layer Super Output Area (MSOA) 2021 code of this piece. Open Government Licence v3.0. |
+| `msoa21nm` | `character varying` | Official ONS MSOA 2021 name of this piece. Open Government Licence v3.0. |
+| `msoa21hclnm` | `text` | House of Commons Library readable MSOA name of this piece. Open Parliament Licence. |
+| `lad22cd` | `text` | Local Authority District 2022 code (2021 LAD geography, anchored to the MSOA 2021 name scoping), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad22nm` | `text` | Local Authority District 2022 name (2021 LAD geography), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad25cd` | `text` | Local Authority District 2025 code (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `geom` | `geometry(MultiPolygon,27700)` |  |
+| `gid` | `bigint` |  |

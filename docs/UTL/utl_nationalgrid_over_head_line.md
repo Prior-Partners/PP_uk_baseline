@@ -30,24 +30,34 @@
 
 - © National Grid. Licence - confirm with National Grid before re-publication.
 
+MSOA SPLIT (added 4 July 2026)
+
+- Geometry split to one row per (source feature x MSOA 2021). Each row carries that MSOA's msoa21cd / msoa21nm / msoa21hclnm and best-fit lad22 / lad25. The source feature's original primary key is preserved as `source_fid`; `gid` is a fresh surrogate primary key. Geometry outside every MSOA (offshore or outside England & Wales) is retained as rows with NULL geography columns, so the layer holds the complete source geometry.
+
 
 ## Columns
 
 | Column | Type | Description / unit |
 |---|---|---|
-| `gdo_gid` | `numeric` | Source field "gdo_gid"; source feature identifier. |
-| `route_asse` | `character varying(12)` | Source field "route_asse"; route asset reference (name truncated). |
-| `towers_in` | `character varying(40)` | Source field "towers_in"; towers on the route (name truncated). |
-| `action_dtt` | `date` | Source field "action_dtt"; action date (name truncated). |
-| `status` | `character varying(1)` | Source field "status"; source status code. Observed values: "C", "E". |
-| `operating_` | `character varying(18)` | Source field "operating_"; operating voltage in kV. Observed values: "400", "275", "132", "33", "25". |
-| `circuit1` | `character varying(200)` | Source field "circuit1"; first circuit identifier. |
-| `circuit2` | `character varying(200)` | Source field "circuit2"; second circuit identifier. |
-| `id_original` | `integer` | Original feature id preserved at load. |
-| `lad22nm` | `character varying` | Joined at load from ONS LAD 2022 lookup; 2022 LAD name. |
-| `lad22cd` | `character varying` | Joined at load from ONS LAD 2022 lookup; 2022 LAD GSS code. |
-| `wd21nm` | `character varying` | Joined at load from ONS Ward 2021 lookup; 2021 Ward name. |
-| `wd21cd` | `character varying` | Joined at load from ONS Ward 2021 lookup; 2021 Ward GSS code. |
-| `geom` | `geometry(LineString,27700)` | LineString in EPSG:27700. Overhead transmission line route. |
-| `length_m` | `double precision` | Length in metres. |
-| `fid` | `bigint` |  |
+| `source_fid` | `bigint` | Primary key of the source feature in the pre-split layer uk.utl_nationalgrid_over_head_line__preswap_jul04 (non-unique here: a feature spanning N MSOAs has N rows). |
+| `gdo_gid` | `numeric` |  |
+| `route_asse` | `character varying(12)` |  |
+| `towers_in` | `character varying(40)` |  |
+| `action_dtt` | `date` |  |
+| `status` | `character varying(1)` |  |
+| `operating_` | `character varying(18)` |  |
+| `circuit1` | `character varying(200)` |  |
+| `circuit2` | `character varying(200)` |  |
+| `id_original` | `integer` |  |
+| `wd21nm` | `character varying` |  |
+| `wd21cd` | `character varying` |  |
+| `length_m` | `double precision` |  |
+| `msoa21cd` | `character varying` | Middle Layer Super Output Area (MSOA) 2021 code of this piece. Open Government Licence v3.0. |
+| `msoa21nm` | `character varying` | Official ONS MSOA 2021 name of this piece. Open Government Licence v3.0. |
+| `msoa21hclnm` | `text` | House of Commons Library readable MSOA name of this piece. Open Parliament Licence. |
+| `lad22cd` | `text` | Local Authority District 2022 code (2021 LAD geography, anchored to the MSOA 2021 name scoping), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad22nm` | `text` | Local Authority District 2022 name (2021 LAD geography), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad25cd` | `text` | Local Authority District 2025 code (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `geom` | `geometry(MultiLineString,27700)` |  |
+| `gid` | `bigint` |  |

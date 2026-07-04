@@ -37,21 +37,33 @@
 
 - Loaded by PNC, May 2026.
 
+MSOA SPLIT (added 4 July 2026)
+
+- Geometry split to one row per (source feature x MSOA 2021). Each row carries that MSOA's msoa21cd / msoa21nm / msoa21hclnm and best-fit lad22 / lad25. The source feature's original primary key is preserved as `source_fid`; `gid` is a fresh surrogate primary key. Geometry outside every MSOA (offshore or outside England & Wales) is retained as rows with NULL geography columns, so the layer holds the complete source geometry.
+
 
 ## Columns
 
 | Column | Type | Description / unit |
 |---|---|---|
+| `source_fid` | `bigint` | Primary key of the source feature in the pre-split layer uk.mob_public_right_of_way__preswap_jul04 (non-unique here: a feature spanning N MSOAs has N rows). |
+| `authority_gss` | `text` |  |
+| `authority_name` | `text` |  |
+| `prow_ref` | `text` |  |
+| `prow_type_norm` | `text` |  |
+| `prow_type_raw` | `text` |  |
+| `length_m` | `double precision` |  |
+| `source_url` | `text` |  |
+| `source_licence` | `text` |  |
+| `source_published_date` | `date` |  |
+| `source_sha256` | `text` |  |
+| `update_date` | `text` |  |
+| `msoa21cd` | `character varying` | Middle Layer Super Output Area (MSOA) 2021 code of this piece. Open Government Licence v3.0. |
+| `msoa21nm` | `character varying` | Official ONS MSOA 2021 name of this piece. Open Government Licence v3.0. |
+| `msoa21hclnm` | `text` | House of Commons Library readable MSOA name of this piece. Open Parliament Licence. |
+| `lad22cd` | `text` | Local Authority District 2022 code (2021 LAD geography, anchored to the MSOA 2021 name scoping), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad22nm` | `text` | Local Authority District 2022 name (2021 LAD geography), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad25cd` | `text` | Local Authority District 2025 code (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `geom` | `geometry(MultiLineString,27700)` |  |
 | `gid` | `bigint` |  |
-| `geom` | `geometry(MultiLineString,27700)` | LineString in EPSG:27700. PRoW segment geometry. |
-| `authority_gss` | `text` | Source field; surveying authority ONS GSS code. |
-| `authority_name` | `text` | Source field; surveying authority name (e.g. "Barnsley", "Bedford"). |
-| `prow_ref` | `text` | Source field; the authority's PRoW reference for the segment. |
-| `prow_type_norm` | `text` | Normalised PRoW type. Observed values: "footpath", "bridleway", "restricted_byway", "boat" (byway open to all traffic), "cycle_track", "other". |
-| `prow_type_raw` | `text` | Source field; the authority's raw PRoW type value before normalisation. |
-| `length_m` | `double precision` | Length in metres. |
-| `source_url` | `text` | Source field; URL of the authority's source dataset for this segment. |
-| `source_licence` | `text` | Source field; licence of the authority's source data. Observed values: "Open Government Licence (v3)", "OS OpenData Licence". |
-| `source_published_date` | `date` | Source field; publication date of the authority's source data. |
-| `source_sha256` | `text` | SHA-256 checksum of the source file the segment was loaded from. |
-| `update_date` | `text` | Date the segment was loaded or last updated in uk_baseline. |

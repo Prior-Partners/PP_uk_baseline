@@ -5273,6 +5273,11 @@
 <ul>
 <li>Loaded by PNC, May 2026.</li>
 </ul>
+<p>MSOA SPLIT (added 4 July 2026)</p>
+<ul>
+<li>Geometry split to one row per (source feature x MSOA 2021). Each row carries that MSOA's msoa21cd / msoa21nm / msoa21hclnm and best-fit lad22 / lad25. The source feature's original primary key is preserved as <code>source_fid</code>; <code>gid</code> is a fresh surrogate primary key. Geometry outside every MSOA (offshore or outside England &amp; Wales) is retained as rows with NULL geography columns, so the layer holds the complete source geometry.</li>
+<li>Route lines that traverse the same street more than once (out-and-back loops) are stored once per MSOA piece after the split: repeated linework within a route is merged by the geometric overlay, so summed piece length is about 1.4% below the pre-split total while every street a route uses remains fully represented. The pre-split encoding, with repeated traversals, is uk.mob_dft_bods_bus_routes__preswap_jul04.</li>
+</ul>
 <h2 id="columns">Columns<a class="headerlink" href="#columns" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -5284,89 +5289,129 @@
 </thead>
 <tbody>
 <tr>
-<td><code>id</code></td>
+<td><code>source_fid</code></td>
 <td><code>integer</code></td>
-<td>Surrogate row identifier.</td>
+<td>Primary key of the source feature in the pre-split layer uk.mob_dft_bods_bus_routes__preswap_jul04 (non-unique here: a feature spanning N MSOAs has N rows).</td>
 </tr>
 <tr>
 <td><code>route_id</code></td>
 <td><code>character varying(100)</code></td>
-<td>Internal route identifier.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>gtfs_route_id</code></td>
 <td><code>character varying(100)</code></td>
-<td>Source field "route_id" (GTFS); GTFS route identifier.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>gtfs_shape_id</code></td>
 <td><code>character varying(100)</code></td>
-<td>Source field "shape_id" (GTFS); GTFS shape identifier for the route geometry.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>line_name</code></td>
 <td><code>character varying(100)</code></td>
-<td>Source field; published line name (e.g. service number).</td>
+<td></td>
 </tr>
 <tr>
 <td><code>route_long_name</code></td>
 <td><code>character varying(500)</code></td>
-<td>Source field; full route name.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>agency_id</code></td>
 <td><code>character varying(50)</code></td>
-<td>Source field "agency_id" (GTFS); operator identifier.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>agency_name</code></td>
 <td><code>character varying(500)</code></td>
-<td>Source field "agency_name" (GTFS); operator name.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>agency_noc</code></td>
 <td><code>character varying(20)</code></td>
-<td>Source field; operator National Operator Code (NOC).</td>
+<td></td>
 </tr>
 <tr>
 <td><code>stops_served</code></td>
 <td><code>jsonb</code></td>
-<td>Ordered list of stops served by the route.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>stop_count</code></td>
 <td><code>integer</code></td>
-<td>Number of stops served by the route.</td>
-</tr>
-<tr>
-<td><code>geom</code></td>
-<td><code>geometry(LineString,27700)</code></td>
-<td>LineString in EPSG:27700. Bus route polyline.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>geom_source</code></td>
 <td><code>character varying(50)</code></td>
-<td>Geometry provenance. Observed values: "gtfs_shape" (published GTFS shape), "reconstructed" (built from the stop sequence).</td>
+<td></td>
 </tr>
 <tr>
 <td><code>total_distance_metres</code></td>
 <td><code>numeric</code></td>
-<td>Route length. Unit: metres.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>route_class</code></td>
 <td><code>character varying(20)</code></td>
-<td>Route class. Observed values: "local", "regional", "intercity", "coach".</td>
+<td></td>
 </tr>
 <tr>
 <td><code>feed_source</code></td>
 <td><code>character varying(50)</code></td>
-<td>Feed provenance. Observed values: "bods_gtfs_all" (national GTFS bundle), "txc_fallback" (per-operator TransXChange).</td>
+<td></td>
 </tr>
 <tr>
 <td><code>feed_loaded_at</code></td>
 <td><code>timestamp without time zone</code></td>
-<td>Timestamp the source feed was loaded.</td>
+<td></td>
+</tr>
+<tr>
+<td><code>msoa21cd</code></td>
+<td><code>character varying</code></td>
+<td>Middle Layer Super Output Area (MSOA) 2021 code of this piece. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>msoa21nm</code></td>
+<td><code>character varying</code></td>
+<td>Official ONS MSOA 2021 name of this piece. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>msoa21hclnm</code></td>
+<td><code>text</code></td>
+<td>House of Commons Library readable MSOA name of this piece. Open Parliament Licence.</td>
+</tr>
+<tr>
+<td><code>lad22cd</code></td>
+<td><code>text</code></td>
+<td>Local Authority District 2022 code (2021 LAD geography, anchored to the MSOA 2021 name scoping), best-fit from this piece's msoa21cd. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>lad22nm</code></td>
+<td><code>text</code></td>
+<td>Local Authority District 2022 name (2021 LAD geography), best-fit from this piece's msoa21cd. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>lad25cd</code></td>
+<td><code>text</code></td>
+<td>Local Authority District 2025 code (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>lad25nm</code></td>
+<td><code>text</code></td>
+<td>Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>geom</code></td>
+<td><code>geometry(MultiLineString,27700)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>gid</code></td>
+<td><code>bigint</code></td>
+<td></td>
 </tr>
 </tbody>
 </table>

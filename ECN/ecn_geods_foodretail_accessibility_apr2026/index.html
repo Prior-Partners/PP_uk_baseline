@@ -25,7 +25,7 @@
     
     
       
-        <title>Foodretail_accessibility - uk_baseline data catalogue</title>
+        <title>London Nighttime Access to Food Retail - uk_baseline data catalogue</title>
       
     
     
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Foodretail_accessibility
+              London Nighttime Access to Food Retail
             
           </span>
         </div>
@@ -1969,7 +1969,7 @@
   <span class="md-ellipsis">
     
   
-    Foodretail_accessibility
+    London Nighttime Access to Food Retail
   
 
     
@@ -1987,7 +1987,7 @@
   <span class="md-ellipsis">
     
   
-    Foodretail_accessibility
+    London Nighttime Access to Food Retail
   
 
     
@@ -5263,7 +5263,7 @@
 
 
 <h1 id="geods-london-nighttime-access-to-food-retail-options-april-2026">GeoDS London Nighttime Access to Food Retail Options, April 2026<a class="headerlink" href="#geods-london-nighttime-access-to-food-retail-options-april-2026" title="Permanent link">&para;</a></h1>
-<p class="layer-short">Foodretail_accessibility</p>
+<p class="layer-short">London Nighttime Access to Food Retail</p>
 
 <p><code>ecn_geods_foodretail_accessibility_apr2026</code></p>
 <p><img src="../../maps/ecn_geods_foodretail_accessibility_apr2026.png" alt="Styling preview of ecn_geods_foodretail_accessibility_apr2026" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></p>
@@ -5306,15 +5306,14 @@
 <li>Values appear capped at 60. Whether this is the analytical horizon or the maximum observed travel time is not documented.</li>
 <li>Hex_ID is stored as double precision but the publisher's data summary reports type=integer. Values are well within int4 range.</li>
 </ul>
+<p><strong>ENRICHMENT</strong></p>
+<ul>
+<li>msoa21cd, msoa21nm, msoa21hclnm, lad22cd, lad22nm, lad25cd, lad25nm, source_fid, gid</li>
+</ul>
 <p><strong>LOADED INTO uk_baseline</strong></p>
 <ul>
 <li>Data published: 2026-04-15</li>
 <li>Imported: 2026-05-28 by PNC</li>
-</ul>
-<p>MSOA SPLIT (added 3 July 2026)</p>
-<ul>
-<li>Geometry split to one row per (source feature x MSOA 2021). Each row carries that MSOA's msoa21cd / msoa21nm / msoa21hclnm and best-fit lad22 / lad25. The source feature's original primary key is preserved as <code>source_fid</code>; <code>gid</code> is a fresh surrogate primary key. Features with no MSOA overlap (offshore or outside England &amp; Wales) are kept whole with NULL geography columns.</li>
-<li>Keep-everything (3 July 2026): geometry outside every MSOA — offshore, estuarine, or beyond the generalised coastline — is retained as rows with NULL geography columns (source_fid links the parts), so the layer holds the complete source geometry.</li>
 </ul>
 <h2 id="columns">Columns<a class="headerlink" href="#columns" title="Permanent link">&para;</a></h2>
 <table>

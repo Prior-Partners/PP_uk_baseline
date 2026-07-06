@@ -1,6 +1,6 @@
 # ONS small area model-based income estimates at Middle-layer Super Output Area (MSOA) 2011
 
-<p class="layer-short">Income</p>
+<p class="layer-short">Income 2011</p>
 
 `dem_ons_msoa_income_2011`
 

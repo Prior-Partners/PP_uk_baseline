@@ -1,6 +1,6 @@
 # ONS Middle layer Super Output Areas (MSOA), England & Wales extent, December 2021
 
-<p class="layer-short">Middle Layer Super Output Area Boundary</p>
+<p class="layer-short">Middle Layer Super Output Area Boundary 2021</p>
 
 `adm_ons_msoa_boundary_2021`
 

@@ -1,6 +1,6 @@
 # ONS Access to Healthy Assets and Hazards (AHAH) composite index, May 2026
 
-<p class="layer-short">Access to Healthy Assets and Hazards (AHAH)</p>
+<p class="layer-short">Access to Healthy Assets and Hazards (AHAH) 2026</p>
 
 `dem_ons_lsoa_access_healthy_assets_hazards_may2026`
 

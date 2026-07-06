@@ -1,6 +1,6 @@
 # MHCLG Local plan boundary, January 2026
 
-<p class="layer-short">Local Plan Boundary</p>
+<p class="layer-short">Local Plan Boundary 2026</p>
 
 `adm_mhclg_local_plan_boundary_jan2026`
 

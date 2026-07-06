@@ -1,6 +1,6 @@
 # Department for Energy Security and Net Zero (DESNZ) sub-regional fuel poverty estimates at LSOA (England), 2023
 
-<p class="layer-short">Fuel Poverty</p>
+<p class="layer-short">Fuel Poverty 2023</p>
 
 `dem_desnz_lsoa_fuel_poverty_2023`
 

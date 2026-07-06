@@ -1,6 +1,6 @@
 # ONS Census 2011 industry of employment at Lower-layer Super Output Area (LSOA) 2011
 
-<p class="layer-short">Industry Occupation</p>
+<p class="layer-short">Census 2011 Industry and Occupation</p>
 
 `dem_ons_lsoa_industry_occupation_2011`
 

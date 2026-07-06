@@ -1,6 +1,6 @@
 # ONS Lower layer Super Output Areas (LSOA), England & Wales extent, December 2021
 
-<p class="layer-short">Lower Layer Super Output Area Boundary</p>
+<p class="layer-short">Lower Layer Super Output Area Boundary 2021</p>
 
 `adm_ons_lsoa_boundary_2021`
 

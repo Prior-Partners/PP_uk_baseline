@@ -1,6 +1,6 @@
 # ONS Local Authority Districts (LAD), England & Wales extent, December 2011
 
-<p class="layer-short">Local Authority District Boundary</p>
+<p class="layer-short">Local Authority District Boundary 2011</p>
 
 `adm_ons_lad_boundary_2011`
 

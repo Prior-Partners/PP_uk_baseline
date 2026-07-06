@@ -1,6 +1,6 @@
 # ONS Local Authority Districts (LAD), UK extent, May 2025
 
-<p class="layer-short">Local Authority District Boundary</p>
+<p class="layer-short">Local Authority District Boundary 2025</p>
 
 `adm_ons_lad_boundary_may2025`
 

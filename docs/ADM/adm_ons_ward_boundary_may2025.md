@@ -1,6 +1,6 @@
 # ONS Wards (electoral wards), England & Wales extent, May 2025
 
-<p class="layer-short">Ward Boundary</p>
+<p class="layer-short">Ward Boundary 2025</p>
 
 `adm_ons_ward_boundary_may2025`
 

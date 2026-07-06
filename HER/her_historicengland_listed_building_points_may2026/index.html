@@ -5272,6 +5272,14 @@
 <ul>
 <li>Open Government Licence v3.0. © Historic England.</li>
 </ul>
+<p><strong>DATA QUALITY CAVEATS</strong></p>
+<ul>
+<li>417 coastal and offshore listed structures (0.11% of the layer) lie outside every MSOA polygon and so carry NULL msoa21cd, msoa21nm and msoa21hclnm.</li>
+</ul>
+<p><strong>ENRICHMENT</strong></p>
+<ul>
+<li><code>msoa21hclnm</code> — House of Commons Library readable MSOA name, assigned at load from the listed-building point in its 2021 MSOA (uk_baseline.adm_ons_msoa_boundary_2021). Open Parliament Licence.</li>
+</ul>
 <p><strong>LOADED INTO uk_baseline</strong></p>
 <ul>
 <li>Loaded by PNC, May 2026.</li>
@@ -5386,6 +5394,31 @@
 <td><code>text</code></td>
 <td>Internal categorisation: Spatial Development Strategy (SDS) area where the geometry falls. Blank or NULL where outside any SDS area.</td>
 </tr>
+<tr>
+<td><code>msoa21cd</code></td>
+<td><code>text</code></td>
+<td>Middle Layer Super Output Area (MSOA) 2021 code. Assigned at load from the listed-building point (representative point of the MULTIPOINT geometry) located in uk_baseline.adm_ons_msoa_boundary_2021. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>msoa21nm</code></td>
+<td><code>text</code></td>
+<td>Official Office for National Statistics MSOA 2021 name. Assigned at load from the listed-building point located in uk_baseline.adm_ons_msoa_boundary_2021. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>msoa21hclnm</code></td>
+<td><code>text</code></td>
+<td>House of Commons Library readable MSOA name. Assigned at load from the listed-building point located in its 2021 MSOA (uk_baseline.adm_ons_msoa_boundary_2021, which carries the House of Commons Library name). Open Parliament Licence.</td>
+</tr>
+<tr>
+<td><code>lad22cd</code></td>
+<td><code>text</code></td>
+<td>Local Authority District 2022 code (2021 LAD geography). Assigned at load from the listed-building point located in uk_baseline.adm_ons_lad_boundary_may2022. Open Government Licence v3.0.</td>
+</tr>
+<tr>
+<td><code>lad22nm</code></td>
+<td><code>text</code></td>
+<td>Local Authority District 2022 name (2021 LAD geography). Assigned at load from the listed-building point located in uk_baseline.adm_ons_lad_boundary_may2022. Open Government Licence v3.0.</td>
+</tr>
 </tbody>
 </table>
 
@@ -5417,7 +5450,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Developed by the Digital Innovation team, Prior + Partners — last updated 04 July 2026
+      Developed by the Digital Innovation team, Prior + Partners — last updated 06 July 2026
     </div>
   
   

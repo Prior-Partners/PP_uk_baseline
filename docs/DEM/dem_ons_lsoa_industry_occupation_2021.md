@@ -1,6 +1,6 @@
 # ONS Census 2021 industry and occupation at Lower-layer Super Output Area (LSOA) 2021
 
-<p class="layer-short">Census 2021 Industry</p>
+<p class="layer-short">Census 2021 Industry and Occupation</p>
 
 `dem_ons_lsoa_industry_occupation_2021`
 

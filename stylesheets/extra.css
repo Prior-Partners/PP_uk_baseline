@@ -1,4 +1,181 @@
-/* Catalogue nav: show full, wrapped layer names (no ellipsis truncation). */
+/* =====================================================================
+   Prior + Partners brand skin — uk_baseline data catalogue (PREVIEW)
+   ---------------------------------------------------------------------
+   Tokens sourced from the firm dashboard template:
+     - Place+  src/resources/theme.css   (--prior-sys-* variables)
+     - Benghazi Graphic_standards/design-system.css (Figma "Spec (WIP)")
+   Light scheme  : Cream / Aubergine / Orange  (print-family feel)
+   Dark scheme   : #121212 / #2B242C surfaces, Lime headings — matches
+                   the P+P dashboard look (Benghazi, Place+ dark).
+   Orange is the digital theme value FF511D (brand guide RGB 255/81/29);
+   supersedes the e9511d used in the previous catalogue CSS.
+   Typography    : GT America (300 body / 500 headings) + GT America
+                   Mono for annotations. Licensed to P+P — fonts are
+                   self-hosted in docs/fonts/.
+   ===================================================================== */
+
+/* ------------------------------------------------------------------ */
+/* Fonts — GT America (licensed to Prior + Partners, fallback Arial)  */
+/* ------------------------------------------------------------------ */
+@font-face {
+  font-family: "GT America";
+  src: url("../fonts/GT-America-Standard-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "GT America";
+  src: url("../fonts/GT-America-Standard-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "GT America Mono";
+  src: url("../fonts/GT-America-Mono-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "GT America Mono";
+  src: url("../fonts/GT-America-Mono-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ------------------------------------------------------------------ */
+/* Brand tokens                                                       */
+/* ------------------------------------------------------------------ */
+:root {
+  --md-text-font: "GT America";
+  --md-code-font: "GT America Mono";
+
+  --pp-orange:    #FF511D;
+  --pp-aubergine: #2B242C;
+  --pp-cream:     #F1EEDF;
+  --pp-black:     #121212;
+  --pp-lime:      #DADF50;
+  --pp-cobalt:    #005DFF;
+  --pp-grey-dark:   #717171;
+  --pp-grey-medium: #A9A9A9;
+  --pp-grey-light:  #D0D0D0;
+}
+
+html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
+/* GT America ships here in 300 (Light, body) and 500 (Medium,
+   headings). Browsers resolve un-set weight 400 upward to 500, which
+   would set body copy in Medium — pin the weights explicitly. */
+body, .md-typeset { font-weight: 300; }
+.md-typeset strong, .md-typeset b { font-weight: 500; }
+
+/* ------------------------------------------------------------------ */
+/* Light scheme — Cream / Aubergine / Orange, links Cobalt            */
+/* (Cobalt on Cream is an AA pairing in the brand guide; Orange on    */
+/* Cream is below AA for body text, so orange stays decorative.)      */
+/* ------------------------------------------------------------------ */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color:        var(--pp-aubergine);
+  --md-primary-fg-color--light: #453b47;
+  --md-primary-fg-color--dark:  #1d181e;
+  --md-primary-bg-color:        var(--pp-cream);
+  --md-primary-bg-color--light: rgba(241, 238, 223, 0.7);
+
+  --md-accent-fg-color:              var(--pp-orange);
+  --md-accent-fg-color--transparent: rgba(255, 81, 29, 0.1);
+
+  --md-default-bg-color:           var(--pp-cream);
+  --md-default-fg-color:           var(--pp-black);
+  --md-default-fg-color--light:    rgba(18, 18, 18, 0.64);
+  --md-default-fg-color--lighter:  rgba(18, 18, 18, 0.36);
+  --md-default-fg-color--lightest: rgba(18, 18, 18, 0.09);
+
+  --md-typeset-color:   var(--pp-black);
+  --md-typeset-a-color: var(--pp-cobalt);
+  --md-typeset-mark-color: rgba(218, 223, 80, 0.5);
+
+  --md-code-bg-color: #e7e3d1;
+  --md-code-fg-color: var(--pp-aubergine);
+
+  --md-footer-bg-color:        var(--pp-aubergine);
+  --md-footer-bg-color--dark:  var(--pp-black);
+  --md-footer-fg-color:        var(--pp-cream);
+  --md-footer-fg-color--light: rgba(241, 238, 223, 0.7);
+  --md-footer-fg-color--lighter: rgba(241, 238, 223, 0.45);
+}
+
+[data-md-color-scheme="default"] .md-typeset h1,
+[data-md-color-scheme="default"] .md-typeset h2 {
+  color: var(--pp-aubergine);
+}
+
+/* ------------------------------------------------------------------ */
+/* Dark scheme — #121212 canvas, #2B242C surfaces, Lime headings and  */
+/* links (Lime/Aubergine is AAA in the brand guide), Orange on hover. */
+/* Mirrors the dashboard: narrative #2B242C, background #121212,      */
+/* headings #DADF50.                                                  */
+/* ------------------------------------------------------------------ */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:        var(--pp-aubergine);
+  --md-primary-fg-color--light: #453b47;
+  --md-primary-fg-color--dark:  #1d181e;
+  --md-primary-bg-color:        var(--pp-cream);
+  --md-primary-bg-color--light: rgba(241, 238, 223, 0.7);
+
+  --md-accent-fg-color:              var(--pp-orange);
+  --md-accent-fg-color--transparent: rgba(255, 81, 29, 0.12);
+
+  --md-default-bg-color:           var(--pp-black);
+  --md-default-fg-color:           rgba(241, 238, 223, 0.86);
+  --md-default-fg-color--light:    rgba(241, 238, 223, 0.6);
+  --md-default-fg-color--lighter:  rgba(241, 238, 223, 0.34);
+  --md-default-fg-color--lightest: rgba(241, 238, 223, 0.1);
+
+  --md-typeset-color:   rgba(241, 238, 223, 0.86);
+  --md-typeset-a-color: var(--pp-lime);
+  --md-typeset-mark-color: rgba(218, 223, 80, 0.3);
+
+  --md-code-bg-color: #241f26;
+  --md-code-fg-color: var(--pp-cream);
+
+  --md-footer-bg-color:        var(--pp-aubergine);
+  --md-footer-bg-color--dark:  #0c0b0c;
+  --md-footer-fg-color:        var(--pp-cream);
+  --md-footer-fg-color--light: rgba(241, 238, 223, 0.7);
+  --md-footer-fg-color--lighter: rgba(241, 238, 223, 0.45);
+}
+
+[data-md-color-scheme="slate"] .md-typeset h1,
+[data-md-color-scheme="slate"] .md-typeset h2,
+[data-md-color-scheme="slate"] .md-typeset h3,
+[data-md-color-scheme="slate"] .md-typeset h4 {
+  color: var(--pp-lime);
+}
+
+/* ------------------------------------------------------------------ */
+/* Typography — GT America Medium headings, tight display tracking    */
+/* ------------------------------------------------------------------ */
+.md-typeset h1, .md-typeset h2, .md-typeset h3,
+.md-typeset h4, .md-typeset h5, .md-typeset h6 {
+  font-weight: 500;
+}
+.md-typeset h1 { letter-spacing: -0.02em; }
+.md-typeset h2 { letter-spacing: -0.015em; }
+.md-header__topic { font-weight: 500; letter-spacing: -0.01em; }
+
+/* Mono for the running footer line, per the template's header/footer
+   convention (GT America Mono, used sparingly). */
+.md-copyright {
+  font-family: "GT America Mono", SFMono-Regular, Consolas, monospace;
+  font-weight: 300;
+}
+
+/* ------------------------------------------------------------------ */
+/* Navigation — full wrapped layer names (existing behaviour, kept)   */
+/* ------------------------------------------------------------------ */
 .md-nav__item .md-ellipsis {
   white-space: normal;
   overflow: visible;
@@ -7,21 +184,87 @@
   line-height: 1.3;
 }
 .md-nav__link { align-items: flex-start; }
-/* Layer short name: sits between the page title and the table name. */
+.md-nav__item--nested > .md-nav__link { font-weight: 500; }
+
+/* Theme chips: one colour per top-level theme section, mapped from
+   the Place+ dashboard palettes (theme.css [data-palette]) plus three
+   brand secondaries (Thistle, Berry, Plum) for the themes Place+
+   doesn't cover. ORDER-DEPENDENT on the nav: items 1-2 are Home and
+   the Handbook; 3-14 are the 12 themes alphabetically ADM..UTL. If a
+   theme is added or reordered, renumber below (the durable fix is for
+   build_catalogue.py to emit a per-theme class). */
+.md-nav--primary > .md-nav__list > .md-nav__item:nth-child(n + 3) > .md-nav__link::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 0.55em;
+  height: 0.55em;
+  margin: 0.32em 0.45em 0 0;
+  background: var(--pp-theme, var(--pp-grey-medium));
+}
+.md-nav--primary > .md-nav__list > .md-nav__item:nth-child(3)  { --pp-theme: #C8B5E2; } /* ADM — Thistle (brand secondary) */
+.md-nav--primary > .md-nav__list > .md-nav__item:nth-child(4)  { --pp-theme: #FF8E55; } /* BLT — Place+ "place" */
+.md-nav--primary > .md-nav__list > .md-nav__item:nth-child(5)  { --pp-theme: #FF2A8E; } /* COM — Berry (brand secondary) */
+.md-nav--primary > .md-nav__list > .md-nav__item:nth-child(6)  { --pp-theme: #F5A4DF; } /* DEM — Place+ "people" */
+.md-nav--primary > .md-nav__list > .md-nav__item:nth-child(7)  { --pp-theme: #79B6B3; } /* ECN — Place+ "economy" */
+.md-nav--primary > .md-nav__list > .md-nav__item:nth-child(8)  { --pp-theme: #6586FF; } /* EDU — Place+ "flooding" blues */
+.md-nav--primary > .md-nav__list > .md-nav__item:nth-child(9)  { --pp-theme: #82CA43; } /* ENV — Place+ "environment" */
+.md-nav--primary > .md-nav__list > .md-nav__item:nth-child(10) { --pp-theme: #920F67; } /* HER — Plum (brand secondary) */
+.md-nav--primary > .md-nav__list > .md-nav__item:nth-child(11) { --pp-theme: #FFC15B; } /* HOU — Place+ "housing" */
+.md-nav--primary > .md-nav__list > .md-nav__item:nth-child(12) { --pp-theme: #BDC43C; } /* HTH — Place+ "health" */
+.md-nav--primary > .md-nav__list > .md-nav__item:nth-child(13) { --pp-theme: #F36F70; } /* MOB — Place+ "movement" */
+.md-nav--primary > .md-nav__list > .md-nav__item:nth-child(14) { --pp-theme: #9C7CC9; } /* UTL — Place+ "infrastructure" */
+
+/* ------------------------------------------------------------------ */
+/* Layer short name — sits between the page title and the table name  */
+/* ------------------------------------------------------------------ */
 .layer-short {
   font-size: 1.15rem;
-  font-weight: 600;
-  color: #e9511d;
+  font-weight: 500;
+  color: var(--pp-orange);
   margin: -0.4rem 0 0.2rem;
 }
-/* Brand-orange admonition (note) instead of Material blue. */
+
+/* ------------------------------------------------------------------ */
+/* Admonitions — brand orange note                                    */
+/* ------------------------------------------------------------------ */
 .md-typeset .admonition.note,
-.md-typeset details.note { border-color: #e9511d; }
-.md-typeset .note > .admonition-title { background-color: #fbe6db; }
-.md-typeset .note > .admonition-title::before { background-color: #e9511d; }
-/* Homepage footer block (data info, contact, version). */
-.cat-footer { display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 3rem;
-  padding-top: 1.5rem; border-top: 1px solid #d9d3c4; color: #6b6357; font-size: .8rem; }
+.md-typeset details.note { border-color: var(--pp-orange); }
+.md-typeset .note > .admonition-title::before { background-color: var(--pp-orange); }
+[data-md-color-scheme="default"] .md-typeset .note > .admonition-title {
+  background-color: #fbe0d5;
+}
+[data-md-color-scheme="slate"] .md-typeset .note > .admonition-title {
+  background-color: rgba(255, 81, 29, 0.15);
+}
+
+/* ------------------------------------------------------------------ */
+/* Tables — Aubergine header band, GT America tabular figures         */
+/* ------------------------------------------------------------------ */
+.md-typeset table:not([class]) { font-feature-settings: "tnum"; }
+.md-typeset table:not([class]) th {
+  background: var(--pp-aubergine);
+  color: var(--pp-cream);
+  font-weight: 500;
+}
+
+/* Preview map images sit on the cream/dark canvas — square-cornered
+   hairline frame (no rounded corners, per the house style). */
+.md-typeset img {
+  background: #fff;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0;
+}
+
+/* ------------------------------------------------------------------ */
+/* Homepage footer block (data info, contact, version)                */
+/* ------------------------------------------------------------------ */
+.cat-footer {
+  display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+  color: var(--md-default-fg-color--light);
+  font-size: 0.8rem;
+}
 .cat-footer > div { flex: 1; min-width: 200px; }
-.cat-footer strong { color: #2b242c; }
-.cat-footer a { color: #e9511d; }
+.cat-footer strong { color: var(--md-default-fg-color); }
+.cat-footer a { color: var(--md-typeset-a-color); }

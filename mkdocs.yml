@@ -94,7 +94,7 @@ nav:
     - "Crime - Street crime": DEM/dem_police_uk_street_crime_monthly.md
   - "Economy & Employment (ECN)":
     - ECN/index.md
-    - "Foodretail_accessibility": ECN/ecn_geods_foodretail_accessibility_apr2026.md
+    - "London Nighttime Access to Food Retail": ECN/ecn_geods_foodretail_accessibility_apr2026.md
     - "English Enterprise Zone Sites": ECN/ecn_mhclg_english_enterprise_zone_sites_mar2016.md
     - "Housing Affordability Ratio": ECN/ecn_ons_housing_affordability_ratio_2025.md
     - "BRES Employment - LAD, 2023, 2-digit SIC2007": ECN/ecn_ons_lad_business_register_employment_2d_2023.md

@@ -1,6 +1,6 @@
 # GeoDS London Nighttime Access to Food Retail Options, April 2026
 
-<p class="layer-short">Foodretail_accessibility</p>
+<p class="layer-short">London Nighttime Access to Food Retail</p>
 
 `ecn_geods_foodretail_accessibility_apr2026`
 
@@ -45,15 +45,14 @@
 - Values appear capped at 60. Whether this is the analytical horizon or the maximum observed travel time is not documented.
 - Hex_ID is stored as double precision but the publisher's data summary reports type=integer. Values are well within int4 range.
 
+**ENRICHMENT**
+
+- msoa21cd, msoa21nm, msoa21hclnm, lad22cd, lad22nm, lad25cd, lad25nm, source_fid, gid
+
 **LOADED INTO uk_baseline**
 
 - Data published: 2026-04-15
 - Imported: 2026-05-28 by PNC
-
-MSOA SPLIT (added 3 July 2026)
-
-- Geometry split to one row per (source feature x MSOA 2021). Each row carries that MSOA's msoa21cd / msoa21nm / msoa21hclnm and best-fit lad22 / lad25. The source feature's original primary key is preserved as `source_fid`; `gid` is a fresh surrogate primary key. Features with no MSOA overlap (offshore or outside England & Wales) are kept whole with NULL geography columns.
-- Keep-everything (3 July 2026): geometry outside every MSOA — offshore, estuarine, or beyond the generalised coastline — is retained as rows with NULL geography columns (source_fid links the parts), so the layer holds the complete source geometry.
 
 
 ## Columns

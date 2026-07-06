@@ -1,6 +1,8 @@
 /* =====================================================================
-   Prior + Partners brand skin — uk_baseline data catalogue (PREVIEW)
+   Prior + Partners brand skin — uk_baseline data catalogue
    ---------------------------------------------------------------------
+   Maintained asset. Edit HERE (scripts/catalogue/assets/extra.css);
+   build_catalogue.py copies it into docs/stylesheets/ on every refresh.
    Tokens sourced from the firm dashboard template:
      - Place+  src/resources/theme.css   (--prior-sys-* variables)
      - Benghazi Graphic_standards/design-system.css (Figma "Spec (WIP)")

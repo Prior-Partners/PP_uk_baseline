@@ -25,7 +25,7 @@
 
 - England & Wales (Table 1 + Table 2 of the source XLSX).
 - 34,753 LSOA 2011 rows.
-- Scotland Data Zones (6,976) and NI SOAs (890) are published by ONS but not loaded into this table because no matching adm_ons_dz_* / adm_ons_soa_* boundary tables exist in uk_baseline. They are aggregated upward into uk_baseline.ecn_ons_lad_gross_value_added_2023 (UK-wide).
+- Scotland Data Zones (6,976) and NI SOAs (890) are published by ONS but not
 
 **CRS**
 
@@ -37,8 +37,13 @@
 
 **DATA QUALITY CAVEATS**
 
+- Published on 2011 LSOA boundaries. Each row's msoa21cd, msoa21nm, msoa21hclnm and lad22/lad25 codes are best-fit onto 2021 geography — the 2021 MSOA the row's 2011 LSOA overlaps most by area (uk.ref_lsoa11_msoa21_bestfit_lu). LSOAs that straddle a 2011-to-2021 boundary change are assigned to their largest-overlap MSOA, so for those a small share of the LSOA area lies outside the assigned MSOA.
 - The lad_code, lad_name, itl_code, itl_name columns carry the LAD/ITL edition current at the original load (circa-2020). These no longer align with adm_ons_lad_boundary_may2024 (24 codes are stale, 49 modern codes absent). For current-edition LAD aggregates, use uk_baseline.ecn_ons_lad_gross_value_added_2023 instead.
 - Diagnostic 2026-05-27 confirmed value-fidelity to the 22 Sep 2025 release: 199 cells differ by exactly 0.001 pounds million (rounding noise) across 34,753 LSOAs x 26 years. Per-year SUM delta < 0.15 pounds million on totals of 0.8-2.2 trillion.
+
+**ENRICHMENT**
+
+- `msoa21hclnm` — House of Commons Library readable MSOA name, best-fit assigned at load from the row's 2011 LSOA by largest-area-overlap 2021 MSOA (uk.ref_lsoa11_msoa21_bestfit_lu). Open Parliament Licence. loaded into this table because no matching adm_ons_dz_* / adm_ons_soa_* boundary tables exist in uk_baseline. They are aggregated upward into uk_baseline.ecn_ons_lad_gross_value_added_2023 (UK-wide).
 
 **LOADED INTO uk_baseline**
 
@@ -84,3 +89,10 @@
 | `gva_2022` | `double precision` | Source field "2022". Unit: "pounds million" (current prices). |
 | `gva_2023` | `double precision` | Source field "2023". Unit: "pounds million" (current prices). |
 | `geom` | `geometry(MultiPolygon,27700)` | Joined at load from uk_baseline.adm_ons_lsoa_boundary_2011.geom on lsoa11cd; MultiPolygon, EPSG:27700. |
+| `msoa21cd` | `text` | Middle Layer Super Output Area (MSOA) 2021 code, best-fit assigned from this row's Lower Layer Super Output Area (LSOA) 2011 by largest area overlap with the 2021 MSOA boundaries, joined at load on lsoa11cd via uk.ref_lsoa11_msoa21_bestfit_lu. Open Government Licence v3.0. |
+| `msoa21nm` | `text` | Official Office for National Statistics MSOA 2021 name, best-fit assigned from this row's Lower Layer Super Output Area (LSOA) 2011 by largest area overlap with the 2021 MSOA boundaries, joined at load on lsoa11cd via uk.ref_lsoa11_msoa21_bestfit_lu. Open Government Licence v3.0. |
+| `msoa21hclnm` | `text` | House of Commons Library readable MSOA name, best-fit assigned from this row's Lower Layer Super Output Area (LSOA) 2011 by largest area overlap with the 2021 MSOA boundaries, joined at load on lsoa11cd via uk.ref_lsoa11_msoa21_bestfit_lu. Open Parliament Licence. |
+| `lad22cd` | `text` | Local Authority District 2022 code (2021 LAD geography, anchored to the MSOA 2021 name scoping), best-fit assigned from this row's Lower Layer Super Output Area (LSOA) 2011 by largest area overlap with the 2021 MSOA boundaries, joined at load on lsoa11cd via uk.ref_lsoa11_msoa21_bestfit_lu, then that MSOA's 2022 district. Open Government Licence v3.0. |
+| `lad22nm` | `text` | Local Authority District 2022 name (2021 LAD geography), best-fit assigned from this row's Lower Layer Super Output Area (LSOA) 2011 by largest area overlap with the 2021 MSOA boundaries, joined at load on lsoa11cd via uk.ref_lsoa11_msoa21_bestfit_lu, then that MSOA's 2022 district. Open Government Licence v3.0. |
+| `lad25cd` | `text` | Local Authority District 2025 code (current administering authority), best-fit assigned from this row's Lower Layer Super Output Area (LSOA) 2011 by largest area overlap with the 2021 MSOA boundaries, joined at load on lsoa11cd via uk.ref_lsoa11_msoa21_bestfit_lu, then that MSOA's 2025 district. Open Government Licence v3.0. |
+| `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit assigned from this row's Lower Layer Super Output Area (LSOA) 2011 by largest area overlap with the 2021 MSOA boundaries, joined at load on lsoa11cd via uk.ref_lsoa11_msoa21_bestfit_lu, then that MSOA's 2025 district. Open Government Licence v3.0. |

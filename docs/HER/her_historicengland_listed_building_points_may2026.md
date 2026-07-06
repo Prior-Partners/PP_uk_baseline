@@ -33,6 +33,14 @@
 
 - Open Government Licence v3.0. © Historic England.
 
+**DATA QUALITY CAVEATS**
+
+- 417 coastal and offshore listed structures (0.11% of the layer) lie outside every MSOA polygon and so carry NULL msoa21cd, msoa21nm and msoa21hclnm.
+
+**ENRICHMENT**
+
+- `msoa21hclnm` — House of Commons Library readable MSOA name, assigned at load from the listed-building point in its 2021 MSOA (uk_baseline.adm_ons_msoa_boundary_2021). Open Parliament Licence.
+
 **LOADED INTO uk_baseline**
 
 - Loaded by PNC, May 2026.
@@ -62,3 +70,8 @@
 | `rgn22cd` | `text` | Joined at load from ONS LAD->Region lookup; 2022 Region GSS code. |
 | `rgn22nm` | `text` | Joined at load from ONS LAD->Region lookup; 2022 Region name. |
 | `sds_boundary` | `text` | Internal categorisation: Spatial Development Strategy (SDS) area where the geometry falls. Blank or NULL where outside any SDS area. |
+| `msoa21cd` | `text` | Middle Layer Super Output Area (MSOA) 2021 code. Assigned at load from the listed-building point (representative point of the MULTIPOINT geometry) located in uk_baseline.adm_ons_msoa_boundary_2021. Open Government Licence v3.0. |
+| `msoa21nm` | `text` | Official Office for National Statistics MSOA 2021 name. Assigned at load from the listed-building point located in uk_baseline.adm_ons_msoa_boundary_2021. Open Government Licence v3.0. |
+| `msoa21hclnm` | `text` | House of Commons Library readable MSOA name. Assigned at load from the listed-building point located in its 2021 MSOA (uk_baseline.adm_ons_msoa_boundary_2021, which carries the House of Commons Library name). Open Parliament Licence. |
+| `lad22cd` | `text` | Local Authority District 2022 code (2021 LAD geography). Assigned at load from the listed-building point located in uk_baseline.adm_ons_lad_boundary_may2022. Open Government Licence v3.0. |
+| `lad22nm` | `text` | Local Authority District 2022 name (2021 LAD geography). Assigned at load from the listed-building point located in uk_baseline.adm_ons_lad_boundary_may2022. Open Government Licence v3.0. |

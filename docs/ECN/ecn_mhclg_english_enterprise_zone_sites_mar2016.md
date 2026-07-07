@@ -1,6 +1,6 @@
 # MHCLG English Enterprise Zone site boundaries, March 2016
 
-<p class="layer-short">English Enterprise Zone Sites</p>
+<p class="layer-short">English Enterprise Zone</p>
 
 `ecn_mhclg_english_enterprise_zone_sites_mar2016`
 
@@ -34,7 +34,6 @@
 
 **DATA QUALITY CAVEATS**
 
-- Geometry is MultiPolygonZ (carries Z coordinates inherited from the source shapefile). Z values are not analytically meaningful for these polygons; treat as 0 for any height-related use.
 - This is a 2016 snapshot. The Enterprise Zones programme has since been extended (further zones added in 2016-2017) and some zones have wound down. Does not represent the current position.
 - `date_start` is stored as text (varchar(20)), not a typed date.
 
@@ -54,27 +53,26 @@ MSOA SPLIT (added 30 June 2026)
 
 - Geometry split to one row per (source feature x MSOA 2021). Each row carries that MSOA's msoa21cd / msoa21nm / msoa21hclnm and best-fit lad22 / lad25. The source feature's original primary key is preserved as `source_fid`; `gid` is a fresh surrogate primary key.
 - Features lying within a single MSOA are kept whole (one row, primary-tagged); only features spanning more than one MSOA are split into per-MSOA pieces.
-- Keep-everything (3 July 2026): geometry outside every MSOA — offshore, estuarine, or beyond the generalised coastline — is retained as rows with NULL geography columns (source_fid links the parts), so the layer holds the complete source geometry.
 
 
 ## Columns
 
 | Column | Type | Description / unit |
 |---|---|---|
-| `ez` | `character varying(50)` |  |
-| `shape_leng` | `double precision` |  |
-| `shape_area` | `double precision` |  |
-| `brd` | `character varying(5)` |  |
-| `brr` | `character varying(5)` |  |
-| `eca` | `character varying(5)` |  |
-| `ldo` | `character varying(5)` |  |
-| `ez_website` | `character varying(75)` |  |
-| `sectors` | `character varying(150)` |  |
-| `subez` | `character varying(50)` |  |
-| `date_start` | `character varying(20)` |  |
-| `ons_ez_cod` | `character varying(10)` |  |
-| `poly_name` | `character varying(75)` |  |
-| `desig_site` | `character varying(75)` |  |
+| `ez` | `character varying(50)` | Source field `ez`; Enterprise Zone name. |
+| `shape_leng` | `double precision` | Source field `shape_leng`; shapefile-generated perimeter of the source feature. Unit: metres (British National Grid). Whole-feature value, repeated across a feature's per-MSOA split rows. |
+| `shape_area` | `double precision` | Source field `shape_area`; shapefile-generated area of the source feature. Unit: square metres (British National Grid). Whole-feature value, repeated across a feature's per-MSOA split rows. |
+| `brd` | `character varying(5)` | Source field `brd`; Y/N flag for the Business Rate Discount incentive. Interpreted from the field initials + the gov.uk Enterprise Zones incentive set; not defined in the publisher's data dictionary. |
+| `brr` | `character varying(5)` | Source field `brr`; Y/N flag for the Business Rate Retention incentive. Interpreted from the field initials + the gov.uk Enterprise Zones incentive set; not defined in the publisher's data dictionary. |
+| `eca` | `character varying(5)` | Source field `eca`; Y/N flag for the Enhanced Capital Allowances incentive. Interpreted from the field initials + the gov.uk Enterprise Zones incentive set; not defined in the publisher's data dictionary. |
+| `ldo` | `character varying(5)` | Source field `ldo`; Y/N/? flag for the Local Development Order (simplified planning) incentive. Interpreted from the field initials + the gov.uk Enterprise Zones incentive set; not defined in the publisher's data dictionary. |
+| `ez_website` | `character varying(75)` | Source field `ez_website`; Enterprise Zone / Local Enterprise Partnership website URL. |
+| `sectors` | `character varying(150)` | Source field `sectors`; business sectors listed for the zone (comma-separated). |
+| `subez` | `character varying(50)` | Source field `subez`; sub-zone name within the Enterprise Zone. |
+| `date_start` | `character varying(20)` | Source field `date_start`; start year, stored as text (observed values 2012, 2014, 2015, 2016, and "Ext"). |
+| `ons_ez_cod` | `character varying(10)` | Source field `ons_ez_cod`; ONS Enterprise Zone code (GSS, E49-prefixed). |
+| `poly_name` | `character varying(75)` | Source field `poly_name`; name of the individual site polygon. |
+| `desig_site` | `character varying(75)` | Source field `desig_site`; designated site name. |
 | `msoa21cd` | `text` | Middle Layer Super Output Area (MSOA) 2021 code of this piece. Open Government Licence v3.0. |
 | `msoa21nm` | `text` | Official ONS MSOA 2021 name of this piece. Open Government Licence v3.0. |
 | `msoa21hclnm` | `text` | House of Commons Library readable MSOA name of this piece. Open Parliament Licence. |

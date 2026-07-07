@@ -97,20 +97,20 @@ nav:
     - "London Nighttime Access to Food Retail": ECN/ecn_geods_foodretail_accessibility_apr2026.md
     - "English Enterprise Zone": ECN/ecn_mhclg_english_enterprise_zone_sites_mar2016.md
     - "Housing Affordability Ratio": ECN/ecn_ons_housing_affordability_ratio_2025.md
-    - "BRES Employment - LAD, 2023, 2-digit SIC2007": ECN/ecn_ons_lad_business_register_employment_2d_2023.md
-    - "BRES Employment - LAD, 2024, 2-digit SIC2007": ECN/ecn_ons_lad_business_register_employment_2d_2024.md
-    - "BRES Employment - LAD, 2023, 3-digit SIC2007": ECN/ecn_ons_lad_business_register_employment_3d_2023.md
-    - "BRES Employment - LAD, 2024, 3-digit SIC2007": ECN/ecn_ons_lad_business_register_employment_3d_2024.md
+    - "BRES Employment - LAD, 2023, 2D": ECN/ecn_ons_lad_business_register_employment_2d_2023.md
+    - "BRES Employment - LAD, 2024, 2D": ECN/ecn_ons_lad_business_register_employment_2d_2024.md
+    - "BRES Employment - LAD, 2023, 3D": ECN/ecn_ons_lad_business_register_employment_3d_2023.md
+    - "BRES Employment - LAD, 2024, 3D": ECN/ecn_ons_lad_business_register_employment_3d_2024.md
     - "Gross_value_added_lad": ECN/ecn_ons_lad_gross_value_added_2023.md
-    - "BRES Employment - LSOA, 2023, 2-digit SIC2007": ECN/ecn_ons_lsoa_business_register_employment_2d_2023.md
-    - "BRES Employment - LSOA, 2024, 2-digit SIC2007": ECN/ecn_ons_lsoa_business_register_employment_2d_2024.md
-    - "BRES Employment - LSOA, 2023, 3-digit SIC2007": ECN/ecn_ons_lsoa_business_register_employment_3d_2023.md
-    - "BRES Employment - LSOA, 2024, 3-digit SIC2007": ECN/ecn_ons_lsoa_business_register_employment_3d_2024.md
+    - "BRES Employment - LSOA, 2023, 2D": ECN/ecn_ons_lsoa_business_register_employment_2d_2023.md
+    - "BRES Employment - LSOA, 2024, 2D": ECN/ecn_ons_lsoa_business_register_employment_2d_2024.md
+    - "BRES Employment - LSOA, 2023, 3D": ECN/ecn_ons_lsoa_business_register_employment_3d_2023.md
+    - "BRES Employment - LSOA, 2024, 3D": ECN/ecn_ons_lsoa_business_register_employment_3d_2024.md
     - "Gross_value_added_lsoa": ECN/ecn_ons_lsoa_gross_value_added_2023.md
-    - "BRES Employment - MSOA, 2023, 2-digit SIC2007": ECN/ecn_ons_msoa_business_register_employment_2d_2023.md
-    - "BRES Employment - MSOA, 2024, 2-digit SIC2007": ECN/ecn_ons_msoa_business_register_employment_2d_2024.md
-    - "BRES Employment - MSOA, 2023, 3-digit SIC2007": ECN/ecn_ons_msoa_business_register_employment_3d_2023.md
-    - "BRES Employment - MSOA, 2024, 3-digit SIC2007": ECN/ecn_ons_msoa_business_register_employment_3d_2024.md
+    - "BRES Employment - MSOA, 2023, 2D": ECN/ecn_ons_msoa_business_register_employment_2d_2023.md
+    - "BRES Employment - MSOA, 2024, 2D": ECN/ecn_ons_msoa_business_register_employment_2d_2024.md
+    - "BRES Employment - MSOA, 2023, 3D": ECN/ecn_ons_msoa_business_register_employment_3d_2023.md
+    - "BRES Employment - MSOA, 2024, 3D": ECN/ecn_ons_msoa_business_register_employment_3d_2024.md
     - "Gross_value_added_msoa": ECN/ecn_ons_msoa_gross_value_added_2023.md
     - "Business_floorspace_lad": ECN/ecn_voa_lad_business_floorspace_2023.md
     - "Stock_properties_lad": ECN/ecn_voa_lad_stock_properties_2025.md

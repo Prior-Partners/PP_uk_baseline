@@ -1,6 +1,6 @@
-# ONS Business Register and Employment Survey (BRES) employment counts for 2023 at Local Authority District (LAD), broken down by 3-digit SIC2007 industry group
+# ONS Business Register and Employment Survey (BRES) employment counts for 2023 at Local Authority District (LAD)
 
-<p class="layer-short">BRES Employment - LAD, 2023, 3-digit SIC2007</p>
+<p class="layer-short">BRES Employment - LAD, 2023, 3D</p>
 
 `ecn_ons_lad_business_register_employment_3d_2023`
 
@@ -8,7 +8,7 @@
 
 **SOURCE**
 
-- Office for National Statistics (ONS). Distributed via Nomis dataset NM_189_1 ("Business Register and Employment Survey : open access").
+- Office for National Statistics (ONS). Distributed via Nomis dataset - Business Register and Employment Survey.
 
 **DOCUMENTATION**
 
@@ -20,12 +20,12 @@
 
 - "anyone working on the BRES reference date who is aged 16 years or over that the contributor directly pays from its payroll(s), in return for carrying out a full-time or part-time job or being on a training scheme." (ONS BRES Quality and Methodology Information, "Employees")
 - "sole traders, sole proprietors and partners who receive drawings or a share of profits but are not paid via PAYE." (ONS BRES QMI, "Working owners")
-- "employees plus working owners." (ONS BRES QMI, "Employment" — the measure stored in this table; Employment = Employees + Working owners)
-- "Persons" (Nomis NM_189_1 dataset metadata, Units annotation)
+- Employment is the sum of Employees plus Working owners (ONS BRES QMI).
+- Employment is broken down by 3-digit SIC2007 industry group.
 
 **SCOPE**
 
-- England and Wales. Local Authority District as of April 2021; 331 rows (309 England + 22 Wales) after post-load Scotland filter. Filter applied at download: EMPLOYMENT_STATUS=4 (Employment), MEASURE=1 (Count), MEASURES=20100 (Value); reference date 1 January 2023.
+- England and Wales. Local Authority District as of April 2021; 331 rows (309 England + 22 Wales) after post-load Scotland filter. Reference date 1 January 2023.
 
 **CRS**
 
@@ -45,7 +45,7 @@
 
 - The narrower Employees-only measure (payroll only, excluding working owners).
 - Full-time and part-time breakdowns of Employees.
-- Industry percentage form (Nomis MEASURE=2). All three are separate slices the Nomis API can serve.
+- Industry percentage form.
 - Scotland LADs (S12*): BRES open-access publishes no data for Scotland at LAD level (all cells were zero). 32 Scotland LADs were removed post-load.
 
 **LOADED INTO uk_baseline**

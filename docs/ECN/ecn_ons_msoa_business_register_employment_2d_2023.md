@@ -1,6 +1,6 @@
-# ONS Business Register and Employment Survey (BRES) employment counts for 2023 at Middle Layer Super Output Area (MSOA), broken down by 2-digit SIC2007 industry division
+# ONS Business Register and Employment Survey (BRES) employment counts for 2023 at Middle Layer Super Output Area (MSOA)
 
-<p class="layer-short">BRES Employment - MSOA, 2023, 2-digit SIC2007</p>
+<p class="layer-short">BRES Employment - MSOA, 2023, 2D</p>
 
 `ecn_ons_msoa_business_register_employment_2d_2023`
 
@@ -8,7 +8,7 @@
 
 **SOURCE**
 
-- Office for National Statistics (ONS). Distributed via Nomis dataset NM_189_1 ("Business Register and Employment Survey : open access").
+- Office for National Statistics (ONS). Distributed via Nomis dataset - Business Register and Employment Survey.
 
 **DOCUMENTATION**
 
@@ -20,12 +20,12 @@
 
 - "anyone working on the BRES reference date who is aged 16 years or over that the contributor directly pays from its payroll(s), in return for carrying out a full-time or part-time job or being on a training scheme." (ONS BRES Quality and Methodology Information, "Employees")
 - "sole traders, sole proprietors and partners who receive drawings or a share of profits but are not paid via PAYE." (ONS BRES QMI, "Working owners")
-- "employees plus working owners." (ONS BRES QMI, "Employment" — the measure stored in this table; Employment = Employees + Working owners)
-- "Persons" (Nomis NM_189_1 dataset metadata, Units annotation)
+- Employment is the sum of Employees plus Working owners (ONS BRES QMI).
+- Employment is broken down by 2-digit SIC2007 industry division.
 
 **SCOPE**
 
-- England and Wales. Middle Layer Super Output Area (MSOA) 2021; 7,264 rows. Filter applied at download: EMPLOYMENT_STATUS=4 (Employment), MEASURE=1 (Count), MEASURES=20100 (Value); reference date 1 January 2023.
+- England and Wales. Middle Layer Super Output Area (MSOA) 2021; 7,264 rows. Reference date 1 January 2023.
 
 **CRS**
 
@@ -48,7 +48,7 @@
 
 - The narrower Employees-only measure (payroll only, excluding working owners).
 - Full-time and part-time breakdowns of Employees.
-- Industry percentage form (Nomis MEASURE=2). All three are separate slices the Nomis API can serve.
+- Industry percentage form.
 - Scotland and Northern Ireland: the MSOA 2021 boundary covers only England and Wales.
 
 **LOADED INTO uk_baseline**

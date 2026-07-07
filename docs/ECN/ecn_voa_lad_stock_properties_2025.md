@@ -1,6 +1,6 @@
 # Valuation Office Agency (VOA) Stock of Properties at Local Authority District (LAD), 2025
 
-<p class="layer-short">Stock_properties_lad</p>
+<p class="layer-short">VOA Stock of Properties - LAD</p>
 
 `ecn_voa_lad_stock_properties_2025`
 
@@ -8,7 +8,7 @@
 
 **SOURCE**
 
-- Valuation Office Agency (VOA) Non-Domestic Rating (NDR), gov.uk publication 2025-06 (reference date 31 March 2025). Source ZIP: ndr_stock_oa_2025.zip (10 CSVs: SOP_OA_counts_all.csv.. SOP_OA_rv_other.csv).
+- Valuation Office Agency (VOA) Non-Domestic Rating (NDR), gov.uk publication 2025-06 (reference date 31 March 2025).
 
 **DOCUMENTATION**
 
@@ -33,10 +33,6 @@
 **LICENCE**
 
 - Open Government Licence v3.0 (OGL). © Crown copyright. https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
-
-**DATA QUALITY CAVEATS**
-
-- VOA disclosure-suppressed cells ('[c]' in source CSVs) preserved as NULL, not 0.
 
 **LOADED INTO uk_baseline**
 

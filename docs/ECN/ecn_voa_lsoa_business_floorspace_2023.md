@@ -1,6 +1,6 @@
 # Valuation Office Agency (VOA) Business Floorspace at Lower Super Output Area (LSOA), 2023
 
-<p class="layer-short">Business_floorspace_lsoa</p>
+<p class="layer-short">VOA Business Floorspace - LSOA</p>
 
 `ecn_voa_lsoa_business_floorspace_2023`
 
@@ -8,7 +8,7 @@
 
 **SOURCE**
 
-- Valuation Office Agency (VOA) Non-Domestic Rating (NDR), gov.uk publication 2023-11. Source ZIP: NDR_Business_Floorspace_Tables_MSOA_LSOA_2023.zip (10 CSVs: table_FS_OA1_1.csv.. table_FS_OA5_2.csv).
+- Valuation Office Agency (VOA) Non-Domestic Rating (NDR), gov.uk publication 2023-11.
 
 **DOCUMENTATION**
 
@@ -32,10 +32,6 @@
 **LICENCE**
 
 - Open Government Licence v3.0 (OGL). © Crown copyright. https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
-
-**DATA QUALITY CAVEATS**
-
-- VOA disclosure-suppressed cells ('-' in source CSVs) preserved as NULL, not 0.
 
 **LOADED INTO uk_baseline**
 

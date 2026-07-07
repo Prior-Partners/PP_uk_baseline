@@ -112,12 +112,12 @@ nav:
     - "BRES Employment - MSOA, 2023, 3D": ECN/ecn_ons_msoa_business_register_employment_3d_2023.md
     - "BRES Employment - MSOA, 2024, 3D": ECN/ecn_ons_msoa_business_register_employment_3d_2024.md
     - "Gross value added (GVA) - MSOA": ECN/ecn_ons_msoa_gross_value_added_2023.md
-    - "Business_floorspace_lad": ECN/ecn_voa_lad_business_floorspace_2023.md
-    - "Stock_properties_lad": ECN/ecn_voa_lad_stock_properties_2025.md
-    - "Business_floorspace_lsoa": ECN/ecn_voa_lsoa_business_floorspace_2023.md
-    - "Stock_properties_lsoa": ECN/ecn_voa_lsoa_stock_properties_2025.md
-    - "Business_floorspace_msoa": ECN/ecn_voa_msoa_business_floorspace_2023.md
-    - "Stock_properties_msoa": ECN/ecn_voa_msoa_stock_properties_2025.md
+    - "VOA Business Floorspace - LAD": ECN/ecn_voa_lad_business_floorspace_2023.md
+    - "VOA Stock of Properties - LAD": ECN/ecn_voa_lad_stock_properties_2025.md
+    - "VOA Business Floorspace - LSOA": ECN/ecn_voa_lsoa_business_floorspace_2023.md
+    - "VOA Stock of Properties - LSOA": ECN/ecn_voa_lsoa_stock_properties_2025.md
+    - "VOA Business Floorspace - MSOA": ECN/ecn_voa_msoa_business_floorspace_2023.md
+    - "VOA Stock of Properties - MSOA": ECN/ecn_voa_msoa_stock_properties_2025.md
   - "Education (EDU)":
     - EDU/index.md
     - "Department for Education (DfE) primary-phase schools in England, May 2026": EDU/edu_dfe_primary_school_may2026.md

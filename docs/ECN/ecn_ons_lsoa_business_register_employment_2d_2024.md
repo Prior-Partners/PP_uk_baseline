@@ -18,8 +18,8 @@
 
 **DEFINITIONS**
 
-- "anyone working on the BRES reference date who is aged 16 years or over that the contributor directly pays from its payroll(s), in return for carrying out a full-time or part-time job or being on a training scheme." (ONS BRES Quality and Methodology Information, "Employees")
-- "sole traders, sole proprietors and partners who receive drawings or a share of profits but are not paid via PAYE." (ONS BRES QMI, "Working owners")
+- Employees: people aged 16 or over paid directly through the employer's payroll (full-time, part-time or on a training scheme) on the survey reference date. (ONS BRES QMI)
+- Working owners: business owners (sole traders, sole proprietors and partners) who take a share of the profits rather than being paid a wage through the payroll. (ONS BRES QMI)
 - Employment is the sum of Employees plus Working owners (ONS BRES QMI).
 - Employment is broken down by 2-digit SIC2007 industry division.
 

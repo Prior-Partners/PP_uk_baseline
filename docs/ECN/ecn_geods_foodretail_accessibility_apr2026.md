@@ -9,7 +9,7 @@
 **SOURCE**
 
 - Geographic Data Service (GeoDS), Smart Data Research UK (SDR UK): University College London (UCL), University of Liverpool, University of Oxford, University of Edinburgh.
-- Dataset created 2026-01-28; last updated by publisher 2026-04-15.
+- Dataset created Jan 2026; last updated by publisher Apr 2026.
 - Underlying analysis: Iliev, M., Cheshire, J., & Law, S. (2026). "Revealing the geography of food (in)accessibility for nighttime workers in the Greater London Area." Urban Studies, 0(0).
 
 **DOCUMENTATION**
@@ -21,6 +21,9 @@
 
 - Hex_ID: "Unique cell ID of bespoke BT hexagonal grid" (hex_food_variable_dictionary.csv)
 - travel_time_xxxx_yy: "Travel-time to the closest open food retail outlet on day xxxx (Friday or Saturday) at yy (hour of the day)" (hex_food_variable_dictionary.csv)
+- Unit: "reports travel times (in minutes) to the nearest open food retail outlet across Greater London, measured on a granular hexagonal grid (350-metre edge-to-edge)" (catalogue page)
+- Reporting intervals: "Daytime accessibility (6:00 a.m.–6:00 p.m.), included for comparative purposes, is reported in 3-hour intervals, while nighttime accessibility (6:00 p.m.–6:00 a.m. the following day) is reported at hourly intervals." (catalogue page)
+- Missing values: "Missing values (NA) are assigned to hexagons that are either inaccessible (i.e., contain no road network) or have travel times exceeding 60 minutes, which is our maximum travel-time threshold." (catalogue page)
 - Retail outlets in scope: Supermarkets, Grocers, Greengrocers & Fruitsellers, Convenience Stores. 8,337 outlets analysed. (catalogue page)
 - General Transit Feed Specification (GTFS) schedules used: 1-2 March 2024. Multimodal routing combines walking, waiting and transfer times. (catalogue page)
 
@@ -28,7 +31,7 @@
 
 - Greater London Authority (GLA) area; outlet capture extends to outlets within 2,000 metres of the GLA boundary.
 - 15,041 hexagonal cells, 350-metre spacing.
-- Temporal coverage: Friday 06:00 to Saturday 06:00, snapshot week of 2024-03-01 to 2024-03-02.
+- Temporal coverage: Friday 06:00 to Saturday 06:00, snapshot of 1-2 March 2024.
 
 **CRS**
 
@@ -40,9 +43,7 @@
 
 **DATA QUALITY CAVEATS**
 
-- Travel-time UNIT is INFERRED as minutes. The publisher's hex_food_variable_dictionary.csv does NOT state a unit. The inference is based on the routing description on the catalogue page, the 0-60 value range, and the temporal granularity. Confirm with publisher before any unit-sensitive downstream use.
-- NULL share per hourly snapshot is 2.5%-3.9% (peaking saturday_01-03). Publisher documentation does not specify whether NULL = "no outlet reachable inside the analysis cap" or "missing from analysis".
-- Values appear capped at 60. Whether this is the analytical horizon or the maximum observed travel time is not documented.
+- 2.5%-3.9% of cells are NULL per hourly snapshot, peaking in the Saturday 01:00-03:00 columns.
 - Hex_ID is stored as double precision but the publisher's data summary reports type=integer. Values are well within int4 range.
 
 **ENRICHMENT**
@@ -51,8 +52,7 @@
 
 **LOADED INTO uk_baseline**
 
-- Data published: 2026-04-15
-- Imported: 2026-05-28 by PNC
+- Loaded by PNC, 28 May 2026.
 
 
 ## Columns
@@ -60,23 +60,23 @@
 | Column | Type | Description / unit |
 |---|---|---|
 | `source_fid` | `bigint` | Primary key of the source feature in the pre-split layer uk.ecn_geods_foodretail_accessibility_apr2026__preswap_jul03 (non-unique here: a feature spanning N MSOAs has N rows). |
-| `hex_id` | `double precision` |  |
-| `travel_time_friday_06` | `double precision` |  |
-| `travel_time_friday_09` | `double precision` |  |
-| `travel_time_friday_12` | `double precision` |  |
-| `travel_time_friday_15` | `double precision` |  |
-| `travel_time_friday_18` | `double precision` |  |
-| `travel_time_friday_19` | `double precision` |  |
-| `travel_time_friday_20` | `double precision` |  |
-| `travel_time_friday_21` | `double precision` |  |
-| `travel_time_friday_22` | `double precision` |  |
-| `travel_time_friday_23` | `double precision` |  |
-| `travel_time_saturday_00` | `double precision` |  |
-| `travel_time_saturday_01` | `double precision` |  |
-| `travel_time_saturday_02` | `double precision` |  |
-| `travel_time_saturday_03` | `double precision` |  |
-| `travel_time_saturday_04` | `double precision` |  |
-| `travel_time_saturday_05` | `double precision` |  |
+| `hex_id` | `double precision` | Source field "Hex_ID"; "Unique cell ID of bespoke BT hexagonal grid" (hex_food_variable_dictionary.csv). |
+| `travel_time_friday_06` | `double precision` | Source field "travel_time_friday_06"; travel time to the closest open food retail outlet on Friday at 06:00. Unit: "minutes". NULL where the hexagon is inaccessible or the travel time exceeds the publisher's 60-minute maximum. |
+| `travel_time_friday_09` | `double precision` | Source field "travel_time_friday_09"; travel time to the closest open food retail outlet on Friday at 09:00. Unit: "minutes". NULL where the hexagon is inaccessible or the travel time exceeds the publisher's 60-minute maximum. |
+| `travel_time_friday_12` | `double precision` | Source field "travel_time_friday_12"; travel time to the closest open food retail outlet on Friday at 12:00. Unit: "minutes". NULL where the hexagon is inaccessible or the travel time exceeds the publisher's 60-minute maximum. |
+| `travel_time_friday_15` | `double precision` | Source field "travel_time_friday_15"; travel time to the closest open food retail outlet on Friday at 15:00. Unit: "minutes". NULL where the hexagon is inaccessible or the travel time exceeds the publisher's 60-minute maximum. |
+| `travel_time_friday_18` | `double precision` | Source field "travel_time_friday_18"; travel time to the closest open food retail outlet on Friday at 18:00. Unit: "minutes". NULL where the hexagon is inaccessible or the travel time exceeds the publisher's 60-minute maximum. |
+| `travel_time_friday_19` | `double precision` | Source field "travel_time_friday_19"; travel time to the closest open food retail outlet on Friday at 19:00. Unit: "minutes". NULL where the hexagon is inaccessible or the travel time exceeds the publisher's 60-minute maximum. |
+| `travel_time_friday_20` | `double precision` | Source field "travel_time_friday_20"; travel time to the closest open food retail outlet on Friday at 20:00. Unit: "minutes". NULL where the hexagon is inaccessible or the travel time exceeds the publisher's 60-minute maximum. |
+| `travel_time_friday_21` | `double precision` | Source field "travel_time_friday_21"; travel time to the closest open food retail outlet on Friday at 21:00. Unit: "minutes". NULL where the hexagon is inaccessible or the travel time exceeds the publisher's 60-minute maximum. |
+| `travel_time_friday_22` | `double precision` | Source field "travel_time_friday_22"; travel time to the closest open food retail outlet on Friday at 22:00. Unit: "minutes". NULL where the hexagon is inaccessible or the travel time exceeds the publisher's 60-minute maximum. |
+| `travel_time_friday_23` | `double precision` | Source field "travel_time_friday_23"; travel time to the closest open food retail outlet on Friday at 23:00. Unit: "minutes". NULL where the hexagon is inaccessible or the travel time exceeds the publisher's 60-minute maximum. |
+| `travel_time_saturday_00` | `double precision` | Source field "travel_time_saturday_00"; travel time to the closest open food retail outlet on Saturday at 00:00. Unit: "minutes". NULL where the hexagon is inaccessible or the travel time exceeds the publisher's 60-minute maximum. |
+| `travel_time_saturday_01` | `double precision` | Source field "travel_time_saturday_01"; travel time to the closest open food retail outlet on Saturday at 01:00. Unit: "minutes". NULL where the hexagon is inaccessible or the travel time exceeds the publisher's 60-minute maximum. |
+| `travel_time_saturday_02` | `double precision` | Source field "travel_time_saturday_02"; travel time to the closest open food retail outlet on Saturday at 02:00. Unit: "minutes". NULL where the hexagon is inaccessible or the travel time exceeds the publisher's 60-minute maximum. |
+| `travel_time_saturday_03` | `double precision` | Source field "travel_time_saturday_03"; travel time to the closest open food retail outlet on Saturday at 03:00. Unit: "minutes". NULL where the hexagon is inaccessible or the travel time exceeds the publisher's 60-minute maximum. |
+| `travel_time_saturday_04` | `double precision` | Source field "travel_time_saturday_04"; travel time to the closest open food retail outlet on Saturday at 04:00. Unit: "minutes". NULL where the hexagon is inaccessible or the travel time exceeds the publisher's 60-minute maximum. |
+| `travel_time_saturday_05` | `double precision` | Source field "travel_time_saturday_05"; travel time to the closest open food retail outlet on Saturday at 05:00. Unit: "minutes". NULL where the hexagon is inaccessible or the travel time exceeds the publisher's 60-minute maximum. |
 | `msoa21cd` | `character varying` | Middle Layer Super Output Area (MSOA) 2021 code of this piece. Open Government Licence v3.0. |
 | `msoa21nm` | `character varying` | Official ONS MSOA 2021 name of this piece. Open Government Licence v3.0. |
 | `msoa21hclnm` | `text` | House of Commons Library readable MSOA name of this piece. Open Parliament Licence. |

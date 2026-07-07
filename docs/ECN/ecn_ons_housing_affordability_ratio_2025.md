@@ -22,7 +22,7 @@
 
 **SCOPE**
 
-- England only (all 296 rows carry an "E"-prefixed lad25cd). 296 LADs at the May 2025 LAD boundary; 296 distinct lad25cd (no multipolygon explosion).
+- England only, 296 distinct LADs at the May 2025.
 - 10 years of data: 2016 through 2025.
 
 **CRS**

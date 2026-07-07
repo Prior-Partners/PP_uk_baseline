@@ -25,7 +25,7 @@
     
     
       
-        <title>English Enterprise Zone Sites - uk_baseline data catalogue</title>
+        <title>English Enterprise Zone - uk_baseline data catalogue</title>
       
     
     
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              English Enterprise Zone Sites
+              English Enterprise Zone
             
           </span>
         </div>
@@ -1997,7 +1997,7 @@
   <span class="md-ellipsis">
     
   
-    English Enterprise Zone Sites
+    English Enterprise Zone
   
 
     
@@ -2015,7 +2015,7 @@
   <span class="md-ellipsis">
     
   
-    English Enterprise Zone Sites
+    English Enterprise Zone
   
 
     
@@ -5263,7 +5263,7 @@
 
 
 <h1 id="mhclg-english-enterprise-zone-site-boundaries-march-2016">MHCLG English Enterprise Zone site boundaries, March 2016<a class="headerlink" href="#mhclg-english-enterprise-zone-site-boundaries-march-2016" title="Permanent link">&para;</a></h1>
-<p class="layer-short">English Enterprise Zone Sites</p>
+<p class="layer-short">English Enterprise Zone</p>
 
 <p><code>ecn_mhclg_english_enterprise_zone_sites_mar2016</code></p>
 <p><img src="../../maps/ecn_mhclg_english_enterprise_zone_sites_mar2016.png" alt="Styling preview of ecn_mhclg_english_enterprise_zone_sites_mar2016" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></p>
@@ -5295,7 +5295,6 @@
 </ul>
 <p><strong>DATA QUALITY CAVEATS</strong></p>
 <ul>
-<li>Geometry is MultiPolygonZ (carries Z coordinates inherited from the source shapefile). Z values are not analytically meaningful for these polygons; treat as 0 for any height-related use.</li>
 <li>This is a 2016 snapshot. The Enterprise Zones programme has since been extended (further zones added in 2016-2017) and some zones have wound down. Does not represent the current position.</li>
 <li><code>date_start</code> is stored as text (varchar(20)), not a typed date.</li>
 </ul>
@@ -5315,7 +5314,6 @@
 <ul>
 <li>Geometry split to one row per (source feature x MSOA 2021). Each row carries that MSOA's msoa21cd / msoa21nm / msoa21hclnm and best-fit lad22 / lad25. The source feature's original primary key is preserved as <code>source_fid</code>; <code>gid</code> is a fresh surrogate primary key.</li>
 <li>Features lying within a single MSOA are kept whole (one row, primary-tagged); only features spanning more than one MSOA are split into per-MSOA pieces.</li>
-<li>Keep-everything (3 July 2026): geometry outside every MSOA — offshore, estuarine, or beyond the generalised coastline — is retained as rows with NULL geography columns (source_fid links the parts), so the layer holds the complete source geometry.</li>
 </ul>
 <h2 id="columns">Columns<a class="headerlink" href="#columns" title="Permanent link">&para;</a></h2>
 <table>
@@ -5330,72 +5328,72 @@
 <tr>
 <td><code>ez</code></td>
 <td><code>character varying(50)</code></td>
-<td></td>
+<td>Source field <code>ez</code>; Enterprise Zone name.</td>
 </tr>
 <tr>
 <td><code>shape_leng</code></td>
 <td><code>double precision</code></td>
-<td></td>
+<td>Source field <code>shape_leng</code>; shapefile-generated perimeter of the source feature. Unit: metres (British National Grid). Whole-feature value, repeated across a feature's per-MSOA split rows.</td>
 </tr>
 <tr>
 <td><code>shape_area</code></td>
 <td><code>double precision</code></td>
-<td></td>
+<td>Source field <code>shape_area</code>; shapefile-generated area of the source feature. Unit: square metres (British National Grid). Whole-feature value, repeated across a feature's per-MSOA split rows.</td>
 </tr>
 <tr>
 <td><code>brd</code></td>
 <td><code>character varying(5)</code></td>
-<td></td>
+<td>Source field <code>brd</code>; Y/N flag for the Business Rate Discount incentive. Interpreted from the field initials + the gov.uk Enterprise Zones incentive set; not defined in the publisher's data dictionary.</td>
 </tr>
 <tr>
 <td><code>brr</code></td>
 <td><code>character varying(5)</code></td>
-<td></td>
+<td>Source field <code>brr</code>; Y/N flag for the Business Rate Retention incentive. Interpreted from the field initials + the gov.uk Enterprise Zones incentive set; not defined in the publisher's data dictionary.</td>
 </tr>
 <tr>
 <td><code>eca</code></td>
 <td><code>character varying(5)</code></td>
-<td></td>
+<td>Source field <code>eca</code>; Y/N flag for the Enhanced Capital Allowances incentive. Interpreted from the field initials + the gov.uk Enterprise Zones incentive set; not defined in the publisher's data dictionary.</td>
 </tr>
 <tr>
 <td><code>ldo</code></td>
 <td><code>character varying(5)</code></td>
-<td></td>
+<td>Source field <code>ldo</code>; Y/N/? flag for the Local Development Order (simplified planning) incentive. Interpreted from the field initials + the gov.uk Enterprise Zones incentive set; not defined in the publisher's data dictionary.</td>
 </tr>
 <tr>
 <td><code>ez_website</code></td>
 <td><code>character varying(75)</code></td>
-<td></td>
+<td>Source field <code>ez_website</code>; Enterprise Zone / Local Enterprise Partnership website URL.</td>
 </tr>
 <tr>
 <td><code>sectors</code></td>
 <td><code>character varying(150)</code></td>
-<td></td>
+<td>Source field <code>sectors</code>; business sectors listed for the zone (comma-separated).</td>
 </tr>
 <tr>
 <td><code>subez</code></td>
 <td><code>character varying(50)</code></td>
-<td></td>
+<td>Source field <code>subez</code>; sub-zone name within the Enterprise Zone.</td>
 </tr>
 <tr>
 <td><code>date_start</code></td>
 <td><code>character varying(20)</code></td>
-<td></td>
+<td>Source field <code>date_start</code>; start year, stored as text (observed values 2012, 2014, 2015, 2016, and "Ext").</td>
 </tr>
 <tr>
 <td><code>ons_ez_cod</code></td>
 <td><code>character varying(10)</code></td>
-<td></td>
+<td>Source field <code>ons_ez_cod</code>; ONS Enterprise Zone code (GSS, E49-prefixed).</td>
 </tr>
 <tr>
 <td><code>poly_name</code></td>
 <td><code>character varying(75)</code></td>
-<td></td>
+<td>Source field <code>poly_name</code>; name of the individual site polygon.</td>
 </tr>
 <tr>
 <td><code>desig_site</code></td>
 <td><code>character varying(75)</code></td>
-<td></td>
+<td>Source field <code>desig_site</code>; designated site name.</td>
 </tr>
 <tr>
 <td><code>msoa21cd</code></td>

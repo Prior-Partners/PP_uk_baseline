@@ -1,6 +1,6 @@
 # ONS Gross value added (GVA) at middle layer super output area (MSOA), 1998-2023, England & Wales extent, MSOA 2011 boundary
 
-<p class="layer-short">Gross_value_added_msoa</p>
+<p class="layer-short">Gross value added (GVA) - MSOA</p>
 
 `ecn_ons_msoa_gross_value_added_2023`
 
@@ -17,7 +17,7 @@
 
 **DEFINITIONS**
 
-- "These data are annual subnational gross value added (GVA) disaggregated to lower levels of geography..The statistics are produced for lower layer super output areas (LSOA) in England and Wales, data zones (DZ) in Scotland, and super output areas (SOA) in Northern Ireland." (ONS Information sheet)
+- "These data are annual subnational gross value added (GVA) disaggregated to lower layer super output areas (LSOA) in England and Wales, data zones (DZ) in Scotland, and super output areas (SOA) in Northern Ireland." (ONS)
 
 **SCOPE**
 
@@ -34,12 +34,11 @@
 
 **DATA QUALITY CAVEATS**
 
-- The lad20cd, lad20nm columns carry the LAD edition current at the original load (circa-2020) and no longer align with adm_ons_lad_boundary_may2024. For current-edition LAD aggregates, use uk_baseline.ecn_ons_lad_gross_value_added_2023.
+- For LAD level dataset, please refer to Gross value added (GVA) - LAD.
 
 **DERIVED FROM**
 
-- Sum of gva_YYYY grouped by msoa11cd, taken from uk_baseline.ecn_ons_lsoa_gross_value_added_2023.
-- Verified 2026-05-27: per-MSOA, per-year output reproduces the original table to zero delta across all 26 years.
+- Sum of gva_YYYY grouped by MSOA, taken from uk_baseline.ecn_ons_lsoa_gross_value_added_2023.
 
 **LOADED INTO uk_baseline**
 

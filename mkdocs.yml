@@ -111,7 +111,7 @@ nav:
     - "BRES Employment - MSOA, 2024, 2D": ECN/ecn_ons_msoa_business_register_employment_2d_2024.md
     - "BRES Employment - MSOA, 2023, 3D": ECN/ecn_ons_msoa_business_register_employment_3d_2023.md
     - "BRES Employment - MSOA, 2024, 3D": ECN/ecn_ons_msoa_business_register_employment_3d_2024.md
-    - "Gross_value_added_msoa": ECN/ecn_ons_msoa_gross_value_added_2023.md
+    - "Gross value added (GVA) - MSOA": ECN/ecn_ons_msoa_gross_value_added_2023.md
     - "Business_floorspace_lad": ECN/ecn_voa_lad_business_floorspace_2023.md
     - "Stock_properties_lad": ECN/ecn_voa_lad_stock_properties_2025.md
     - "Business_floorspace_lsoa": ECN/ecn_voa_lsoa_business_floorspace_2023.md

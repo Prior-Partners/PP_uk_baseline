@@ -101,7 +101,7 @@ nav:
     - "BRES Employment - LAD, 2024, 2D": ECN/ecn_ons_lad_business_register_employment_2d_2024.md
     - "BRES Employment - LAD, 2023, 3D": ECN/ecn_ons_lad_business_register_employment_3d_2023.md
     - "BRES Employment - LAD, 2024, 3D": ECN/ecn_ons_lad_business_register_employment_3d_2024.md
-    - "Gross_value_added_lad": ECN/ecn_ons_lad_gross_value_added_2023.md
+    - "Gross value added (GVA) - LAD": ECN/ecn_ons_lad_gross_value_added_2023.md
     - "BRES Employment - LSOA, 2023, 2D": ECN/ecn_ons_lsoa_business_register_employment_2d_2023.md
     - "BRES Employment - LSOA, 2024, 2D": ECN/ecn_ons_lsoa_business_register_employment_2d_2024.md
     - "BRES Employment - LSOA, 2023, 3D": ECN/ecn_ons_lsoa_business_register_employment_3d_2023.md

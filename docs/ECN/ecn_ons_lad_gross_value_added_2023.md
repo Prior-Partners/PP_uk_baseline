@@ -1,6 +1,6 @@
 # ONS Gross value added (GVA) at local authority district (LAD), 1998-2023, UK extent, May 2024 LAD boundary
 
-<p class="layer-short">Gross_value_added_lad</p>
+<p class="layer-short">Gross value added (GVA) - LAD</p>
 
 `ecn_ons_lad_gross_value_added_2023`
 
@@ -17,9 +17,8 @@
 
 **DEFINITIONS**
 
-- "These data are annual subnational gross value added (GVA) disaggregated to lower levels of geography..The statistics are produced for lower layer super output areas (LSOA) in England and Wales, data zones (DZ) in Scotland, and super output areas (SOA) in Northern Ireland." (ONS landing page, Information sheet)
-- "The data are in current prices..We have not produced chained volume measures with price inflation removed because they are innately non-additive and therefore cannot be used as building blocks to create larger geographic areas." (ONS Information sheet)
-- "The apportionment process..means that the data presented here will sum to the total for each local authority and above." (ONS Information sheet)
+- "These data are annual subnational gross value added (GVA) disaggregated to lower layer super output areas (LSOA) in England and Wales, data zones (DZ) in Scotland, and super output areas (SOA) in Northern Ireland." (ONS)
+- "The data are in current prices. We have not produced chained volume measures with price inflation removed because they are innately non-additive and therefore cannot be used as building blocks to create larger geographic areas." (ONS)
 
 **SCOPE**
 
@@ -36,9 +35,7 @@
 
 **DERIVED FROM**
 
-- Sum of gva_YYYY grouped by the source XLSX "LAD code" column, taken across all LSOAs (England + Wales), Data Zones (Scotland) and SOAs (Northern Ireland).
-- No spatial inference, no external lookup. The LAD code is the publisher's own assignment for each small area as part of the ONS apportionment process.
-- Verified at load: per-year sum of staging equals sum of source to 0.000000 pounds million across all 26 years.
+- Sum of gva_YYYY grouped by LAD, taken across all LSOAs (England + Wales), Data Zones (Scotland) and SOAs (Northern Ireland).
 
 **LOADED INTO uk_baseline**
 

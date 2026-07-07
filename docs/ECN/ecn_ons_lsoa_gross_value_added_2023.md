@@ -1,6 +1,6 @@
 # ONS Gross value added (GVA) at lower layer super output area (LSOA), 1998-2023, England & Wales extent, LSOA 2011 boundary
 
-<p class="layer-short">Gross_value_added_lsoa</p>
+<p class="layer-short">Gross value added (GVA) - LSOA</p>
 
 `ecn_ons_lsoa_gross_value_added_2023`
 
@@ -17,15 +17,15 @@
 
 **DEFINITIONS**
 
-- "These data are annual subnational gross value added (GVA) disaggregated to lower levels of geography..The statistics are produced for lower layer super output areas (LSOA) in England and Wales, data zones (DZ) in Scotland, and super output areas (SOA) in Northern Ireland." (ONS Information sheet)
-- "The lower layer super output areas (LSOA) in England and Wales, data zones (DZ) in Scotland, and super output areas (SOA) in Northern Ireland are all based on 2011 census geography codes." (ONS Information sheet)
-- "The data are in current prices..We have not produced chained volume measures with price inflation removed because they are innately non-additive and therefore cannot be used as building blocks to create larger geographic areas." (ONS Information sheet)
+- "These data are annual subnational gross value added (GVA) disaggregated to lower layer super output areas (LSOA) in England and Wales, data zones (DZ) in Scotland, and super output areas (SOA) in Northern Ireland." (ONS)
+- "The lower layer super output areas (LSOA) in England and Wales, data zones (DZ) in Scotland, and super output areas (SOA) in Northern Ireland are all based on 2011 census geography codes." (ONS)
+- "The data are in current prices. We have not produced chained volume measures with price inflation removed because they are innately non-additive and therefore cannot be used as building blocks to create larger geographic areas." (ONS)
 
 **SCOPE**
 
 - England & Wales (Table 1 + Table 2 of the source XLSX).
 - 34,753 LSOA 2011 rows.
-- Scotland Data Zones (6,976) and NI SOAs (890) are published by ONS but not
+- Scotland Data Zones (6,976) and NI SOAs (890) are published by ONS but not loaded into this table because no matching adm_ons_dz_* / adm_ons_soa_* boundary tables exist in uk_baseline. They are aggregated upward into uk_baseline.ecn_ons_lad_gross_value_added_2023 (UK-wide).
 
 **CRS**
 
@@ -38,12 +38,11 @@
 **DATA QUALITY CAVEATS**
 
 - Published on 2011 LSOA boundaries. Each row's msoa21cd, msoa21nm, msoa21hclnm and lad22/lad25 codes are best-fit onto 2021 geography — the 2021 MSOA the row's 2011 LSOA overlaps most by area (uk.ref_lsoa11_msoa21_bestfit_lu). LSOAs that straddle a 2011-to-2021 boundary change are assigned to their largest-overlap MSOA, so for those a small share of the LSOA area lies outside the assigned MSOA.
-- The lad_code, lad_name, itl_code, itl_name columns carry the LAD/ITL edition current at the original load (circa-2020). These no longer align with adm_ons_lad_boundary_may2024 (24 codes are stale, 49 modern codes absent). For current-edition LAD aggregates, use uk_baseline.ecn_ons_lad_gross_value_added_2023 instead.
-- Diagnostic 2026-05-27 confirmed value-fidelity to the 22 Sep 2025 release: 199 cells differ by exactly 0.001 pounds million (rounding noise) across 34,753 LSOAs x 26 years. Per-year SUM delta < 0.15 pounds million on totals of 0.8-2.2 trillion.
+- For LAD level dataset, please refer to Gross value added (GVA) - LAD.
 
 **ENRICHMENT**
 
-- `msoa21hclnm` — House of Commons Library readable MSOA name, best-fit assigned at load from the row's 2011 LSOA by largest-area-overlap 2021 MSOA (uk.ref_lsoa11_msoa21_bestfit_lu). Open Parliament Licence. loaded into this table because no matching adm_ons_dz_* / adm_ons_soa_* boundary tables exist in uk_baseline. They are aggregated upward into uk_baseline.ecn_ons_lad_gross_value_added_2023 (UK-wide).
+- `msoa21hclnm` — House of Commons Library readable MSOA name, best-fit assigned at load from the row's 2011 LSOA by largest-area-overlap 2021 MSOA (uk.ref_lsoa11_msoa21_bestfit_lu). Open Parliament Licence.
 
 **LOADED INTO uk_baseline**
 

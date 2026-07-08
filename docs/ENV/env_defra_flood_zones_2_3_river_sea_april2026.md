@@ -1,6 +1,6 @@
 # Defra - Department for Environment, Food and Rural Affairs — Environment Agency Flood Map for Planning, Flood Zones 2 and 3 (river and sea), April 2026
 
-<p class="layer-short">Flood Zones 2 and 3 (River and Sea)</p>
+<p class="layer-short">Flood Zones 2 and 3 - River and Sea</p>
 
 `env_defra_flood_zones_2_3_river_sea_april2026`
 

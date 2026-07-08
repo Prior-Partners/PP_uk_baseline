@@ -6,7 +6,7 @@
 
 - [Defra - Department for Environment, Food and Rural Affairs — Environment Agency Flood Map for Planning, Flood Zones 2 and 3, January 2025](env_defra_flood_zone_jan2025.md) · `env_defra_flood_zone_jan2025`
 - [Defra - Department for Environment, Food and Rural Affairs — Environment Agency Flood Map for Planning, Flood Zones 2 and 3 (river and sea), April 2026](env_defra_flood_zones_2_3_river_sea_april2026.md) · `env_defra_flood_zones_2_3_river_sea_april2026`
-- [Defra - Department for Environment, Food and Rural Affairs — Environment Agency Flood Map for Planning, Flood Zones with climate-change allowance, July 2025](env_defra_flood_zones_plus_climate_change_july2025.md) · `env_defra_flood_zones_plus_climate_change_july2025`
+- [Defra - Department for Environment, Food and Rural Affairs — Environment Agency Flood Map for Planning, Flood Zones with Climate Change Allowance, July 2025](env_defra_flood_zones_plus_climate_change_july2025.md) · `env_defra_flood_zones_plus_climate_change_july2025`
 - [Defra - Department for Environment, Food and Rural Affairs — Environment Agency Historic Landfill Sites for England](env_defra_historic_landfill_site.md) · `env_defra_historic_landfill_site`
 - [Defra - Department for Environment, Food and Rural Affairs — Environment Agency National Nature Reserves (NNRs) in England, April 2026](env_defra_national_nature_reserves_apr2026.md) · `env_defra_national_nature_reserves_apr2026`
 - [Defra - Department for Environment, Food and Rural Affairs Predictive Agricultural Land Classification (ALC) for England, March 2026](env_defra_predictive_agricultural_land_class_mar2026.md) · `env_defra_predictive_agricultural_land_class_mar2026`

@@ -25,7 +25,7 @@
     
     
       
-        <title>Ancient Woodland Revised - uk_baseline data catalogue</title>
+        <title>Ancient Woodland - Revised - uk_baseline data catalogue</title>
       
     
     
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Ancient Woodland Revised
+              Ancient Woodland - Revised
             
           </span>
         </div>
@@ -3169,7 +3169,7 @@
   <span class="md-ellipsis">
     
   
-    Ancient Woodland Revised
+    Ancient Woodland - Revised
   
 
     
@@ -3187,7 +3187,7 @@
   <span class="md-ellipsis">
     
   
-    Ancient Woodland Revised
+    Ancient Woodland - Revised
   
 
     
@@ -5263,11 +5263,10 @@
 
 
 <h1 id="natural-england-ancient-woodland-revised-inventory-england-april-2026">Natural England Ancient Woodland Revised Inventory (England), April 2026<a class="headerlink" href="#natural-england-ancient-woodland-revised-inventory-england-april-2026" title="Permanent link">&para;</a></h1>
-<p class="layer-short">Ancient Woodland Revised</p>
+<p class="layer-short">Ancient Woodland - Revised</p>
 
 <p><code>env_naturalengland_ancient_woodland_revised_apr2026</code></p>
 <p><img src="../../maps/env_naturalengland_ancient_woodland_revised_apr2026.png" alt="Styling preview of env_naturalengland_ancient_woodland_revised_apr2026" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></p>
-<p>Published by Natural England as "completed counties" coverage.</p>
 <p><strong>SOURCE</strong></p>
 <ul>
 <li>Natural England, via the NE Open Data Hub. Ancient Woodland - Revised (England) - Completed Counties dataset.</li>
@@ -5284,7 +5283,7 @@
 </ul>
 <p><strong>SCOPE</strong></p>
 <ul>
-<li>England. 40,405 rows. Published as "completed counties" coverage — not yet national.</li>
+<li>England. 46,860 rows. Published as "completed counties" coverage — not yet national.</li>
 </ul>
 <p><strong>CRS</strong></p>
 <ul>
@@ -5296,15 +5295,18 @@
 </ul>
 <p><strong>DATA QUALITY CAVEATS</strong></p>
 <ul>
-<li>Some areas overlap with env_naturalengland_ancient_woodland_mar2026 (the original inventory); the two datasets are not mutually exclusive.</li>
+<li>Some areas overlap with Ancient Woodland (uk_baseline.env_naturalengland_ancient_woodland_mar2026); the two datasets are not mutually exclusive.</li>
+</ul>
+<p><strong>ENRICHMENT</strong></p>
+<ul>
+<li>Geometry split to one row per source feature per MSOA (2021).</li>
+<li>Each row carries that MSOA's <code>msoa21cd</code>, <code>msoa21nm</code>, <code>msoa21hclnm</code>, <code>lad22cd</code>, <code>lad22nm</code>, <code>lad25cd</code>, <code>lad25nm</code>.</li>
+<li>The source feature's original primary key is preserved as <code>source_fid</code>; <code>gid</code> is a fresh surrogate primary key.</li>
+<li>Features with no MSOA overlap (offshore or outside England &amp; Wales) are kept whole, with NULL geography columns.</li>
 </ul>
 <p><strong>LOADED INTO uk_baseline</strong></p>
 <ul>
 <li>Loaded by PNC, May 2026.</li>
-</ul>
-<p>MSOA SPLIT (added 3 July 2026)</p>
-<ul>
-<li>Geometry split to one row per (source feature x MSOA 2021). Each row carries that MSOA's msoa21cd / msoa21nm / msoa21hclnm and best-fit lad22 / lad25. The source feature's original primary key is preserved as <code>source_fid</code>; <code>gid</code> is a fresh surrogate primary key. Features with no MSOA overlap (offshore or outside England &amp; Wales) are kept whole with NULL geography columns.</li>
 </ul>
 <h2 id="columns">Columns<a class="headerlink" href="#columns" title="Permanent link">&para;</a></h2>
 <table>
@@ -5324,77 +5326,77 @@
 <tr>
 <td><code>fid_original</code></td>
 <td><code>integer</code></td>
-<td></td>
+<td>Original source feature identifier, preserved at load.</td>
 </tr>
 <tr>
 <td><code>name</code></td>
 <td><code>character varying</code></td>
-<td></td>
+<td>Source field <code>name</code>; wood name where recorded (e.g. "Oak Hill Park").</td>
 </tr>
 <tr>
 <td><code>theme</code></td>
 <td><code>character varying</code></td>
-<td></td>
+<td>Source field <code>theme</code>; dataset theme (always "ancient woodland").</td>
 </tr>
 <tr>
 <td><code>themename</code></td>
 <td><code>character varying</code></td>
-<td></td>
+<td>Source field <code>themename</code>; ancient woodland category — "Ancient &amp; Semi-Natural Woodland", "Ancient Replanted Woodland", "Ancient Wood Pasture" or "Infilled Ancient Wood Pasture".</td>
 </tr>
 <tr>
 <td><code>status</code></td>
 <td><code>character varying</code></td>
-<td></td>
+<td>Source field <code>status</code>; category code, matching <code>themename</code>: "ASNW" (Ancient &amp; Semi-Natural Woodland), "ARW" (Ancient Replanted Woodland), "AWPP" (Ancient Wood Pasture), "IAWPP" (Infilled Ancient Wood Pasture).</td>
 </tr>
 <tr>
 <td><code>x_coord</code></td>
 <td><code>integer</code></td>
-<td></td>
+<td>Source field <code>x_coord</code>; feature centroid easting. Unit: metres (British National Grid).</td>
 </tr>
 <tr>
 <td><code>y_coord</code></td>
 <td><code>integer</code></td>
-<td></td>
+<td>Source field <code>y_coord</code>; feature centroid northing. Unit: metres (British National Grid).</td>
 </tr>
 <tr>
 <td><code>themeid</code></td>
 <td><code>character varying</code></td>
-<td></td>
+<td>Source field <code>themeid</code>; source theme identifier (county-prefixed, e.g. "GLON_3211").</td>
 </tr>
 <tr>
 <td><code>area</code></td>
 <td><code>double precision</code></td>
-<td></td>
+<td>Source field <code>area</code>; feature area. Unit: hectares.</td>
 </tr>
 <tr>
 <td><code>perimeter</code></td>
 <td><code>double precision</code></td>
-<td></td>
+<td>Source field <code>perimeter</code>; feature perimeter as recorded in the source.</td>
 </tr>
 <tr>
 <td><code>globalid</code></td>
 <td><code>character varying</code></td>
-<td></td>
+<td>Source field <code>GlobalID</code>; Esri global identifier of the source feature.</td>
 </tr>
 <tr>
 <td><code>area_ha</code></td>
 <td><code>double precision</code></td>
-<td></td>
+<td>Area of this row's geometry in hectares.</td>
 </tr>
 <tr>
 <td><code>rgn22cd</code></td>
 <td><code>text</code></td>
-<td></td>
+<td>Region 2022 GSS code (nine English regions), assigned via the ONS Region lookup. Open Government Licence v3.0.</td>
 </tr>
 <tr>
 <td><code>rgn22nm</code></td>
 <td><code>text</code></td>
-<td></td>
+<td>Region 2022 name, assigned via the ONS Region lookup. Open Government Licence v3.0.</td>
 </tr>
 <tr>
 <td><code>sds_boundary</code></td>
 <td><code>text</code></td>
-<td></td>
+<td>Spatial Development Strategy (SDS) area the feature falls in. NULL outside any SDS area.</td>
 </tr>
 <tr>
 <td><code>msoa21cd</code></td>
@@ -5434,12 +5436,12 @@
 <tr>
 <td><code>geom</code></td>
 <td><code>geometry(MultiPolygon,27700)</code></td>
-<td></td>
+<td>Ancient woodland (revised) polygon geometry in EPSG:27700 (British National Grid); one part per MSOA (2021) after the split.</td>
 </tr>
 <tr>
 <td><code>gid</code></td>
 <td><code>bigint</code></td>
-<td></td>
+<td>Surrogate primary key, added at the MSOA split (see ENRICHMENT).</td>
 </tr>
 </tbody>
 </table>

@@ -25,7 +25,7 @@
     
     
       
-        <title>Department for Education (DfE) primary-phase schools in England, May 2026 - uk_baseline data catalogue</title>
+        <title>Primary School - uk_baseline data catalogue</title>
       
     
     
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Department for Education (DfE) primary-phase schools in England, May 2026
+              Primary School
             
           </span>
         </div>
@@ -2723,7 +2723,7 @@
   <span class="md-ellipsis">
     
   
-    Department for Education (DfE) primary-phase schools in England, May 2026
+    Primary School
   
 
     
@@ -2741,7 +2741,7 @@
   <span class="md-ellipsis">
     
   
-    Department for Education (DfE) primary-phase schools in England, May 2026
+    Primary School
   
 
     
@@ -5263,12 +5263,14 @@
 
 
 <h1 id="department-for-education-dfe-primary-phase-schools-in-england-may-2026">Department for Education (DfE) primary-phase schools in England, May 2026<a class="headerlink" href="#department-for-education-dfe-primary-phase-schools-in-england-may-2026" title="Permanent link">&para;</a></h1>
+<p class="layer-short">Primary School</p>
+
 <p><code>edu_dfe_primary_school_may2026</code></p>
 <p><img src="../../maps/edu_dfe_primary_school_may2026.png" alt="Styling preview of edu_dfe_primary_school_may2026" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></p>
 <p><strong>SOURCE</strong></p>
 <ul>
-<li>Department for Education (DfE), Get Information About Schools, May 2026 extract. This table is a filtered subset of uk_baseline.edu_dfe_school_may2026 (the parent / all-establishments register).</li>
-<li>Ofsted, Management Information — state-funded schools — latest inspections as at 28 Feb 2026. Source of the two enriched columns ofsted_overall_rate_code and ofsted_overall_rate (see ENRICHMENT). Loaded into uk.edu_ofsted_state_funded_mis_feb2026 and joined to DfE GIAS on URN.</li>
+<li>Department for Education (DfE), Get Information About Schools, May 2026 extract. This table is a filtered subset of uk_baseline.edu_dfe_school_may2026.</li>
+<li>Ofsted, Management Information — state-funded schools — latest inspections as at 28 Feb 2026. Source of the two enriched columns ofsted_overall_rate_code and ofsted_overall_rate (see ENRICHMENT).</li>
 </ul>
 <p><strong>DOCUMENTATION</strong></p>
 <ul>
@@ -5286,8 +5288,9 @@
 <p><strong>SCOPE</strong></p>
 <ul>
 <li>England only. 16,865 rows, one per primary-phase open URN.</li>
-<li>Filter (re-stated for clarity): phase_of_education_name IN ('Primary', 'Middle deemed primary', 'All-through') AND establishment_status_name IN ('Open', 'Open, but proposed to close').</li>
-<li>Excludes Closed primaries (~13.3k of the 30.1k Primary phase records held by the parent are Closed and dropped here).</li>
+<li>Includes three primary-phase groupings: Primary, Middle deemed primary, and All-through.</li>
+<li>Includes open schools only (status Open, or Open but proposed to close).</li>
+<li>Excludes Closed primaries: about 13,300 of the 30,100 Primary-phase records in the parent are Closed and are dropped here.</li>
 </ul>
 <p><strong>CRS</strong></p>
 <ul>
@@ -5295,26 +5298,27 @@
 </ul>
 <p><strong>LICENCE</strong></p>
 <ul>
-<li>Open Government Licence v3.0 (covers both DfE GIAS and Ofsted MI).</li>
+<li>Open Government Licence v3.0.</li>
 </ul>
 <p><strong>DATA QUALITY CAVEATS</strong></p>
 <ul>
 <li>"All-through" schools appear in BOTH this primary subset and the secondary subset — they cover both phases by design. Count 203 in the parent; sum-of-subsets will double-count them.</li>
-<li>This subset is a materialised filter, not a view. If the parent is refreshed, this table must be re-created (the next extract will not flow through automatically).</li>
-<li>Same date-as-text caveat as the parent — date columns are text, not typed dates.</li>
 <li>ofsted_overall_rate / _code are NULL where no clean graded inspection or qualifying ungraded-reaffirm outcome maps to the URN. Do not treat NULL as "Inadequate".</li>
 </ul>
 <p><strong>ENRICHMENT</strong></p>
 <ul>
 <li><code>msoa21hclnm</code> — House of Commons Library readable MSOA name, joined at load on <code>msoa_code</code> from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.</li>
-<li>ofsted_overall_rate_code, ofsted_overall_rate — headline Ofsted grade (1-4 code + text: Outstanding / Good / Requires Improvement / Inadequate) merged in from the Ofsted Establishment Inspection File via uk.edu_ofsted_state_funded_mis_feb2026 (28 Feb 2026 snapshot). Joined on URN. NULL when no clean grade is available. Includes "Fallback option B" — for URNs whose OEIF graded inspection was NULL, the rate is filled from the latest ungraded reaffirm outcome where it maps unambiguously ("School remains Outstanding" / "School remains Good" -&gt; respective grade). Applied 14 May 2026. See column comments for the full rule.</li>
-<li>lad25cd, lad25nm — joined at load from ONS LAD 2025 lookup.</li>
-<li>rgn22cd, rgn22nm — joined at load from ONS Region 2022 lookup.</li>
-<li>sds_boundary — internal Spatial Development Strategy area flag.</li>
+<li><code>ofsted_overall_rate_code</code>, <code>ofsted_overall_rate</code> — headline Ofsted grade, as a 1-4 code plus text label, from Ofsted Management Information (see SOURCE), joined on URN. NULL where no clean grade is available; see column comments for the full derivation. Grades:<ul>
+<li>1 — Outstanding</li>
+<li>2 — Good</li>
+<li>3 — Requires Improvement</li>
+<li>4 — Inadequate</li>
+</ul>
+</li>
 </ul>
 <p><strong>DERIVED FROM</strong></p>
 <ul>
-<li>uk_baseline.edu_dfe_school_may2026 with the filter clause stated under SCOPE. Subset created 13 May 2026.</li>
+<li>uk_baseline.edu_dfe_school_may2026. Subset created 13 May 2026.</li>
 </ul>
 <p><strong>LOADED INTO uk_baseline</strong></p>
 <ul>
@@ -6111,7 +6115,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Developed by the Digital Innovation team, Prior + Partners — last updated 07 July 2026
+      Developed by the Digital Innovation team, Prior + Partners — last updated 08 July 2026
     </div>
   
   

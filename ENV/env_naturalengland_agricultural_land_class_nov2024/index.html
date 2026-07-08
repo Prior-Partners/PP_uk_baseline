@@ -25,7 +25,7 @@
     
     
       
-        <title>Natural England Agricultural Land Classification (ALC) survey for England, November 2024 - uk_baseline data catalogue</title>
+        <title>Agricultural Land Classification - Survey - uk_baseline data catalogue</title>
       
     
     
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Natural England Agricultural Land Classification (ALC) survey for England, November 2024
+              Agricultural Land Classification - Survey
             
           </span>
         </div>
@@ -3020,7 +3020,7 @@
   <span class="md-ellipsis">
     
   
-    Predictive Agricultural Land
+    Agricultural Land Classification - Predictive
   
 
     
@@ -3113,7 +3113,7 @@
   <span class="md-ellipsis">
     
   
-    Natural England Agricultural Land Classification (ALC) survey for England, November 2024
+    Agricultural Land Classification - Survey
   
 
     
@@ -3131,7 +3131,7 @@
   <span class="md-ellipsis">
     
   
-    Natural England Agricultural Land Classification (ALC) survey for England, November 2024
+    Agricultural Land Classification - Survey
   
 
     
@@ -5263,6 +5263,8 @@
 
 
 <h1 id="natural-england-agricultural-land-classification-alc-survey-for-england-november-2024">Natural England Agricultural Land Classification (ALC) survey for England, November 2024<a class="headerlink" href="#natural-england-agricultural-land-classification-alc-survey-for-england-november-2024" title="Permanent link">&para;</a></h1>
+<p class="layer-short">Agricultural Land Classification - Survey</p>
+
 <p><code>env_naturalengland_agricultural_land_class_nov2024</code></p>
 <p><img src="../../maps/env_naturalengland_agricultural_land_class_nov2024.png" alt="Styling preview of env_naturalengland_agricultural_land_class_nov2024" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></p>
 <p><strong>SOURCE</strong></p>
@@ -5276,12 +5278,22 @@
 </ul>
 <p><strong>DEFINITIONS</strong></p>
 <ul>
-<li>"ALC uses a grading system to enable you to assess and compare the quality of agricultural land in England and Wales." (gov.uk, Guide to assessing development proposals on agricultural land)</li>
-<li>"A combination of climate, topography and soil characteristics and their unique interaction determines the limitation and grade of the land." (gov.uk, Guide to assessing development proposals on agricultural land)</li>
+<li>Agricultural Land Classification (ALC) grades agricultural land by quality — the extent to which soil, site and climate limit its use — from Grade 1 (best) to Grade 5 (poorest), to inform land-use planning. (Natural England / Defra ALC guidance)</li>
+<li>Grades in this survey (grade 3 is not subdivided into 3a/3b):<ul>
+<li>Grade 1 — excellent quality: no or very minor limitations to agricultural use;</li>
+<li>Grade 2 — very good quality: minor limitations;</li>
+<li>Grade 3 — good to moderate quality;</li>
+<li>Grade 4 — poor quality: severe limitations;</li>
+<li>Grade 5 — very poor quality: very severe limitations;</li>
+<li>Non Agricultural — land not in agricultural use;</li>
+<li>Urban — built-up land;</li>
+<li>Exclusion — land excluded from the classification.</li>
+</ul>
+</li>
 </ul>
 <p><strong>SCOPE</strong></p>
 <ul>
-<li>England. 5,926 rows.</li>
+<li>England. 44,489 rows.</li>
 </ul>
 <p><strong>CRS</strong></p>
 <ul>
@@ -5294,16 +5306,18 @@
 <p><strong>DATA QUALITY CAVEATS</strong></p>
 <ul>
 <li>Surveyed layer — this is the original, field-surveyed Agricultural Land Classification (not a model or prediction).</li>
-<li>RELATED: for a modelled national prediction that splits grade 3 into 3a/3b, see uk_baseline.env_defra_predictive_agricultural_land_class_mar2026 — that layer is a prediction, not a survey.</li>
+<li>RELATED: for a modelled national prediction of agricultural land, please see Agricultural Land Classification - Predictive (uk_baseline.env_defra_predictive_agricultural_land_class_mar2026).</li>
+</ul>
+<p><strong>ENRICHMENT</strong></p>
+<ul>
+<li>Geometry split to one row per source feature per MSOA (2021).</li>
+<li>Each row carries that MSOA's <code>msoa21cd</code>, <code>msoa21nm</code>, <code>msoa21hclnm</code>, <code>lad22cd</code>, <code>lad22nm</code>, <code>lad25cd</code>, <code>lad25nm</code>.</li>
+<li>The source feature's original primary key is preserved as <code>source_fid</code>; <code>gid</code> is a fresh surrogate primary key.</li>
+<li>Geometry outside every MSOA (offshore, estuarine, or beyond the coastline) is kept as rows with NULL geography columns, so the layer holds the complete source geometry.</li>
 </ul>
 <p><strong>LOADED INTO uk_baseline</strong></p>
 <ul>
 <li>Loaded by PNC, May 2026.</li>
-</ul>
-<p>MSOA SPLIT (added 3 July 2026)</p>
-<ul>
-<li>Geometry split to one row per (source feature x MSOA 2021). Each row carries that MSOA's msoa21cd / msoa21nm / msoa21hclnm and best-fit lad22 / lad25. The source feature's original primary key is preserved as <code>source_fid</code>; <code>gid</code> is a fresh surrogate primary key. Features with no MSOA overlap (offshore or outside England &amp; Wales) are kept whole with NULL geography columns.</li>
-<li>Keep-everything (3 July 2026): geometry outside every MSOA — offshore, estuarine, or beyond the generalised coastline — is retained as rows with NULL geography columns (source_fid links the parts), so the layer holds the complete source geometry.</li>
 </ul>
 <h2 id="columns">Columns<a class="headerlink" href="#columns" title="Permanent link">&para;</a></h2>
 <table>
@@ -5323,47 +5337,47 @@
 <tr>
 <td><code>fid_original</code></td>
 <td><code>integer</code></td>
-<td></td>
+<td>Original source feature identifier, preserved at load.</td>
 </tr>
 <tr>
 <td><code>geogext</code></td>
 <td><code>character varying</code></td>
-<td></td>
+<td>Source field <code>geogext</code>; geographic extent / survey map-sheet reference from the source.</td>
 </tr>
 <tr>
 <td><code>area</code></td>
 <td><code>double precision</code></td>
-<td></td>
+<td>Source field <code>area</code>; area as recorded in the source (ArcInfo coverage AREA item).</td>
 </tr>
 <tr>
 <td><code>alc_grade</code></td>
 <td><code>character varying</code></td>
-<td></td>
+<td>Source field <code>alc_grade</code>; surveyed ALC grade — "Grade 1" to "Grade 5", "Non Agricultural", "Urban" or "Exclusion".</td>
 </tr>
 <tr>
 <td><code>perimeter</code></td>
 <td><code>double precision</code></td>
-<td></td>
+<td>Source field <code>perimeter</code>; perimeter as recorded in the source (ArcInfo coverage PERIMETER item).</td>
 </tr>
 <tr>
 <td><code>area_ha</code></td>
 <td><code>double precision</code></td>
-<td></td>
+<td>Area in hectares.</td>
 </tr>
 <tr>
 <td><code>rgn22cd</code></td>
 <td><code>text</code></td>
-<td></td>
+<td>Region 2022 GSS code (nine English regions), assigned via the ONS Region lookup. Open Government Licence v3.0.</td>
 </tr>
 <tr>
 <td><code>rgn22nm</code></td>
 <td><code>text</code></td>
-<td></td>
+<td>Region 2022 name, assigned via the ONS Region lookup. Open Government Licence v3.0.</td>
 </tr>
 <tr>
 <td><code>sds_boundary</code></td>
 <td><code>text</code></td>
-<td></td>
+<td>Spatial Development Strategy (SDS) area the feature falls in. NULL outside any SDS area.</td>
 </tr>
 <tr>
 <td><code>msoa21cd</code></td>
@@ -5403,12 +5417,12 @@
 <tr>
 <td><code>geom</code></td>
 <td><code>geometry(MultiPolygon,27700)</code></td>
-<td></td>
+<td>Agricultural Land Classification survey polygon geometry in EPSG:27700 (British National Grid); one part per MSOA (2021) after the split.</td>
 </tr>
 <tr>
 <td><code>gid</code></td>
 <td><code>bigint</code></td>
-<td></td>
+<td>Surrogate primary key, added at the MSOA split (see ENRICHMENT).</td>
 </tr>
 </tbody>
 </table>

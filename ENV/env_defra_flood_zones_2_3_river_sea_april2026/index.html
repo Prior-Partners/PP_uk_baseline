@@ -25,7 +25,7 @@
     
     
       
-        <title>Flood_Zones_2_3_river_sea - uk_baseline data catalogue</title>
+        <title>Flood Zones 2 and 3 (River and Sea) - uk_baseline data catalogue</title>
       
     
     
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Flood_Zones_2_3_river_sea
+              Flood Zones 2 and 3 (River and Sea)
             
           </span>
         </div>
@@ -2917,7 +2917,7 @@
   <span class="md-ellipsis">
     
   
-    Flood_Zones_2_3_river_sea
+    Flood Zones 2 and 3 (River and Sea)
   
 
     
@@ -2935,7 +2935,7 @@
   <span class="md-ellipsis">
     
   
-    Flood_Zones_2_3_river_sea
+    Flood Zones 2 and 3 (River and Sea)
   
 
     
@@ -5263,7 +5263,7 @@
 
 
 <h1 id="defra-department-for-environment-food-and-rural-affairs-environment-agency-flood-map-for-planning-flood-zones-2-and-3-river-and-sea-april-2026">Defra - Department for Environment, Food and Rural Affairs — Environment Agency Flood Map for Planning, Flood Zones 2 and 3 (river and sea), April 2026<a class="headerlink" href="#defra-department-for-environment-food-and-rural-affairs-environment-agency-flood-map-for-planning-flood-zones-2-and-3-river-and-sea-april-2026" title="Permanent link">&para;</a></h1>
-<p class="layer-short">Flood_Zones_2_3_river_sea</p>
+<p class="layer-short">Flood Zones 2 and 3 (River and Sea)</p>
 
 <p><code>env_defra_flood_zones_2_3_river_sea_april2026</code></p>
 <p><img src="../../maps/env_defra_flood_zones_2_3_river_sea_april2026.png" alt="Styling preview of env_defra_flood_zones_2_3_river_sea_april2026" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></p>
@@ -5278,13 +5278,21 @@
 </ul>
 <p><strong>DEFINITIONS</strong></p>
 <ul>
-<li>"The Flood Map for Planning shows river and sea flooding data for England. It does not include other sources of flooding." (gov.uk Flood Map guidance)</li>
-<li>Flood Zone 2: "Land assessed as having between a 1 in 100 and 1 in 1,000 annual probability of river flooding (1% – 0.1%), or between a 1 in 200 and 1 in 1,000 annual probability of sea flooding (0.5% – 0.1%) in any year." (EA Flood Map guidance)</li>
-<li>Flood Zone 3: "Land assessed as having a 1 in 100 or greater annual probability of river flooding (&gt;1%), or a 1 in 200 or greater annual probability of sea flooding (&gt;0.5%) in any year." (EA Flood Map guidance)</li>
+<li>"The Flood Map for Planning shows river and sea flooding data for England." (gov.uk Flood Map guidance)</li>
+<li>Flood Zone 2 — medium probability (EA Flood Map guidance). Chance of flooding in any year:<ul>
+<li>from rivers: between 1 in 100 (1%) and 1 in 1,000 (0.1%);</li>
+<li>from the sea: between 1 in 200 (0.5%) and 1 in 1,000 (0.1%).</li>
+</ul>
+</li>
+<li>Flood Zone 3 — high probability (EA Flood Map guidance). Chance of flooding in any year:<ul>
+<li>from rivers: 1 in 100 (1%) or greater;</li>
+<li>from the sea: 1 in 200 (0.5%) or greater.</li>
+</ul>
+</li>
 </ul>
 <p><strong>SCOPE</strong></p>
 <ul>
-<li>England. 3,559,142 rows.</li>
+<li>England. 3,728,128 rows.</li>
 </ul>
 <p><strong>CRS</strong></p>
 <ul>
@@ -5294,13 +5302,16 @@
 <ul>
 <li>Open Government Licence v3.0. © Environment Agency.</li>
 </ul>
+<p><strong>ENRICHMENT</strong></p>
+<ul>
+<li>Geometry split to one row per source feature per MSOA (2021).</li>
+<li>Each row carries that MSOA's <code>msoa21cd</code>, <code>msoa21nm</code>, <code>msoa21hclnm</code>, <code>lad22cd</code>, <code>lad22nm</code>, <code>lad25cd</code>, <code>lad25nm</code>.</li>
+<li>The source feature's original primary key is preserved as <code>source_fid</code>; <code>gid</code> is a fresh surrogate primary key.</li>
+<li>Features with no MSOA overlap (offshore or outside England &amp; Wales) are kept whole, with NULL geography columns.</li>
+</ul>
 <p><strong>LOADED INTO uk_baseline</strong></p>
 <ul>
 <li>Loaded by PNC, May 2026.</li>
-</ul>
-<p>MSOA SPLIT (added 3 July 2026)</p>
-<ul>
-<li>Geometry split to one row per (source feature x MSOA 2021). Each row carries that MSOA's msoa21cd / msoa21nm / msoa21hclnm and best-fit lad22 / lad25. The source feature's original primary key is preserved as <code>source_fid</code>; <code>gid</code> is a fresh surrogate primary key. Features with no MSOA overlap (offshore or outside England &amp; Wales) are kept whole with NULL geography columns.</li>
 </ul>
 <h2 id="columns">Columns<a class="headerlink" href="#columns" title="Permanent link">&para;</a></h2>
 <table>
@@ -5320,57 +5331,57 @@
 <tr>
 <td><code>id</code></td>
 <td><code>integer</code></td>
-<td></td>
+<td>Source feature identifier, repeated across a feature's per-MSOA split rows (matches <code>fid_original</code>). Not a unique key here — use <code>gid</code>.</td>
 </tr>
 <tr>
 <td><code>fid_original</code></td>
 <td><code>bigint</code></td>
-<td></td>
+<td>Original source feature identifier, preserved at load (matches <code>id</code>).</td>
 </tr>
 <tr>
 <td><code>origin</code></td>
 <td><code>character varying(64)</code></td>
-<td></td>
+<td>Source field <code>origin</code>; basis of the mapped flood zone extent. Values are combinations of "modelled", "direct rainfall model", "recorded" and "local evidence".</td>
 </tr>
 <tr>
 <td><code>flood_zone</code></td>
 <td><code>character varying(3)</code></td>
-<td></td>
+<td>Source field <code>flood_zone</code>; Environment Agency flood zone designation — "FZ2" (Flood Zone 2) or "FZ3" (Flood Zone 3).</td>
 </tr>
 <tr>
 <td><code>flood_source</code></td>
 <td><code>character varying(32)</code></td>
-<td></td>
+<td>Source field <code>flood_source</code>; source of flooding — mainly "river", "sea" or "river and sea"; also "river / undefined", "unknown", "undefined". NULL for a small number of features.</td>
 </tr>
 <tr>
 <td><code>shape_length</code></td>
 <td><code>double precision</code></td>
-<td></td>
+<td>ESRI shapefile perimeter-length field; not populated in this layer (all NULL).</td>
 </tr>
 <tr>
 <td><code>shape_area</code></td>
 <td><code>double precision</code></td>
-<td></td>
+<td>ESRI shapefile area field; not populated in this layer (all NULL). Area is in <code>area_ha</code>.</td>
 </tr>
 <tr>
 <td><code>area_ha</code></td>
 <td><code>double precision</code></td>
-<td></td>
+<td>Area of this row's geometry in hectares.</td>
 </tr>
 <tr>
 <td><code>rgn22cd</code></td>
 <td><code>text</code></td>
-<td></td>
+<td>Region 2022 GSS code (nine English regions), assigned via the ONS Region lookup. Open Government Licence v3.0.</td>
 </tr>
 <tr>
 <td><code>rgn22nm</code></td>
 <td><code>text</code></td>
-<td></td>
+<td>Region 2022 name, assigned via the ONS Region lookup. Open Government Licence v3.0.</td>
 </tr>
 <tr>
 <td><code>sds_boundary</code></td>
 <td><code>text</code></td>
-<td></td>
+<td>Spatial Development Strategy (SDS) area the feature falls in (e.g. "Devon and Torbay", "Somerset"). NULL outside any SDS area.</td>
 </tr>
 <tr>
 <td><code>msoa21cd</code></td>
@@ -5410,12 +5421,12 @@
 <tr>
 <td><code>geom</code></td>
 <td><code>geometry(MultiPolygon,27700)</code></td>
-<td></td>
+<td>Flood zone polygon geometry in EPSG:27700 (British National Grid); one part per MSOA (2021) after the split.</td>
 </tr>
 <tr>
 <td><code>gid</code></td>
 <td><code>bigint</code></td>
-<td></td>
+<td>Surrogate primary key, added at the MSOA split (see ENRICHMENT).</td>
 </tr>
 </tbody>
 </table>

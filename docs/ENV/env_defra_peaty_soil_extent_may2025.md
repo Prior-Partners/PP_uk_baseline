@@ -1,14 +1,14 @@
-# Natural England's England Peat Map — modelled extent of peaty soil in England, May 2025
+# Defra - Department for Environment, Food and Rural Affairs, England Peat Map Peaty Soil Extent, May 2025
 
 <p class="layer-short">England Peat Map - Peaty Soil Extent</p>
 
-`env_ncea_peaty_soil_extent_may2025`
+`env_defra_peaty_soil_extent_may2025`
 
-<img src="../../maps/env_ncea_peaty_soil_extent_may2025.png" alt="Styling preview of env_ncea_peaty_soil_extent_may2025" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/env_defra_peaty_soil_extent_may2025.png" alt="Styling preview of env_defra_peaty_soil_extent_may2025" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
 
 **SOURCE**
 
-- Natural England. Produced under the England Peat Map project, funded by the Department for Environment, Food and Rural Affairs (Defra) Natural Capital and Ecosystem Assessment (NCEA) programme and the Nature for Climate Fund.
+- Department for Environment, Food and Rural Affairs (Defra). Produced under the England Peat Map project, funded by the Nature for Climate Fund and the Natural Capital and Ecosystem Assessment (NCEA) programme.
 
 **DOCUMENTATION**
 
@@ -17,7 +17,7 @@
 
 **DEFINITIONS**
 
-- "Peaty soil is defined as soil with an organic content of 20% or more. This layer maps the extent of this, as modelled by the England Peat Map project, where the probability of occurrence is above 50%." (Natural England)
+- "Peaty soil is defined as soil with an organic content of 20% or more. This layer maps the extent of this, as modelled by the England Peat Map project, where the probability of occurrence is above 50%." (Defra)
 
 **SCOPE**
 
@@ -33,7 +33,7 @@
 
 **DATA QUALITY CAVEATS**
 
-- Modelled, not surveyed. The extent is predicted by machine-learning and deep-learning models trained on Natural England and third-party field-survey data, using satellite imagery, LiDAR topography, geology and historic land use as predictors. Natural England report an overall accuracy above 95% for peaty-soil extent, but present the map as a national decision-making aid, not a regulatory tool — site-level decisions need local evidence and first-hand verification.
+- Modelled, not surveyed. The extent is predicted by machine-learning and deep-learning models trained on field-survey and third-party data, using satellite imagery, LiDAR topography, geology and historic land use as predictors. The project reports an overall accuracy above 95% for peaty-soil extent, and presents the map as a national decision-making aid, not a regulatory tool — site-level decisions need local evidence and first-hand verification.
 - Presence-only extent. Polygons cover only where the modelled probability of peaty soil is above 50%; the absence of a polygon is not evidence that no peat is present.
 
 **ENRICHMENT**
@@ -47,12 +47,16 @@
 
 - The England Peat Map also publishes separate peat depth, peatland vegetation and land cover, and upland peat erosion and drainage layers; only the peaty-soil extent is held here.
 
+**LOADED INTO uk_baseline**
+
+- Loaded by AA, July 2026.
+
 
 ## Columns
 
 | Column | Type | Description / unit |
 |---|---|---|
-| `source_fid` | `integer` | Primary key of the source feature in the pre-split layer uk.env_ncea_peaty_soil_extent_may2025__preswap_jul03 (non-unique here: a feature spanning N MSOAs has N rows). |
+| `source_fid` | `integer` | Primary key of the source feature in the pre-split source layer (non-unique here: a feature spanning N MSOAs has N rows). |
 | `component_` | `double precision` | Source field `component_`; soil component identifier from the source. |
 | `dn` | `double precision` | Source field `dn`; raster class value (DN, digital number) carried through the raster-to-vector conversion. |
 | `msoa21cd` | `character varying` | Middle Layer Super Output Area (MSOA) 2021 code of this piece. Open Government Licence v3.0. |

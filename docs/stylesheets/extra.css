@@ -227,6 +227,24 @@ body, .md-typeset { font-weight: 300; }
 }
 
 /* ------------------------------------------------------------------ */
+/* Theme index rows — each layer as three colour-coded parts:         */
+/*   short name (orange) — full name (default) — layer name (link,    */
+/*   mono). One clickable row per layer.                              */
+/* ------------------------------------------------------------------ */
+.md-typeset .cat-index { list-style: none; margin-left: 0; padding-left: 0; }
+.md-typeset .cat-index > li { margin: 0.45em 0; line-height: 1.4; }
+.md-typeset .cat-index a { text-decoration: none; }
+.md-typeset .cat-index a:hover .cat-full { text-decoration: underline; }
+.md-typeset .cat-short { color: var(--pp-orange); font-weight: 500; }
+.md-typeset .cat-full  { color: var(--md-default-fg-color); }
+.md-typeset .cat-table {
+  color: var(--md-typeset-a-color);
+  font-family: "GT America Mono", SFMono-Regular, Consolas, monospace;
+  font-size: 0.82em;
+}
+.md-typeset .cat-sep { color: var(--md-default-fg-color--lighter); padding: 0 0.15em; }
+
+/* ------------------------------------------------------------------ */
 /* Admonitions — brand orange note                                    */
 /* ------------------------------------------------------------------ */
 .md-typeset .admonition.note,

@@ -17,8 +17,8 @@
 
 **DEFINITIONS**
 
-- "This data is a national historic landfill dataset that defines the location of and provides specific attributes for known historic landfill sites." (data.gov.uk Summary)
 - "An historic landfill is a site where there is no environmental permit in force." (data.gov.uk Summary)
+- "This data is a national historic landfill dataset that defines the location of and provides specific attributes for known historic landfill sites." (data.gov.uk Summary)
 
 **SCOPE**
 

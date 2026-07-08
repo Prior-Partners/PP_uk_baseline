@@ -4,4 +4,6 @@
 
 1 layer.
 
-- [HM Land Registry Price Paid Data (PPD), England & Wales, residential property transactions, January 1995 to 2026-04-30](hou_hmlandregistry_house_price_paid_jun2026.md) · `hou_hmlandregistry_house_price_paid_jun2026`
+<ul class="cat-index">
+  <li><a href="hou_hmlandregistry_house_price_paid_jun2026/"><span class="cat-full">HM Land Registry Price Paid Data (PPD), England &amp; Wales, residential property transactions, January 1995 to 2026-04-30</span><span class="cat-sep"> — </span><span class="cat-table">hou_hmlandregistry_house_price_paid_jun2026</span></a></li>
+</ul>

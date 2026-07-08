@@ -32,7 +32,7 @@
 
 **DATA QUALITY CAVEATS**
 
-- Predictive / modelled: every grade (1, 2, 3a, 3b, 4, 5, NA, U) is a prediction of likely ALC, not a field survey. Use for screening; confirm with a site survey for planning decisions.
+- Predictive / modelled: every grade (1, 2, 3a, 3b, 4, 5, NA, U) is a prediction of likely ALC, not a field survey.
 - RELATED: for the field-surveyed classification, please see Agricultural Land Classification - Survey (uk_baseline.env_naturalengland_agricultural_land_class_nov2024).
 
 **ENRICHMENT**

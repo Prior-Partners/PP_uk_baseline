@@ -4,15 +4,17 @@
 
 12 layers.
 
-- [MHCLG Local plan boundary, January 2026](adm_mhclg_local_plan_boundary_jan2026.md) · `adm_mhclg_local_plan_boundary_jan2026`
-- [ONS Local Authority Districts (LAD), England & Wales extent, December 2011](adm_ons_lad_boundary_2011.md) · `adm_ons_lad_boundary_2011`
-- [ONS Local Authority Districts (LAD), UK extent, May 2022](adm_ons_lad_boundary_may2022.md) · `adm_ons_lad_boundary_may2022`
-- [ONS Local Authority Districts (LAD), UK extent, May 2024](adm_ons_lad_boundary_may2024.md) · `adm_ons_lad_boundary_may2024`
-- [ONS Local Authority Districts (LAD), UK extent, May 2025](adm_ons_lad_boundary_may2025.md) · `adm_ons_lad_boundary_may2025`
-- [ONS Lower layer Super Output Areas (LSOA), England & Wales extent, December 2011](adm_ons_lsoa_boundary_2011.md) · `adm_ons_lsoa_boundary_2011`
-- [ONS Lower layer Super Output Areas (LSOA), England & Wales extent, December 2021](adm_ons_lsoa_boundary_2021.md) · `adm_ons_lsoa_boundary_2021`
-- [ONS Middle layer Super Output Areas (MSOA), England & Wales extent, December 2011](adm_ons_msoa_boundary_2011.md) · `adm_ons_msoa_boundary_2011`
-- [ONS Middle layer Super Output Areas (MSOA), England & Wales extent, December 2021](adm_ons_msoa_boundary_2021.md) · `adm_ons_msoa_boundary_2021`
-- [ONS Output Areas (OA), England & Wales extent, 2021 Census geography, December 2021](adm_ons_oa_boundaries_dec2021.md) · `adm_ons_oa_boundaries_dec2021`
-- [ONS Postcode Directory (ONSPD), United Kingdom, February 2026 edition](adm_ons_postcode_centroid_feb2026.md) · `adm_ons_postcode_centroid_feb2026`
-- [ONS Wards (electoral wards), England & Wales extent, May 2025](adm_ons_ward_boundary_may2025.md) · `adm_ons_ward_boundary_may2025`
+<ul class="cat-index">
+  <li><a href="adm_ons_lad_boundary_2011/"><span class="cat-short">Local Authority District Boundary 2011</span><span class="cat-sep"> — </span><span class="cat-full">ONS Local Authority Districts (LAD), England &amp; Wales extent, December 2011</span><span class="cat-sep"> — </span><span class="cat-table">adm_ons_lad_boundary_2011</span></a></li>
+  <li><a href="adm_ons_lad_boundary_may2022/"><span class="cat-short">Local Authority District Boundary 2022</span><span class="cat-sep"> — </span><span class="cat-full">ONS Local Authority Districts (LAD), UK extent, May 2022</span><span class="cat-sep"> — </span><span class="cat-table">adm_ons_lad_boundary_may2022</span></a></li>
+  <li><a href="adm_ons_lad_boundary_may2024/"><span class="cat-short">Local Authority District Boundary 2024</span><span class="cat-sep"> — </span><span class="cat-full">ONS Local Authority Districts (LAD), UK extent, May 2024</span><span class="cat-sep"> — </span><span class="cat-table">adm_ons_lad_boundary_may2024</span></a></li>
+  <li><a href="adm_ons_lad_boundary_may2025/"><span class="cat-short">Local Authority District Boundary 2025</span><span class="cat-sep"> — </span><span class="cat-full">ONS Local Authority Districts (LAD), UK extent, May 2025</span><span class="cat-sep"> — </span><span class="cat-table">adm_ons_lad_boundary_may2025</span></a></li>
+  <li><a href="adm_mhclg_local_plan_boundary_jan2026/"><span class="cat-short">Local Plan Boundary 2026</span><span class="cat-sep"> — </span><span class="cat-full">MHCLG Local plan boundary, January 2026</span><span class="cat-sep"> — </span><span class="cat-table">adm_mhclg_local_plan_boundary_jan2026</span></a></li>
+  <li><a href="adm_ons_lsoa_boundary_2011/"><span class="cat-short">Lower Layer Super Output Area Boundary 2011</span><span class="cat-sep"> — </span><span class="cat-full">ONS Lower layer Super Output Areas (LSOA), England &amp; Wales extent, December 2011</span><span class="cat-sep"> — </span><span class="cat-table">adm_ons_lsoa_boundary_2011</span></a></li>
+  <li><a href="adm_ons_lsoa_boundary_2021/"><span class="cat-short">Lower Layer Super Output Area Boundary 2021</span><span class="cat-sep"> — </span><span class="cat-full">ONS Lower layer Super Output Areas (LSOA), England &amp; Wales extent, December 2021</span><span class="cat-sep"> — </span><span class="cat-table">adm_ons_lsoa_boundary_2021</span></a></li>
+  <li><a href="adm_ons_msoa_boundary_2011/"><span class="cat-short">Middle Layer Super Output Area Boundary 2011</span><span class="cat-sep"> — </span><span class="cat-full">ONS Middle layer Super Output Areas (MSOA), England &amp; Wales extent, December 2011</span><span class="cat-sep"> — </span><span class="cat-table">adm_ons_msoa_boundary_2011</span></a></li>
+  <li><a href="adm_ons_msoa_boundary_2021/"><span class="cat-short">Middle Layer Super Output Area Boundary 2021</span><span class="cat-sep"> — </span><span class="cat-full">ONS Middle layer Super Output Areas (MSOA), England &amp; Wales extent, December 2021</span><span class="cat-sep"> — </span><span class="cat-table">adm_ons_msoa_boundary_2021</span></a></li>
+  <li><a href="adm_ons_oa_boundaries_dec2021/"><span class="cat-short">Output Area Boundary 2021</span><span class="cat-sep"> — </span><span class="cat-full">ONS Output Areas (OA), England &amp; Wales extent, 2021 Census geography, December 2021</span><span class="cat-sep"> — </span><span class="cat-table">adm_ons_oa_boundaries_dec2021</span></a></li>
+  <li><a href="adm_ons_postcode_centroid_feb2026/"><span class="cat-short">Postcode Centroid</span><span class="cat-sep"> — </span><span class="cat-full">ONS Postcode Directory (ONSPD), United Kingdom, February 2026 edition</span><span class="cat-sep"> — </span><span class="cat-table">adm_ons_postcode_centroid_feb2026</span></a></li>
+  <li><a href="adm_ons_ward_boundary_may2025/"><span class="cat-short">Ward Boundary 2025</span><span class="cat-sep"> — </span><span class="cat-full">ONS Wards (electoral wards), England &amp; Wales extent, May 2025</span><span class="cat-sep"> — </span><span class="cat-table">adm_ons_ward_boundary_may2025</span></a></li>
+</ul>

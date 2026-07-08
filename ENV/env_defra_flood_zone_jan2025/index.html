@@ -25,7 +25,7 @@
     
     
       
-        <title>Flood Zone - uk_baseline data catalogue</title>
+        <title>Flood Zone 2 and 3 - uk_baseline data catalogue</title>
       
     
     
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Flood Zone
+              Flood Zone 2 and 3
             
           </span>
         </div>
@@ -2889,7 +2889,7 @@
   <span class="md-ellipsis">
     
   
-    Flood Zone
+    Flood Zone 2 and 3
   
 
     
@@ -2907,7 +2907,7 @@
   <span class="md-ellipsis">
     
   
-    Flood Zone
+    Flood Zone 2 and 3
   
 
     
@@ -5263,7 +5263,7 @@
 
 
 <h1 id="defra-department-for-environment-food-and-rural-affairs-environment-agency-flood-map-for-planning-flood-zones-2-and-3-january-2025">Defra - Department for Environment, Food and Rural Affairs — Environment Agency Flood Map for Planning, Flood Zones 2 and 3, January 2025<a class="headerlink" href="#defra-department-for-environment-food-and-rural-affairs-environment-agency-flood-map-for-planning-flood-zones-2-and-3-january-2025" title="Permanent link">&para;</a></h1>
-<p class="layer-short">Flood Zone</p>
+<p class="layer-short">Flood Zone 2 and 3</p>
 
 <p><code>env_defra_flood_zone_jan2025</code></p>
 <p><img src="../../maps/env_defra_flood_zone_jan2025.png" alt="Styling preview of env_defra_flood_zone_jan2025" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></p>
@@ -5279,7 +5279,7 @@
 </ul>
 <p><strong>DEFINITIONS</strong></p>
 <ul>
-<li>"The Flood Map for Planning shows river and sea flooding data for England. It does not include other sources of flooding." (gov.uk Flood Map guidance)</li>
+<li>"The Flood Map for Planning shows river and sea flooding data for England." (gov.uk Flood Map guidance)</li>
 <li>Flood Zone 2: "Land assessed as having between a 1 in 100 and 1 in 1,000 annual probability of river flooding (1% – 0.1%), or between a 1 in 200 and 1 in 1,000 annual probability of sea flooding (0.5% – 0.1%) in any year." (EA Flood Map guidance)</li>
 <li>Flood Zone 3: "Land assessed as having a 1 in 100 or greater annual probability of river flooding (&gt;1%), or a 1 in 200 or greater annual probability of sea flooding (&gt;0.5%) in any year." (EA Flood Map guidance)</li>
 </ul>
@@ -5295,13 +5295,16 @@
 <ul>
 <li>Open Government Licence v3.0. © Environment Agency copyright and database right.</li>
 </ul>
+<p><strong>ENRICHMENT</strong></p>
+<ul>
+<li>Geometry split to one row per source feature per MSOA (2021).</li>
+<li>Each row carries that MSOA's <code>msoa21cd</code>, <code>msoa21nm</code>, <code>msoa21hclnm</code>, <code>lad22cd</code>, <code>lad22nm</code>, <code>lad25cd</code>, <code>lad25nm</code>.</li>
+<li>The source feature's original primary key is preserved as <code>source_fid</code>; <code>gid</code> is a fresh surrogate primary key.</li>
+<li>Features with no MSOA overlap (offshore or outside England &amp; Wales) are kept whole, with NULL geography columns.</li>
+</ul>
 <p><strong>LOADED INTO uk_baseline</strong></p>
 <ul>
 <li>Loaded January 2025.</li>
-</ul>
-<p>MSOA SPLIT (added 3 July 2026)</p>
-<ul>
-<li>Geometry split to one row per (source feature x MSOA 2021). Each row carries that MSOA's msoa21cd / msoa21nm / msoa21hclnm and best-fit lad22 / lad25. The source feature's original primary key is preserved as <code>source_fid</code>; <code>gid</code> is a fresh surrogate primary key. Features with no MSOA overlap (offshore or outside England &amp; Wales) are kept whole with NULL geography columns.</li>
 </ul>
 <h2 id="columns">Columns<a class="headerlink" href="#columns" title="Permanent link">&para;</a></h2>
 <table>

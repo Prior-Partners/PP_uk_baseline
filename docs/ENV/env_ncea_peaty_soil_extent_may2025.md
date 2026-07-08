@@ -1,6 +1,40 @@
-# env_ncea_peaty_soil_extent_may2025
+# Natural England's England Peat Map — modelled extent of peaty soil in England, May 2025
+
+<p class="layer-short">England Peat Map - Peaty Soil Extent</p>
 
 `env_ncea_peaty_soil_extent_may2025`
+
+<img src="../../maps/env_ncea_peaty_soil_extent_may2025.png" alt="Styling preview of env_ncea_peaty_soil_extent_may2025" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+
+**SOURCE**
+
+- Natural England. Produced under the England Peat Map project, funded by the Department for Environment, Food and Rural Affairs (Defra) Natural Capital and Ecosystem Assessment (NCEA) programme and the Nature for Climate Fund.
+
+**DOCUMENTATION**
+
+- Dataset record : https://environment.data.gov.uk/dataset/ab92bc06-bd99-47c4-89a3-b93aa9c0db4d
+- Project report : England Peat Map (NERR149), https://publications.naturalengland.org.uk/publication/5075614867128320
+
+**DEFINITIONS**
+
+- "Peaty soil is defined as soil with an organic content of 20% or more. This layer maps the extent of this, as modelled by the England Peat Map project, where the probability of occurrence is above 50%." (Natural England)
+
+**SCOPE**
+
+- England. 254,732 rows (after the MSOA split; see ENRICHMENT).
+
+**CRS**
+
+- EPSG:27700 (British National Grid).
+
+**LICENCE**
+
+- Open Government Licence v3.0.
+
+**DATA QUALITY CAVEATS**
+
+- Modelled, not surveyed. The extent is predicted by machine-learning and deep-learning models trained on Natural England and third-party field-survey data, using satellite imagery, LiDAR topography, geology and historic land use as predictors. Natural England report an overall accuracy above 95% for peaty-soil extent, but present the map as a national decision-making aid, not a regulatory tool — site-level decisions need local evidence and first-hand verification.
+- Presence-only extent. Polygons cover only where the modelled probability of peaty soil is above 50%; the absence of a polygon is not evidence that no peat is present.
 
 **ENRICHMENT**
 
@@ -8,6 +42,10 @@
 - Each row carries that MSOA's `msoa21cd`, `msoa21nm`, `msoa21hclnm`, `lad22cd`, `lad22nm`, `lad25cd`, `lad25nm`.
 - The source feature's original primary key is preserved as `source_fid`; `gid` is a fresh surrogate primary key.
 - Features with no MSOA overlap (offshore or outside England & Wales) are kept whole, with NULL geography columns.
+
+**NOT IN THIS DATASET**
+
+- The England Peat Map also publishes separate peat depth, peatland vegetation and land cover, and upland peat erosion and drainage layers; only the peaty-soil extent is held here.
 
 
 ## Columns

@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#natural-englands-england-peat-map-modelled-extent-of-peaty-soil-in-england-may-2025" class="md-skip">
+        <a href="#defra-department-for-environment-food-and-rural-affairs-england-peat-map-peaty-soil-extent-may-2025" class="md-skip">
           Skip to content
         </a>
       
@@ -5262,14 +5262,14 @@
 
 
 
-<h1 id="natural-englands-england-peat-map-modelled-extent-of-peaty-soil-in-england-may-2025">Natural England's England Peat Map — modelled extent of peaty soil in England, May 2025<a class="headerlink" href="#natural-englands-england-peat-map-modelled-extent-of-peaty-soil-in-england-may-2025" title="Permanent link">&para;</a></h1>
+<h1 id="defra-department-for-environment-food-and-rural-affairs-england-peat-map-peaty-soil-extent-may-2025">Defra - Department for Environment, Food and Rural Affairs, England Peat Map Peaty Soil Extent, May 2025<a class="headerlink" href="#defra-department-for-environment-food-and-rural-affairs-england-peat-map-peaty-soil-extent-may-2025" title="Permanent link">&para;</a></h1>
 <p class="layer-short">England Peat Map - Peaty Soil Extent</p>
 
-<p><code>env_ncea_peaty_soil_extent_may2025</code></p>
-<p><img src="../../maps/env_ncea_peaty_soil_extent_may2025.png" alt="Styling preview of env_ncea_peaty_soil_extent_may2025" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></p>
+<p><code>env_defra_peaty_soil_extent_may2025</code></p>
+<p><img src="../../maps/env_defra_peaty_soil_extent_may2025.png" alt="Styling preview of env_defra_peaty_soil_extent_may2025" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></p>
 <p><strong>SOURCE</strong></p>
 <ul>
-<li>Natural England. Produced under the England Peat Map project, funded by the Department for Environment, Food and Rural Affairs (Defra) Natural Capital and Ecosystem Assessment (NCEA) programme and the Nature for Climate Fund.</li>
+<li>Department for Environment, Food and Rural Affairs (Defra). Produced under the England Peat Map project, funded by the Nature for Climate Fund and the Natural Capital and Ecosystem Assessment (NCEA) programme.</li>
 </ul>
 <p><strong>DOCUMENTATION</strong></p>
 <ul>
@@ -5278,7 +5278,7 @@
 </ul>
 <p><strong>DEFINITIONS</strong></p>
 <ul>
-<li>"Peaty soil is defined as soil with an organic content of 20% or more. This layer maps the extent of this, as modelled by the England Peat Map project, where the probability of occurrence is above 50%." (Natural England)</li>
+<li>"Peaty soil is defined as soil with an organic content of 20% or more. This layer maps the extent of this, as modelled by the England Peat Map project, where the probability of occurrence is above 50%." (Defra)</li>
 </ul>
 <p><strong>SCOPE</strong></p>
 <ul>
@@ -5294,7 +5294,7 @@
 </ul>
 <p><strong>DATA QUALITY CAVEATS</strong></p>
 <ul>
-<li>Modelled, not surveyed. The extent is predicted by machine-learning and deep-learning models trained on Natural England and third-party field-survey data, using satellite imagery, LiDAR topography, geology and historic land use as predictors. Natural England report an overall accuracy above 95% for peaty-soil extent, but present the map as a national decision-making aid, not a regulatory tool — site-level decisions need local evidence and first-hand verification.</li>
+<li>Modelled, not surveyed. The extent is predicted by machine-learning and deep-learning models trained on field-survey and third-party data, using satellite imagery, LiDAR topography, geology and historic land use as predictors. The project reports an overall accuracy above 95% for peaty-soil extent, and presents the map as a national decision-making aid, not a regulatory tool — site-level decisions need local evidence and first-hand verification.</li>
 <li>Presence-only extent. Polygons cover only where the modelled probability of peaty soil is above 50%; the absence of a polygon is not evidence that no peat is present.</li>
 </ul>
 <p><strong>ENRICHMENT</strong></p>
@@ -5307,6 +5307,10 @@
 <p><strong>NOT IN THIS DATASET</strong></p>
 <ul>
 <li>The England Peat Map also publishes separate peat depth, peatland vegetation and land cover, and upland peat erosion and drainage layers; only the peaty-soil extent is held here.</li>
+</ul>
+<p><strong>LOADED INTO uk_baseline</strong></p>
+<ul>
+<li>Loaded by AA, July 2026.</li>
 </ul>
 <h2 id="columns">Columns<a class="headerlink" href="#columns" title="Permanent link">&para;</a></h2>
 <table>
@@ -5321,7 +5325,7 @@
 <tr>
 <td><code>source_fid</code></td>
 <td><code>integer</code></td>
-<td>Primary key of the source feature in the pre-split layer uk.env_ncea_peaty_soil_extent_may2025__preswap_jul03 (non-unique here: a feature spanning N MSOAs has N rows).</td>
+<td>Primary key of the source feature in the pre-split source layer (non-unique here: a feature spanning N MSOAs has N rows).</td>
 </tr>
 <tr>
 <td><code>component_</code></td>

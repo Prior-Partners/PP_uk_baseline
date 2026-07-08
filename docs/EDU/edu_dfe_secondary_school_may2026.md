@@ -21,7 +21,10 @@
 
 **DEFINITIONS**
 
-- DfE phase classification: Secondary — secondary-phase school (statutory ages typically 11-16, sometimes 11-18 with sixth form); Middle deemed secondary — middle school covering an age range categorised as secondary-phase under DfE's deeming rules; All-through — covers primary and secondary phases in one establishment.
+- DfE phase classification:
+    - Secondary — secondary-phase school (statutory ages typically 11-16, sometimes 11-18 with sixth form).
+    - Middle deemed secondary — middle school covering an age range categorised as secondary-phase under DfE's deeming rules.
+    - All-through — covers primary and secondary phases in one establishment.
 - See parent (uk_baseline.edu_dfe_school_may2026) for full URN / phase / status definitions and the glossary reference.
 
 **SCOPE**

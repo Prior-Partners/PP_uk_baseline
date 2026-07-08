@@ -20,7 +20,15 @@
 
 **DEFINITIONS**
 
-- Phase of education values observed in this dataset: Nursery, Primary, Middle deemed primary, Secondary, Middle deemed secondary, All-through, 16 plus, Not applicable.
+- Phase of education values observed in this dataset:
+    - Nursery
+    - Primary
+    - Middle deemed primary
+    - Secondary
+    - Middle deemed secondary
+    - All-through
+    - 16 plus
+    - Not applicable
 - Establishment status values observed in this dataset: Open, Closed, Open but proposed to close, Proposed to open.
 
 **SCOPE**
@@ -41,9 +49,6 @@
 **DATA QUALITY CAVEATS**
 
 - Includes historic closed schools (~24k of 50k). For most analytical use, filter to Open status (optionally also 'Open, but proposed to close'). The pre-built Primary School and Secondary School subsets already apply that filter.
-- Date columns (open_date, close_date, census_date, last_changed_date, date_of_last_inspection_visit, next_inspection_visit, accreditation_expiry_date) are stored as text, not typed dates.
-- Name fields (head_first_name, head_last_name, head_title_name, telephone_num) carry personal data — handle in line with DfE's data protection guidance even though it is published openly.
-- Geometry is MultiPoint (one-point Multi). Each URN's easting / northing produces a single point; the MultiPoint typmod is a Postgres convention, not an indication of multiple points.
 - Some establishments have no published location (privacy / pre-opening); these may carry NULL geom or 0/0 coordinates — inspect before mapping.
 - ofsted_overall_rate / _code are NULL where no clean graded inspection or qualifying ungraded-reaffirm outcome maps to the URN. Do not treat NULL as "Inadequate".
 

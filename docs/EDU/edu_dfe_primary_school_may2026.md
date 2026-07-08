@@ -21,7 +21,10 @@
 
 **DEFINITIONS**
 
-- DfE phase classification: Primary — primary-phase school (statutory ages typically 4-11); Middle deemed primary — middle school covering an age range categorised as primary-phase under DfE's deeming rules; All-through — covers primary and secondary phases in one establishment.
+- DfE phase classification:
+    - Primary — primary-phase school (statutory ages typically 4-11).
+    - Middle deemed primary — middle school covering an age range categorised as primary-phase under DfE's deeming rules.
+    - All-through — covers primary and secondary phases in one establishment.
 - See parent (uk_baseline.edu_dfe_school_may2026) for full URN / phase / status definitions and the glossary reference.
 
 **SCOPE**

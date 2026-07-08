@@ -130,10 +130,10 @@ nav:
     - "Flood Zones plus Climate Change": ENV/env_defra_flood_zones_plus_climate_change_july2025.md
     - "Historic Landfill Site": ENV/env_defra_historic_landfill_site.md
     - "National Nature Reserves": ENV/env_defra_national_nature_reserves_apr2026.md
-    - "Predictive Agricultural Land": ENV/env_defra_predictive_agricultural_land_class_mar2026.md
+    - "Agricultural Land Classification - Predictive": ENV/env_defra_predictive_agricultural_land_class_mar2026.md
     - "Brownfield land": ENV/env_mhclg_brownfield_land_may2026.md
     - "Green Belt": ENV/env_mhclg_green_belt_may2026.md
-    - "Natural England Agricultural Land Classification (ALC) survey for England, November 2024": ENV/env_naturalengland_agricultural_land_class_nov2024.md
+    - "Agricultural Land Classification - Survey": ENV/env_naturalengland_agricultural_land_class_nov2024.md
     - "Ancient Woodland": ENV/env_naturalengland_ancient_woodland_mar2026.md
     - "Ancient Woodland Revised": ENV/env_naturalengland_ancient_woodland_revised_apr2026.md
     - "AONB": ENV/env_naturalengland_aonb_nov2024.md

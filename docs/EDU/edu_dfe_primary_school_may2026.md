@@ -1,13 +1,15 @@
 # Department for Education (DfE) primary-phase schools in England, May 2026
 
+<p class="layer-short">Primary School</p>
+
 `edu_dfe_primary_school_may2026`
 
 <img src="../../maps/edu_dfe_primary_school_may2026.png" alt="Styling preview of edu_dfe_primary_school_may2026" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
 
 **SOURCE**
 
-- Department for Education (DfE), Get Information About Schools, May 2026 extract. This table is a filtered subset of uk_baseline.edu_dfe_school_may2026 (the parent / all-establishments register).
-- Ofsted, Management Information — state-funded schools — latest inspections as at 28 Feb 2026. Source of the two enriched columns ofsted_overall_rate_code and ofsted_overall_rate (see ENRICHMENT). Loaded into uk.edu_ofsted_state_funded_mis_feb2026 and joined to DfE GIAS on URN.
+- Department for Education (DfE), Get Information About Schools, May 2026 extract. This table is a filtered subset of uk_baseline.edu_dfe_school_may2026.
+- Ofsted, Management Information — state-funded schools — latest inspections as at 28 Feb 2026. Source of the two enriched columns ofsted_overall_rate_code and ofsted_overall_rate (see ENRICHMENT).
 
 **DOCUMENTATION**
 
@@ -25,8 +27,9 @@
 **SCOPE**
 
 - England only. 16,865 rows, one per primary-phase open URN.
-- Filter (re-stated for clarity): phase_of_education_name IN ('Primary', 'Middle deemed primary', 'All-through') AND establishment_status_name IN ('Open', 'Open, but proposed to close').
-- Excludes Closed primaries (~13.3k of the 30.1k Primary phase records held by the parent are Closed and dropped here).
+- Includes three primary-phase groupings: Primary, Middle deemed primary, and All-through.
+- Includes open schools only (status Open, or Open but proposed to close).
+- Excludes Closed primaries: about 13,300 of the 30,100 Primary-phase records in the parent are Closed and are dropped here.
 
 **CRS**
 
@@ -34,26 +37,25 @@
 
 **LICENCE**
 
-- Open Government Licence v3.0 (covers both DfE GIAS and Ofsted MI).
+- Open Government Licence v3.0.
 
 **DATA QUALITY CAVEATS**
 
 - "All-through" schools appear in BOTH this primary subset and the secondary subset — they cover both phases by design. Count 203 in the parent; sum-of-subsets will double-count them.
-- This subset is a materialised filter, not a view. If the parent is refreshed, this table must be re-created (the next extract will not flow through automatically).
-- Same date-as-text caveat as the parent — date columns are text, not typed dates.
 - ofsted_overall_rate / _code are NULL where no clean graded inspection or qualifying ungraded-reaffirm outcome maps to the URN. Do not treat NULL as "Inadequate".
 
 **ENRICHMENT**
 
 - `msoa21hclnm` — House of Commons Library readable MSOA name, joined at load on `msoa_code` from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.
-- ofsted_overall_rate_code, ofsted_overall_rate — headline Ofsted grade (1-4 code + text: Outstanding / Good / Requires Improvement / Inadequate) merged in from the Ofsted Establishment Inspection File via uk.edu_ofsted_state_funded_mis_feb2026 (28 Feb 2026 snapshot). Joined on URN. NULL when no clean grade is available. Includes "Fallback option B" — for URNs whose OEIF graded inspection was NULL, the rate is filled from the latest ungraded reaffirm outcome where it maps unambiguously ("School remains Outstanding" / "School remains Good" -> respective grade). Applied 14 May 2026. See column comments for the full rule.
-- lad25cd, lad25nm — joined at load from ONS LAD 2025 lookup.
-- rgn22cd, rgn22nm — joined at load from ONS Region 2022 lookup.
-- sds_boundary — internal Spatial Development Strategy area flag.
+- `ofsted_overall_rate_code`, `ofsted_overall_rate` — headline Ofsted grade, as a 1-4 code plus text label, from Ofsted Management Information (see SOURCE), joined on URN. NULL where no clean grade is available; see column comments for the full derivation. Grades:
+    - 1 — Outstanding
+    - 2 — Good
+    - 3 — Requires Improvement
+    - 4 — Inadequate
 
 **DERIVED FROM**
 
-- uk_baseline.edu_dfe_school_may2026 with the filter clause stated under SCOPE. Subset created 13 May 2026.
+- uk_baseline.edu_dfe_school_may2026. Subset created 13 May 2026.
 
 **LOADED INTO uk_baseline**
 

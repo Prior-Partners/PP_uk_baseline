@@ -1,6 +1,6 @@
 site_name: uk_baseline data catalogue
 site_description: A guide to every layer in the uk_baseline database.
-copyright: Developed by the Digital Innovation team, Prior + Partners — last updated 07 July 2026
+copyright: Developed by the Digital Innovation team, Prior + Partners — last updated 08 July 2026
 theme:
   name: material
   font: false
@@ -120,7 +120,7 @@ nav:
     - "VOA Stock of Properties - MSOA": ECN/ecn_voa_msoa_stock_properties_2025.md
   - "Education (EDU)":
     - EDU/index.md
-    - "Department for Education (DfE) primary-phase schools in England, May 2026": EDU/edu_dfe_primary_school_may2026.md
+    - "Primary School": EDU/edu_dfe_primary_school_may2026.md
     - "Department for Education (DfE) register of educational establishments in England, May 2026": EDU/edu_dfe_school_may2026.md
     - "Department for Education (DfE) secondary-phase schools in England, May 2026": EDU/edu_dfe_secondary_school_may2026.md
   - "Environment & Natural Assets (ENV)":

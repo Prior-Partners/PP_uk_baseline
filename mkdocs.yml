@@ -121,8 +121,8 @@ nav:
   - "Education (EDU)":
     - EDU/index.md
     - "Primary School": EDU/edu_dfe_primary_school_may2026.md
-    - "Department for Education (DfE) register of educational establishments in England, May 2026": EDU/edu_dfe_school_may2026.md
-    - "Department for Education (DfE) secondary-phase schools in England, May 2026": EDU/edu_dfe_secondary_school_may2026.md
+    - "School": EDU/edu_dfe_school_may2026.md
+    - "Secondary School": EDU/edu_dfe_secondary_school_may2026.md
   - "Environment & Natural Assets (ENV)":
     - ENV/index.md
     - "Flood Zone": ENV/env_defra_flood_zone_jan2025.md

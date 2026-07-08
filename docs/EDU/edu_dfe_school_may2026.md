@@ -1,5 +1,7 @@
 # Department for Education (DfE) register of educational establishments in England, May 2026
 
+<p class="layer-short">School</p>
+
 `edu_dfe_school_may2026`
 
 <img src="../../maps/edu_dfe_school_may2026.png" alt="Styling preview of edu_dfe_school_may2026" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
@@ -7,7 +9,7 @@
 **SOURCE**
 
 - Department for Education (DfE), Get Information About Schools — the canonical UK national register of schools, academies, colleges, and other educational establishments. May 2026 download / extract.
-- Ofsted, Management Information — state-funded schools — latest inspections as at 28 Feb 2026. Source of the two enriched columns ofsted_overall_rate_code and ofsted_overall_rate (see ENRICHMENT). Loaded into uk.edu_ofsted_state_funded_mis_feb2026 and joined to DfE GIAS on URN.
+- Ofsted, Management Information — state-funded schools — latest inspections as at 28 Feb 2026. Source of the two enriched columns ofsted_overall_rate_code and ofsted_overall_rate (see ENRICHMENT).
 
 **DOCUMENTATION**
 
@@ -34,11 +36,11 @@
 
 **LICENCE**
 
-- Open Government Licence v3.0 (covers both DfE GIAS and Ofsted MI).
+- Open Government Licence v3.0.
 
 **DATA QUALITY CAVEATS**
 
-- Includes historic closed schools (~24k of 50k). For most analytical use, filter to Open status (optionally also 'Open, but proposed to close'). The pre-built edu_dfe_primary_school_may2026 and edu_dfe_secondary_school_may2026 subsets already apply that filter.
+- Includes historic closed schools (~24k of 50k). For most analytical use, filter to Open status (optionally also 'Open, but proposed to close'). The pre-built Primary School and Secondary School subsets already apply that filter.
 - Date columns (open_date, close_date, census_date, last_changed_date, date_of_last_inspection_visit, next_inspection_visit, accreditation_expiry_date) are stored as text, not typed dates.
 - Name fields (head_first_name, head_last_name, head_title_name, telephone_num) carry personal data — handle in line with DfE's data protection guidance even though it is published openly.
 - Geometry is MultiPoint (one-point Multi). Each URN's easting / northing produces a single point; the MultiPoint typmod is a Postgres convention, not an indication of multiple points.
@@ -48,10 +50,11 @@
 **ENRICHMENT**
 
 - `msoa21hclnm` — House of Commons Library readable MSOA name, joined at load on `msoa_code` from House of Commons Library MSOA Names v2.3 (13 February 2026); open establishments only (closed/legacy records keep older 2011 codes and stay NULL). Open Parliament Licence.
-- ofsted_overall_rate_code, ofsted_overall_rate — headline Ofsted grade (1-4 code + text: Outstanding / Good / Requires Improvement / Inadequate) merged in from the Ofsted Establishment Inspection File via uk.edu_ofsted_state_funded_mis_feb2026 (28 Feb 2026 snapshot). Joined on URN. NULL when no clean grade is available. Includes "Fallback option B" — for URNs whose OEIF graded inspection was NULL, the rate is filled from the latest ungraded reaffirm outcome where it maps unambiguously ("School remains Outstanding" / "School remains Good" -> respective grade). Applied 14 May 2026. See column comments for the full rule.
-- lad25cd, lad25nm — joined at load from ONS LAD 2025 lookup.
-- rgn22cd, rgn22nm — joined at load from ONS Region 2022 lookup.
-- sds_boundary — internal Spatial Development Strategy area flag.
+- `ofsted_overall_rate_code`, `ofsted_overall_rate` — headline Ofsted grade, as a 1-4 code plus text label, from Ofsted Management Information (see SOURCE), joined on URN. NULL where no clean grade is available; see column comments for the full derivation. Grades:
+    - 1 — Outstanding
+    - 2 — Good
+    - 3 — Requires Improvement
+    - 4 — Inadequate
 
 **LOADED INTO uk_baseline**
 

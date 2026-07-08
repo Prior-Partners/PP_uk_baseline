@@ -125,7 +125,7 @@ nav:
     - "Secondary School": EDU/edu_dfe_secondary_school_may2026.md
   - "Environment & Natural Assets (ENV)":
     - ENV/index.md
-    - "Flood Zone": ENV/env_defra_flood_zone_jan2025.md
+    - "Flood Zone 2 and 3": ENV/env_defra_flood_zone_jan2025.md
     - "Flood_Zones_2_3_river_sea": ENV/env_defra_flood_zones_2_3_river_sea_april2026.md
     - "Flood Zones plus Climate Change": ENV/env_defra_flood_zones_plus_climate_change_july2025.md
     - "Historic Landfill Site": ENV/env_defra_historic_landfill_site.md

@@ -1,6 +1,6 @@
 # Defra - Department for Environment, Food and Rural Affairs — Environment Agency Flood Map for Planning, Flood Zones 2 and 3, January 2025
 
-<p class="layer-short">Flood Zone</p>
+<p class="layer-short">Flood Zone 2 and 3</p>
 
 `env_defra_flood_zone_jan2025`
 
@@ -18,7 +18,7 @@
 
 **DEFINITIONS**
 
-- "The Flood Map for Planning shows river and sea flooding data for England. It does not include other sources of flooding." (gov.uk Flood Map guidance)
+- "The Flood Map for Planning shows river and sea flooding data for England." (gov.uk Flood Map guidance)
 - Flood Zone 2: "Land assessed as having between a 1 in 100 and 1 in 1,000 annual probability of river flooding (1% – 0.1%), or between a 1 in 200 and 1 in 1,000 annual probability of sea flooding (0.5% – 0.1%) in any year." (EA Flood Map guidance)
 - Flood Zone 3: "Land assessed as having a 1 in 100 or greater annual probability of river flooding (>1%), or a 1 in 200 or greater annual probability of sea flooding (>0.5%) in any year." (EA Flood Map guidance)
 
@@ -34,13 +34,16 @@
 
 - Open Government Licence v3.0. © Environment Agency copyright and database right.
 
+**ENRICHMENT**
+
+- Geometry split to one row per source feature per MSOA (2021).
+- Each row carries that MSOA's `msoa21cd`, `msoa21nm`, `msoa21hclnm`, `lad22cd`, `lad22nm`, `lad25cd`, `lad25nm`.
+- The source feature's original primary key is preserved as `source_fid`; `gid` is a fresh surrogate primary key.
+- Features with no MSOA overlap (offshore or outside England & Wales) are kept whole, with NULL geography columns.
+
 **LOADED INTO uk_baseline**
 
 - Loaded January 2025.
-
-MSOA SPLIT (added 3 July 2026)
-
-- Geometry split to one row per (source feature x MSOA 2021). Each row carries that MSOA's msoa21cd / msoa21nm / msoa21hclnm and best-fit lad22 / lad25. The source feature's original primary key is preserved as `source_fid`; `gid` is a fresh surrogate primary key. Features with no MSOA overlap (offshore or outside England & Wales) are kept whole with NULL geography columns.
 
 
 ## Columns

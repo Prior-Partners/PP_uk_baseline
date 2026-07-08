@@ -19,8 +19,12 @@
 **DEFINITIONS**
 
 - "The Flood Map for Planning shows river and sea flooding data for England." (gov.uk Flood Map guidance)
-- Flood Zone 2: "Land assessed as having between a 1 in 100 and 1 in 1,000 annual probability of river flooding (1% – 0.1%), or between a 1 in 200 and 1 in 1,000 annual probability of sea flooding (0.5% – 0.1%) in any year." (EA Flood Map guidance)
-- Flood Zone 3: "Land assessed as having a 1 in 100 or greater annual probability of river flooding (>1%), or a 1 in 200 or greater annual probability of sea flooding (>0.5%) in any year." (EA Flood Map guidance)
+- Flood Zone 2 — medium probability (EA Flood Map guidance). Chance of flooding in any year:
+    - from rivers: between 1 in 100 (1%) and 1 in 1,000 (0.1%);
+    - from the sea: between 1 in 200 (0.5%) and 1 in 1,000 (0.1%).
+- Flood Zone 3 — high probability (EA Flood Map guidance). Chance of flooding in any year:
+    - from rivers: 1 in 100 (1%) or greater;
+    - from the sea: 1 in 200 (0.5%) or greater.
 
 **SCOPE**
 

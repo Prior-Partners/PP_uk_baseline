@@ -6,8 +6,6 @@
 
 <img src="../../maps/env_mhclg_brownfield_land_may2026.png" alt="Styling preview of env_mhclg_brownfield_land_may2026" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
 
-Published via planning.data.gov.uk (digital-land).
-
 **SOURCE**
 
 - Ministry of Housing, Communities and Local Government (MHCLG), via planning.data.gov.uk (digital-land). Each row carries the publishing Local Planning Authority's own site reference.
@@ -19,7 +17,7 @@ Published via planning.data.gov.uk (digital-land).
 
 **DEFINITIONS**
 
-- "This dataset contains a register of Brownfield land sites in England that are suitable to be added to the Brownfield land register." (planning.data.gov.uk, "About this dataset")
+- Brownfield land is previously developed land: land which is or was occupied by a permanent structure and its curtilage, together with any associated fixed surface infrastructure. It excludes agricultural and forestry land; minerals and landfill sites with restoration provision; residential gardens, parks and allotments; and land where former structures have blended into the landscape. (National Planning Policy Framework, previously developed land)
 
 **SCOPE**
 
@@ -73,7 +71,7 @@ Published via planning.data.gov.uk (digital-land).
 | `rgn22nm` | `character varying` | Joined at load from ONS LAD->Region lookup; 2022 Region name. |
 | `sds_boundary` | `character varying` | Internal categorisation: SDS area where the point falls. Blank or NULL where outside any SDS area. |
 | `geom` | `geometry(MultiPoint,27700)` | MultiPoint in EPSG:27700. Brownfield site point. |
-| `fid` | `bigint` |  |
+| `fid` | `bigint` | Loader surrogate row identifier. |
 | `planning_permission_status_clean` | `text` | Canonical Title Case value derived from planning_permission_status via uk_baseline.lut_planning_permission_status. 'No Data' = source was NULL OR was an unmappable/ambiguous value (REC, bare numeric codes, 'Mixed ownership', 'Finally Disposed Of', explicit 'Unknown'). 'Unknown' merged into 'No Data' on 13 May 2026. |
 | `msoa21cd` | `text` | Middle Layer Super Output Area (MSOA) 2021 code. Assigned at load by point-in-polygon location against uk_baseline.adm_ons_msoa_boundary_2021. Open Government Licence v3.0. |
 | `msoa21nm` | `text` | Official ONS Middle Layer Super Output Area 2021 name. Assigned at load via the point's 2021 MSOA (point-in-polygon against uk_baseline.adm_ons_msoa_boundary_2021). Open Government Licence v3.0. |

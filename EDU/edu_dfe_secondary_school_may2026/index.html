@@ -25,7 +25,7 @@
     
     
       
-        <title>Department for Education (DfE) secondary-phase schools in England, May 2026 - uk_baseline data catalogue</title>
+        <title>Secondary School - uk_baseline data catalogue</title>
       
     
     
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Department for Education (DfE) secondary-phase schools in England, May 2026
+              Secondary School
             
           </span>
         </div>
@@ -2742,7 +2742,7 @@
   <span class="md-ellipsis">
     
   
-    Department for Education (DfE) register of educational establishments in England, May 2026
+    School
   
 
     
@@ -2779,7 +2779,7 @@
   <span class="md-ellipsis">
     
   
-    Department for Education (DfE) secondary-phase schools in England, May 2026
+    Secondary School
   
 
     
@@ -2797,7 +2797,7 @@
   <span class="md-ellipsis">
     
   
-    Department for Education (DfE) secondary-phase schools in England, May 2026
+    Secondary School
   
 
     
@@ -5263,12 +5263,14 @@
 
 
 <h1 id="department-for-education-dfe-secondary-phase-schools-in-england-may-2026">Department for Education (DfE) secondary-phase schools in England, May 2026<a class="headerlink" href="#department-for-education-dfe-secondary-phase-schools-in-england-may-2026" title="Permanent link">&para;</a></h1>
+<p class="layer-short">Secondary School</p>
+
 <p><code>edu_dfe_secondary_school_may2026</code></p>
 <p><img src="../../maps/edu_dfe_secondary_school_may2026.png" alt="Styling preview of edu_dfe_secondary_school_may2026" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></p>
 <p><strong>SOURCE</strong></p>
 <ul>
-<li>Department for Education (DfE), Get Information About Schools, May 2026 extract. This table is a filtered subset of uk_baseline.edu_dfe_school_may2026 (the parent / all-establishments register).</li>
-<li>Ofsted, Management Information — state-funded schools — latest inspections as at 28 Feb 2026. Source of the two enriched columns ofsted_overall_rate_code and ofsted_overall_rate (see ENRICHMENT). Loaded into uk.edu_ofsted_state_funded_mis_feb2026 and joined to DfE GIAS on URN.</li>
+<li>Department for Education (DfE), Get Information About Schools, May 2026 extract. This table is a filtered subset of uk_baseline.edu_dfe_school_may2026.</li>
+<li>Ofsted, Management Information — state-funded schools — latest inspections as at 28 Feb 2026. Source of the two enriched columns ofsted_overall_rate_code and ofsted_overall_rate (see ENRICHMENT).</li>
 </ul>
 <p><strong>DOCUMENTATION</strong></p>
 <ul>
@@ -5286,8 +5288,9 @@
 <p><strong>SCOPE</strong></p>
 <ul>
 <li>England only. 3,419 rows, one per secondary-phase open URN.</li>
-<li>Filter (re-stated for clarity): phase_of_education_name IN ('Secondary', 'Middle deemed secondary', 'All-through') AND establishment_status_name IN ('Open', 'Open, but proposed to close').</li>
-<li>Excludes Closed secondaries (~3.2k of the 6.7k Secondary phase records held by the parent are Closed and dropped here).</li>
+<li>Includes three secondary-phase groupings: Secondary, Middle deemed secondary, and All-through.</li>
+<li>Includes open schools only (status Open, or Open but proposed to close).</li>
+<li>Excludes Closed secondaries: about 3,200 of the 6,700 Secondary-phase records in the parent are Closed and are dropped here.</li>
 </ul>
 <p><strong>CRS</strong></p>
 <ul>
@@ -5295,27 +5298,28 @@
 </ul>
 <p><strong>LICENCE</strong></p>
 <ul>
-<li>Open Government Licence v3.0 (covers both DfE GIAS and Ofsted MI).</li>
+<li>Open Government Licence v3.0.</li>
 </ul>
 <p><strong>DATA QUALITY CAVEATS</strong></p>
 <ul>
 <li>"All-through" schools appear in BOTH the primary subset and this secondary subset — they cover both phases by design. Count 203 in the parent; sum-of-subsets will double-count them.</li>
 <li>"16 plus" / post-16 establishments (sixth-form colleges, FE colleges) are NOT included in this subset by the filter — they have phase_of_education_name = '16 plus'. If your analysis needs sixth-form establishments, supplement from the parent.</li>
-<li>This subset is a materialised filter, not a view. If the parent is refreshed, this table must be re-created.</li>
-<li>Same date-as-text caveat as the parent.</li>
 <li>ofsted_overall_rate / _code are NULL where no clean graded inspection or qualifying ungraded-reaffirm outcome maps to the URN. Do not treat NULL as "Inadequate".</li>
 </ul>
 <p><strong>ENRICHMENT</strong></p>
 <ul>
 <li><code>msoa21hclnm</code> — House of Commons Library readable MSOA name, joined at load on <code>msoa_code</code> from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.</li>
-<li>ofsted_overall_rate_code, ofsted_overall_rate — headline Ofsted grade (1-4 code + text: Outstanding / Good / Requires Improvement / Inadequate) merged in from the Ofsted Establishment Inspection File via uk.edu_ofsted_state_funded_mis_feb2026 (28 Feb 2026 snapshot). Joined on URN. NULL when no clean grade is available. Includes "Fallback option B" — for URNs whose OEIF graded inspection was NULL, the rate is filled from the latest ungraded reaffirm outcome where it maps unambiguously ("School remains Outstanding" / "School remains Good" -&gt; respective grade). Applied 14 May 2026. See column comments for the full rule.</li>
-<li>lad25cd, lad25nm — joined at load from ONS LAD 2025 lookup.</li>
-<li>rgn22cd, rgn22nm — joined at load from ONS Region 2022 lookup.</li>
-<li>sds_boundary — internal Spatial Development Strategy area flag.</li>
+<li><code>ofsted_overall_rate_code</code>, <code>ofsted_overall_rate</code> — headline Ofsted grade, as a 1-4 code plus text label, from Ofsted Management Information (see SOURCE), joined on URN. NULL where no clean grade is available; see column comments for the full derivation. Grades:<ul>
+<li>1 — Outstanding</li>
+<li>2 — Good</li>
+<li>3 — Requires Improvement</li>
+<li>4 — Inadequate</li>
+</ul>
+</li>
 </ul>
 <p><strong>DERIVED FROM</strong></p>
 <ul>
-<li>uk_baseline.edu_dfe_school_may2026 with the filter clause stated under SCOPE. Subset created 13 May 2026.</li>
+<li>uk_baseline.edu_dfe_school_may2026. Subset created 13 May 2026.</li>
 </ul>
 <p><strong>LOADED INTO uk_baseline</strong></p>
 <ul>

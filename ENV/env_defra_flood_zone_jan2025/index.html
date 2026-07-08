@@ -5285,7 +5285,7 @@
 </ul>
 <p><strong>SCOPE</strong></p>
 <ul>
-<li>England. 12,247,889 rows.</li>
+<li>England. 12,535,046 rows.</li>
 </ul>
 <p><strong>CRS</strong></p>
 <ul>
@@ -5324,57 +5324,57 @@
 <tr>
 <td><code>objectid</code></td>
 <td><code>numeric</code></td>
-<td></td>
+<td>Source field <code>OBJECTID</code>; ArcGIS object identifier from the source feature class. Not a domain key — do not join on it.</td>
 </tr>
 <tr>
 <td><code>origin</code></td>
 <td><code>character varying(64)</code></td>
-<td></td>
+<td>Source field <code>origin</code>; basis of the mapped flood zone extent. Observed values: "modelled", "direct rainfall model", "local evidence", "direct rainfall model and recorded", "local evidence and recorded".</td>
 </tr>
 <tr>
 <td><code>flood_zone</code></td>
 <td><code>character varying(3)</code></td>
-<td></td>
+<td>Source field <code>flood_zone</code>; Environment Agency flood zone designation — "FZ2" (Flood Zone 2) or "FZ3" (Flood Zone 3).</td>
 </tr>
 <tr>
 <td><code>flood_sour</code></td>
 <td><code>character varying(32)</code></td>
-<td></td>
+<td>Source field <code>flood_sour</code>; source of flooding — "river", "sea" or "river and sea". NULL for a small number of features.</td>
 </tr>
 <tr>
 <td><code>shape_leng</code></td>
 <td><code>numeric</code></td>
-<td></td>
+<td>Source field <code>shape_leng</code>; ESRI shapefile-generated perimeter length. Unit: metres (British National Grid).</td>
 </tr>
 <tr>
 <td><code>shape_area</code></td>
 <td><code>numeric</code></td>
-<td></td>
+<td>Source field <code>shape_area</code>; ESRI shapefile-generated area. Unit: square metres (British National Grid).</td>
 </tr>
 <tr>
 <td><code>id_original</code></td>
 <td><code>integer</code></td>
-<td></td>
+<td>Original source feature identifier, preserved at load.</td>
 </tr>
 <tr>
 <td><code>wd21nm</code></td>
 <td><code>character varying</code></td>
-<td></td>
+<td>Electoral Ward 2021 name assigned to the feature.</td>
 </tr>
 <tr>
 <td><code>wd21cd</code></td>
 <td><code>character varying</code></td>
-<td></td>
+<td>Electoral Ward 2021 code assigned to the feature.</td>
 </tr>
 <tr>
 <td><code>area_ha</code></td>
 <td><code>double precision</code></td>
-<td></td>
+<td>Area of this row's geometry in hectares.</td>
 </tr>
 <tr>
 <td><code>fid</code></td>
 <td><code>bigint</code></td>
-<td></td>
+<td>Loader surrogate row identifier. Not a stable key — use <code>gid</code>.</td>
 </tr>
 <tr>
 <td><code>msoa21cd</code></td>
@@ -5414,12 +5414,12 @@
 <tr>
 <td><code>geom</code></td>
 <td><code>geometry(MultiPolygon,27700)</code></td>
-<td></td>
+<td>Flood zone polygon geometry in EPSG:27700 (British National Grid); one part per MSOA (2021) after the split.</td>
 </tr>
 <tr>
 <td><code>gid</code></td>
 <td><code>bigint</code></td>
-<td></td>
+<td>Surrogate primary key, added at the MSOA split (see ENRICHMENT).</td>
 </tr>
 </tbody>
 </table>

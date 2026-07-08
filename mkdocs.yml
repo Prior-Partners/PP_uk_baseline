@@ -35,7 +35,7 @@ markdown_extensions:
   - toc:
       permalink: true
 extra_css:
-  - stylesheets/extra.css
+  - stylesheets/extra.css?v=1ca01c8b
 nav:
   - "Home": index.md
   - "📕 Staff Handbook (PDF)": https://prior-partners.github.io/PP_uk_baseline/PP_Staff_Data_Management_Handbook.pdf

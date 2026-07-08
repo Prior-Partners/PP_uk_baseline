@@ -235,10 +235,14 @@ body, .md-typeset { font-weight: 300; }
 .md-typeset .cat-index > li { margin: 0.45em 0; line-height: 1.4; }
 .md-typeset .cat-index a { text-decoration: none; }
 .md-typeset .cat-index a:hover .cat-full { text-decoration: underline; }
+/* Three colours: short name = brand orange; full name = the link colour
+   (Lime in dark, Cobalt in light); layer name = muted body colour, matching
+   the theme blurb. Each span sets its own colour so it wins over the link
+   colour it would otherwise inherit from the wrapping <a>. */
 .md-typeset .cat-short { color: var(--pp-orange); font-weight: 500; }
-.md-typeset .cat-full  { color: var(--md-default-fg-color); }
+.md-typeset .cat-full  { color: var(--md-typeset-a-color); }
 .md-typeset .cat-table {
-  color: var(--md-typeset-a-color);
+  color: var(--md-default-fg-color--light);
   font-family: "GT America Mono", SFMono-Regular, Consolas, monospace;
   font-size: 0.82em;
 }

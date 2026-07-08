@@ -48,7 +48,7 @@
 
 | Column | Type | Description / unit |
 |---|---|---|
-| `fid` | `integer` |  |
+| `fid` | `integer` | Loader surrogate row identifier. |
 | `geom` | `geometry(MultiPolygon,27700)` | MultiPolygon in EPSG:27700. LSOA boundary geometry. |
 | `lsoa11cd` | `character varying(9)` | Source field "LSOA code"; ONS GSS 9-character LSOA 2011 code. |
 | `lsoa11nm` | `character varying(33)` | Source field "LSOA name"; LSOA 2011 name. |

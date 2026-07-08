@@ -31,13 +31,16 @@
 
 - OS OpenData Licence (incorporates Open Government Licence v3.0; attribution "Contains OS data © Crown copyright and database right" required).
 
+**ENRICHMENT**
+
+- Geometry split to one row per source feature per MSOA (2021).
+- Each row carries that MSOA's `msoa21cd`, `msoa21nm`, `msoa21hclnm`, `lad22cd`, `lad22nm`, `lad25cd`, `lad25nm`.
+- The source feature's original primary key is preserved as `source_fid`; `gid` is a fresh surrogate primary key.
+- Features with no MSOA overlap (offshore or outside England & Wales) are kept whole, with NULL geography columns.
+
 **LOADED INTO uk_baseline**
 
 - Loaded by PNC, May 2026.
-
-MSOA SPLIT (added 3 July 2026)
-
-- Geometry split to one row per (source feature x MSOA 2021). Each row carries that MSOA's msoa21cd / msoa21nm / msoa21hclnm and best-fit lad22 / lad25. The source feature's original primary key is preserved as `source_fid`; `gid` is a fresh surrogate primary key. Features with no MSOA overlap (offshore or outside England & Wales) are kept whole with NULL geography columns.
 
 
 ## Columns
@@ -45,13 +48,13 @@ MSOA SPLIT (added 3 July 2026)
 | Column | Type | Description / unit |
 |---|---|---|
 | `source_fid` | `bigint` | Primary key of the source feature in the pre-split layer uk.env_os_woodland__preswap_jul03 (non-unique here: a feature spanning N MSOAs has N rows). |
-| `id` | `character varying` |  |
-| `feature_code` | `bigint` |  |
-| `fid_original` | `integer` |  |
-| `wd21nm` | `character varying` |  |
-| `wd21cd` | `character varying` |  |
-| `area_ha` | `double precision` |  |
-| `fid` | `bigint` |  |
+| `id` | `character varying` | Source field `id`; OS feature identifier (TOID). |
+| `feature_code` | `bigint` | Source field `feature_code`; OS OpenMap Local feature code (15999 = woodland). |
+| `fid_original` | `integer` | Original source feature identifier, preserved at load. |
+| `wd21nm` | `character varying` | Electoral Ward 2021 name assigned to the feature. |
+| `wd21cd` | `character varying` | Electoral Ward 2021 code assigned to the feature. |
+| `area_ha` | `double precision` | Area of this row's geometry in hectares. |
+| `fid` | `bigint` | Loader surrogate row identifier. Not a stable key — use `gid`. |
 | `msoa21cd` | `character varying` | Middle Layer Super Output Area (MSOA) 2021 code of this piece. Open Government Licence v3.0. |
 | `msoa21nm` | `character varying` | Official ONS MSOA 2021 name of this piece. Open Government Licence v3.0. |
 | `msoa21hclnm` | `text` | House of Commons Library readable MSOA name of this piece. Open Parliament Licence. |
@@ -59,5 +62,5 @@ MSOA SPLIT (added 3 July 2026)
 | `lad22nm` | `text` | Local Authority District 2022 name (2021 LAD geography), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `lad25cd` | `text` | Local Authority District 2025 code (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
-| `geom` | `geometry(MultiPolygon,27700)` |  |
-| `gid` | `bigint` |  |
+| `geom` | `geometry(MultiPolygon,27700)` | OS woodland polygon geometry in EPSG:27700 (British National Grid); one part per MSOA (2021) after the split. |
+| `gid` | `bigint` | Surrogate primary key, added at the MSOA split (see ENRICHMENT). |

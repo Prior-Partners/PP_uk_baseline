@@ -54,4 +54,4 @@
 | `wd22nm` | `character varying` | Joined at load from ONS Ward 2022 lookup; 2022 Ward name. |
 | `lad22cd` | `character varying` | Joined at load from ONS LAD 2022 lookup; 2022 LAD GSS code. |
 | `lad22nm` | `character varying` | Joined at load from ONS LAD 2022 lookup; 2022 LAD name. |
-| `fid` | `bigint` |  |
+| `fid` | `bigint` | Loader surrogate row identifier. |

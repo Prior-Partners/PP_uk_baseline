@@ -1,6 +1,6 @@
 site_name: uk_baseline data catalogue
 site_description: A guide to every layer in the uk_baseline database.
-copyright: Developed by the Digital Innovation team, Prior + Partners — last updated 08 July 2026
+copyright: Developed by the Digital Innovation team, Prior + Partners — last updated 23 July 2026
 theme:
   name: material
   font: false
@@ -50,6 +50,7 @@ nav:
     - "Lower Layer Super Output Area Boundary 2021": ADM/adm_ons_lsoa_boundary_2021.md
     - "Middle Layer Super Output Area Boundary 2011": ADM/adm_ons_msoa_boundary_2011.md
     - "Middle Layer Super Output Area Boundary 2021": ADM/adm_ons_msoa_boundary_2021.md
+    - "National Infrastructure Projects": ADM/adm_national_infrastructure_project.md
     - "Output Area Boundary 2021": ADM/adm_ons_oa_boundaries_dec2021.md
     - "Postcode Centroid": ADM/adm_ons_postcode_centroid_feb2026.md
     - "Ward Boundary 2025": ADM/adm_ons_ward_boundary_may2025.md

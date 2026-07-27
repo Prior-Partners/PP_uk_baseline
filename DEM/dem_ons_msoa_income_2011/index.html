@@ -5325,7 +5325,12 @@
 </ul>
 <p><strong>DATA QUALITY CAVEATS</strong></p>
 <ul>
+<li>This table is published on 2011 MSOA boundaries and its values are 2011-vintage; <code>msoa21hclnm</code> is a readable label for the corresponding 2021 MSOA and does not re-aggregate any value onto 2021 geography. For MSOAs unchanged in 2021 the name is exact. For the small number of 2011 MSOAs that were split, the column lists every successor name separated by a semicolon, so those rows carry more than one name and cannot be joined to a single msoa21cd. No 2021 geography codes are recorded on this table.</li>
 <li>"The modelling process tends to shrink estimates towards the average level, so the true distribution of MSOA average incomes will have more extreme high and low values than the estimated values." (ONS methodology page)</li>
+</ul>
+<p><strong>ENRICHMENT</strong></p>
+<ul>
+<li><code>msoa21hclnm</code> — House of Commons Library readable MSOA name for the 2021 MSOA corresponding to this row's 2011 MSOA, joined at load via uk.ref_msoa11_msoa21_name_lu. Open Parliament Licence.</li>
 </ul>
 <p><strong>LOADED INTO uk_baseline</strong></p>
 <ul>
@@ -5436,6 +5441,11 @@
 <td><code>bigint</code></td>
 <td></td>
 </tr>
+<tr>
+<td><code>msoa21hclnm</code></td>
+<td><code>text</code></td>
+<td>House of Commons Library readable MSOA name for the 2021 MSOA corresponding to this row's 2011 MSOA, joined at load on the 2011 code via uk.ref_msoa11_msoa21_name_lu. Where the MSOA is unchanged in 2021 (the great majority) the name is exact. Where a 2011 MSOA was split into several 2021 MSOAs this records all successor names, separated by a semicolon. Where a 2011 MSOA was merged into a larger 2021 MSOA, or its code was reissued, it records that single successor name. Open Parliament Licence.</td>
+</tr>
 </tbody>
 </table>
 
@@ -5467,7 +5477,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Developed by the Digital Innovation team, Prior + Partners — last updated 23 July 2026
+      Developed by the Digital Innovation team, Prior + Partners — last updated 27 July 2026
     </div>
   
   

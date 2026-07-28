@@ -39,6 +39,7 @@
 
 **DATA QUALITY CAVEATS**
 
+- The row count counts split pieces, not source features: this layer was split by Middle Layer Super Output Area, so it holds one row per feature per MSOA piece, plus whole and remainder rows to keep 100% of the source geometry. 3,728,128 rows represent 3,559,142 source features, measured 28 July 2026. `source_fid` identifies the originating feature.
 - Geography keys are NULL on 67 of 3,728,128 rows, measured 28 July 2026: 59 are in Scotland or Northern Ireland, outside the England and Wales lookup; 8 fall outside every district — offshore, inter-tidal, or beyond Great Britain.
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - 47,522 rows carry a district but no Middle Layer Super Output Area: they lie outside every 2021 MSOA but inside a district, so the district was assigned from the feature's representative point while the MSOA columns stay NULL.

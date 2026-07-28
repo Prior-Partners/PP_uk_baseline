@@ -33,6 +33,7 @@
 
 **DATA QUALITY CAVEATS**
 
+- The row count counts split pieces, not source features: this layer was split by Middle Layer Super Output Area, so it holds one row per feature per MSOA piece, plus whole and remainder rows to keep 100% of the source geometry. 254,732 rows represent 249,743 source features, measured 28 July 2026. `source_fid` identifies the originating feature.
 - Geography keys are NULL on 201 of 254,732 rows, measured 28 July 2026: 118 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence; 69 are residual fragments left by the MSOA split, each under 100 sqm or 10 m; 13 are in Scotland or Northern Ireland, outside the England and Wales lookup; 1 fall outside every district — offshore, inter-tidal, or beyond Great Britain.
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - Modelled, not surveyed. The extent is predicted by machine-learning and deep-learning models trained on field-survey and third-party data, using satellite imagery, LiDAR topography, geology and historic land use as predictors. The project reports an overall accuracy above 95% for peaty-soil extent, and presents the map as a national decision-making aid, not a regulatory tool — site-level decisions need local evidence and first-hand verification.

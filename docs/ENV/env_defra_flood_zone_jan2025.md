@@ -38,6 +38,10 @@
 
 - Open Government Licence v3.0. © Environment Agency copyright and database right.
 
+**DATA QUALITY CAVEATS**
+
+- The row count counts split pieces, not source features: this layer was split by Middle Layer Super Output Area, so it holds one row per feature per MSOA piece, plus whole and remainder rows to keep 100% of the source geometry. 12,535,046 rows represent 12,247,889 source features, measured 28 July 2026. `source_fid` identifies the originating feature.
+
 **ENRICHMENT**
 
 - Geometry split to one row per source feature per MSOA (2021).

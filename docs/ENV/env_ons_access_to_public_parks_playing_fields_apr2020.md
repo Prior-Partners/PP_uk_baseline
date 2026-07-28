@@ -32,11 +32,13 @@
 
 **DATA QUALITY CAVEATS**
 
+- County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - Published on 2011 LSOA boundaries. Each row's msoa21cd, msoa21nm, msoa21hclnm and lad22/lad25 codes are best-fit onto 2021 geography — the 2021 MSOA the row's 2011 LSOA overlaps most by area (uk.ref_lsoa11_msoa21_bestfit_lu). LSOAs that straddle a 2011-to-2021 boundary change are assigned to their largest-overlap MSOA, so for those a small share of the LSOA area lies outside the assigned MSOA.
 - ONS states its source "cannot distinguish public and private playing fields so some of these areas may not be publicly accessible." (ONS, Access to gardens and public green space in Great Britain)
 
 **ENRICHMENT**
 
+- `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - `msoa21hclnm` — House of Commons Library readable MSOA name, best-fit assigned at load from the row's 2011 LSOA by largest-area-overlap 2021 MSOA (uk.ref_lsoa11_msoa21_bestfit_lu). Open Parliament Licence.
 
 **LOADED INTO uk_baseline**
@@ -67,3 +69,7 @@
 | `msoa21hclnm` | `text` | House of Commons Library readable MSOA name, best-fit assigned from this row's Lower Layer Super Output Area (LSOA) 2011 by largest area overlap with the 2021 MSOA boundaries, joined at load on lsoa11cd via uk.ref_lsoa11_msoa21_bestfit_lu. Open Parliament Licence. |
 | `lad25cd` | `text` | Local Authority District 2025 code (current administering authority), best-fit assigned from this row's Lower Layer Super Output Area (LSOA) 2011 by largest area overlap with the 2021 MSOA boundaries, joined at load on lsoa11cd via uk.ref_lsoa11_msoa21_bestfit_lu, then that MSOA's 2025 district. Open Government Licence v3.0. |
 | `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit assigned from this row's Lower Layer Super Output Area (LSOA) 2011 by largest area overlap with the 2021 MSOA boundaries, joined at load on lsoa11cd via uk.ref_lsoa11_msoa21_bestfit_lu, then that MSOA's 2025 district. Open Government Licence v3.0. |
+| `ctyua25cd` | `text` | County or unitary authority code at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `ctyua25nm` | `text` | County or unitary authority name at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `sds_name` | `text` | Spatial Development Strategy (SDS) area, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `sds_group` | `text` | Devolution status of the Spatial Development Strategy area: Existing Devolution Footprints, Devolution Priority Programme, Other Proposed Geographies or Remaining Areas. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |

@@ -35,10 +35,13 @@
 
 **DATA QUALITY CAVEATS**
 
+- Geography keys are NULL on 432 of 379,664 rows, measured 28 July 2026: 417 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence; 15 fall outside every district — offshore, inter-tidal, or beyond Great Britain.
+- County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - 417 coastal and offshore listed structures (0.11% of the layer) lie outside every MSOA polygon and so carry NULL msoa21cd, msoa21nm and msoa21hclnm.
 
 **ENRICHMENT**
 
+- `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - `msoa21hclnm` — House of Commons Library readable MSOA name, assigned at load from the listed-building point in its 2021 MSOA (uk_baseline.adm_ons_msoa_boundary_2021). Open Parliament Licence.
 
 **LOADED INTO uk_baseline**
@@ -69,9 +72,12 @@
 | `fid` | `bigint` |  |
 | `rgn22cd` | `text` | Joined at load from ONS LAD->Region lookup; 2022 Region GSS code. |
 | `rgn22nm` | `text` | Joined at load from ONS LAD->Region lookup; 2022 Region name. |
-| `sds_boundary` | `text` | Internal categorisation: Spatial Development Strategy (SDS) area where the geometry falls. Blank or NULL where outside any SDS area. |
 | `msoa21cd` | `text` | Middle Layer Super Output Area (MSOA) 2021 code. Assigned at load from the listed-building point (representative point of the MULTIPOINT geometry) located in uk_baseline.adm_ons_msoa_boundary_2021. Open Government Licence v3.0. |
 | `msoa21nm` | `text` | Official Office for National Statistics MSOA 2021 name. Assigned at load from the listed-building point located in uk_baseline.adm_ons_msoa_boundary_2021. Open Government Licence v3.0. |
 | `msoa21hclnm` | `text` | House of Commons Library readable MSOA name. Assigned at load from the listed-building point located in its 2021 MSOA (uk_baseline.adm_ons_msoa_boundary_2021, which carries the House of Commons Library name). Open Parliament Licence. |
 | `lad22cd` | `text` | Local Authority District 2022 code (2021 LAD geography). Assigned at load from the listed-building point located in uk_baseline.adm_ons_lad_boundary_may2022. Open Government Licence v3.0. |
 | `lad22nm` | `text` | Local Authority District 2022 name (2021 LAD geography). Assigned at load from the listed-building point located in uk_baseline.adm_ons_lad_boundary_may2022. Open Government Licence v3.0. |
+| `ctyua25cd` | `text` | County or unitary authority code at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `ctyua25nm` | `text` | County or unitary authority name at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `sds_name` | `text` | Spatial Development Strategy (SDS) area, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `sds_group` | `text` | Devolution status of the Spatial Development Strategy area: Existing Devolution Footprints, Devolution Priority Programme, Other Proposed Geographies or Remaining Areas. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |

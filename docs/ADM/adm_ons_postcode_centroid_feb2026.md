@@ -35,11 +35,14 @@
 
 **DATA QUALITY CAVEATS**
 
+- A further 314,761 rows carry a Scottish or Northern Irish district code, so they hold a district but no county or Spatial Development Strategy — the lookup covers England and Wales only.
+- County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - Postcode-to-area assignment can be imprecise near boundaries (straddling) or for new postcodes (imputed grid references); see `gridind`.
 - This is a postcode-centroid reference layer for joining postcode-only datasets (e.g. HM Land Registry Price Paid Data) to coordinates and admin geographies; it is not address-level.
 
 **ENRICHMENT**
 
+- `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - `msoa21nm` — Office for National Statistics MSOA 2021 name, joined at load on msoa21cd from uk_baseline.adm_ons_msoa_boundary_2021.
 - `msoa21hclnm` — House of Commons Library readable MSOA name, joined at load on msoa21cd from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.
 
@@ -108,3 +111,7 @@
 | `geom` | `geometry(Point,27700)` | Point geometry in EPSG:27700, derived at load from `east1m`/`north1m` for Great Britain postcodes (England, Wales, Scotland) only. NULL for Northern Ireland (grid is Irish National Grid, not BNG), Channel Islands, Isle of Man, and postcodes with no grid reference. |
 | `msoa21nm` | `text` | Office for National Statistics MSOA 2021 name, joined at load on msoa21cd from uk_baseline.adm_ons_msoa_boundary_2021. |
 | `msoa21hclnm` | `text` | House of Commons Library readable MSOA name. Source field `msoa21hclnm` from House of Commons Library MSOA Names v2.3 (13 February 2026), joined at load on msoa21cd. Open Parliament Licence. |
+| `ctyua25cd` | `text` | County or unitary authority code at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `ctyua25nm` | `text` | County or unitary authority name at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `sds_name` | `text` | Spatial Development Strategy (SDS) area, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `sds_group` | `text` | Devolution status of the Spatial Development Strategy area: Existing Devolution Footprints, Devolution Priority Programme, Other Proposed Geographies or Remaining Areas. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |

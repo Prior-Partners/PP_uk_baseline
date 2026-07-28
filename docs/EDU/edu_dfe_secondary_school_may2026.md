@@ -44,12 +44,14 @@
 
 **DATA QUALITY CAVEATS**
 
+- County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - "All-through" schools appear in BOTH the primary subset and this secondary subset — they cover both phases by design. Count 203 in the parent; sum-of-subsets will double-count them.
 - "16 plus" / post-16 establishments (sixth-form colleges, FE colleges) are NOT included in this subset by the filter — they have phase_of_education_name = '16 plus'. If your analysis needs sixth-form establishments, supplement from the parent.
 - ofsted_overall_rate / _code are NULL where no clean graded inspection or qualifying ungraded-reaffirm outcome maps to the URN. Do not treat NULL as "Inadequate".
 
 **ENRICHMENT**
 
+- `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - `msoa21hclnm` — House of Commons Library readable MSOA name, joined at load on `msoa_code` from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.
 - `ofsted_overall_rate_code`, `ofsted_overall_rate` — headline Ofsted grade, as a 1-4 code plus text label, from Ofsted Management Information (see SOURCE), joined on URN. NULL where no clean grade is available; see column comments for the full derivation. Grades:
     - 1 — Outstanding
@@ -210,7 +212,6 @@
 | `lad25nm` | `character varying(100)` | Local Authority District 2025 name: the current geographic district of the school, best-fit from msoa21cd via the ONS MSOA (2021) to LAD (2025) best-fit lookup. Maintaining education authority is in `gss_la_code`/`la_name`. Open Government Licence v3.0. |
 | `rgn22cd` | `character varying` | Joined at load from ONS LAD->Region lookup; 2022 Region GSS code. |
 | `rgn22nm` | `character varying` | Joined at load from ONS LAD->Region lookup; 2022 Region name. |
-| `sds_boundary` | `character varying` | Internal categorisation: Spatial Development Strategy (SDS) area where the school point falls. Blank or NULL where outside any SDS area. |
 | `geom` | `geometry(MultiPoint,27700)` | MultiPoint in EPSG:27700. School location point (one point per URN; MultiPoint typmod is a Postgres convention). |
 | `fid` | `bigint` |  |
 | `ofsted_overall_rate_code` | `smallint` | Headline Ofsted grade code 1-4 (1=Outstanding, 2=Good, 3=Requires Improvement, 4=Inadequate). NULL when no clean grade is available (includes 'Not Judged' and ambiguous ungraded outcomes). Sourced from OEIF + extended ungraded-reaffirm fallback. Fallback option B applied 14 May 2026. |
@@ -220,3 +221,7 @@
 | `msoa21nm` | `text` | Official ONS Middle Layer Super Output Area 2021 name, joined on msoa21cd from uk_baseline.adm_ons_msoa_boundary_2021. Open Government Licence v3.0. |
 | `lad22cd` | `text` | Local Authority District 2022 code: the geographic district of the school (2021 LAD geography), best-fit from msoa21cd via the ONS MSOA (2021) to LAD (2022) best-fit lookup. The school's maintaining education authority (county-level in two-tier areas) is held separately in `gss_la_code`/`la_name`. Open Government Licence v3.0. |
 | `lad22nm` | `text` | Local Authority District 2022 name: the geographic district of the school, best-fit from msoa21cd via the ONS MSOA (2021) to LAD (2022) best-fit lookup. Maintaining education authority is in `gss_la_code`/`la_name`. Open Government Licence v3.0. |
+| `ctyua25cd` | `text` | County or unitary authority code at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `ctyua25nm` | `text` | County or unitary authority name at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `sds_name` | `text` | Spatial Development Strategy (SDS) area, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `sds_group` | `text` | Devolution status of the Spatial Development Strategy area: Existing Devolution Footprints, Devolution Priority Programme, Other Proposed Geographies or Remaining Areas. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |

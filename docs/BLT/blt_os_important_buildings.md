@@ -35,11 +35,14 @@
 
 **DATA QUALITY CAVEATS**
 
+- Geography keys are NULL on 20,687 of 238,730 rows, measured 28 July 2026: 25 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence; 18 are residual fragments left by the MSOA split, each under 100 sqm or 10 m; 20,644 are in Scotland or Northern Ireland, outside the England and Wales lookup.
+- County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - 641 id values appear more than once (238,089 distinct id across 238,730 rows). Cause not investigated; likely upstream artefacts of partial-update cycles.
 - The OS Product Guide says BuildingTheme uses the "SiteThemeType code list", but the BuildingTheme code list contains 11 values while SiteTheme contains only 5 - the published code lists are different. Use the actual values observed in the column rather than the SiteTheme list.
 
 **ENRICHMENT**
 
+- `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - `msoa21hclnm` — House of Commons Library readable MSOA name, assigned at load via the polygon's 2021 MSOA (representative interior point in uk_baseline.adm_ons_msoa_boundary_2021). Open Parliament Licence.
 - lad22cd, lad22nm : spatial intersect with ONS 2022 LAD boundaries.
 - wd21cd, wd21nm : spatial intersect with ONS 2021 Ward boundaries.
@@ -68,3 +71,7 @@
 | `msoa21hclnm` | `text` | House of Commons Library readable MSOA name. Assigned at load via the polygon's 2021 MSOA (representative interior point in uk_baseline.adm_ons_msoa_boundary_2021, which carries the House of Commons Library name). Open Parliament Licence. |
 | `lad25cd` | `text` | Local Authority District 2025 code (current administering authority), best-fit assigned from the feature's MSOA 2021 code. Joined at load from the ONS MSOA (2021) to Ward (2025) to LAD (2025) best-fit lookup on msoa21cd. Open Government Licence v3.0. |
 | `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit assigned from the feature's MSOA 2021 code. Joined at load from the ONS MSOA (2021) to Ward (2025) to LAD (2025) best-fit lookup on msoa21cd. Open Government Licence v3.0. |
+| `ctyua25cd` | `text` | County or unitary authority code at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `ctyua25nm` | `text` | County or unitary authority name at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `sds_name` | `text` | Spatial Development Strategy (SDS) area, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `sds_group` | `text` | Devolution status of the Spatial Development Strategy area: Existing Devolution Footprints, Devolution Priority Programme, Other Proposed Geographies or Remaining Areas. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |

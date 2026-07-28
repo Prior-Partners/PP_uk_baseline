@@ -42,11 +42,14 @@
 
 **DATA QUALITY CAVEATS**
 
+- Geography keys are NULL on 916 of 44,489 rows, measured 28 July 2026: 800 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence; 103 are residual fragments left by the MSOA split, each under 100 sqm or 10 m; 13 are in Scotland or Northern Ireland, outside the England and Wales lookup.
+- County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - Surveyed layer — this is the original, field-surveyed Agricultural Land Classification (not a model or prediction).
 - RELATED: for a modelled national prediction of agricultural land, please see Agricultural Land Classification - Predictive (uk_baseline.env_defra_predictive_agricultural_land_class_mar2026).
 
 **ENRICHMENT**
 
+- `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - Geometry split to one row per source feature per MSOA (2021).
 - Each row carries that MSOA's `msoa21cd`, `msoa21nm`, `msoa21hclnm`, `lad22cd`, `lad22nm`, `lad25cd`, `lad25nm`.
 - The source feature's original primary key is preserved as `source_fid`; `gid` is a fresh surrogate primary key.
@@ -70,7 +73,6 @@
 | `area_ha` | `double precision` | Area in hectares. |
 | `rgn22cd` | `text` | Region 2022 GSS code (nine English regions), assigned via the ONS Region lookup. Open Government Licence v3.0. |
 | `rgn22nm` | `text` | Region 2022 name, assigned via the ONS Region lookup. Open Government Licence v3.0. |
-| `sds_boundary` | `text` | Spatial Development Strategy (SDS) area the feature falls in. NULL outside any SDS area. |
 | `msoa21cd` | `character varying` | Middle Layer Super Output Area (MSOA) 2021 code of this piece. Open Government Licence v3.0. |
 | `msoa21nm` | `character varying` | Official ONS MSOA 2021 name of this piece. Open Government Licence v3.0. |
 | `msoa21hclnm` | `text` | House of Commons Library readable MSOA name of this piece. Open Parliament Licence. |
@@ -80,3 +82,7 @@
 | `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `geom` | `geometry(MultiPolygon,27700)` | Agricultural Land Classification survey polygon geometry in EPSG:27700 (British National Grid); one part per MSOA (2021) after the split. |
 | `gid` | `bigint` | Surrogate primary key, added at the MSOA split (see ENRICHMENT). |
+| `ctyua25cd` | `text` | County or unitary authority code at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `ctyua25nm` | `text` | County or unitary authority name at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `sds_name` | `text` | Spatial Development Strategy (SDS) area, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `sds_group` | `text` | Devolution status of the Spatial Development Strategy area: Existing Devolution Footprints, Devolution Priority Programme, Other Proposed Geographies or Remaining Areas. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |

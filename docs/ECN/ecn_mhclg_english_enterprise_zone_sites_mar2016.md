@@ -34,11 +34,14 @@
 
 **DATA QUALITY CAVEATS**
 
+- Geography keys are NULL on 10 of 676 rows, measured 28 July 2026: 10 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence.
+- County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - This is a 2016 snapshot. The Enterprise Zones programme has since been extended (further zones added in 2016-2017) and some zones have wound down. Does not represent the current position.
 - `date_start` is stored as text (varchar(20)), not a typed date.
 
 **ENRICHMENT**
 
+- `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - `msoa21hclnm` — House of Commons Library readable MSOA name, assigned at load via the polygon's 2021 MSOA (representative interior point in uk_baseline.adm_ons_msoa_boundary_2021). Open Parliament Licence.
 
 **UPDATE REQUIRED**
@@ -83,3 +86,7 @@ MSOA SPLIT (added 30 June 2026)
 | `geom` | `geometry(MultiPolygon,27700)` |  |
 | `source_fid` | `integer` | Primary key of the source feature in the pre-split layer uk.ecn_mhclg_english_enterprise_zone_sites_mar2016__preswap_jun30 (non-unique here: a feature spanning N MSOAs has N rows). |
 | `gid` | `bigint` |  |
+| `ctyua25cd` | `text` | County or unitary authority code at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `ctyua25nm` | `text` | County or unitary authority name at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `sds_name` | `text` | Spatial Development Strategy (SDS) area, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `sds_group` | `text` | Devolution status of the Spatial Development Strategy area: Existing Devolution Footprints, Devolution Priority Programme, Other Proposed Geographies or Remaining Areas. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |

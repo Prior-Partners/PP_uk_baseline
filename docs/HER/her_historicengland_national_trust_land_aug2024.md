@@ -28,6 +28,15 @@ One row per National Trust land parcel.
 
 - Open Government Licence v3.0 (confirm with the National Trust before re-publication).
 
+**DATA QUALITY CAVEATS**
+
+- Geography keys are NULL on 338 of 4,109 rows, measured 28 July 2026: 280 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence; 52 are residual fragments left by the MSOA split, each under 100 sqm or 10 m; 6 fall outside every district — offshore, inter-tidal, or beyond Great Britain.
+- County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
+
+**ENRICHMENT**
+
+- `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
+
 **LOADED INTO uk_baseline**
 
 - Loaded August 2024.
@@ -60,3 +69,7 @@ MSOA SPLIT (added 30 June 2026)
 | `geom` | `geometry(MultiPolygon,27700)` |  |
 | `source_fid` | `bigint` | Primary key of the source feature in the pre-split layer uk.her_historicengland_national_trust_land_aug2024__preswap_jun30 (non-unique here: a feature spanning N MSOAs has N rows). |
 | `gid` | `bigint` |  |
+| `ctyua25cd` | `text` | County or unitary authority code at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `ctyua25nm` | `text` | County or unitary authority name at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `sds_name` | `text` | Spatial Development Strategy (SDS) area, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `sds_group` | `text` | Devolution status of the Spatial Development Strategy area: Existing Devolution Footprints, Devolution Priority Programme, Other Proposed Geographies or Remaining Areas. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |

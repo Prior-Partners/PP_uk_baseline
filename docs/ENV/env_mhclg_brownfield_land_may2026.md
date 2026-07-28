@@ -31,6 +31,16 @@
 
 - Open Government Licence v3.0.
 
+**DATA QUALITY CAVEATS**
+
+- Geography keys are NULL on 27 of 35,907 rows, measured 28 July 2026: 27 fall outside every district — offshore, inter-tidal, or beyond Great Britain.
+- A further 1 rows carry a Scottish or Northern Irish district code, so they hold a district but no county or Spatial Development Strategy — the lookup covers England and Wales only.
+- County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
+
+**ENRICHMENT**
+
+- `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
+
 **LOADED INTO uk_baseline**
 
 - Loaded by PNC, May 2026.
@@ -69,7 +79,6 @@
 | `lad25nm` | `character varying(100)` | Local Authority District 2025 name (current administering authority). Assigned at load by point-in-polygon location against uk_baseline.adm_ons_lad_boundary_may2025. Open Government Licence v3.0. |
 | `rgn22cd` | `character varying` | Joined at load from ONS LAD->Region lookup; 2022 Region GSS code. |
 | `rgn22nm` | `character varying` | Joined at load from ONS LAD->Region lookup; 2022 Region name. |
-| `sds_boundary` | `character varying` | Internal categorisation: SDS area where the point falls. Blank or NULL where outside any SDS area. |
 | `geom` | `geometry(MultiPoint,27700)` | MultiPoint in EPSG:27700. Brownfield site point. |
 | `fid` | `bigint` | Loader surrogate row identifier. |
 | `planning_permission_status_clean` | `text` | Canonical Title Case value derived from planning_permission_status via uk_baseline.lut_planning_permission_status. 'No Data' = source was NULL OR was an unmappable/ambiguous value (REC, bare numeric codes, 'Mixed ownership', 'Finally Disposed Of', explicit 'Unknown'). 'Unknown' merged into 'No Data' on 13 May 2026. |
@@ -78,3 +87,7 @@
 | `msoa21hclnm` | `text` | House of Commons Library readable MSOA name. Assigned at load via the point's 2021 MSOA (point-in-polygon against uk_baseline.adm_ons_msoa_boundary_2021, which carries the House of Commons Library name). Open Parliament Licence. |
 | `lad22cd` | `text` | Local Authority District 2022 code (2021 LAD geography, anchored to the MSOA 2021 name scoping). Assigned at load by point-in-polygon location against uk_baseline.adm_ons_lad_boundary_may2022. Open Government Licence v3.0. |
 | `lad22nm` | `text` | Local Authority District 2022 name (2021 LAD geography). Assigned at load by point-in-polygon location against uk_baseline.adm_ons_lad_boundary_may2022. Open Government Licence v3.0. |
+| `ctyua25cd` | `text` | County or unitary authority code at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `ctyua25nm` | `text` | County or unitary authority name at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `sds_name` | `text` | Spatial Development Strategy (SDS) area, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `sds_group` | `text` | Devolution status of the Spatial Development Strategy area: Existing Devolution Footprints, Devolution Priority Programme, Other Proposed Geographies or Remaining Areas. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |

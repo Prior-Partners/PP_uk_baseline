@@ -35,10 +35,15 @@
 
 **DATA QUALITY CAVEATS**
 
+- County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - Earnings come from the Annual Survey of Hours and Earnings (ASHE), a 1% sample survey of employee earnings - small-area estimates carry sampling uncertainty that ONS quantifies via confidence intervals (not loaded into this table).
 - Workplace-based earnings (not residence-based). For commuter LADs this can diverge meaningfully from the earnings of residents who live there.
 - Median price-to-earnings ratio is sensitive to the median pivot; lower-income households face a worse picture than the median ratio implies. The `lqratio_YYYY` columns are the lower-quartile cut and are usually a better indicator for low-income affordability.
 - House prices are from HM Land Registry Price Paid Data (a complete administrative record), 12-month moving window ending in September of the reference year.
+
+**ENRICHMENT**
+
+- `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 
 
 ## Columns
@@ -52,7 +57,6 @@
 | `lad25nm` | `character varying(100)` | Source field "LAD25NM"; human-readable LAD name. |
 | `rgn22cd` | `character varying` | Joined at load from ONS LAD->Region lookup; 2022 Region GSS code. |
 | `rgn22nm` | `character varying` | Joined at load from ONS LAD->Region lookup; 2022 Region name. |
-| `sds_boundary` | `character varying` | Internal categorisation: Spatial Development Strategy (SDS) area where the geometry falls. Blank or NULL where the geometry is outside any SDS area. |
 | `medprice_2016` | `double precision` | Source field; median house price in LAD for the 12-month period ending September 2016. Source: HM Land Registry Price Paid Data. Unit: "GBP". |
 | `medprice_2017` | `double precision` | Source field; median house price in LAD for the 12-month period ending September 2017. Source: HM Land Registry Price Paid Data. Unit: "GBP". |
 | `medprice_2018` | `double precision` | Source field; median house price in LAD for the 12-month period ending September 2018. Source: HM Land Registry Price Paid Data. Unit: "GBP". |
@@ -121,3 +125,7 @@
 | `lqratio_pts_2016-2025` | `double precision` | Derived at load; absolute change in lqratio (ratio points) from 2016 to 2025 calculated as lqratio_2025 - lqratio_2016. Positive = ratio rose (less affordable). Unit: "ratio points". |
 | `medprice_2016-2025` | `integer` | Derived at load; absolute change in medprice from 2016 to 2025 calculated as medprice_2025 - medprice_2016. Unit: "GBP". |
 | `lqprice_2016-2025` | `integer` | Derived at load; absolute change in lqprice from 2016 to 2025 calculated as lqprice_2025 - lqprice_2016. Unit: "GBP". |
+| `ctyua25cd` | `text` | County or unitary authority code at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `ctyua25nm` | `text` | County or unitary authority name at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `sds_name` | `text` | Spatial Development Strategy (SDS) area, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `sds_group` | `text` | Devolution status of the Spatial Development Strategy area: Existing Devolution Footprints, Devolution Priority Programme, Other Proposed Geographies or Remaining Areas. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |

@@ -33,6 +33,16 @@
 
 - Open Government Licence v3.0.
 
+**DATA QUALITY CAVEATS**
+
+- Geography keys are NULL on 43 of 361 rows, measured 28 July 2026: 43 are in Scotland or Northern Ireland, outside the England and Wales lookup.
+- County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
+- `lad25cd` and `lad25nm` cover England and Wales only; Scottish and Northern Irish rows carry no 2025 district code.
+
+**ENRICHMENT**
+
+- `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
+
 **DERIVED FROM**
 
 - Sum of gva_YYYY grouped by LAD, taken across all LSOAs (England + Wales), Data Zones (Scotland) and SOAs (Northern Ireland).
@@ -80,3 +90,9 @@
 | `gva_2022` | `double precision` | Source field "2022"; SUM of small-area values within the LAD. Unit: "pounds million" (current prices). |
 | `gva_2023` | `double precision` | Source field "2023"; SUM of small-area values within the LAD. Unit: "pounds million" (current prices). |
 | `geom` | `geometry(MultiPolygon,27700)` | Joined at load from uk_baseline.adm_ons_lad_boundary_may2024.geom on lad24cd; MultiPolygon, EPSG:27700. |
+| `lad25cd` | `text` | Local Authority District 2025 code (current administering authority). Traced via uk.ref_lad25_ctyua25_sds_lu_jul2026 from the row's Local Authority District 2024 code, with Barnsley and Sheffield recoded to their 1 April 2025 codes. Open Government Licence v3.0. |
+| `lad25nm` | `text` | Local Authority District 2025 name (current administering authority). Traced via uk.ref_lad25_ctyua25_sds_lu_jul2026 from the row's Local Authority District 2024 code, with Barnsley and Sheffield recoded to their 1 April 2025 codes. Open Government Licence v3.0. |
+| `ctyua25cd` | `text` | County or unitary authority code at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `ctyua25nm` | `text` | County or unitary authority name at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `sds_name` | `text` | Spatial Development Strategy (SDS) area, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `sds_group` | `text` | Devolution status of the Spatial Development Strategy area: Existing Devolution Footprints, Devolution Priority Programme, Other Proposed Geographies or Remaining Areas. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |

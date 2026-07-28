@@ -34,11 +34,14 @@
 
 **DATA QUALITY CAVEATS**
 
+- Geography keys are NULL on 2,830 of 184,783 rows, measured 28 July 2026: 2,181 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence; 644 are residual fragments left by the MSOA split, each under 100 sqm or 10 m; 5 fall outside every district — offshore, inter-tidal, or beyond Great Britain.
+- County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - bua24cd is NOT unique per row — 7,775 distinct BUAs are exploded across 121,072 rows.
 - areahectar is the whole-BUA area (constant across all rows sharing a bua24cd). area_ha is the area of THIS polygon part only.
 
 **ENRICHMENT**
 
+- `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - lad22cd, lad22nm : spatial intersect with ONS 2022 LAD boundaries.
 - wd21cd, wd21nm : spatial intersect with ONS 2021 Ward boundaries.
 - area_ha : derived from geom at load (area in hectares, computed from the geometry at load). Per-part area. For whole-BUA area use areahectar (constant within a bua24cd group).
@@ -79,3 +82,7 @@ MSOA SPLIT (added 3 July 2026)
 | `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `geom` | `geometry(MultiPolygon,27700)` |  |
 | `gid` | `bigint` |  |
+| `ctyua25cd` | `text` | County or unitary authority code at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `ctyua25nm` | `text` | County or unitary authority name at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `sds_name` | `text` | Spatial Development Strategy (SDS) area, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `sds_group` | `text` | Devolution status of the Spatial Development Strategy area: Existing Devolution Footprints, Devolution Priority Programme, Other Proposed Geographies or Remaining Areas. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |

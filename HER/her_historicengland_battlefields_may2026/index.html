@@ -5324,8 +5324,8 @@
 </ul>
 <p><strong>DATA QUALITY CAVEATS</strong></p>
 <ul>
-<li>The row count counts split pieces, not source features: this layer was split by Middle Layer Super Output Area, so it holds one row per feature per MSOA piece, plus whole and remainder rows to keep 100% of the source geometry. 184 rows represent 97 source features, measured 28 July 2026. <code>source_fid</code> identifies the originating feature.</li>
-<li>Geography keys are NULL on 3 of 184 rows, measured 28 July 2026: 2 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence; 1 are residual fragments left by the MSOA split, each under 100 sqm or 10 m.</li>
+<li>The row count counts split pieces, not source features: this layer was split by Middle Layer Super Output Area, so it holds one row per feature per MSOA piece, plus whole and remainder rows to keep 100% of the source geometry. 184 rows represent 97 source features, measured 25 August 2026. <code>source_fid</code> identifies the originating feature.</li>
+<li>Geography keys are NULL on 3 of 184 rows, measured 25 August 2026: 2 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence; 1 are residual fragments left by the MSOA split, each under 100 sqm or 10 m.</li>
 <li>County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.</li>
 </ul>
 <p><strong>ENRICHMENT</strong></p>
@@ -5419,7 +5419,7 @@
 <tr>
 <td><code>area_ha</code></td>
 <td><code>double precision</code></td>
-<td></td>
+<td>Area in hectares of this row's own geometry, computed at load from the EPSG:27700 geometry. On layers split by Middle Layer Super Output Area this is the area of the piece inside its MSOA, not the area of the whole source feature.</td>
 </tr>
 <tr>
 <td><code>rgn22cd</code></td>
@@ -5496,6 +5496,11 @@
 <td><code>text</code></td>
 <td>Devolution status of the Spatial Development Strategy area: Existing Devolution Footprints, Devolution Priority Programme, Other Proposed Geographies or Remaining Areas. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0.</td>
 </tr>
+<tr>
+<td><code>msoa_area_ha</code></td>
+<td><code>double precision</code></td>
+<td>Area in hectares of the Middle Layer Super Output Area this row falls in, computed from uk_baseline.adm_ons_msoa_boundary_2021 — the same boundary the layer was split against. Provided as the denominator for MSOA coverage shares. NULL wherever msoa21cd is NULL. Open Government Licence v3.0.</td>
+</tr>
 </tbody>
 </table>
 
@@ -5527,7 +5532,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Developed by the Digital Innovation team, Prior + Partners — last updated 29 July 2026
+      Developed by the Digital Innovation team, Prior + Partners — last updated 25 August 2026
     </div>
   
   

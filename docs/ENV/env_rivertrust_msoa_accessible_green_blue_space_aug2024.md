@@ -28,7 +28,7 @@
 
 **DATA QUALITY CAVEATS**
 
-- Geography keys are NULL on 114 of 6,791 rows, measured 28 July 2026: 114 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence.
+- Geography keys are NULL on 114 of 6,791 rows, measured 25 August 2026: 114 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence.
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - This table is published on 2011 MSOA boundaries and its values are 2011-vintage; `msoa21hclnm` is a readable label for the corresponding 2021 MSOA and does not re-aggregate any value onto 2021 geography. For MSOAs unchanged in 2021 the name is exact. For the small number of 2011 MSOAs that were split, the column lists every successor name separated by a semicolon, so those rows carry more than one name and cannot be joined to a single msoa21cd. No 2021 geography codes are recorded on this table.
 

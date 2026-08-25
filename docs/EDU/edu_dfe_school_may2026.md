@@ -48,7 +48,7 @@
 
 **DATA QUALITY CAVEATS**
 
-- Geography keys are NULL on 584 of 50,605 rows, measured 28 July 2026: 435 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence; 9 are in Scotland or Northern Ireland, outside the England and Wales lookup; 12 fall outside every district — offshore, inter-tidal, or beyond Great Britain; 128 hold no usable coordinates.
+- Geography keys are NULL on 584 of 50,605 rows, measured 25 August 2026: 435 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence; 9 are in Scotland or Northern Ireland, outside the England and Wales lookup; 12 fall outside every district — offshore, inter-tidal, or beyond Great Britain; 128 hold no usable coordinates.
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - Includes historic closed schools (~24k of 50k). For most analytical use, filter to Open status (optionally also 'Open, but proposed to close'). The pre-built Primary School and Secondary School subsets already apply that filter.
 - Some establishments have no published location (privacy / pre-opening); these may carry NULL geom or 0/0 coordinates — inspect before mapping.

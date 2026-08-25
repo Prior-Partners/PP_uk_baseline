@@ -35,7 +35,7 @@
 
 **DATA QUALITY CAVEATS**
 
-- Geography keys are NULL on 432 of 379,664 rows, measured 28 July 2026: 417 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence; 15 fall outside every district — offshore, inter-tidal, or beyond Great Britain.
+- Geography keys are NULL on 432 of 379,664 rows, measured 25 August 2026: 417 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence; 15 fall outside every district — offshore, inter-tidal, or beyond Great Britain.
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - 417 coastal and offshore listed structures (0.11% of the layer) lie outside every MSOA polygon and so carry NULL msoa21cd, msoa21nm and msoa21hclnm.
 

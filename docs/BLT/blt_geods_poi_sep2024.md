@@ -38,7 +38,7 @@
 
 **DATA QUALITY CAVEATS**
 
-- Geography keys are NULL on 2 of 2,455,987 rows, measured 28 July 2026: 2 fall outside every district — offshore, inter-tidal, or beyond Great Britain.
+- Geography keys are NULL on 2 of 2,455,987 rows, measured 25 August 2026: 2 fall outside every district — offshore, inter-tidal, or beyond Great Britain.
 - A further 205,887 rows carry a Scottish or Northern Irish district code, so they hold a district but no county or Spatial Development Strategy — the lookup covers England and Wales only.
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 

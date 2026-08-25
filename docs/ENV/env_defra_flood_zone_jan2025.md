@@ -40,7 +40,7 @@
 
 **DATA QUALITY CAVEATS**
 
-- The row count counts split pieces, not source features: this layer was split by Middle Layer Super Output Area, so it holds one row per feature per MSOA piece, plus whole and remainder rows to keep 100% of the source geometry. 12,535,046 rows represent 12,247,889 source features, measured 28 July 2026. `source_fid` identifies the originating feature.
+- The row count counts split pieces, not source features: this layer was split by Middle Layer Super Output Area, so it holds one row per feature per MSOA piece, plus whole and remainder rows to keep 100% of the source geometry. 12,535,046 rows represent 12,247,889 source features, measured 25 August 2026. `source_fid` identifies the originating feature.
 
 **ENRICHMENT**
 
@@ -68,7 +68,7 @@
 | `id_original` | `integer` | Original source feature identifier, preserved at load. |
 | `wd21nm` | `character varying` | Electoral Ward 2021 name assigned to the feature. |
 | `wd21cd` | `character varying` | Electoral Ward 2021 code assigned to the feature. |
-| `area_ha` | `double precision` | Area of this row's geometry in hectares. |
+| `area_ha` | `double precision` | Area in hectares of this row's own geometry, computed at load from the EPSG:27700 geometry. On layers split by Middle Layer Super Output Area this is the area of the piece inside its MSOA, not the area of the whole source feature. |
 | `fid` | `bigint` | Loader surrogate row identifier. Not a stable key — use `gid`. |
 | `msoa21cd` | `character varying` | Middle Layer Super Output Area (MSOA) 2021 code of this piece. Open Government Licence v3.0. |
 | `msoa21nm` | `character varying` | Official ONS MSOA 2021 name of this piece. Open Government Licence v3.0. |
@@ -79,3 +79,4 @@
 | `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `geom` | `geometry(MultiPolygon,27700)` | Flood zone polygon geometry in EPSG:27700 (British National Grid); one part per MSOA (2021) after the split. |
 | `gid` | `bigint` | Surrogate primary key, added at the MSOA split (see ENRICHMENT). |
+| `msoa_area_ha` | `double precision` | Area in hectares of the Middle Layer Super Output Area this row falls in, computed from uk_baseline.adm_ons_msoa_boundary_2021 — the same boundary the layer was split against. Provided as the denominator for MSOA coverage shares. NULL wherever msoa21cd is NULL. Open Government Licence v3.0. |

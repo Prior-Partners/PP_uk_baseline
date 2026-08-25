@@ -39,7 +39,7 @@
 
 **DATA QUALITY CAVEATS**
 
-- Geography keys are NULL on 7,392 of 43,064 rows, measured 28 July 2026: 7,392 are in Scotland or Northern Ireland, outside the England and Wales lookup.
+- Geography keys are NULL on 7,392 of 43,064 rows, measured 25 August 2026: 7,392 are in Scotland or Northern Ireland, outside the England and Wales lookup.
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - Higher AHAH score / rank = less healthy environment.
 - `rgn22cd` / `rgn22nm` are empty for Welsh and Scottish rows. Regions are an England-only geography.

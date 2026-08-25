@@ -35,7 +35,7 @@
 
 **DATA QUALITY CAVEATS**
 
-- Geography keys are NULL on 20,687 of 238,730 rows, measured 28 July 2026: 25 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence; 18 are residual fragments left by the MSOA split, each under 100 sqm or 10 m; 20,644 are in Scotland or Northern Ireland, outside the England and Wales lookup.
+- Geography keys are NULL on 20,687 of 238,730 rows, measured 25 August 2026: 25 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence; 18 are residual fragments left by the MSOA split, each under 100 sqm or 10 m; 20,644 are in Scotland or Northern Ireland, outside the England and Wales lookup.
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - 641 id values appear more than once (238,089 distinct id across 238,730 rows). Cause not investigated; likely upstream artefacts of partial-update cycles.
 - The OS Product Guide says BuildingTheme uses the "SiteThemeType code list", but the BuildingTheme code list contains 11 values while SiteTheme contains only 5 - the published code lists are different. Use the actual values observed in the column rather than the SiteTheme list.

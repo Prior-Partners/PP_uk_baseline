@@ -34,7 +34,7 @@
 
 **DATA QUALITY CAVEATS**
 
-- Geography keys are NULL on 43 of 374 rows, measured 28 July 2026: 43 are in Scotland or Northern Ireland, outside the England and Wales lookup.
+- Geography keys are NULL on 43 of 374 rows, measured 25 August 2026: 43 are in Scotland or Northern Ireland, outside the England and Wales lookup.
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - `lad25cd` and `lad25nm` cover England and Wales only; Scottish and Northern Irish rows carry no 2025 district code.
 

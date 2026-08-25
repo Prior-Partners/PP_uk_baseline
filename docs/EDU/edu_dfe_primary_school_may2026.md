@@ -44,7 +44,7 @@
 
 **DATA QUALITY CAVEATS**
 
-- Geography keys are NULL on 1 of 16,865 rows, measured 28 July 2026: 1 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence.
+- Geography keys are NULL on 1 of 16,865 rows, measured 25 August 2026: 1 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence.
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - "All-through" schools appear in BOTH this primary subset and the secondary subset — they cover both phases by design. Count 203 in the parent; sum-of-subsets will double-count them.
 - ofsted_overall_rate / _code are NULL where no clean graded inspection or qualifying ungraded-reaffirm outcome maps to the URN. Do not treat NULL as "Inadequate".

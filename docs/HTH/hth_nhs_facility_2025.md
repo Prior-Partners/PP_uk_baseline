@@ -32,7 +32,7 @@
 
 **DATA QUALITY CAVEATS**
 
-- Geography keys are NULL on 3 of 154,497 rows, measured 28 July 2026: 3 fall outside every district — offshore, inter-tidal, or beyond Great Britain.
+- Geography keys are NULL on 3 of 154,497 rows, measured 25 August 2026: 3 fall outside every district — offshore, inter-tidal, or beyond Great Britain.
 - A further 13 rows carry a Scottish or Northern Irish district code, so they hold a district but no county or Spatial Development Strategy — the lookup covers England and Wales only.
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - raw_json column present but not populated in this load; the raw API response (including ODS codes and organisation subtypes) was therefore not retained. Available fields are limited to organisation_id (the NHS Service Search internal identifier, not the ODS code), organisation_name, organisation_type, organisation_type_id, postcode, latitude, longitude, geom, last_updated_utc and fetched_at. Rows cannot be joined to other NHS datasets by ODS code.

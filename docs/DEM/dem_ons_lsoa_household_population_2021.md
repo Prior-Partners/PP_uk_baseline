@@ -53,7 +53,7 @@
 
 | Column | Type | Description / unit |
 |---|---|---|
-| `lsoa21cd_original` | `text` | Added during an earlier Prior + Partners loading pass. Original LSOA 2021 code as carried in the upstream file. Duplicates lsoa21cd in this table; kept for traceability. |
+| `lsoa21cd` | `text` | Added during an earlier Prior + Partners loading pass. Original LSOA 2021 code as carried in the upstream file. Duplicates lsoa21cd in this table; kept for traceability. |
 | `lsoa21nm` | `text` | Source field "LSOA21NM"; human-readable LSOA 2021 name. |
 | `msoa21cd` | `text` | Joined at load from ONS LSOA->MSOA lookup; 2021 MSOA GSS code. |
 | `msoa21nm` | `text` | Joined at load from ONS LSOA->MSOA lookup; 2021 MSOA name. |

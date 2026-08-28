@@ -17,7 +17,7 @@ with its meaning and units.
 **New to the database?** The **[Staff Data Management Handbook](PP_Staff_Data_Management_Handbook.pdf){ target="_blank" }** explains what the geodatabase
 is, how to connect QGIS, and how to use the data on a project — it opens straight in your browser.
 
-**141 layers across 12 themes.**
+**146 layers across 12 themes.**
 
 | Code | Theme | Typical contents | Layers |
 |---|---|---|---:|
@@ -25,7 +25,7 @@ is, how to connect QGIS, and how to use the data on a project — it opens strai
 | **BLT** | [Built Environment & Land Use](BLT/index.md) | Building footprints, land use classifications, planning applications, retail centres, points of interest | 6 |
 | **COM** | [Community & Social Infrastructure](COM/index.md) | Sports facilities, libraries, community centres, places of worship, cultural venues | 2 |
 | **DEM** | [Demographics & Socio-Economic](DEM/index.md) | Census data (age, ethnicity, religion), deprivation indices, income data, household, travel-to-work data | 25 |
-| **ECN** | [Economy & Employment](ECN/index.md) | Employment by sector, business registers, economic output, unemployment rates | 24 |
+| **ECN** | [Economy & Employment](ECN/index.md) | Employment by sector, business registers, economic output, unemployment rates | 29 |
 | **EDU** | [Education](EDU/index.md) | Schools database, Ofsted ratings, university locations | 3 |
 | **ENV** | [Environment & Natural Assets](ENV/index.md) | Protected sites, woodland, green spaces, flood zones, air quality, noise monitoring, radiation monitoring | 31 |
 | **HER** | [Heritage & Historical Assets](HER/index.md) | Listed buildings, conservation areas, historic parks, archaeological sites | 12 |
@@ -47,6 +47,6 @@ is, how to connect QGIS, and how to use the data on a project — it opens strai
   Digital Innovation team, Prior + Partners<br>
   <a href="mailto:info@priorpartners.com">info@priorpartners.com</a></div>
   <div><strong>Version</strong><br>
-  Last updated 25 August 2026<br>
+  Last updated 28 August 2026<br>
   Developed by the Digital Innovation team</div>
 </div>

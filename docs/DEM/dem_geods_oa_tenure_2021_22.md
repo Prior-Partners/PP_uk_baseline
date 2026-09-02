@@ -42,6 +42,7 @@
 - "The data are compiled from the official census releases of the three UK statistical agencies, each of which applies its own disclosure control and data quality procedures." (GeoDS dataset page)
 - Harmonisation notes for this table (GeoDS Table Notes, verbatim): "1. The full table is not available for Northern Ireland due to disclosure controls, in particular, separate variables for  "Owned: Owns with a mortgage or loan" and "Shared ownership" are not available. To create a unified table these variables are aggregated together for England and Scotland into a single variable  "Owned: Owns with a mortgage, loan or shared ownership"."
 - Northern Ireland geometry was reprojected from Irish Grid with about 3 m accuracy; see uk_baseline.adm_nisra_dz_boundary_2021.
+- 9 Scottish polygons (S00136407, S00136544, S00138851, S00142130, S00148144, S00162192, S00176070, S00177785, S00181661) were published with a ring touching itself at one vertex and were repaired on 2 September 2026 with the data manager's approval; no change in area.
 
 **LOADED INTO uk_baseline**
 

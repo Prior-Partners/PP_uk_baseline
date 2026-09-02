@@ -33,7 +33,7 @@
 
 **DATA QUALITY CAVEATS**
 
-- 1 of 7,392 polygons (S01019073) fails a geometry validity test with a ring self-intersection. Kept exactly as published.
+- 1 of 7,392 polygons (S01019073) was published with a ring touching itself at a single vertex. Repaired on 2 September 2026 with the data manager's approval; it remains a single polygon with no change in area (0.00 sq m).
 - The publisher gives no field-level definitions for the population, household and area columns; they are carried under their source names. "Note that the standard area measurements will differ from the automated Shape_Area attributes. This will be due to the different coastlines/inland water, and also can be due to the Output Areas policy to remove non-contiguous parts, which was applied after the standard areas were calculated." (Scottish Government metadata record)
 
 **LOADED INTO uk_baseline**

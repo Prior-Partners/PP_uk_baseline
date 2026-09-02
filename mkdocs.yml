@@ -1,6 +1,6 @@
 site_name: uk_baseline data catalogue
 site_description: A guide to every layer in the uk_baseline database.
-copyright: Developed by the Digital Innovation team, Prior + Partners — last updated 28 August 2026
+copyright: Developed by the Digital Innovation team, Prior + Partners — last updated 02 September 2026
 theme:
   name: material
   font: false
@@ -41,6 +41,9 @@ nav:
   - "📕 Staff Handbook (PDF)": https://prior-partners.github.io/PP_uk_baseline/PP_Staff_Data_Management_Handbook.pdf
   - "Administrative & Planning Boundaries (ADM)":
     - ADM/index.md
+    - "Data Zone Boundary 2021 (Northern Ireland)": ADM/adm_nisra_dz_boundary_2021.md
+    - "Data Zone Boundary 2022": ADM/adm_sg_dz_boundary_2022.md
+    - "Intermediate Zone Boundary 2022": ADM/adm_sg_iz_boundary_2022.md
     - "Local Authority District Boundary 2011": ADM/adm_ons_lad_boundary_2011.md
     - "Local Authority District Boundary 2022": ADM/adm_ons_lad_boundary_may2022.md
     - "Local Authority District Boundary 2024": ADM/adm_ons_lad_boundary_may2024.md
@@ -52,7 +55,9 @@ nav:
     - "Middle Layer Super Output Area Boundary 2021": ADM/adm_ons_msoa_boundary_2021.md
     - "National Infrastructure Projects": ADM/adm_national_infrastructure_project.md
     - "Output Area Boundary 2021": ADM/adm_ons_oa_boundaries_dec2021.md
+    - "Output Area Boundary 2022 (Scotland)": ADM/adm_nrs_oa_boundary_2022.md
     - "Postcode Centroid": ADM/adm_ons_postcode_centroid_feb2026.md
+    - "Super Data Zone Boundary 2021 (Northern Ireland)": ADM/adm_nisra_sdz_boundary_2021.md
     - "Ward Boundary 2025": ADM/adm_ons_ward_boundary_may2025.md
   - "Built Environment & Land Use (BLT)":
     - BLT/index.md

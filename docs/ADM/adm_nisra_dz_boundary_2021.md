@@ -36,6 +36,7 @@
 
 - Positions are accurate to about 3 m because of the datum shift from Irish Grid; do not use for survey-level work. Eastings in British National Grid are small or negative for the west of Northern Ireland; this is correct for that grid.
 - The publisher gives no field-level definitions; columns are carried under their source names. area_ha and perim_km were attached by the publisher from a rounded areas file.
+- Key column is named `dz2021_cd`, as published by NISRA. It holds the Data Zone 2021 code (DZ21CD), the Northern Ireland small-area equivalent of `oa21cd`; deliberately not renamed (data manager decision, 2 September 2026). Join on `dz2021_cd`.
 
 **LOADED INTO uk_baseline**
 
@@ -47,7 +48,7 @@
 | Column | Type | Description / unit |
 |---|---|---|
 | `fid` | `integer` |  |
-| `dz2021_cd` | `character varying` | Source field `DZ2021_cd`; Data Zone 2021 code (N20 prefix). Matches the N-prefixed keys of the GeoDS Unified UK Census 2021/22 tables. |
+| `dz2021_cd` | `character varying` | Source field `DZ2021_cd`; Data Zone 2021 code (N20 prefix), the Northern Ireland small-area equivalent of `oa21cd`. Kept under the publisher name by data manager decision, 2 September 2026. Matches the N-prefixed `oa` keys of the GeoDS Unified UK Census 2021/22 tables. |
 | `dz2021_nm` | `character varying` | Source field `DZ2021_nm`; Data Zone 2021 name. |
 | `sdz2021_cd` | `character varying` | Source field `SDZ2021_cd`; parent Super Data Zone 2021 code (N21 prefix). |
 | `sdz2021_nm` | `character varying` | Source field `SDZ2021_nm`; parent Super Data Zone 2021 name. |

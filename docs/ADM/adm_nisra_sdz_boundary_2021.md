@@ -36,6 +36,7 @@
 
 - Positions are accurate to about 3 m because of the datum shift from Irish Grid; do not use for survey-level work. Eastings in British National Grid are small or negative for the west of Northern Ireland; this is correct for that grid.
 - The publisher gives no field-level definitions; columns are carried under their source names. area_ha and perim_km were attached by the publisher from a rounded areas file.
+- Key column is named `sdz2021_cd`, as published by NISRA. It holds the Super Data Zone 2021 code (SDZ21CD), the Northern Ireland equivalent of `msoa21cd`; deliberately not renamed (data manager decision, 2 September 2026). Join on `sdz2021_cd`.
 
 **LOADED INTO uk_baseline**
 
@@ -47,7 +48,7 @@
 | Column | Type | Description / unit |
 |---|---|---|
 | `fid` | `integer` |  |
-| `sdz2021_cd` | `character varying` | Source field `SDZ2021_cd`; Super Data Zone 2021 code (N21 prefix). |
+| `sdz2021_cd` | `character varying` | Source field `SDZ2021_cd`; Super Data Zone 2021 code (N21 prefix), the Northern Ireland equivalent of `msoa21cd`. Kept under the publisher name by data manager decision, 2 September 2026. |
 | `sdz2021_nm` | `character varying` | Source field `SDZ2021_nm`; Super Data Zone 2021 name. |
 | `dea2014_cd` | `character varying` | Source field `DEA2014_cd`; parent District Electoral Area 2014 code. |
 | `dea2014_nm` | `character varying` | Source field `DEA2014_nm`; parent District Electoral Area 2014 name. |

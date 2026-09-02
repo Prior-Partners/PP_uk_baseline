@@ -38,6 +38,7 @@
 - 9 of 46,363 polygons were published with a ring touching itself at a single vertex (S00136407, S00136544, S00138851, S00142130, S00148144, S00162192, S00176070, S00177785, S00181661). Repaired on 2 September 2026 with the data manager's approval; each remains a single polygon with no change in area (0.00 sq m).
 - hhcount and popcount carry cell key perturbation: "Cell Key Perturbation has been applied to Scotland's Census 2022 outputs. This means that small adjustments are made automatically to cells in tables, including the Postcode to Output Area lookup." (NRS file specification)
 - sqkm and hect are the publisher's areas for the whole Output Area including parts removed from this shapefile, so they will not always agree with an area measured from the geometry.
+- Key column is named `code`, as published by NRS. It holds the Output Area 2022 code (OA22CD), the Scottish equivalent of `oa21cd` on uk_baseline.adm_ons_oa_boundaries_dec2021. Deliberately not renamed to `oa22cd` (data manager decision, 2 September 2026) so the table matches the source file; join on `code`.
 
 **LOADED INTO uk_baseline**
 
@@ -49,7 +50,7 @@
 | Column | Type | Description / unit |
 |---|---|---|
 | `fid` | `integer` |  |
-| `code` | `character varying` | Source field `code`; "A code that identifies a Census 2022 Output Area (OA)." (NRS file specification). Matches the S-prefixed keys of the GeoDS Unified UK Census 2021/22 tables. |
+| `code` | `character varying` | Source field `code`; "A code that identifies a Census 2022 Output Area (OA)." (NRS file specification). This is the Output Area 2022 code (OA22CD), the Scottish equivalent of `oa21cd`; kept under the publisher name by data manager decision, 2 September 2026. Matches the S-prefixed `oa` keys of the GeoDS Unified UK Census 2021/22 tables. |
 | `hhcount` | `bigint` | Source field `HHcount`; Unit: "2022 Census occupied household count at OA level." Cell key perturbation applied by the publisher. |
 | `popcount` | `bigint` | Source field `Popcount`; Unit: "2022 Census household population count at OA level." Cell key perturbation applied by the publisher. |
 | `council` | `character varying` | Source field `council`; "A code that identifies a 2019 Council Area." |

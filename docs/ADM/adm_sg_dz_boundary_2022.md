@@ -35,6 +35,7 @@
 
 - 1 of 7,392 polygons (S01019073) was published with a ring touching itself at a single vertex. Repaired on 2 September 2026 with the data manager's approval; it remains a single polygon with no change in area (0.00 sq m).
 - The publisher gives no field-level definitions for the population, household and area columns; they are carried under their source names. "Note that the standard area measurements will differ from the automated Shape_Area attributes. This will be due to the different coastlines/inland water, and also can be due to the Output Areas policy to remove non-contiguous parts, which was applied after the standard areas were calculated." (Scottish Government metadata record)
+- Key column is named `dzcode`, as published. It holds the Data Zone 2022 code, the Scottish equivalent of `lsoa21cd`; deliberately not renamed (data manager decision, 2 September 2026). Join on `dzcode`.
 
 **LOADED INTO uk_baseline**
 
@@ -46,7 +47,7 @@
 | Column | Type | Description / unit |
 |---|---|---|
 | `fid` | `integer` |  |
-| `dzcode` | `character varying` | Source field `DZCode`; Data Zone 2022 code (S01 prefix). |
+| `dzcode` | `character varying` | Source field `DZCode`; Data Zone 2022 code (S01 prefix), the Scottish equivalent of `lsoa21cd`. Kept under the publisher name by data manager decision, 2 September 2026. |
 | `dzname` | `character varying` | Source field `DZName`; Data Zone 2022 name. |
 | `totpop2022` | `double precision` | Source field `TotPop2022`; [UNDOCUMENTED] carried as shipped. |
 | `hhres2022` | `double precision` | Source field `HHRes2022`; [UNDOCUMENTED] carried as shipped. |

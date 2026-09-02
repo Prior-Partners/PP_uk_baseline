@@ -33,6 +33,7 @@
 **DATA QUALITY CAVEATS**
 
 - The publisher gives no field-level definitions for the population, household and area columns; they are carried under their source names. "Note that the standard area measurements will differ from the automated Shape_Area attributes. This will be due to the different coastlines/inland water, and also can be due to the Output Areas policy to remove non-contiguous parts, which was applied after the standard areas were calculated." (Scottish Government metadata record)
+- Key column is named `izcode`, as published. It holds the Intermediate Zone 2022 code, the Scottish equivalent of `msoa21cd`; deliberately not renamed (data manager decision, 2 September 2026). Join on `izcode`.
 
 **LOADED INTO uk_baseline**
 
@@ -44,7 +45,7 @@
 | Column | Type | Description / unit |
 |---|---|---|
 | `fid` | `integer` |  |
-| `izcode` | `character varying` | Source field `IZCode`; Intermediate Zone 2022 code (S02 prefix). |
+| `izcode` | `character varying` | Source field `IZCode`; Intermediate Zone 2022 code (S02 prefix), the Scottish equivalent of `msoa21cd`. Kept under the publisher name by data manager decision, 2 September 2026. |
 | `izname` | `character varying` | Source field `IZName`; Intermediate Zone 2022 name. |
 | `totpop2022` | `double precision` | Source field `TotPop2022`; [UNDOCUMENTED] carried as shipped. |
 | `hhres2022` | `double precision` | Source field `HHRes2022`; [UNDOCUMENTED] carried as shipped. |

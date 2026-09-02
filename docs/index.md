@@ -17,14 +17,14 @@ with its meaning and units.
 **New to the database?** The **[Staff Data Management Handbook](PP_Staff_Data_Management_Handbook.pdf){ target="_blank" }** explains what the geodatabase
 is, how to connect QGIS, and how to use the data on a project — it opens straight in your browser.
 
-**151 layers across 12 themes.**
+**176 layers across 12 themes.**
 
 | Code | Theme | Typical contents | Layers |
 |---|---|---|---:|
 | **ADM** | [Administrative & Planning Boundaries](ADM/index.md) | Local authority, wards, output areas, built-up areas, postcode boundaries, planning zones, workplace zones | 18 |
 | **BLT** | [Built Environment & Land Use](BLT/index.md) | Building footprints, land use classifications, planning applications, retail centres, points of interest | 6 |
 | **COM** | [Community & Social Infrastructure](COM/index.md) | Sports facilities, libraries, community centres, places of worship, cultural venues | 2 |
-| **DEM** | [Demographics & Socio-Economic](DEM/index.md) | Census data (age, ethnicity, religion), deprivation indices, income data, household, travel-to-work data | 25 |
+| **DEM** | [Demographics & Socio-Economic](DEM/index.md) | Census data (age, ethnicity, religion), deprivation indices, income data, household, travel-to-work data | 50 |
 | **ECN** | [Economy & Employment](ECN/index.md) | Employment by sector, business registers, economic output, unemployment rates | 29 |
 | **EDU** | [Education](EDU/index.md) | Schools database, Ofsted ratings, university locations | 3 |
 | **ENV** | [Environment & Natural Assets](ENV/index.md) | Protected sites, woodland, green spaces, flood zones, air quality, noise monitoring, radiation monitoring | 31 |

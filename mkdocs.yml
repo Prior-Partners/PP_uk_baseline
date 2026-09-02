@@ -76,22 +76,47 @@ nav:
     - "Access to Healthy Assets and Hazards (AHAH) 2026": DEM/dem_ons_lsoa_access_healthy_assets_hazards_may2026.md
     - "Census 2011 Industry and Occupation": DEM/dem_ons_lsoa_industry_occupation_2011.md
     - "Census 2011 Students": DEM/dem_ons_lsoa_students_2011.md
+    - "Census 2021 Accommodation type (UK)": DEM/dem_geods_oa_accommodation_type_2021.md
+    - "Census 2021 Age (UK)": DEM/dem_geods_oa_age_2021.md
     - "Census 2021 Age Alternate Bands": DEM/dem_ons_lsoa_age_alternate_bands_2021.md
     - "Census 2021 Car Availability": DEM/dem_ons_lsoa_car_availability_2021.md
+    - "Census 2021 Country of birth (UK)": DEM/dem_geods_oa_country_of_birth_2021.md
+    - "Census 2021 Disability (UK)": DEM/dem_geods_oa_disability_2021.md
+    - "Census 2021 Economic activity status (UK)": DEM/dem_geods_oa_economic_activity_2021.md
     - "Census 2021 Education - highest level of qualification": DEM/dem_ons_lsoa_education_2021.md
     - "Census 2021 English Proficiency": DEM/dem_ons_lsoa_english_proficiency_2021.md
+    - "Census 2021 Ethnic group (UK)": DEM/dem_geods_oa_ethnic_group_2021.md
     - "Census 2021 Ethnicity": DEM/dem_ons_lsoa_ethnicity_2021.md
+    - "Census 2021 General health (UK)": DEM/dem_geods_oa_general_health_2021.md
+    - "Census 2021 Highest level of qualification (UK)": DEM/dem_geods_oa_qualification_2021.md
+    - "Census 2021 Hours worked (UK)": DEM/dem_geods_oa_hours_worked_2021.md
     - "Census 2021 Household Composition": DEM/dem_ons_lsoa_household_composition_2021.md
+    - "Census 2021 Household composition (UK)": DEM/dem_geods_oa_household_composition_2021.md
     - "Census 2021 Household Population": DEM/dem_ons_lsoa_household_population_2021.md
     - "Census 2021 Household Size": DEM/dem_ons_lsoa_household_size_2021.md
+    - "Census 2021 Household size (UK)": DEM/dem_geods_oa_household_size_2021.md
     - "Census 2021 Households by Accommodation Type": DEM/dem_ons_lsoa_accommodation_type_2021.md
     - "Census 2021 Housing Tenure": DEM/dem_ons_lsoa_housing_tenure_2021.md
     - "Census 2021 Industry and Occupation": DEM/dem_ons_lsoa_industry_occupation_2021.md
+    - "Census 2021 Marital and civil partnership status (UK)": DEM/dem_geods_oa_marital_status_2021.md
+    - "Census 2021 Method of travel to workplace (UK)": DEM/dem_geods_oa_travel_to_work_2021.md
+    - "Census 2021 Multiple ethnic groups in household (UK)": DEM/dem_geods_oa_multiple_ethnic_groups_2021.md
     - "Census 2021 National Identity": DEM/dem_ons_lsoa_national_identity_2021.md
+    - "Census 2021 National Statistics Socio-economic Classification (NS-SEC) (UK)": DEM/dem_geods_oa_ns_sec_2021.md
+    - "Census 2021 Number of cars or vans (UK)": DEM/dem_geods_oa_cars_vans_2021.md
+    - "Census 2021 Occupation (current) (UK)": DEM/dem_geods_oa_occupation_2021.md
     - "Census 2021 Passport Held": DEM/dem_ons_lsoa_passport_held_2021.md
+    - "Census 2021 Proficiency in English language (UK)": DEM/dem_geods_oa_english_proficiency_2021.md
+    - "Census 2021 Provision of unpaid care (UK)": DEM/dem_geods_oa_unpaid_care_2021.md
     - "Census 2021 Religion": DEM/dem_ons_lsoa_religion_2021.md
+    - "Census 2021 Religion (UK)": DEM/dem_geods_oa_religion_2021.md
+    - "Census 2021 Residence type (UK)": DEM/dem_geods_oa_residence_type_2021.md
     - "Census 2021 Residents Households": DEM/dem_ons_oa_household_residents_2021.md
+    - "Census 2021 Sex (UK)": DEM/dem_geods_oa_sex_2021.md
     - "Census 2021 Students": DEM/dem_ons_lsoa_students_2021.md
+    - "Census 2021 Tenure of household (UK)": DEM/dem_geods_oa_tenure_2021.md
+    - "Census 2021 Type of central heating in household (UK)": DEM/dem_geods_oa_central_heating_2021.md
+    - "Census 2021 Year of arrival in the UK (UK)": DEM/dem_geods_oa_year_of_arrival_2021.md
     - "Crime - Stop and search": DEM/dem_police_uk_stop_search_crime_monthly.md
     - "Crime - Street crime": DEM/dem_police_uk_street_crime_monthly.md
     - "Fuel Poverty 2023": DEM/dem_desnz_lsoa_fuel_poverty_2023.md

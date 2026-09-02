@@ -1,0 +1,75 @@
+# Geographic Data Service (GeoDS) Unified UK Census 2021/2022, Economic activity status, United Kingdom small-area extent, March 2026
+
+<p class="layer-short">Census 2021 Economic activity status (UK)</p>
+
+`dem_geods_oa_economic_activity_2021`
+
+**SOURCE**
+
+- Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk066 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 19 source columns copied as published under their source variable identifiers; nothing derived, renamed or filtered.
+
+**DOCUMENTATION**
+
+- Dataset page : https://data.geods.ac.uk/dataset/unified-uk-census-data
+- Method paper (Goodwin and Singleton) : https://doi.org/10.1177/23998083261429563
+- Source code : https://github.com/GeographicDataService/unified-uk-census-2021-22
+- Variable Metadata and Table Notes files : shipped with the download; local copy on the P: source folder 260902_GeoDS_Unified UK Census 2021-22.
+
+**DEFINITIONS**
+
+- "The Unified UK Census Dataset (2021/2022) is a harmonised, small-area dataset that brings together census data from the three UK census agencies -- ONS (England & Wales), NRS (Scotland), and NISRA (Northern Ireland) -- into a single, comparable release." (GeoDS dataset page)
+- "The dataset available for download contains the counts for all 190 variables plus 25 table totals (215 variables in total) across each of the 239,023 small-area geographies. Data Zones are relabelled as "OA" in the dataset for consistency." (GeoDS dataset page)
+- Table unit: "Person". Population scope: "Persons Aged 16 or over.". (GeoDS Table Notes)
+- Census Day: "21 March 2021 for England, Wales, and Northern Ireland, and 20 March 2022 for Scotland." (GeoDS dataset page)
+
+**SCOPE**
+
+- United Kingdom. 239,023 rows, one per small area: England 178,605; Wales 10,275; Scotland 46,363; Northern Ireland 3,780. Codes are Output Area 2021 (E00, W00), Output Area 2022 (S00) and Data Zone 2021 (N20).
+- Counts only; uk066001 is the table total. No percentages are supplied by the publisher and none were computed.
+- Sibling of the other 24 GeoDS Unified UK Census tables named dem_geods_oa_*_2021.
+
+**CRS**
+
+- EPSG:27700 (OSGB 1936 / British National Grid). Geometry from uk_baseline.adm_ons_oa_boundaries_dec2021 (England and Wales, Output Area 2021), uk_baseline.adm_nrs_oa_boundary_2022 (Scotland, Output Area 2022) and uk_baseline.adm_nisra_dz_boundary_2021 (Northern Ireland, Data Zone 2021), joined at load on the row's code.
+
+**LICENCE**
+
+- Open Government Licence v3.0. Attribution: "The data for this research have been provided by the Geographic Data Service (geods.ac.uk), a Smart Data Research UK Investment: ES/Z504464/1. These were created as part of an ESRC Census data opportunity grant - ES/Z50273X/1. Contains data from: ONS, NRS, NISRA"
+
+**DATA QUALITY CAVEATS**
+
+- "The Scottish census was conducted one year later than the rest of the UK (2022 vs 2021), which may introduce temporal differences in some variables." (GeoDS dataset page)
+- "The data are compiled from the official census releases of the three UK statistical agencies, each of which applies its own disclosure control and data quality procedures." (GeoDS dataset page)
+- Northern Ireland geometry was reprojected from Irish Grid with about 3 m accuracy; see uk_baseline.adm_nisra_dz_boundary_2021.
+
+**LOADED INTO uk_baseline**
+
+- Loaded by PNC, 2 September 2026.
+
+
+## Columns
+
+| Column | Type | Description / unit |
+|---|---|---|
+| `fid` | `integer` |  |
+| `oa` | `character varying(9)` | Source field `OA`; small-area code: "OA21CD (England/Wales), OA22CD (Scotland), DZ21CD (Northern Ireland)" (GeoDS). Northern Ireland Data Zones are labelled OA by the publisher. |
+| `uk066001` | `integer` | Source field `uk066001`; "Economic activity status: Total: All usual residents aged 16 years and over". Unit: "Person". |
+| `uk066002` | `integer` | Source field `uk066002`; "Economic activity status: Economically active (excluding full-time students)". Unit: "Person". |
+| `uk066003` | `integer` | Source field `uk066003`; "Economic activity status: Economically active (excluding full-time students):In employment". Unit: "Person". |
+| `uk066004` | `integer` | Source field `uk066004`; "Economic activity status: Economically active (excluding full-time students):In employment:Employee". Unit: "Person". |
+| `uk066005` | `integer` | Source field `uk066005`; "Economic activity status: Economically active (excluding full-time students):In employment:Self-employed with employees". Unit: "Person". |
+| `uk066006` | `integer` | Source field `uk066006`; "Economic activity status: Economically active (excluding full-time students):In employment:Self-employed without employees". Unit: "Person". |
+| `uk066007` | `integer` | Source field `uk066007`; "Economic activity status: Economically active (excluding full-time students): Unemployed". Unit: "Person". |
+| `uk066008` | `integer` | Source field `uk066008`; "Economic activity status: Economically active and a full-time student". Unit: "Person". |
+| `uk066009` | `integer` | Source field `uk066009`; "Economic activity status: Economically active and a full-time student:In employment". Unit: "Person". |
+| `uk066010` | `integer` | Source field `uk066010`; "Economic activity status: Economically active and a full-time student:In employment:Employee". Unit: "Person". |
+| `uk066011` | `integer` | Source field `uk066011`; "Economic activity status: Economically active and a full-time student:In employment:Self-employed with employees". Unit: "Person". |
+| `uk066012` | `integer` | Source field `uk066012`; "Economic activity status: Economically active and a full-time student:In employment:Self-employed without employees". Unit: "Person". |
+| `uk066013` | `integer` | Source field `uk066013`; "Economic activity status: Economically active and a full-time student: Unemployed". Unit: "Person". |
+| `uk066014` | `integer` | Source field `uk066014`; "Economic activity status: Economically inactive". Unit: "Person". |
+| `uk066015` | `integer` | Source field `uk066015`; "Economic activity status: Economically inactive: Retired". Unit: "Person". |
+| `uk066016` | `integer` | Source field `uk066016`; "Economic activity status: Economically inactive: Student". Unit: "Person". |
+| `uk066017` | `integer` | Source field `uk066017`; "Economic activity status: Economically inactive: Looking after home or family". Unit: "Person". |
+| `uk066018` | `integer` | Source field `uk066018`; "Economic activity status: Economically inactive: Long-term sick or disabled". Unit: "Person". |
+| `uk066019` | `integer` | Source field `uk066019`; "Economic activity status: Economically inactive: Other". Unit: "Person". |
+| `geom` | `geometry(MultiPolygon,27700)` | Geometry from uk_baseline.adm_ons_oa_boundaries_dec2021 (England and Wales, Output Area 2021), uk_baseline.adm_nrs_oa_boundary_2022 (Scotland, Output Area 2022) and uk_baseline.adm_nisra_dz_boundary_2021 (Northern Ireland, Data Zone 2021), joined at load on the row's code. |

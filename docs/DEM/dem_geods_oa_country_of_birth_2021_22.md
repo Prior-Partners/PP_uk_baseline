@@ -6,7 +6,7 @@
 
 **SOURCE**
 
-- Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk004 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 9 source columns copied as published under their source variable identifiers; nothing derived, renamed or filtered.
+- Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk004 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 9 source columns copied as published; nothing derived or filtered. Columns carry readable names from the GeoDS labels (see SCOPE); the GeoDS identifier is recorded in every column comment.
 
 **DOCUMENTATION**
 
@@ -25,7 +25,8 @@
 **SCOPE**
 
 - United Kingdom. 239,023 rows, one per small area: England 178,605; Wales 10,275; Scotland 46,363; Northern Ireland 3,780. Codes are Output Area 2021 (E00, W00), Output Area 2022 (S00) and Data Zone 2021 (N20).
-- Counts only; uk004001 is the table total. No percentages are supplied by the publisher and none were computed.
+- Counts only; `total` (GeoDS uk004001) is the table total. No percentages are supplied by the publisher and none were computed.
+- Column names are readable forms of the GeoDS labels, signed off by the data manager on 2 September 2026; each column comment names the GeoDS source identifier. Mapping: scripts/unified_census/column_names.py.
 - Sibling of the other 24 GeoDS Unified UK Census tables named dem_geods_oa_*_2021_22.
 
 **CRS**
@@ -55,13 +56,13 @@
 |---|---|---|
 | `fid` | `integer` |  |
 | `oa` | `character varying(9)` | Source field `OA`; small-area code: "OA21CD (England/Wales), OA22CD (Scotland), DZ21CD (Northern Ireland)" (GeoDS). Northern Ireland Data Zones are labelled OA by the publisher. |
-| `uk004001` | `integer` | Source field `uk004001`; "Country of birth: Total". Unit: "Person". |
-| `uk004002` | `integer` | Source field `uk004002`; "Country of birth: Europe". Unit: "Person". |
-| `uk004003` | `integer` | Source field `uk004003`; "Country of birth: Europe: United Kingdom". Unit: "Person". |
-| `uk004004` | `integer` | Source field `uk004004`; "Country of birth: Europe: EU countries". Unit: "Person". |
-| `uk004005` | `integer` | Source field `uk004005`; "Country of birth: Europe: Non-EU countries". Unit: "Person". |
-| `uk004006` | `integer` | Source field `uk004006`; "Country of birth: Africa". Unit: "Person". |
-| `uk004007` | `integer` | Source field `uk004007`; "Country of birth: Middle East and Asia". Unit: "Person". |
-| `uk004008` | `integer` | Source field `uk004008`; "Country of birth: The Americas and the Caribbean". Unit: "Person". |
-| `uk004009` | `integer` | Source field `uk004009`; "Country of birth: Antarctica and Oceania (including Australasia) and Other". Unit: "Person". |
+| `total` | `integer` | Source field `uk004001`; "Country of birth: Total". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `europe` | `integer` | Source field `uk004002`; "Country of birth: Europe". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `europe_united_kingdom` | `integer` | Source field `uk004003`; "Country of birth: Europe: United Kingdom". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `europe_eu_countries` | `integer` | Source field `uk004004`; "Country of birth: Europe: EU countries". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `europe_non_eu_countries` | `integer` | Source field `uk004005`; "Country of birth: Europe: Non-EU countries". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `africa` | `integer` | Source field `uk004006`; "Country of birth: Africa". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `middle_east_and_asia` | `integer` | Source field `uk004007`; "Country of birth: Middle East and Asia". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `americas_and_caribbean` | `integer` | Source field `uk004008`; "Country of birth: The Americas and the Caribbean". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `antarctica_oceania_and_other` | `integer` | Source field `uk004009`; "Country of birth: Antarctica and Oceania (including Australasia) and Other". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
 | `geom` | `geometry(MultiPolygon,27700)` | Geometry from uk_baseline.adm_ons_oa_boundaries_dec2021 (England and Wales, Output Area 2021), uk_baseline.adm_nrs_oa_boundary_2022 (Scotland, Output Area 2022) and uk_baseline.adm_nisra_dz_boundary_2021 (Northern Ireland, Data Zone 2021), joined at load on the row's code. |

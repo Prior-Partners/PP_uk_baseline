@@ -6,7 +6,7 @@
 
 **SOURCE**
 
-- Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk054 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 9 source columns copied as published under their source variable identifiers; nothing derived, renamed or filtered.
+- Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk054 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 9 source columns copied as published; nothing derived or filtered. Columns carry readable names from the GeoDS labels (see SCOPE); the GeoDS identifier is recorded in every column comment.
 
 **DOCUMENTATION**
 
@@ -25,7 +25,8 @@
 **SCOPE**
 
 - United Kingdom. 239,023 rows, one per small area: England 178,605; Wales 10,275; Scotland 46,363; Northern Ireland 3,780. Codes are Output Area 2021 (E00, W00), Output Area 2022 (S00) and Data Zone 2021 (N20).
-- Counts only; uk054001 is the table total. No percentages are supplied by the publisher and none were computed.
+- Counts only; `total` (GeoDS uk054001) is the table total. No percentages are supplied by the publisher and none were computed.
+- Column names are readable forms of the GeoDS labels, signed off by the data manager on 2 September 2026; each column comment names the GeoDS source identifier. Mapping: scripts/unified_census/column_names.py.
 - Sibling of the other 24 GeoDS Unified UK Census tables named dem_geods_oa_*_2021_22.
 
 **CRS**
@@ -55,13 +56,13 @@
 |---|---|---|
 | `fid` | `integer` |  |
 | `oa` | `character varying(9)` | Source field `OA`; small-area code: "OA21CD (England/Wales), OA22CD (Scotland), DZ21CD (Northern Ireland)" (GeoDS). Northern Ireland Data Zones are labelled OA by the publisher. |
-| `uk054001` | `integer` | Source field `uk054001`; "Tenure of household: Total: All households". Unit: "Household". |
-| `uk054002` | `integer` | Source field `uk054002`; "Tenure of household: Owned (Including Shared Ownership)". Unit: "Household". |
-| `uk054003` | `integer` | Source field `uk054003`; "Tenure of household: Owned: Owns outright". Unit: "Household". |
-| `uk054004` | `integer` | Source field `uk054004`; "Tenure of household: Owned: Owns with a mortgage, loan or shared ownership". Unit: "Household". |
-| `uk054005` | `integer` | Source field `uk054005`; "Tenure of household: Social rented". Unit: "Household". |
-| `uk054006` | `integer` | Source field `uk054006`; "Tenure of household: Private rented". Unit: "Household". |
-| `uk054007` | `integer` | Source field `uk054007`; "Tenure of household: Private rented: Private landlord or letting agency". Unit: "Household". |
-| `uk054008` | `integer` | Source field `uk054008`; "Tenure of household: Private rented: Other private rented". Unit: "Household". |
-| `uk054009` | `integer` | Source field `uk054009`; "Tenure of household: Lives rent free". Unit: "Household". |
+| `total` | `integer` | Source field `uk054001`; "Tenure of household: Total: All households". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `owned` | `integer` | Source field `uk054002`; "Tenure of household: Owned (Including Shared Ownership)". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `owned_outright` | `integer` | Source field `uk054003`; "Tenure of household: Owned: Owns outright". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `owned_with_mortgage_or_shared_ownership` | `integer` | Source field `uk054004`; "Tenure of household: Owned: Owns with a mortgage, loan or shared ownership". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `social_rented` | `integer` | Source field `uk054005`; "Tenure of household: Social rented". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `private_rented` | `integer` | Source field `uk054006`; "Tenure of household: Private rented". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `private_rented_landlord_or_agency` | `integer` | Source field `uk054007`; "Tenure of household: Private rented: Private landlord or letting agency". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `private_rented_other` | `integer` | Source field `uk054008`; "Tenure of household: Private rented: Other private rented". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `lives_rent_free` | `integer` | Source field `uk054009`; "Tenure of household: Lives rent free". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
 | `geom` | `geometry(MultiPolygon,27700)` | Geometry from uk_baseline.adm_ons_oa_boundaries_dec2021 (England and Wales, Output Area 2021), uk_baseline.adm_nrs_oa_boundary_2022 (Scotland, Output Area 2022) and uk_baseline.adm_nisra_dz_boundary_2021 (Northern Ireland, Data Zone 2021), joined at load on the row's code. |

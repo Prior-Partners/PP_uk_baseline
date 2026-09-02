@@ -6,7 +6,7 @@
 
 **SOURCE**
 
-- Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk046 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 11 source columns copied as published under their source variable identifiers; nothing derived, renamed or filtered.
+- Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk046 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 11 source columns copied as published; nothing derived or filtered. Columns carry readable names from the GeoDS labels (see SCOPE); the GeoDS identifier is recorded in every column comment.
 
 **DOCUMENTATION**
 
@@ -25,7 +25,8 @@
 **SCOPE**
 
 - United Kingdom. 239,023 rows, one per small area: England 178,605; Wales 10,275; Scotland 46,363; Northern Ireland 3,780. Codes are Output Area 2021 (E00, W00), Output Area 2022 (S00) and Data Zone 2021 (N20).
-- Counts only; uk046001 is the table total. No percentages are supplied by the publisher and none were computed.
+- Counts only; `total` (GeoDS uk046001) is the table total. No percentages are supplied by the publisher and none were computed.
+- Column names are readable forms of the GeoDS labels, signed off by the data manager on 2 September 2026; each column comment names the GeoDS source identifier. Mapping: scripts/unified_census/column_names.py.
 - Sibling of the other 24 GeoDS Unified UK Census tables named dem_geods_oa_*_2021_22.
 
 **CRS**
@@ -55,15 +56,15 @@
 |---|---|---|
 | `fid` | `integer` |  |
 | `oa` | `character varying(9)` | Source field `OA`; small-area code: "OA21CD (England/Wales), OA22CD (Scotland), DZ21CD (Northern Ireland)" (GeoDS). Northern Ireland Data Zones are labelled OA by the publisher. |
-| `uk046001` | `integer` | Source field `uk046001`; "Type of central heating in household: Total: All households". Unit: "Household". |
-| `uk046002` | `integer` | Source field `uk046002`; "Type of central heating in household: No central heating". Unit: "Household". |
-| `uk046003` | `integer` | Source field `uk046003`; "Type of central heating in household: Mains gas only". Unit: "Household". |
-| `uk046004` | `integer` | Source field `uk046004`; "Type of central heating in household: Tank or bottled gas only". Unit: "Household". |
-| `uk046005` | `integer` | Source field `uk046005`; "Type of central heating in household: Electric only". Unit: "Household". |
-| `uk046006` | `integer` | Source field `uk046006`; "Type of central heating in household: Oil only". Unit: "Household". |
-| `uk046007` | `integer` | Source field `uk046007`; "Type of central heating in household: Wood only". Unit: "Household". |
-| `uk046008` | `integer` | Source field `uk046008`; "Type of central heating in household: Solid fuel only". Unit: "Household". |
-| `uk046009` | `integer` | Source field `uk046009`; "Type of central heating in household: Renewable energy only". Unit: "Household". |
-| `uk046010` | `integer` | Source field `uk046010`; "Type of central heating in household: Other central heating only". Unit: "Household". |
-| `uk046011` | `integer` | Source field `uk046011`; "Type of central heating in household: Two or more types of central heating". Unit: "Household". |
+| `total` | `integer` | Source field `uk046001`; "Type of central heating in household: Total: All households". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `no_central_heating` | `integer` | Source field `uk046002`; "Type of central heating in household: No central heating". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `mains_gas_only` | `integer` | Source field `uk046003`; "Type of central heating in household: Mains gas only". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `tank_or_bottled_gas_only` | `integer` | Source field `uk046004`; "Type of central heating in household: Tank or bottled gas only". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `electric_only` | `integer` | Source field `uk046005`; "Type of central heating in household: Electric only". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `oil_only` | `integer` | Source field `uk046006`; "Type of central heating in household: Oil only". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `wood_only` | `integer` | Source field `uk046007`; "Type of central heating in household: Wood only". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `solid_fuel_only` | `integer` | Source field `uk046008`; "Type of central heating in household: Solid fuel only". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `renewable_energy_only` | `integer` | Source field `uk046009`; "Type of central heating in household: Renewable energy only". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `other_heating_only` | `integer` | Source field `uk046010`; "Type of central heating in household: Other central heating only". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `two_or_more_types` | `integer` | Source field `uk046011`; "Type of central heating in household: Two or more types of central heating". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
 | `geom` | `geometry(MultiPolygon,27700)` | Geometry from uk_baseline.adm_ons_oa_boundaries_dec2021 (England and Wales, Output Area 2021), uk_baseline.adm_nrs_oa_boundary_2022 (Scotland, Output Area 2022) and uk_baseline.adm_nisra_dz_boundary_2021 (Northern Ireland, Data Zone 2021), joined at load on the row's code. |

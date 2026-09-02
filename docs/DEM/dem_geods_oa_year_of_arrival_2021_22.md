@@ -6,7 +6,7 @@
 
 **SOURCE**
 
-- Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk015 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 13 source columns copied as published under their source variable identifiers; nothing derived, renamed or filtered.
+- Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk015 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 13 source columns copied as published; nothing derived or filtered. Columns carry readable names from the GeoDS labels (see SCOPE); the GeoDS identifier is recorded in every column comment.
 
 **DOCUMENTATION**
 
@@ -25,7 +25,8 @@
 **SCOPE**
 
 - United Kingdom. 239,023 rows, one per small area: England 178,605; Wales 10,275; Scotland 46,363; Northern Ireland 3,780. Codes are Output Area 2021 (E00, W00), Output Area 2022 (S00) and Data Zone 2021 (N20).
-- Counts only; uk015001 is the table total. No percentages are supplied by the publisher and none were computed.
+- Counts only; `total` (GeoDS uk015001) is the table total. No percentages are supplied by the publisher and none were computed.
+- Column names are readable forms of the GeoDS labels, signed off by the data manager on 2 September 2026; each column comment names the GeoDS source identifier. Mapping: scripts/unified_census/column_names.py.
 - Sibling of the other 24 GeoDS Unified UK Census tables named dem_geods_oa_*_2021_22.
 
 **CRS**
@@ -55,17 +56,17 @@
 |---|---|---|
 | `fid` | `integer` |  |
 | `oa` | `character varying(9)` | Source field `OA`; small-area code: "OA21CD (England/Wales), OA22CD (Scotland), DZ21CD (Northern Ireland)" (GeoDS). Northern Ireland Data Zones are labelled OA by the publisher. |
-| `uk015001` | `integer` | Source field `uk015001`; "Year of arrival in the UK: Total: All usual residents". Unit: "Person". |
-| `uk015002` | `integer` | Source field `uk015002`; "Year of arrival in the UK: Born in the UK". Unit: "Person". |
-| `uk015003` | `integer` | Source field `uk015003`; "Year of arrival in the UK: Arrived before 1951". Unit: "Person". |
-| `uk015004` | `integer` | Source field `uk015004`; "Year of arrival in the UK: Arrived 1951 to 1960". Unit: "Person". |
-| `uk015005` | `integer` | Source field `uk015005`; "Year of arrival in the UK: Arrived 1961 to 1970". Unit: "Person". |
-| `uk015006` | `integer` | Source field `uk015006`; "Year of arrival in the UK: Arrived 1971 to 1980". Unit: "Person". |
-| `uk015007` | `integer` | Source field `uk015007`; "Year of arrival in the UK: Arrived 1981 to 1990". Unit: "Person". |
-| `uk015008` | `integer` | Source field `uk015008`; "Year of arrival in the UK: Arrived 1991 to 2000". Unit: "Person". |
-| `uk015009` | `integer` | Source field `uk015009`; "Year of arrival in the UK: Arrived 2001 to 2010". Unit: "Person". |
-| `uk015010` | `integer` | Source field `uk015010`; "Year of arrival in the UK: Arrived 2011 to 2013". Unit: "Person". |
-| `uk015011` | `integer` | Source field `uk015011`; "Year of arrival in the UK: Arrived 2014 to 2016". Unit: "Person". |
-| `uk015012` | `integer` | Source field `uk015012`; "Year of arrival in the UK: Arrived 2017 to 2019". Unit: "Person". |
-| `uk015013` | `integer` | Source field `uk015013`; "Year of arrival in the UK: Arrived 2020 to 2021". Unit: "Person". |
+| `total` | `integer` | Source field `uk015001`; "Year of arrival in the UK: Total: All usual residents". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `born_in_uk` | `integer` | Source field `uk015002`; "Year of arrival in the UK: Born in the UK". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `before_1951` | `integer` | Source field `uk015003`; "Year of arrival in the UK: Arrived before 1951". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `from_1951_to_1960` | `integer` | Source field `uk015004`; "Year of arrival in the UK: Arrived 1951 to 1960". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `from_1961_to_1970` | `integer` | Source field `uk015005`; "Year of arrival in the UK: Arrived 1961 to 1970". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `from_1971_to_1980` | `integer` | Source field `uk015006`; "Year of arrival in the UK: Arrived 1971 to 1980". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `from_1981_to_1990` | `integer` | Source field `uk015007`; "Year of arrival in the UK: Arrived 1981 to 1990". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `from_1991_to_2000` | `integer` | Source field `uk015008`; "Year of arrival in the UK: Arrived 1991 to 2000". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `from_2001_to_2010` | `integer` | Source field `uk015009`; "Year of arrival in the UK: Arrived 2001 to 2010". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `from_2011_to_2013` | `integer` | Source field `uk015010`; "Year of arrival in the UK: Arrived 2011 to 2013". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `from_2014_to_2016` | `integer` | Source field `uk015011`; "Year of arrival in the UK: Arrived 2014 to 2016". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `from_2017_to_2019` | `integer` | Source field `uk015012`; "Year of arrival in the UK: Arrived 2017 to 2019". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `from_2020_to_2021` | `integer` | Source field `uk015013`; "Year of arrival in the UK: Arrived 2020 to 2021". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
 | `geom` | `geometry(MultiPolygon,27700)` | Geometry from uk_baseline.adm_ons_oa_boundaries_dec2021 (England and Wales, Output Area 2021), uk_baseline.adm_nrs_oa_boundary_2022 (Scotland, Output Area 2022) and uk_baseline.adm_nisra_dz_boundary_2021 (Northern Ireland, Data Zone 2021), joined at load on the row's code. |

@@ -6,7 +6,7 @@
 
 **SOURCE**
 
-- Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk063 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 10 source columns copied as published under their source variable identifiers; nothing derived, renamed or filtered.
+- Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk063 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 10 source columns copied as published; nothing derived or filtered. Columns carry readable names from the GeoDS labels (see SCOPE); the GeoDS identifier is recorded in every column comment.
 
 **DOCUMENTATION**
 
@@ -25,7 +25,8 @@
 **SCOPE**
 
 - United Kingdom. 239,023 rows, one per small area: England 178,605; Wales 10,275; Scotland 46,363; Northern Ireland 3,780. Codes are Output Area 2021 (E00, W00), Output Area 2022 (S00) and Data Zone 2021 (N20).
-- Counts only; uk063001 is the table total. No percentages are supplied by the publisher and none were computed.
+- Counts only; `total` (GeoDS uk063001) is the table total. No percentages are supplied by the publisher and none were computed.
+- Column names are readable forms of the GeoDS labels, signed off by the data manager on 2 September 2026; each column comment names the GeoDS source identifier. Mapping: scripts/unified_census/column_names.py.
 - Sibling of the other 24 GeoDS Unified UK Census tables named dem_geods_oa_*_2021_22.
 
 **CRS**
@@ -54,14 +55,14 @@
 |---|---|---|
 | `fid` | `integer` |  |
 | `oa` | `character varying(9)` | Source field `OA`; small-area code: "OA21CD (England/Wales), OA22CD (Scotland), DZ21CD (Northern Ireland)" (GeoDS). Northern Ireland Data Zones are labelled OA by the publisher. |
-| `uk063001` | `integer` | Source field `uk063001`; "Occupation (current): Total: All usual residents aged 16 years and over in employment the week before the census". Unit: "Person". |
-| `uk063002` | `integer` | Source field `uk063002`; "Occupation (current): 1. Managers, directors and senior officials". Unit: "Person". |
-| `uk063003` | `integer` | Source field `uk063003`; "Occupation (current): 2. Professional occupations". Unit: "Person". |
-| `uk063004` | `integer` | Source field `uk063004`; "Occupation (current): 3. Associate professional and technical occupations". Unit: "Person". |
-| `uk063005` | `integer` | Source field `uk063005`; "Occupation (current): 4. Administrative and secretarial occupations". Unit: "Person". |
-| `uk063006` | `integer` | Source field `uk063006`; "Occupation (current): 5. Skilled trades occupations". Unit: "Person". |
-| `uk063007` | `integer` | Source field `uk063007`; "Occupation (current): 6. Caring, leisure and other service occupations". Unit: "Person". |
-| `uk063008` | `integer` | Source field `uk063008`; "Occupation (current): 7. Sales and customer service occupations". Unit: "Person". |
-| `uk063009` | `integer` | Source field `uk063009`; "Occupation (current): 8. Process, plant and machine operatives". Unit: "Person". |
-| `uk063010` | `integer` | Source field `uk063010`; "Occupation (current): 9. Elementary occupations". Unit: "Person". |
+| `total` | `integer` | Source field `uk063001`; "Occupation (current): Total: All usual residents aged 16 years and over in employment the week before the census". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `occ1_managers_directors_senior_officials` | `integer` | Source field `uk063002`; "Occupation (current): 1. Managers, directors and senior officials". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `occ2_professional` | `integer` | Source field `uk063003`; "Occupation (current): 2. Professional occupations". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `occ3_associate_professional_technical` | `integer` | Source field `uk063004`; "Occupation (current): 3. Associate professional and technical occupations". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `occ4_administrative_secretarial` | `integer` | Source field `uk063005`; "Occupation (current): 4. Administrative and secretarial occupations". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `occ5_skilled_trades` | `integer` | Source field `uk063006`; "Occupation (current): 5. Skilled trades occupations". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `occ6_caring_leisure_other_service` | `integer` | Source field `uk063007`; "Occupation (current): 6. Caring, leisure and other service occupations". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `occ7_sales_customer_service` | `integer` | Source field `uk063008`; "Occupation (current): 7. Sales and customer service occupations". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `occ8_process_plant_machine_operatives` | `integer` | Source field `uk063009`; "Occupation (current): 8. Process, plant and machine operatives". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `occ9_elementary` | `integer` | Source field `uk063010`; "Occupation (current): 9. Elementary occupations". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
 | `geom` | `geometry(MultiPolygon,27700)` | Geometry from uk_baseline.adm_ons_oa_boundaries_dec2021 (England and Wales, Output Area 2021), uk_baseline.adm_nrs_oa_boundary_2022 (Scotland, Output Area 2022) and uk_baseline.adm_nisra_dz_boundary_2021 (Northern Ireland, Data Zone 2021), joined at load on the row's code. |

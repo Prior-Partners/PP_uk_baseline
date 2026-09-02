@@ -6,7 +6,7 @@
 
 **SOURCE**
 
-- Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk003 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 14 source columns copied as published under their source variable identifiers; nothing derived, renamed or filtered.
+- Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk003 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 14 source columns copied as published; nothing derived or filtered. Columns carry readable names from the GeoDS labels (see SCOPE); the GeoDS identifier is recorded in every column comment.
 
 **DOCUMENTATION**
 
@@ -25,7 +25,8 @@
 **SCOPE**
 
 - United Kingdom. 239,023 rows, one per small area: England 178,605; Wales 10,275; Scotland 46,363; Northern Ireland 3,780. Codes are Output Area 2021 (E00, W00), Output Area 2022 (S00) and Data Zone 2021 (N20).
-- Counts only; uk003001 is the table total. No percentages are supplied by the publisher and none were computed.
+- Counts only; `total` (GeoDS uk003001) is the table total. No percentages are supplied by the publisher and none were computed.
+- Column names are readable forms of the GeoDS labels, signed off by the data manager on 2 September 2026; each column comment names the GeoDS source identifier. Mapping: scripts/unified_census/column_names.py.
 - Sibling of the other 24 GeoDS Unified UK Census tables named dem_geods_oa_*_2021_22.
 
 **CRS**
@@ -55,18 +56,18 @@
 |---|---|---|
 | `fid` | `integer` |  |
 | `oa` | `character varying(9)` | Source field `OA`; small-area code: "OA21CD (England/Wales), OA22CD (Scotland), DZ21CD (Northern Ireland)" (GeoDS). Northern Ireland Data Zones are labelled OA by the publisher. |
-| `uk003001` | `integer` | Source field `uk003001`; "Household composition: Total". Unit: "Household". |
-| `uk003002` | `integer` | Source field `uk003002`; "Household composition: One person household". Unit: "Household". |
-| `uk003003` | `integer` | Source field `uk003003`; "Household composition: One person household: Aged 66 years and over". Unit: "Household". |
-| `uk003004` | `integer` | Source field `uk003004`; "Household composition: One person household: Other". Unit: "Household". |
-| `uk003005` | `integer` | Source field `uk003005`; "Household composition: Single family household". Unit: "Household". |
-| `uk003006` | `integer` | Source field `uk003006`; "Household composition:  Single family household: Couple family household". Unit: "Household". |
-| `uk003007` | `integer` | Source field `uk003007`; "Household composition:  Single family household: Couple family household: No children". Unit: "Household". |
-| `uk003008` | `integer` | Source field `uk003008`; "Household composition:  Single family household: Couple family household: Dependent children". Unit: "Household". |
-| `uk003009` | `integer` | Source field `uk003009`; "Household composition:  Single family household: Couple family household: All children non-dependent". Unit: "Household". |
-| `uk003010` | `integer` | Source field `uk003010`; "Household composition: Single family household: Lone parent family". Unit: "Household". |
-| `uk003011` | `integer` | Source field `uk003011`; "Household composition: Single family household: Lone parent family: With dependent children". Unit: "Household". |
-| `uk003012` | `integer` | Source field `uk003012`; "Household composition: Single family household: Lone parent family: All children non-dependent". Unit: "Household". |
-| `uk003013` | `integer` | Source field `uk003013`; "Household composition: Single family household: Other single family household (including All aged 66 years and over)". Unit: "Household". |
-| `uk003014` | `integer` | Source field `uk003014`; "Household composition: Other household types". Unit: "Household". |
+| `total` | `integer` | Source field `uk003001`; "Household composition: Total". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `one_person_hh` | `integer` | Source field `uk003002`; "Household composition: One person household". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `one_person_hh_aged_66_plus` | `integer` | Source field `uk003003`; "Household composition: One person household: Aged 66 years and over". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `one_person_hh_other` | `integer` | Source field `uk003004`; "Household composition: One person household: Other". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `single_family_hh` | `integer` | Source field `uk003005`; "Household composition: Single family household". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `couple_family_hh` | `integer` | Source field `uk003006`; "Household composition:  Single family household: Couple family household". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `couple_family_no_children` | `integer` | Source field `uk003007`; "Household composition:  Single family household: Couple family household: No children". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `couple_family_dependent_children` | `integer` | Source field `uk003008`; "Household composition:  Single family household: Couple family household: Dependent children". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `couple_family_all_children_non_dependent` | `integer` | Source field `uk003009`; "Household composition:  Single family household: Couple family household: All children non-dependent". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `lone_parent_family` | `integer` | Source field `uk003010`; "Household composition: Single family household: Lone parent family". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `lone_parent_dependent_children` | `integer` | Source field `uk003011`; "Household composition: Single family household: Lone parent family: With dependent children". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `lone_parent_all_children_non_dependent` | `integer` | Source field `uk003012`; "Household composition: Single family household: Lone parent family: All children non-dependent". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `other_single_family_hh_incl_66_plus` | `integer` | Source field `uk003013`; "Household composition: Single family household: Other single family household (including All aged 66 years and over)". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `other_hh_types` | `integer` | Source field `uk003014`; "Household composition: Other household types". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
 | `geom` | `geometry(MultiPolygon,27700)` | Geometry from uk_baseline.adm_ons_oa_boundaries_dec2021 (England and Wales, Output Area 2021), uk_baseline.adm_nrs_oa_boundary_2022 (Scotland, Output Area 2022) and uk_baseline.adm_nisra_dz_boundary_2021 (Northern Ireland, Data Zone 2021), joined at load on the row's code. |

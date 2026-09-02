@@ -6,7 +6,7 @@
 
 **SOURCE**
 
-- Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk045 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 5 source columns copied as published under their source variable identifiers; nothing derived, renamed or filtered.
+- Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk045 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 5 source columns copied as published; nothing derived or filtered. Columns carry readable names from the GeoDS labels (see SCOPE); the GeoDS identifier is recorded in every column comment.
 
 **DOCUMENTATION**
 
@@ -25,7 +25,8 @@
 **SCOPE**
 
 - United Kingdom. 239,023 rows, one per small area: England 178,605; Wales 10,275; Scotland 46,363; Northern Ireland 3,780. Codes are Output Area 2021 (E00, W00), Output Area 2022 (S00) and Data Zone 2021 (N20).
-- Counts only; uk045001 is the table total. No percentages are supplied by the publisher and none were computed.
+- Counts only; `total` (GeoDS uk045001) is the table total. No percentages are supplied by the publisher and none were computed.
+- Column names are readable forms of the GeoDS labels, signed off by the data manager on 2 September 2026; each column comment names the GeoDS source identifier. Mapping: scripts/unified_census/column_names.py.
 - Sibling of the other 24 GeoDS Unified UK Census tables named dem_geods_oa_*_2021_22.
 
 **CRS**
@@ -55,9 +56,9 @@
 |---|---|---|
 | `fid` | `integer` |  |
 | `oa` | `character varying(9)` | Source field `OA`; small-area code: "OA21CD (England/Wales), OA22CD (Scotland), DZ21CD (Northern Ireland)" (GeoDS). Northern Ireland Data Zones are labelled OA by the publisher. |
-| `uk045001` | `integer` | Source field `uk045001`; "Number of cars or vans: Total: All households". Unit: "Household". |
-| `uk045002` | `integer` | Source field `uk045002`; "Number of cars or vans: No cars or vans in household". Unit: "Household". |
-| `uk045003` | `integer` | Source field `uk045003`; "Number of cars or vans: 1 car or van in household". Unit: "Household". |
-| `uk045004` | `integer` | Source field `uk045004`; "Number of cars or vans: 2 cars or vans in household". Unit: "Household". |
-| `uk045005` | `integer` | Source field `uk045005`; "Number of cars or vans: 3 or more cars or vans in household". Unit: "Household". |
+| `total` | `integer` | Source field `uk045001`; "Number of cars or vans: Total: All households". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `no_cars_or_vans` | `integer` | Source field `uk045002`; "Number of cars or vans: No cars or vans in household". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `one_car_or_van` | `integer` | Source field `uk045003`; "Number of cars or vans: 1 car or van in household". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `two_cars_or_vans` | `integer` | Source field `uk045004`; "Number of cars or vans: 2 cars or vans in household". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `three_or_more_cars_or_vans` | `integer` | Source field `uk045005`; "Number of cars or vans: 3 or more cars or vans in household". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
 | `geom` | `geometry(MultiPolygon,27700)` | Geometry from uk_baseline.adm_ons_oa_boundaries_dec2021 (England and Wales, Output Area 2021), uk_baseline.adm_nrs_oa_boundary_2022 (Scotland, Output Area 2022) and uk_baseline.adm_nisra_dz_boundary_2021 (Northern Ireland, Data Zone 2021), joined at load on the row's code. |

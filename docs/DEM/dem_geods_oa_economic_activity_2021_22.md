@@ -6,7 +6,7 @@
 
 **SOURCE**
 
-- Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk066 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 19 source columns copied as published under their source variable identifiers; nothing derived, renamed or filtered.
+- Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk066 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 19 source columns copied as published; nothing derived or filtered. Columns carry readable names from the GeoDS labels (see SCOPE); the GeoDS identifier is recorded in every column comment.
 
 **DOCUMENTATION**
 
@@ -25,7 +25,8 @@
 **SCOPE**
 
 - United Kingdom. 239,023 rows, one per small area: England 178,605; Wales 10,275; Scotland 46,363; Northern Ireland 3,780. Codes are Output Area 2021 (E00, W00), Output Area 2022 (S00) and Data Zone 2021 (N20).
-- Counts only; uk066001 is the table total. No percentages are supplied by the publisher and none were computed.
+- Counts only; `total` (GeoDS uk066001) is the table total. No percentages are supplied by the publisher and none were computed.
+- Column names are readable forms of the GeoDS labels, signed off by the data manager on 2 September 2026; each column comment names the GeoDS source identifier. Mapping: scripts/unified_census/column_names.py.
 - Sibling of the other 24 GeoDS Unified UK Census tables named dem_geods_oa_*_2021_22.
 
 **CRS**
@@ -54,23 +55,23 @@
 |---|---|---|
 | `fid` | `integer` |  |
 | `oa` | `character varying(9)` | Source field `OA`; small-area code: "OA21CD (England/Wales), OA22CD (Scotland), DZ21CD (Northern Ireland)" (GeoDS). Northern Ireland Data Zones are labelled OA by the publisher. |
-| `uk066001` | `integer` | Source field `uk066001`; "Economic activity status: Total: All usual residents aged 16 years and over". Unit: "Person". |
-| `uk066002` | `integer` | Source field `uk066002`; "Economic activity status: Economically active (excluding full-time students)". Unit: "Person". |
-| `uk066003` | `integer` | Source field `uk066003`; "Economic activity status: Economically active (excluding full-time students):In employment". Unit: "Person". |
-| `uk066004` | `integer` | Source field `uk066004`; "Economic activity status: Economically active (excluding full-time students):In employment:Employee". Unit: "Person". |
-| `uk066005` | `integer` | Source field `uk066005`; "Economic activity status: Economically active (excluding full-time students):In employment:Self-employed with employees". Unit: "Person". |
-| `uk066006` | `integer` | Source field `uk066006`; "Economic activity status: Economically active (excluding full-time students):In employment:Self-employed without employees". Unit: "Person". |
-| `uk066007` | `integer` | Source field `uk066007`; "Economic activity status: Economically active (excluding full-time students): Unemployed". Unit: "Person". |
-| `uk066008` | `integer` | Source field `uk066008`; "Economic activity status: Economically active and a full-time student". Unit: "Person". |
-| `uk066009` | `integer` | Source field `uk066009`; "Economic activity status: Economically active and a full-time student:In employment". Unit: "Person". |
-| `uk066010` | `integer` | Source field `uk066010`; "Economic activity status: Economically active and a full-time student:In employment:Employee". Unit: "Person". |
-| `uk066011` | `integer` | Source field `uk066011`; "Economic activity status: Economically active and a full-time student:In employment:Self-employed with employees". Unit: "Person". |
-| `uk066012` | `integer` | Source field `uk066012`; "Economic activity status: Economically active and a full-time student:In employment:Self-employed without employees". Unit: "Person". |
-| `uk066013` | `integer` | Source field `uk066013`; "Economic activity status: Economically active and a full-time student: Unemployed". Unit: "Person". |
-| `uk066014` | `integer` | Source field `uk066014`; "Economic activity status: Economically inactive". Unit: "Person". |
-| `uk066015` | `integer` | Source field `uk066015`; "Economic activity status: Economically inactive: Retired". Unit: "Person". |
-| `uk066016` | `integer` | Source field `uk066016`; "Economic activity status: Economically inactive: Student". Unit: "Person". |
-| `uk066017` | `integer` | Source field `uk066017`; "Economic activity status: Economically inactive: Looking after home or family". Unit: "Person". |
-| `uk066018` | `integer` | Source field `uk066018`; "Economic activity status: Economically inactive: Long-term sick or disabled". Unit: "Person". |
-| `uk066019` | `integer` | Source field `uk066019`; "Economic activity status: Economically inactive: Other". Unit: "Person". |
+| `total` | `integer` | Source field `uk066001`; "Economic activity status: Total: All usual residents aged 16 years and over". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `active_excl_students` | `integer` | Source field `uk066002`; "Economic activity status: Economically active (excluding full-time students)". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `active_excl_students_employed` | `integer` | Source field `uk066003`; "Economic activity status: Economically active (excluding full-time students):In employment". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `active_excl_students_employee` | `integer` | Source field `uk066004`; "Economic activity status: Economically active (excluding full-time students):In employment:Employee". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `active_excl_students_self_employed_with_employees` | `integer` | Source field `uk066005`; "Economic activity status: Economically active (excluding full-time students):In employment:Self-employed with employees". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `active_excl_students_self_employed_no_employees` | `integer` | Source field `uk066006`; "Economic activity status: Economically active (excluding full-time students):In employment:Self-employed without employees". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `active_excl_students_unemployed` | `integer` | Source field `uk066007`; "Economic activity status: Economically active (excluding full-time students): Unemployed". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `active_student` | `integer` | Source field `uk066008`; "Economic activity status: Economically active and a full-time student". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `active_student_employed` | `integer` | Source field `uk066009`; "Economic activity status: Economically active and a full-time student:In employment". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `active_student_employee` | `integer` | Source field `uk066010`; "Economic activity status: Economically active and a full-time student:In employment:Employee". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `active_student_self_employed_with_employees` | `integer` | Source field `uk066011`; "Economic activity status: Economically active and a full-time student:In employment:Self-employed with employees". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `active_student_self_employed_no_employees` | `integer` | Source field `uk066012`; "Economic activity status: Economically active and a full-time student:In employment:Self-employed without employees". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `active_student_unemployed` | `integer` | Source field `uk066013`; "Economic activity status: Economically active and a full-time student: Unemployed". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `inactive` | `integer` | Source field `uk066014`; "Economic activity status: Economically inactive". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `inactive_retired` | `integer` | Source field `uk066015`; "Economic activity status: Economically inactive: Retired". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `inactive_student` | `integer` | Source field `uk066016`; "Economic activity status: Economically inactive: Student". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `inactive_looking_after_home_or_family` | `integer` | Source field `uk066017`; "Economic activity status: Economically inactive: Looking after home or family". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `inactive_long_term_sick_or_disabled` | `integer` | Source field `uk066018`; "Economic activity status: Economically inactive: Long-term sick or disabled". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `inactive_other` | `integer` | Source field `uk066019`; "Economic activity status: Economically inactive: Other". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
 | `geom` | `geometry(MultiPolygon,27700)` | Geometry from uk_baseline.adm_ons_oa_boundaries_dec2021 (England and Wales, Output Area 2021), uk_baseline.adm_nrs_oa_boundary_2022 (Scotland, Output Area 2022) and uk_baseline.adm_nisra_dz_boundary_2021 (Northern Ireland, Data Zone 2021), joined at load on the row's code. |

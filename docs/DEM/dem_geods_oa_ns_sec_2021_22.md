@@ -6,7 +6,7 @@
 
 **SOURCE**
 
-- Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk062 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 10 source columns copied as published under their source variable identifiers; nothing derived, renamed or filtered.
+- Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk062 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 10 source columns copied as published; nothing derived or filtered. Columns carry readable names from the GeoDS labels (see SCOPE); the GeoDS identifier is recorded in every column comment.
 
 **DOCUMENTATION**
 
@@ -25,7 +25,8 @@
 **SCOPE**
 
 - United Kingdom. 239,023 rows, one per small area: England 178,605; Wales 10,275; Scotland 46,363; Northern Ireland 3,780. Codes are Output Area 2021 (E00, W00), Output Area 2022 (S00) and Data Zone 2021 (N20).
-- Counts only; uk062001 is the table total. No percentages are supplied by the publisher and none were computed.
+- Counts only; `total` (GeoDS uk062001) is the table total. No percentages are supplied by the publisher and none were computed.
+- Column names are readable forms of the GeoDS labels, signed off by the data manager on 2 September 2026; each column comment names the GeoDS source identifier. Mapping: scripts/unified_census/column_names.py.
 - Sibling of the other 24 GeoDS Unified UK Census tables named dem_geods_oa_*_2021_22.
 
 **CRS**
@@ -55,14 +56,14 @@
 |---|---|---|
 | `fid` | `integer` |  |
 | `oa` | `character varying(9)` | Source field `OA`; small-area code: "OA21CD (England/Wales), OA22CD (Scotland), DZ21CD (Northern Ireland)" (GeoDS). Northern Ireland Data Zones are labelled OA by the publisher. |
-| `uk062001` | `integer` | Source field `uk062001`; "National Statistics Socio-economic Classification (NS-SEC): Total: All usual residents aged 16 years and over". Unit: "Person". |
-| `uk062002` | `integer` | Source field `uk062002`; "National Statistics Socio-economic Classification (NS-SEC): L1, L2 and L3 Higher managerial, administrative and professional occupations". Unit: "Person". |
-| `uk062003` | `integer` | Source field `uk062003`; "National Statistics Socio-economic Classification (NS-SEC): L4, L5 and L6 Lower managerial, administrative and professional occupations". Unit: "Person". |
-| `uk062004` | `integer` | Source field `uk062004`; "National Statistics Socio-economic Classification (NS-SEC): L7 Intermediate occupations". Unit: "Person". |
-| `uk062005` | `integer` | Source field `uk062005`; "National Statistics Socio-economic Classification (NS-SEC): L8 and L9 Small employers and own account workers". Unit: "Person". |
-| `uk062006` | `integer` | Source field `uk062006`; "National Statistics Socio-economic Classification (NS-SEC): L10 and L11 Lower supervisory and technical occupations". Unit: "Person". |
-| `uk062007` | `integer` | Source field `uk062007`; "National Statistics Socio-economic Classification (NS-SEC): L12 Semi-routine occupations". Unit: "Person". |
-| `uk062008` | `integer` | Source field `uk062008`; "National Statistics Socio-economic Classification (NS-SEC): L13 Routine occupations". Unit: "Person". |
-| `uk062009` | `integer` | Source field `uk062009`; "National Statistics Socio-economic Classification (NS-SEC): L14.1 and L14.2 Never worked and long-term unemployed". Unit: "Person". |
-| `uk062010` | `integer` | Source field `uk062010`; "National Statistics Socio-economic Classification (NS-SEC): L15 Full-time students". Unit: "Person". |
+| `total` | `integer` | Source field `uk062001`; "National Statistics Socio-economic Classification (NS-SEC): Total: All usual residents aged 16 years and over". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `l1_l3_higher_managerial_professional` | `integer` | Source field `uk062002`; "National Statistics Socio-economic Classification (NS-SEC): L1, L2 and L3 Higher managerial, administrative and professional occupations". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `l4_l6_lower_managerial_professional` | `integer` | Source field `uk062003`; "National Statistics Socio-economic Classification (NS-SEC): L4, L5 and L6 Lower managerial, administrative and professional occupations". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `l7_intermediate` | `integer` | Source field `uk062004`; "National Statistics Socio-economic Classification (NS-SEC): L7 Intermediate occupations". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `l8_l9_small_employers_own_account` | `integer` | Source field `uk062005`; "National Statistics Socio-economic Classification (NS-SEC): L8 and L9 Small employers and own account workers". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `l10_l11_lower_supervisory_technical` | `integer` | Source field `uk062006`; "National Statistics Socio-economic Classification (NS-SEC): L10 and L11 Lower supervisory and technical occupations". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `l12_semi_routine` | `integer` | Source field `uk062007`; "National Statistics Socio-economic Classification (NS-SEC): L12 Semi-routine occupations". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `l13_routine` | `integer` | Source field `uk062008`; "National Statistics Socio-economic Classification (NS-SEC): L13 Routine occupations". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `l14_never_worked_long_term_unemployed` | `integer` | Source field `uk062009`; "National Statistics Socio-economic Classification (NS-SEC): L14.1 and L14.2 Never worked and long-term unemployed". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `l15_full_time_students` | `integer` | Source field `uk062010`; "National Statistics Socio-economic Classification (NS-SEC): L15 Full-time students". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
 | `geom` | `geometry(MultiPolygon,27700)` | Geometry from uk_baseline.adm_ons_oa_boundaries_dec2021 (England and Wales, Output Area 2021), uk_baseline.adm_nrs_oa_boundary_2022 (Scotland, Output Area 2022) and uk_baseline.adm_nisra_dz_boundary_2021 (Northern Ireland, Data Zone 2021), joined at load on the row's code. |

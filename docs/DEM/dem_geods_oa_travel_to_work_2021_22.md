@@ -6,7 +6,7 @@
 
 **SOURCE**
 
-- Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk061 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 11 source columns copied as published under their source variable identifiers; nothing derived, renamed or filtered.
+- Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk061 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 11 source columns copied as published; nothing derived or filtered. Columns carry readable names from the GeoDS labels (see SCOPE); the GeoDS identifier is recorded in every column comment.
 
 **DOCUMENTATION**
 
@@ -25,7 +25,8 @@
 **SCOPE**
 
 - United Kingdom. 239,023 rows, one per small area: England 178,605; Wales 10,275; Scotland 46,363; Northern Ireland 3,780. Codes are Output Area 2021 (E00, W00), Output Area 2022 (S00) and Data Zone 2021 (N20).
-- Counts only; uk061001 is the table total. No percentages are supplied by the publisher and none were computed.
+- Counts only; `total` (GeoDS uk061001) is the table total. No percentages are supplied by the publisher and none were computed.
+- Column names are readable forms of the GeoDS labels, signed off by the data manager on 2 September 2026; each column comment names the GeoDS source identifier. Mapping: scripts/unified_census/column_names.py.
 - Sibling of the other 24 GeoDS Unified UK Census tables named dem_geods_oa_*_2021_22.
 
 **CRS**
@@ -56,15 +57,15 @@
 |---|---|---|
 | `fid` | `integer` |  |
 | `oa` | `character varying(9)` | Source field `OA`; small-area code: "OA21CD (England/Wales), OA22CD (Scotland), DZ21CD (Northern Ireland)" (GeoDS). Northern Ireland Data Zones are labelled OA by the publisher. |
-| `uk061001` | `integer` | Source field `uk061001`; "Method of travel to workplace: Total: All usual residents aged 16 years and over in employment the week before the census". Unit: "Person". |
-| `uk061002` | `integer` | Source field `uk061002`; "Method of travel to workplace: Work mainly at or from home". Unit: "Person". |
-| `uk061003` | `integer` | Source field `uk061003`; "Method of travel to workplace: Underground, metro, light rail, tram". Unit: "Person". |
-| `uk061004` | `integer` | Source field `uk061004`; "Method of travel to workplace: Train". Unit: "Person". |
-| `uk061005` | `integer` | Source field `uk061005`; "Method of travel to workplace: Bus, minibus or coach". Unit: "Person". |
-| `uk061006` | `integer` | Source field `uk061006`; "Method of travel to workplace: Taxi". Unit: "Person". |
-| `uk061007` | `integer` | Source field `uk061007`; "Method of travel to workplace: Motorcycle, scooter or moped". Unit: "Person". |
-| `uk061008` | `integer` | Source field `uk061008`; "Method of travel to workplace: Car or van". Unit: "Person". |
-| `uk061009` | `integer` | Source field `uk061009`; "Method of travel to workplace: Bicycle". Unit: "Person". |
-| `uk061010` | `integer` | Source field `uk061010`; "Method of travel to workplace: On foot". Unit: "Person". |
-| `uk061011` | `integer` | Source field `uk061011`; "Method of travel to workplace: Other method of travel to work". Unit: "Person". |
+| `total` | `integer` | Source field `uk061001`; "Method of travel to workplace: Total: All usual residents aged 16 years and over in employment the week before the census". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `work_from_home` | `integer` | Source field `uk061002`; "Method of travel to workplace: Work mainly at or from home". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `underground_metro_light_rail_tram` | `integer` | Source field `uk061003`; "Method of travel to workplace: Underground, metro, light rail, tram". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `train` | `integer` | Source field `uk061004`; "Method of travel to workplace: Train". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `bus_minibus_or_coach` | `integer` | Source field `uk061005`; "Method of travel to workplace: Bus, minibus or coach". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `taxi` | `integer` | Source field `uk061006`; "Method of travel to workplace: Taxi". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `motorcycle_scooter_or_moped` | `integer` | Source field `uk061007`; "Method of travel to workplace: Motorcycle, scooter or moped". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `car_or_van` | `integer` | Source field `uk061008`; "Method of travel to workplace: Car or van". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `bicycle` | `integer` | Source field `uk061009`; "Method of travel to workplace: Bicycle". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `on_foot` | `integer` | Source field `uk061010`; "Method of travel to workplace: On foot". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `other_method` | `integer` | Source field `uk061011`; "Method of travel to workplace: Other method of travel to work". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
 | `geom` | `geometry(MultiPolygon,27700)` | Geometry from uk_baseline.adm_ons_oa_boundaries_dec2021 (England and Wales, Output Area 2021), uk_baseline.adm_nrs_oa_boundary_2022 (Scotland, Output Area 2022) and uk_baseline.adm_nisra_dz_boundary_2021 (Northern Ireland, Data Zone 2021), joined at load on the row's code. |

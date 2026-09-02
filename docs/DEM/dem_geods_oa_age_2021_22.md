@@ -6,7 +6,7 @@
 
 **SOURCE**
 
-- Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk007a from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 19 source columns copied as published under their source variable identifiers; nothing derived, renamed or filtered.
+- Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk007a from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 19 source columns copied as published; nothing derived or filtered. Columns carry readable names from the GeoDS labels (see SCOPE); the GeoDS identifier is recorded in every column comment.
 
 **DOCUMENTATION**
 
@@ -25,7 +25,8 @@
 **SCOPE**
 
 - United Kingdom. 239,023 rows, one per small area: England 178,605; Wales 10,275; Scotland 46,363; Northern Ireland 3,780. Codes are Output Area 2021 (E00, W00), Output Area 2022 (S00) and Data Zone 2021 (N20).
-- Counts only; uk007a001 is the table total. No percentages are supplied by the publisher and none were computed.
+- Counts only; `total` (GeoDS uk007a001) is the table total. No percentages are supplied by the publisher and none were computed.
+- Column names are readable forms of the GeoDS labels, signed off by the data manager on 2 September 2026; each column comment names the GeoDS source identifier. Mapping: scripts/unified_census/column_names.py.
 - Sibling of the other 24 GeoDS Unified UK Census tables named dem_geods_oa_*_2021_22.
 
 **CRS**
@@ -54,23 +55,23 @@
 |---|---|---|
 | `fid` | `integer` |  |
 | `oa` | `character varying(9)` | Source field `OA`; small-area code: "OA21CD (England/Wales), OA22CD (Scotland), DZ21CD (Northern Ireland)" (GeoDS). Northern Ireland Data Zones are labelled OA by the publisher. |
-| `uk007a001` | `integer` | Source field `uk007a001`; "Age: Total". Unit: "Person". |
-| `uk007a002` | `integer` | Source field `uk007a002`; "Age: Aged 4 years and under". Unit: "Person". |
-| `uk007a003` | `integer` | Source field `uk007a003`; "Age: Aged 5 to 9 years". Unit: "Person". |
-| `uk007a004` | `integer` | Source field `uk007a004`; "Age: Aged 10 to 14 years". Unit: "Person". |
-| `uk007a005` | `integer` | Source field `uk007a005`; "Age: Aged 15 to 19 years". Unit: "Person". |
-| `uk007a006` | `integer` | Source field `uk007a006`; "Age: Aged 20 to 24 years". Unit: "Person". |
-| `uk007a007` | `integer` | Source field `uk007a007`; "Age: Aged 25 to 29 years". Unit: "Person". |
-| `uk007a008` | `integer` | Source field `uk007a008`; "Age: Aged 30 to 34 years". Unit: "Person". |
-| `uk007a009` | `integer` | Source field `uk007a009`; "Age: Aged 35 to 39 years". Unit: "Person". |
-| `uk007a010` | `integer` | Source field `uk007a010`; "Age: Aged 40 to 44 years". Unit: "Person". |
-| `uk007a011` | `integer` | Source field `uk007a011`; "Age: Aged 45 to 49 years". Unit: "Person". |
-| `uk007a012` | `integer` | Source field `uk007a012`; "Age: Aged 50 to 54 years". Unit: "Person". |
-| `uk007a013` | `integer` | Source field `uk007a013`; "Age: Aged 55 to 59 years". Unit: "Person". |
-| `uk007a014` | `integer` | Source field `uk007a014`; "Age: Aged 60 to 64 years". Unit: "Person". |
-| `uk007a015` | `integer` | Source field `uk007a015`; "Age: Aged 65 to 69 years". Unit: "Person". |
-| `uk007a016` | `integer` | Source field `uk007a016`; "Age: Aged 70 to 74 years". Unit: "Person". |
-| `uk007a017` | `integer` | Source field `uk007a017`; "Age: Aged 75 to 79 years". Unit: "Person". |
-| `uk007a018` | `integer` | Source field `uk007a018`; "Age: Aged 80 to 84 years". Unit: "Person". |
-| `uk007a019` | `integer` | Source field `uk007a019`; "Age: Aged 85 years and over". Unit: "Person". |
+| `total` | `integer` | Source field `uk007a001`; "Age: Total". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `aged_4_and_under` | `integer` | Source field `uk007a002`; "Age: Aged 4 years and under". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `aged_5_to_9` | `integer` | Source field `uk007a003`; "Age: Aged 5 to 9 years". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `aged_10_to_14` | `integer` | Source field `uk007a004`; "Age: Aged 10 to 14 years". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `aged_15_to_19` | `integer` | Source field `uk007a005`; "Age: Aged 15 to 19 years". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `aged_20_to_24` | `integer` | Source field `uk007a006`; "Age: Aged 20 to 24 years". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `aged_25_to_29` | `integer` | Source field `uk007a007`; "Age: Aged 25 to 29 years". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `aged_30_to_34` | `integer` | Source field `uk007a008`; "Age: Aged 30 to 34 years". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `aged_35_to_39` | `integer` | Source field `uk007a009`; "Age: Aged 35 to 39 years". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `aged_40_to_44` | `integer` | Source field `uk007a010`; "Age: Aged 40 to 44 years". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `aged_45_to_49` | `integer` | Source field `uk007a011`; "Age: Aged 45 to 49 years". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `aged_50_to_54` | `integer` | Source field `uk007a012`; "Age: Aged 50 to 54 years". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `aged_55_to_59` | `integer` | Source field `uk007a013`; "Age: Aged 55 to 59 years". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `aged_60_to_64` | `integer` | Source field `uk007a014`; "Age: Aged 60 to 64 years". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `aged_65_to_69` | `integer` | Source field `uk007a015`; "Age: Aged 65 to 69 years". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `aged_70_to_74` | `integer` | Source field `uk007a016`; "Age: Aged 70 to 74 years". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `aged_75_to_79` | `integer` | Source field `uk007a017`; "Age: Aged 75 to 79 years". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `aged_80_to_84` | `integer` | Source field `uk007a018`; "Age: Aged 80 to 84 years". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `aged_85_and_over` | `integer` | Source field `uk007a019`; "Age: Aged 85 years and over". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
 | `geom` | `geometry(MultiPolygon,27700)` | Geometry from uk_baseline.adm_ons_oa_boundaries_dec2021 (England and Wales, Output Area 2021), uk_baseline.adm_nrs_oa_boundary_2022 (Scotland, Output Area 2022) and uk_baseline.adm_nisra_dz_boundary_2021 (Northern Ireland, Data Zone 2021), joined at load on the row's code. |

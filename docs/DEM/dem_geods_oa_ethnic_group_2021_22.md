@@ -6,7 +6,7 @@
 
 **SOURCE**
 
-- Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk021 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 13 source columns copied as published under their source variable identifiers; nothing derived, renamed or filtered.
+- Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk021 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 13 source columns copied as published; nothing derived or filtered. Columns carry readable names from the GeoDS labels (see SCOPE); the GeoDS identifier is recorded in every column comment.
 
 **DOCUMENTATION**
 
@@ -25,7 +25,8 @@
 **SCOPE**
 
 - United Kingdom. 239,023 rows, one per small area: England 178,605; Wales 10,275; Scotland 46,363; Northern Ireland 3,780. Codes are Output Area 2021 (E00, W00), Output Area 2022 (S00) and Data Zone 2021 (N20).
-- Counts only; uk021001 is the table total. No percentages are supplied by the publisher and none were computed.
+- Counts only; `total` (GeoDS uk021001) is the table total. No percentages are supplied by the publisher and none were computed.
+- Column names are readable forms of the GeoDS labels, signed off by the data manager on 2 September 2026; each column comment names the GeoDS source identifier. Mapping: scripts/unified_census/column_names.py.
 - Sibling of the other 24 GeoDS Unified UK Census tables named dem_geods_oa_*_2021_22.
 
 **CRS**
@@ -55,17 +56,17 @@
 |---|---|---|
 | `fid` | `integer` |  |
 | `oa` | `character varying(9)` | Source field `OA`; small-area code: "OA21CD (England/Wales), OA22CD (Scotland), DZ21CD (Northern Ireland)" (GeoDS). Northern Ireland Data Zones are labelled OA by the publisher. |
-| `uk021001` | `integer` | Source field `uk021001`; "Ethnic group: Total: All usual residents". Unit: "Person". |
-| `uk021002` | `integer` | Source field `uk021002`; "Ethnic group: Asian". Unit: "Person". |
-| `uk021003` | `integer` | Source field `uk021003`; "Ethnic group: Asian: Bangladeshi". Unit: "Person". |
-| `uk021004` | `integer` | Source field `uk021004`; "Ethnic group: Asian: Chinese". Unit: "Person". |
-| `uk021005` | `integer` | Source field `uk021005`; "Ethnic group: Asian: Indian". Unit: "Person". |
-| `uk021006` | `integer` | Source field `uk021006`; "Ethnic group: Asian: Pakistani". Unit: "Person". |
-| `uk021007` | `integer` | Source field `uk021007`; "Ethnic group: Asian: Other Asian". Unit: "Person". |
-| `uk021008` | `integer` | Source field `uk021008`; "Ethnic group: Black, Caribbean or African". Unit: "Person". |
-| `uk021009` | `integer` | Source field `uk021009`; "Ethnic group: Mixed or Multiple ethnic groups". Unit: "Person". |
-| `uk021010` | `integer` | Source field `uk021010`; "Ethnic group: White". Unit: "Person". |
-| `uk021011` | `integer` | Source field `uk021011`; "Ethnic group: Other ethnic group". Unit: "Person". |
-| `uk021012` | `integer` | Source field `uk021012`; "Ethnic group: Other ethnic group: Arab". Unit: "Person". |
-| `uk021013` | `integer` | Source field `uk021013`; "Ethnic group: Other ethnic group: Any other ethnic group". Unit: "Person". |
+| `total` | `integer` | Source field `uk021001`; "Ethnic group: Total: All usual residents". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `asian` | `integer` | Source field `uk021002`; "Ethnic group: Asian". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `asian_bangladeshi` | `integer` | Source field `uk021003`; "Ethnic group: Asian: Bangladeshi". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `asian_chinese` | `integer` | Source field `uk021004`; "Ethnic group: Asian: Chinese". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `asian_indian` | `integer` | Source field `uk021005`; "Ethnic group: Asian: Indian". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `asian_pakistani` | `integer` | Source field `uk021006`; "Ethnic group: Asian: Pakistani". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `asian_other` | `integer` | Source field `uk021007`; "Ethnic group: Asian: Other Asian". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `black_caribbean_or_african` | `integer` | Source field `uk021008`; "Ethnic group: Black, Caribbean or African". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `mixed_or_multiple` | `integer` | Source field `uk021009`; "Ethnic group: Mixed or Multiple ethnic groups". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `white` | `integer` | Source field `uk021010`; "Ethnic group: White". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `other_ethnic_group` | `integer` | Source field `uk021011`; "Ethnic group: Other ethnic group". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `other_arab` | `integer` | Source field `uk021012`; "Ethnic group: Other ethnic group: Arab". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
+| `other_any_other` | `integer` | Source field `uk021013`; "Ethnic group: Other ethnic group: Any other ethnic group". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off). |
 | `geom` | `geometry(MultiPolygon,27700)` | Geometry from uk_baseline.adm_ons_oa_boundaries_dec2021 (England and Wales, Output Area 2021), uk_baseline.adm_nrs_oa_boundary_2022 (Scotland, Output Area 2022) and uk_baseline.adm_nisra_dz_boundary_2021 (Northern Ireland, Data Zone 2021), joined at load on the row's code. |

@@ -6314,6 +6314,12 @@
 <li>Harmonisation notes for this table (GeoDS Table Notes, verbatim): "1. The censuses each differ in the variables for subdivisions of the EU, therefore only the total EU variable is included in the unified table. 2. The variable "Country of birth: British Overseas" only included in the England and Wales table, it is therefore not used in the unified table."</li>
 <li>Northern Ireland geometry was reprojected from Irish Grid with about 3 m accuracy; see uk_baseline.adm_nisra_dz_boundary_2021.</li>
 <li>9 Scottish polygons (S00136407, S00136544, S00138851, S00142130, S00148144, S00162192, S00176070, S00177785, S00181661) were published with a ring touching itself at one vertex and were repaired on 2 September 2026 with the data manager's approval; no change in area.</li>
+<li>Geography columns are NULL on 50,143 of 239,023 rows: every Scotland and Northern Ireland row. sds_name and sds_group are also NULL on all 10,275 Wales rows and on 9 England rows (Isles of Scilly pattern), as on the backbone.</li>
+</ul>
+<p><strong>ENRICHMENT</strong></p>
+<ul>
+<li>Route attr_join on <code>oa</code>, applied 2 September 2026 through the uk_new staging schema. England and Wales rows carry Output Area 2021 codes, which nest wholly within LSOA 2021 and MSOA 2021, so the join is exact rather than best-fit; all eleven geography columns were copied from uk_baseline.adm_ons_oa_boundaries_dec2021 (itself enriched 5 August 2026: MSOA 2021 via the ONS 2021 output-area hierarchy, Local Authority District 2022 and 2025, county or unitary authority 2025 and Spatial Development Strategy via uk.ref_lad25_ctyua25_sds_lu_jul2026). Row count unchanged at 239,023. No numeric value was changed, recomputed or apportioned.</li>
+<li>Scotland (Output Area 2022) and Northern Ireland (Data Zone 2021) rows, 50,143 in all, have no MSOA, Local Authority District 2025, county or Spatial Development Strategy in this scheme and are NULL in all eleven columns. Wales carries a county but no SDS.</li>
 </ul>
 <p><strong>LOADED INTO uk_baseline</strong></p>
 <ul>
@@ -6388,6 +6394,61 @@
 <td><code>geom</code></td>
 <td><code>geometry(MultiPolygon,27700)</code></td>
 <td>Geometry from uk_baseline.adm_ons_oa_boundaries_dec2021 (England and Wales, Output Area 2021), uk_baseline.adm_nrs_oa_boundary_2022 (Scotland, Output Area 2022) and uk_baseline.adm_nisra_dz_boundary_2021 (Northern Ireland, Data Zone 2021), joined at load on the row's code.</td>
+</tr>
+<tr>
+<td><code>msoa21cd</code></td>
+<td><code>character varying(9)</code></td>
+<td>Middle Layer Super Output Area (MSOA) 2021 code of the row's Lower Layer Super Output Area (LSOA); LSOAs nest wholly within MSOAs. Joined at load on lsoa21cd via uk_baseline.adm_ons_lsoa_boundary_2021, then uk_baseline.adm_ons_msoa_boundary_2021. Open Government Licence v3.0. Copied at load from uk_baseline.adm_ons_oa_boundaries_dec2021 on <code>oa</code> (Output Area 2021 code); NULL for every Scotland and Northern Ireland row.</td>
+</tr>
+<tr>
+<td><code>msoa21nm</code></td>
+<td><code>text</code></td>
+<td>Official Office for National Statistics MSOA 2021 name of the row's Lower Layer Super Output Area (LSOA); LSOAs nest wholly within MSOAs. Joined at load on lsoa21cd via uk_baseline.adm_ons_lsoa_boundary_2021, then uk_baseline.adm_ons_msoa_boundary_2021. Open Government Licence v3.0. Copied at load from uk_baseline.adm_ons_oa_boundaries_dec2021 on <code>oa</code> (Output Area 2021 code); NULL for every Scotland and Northern Ireland row.</td>
+</tr>
+<tr>
+<td><code>msoa21hclnm</code></td>
+<td><code>text</code></td>
+<td>House of Commons Library readable MSOA name of the row's Lower Layer Super Output Area (LSOA); LSOAs nest wholly within MSOAs. Joined at load on lsoa21cd via uk_baseline.adm_ons_lsoa_boundary_2021, then uk_baseline.adm_ons_msoa_boundary_2021, which carries the House of Commons Library name. Open Parliament Licence. Copied at load from uk_baseline.adm_ons_oa_boundaries_dec2021 on <code>oa</code> (Output Area 2021 code); NULL for every Scotland and Northern Ireland row.</td>
+</tr>
+<tr>
+<td><code>lad22cd</code></td>
+<td><code>character varying(9)</code></td>
+<td>Local Authority District 2022 code (2021 LAD geography, anchored to the MSOA 2021 name scoping), best-fit assigned from the row's Lower Layer Super Output Area (LSOA); LSOAs nest wholly within MSOAs. Joined at load on lsoa21cd via uk_baseline.adm_ons_lsoa_boundary_2021, then uk_baseline.adm_ons_msoa_boundary_2021. Open Government Licence v3.0. Copied at load from uk_baseline.adm_ons_oa_boundaries_dec2021 on <code>oa</code> (Output Area 2021 code); NULL for every Scotland and Northern Ireland row.</td>
+</tr>
+<tr>
+<td><code>lad22nm</code></td>
+<td><code>text</code></td>
+<td>Local Authority District 2022 name (2021 LAD geography), best-fit assigned from the row's Lower Layer Super Output Area (LSOA); LSOAs nest wholly within MSOAs. Joined at load on lsoa21cd via uk_baseline.adm_ons_lsoa_boundary_2021, then uk_baseline.adm_ons_msoa_boundary_2021. Open Government Licence v3.0. Copied at load from uk_baseline.adm_ons_oa_boundaries_dec2021 on <code>oa</code> (Output Area 2021 code); NULL for every Scotland and Northern Ireland row.</td>
+</tr>
+<tr>
+<td><code>lad25cd</code></td>
+<td><code>character varying(9)</code></td>
+<td>Local Authority District 2025 code (current administering authority), best-fit assigned from the row's Lower Layer Super Output Area (LSOA); LSOAs nest wholly within MSOAs. Joined at load on lsoa21cd via uk_baseline.adm_ons_lsoa_boundary_2021, then uk_baseline.adm_ons_msoa_boundary_2021. Open Government Licence v3.0. Copied at load from uk_baseline.adm_ons_oa_boundaries_dec2021 on <code>oa</code> (Output Area 2021 code); NULL for every Scotland and Northern Ireland row.</td>
+</tr>
+<tr>
+<td><code>lad25nm</code></td>
+<td><code>text</code></td>
+<td>Local Authority District 2025 name (current administering authority), best-fit assigned from the row's Lower Layer Super Output Area (LSOA); LSOAs nest wholly within MSOAs. Joined at load on lsoa21cd via uk_baseline.adm_ons_lsoa_boundary_2021, then uk_baseline.adm_ons_msoa_boundary_2021. Open Government Licence v3.0. Copied at load from uk_baseline.adm_ons_oa_boundaries_dec2021 on <code>oa</code> (Output Area 2021 code); NULL for every Scotland and Northern Ireland row.</td>
+</tr>
+<tr>
+<td><code>ctyua25cd</code></td>
+<td><code>character varying(9)</code></td>
+<td>County or unitary authority code at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. Copied at load from uk_baseline.adm_ons_oa_boundaries_dec2021 on <code>oa</code> (Output Area 2021 code); NULL for every Scotland and Northern Ireland row.</td>
+</tr>
+<tr>
+<td><code>ctyua25nm</code></td>
+<td><code>text</code></td>
+<td>County or unitary authority name at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. Copied at load from uk_baseline.adm_ons_oa_boundaries_dec2021 on <code>oa</code> (Output Area 2021 code); NULL for every Scotland and Northern Ireland row.</td>
+</tr>
+<tr>
+<td><code>sds_name</code></td>
+<td><code>text</code></td>
+<td>Spatial Development Strategy (SDS) area, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. Copied at load from uk_baseline.adm_ons_oa_boundaries_dec2021 on <code>oa</code> (Output Area 2021 code); NULL for every Scotland and Northern Ireland row.</td>
+</tr>
+<tr>
+<td><code>sds_group</code></td>
+<td><code>text</code></td>
+<td>Devolution status of the Spatial Development Strategy area: Existing Devolution Footprints, Devolution Priority Programme, Other Proposed Geographies or Remaining Areas. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. Copied at load from uk_baseline.adm_ons_oa_boundaries_dec2021 on <code>oa</code> (Output Area 2021 code); NULL for every Scotland and Northern Ireland row.</td>
 </tr>
 </tbody>
 </table>

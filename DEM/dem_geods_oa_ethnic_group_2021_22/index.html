@@ -6276,7 +6276,7 @@
 <p><code>dem_geods_oa_ethnic_group_2021_22</code></p>
 <p><strong>SOURCE</strong></p>
 <ul>
-<li>Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk021 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 13 source columns copied as published under their source variable identifiers; nothing derived, renamed or filtered.</li>
+<li>Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk021 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 13 source columns copied as published; nothing derived or filtered. Columns carry readable names from the GeoDS labels (see SCOPE); the GeoDS identifier is recorded in every column comment.</li>
 </ul>
 <p><strong>DOCUMENTATION</strong></p>
 <ul>
@@ -6295,7 +6295,8 @@
 <p><strong>SCOPE</strong></p>
 <ul>
 <li>United Kingdom. 239,023 rows, one per small area: England 178,605; Wales 10,275; Scotland 46,363; Northern Ireland 3,780. Codes are Output Area 2021 (E00, W00), Output Area 2022 (S00) and Data Zone 2021 (N20).</li>
-<li>Counts only; uk021001 is the table total. No percentages are supplied by the publisher and none were computed.</li>
+<li>Counts only; <code>total</code> (GeoDS uk021001) is the table total. No percentages are supplied by the publisher and none were computed.</li>
+<li>Column names are readable forms of the GeoDS labels, signed off by the data manager on 2 September 2026; each column comment names the GeoDS source identifier. Mapping: scripts/unified_census/column_names.py.</li>
 <li>Sibling of the other 24 GeoDS Unified UK Census tables named dem_geods_oa_*_2021_22.</li>
 </ul>
 <p><strong>CRS</strong></p>
@@ -6339,69 +6340,69 @@
 <td>Source field <code>OA</code>; small-area code: "OA21CD (England/Wales), OA22CD (Scotland), DZ21CD (Northern Ireland)" (GeoDS). Northern Ireland Data Zones are labelled OA by the publisher.</td>
 </tr>
 <tr>
-<td><code>uk021001</code></td>
+<td><code>total</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk021001</code>; "Ethnic group: Total: All usual residents". Unit: "Person".</td>
+<td>Source field <code>uk021001</code>; "Ethnic group: Total: All usual residents". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk021002</code></td>
+<td><code>asian</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk021002</code>; "Ethnic group: Asian". Unit: "Person".</td>
+<td>Source field <code>uk021002</code>; "Ethnic group: Asian". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk021003</code></td>
+<td><code>asian_bangladeshi</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk021003</code>; "Ethnic group: Asian: Bangladeshi". Unit: "Person".</td>
+<td>Source field <code>uk021003</code>; "Ethnic group: Asian: Bangladeshi". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk021004</code></td>
+<td><code>asian_chinese</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk021004</code>; "Ethnic group: Asian: Chinese". Unit: "Person".</td>
+<td>Source field <code>uk021004</code>; "Ethnic group: Asian: Chinese". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk021005</code></td>
+<td><code>asian_indian</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk021005</code>; "Ethnic group: Asian: Indian". Unit: "Person".</td>
+<td>Source field <code>uk021005</code>; "Ethnic group: Asian: Indian". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk021006</code></td>
+<td><code>asian_pakistani</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk021006</code>; "Ethnic group: Asian: Pakistani". Unit: "Person".</td>
+<td>Source field <code>uk021006</code>; "Ethnic group: Asian: Pakistani". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk021007</code></td>
+<td><code>asian_other</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk021007</code>; "Ethnic group: Asian: Other Asian". Unit: "Person".</td>
+<td>Source field <code>uk021007</code>; "Ethnic group: Asian: Other Asian". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk021008</code></td>
+<td><code>black_caribbean_or_african</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk021008</code>; "Ethnic group: Black, Caribbean or African". Unit: "Person".</td>
+<td>Source field <code>uk021008</code>; "Ethnic group: Black, Caribbean or African". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk021009</code></td>
+<td><code>mixed_or_multiple</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk021009</code>; "Ethnic group: Mixed or Multiple ethnic groups". Unit: "Person".</td>
+<td>Source field <code>uk021009</code>; "Ethnic group: Mixed or Multiple ethnic groups". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk021010</code></td>
+<td><code>white</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk021010</code>; "Ethnic group: White". Unit: "Person".</td>
+<td>Source field <code>uk021010</code>; "Ethnic group: White". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk021011</code></td>
+<td><code>other_ethnic_group</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk021011</code>; "Ethnic group: Other ethnic group". Unit: "Person".</td>
+<td>Source field <code>uk021011</code>; "Ethnic group: Other ethnic group". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk021012</code></td>
+<td><code>other_arab</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk021012</code>; "Ethnic group: Other ethnic group: Arab". Unit: "Person".</td>
+<td>Source field <code>uk021012</code>; "Ethnic group: Other ethnic group: Arab". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk021013</code></td>
+<td><code>other_any_other</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk021013</code>; "Ethnic group: Other ethnic group: Any other ethnic group". Unit: "Person".</td>
+<td>Source field <code>uk021013</code>; "Ethnic group: Other ethnic group: Any other ethnic group". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
 <td><code>geom</code></td>

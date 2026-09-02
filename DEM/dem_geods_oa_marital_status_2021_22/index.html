@@ -6276,7 +6276,7 @@
 <p><code>dem_geods_oa_marital_status_2021_22</code></p>
 <p><strong>SOURCE</strong></p>
 <ul>
-<li>Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk002 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 6 source columns copied as published under their source variable identifiers; nothing derived, renamed or filtered.</li>
+<li>Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk002 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 6 source columns copied as published; nothing derived or filtered. Columns carry readable names from the GeoDS labels (see SCOPE); the GeoDS identifier is recorded in every column comment.</li>
 </ul>
 <p><strong>DOCUMENTATION</strong></p>
 <ul>
@@ -6295,7 +6295,8 @@
 <p><strong>SCOPE</strong></p>
 <ul>
 <li>United Kingdom. 239,023 rows, one per small area: England 178,605; Wales 10,275; Scotland 46,363; Northern Ireland 3,780. Codes are Output Area 2021 (E00, W00), Output Area 2022 (S00) and Data Zone 2021 (N20).</li>
-<li>Counts only; uk002001 is the table total. No percentages are supplied by the publisher and none were computed.</li>
+<li>Counts only; <code>total</code> (GeoDS uk002001) is the table total. No percentages are supplied by the publisher and none were computed.</li>
+<li>Column names are readable forms of the GeoDS labels, signed off by the data manager on 2 September 2026; each column comment names the GeoDS source identifier. Mapping: scripts/unified_census/column_names.py.</li>
 <li>Sibling of the other 24 GeoDS Unified UK Census tables named dem_geods_oa_*_2021_22.</li>
 </ul>
 <p><strong>CRS</strong></p>
@@ -6339,34 +6340,34 @@
 <td>Source field <code>OA</code>; small-area code: "OA21CD (England/Wales), OA22CD (Scotland), DZ21CD (Northern Ireland)" (GeoDS). Northern Ireland Data Zones are labelled OA by the publisher.</td>
 </tr>
 <tr>
-<td><code>uk002001</code></td>
+<td><code>total</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk002001</code>; "Marital and civil partnership status: Total". Unit: "Person".</td>
+<td>Source field <code>uk002001</code>; "Marital and civil partnership status: Total". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk002002</code></td>
+<td><code>never_married_or_civil_partnered</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk002002</code>; "Marital and civil partnership status: Never married and never registered a civil partnership". Unit: "Person".</td>
+<td>Source field <code>uk002002</code>; "Marital and civil partnership status: Never married and never registered a civil partnership". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk002003</code></td>
+<td><code>married_or_civil_partnered</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk002003</code>; "Marital and civil partnership status: Married or in a registered civil partnership". Unit: "Person".</td>
+<td>Source field <code>uk002003</code>; "Marital and civil partnership status: Married or in a registered civil partnership". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk002004</code></td>
+<td><code>separated</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk002004</code>; "Marital and civil partnership status: Separated, but still legally married or still legally in a civil partnership". Unit: "Person".</td>
+<td>Source field <code>uk002004</code>; "Marital and civil partnership status: Separated, but still legally married or still legally in a civil partnership". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk002005</code></td>
+<td><code>divorced_or_partnership_dissolved</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk002005</code>; "Marital and civil partnership status: Divorced or civil partnership dissolved". Unit: "Person".</td>
+<td>Source field <code>uk002005</code>; "Marital and civil partnership status: Divorced or civil partnership dissolved". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk002006</code></td>
+<td><code>widowed_or_surviving_partner</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk002006</code>; "Marital and civil partnership status: Widowed or surviving civil partnership partner". Unit: "Person".</td>
+<td>Source field <code>uk002006</code>; "Marital and civil partnership status: Widowed or surviving civil partnership partner". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
 <td><code>geom</code></td>

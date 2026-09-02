@@ -6276,7 +6276,7 @@
 <p><code>dem_geods_oa_travel_to_work_2021_22</code></p>
 <p><strong>SOURCE</strong></p>
 <ul>
-<li>Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk061 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 11 source columns copied as published under their source variable identifiers; nothing derived, renamed or filtered.</li>
+<li>Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk061 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 11 source columns copied as published; nothing derived or filtered. Columns carry readable names from the GeoDS labels (see SCOPE); the GeoDS identifier is recorded in every column comment.</li>
 </ul>
 <p><strong>DOCUMENTATION</strong></p>
 <ul>
@@ -6295,7 +6295,8 @@
 <p><strong>SCOPE</strong></p>
 <ul>
 <li>United Kingdom. 239,023 rows, one per small area: England 178,605; Wales 10,275; Scotland 46,363; Northern Ireland 3,780. Codes are Output Area 2021 (E00, W00), Output Area 2022 (S00) and Data Zone 2021 (N20).</li>
-<li>Counts only; uk061001 is the table total. No percentages are supplied by the publisher and none were computed.</li>
+<li>Counts only; <code>total</code> (GeoDS uk061001) is the table total. No percentages are supplied by the publisher and none were computed.</li>
+<li>Column names are readable forms of the GeoDS labels, signed off by the data manager on 2 September 2026; each column comment names the GeoDS source identifier. Mapping: scripts/unified_census/column_names.py.</li>
 <li>Sibling of the other 24 GeoDS Unified UK Census tables named dem_geods_oa_*_2021_22.</li>
 </ul>
 <p><strong>CRS</strong></p>
@@ -6340,59 +6341,59 @@
 <td>Source field <code>OA</code>; small-area code: "OA21CD (England/Wales), OA22CD (Scotland), DZ21CD (Northern Ireland)" (GeoDS). Northern Ireland Data Zones are labelled OA by the publisher.</td>
 </tr>
 <tr>
-<td><code>uk061001</code></td>
+<td><code>total</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk061001</code>; "Method of travel to workplace: Total: All usual residents aged 16 years and over in employment the week before the census". Unit: "Person".</td>
+<td>Source field <code>uk061001</code>; "Method of travel to workplace: Total: All usual residents aged 16 years and over in employment the week before the census". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk061002</code></td>
+<td><code>work_from_home</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk061002</code>; "Method of travel to workplace: Work mainly at or from home". Unit: "Person".</td>
+<td>Source field <code>uk061002</code>; "Method of travel to workplace: Work mainly at or from home". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk061003</code></td>
+<td><code>underground_metro_light_rail_tram</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk061003</code>; "Method of travel to workplace: Underground, metro, light rail, tram". Unit: "Person".</td>
+<td>Source field <code>uk061003</code>; "Method of travel to workplace: Underground, metro, light rail, tram". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk061004</code></td>
+<td><code>train</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk061004</code>; "Method of travel to workplace: Train". Unit: "Person".</td>
+<td>Source field <code>uk061004</code>; "Method of travel to workplace: Train". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk061005</code></td>
+<td><code>bus_minibus_or_coach</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk061005</code>; "Method of travel to workplace: Bus, minibus or coach". Unit: "Person".</td>
+<td>Source field <code>uk061005</code>; "Method of travel to workplace: Bus, minibus or coach". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk061006</code></td>
+<td><code>taxi</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk061006</code>; "Method of travel to workplace: Taxi". Unit: "Person".</td>
+<td>Source field <code>uk061006</code>; "Method of travel to workplace: Taxi". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk061007</code></td>
+<td><code>motorcycle_scooter_or_moped</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk061007</code>; "Method of travel to workplace: Motorcycle, scooter or moped". Unit: "Person".</td>
+<td>Source field <code>uk061007</code>; "Method of travel to workplace: Motorcycle, scooter or moped". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk061008</code></td>
+<td><code>car_or_van</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk061008</code>; "Method of travel to workplace: Car or van". Unit: "Person".</td>
+<td>Source field <code>uk061008</code>; "Method of travel to workplace: Car or van". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk061009</code></td>
+<td><code>bicycle</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk061009</code>; "Method of travel to workplace: Bicycle". Unit: "Person".</td>
+<td>Source field <code>uk061009</code>; "Method of travel to workplace: Bicycle". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk061010</code></td>
+<td><code>on_foot</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk061010</code>; "Method of travel to workplace: On foot". Unit: "Person".</td>
+<td>Source field <code>uk061010</code>; "Method of travel to workplace: On foot". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk061011</code></td>
+<td><code>other_method</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk061011</code>; "Method of travel to workplace: Other method of travel to work". Unit: "Person".</td>
+<td>Source field <code>uk061011</code>; "Method of travel to workplace: Other method of travel to work". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
 <td><code>geom</code></td>

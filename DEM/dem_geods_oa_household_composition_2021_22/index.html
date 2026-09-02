@@ -6276,7 +6276,7 @@
 <p><code>dem_geods_oa_household_composition_2021_22</code></p>
 <p><strong>SOURCE</strong></p>
 <ul>
-<li>Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk003 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 14 source columns copied as published under their source variable identifiers; nothing derived, renamed or filtered.</li>
+<li>Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk003 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 14 source columns copied as published; nothing derived or filtered. Columns carry readable names from the GeoDS labels (see SCOPE); the GeoDS identifier is recorded in every column comment.</li>
 </ul>
 <p><strong>DOCUMENTATION</strong></p>
 <ul>
@@ -6295,7 +6295,8 @@
 <p><strong>SCOPE</strong></p>
 <ul>
 <li>United Kingdom. 239,023 rows, one per small area: England 178,605; Wales 10,275; Scotland 46,363; Northern Ireland 3,780. Codes are Output Area 2021 (E00, W00), Output Area 2022 (S00) and Data Zone 2021 (N20).</li>
-<li>Counts only; uk003001 is the table total. No percentages are supplied by the publisher and none were computed.</li>
+<li>Counts only; <code>total</code> (GeoDS uk003001) is the table total. No percentages are supplied by the publisher and none were computed.</li>
+<li>Column names are readable forms of the GeoDS labels, signed off by the data manager on 2 September 2026; each column comment names the GeoDS source identifier. Mapping: scripts/unified_census/column_names.py.</li>
 <li>Sibling of the other 24 GeoDS Unified UK Census tables named dem_geods_oa_*_2021_22.</li>
 </ul>
 <p><strong>CRS</strong></p>
@@ -6339,74 +6340,74 @@
 <td>Source field <code>OA</code>; small-area code: "OA21CD (England/Wales), OA22CD (Scotland), DZ21CD (Northern Ireland)" (GeoDS). Northern Ireland Data Zones are labelled OA by the publisher.</td>
 </tr>
 <tr>
-<td><code>uk003001</code></td>
+<td><code>total</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk003001</code>; "Household composition: Total". Unit: "Household".</td>
+<td>Source field <code>uk003001</code>; "Household composition: Total". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk003002</code></td>
+<td><code>one_person_hh</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk003002</code>; "Household composition: One person household". Unit: "Household".</td>
+<td>Source field <code>uk003002</code>; "Household composition: One person household". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk003003</code></td>
+<td><code>one_person_hh_aged_66_plus</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk003003</code>; "Household composition: One person household: Aged 66 years and over". Unit: "Household".</td>
+<td>Source field <code>uk003003</code>; "Household composition: One person household: Aged 66 years and over". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk003004</code></td>
+<td><code>one_person_hh_other</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk003004</code>; "Household composition: One person household: Other". Unit: "Household".</td>
+<td>Source field <code>uk003004</code>; "Household composition: One person household: Other". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk003005</code></td>
+<td><code>single_family_hh</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk003005</code>; "Household composition: Single family household". Unit: "Household".</td>
+<td>Source field <code>uk003005</code>; "Household composition: Single family household". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk003006</code></td>
+<td><code>couple_family_hh</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk003006</code>; "Household composition:  Single family household: Couple family household". Unit: "Household".</td>
+<td>Source field <code>uk003006</code>; "Household composition:  Single family household: Couple family household". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk003007</code></td>
+<td><code>couple_family_no_children</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk003007</code>; "Household composition:  Single family household: Couple family household: No children". Unit: "Household".</td>
+<td>Source field <code>uk003007</code>; "Household composition:  Single family household: Couple family household: No children". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk003008</code></td>
+<td><code>couple_family_dependent_children</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk003008</code>; "Household composition:  Single family household: Couple family household: Dependent children". Unit: "Household".</td>
+<td>Source field <code>uk003008</code>; "Household composition:  Single family household: Couple family household: Dependent children". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk003009</code></td>
+<td><code>couple_family_all_children_non_dependent</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk003009</code>; "Household composition:  Single family household: Couple family household: All children non-dependent". Unit: "Household".</td>
+<td>Source field <code>uk003009</code>; "Household composition:  Single family household: Couple family household: All children non-dependent". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk003010</code></td>
+<td><code>lone_parent_family</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk003010</code>; "Household composition: Single family household: Lone parent family". Unit: "Household".</td>
+<td>Source field <code>uk003010</code>; "Household composition: Single family household: Lone parent family". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk003011</code></td>
+<td><code>lone_parent_dependent_children</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk003011</code>; "Household composition: Single family household: Lone parent family: With dependent children". Unit: "Household".</td>
+<td>Source field <code>uk003011</code>; "Household composition: Single family household: Lone parent family: With dependent children". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk003012</code></td>
+<td><code>lone_parent_all_children_non_dependent</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk003012</code>; "Household composition: Single family household: Lone parent family: All children non-dependent". Unit: "Household".</td>
+<td>Source field <code>uk003012</code>; "Household composition: Single family household: Lone parent family: All children non-dependent". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk003013</code></td>
+<td><code>other_single_family_hh_incl_66_plus</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk003013</code>; "Household composition: Single family household: Other single family household (including All aged 66 years and over)". Unit: "Household".</td>
+<td>Source field <code>uk003013</code>; "Household composition: Single family household: Other single family household (including All aged 66 years and over)". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk003014</code></td>
+<td><code>other_hh_types</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk003014</code>; "Household composition: Other household types". Unit: "Household".</td>
+<td>Source field <code>uk003014</code>; "Household composition: Other household types". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
 <td><code>geom</code></td>

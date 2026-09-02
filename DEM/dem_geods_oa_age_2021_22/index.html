@@ -6276,7 +6276,7 @@
 <p><code>dem_geods_oa_age_2021_22</code></p>
 <p><strong>SOURCE</strong></p>
 <ul>
-<li>Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk007a from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 19 source columns copied as published under their source variable identifiers; nothing derived, renamed or filtered.</li>
+<li>Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk007a from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 19 source columns copied as published; nothing derived or filtered. Columns carry readable names from the GeoDS labels (see SCOPE); the GeoDS identifier is recorded in every column comment.</li>
 </ul>
 <p><strong>DOCUMENTATION</strong></p>
 <ul>
@@ -6295,7 +6295,8 @@
 <p><strong>SCOPE</strong></p>
 <ul>
 <li>United Kingdom. 239,023 rows, one per small area: England 178,605; Wales 10,275; Scotland 46,363; Northern Ireland 3,780. Codes are Output Area 2021 (E00, W00), Output Area 2022 (S00) and Data Zone 2021 (N20).</li>
-<li>Counts only; uk007a001 is the table total. No percentages are supplied by the publisher and none were computed.</li>
+<li>Counts only; <code>total</code> (GeoDS uk007a001) is the table total. No percentages are supplied by the publisher and none were computed.</li>
+<li>Column names are readable forms of the GeoDS labels, signed off by the data manager on 2 September 2026; each column comment names the GeoDS source identifier. Mapping: scripts/unified_census/column_names.py.</li>
 <li>Sibling of the other 24 GeoDS Unified UK Census tables named dem_geods_oa_*_2021_22.</li>
 </ul>
 <p><strong>CRS</strong></p>
@@ -6338,99 +6339,99 @@
 <td>Source field <code>OA</code>; small-area code: "OA21CD (England/Wales), OA22CD (Scotland), DZ21CD (Northern Ireland)" (GeoDS). Northern Ireland Data Zones are labelled OA by the publisher.</td>
 </tr>
 <tr>
-<td><code>uk007a001</code></td>
+<td><code>total</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk007a001</code>; "Age: Total". Unit: "Person".</td>
+<td>Source field <code>uk007a001</code>; "Age: Total". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk007a002</code></td>
+<td><code>aged_4_and_under</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk007a002</code>; "Age: Aged 4 years and under". Unit: "Person".</td>
+<td>Source field <code>uk007a002</code>; "Age: Aged 4 years and under". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk007a003</code></td>
+<td><code>aged_5_to_9</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk007a003</code>; "Age: Aged 5 to 9 years". Unit: "Person".</td>
+<td>Source field <code>uk007a003</code>; "Age: Aged 5 to 9 years". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk007a004</code></td>
+<td><code>aged_10_to_14</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk007a004</code>; "Age: Aged 10 to 14 years". Unit: "Person".</td>
+<td>Source field <code>uk007a004</code>; "Age: Aged 10 to 14 years". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk007a005</code></td>
+<td><code>aged_15_to_19</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk007a005</code>; "Age: Aged 15 to 19 years". Unit: "Person".</td>
+<td>Source field <code>uk007a005</code>; "Age: Aged 15 to 19 years". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk007a006</code></td>
+<td><code>aged_20_to_24</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk007a006</code>; "Age: Aged 20 to 24 years". Unit: "Person".</td>
+<td>Source field <code>uk007a006</code>; "Age: Aged 20 to 24 years". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk007a007</code></td>
+<td><code>aged_25_to_29</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk007a007</code>; "Age: Aged 25 to 29 years". Unit: "Person".</td>
+<td>Source field <code>uk007a007</code>; "Age: Aged 25 to 29 years". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk007a008</code></td>
+<td><code>aged_30_to_34</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk007a008</code>; "Age: Aged 30 to 34 years". Unit: "Person".</td>
+<td>Source field <code>uk007a008</code>; "Age: Aged 30 to 34 years". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk007a009</code></td>
+<td><code>aged_35_to_39</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk007a009</code>; "Age: Aged 35 to 39 years". Unit: "Person".</td>
+<td>Source field <code>uk007a009</code>; "Age: Aged 35 to 39 years". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk007a010</code></td>
+<td><code>aged_40_to_44</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk007a010</code>; "Age: Aged 40 to 44 years". Unit: "Person".</td>
+<td>Source field <code>uk007a010</code>; "Age: Aged 40 to 44 years". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk007a011</code></td>
+<td><code>aged_45_to_49</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk007a011</code>; "Age: Aged 45 to 49 years". Unit: "Person".</td>
+<td>Source field <code>uk007a011</code>; "Age: Aged 45 to 49 years". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk007a012</code></td>
+<td><code>aged_50_to_54</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk007a012</code>; "Age: Aged 50 to 54 years". Unit: "Person".</td>
+<td>Source field <code>uk007a012</code>; "Age: Aged 50 to 54 years". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk007a013</code></td>
+<td><code>aged_55_to_59</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk007a013</code>; "Age: Aged 55 to 59 years". Unit: "Person".</td>
+<td>Source field <code>uk007a013</code>; "Age: Aged 55 to 59 years". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk007a014</code></td>
+<td><code>aged_60_to_64</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk007a014</code>; "Age: Aged 60 to 64 years". Unit: "Person".</td>
+<td>Source field <code>uk007a014</code>; "Age: Aged 60 to 64 years". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk007a015</code></td>
+<td><code>aged_65_to_69</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk007a015</code>; "Age: Aged 65 to 69 years". Unit: "Person".</td>
+<td>Source field <code>uk007a015</code>; "Age: Aged 65 to 69 years". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk007a016</code></td>
+<td><code>aged_70_to_74</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk007a016</code>; "Age: Aged 70 to 74 years". Unit: "Person".</td>
+<td>Source field <code>uk007a016</code>; "Age: Aged 70 to 74 years". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk007a017</code></td>
+<td><code>aged_75_to_79</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk007a017</code>; "Age: Aged 75 to 79 years". Unit: "Person".</td>
+<td>Source field <code>uk007a017</code>; "Age: Aged 75 to 79 years". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk007a018</code></td>
+<td><code>aged_80_to_84</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk007a018</code>; "Age: Aged 80 to 84 years". Unit: "Person".</td>
+<td>Source field <code>uk007a018</code>; "Age: Aged 80 to 84 years". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk007a019</code></td>
+<td><code>aged_85_and_over</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk007a019</code>; "Age: Aged 85 years and over". Unit: "Person".</td>
+<td>Source field <code>uk007a019</code>; "Age: Aged 85 years and over". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
 <td><code>geom</code></td>

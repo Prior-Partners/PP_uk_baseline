@@ -6276,7 +6276,7 @@
 <p><code>dem_geods_oa_central_heating_2021_22</code></p>
 <p><strong>SOURCE</strong></p>
 <ul>
-<li>Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk046 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 11 source columns copied as published under their source variable identifiers; nothing derived, renamed or filtered.</li>
+<li>Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk046 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 11 source columns copied as published; nothing derived or filtered. Columns carry readable names from the GeoDS labels (see SCOPE); the GeoDS identifier is recorded in every column comment.</li>
 </ul>
 <p><strong>DOCUMENTATION</strong></p>
 <ul>
@@ -6295,7 +6295,8 @@
 <p><strong>SCOPE</strong></p>
 <ul>
 <li>United Kingdom. 239,023 rows, one per small area: England 178,605; Wales 10,275; Scotland 46,363; Northern Ireland 3,780. Codes are Output Area 2021 (E00, W00), Output Area 2022 (S00) and Data Zone 2021 (N20).</li>
-<li>Counts only; uk046001 is the table total. No percentages are supplied by the publisher and none were computed.</li>
+<li>Counts only; <code>total</code> (GeoDS uk046001) is the table total. No percentages are supplied by the publisher and none were computed.</li>
+<li>Column names are readable forms of the GeoDS labels, signed off by the data manager on 2 September 2026; each column comment names the GeoDS source identifier. Mapping: scripts/unified_census/column_names.py.</li>
 <li>Sibling of the other 24 GeoDS Unified UK Census tables named dem_geods_oa_*_2021_22.</li>
 </ul>
 <p><strong>CRS</strong></p>
@@ -6339,59 +6340,59 @@
 <td>Source field <code>OA</code>; small-area code: "OA21CD (England/Wales), OA22CD (Scotland), DZ21CD (Northern Ireland)" (GeoDS). Northern Ireland Data Zones are labelled OA by the publisher.</td>
 </tr>
 <tr>
-<td><code>uk046001</code></td>
+<td><code>total</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk046001</code>; "Type of central heating in household: Total: All households". Unit: "Household".</td>
+<td>Source field <code>uk046001</code>; "Type of central heating in household: Total: All households". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk046002</code></td>
+<td><code>no_central_heating</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk046002</code>; "Type of central heating in household: No central heating". Unit: "Household".</td>
+<td>Source field <code>uk046002</code>; "Type of central heating in household: No central heating". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk046003</code></td>
+<td><code>mains_gas_only</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk046003</code>; "Type of central heating in household: Mains gas only". Unit: "Household".</td>
+<td>Source field <code>uk046003</code>; "Type of central heating in household: Mains gas only". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk046004</code></td>
+<td><code>tank_or_bottled_gas_only</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk046004</code>; "Type of central heating in household: Tank or bottled gas only". Unit: "Household".</td>
+<td>Source field <code>uk046004</code>; "Type of central heating in household: Tank or bottled gas only". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk046005</code></td>
+<td><code>electric_only</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk046005</code>; "Type of central heating in household: Electric only". Unit: "Household".</td>
+<td>Source field <code>uk046005</code>; "Type of central heating in household: Electric only". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk046006</code></td>
+<td><code>oil_only</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk046006</code>; "Type of central heating in household: Oil only". Unit: "Household".</td>
+<td>Source field <code>uk046006</code>; "Type of central heating in household: Oil only". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk046007</code></td>
+<td><code>wood_only</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk046007</code>; "Type of central heating in household: Wood only". Unit: "Household".</td>
+<td>Source field <code>uk046007</code>; "Type of central heating in household: Wood only". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk046008</code></td>
+<td><code>solid_fuel_only</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk046008</code>; "Type of central heating in household: Solid fuel only". Unit: "Household".</td>
+<td>Source field <code>uk046008</code>; "Type of central heating in household: Solid fuel only". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk046009</code></td>
+<td><code>renewable_energy_only</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk046009</code>; "Type of central heating in household: Renewable energy only". Unit: "Household".</td>
+<td>Source field <code>uk046009</code>; "Type of central heating in household: Renewable energy only". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk046010</code></td>
+<td><code>other_heating_only</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk046010</code>; "Type of central heating in household: Other central heating only". Unit: "Household".</td>
+<td>Source field <code>uk046010</code>; "Type of central heating in household: Other central heating only". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk046011</code></td>
+<td><code>two_or_more_types</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk046011</code>; "Type of central heating in household: Two or more types of central heating". Unit: "Household".</td>
+<td>Source field <code>uk046011</code>; "Type of central heating in household: Two or more types of central heating". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
 <td><code>geom</code></td>

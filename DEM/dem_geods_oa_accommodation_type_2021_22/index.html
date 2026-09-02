@@ -6276,7 +6276,7 @@
 <p><code>dem_geods_oa_accommodation_type_2021_22</code></p>
 <p><strong>SOURCE</strong></p>
 <ul>
-<li>Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk044 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 8 source columns copied as published under their source variable identifiers; nothing derived, renamed or filtered.</li>
+<li>Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk044 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 8 source columns copied as published; nothing derived or filtered. Columns carry readable names from the GeoDS labels (see SCOPE); the GeoDS identifier is recorded in every column comment.</li>
 </ul>
 <p><strong>DOCUMENTATION</strong></p>
 <ul>
@@ -6295,7 +6295,8 @@
 <p><strong>SCOPE</strong></p>
 <ul>
 <li>United Kingdom. 239,023 rows, one per small area: England 178,605; Wales 10,275; Scotland 46,363; Northern Ireland 3,780. Codes are Output Area 2021 (E00, W00), Output Area 2022 (S00) and Data Zone 2021 (N20).</li>
-<li>Counts only; uk044001 is the table total. No percentages are supplied by the publisher and none were computed.</li>
+<li>Counts only; <code>total</code> (GeoDS uk044001) is the table total. No percentages are supplied by the publisher and none were computed.</li>
+<li>Column names are readable forms of the GeoDS labels, signed off by the data manager on 2 September 2026; each column comment names the GeoDS source identifier. Mapping: scripts/unified_census/column_names.py.</li>
 <li>Sibling of the other 24 GeoDS Unified UK Census tables named dem_geods_oa_*_2021_22.</li>
 </ul>
 <p><strong>CRS</strong></p>
@@ -6339,44 +6340,44 @@
 <td>Source field <code>OA</code>; small-area code: "OA21CD (England/Wales), OA22CD (Scotland), DZ21CD (Northern Ireland)" (GeoDS). Northern Ireland Data Zones are labelled OA by the publisher.</td>
 </tr>
 <tr>
-<td><code>uk044001</code></td>
+<td><code>total</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk044001</code>; "Accommodation type: Total: All households". Unit: "Household".</td>
+<td>Source field <code>uk044001</code>; "Accommodation type: Total: All households". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk044002</code></td>
+<td><code>detached</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk044002</code>; "Accommodation type: Detached". Unit: "Household".</td>
+<td>Source field <code>uk044002</code>; "Accommodation type: Detached". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk044003</code></td>
+<td><code>semi_detached</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk044003</code>; "Accommodation type: Semi-detached". Unit: "Household".</td>
+<td>Source field <code>uk044003</code>; "Accommodation type: Semi-detached". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk044004</code></td>
+<td><code>terraced</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk044004</code>; "Accommodation type: Terraced". Unit: "Household".</td>
+<td>Source field <code>uk044004</code>; "Accommodation type: Terraced". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk044005</code></td>
+<td><code>purpose_built_flat_or_tenement</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk044005</code>; "Accommodation type: In a purpose-built block of flats or tenement". Unit: "Household".</td>
+<td>Source field <code>uk044005</code>; "Accommodation type: In a purpose-built block of flats or tenement". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk044006</code></td>
+<td><code>converted_or_shared_house</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk044006</code>; "Accommodation type: Part of a converted or shared house, including bedsits". Unit: "Household".</td>
+<td>Source field <code>uk044006</code>; "Accommodation type: Part of a converted or shared house, including bedsits". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk044007</code></td>
+<td><code>commercial_building</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk044007</code>; "Accommodation type: In a commercial building, for example, in an office building, hotel or over a shop". Unit: "Household".</td>
+<td>Source field <code>uk044007</code>; "Accommodation type: In a commercial building, for example, in an office building, hotel or over a shop". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk044008</code></td>
+<td><code>caravan_or_temporary_structure</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk044008</code>; "Accommodation type: A caravan or other mobile or temporary structure". Unit: "Household".</td>
+<td>Source field <code>uk044008</code>; "Accommodation type: A caravan or other mobile or temporary structure". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
 <td><code>geom</code></td>

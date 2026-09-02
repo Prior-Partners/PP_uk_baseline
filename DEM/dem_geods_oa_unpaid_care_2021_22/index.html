@@ -6276,7 +6276,7 @@
 <p><code>dem_geods_oa_unpaid_care_2021_22</code></p>
 <p><strong>SOURCE</strong></p>
 <ul>
-<li>Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk039 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 6 source columns copied as published under their source variable identifiers; nothing derived, renamed or filtered.</li>
+<li>Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk039 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 6 source columns copied as published; nothing derived or filtered. Columns carry readable names from the GeoDS labels (see SCOPE); the GeoDS identifier is recorded in every column comment.</li>
 </ul>
 <p><strong>DOCUMENTATION</strong></p>
 <ul>
@@ -6295,7 +6295,8 @@
 <p><strong>SCOPE</strong></p>
 <ul>
 <li>United Kingdom. 239,023 rows, one per small area: England 178,605; Wales 10,275; Scotland 46,363; Northern Ireland 3,780. Codes are Output Area 2021 (E00, W00), Output Area 2022 (S00) and Data Zone 2021 (N20).</li>
-<li>Counts only; uk039001 is the table total. No percentages are supplied by the publisher and none were computed.</li>
+<li>Counts only; <code>total</code> (GeoDS uk039001) is the table total. No percentages are supplied by the publisher and none were computed.</li>
+<li>Column names are readable forms of the GeoDS labels, signed off by the data manager on 2 September 2026; each column comment names the GeoDS source identifier. Mapping: scripts/unified_census/column_names.py.</li>
 <li>Sibling of the other 24 GeoDS Unified UK Census tables named dem_geods_oa_*_2021_22.</li>
 </ul>
 <p><strong>CRS</strong></p>
@@ -6339,34 +6340,34 @@
 <td>Source field <code>OA</code>; small-area code: "OA21CD (England/Wales), OA22CD (Scotland), DZ21CD (Northern Ireland)" (GeoDS). Northern Ireland Data Zones are labelled OA by the publisher.</td>
 </tr>
 <tr>
-<td><code>uk039001</code></td>
+<td><code>total</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk039001</code>; "Provision of unpaid care: Total: All usual residents aged 5 and over". Unit: "Person".</td>
+<td>Source field <code>uk039001</code>; "Provision of unpaid care: Total: All usual residents aged 5 and over". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk039002</code></td>
+<td><code>no_unpaid_care</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk039002</code>; "Provision of unpaid care: Provides no unpaid care". Unit: "Person".</td>
+<td>Source field <code>uk039002</code>; "Provision of unpaid care: Provides no unpaid care". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk039003</code></td>
+<td><code>unpaid_care_19_hours_or_less</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk039003</code>; "Provision of unpaid care: Provides 19 hours or less unpaid care a week". Unit: "Person".</td>
+<td>Source field <code>uk039003</code>; "Provision of unpaid care: Provides 19 hours or less unpaid care a week". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk039004</code></td>
+<td><code>unpaid_care_20_to_34_hours</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk039004</code>; "Provision of unpaid care: Provides 20 to 34 hours unpaid care a week". Unit: "Person".</td>
+<td>Source field <code>uk039004</code>; "Provision of unpaid care: Provides 20 to 34 hours unpaid care a week". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk039005</code></td>
+<td><code>unpaid_care_35_to_49_hours</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk039005</code>; "Provision of unpaid care: Provides 35 to 49 hours unpaid care a week". Unit: "Person".</td>
+<td>Source field <code>uk039005</code>; "Provision of unpaid care: Provides 35 to 49 hours unpaid care a week". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>uk039006</code></td>
+<td><code>unpaid_care_50_hours_or_more</code></td>
 <td><code>integer</code></td>
-<td>Source field <code>uk039006</code>; "Provision of unpaid care: Provides 50 or more hours unpaid care a week". Unit: "Person".</td>
+<td>Source field <code>uk039006</code>; "Provision of unpaid care: Provides 50 or more hours unpaid care a week". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
 <td><code>geom</code></td>

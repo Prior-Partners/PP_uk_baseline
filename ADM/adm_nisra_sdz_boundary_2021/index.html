@@ -6306,6 +6306,7 @@
 <ul>
 <li>Positions are accurate to about 3 m because of the datum shift from Irish Grid; do not use for survey-level work. Eastings in British National Grid are small or negative for the west of Northern Ireland; this is correct for that grid.</li>
 <li>The publisher gives no field-level definitions; columns are carried under their source names. area_ha and perim_km were attached by the publisher from a rounded areas file.</li>
+<li>Key column is named <code>sdz2021_cd</code>, as published by NISRA. It holds the Super Data Zone 2021 code (SDZ21CD), the Northern Ireland equivalent of <code>msoa21cd</code>; deliberately not renamed (data manager decision, 2 September 2026). Join on <code>sdz2021_cd</code>.</li>
 </ul>
 <p><strong>LOADED INTO uk_baseline</strong></p>
 <ul>
@@ -6329,7 +6330,7 @@
 <tr>
 <td><code>sdz2021_cd</code></td>
 <td><code>character varying</code></td>
-<td>Source field <code>SDZ2021_cd</code>; Super Data Zone 2021 code (N21 prefix).</td>
+<td>Source field <code>SDZ2021_cd</code>; Super Data Zone 2021 code (N21 prefix), the Northern Ireland equivalent of <code>msoa21cd</code>. Kept under the publisher name by data manager decision, 2 September 2026.</td>
 </tr>
 <tr>
 <td><code>sdz2021_nm</code></td>

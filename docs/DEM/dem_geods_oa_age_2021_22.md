@@ -1,12 +1,12 @@
-# Geographic Data Service (GeoDS) Unified UK Census 2021/2022, Religion, United Kingdom small-area extent, March 2026
+# Geographic Data Service (GeoDS) Unified UK Census 2021/2022, Age, United Kingdom small-area extent, March 2026
 
-<p class="layer-short">Census 2021 Religion (UK)</p>
+<p class="layer-short">Census 2021/22 Age (UK)</p>
 
-`dem_geods_oa_religion_2021`
+`dem_geods_oa_age_2021_22`
 
 **SOURCE**
 
-- Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk030 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 7 source columns copied as published under their source variable identifiers; nothing derived, renamed or filtered.
+- Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk007a from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 19 source columns copied as published under their source variable identifiers; nothing derived, renamed or filtered.
 
 **DOCUMENTATION**
 
@@ -25,8 +25,8 @@
 **SCOPE**
 
 - United Kingdom. 239,023 rows, one per small area: England 178,605; Wales 10,275; Scotland 46,363; Northern Ireland 3,780. Codes are Output Area 2021 (E00, W00), Output Area 2022 (S00) and Data Zone 2021 (N20).
-- Counts only; uk030001 is the table total. No percentages are supplied by the publisher and none were computed.
-- Sibling of the other 24 GeoDS Unified UK Census tables named dem_geods_oa_*_2021.
+- Counts only; uk007a001 is the table total. No percentages are supplied by the publisher and none were computed.
+- Sibling of the other 24 GeoDS Unified UK Census tables named dem_geods_oa_*_2021_22.
 
 **CRS**
 
@@ -40,7 +40,6 @@
 
 - "The Scottish census was conducted one year later than the rest of the UK (2022 vs 2021), which may introduce temporal differences in some variables." (GeoDS dataset page)
 - "The data are compiled from the official census releases of the three UK statistical agencies, each of which applies its own disclosure control and data quality procedures." (GeoDS dataset page)
-- Harmonisation notes for this table (GeoDS Table Notes, verbatim): "1. The full table is not available for Northern Ireland due to disclosure controls. The best available table does not include variables for "Religion: Jewish", "Religion: Buddist" and "Religion: Sikh". The unified table therefore aggregates these variables into a broader "Other Religion" variable."
 - Northern Ireland geometry was reprojected from Irish Grid with about 3 m accuracy; see uk_baseline.adm_nisra_dz_boundary_2021.
 
 **LOADED INTO uk_baseline**
@@ -54,11 +53,23 @@
 |---|---|---|
 | `fid` | `integer` |  |
 | `oa` | `character varying(9)` | Source field `OA`; small-area code: "OA21CD (England/Wales), OA22CD (Scotland), DZ21CD (Northern Ireland)" (GeoDS). Northern Ireland Data Zones are labelled OA by the publisher. |
-| `uk030001` | `integer` | Source field `uk030001`; "Religion: Total: All usual residents". Unit: "Person". |
-| `uk030002` | `integer` | Source field `uk030002`; "Religion: No religion". Unit: "Person". |
-| `uk030003` | `integer` | Source field `uk030003`; "Religion: Christian". Unit: "Person". |
-| `uk030004` | `integer` | Source field `uk030004`; "Religion: Hindu". Unit: "Person". |
-| `uk030005` | `integer` | Source field `uk030005`; "Religion: Muslim". Unit: "Person". |
-| `uk030006` | `integer` | Source field `uk030006`; "Religion: Other religion (NI 6 categories defintion)". Unit: "Person". |
-| `uk030007` | `integer` | Source field `uk030007`; "Religion: Not answered". Unit: "Person". |
+| `uk007a001` | `integer` | Source field `uk007a001`; "Age: Total". Unit: "Person". |
+| `uk007a002` | `integer` | Source field `uk007a002`; "Age: Aged 4 years and under". Unit: "Person". |
+| `uk007a003` | `integer` | Source field `uk007a003`; "Age: Aged 5 to 9 years". Unit: "Person". |
+| `uk007a004` | `integer` | Source field `uk007a004`; "Age: Aged 10 to 14 years". Unit: "Person". |
+| `uk007a005` | `integer` | Source field `uk007a005`; "Age: Aged 15 to 19 years". Unit: "Person". |
+| `uk007a006` | `integer` | Source field `uk007a006`; "Age: Aged 20 to 24 years". Unit: "Person". |
+| `uk007a007` | `integer` | Source field `uk007a007`; "Age: Aged 25 to 29 years". Unit: "Person". |
+| `uk007a008` | `integer` | Source field `uk007a008`; "Age: Aged 30 to 34 years". Unit: "Person". |
+| `uk007a009` | `integer` | Source field `uk007a009`; "Age: Aged 35 to 39 years". Unit: "Person". |
+| `uk007a010` | `integer` | Source field `uk007a010`; "Age: Aged 40 to 44 years". Unit: "Person". |
+| `uk007a011` | `integer` | Source field `uk007a011`; "Age: Aged 45 to 49 years". Unit: "Person". |
+| `uk007a012` | `integer` | Source field `uk007a012`; "Age: Aged 50 to 54 years". Unit: "Person". |
+| `uk007a013` | `integer` | Source field `uk007a013`; "Age: Aged 55 to 59 years". Unit: "Person". |
+| `uk007a014` | `integer` | Source field `uk007a014`; "Age: Aged 60 to 64 years". Unit: "Person". |
+| `uk007a015` | `integer` | Source field `uk007a015`; "Age: Aged 65 to 69 years". Unit: "Person". |
+| `uk007a016` | `integer` | Source field `uk007a016`; "Age: Aged 70 to 74 years". Unit: "Person". |
+| `uk007a017` | `integer` | Source field `uk007a017`; "Age: Aged 75 to 79 years". Unit: "Person". |
+| `uk007a018` | `integer` | Source field `uk007a018`; "Age: Aged 80 to 84 years". Unit: "Person". |
+| `uk007a019` | `integer` | Source field `uk007a019`; "Age: Aged 85 years and over". Unit: "Person". |
 | `geom` | `geometry(MultiPolygon,27700)` | Geometry from uk_baseline.adm_ons_oa_boundaries_dec2021 (England and Wales, Output Area 2021), uk_baseline.adm_nrs_oa_boundary_2022 (Scotland, Output Area 2022) and uk_baseline.adm_nisra_dz_boundary_2021 (Northern Ireland, Data Zone 2021), joined at load on the row's code. |

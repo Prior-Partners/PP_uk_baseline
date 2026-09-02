@@ -1,8 +1,8 @@
 # Geographic Data Service (GeoDS) Unified UK Census 2021/2022, Method of travel to workplace, United Kingdom small-area extent, March 2026
 
-<p class="layer-short">Census 2021 Method of travel to workplace (UK)</p>
+<p class="layer-short">Census 2021/22 Method of travel to workplace (UK)</p>
 
-`dem_geods_oa_travel_to_work_2021`
+`dem_geods_oa_travel_to_work_2021_22`
 
 **SOURCE**
 
@@ -26,7 +26,7 @@
 
 - United Kingdom. 239,023 rows, one per small area: England 178,605; Wales 10,275; Scotland 46,363; Northern Ireland 3,780. Codes are Output Area 2021 (E00, W00), Output Area 2022 (S00) and Data Zone 2021 (N20).
 - Counts only; uk061001 is the table total. No percentages are supplied by the publisher and none were computed.
-- Sibling of the other 24 GeoDS Unified UK Census tables named dem_geods_oa_*_2021.
+- Sibling of the other 24 GeoDS Unified UK Census tables named dem_geods_oa_*_2021_22.
 
 **CRS**
 

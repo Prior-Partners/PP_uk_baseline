@@ -1,12 +1,12 @@
-# Geographic Data Service (GeoDS) Unified UK Census 2021/2022, General health, United Kingdom small-area extent, March 2026
+# Geographic Data Service (GeoDS) Unified UK Census 2021/2022, Provision of unpaid care, United Kingdom small-area extent, March 2026
 
-<p class="layer-short">Census 2021 General health (UK)</p>
+<p class="layer-short">Census 2021/22 Provision of unpaid care (UK)</p>
 
-`dem_geods_oa_general_health_2021`
+`dem_geods_oa_unpaid_care_2021_22`
 
 **SOURCE**
 
-- Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk037 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 6 source columns copied as published under their source variable identifiers; nothing derived, renamed or filtered.
+- Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk039 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 6 source columns copied as published under their source variable identifiers; nothing derived, renamed or filtered.
 
 **DOCUMENTATION**
 
@@ -19,14 +19,14 @@
 
 - "The Unified UK Census Dataset (2021/2022) is a harmonised, small-area dataset that brings together census data from the three UK census agencies -- ONS (England & Wales), NRS (Scotland), and NISRA (Northern Ireland) -- into a single, comparable release." (GeoDS dataset page)
 - "The dataset available for download contains the counts for all 190 variables plus 25 table totals (215 variables in total) across each of the 239,023 small-area geographies. Data Zones are relabelled as "OA" in the dataset for consistency." (GeoDS dataset page)
-- Table unit: "Person". Population scope: "All Persons". (GeoDS Table Notes)
+- Table unit: "Person". Population scope: "Persons Age d5 or Over (Aged 3 or Over for Scotland)". (GeoDS Table Notes)
 - Census Day: "21 March 2021 for England, Wales, and Northern Ireland, and 20 March 2022 for Scotland." (GeoDS dataset page)
 
 **SCOPE**
 
 - United Kingdom. 239,023 rows, one per small area: England 178,605; Wales 10,275; Scotland 46,363; Northern Ireland 3,780. Codes are Output Area 2021 (E00, W00), Output Area 2022 (S00) and Data Zone 2021 (N20).
-- Counts only; uk037001 is the table total. No percentages are supplied by the publisher and none were computed.
-- Sibling of the other 24 GeoDS Unified UK Census tables named dem_geods_oa_*_2021.
+- Counts only; uk039001 is the table total. No percentages are supplied by the publisher and none were computed.
+- Sibling of the other 24 GeoDS Unified UK Census tables named dem_geods_oa_*_2021_22.
 
 **CRS**
 
@@ -40,6 +40,7 @@
 
 - "The Scottish census was conducted one year later than the rest of the UK (2022 vs 2021), which may introduce temporal differences in some variables." (GeoDS dataset page)
 - "The data are compiled from the official census releases of the three UK statistical agencies, each of which applies its own disclosure control and data quality procedures." (GeoDS dataset page)
+- Harmonisation notes for this table (GeoDS Table Notes, verbatim): "1. The English and Scottish tables differ slightly, England only includes those aged over five in the table, whereas Scotland includes those over three."
 - Northern Ireland geometry was reprojected from Irish Grid with about 3 m accuracy; see uk_baseline.adm_nisra_dz_boundary_2021.
 
 **LOADED INTO uk_baseline**
@@ -53,10 +54,10 @@
 |---|---|---|
 | `fid` | `integer` |  |
 | `oa` | `character varying(9)` | Source field `OA`; small-area code: "OA21CD (England/Wales), OA22CD (Scotland), DZ21CD (Northern Ireland)" (GeoDS). Northern Ireland Data Zones are labelled OA by the publisher. |
-| `uk037001` | `integer` | Source field `uk037001`; "General health: Total: All usual residents". Unit: "Person". |
-| `uk037002` | `integer` | Source field `uk037002`; "General health: Very good health". Unit: "Person". |
-| `uk037003` | `integer` | Source field `uk037003`; "General health: Good health". Unit: "Person". |
-| `uk037004` | `integer` | Source field `uk037004`; "General health: Fair health". Unit: "Person". |
-| `uk037005` | `integer` | Source field `uk037005`; "General health: Bad health". Unit: "Person". |
-| `uk037006` | `integer` | Source field `uk037006`; "General health: Very bad health". Unit: "Person". |
+| `uk039001` | `integer` | Source field `uk039001`; "Provision of unpaid care: Total: All usual residents aged 5 and over". Unit: "Person". |
+| `uk039002` | `integer` | Source field `uk039002`; "Provision of unpaid care: Provides no unpaid care". Unit: "Person". |
+| `uk039003` | `integer` | Source field `uk039003`; "Provision of unpaid care: Provides 19 hours or less unpaid care a week". Unit: "Person". |
+| `uk039004` | `integer` | Source field `uk039004`; "Provision of unpaid care: Provides 20 to 34 hours unpaid care a week". Unit: "Person". |
+| `uk039005` | `integer` | Source field `uk039005`; "Provision of unpaid care: Provides 35 to 49 hours unpaid care a week". Unit: "Person". |
+| `uk039006` | `integer` | Source field `uk039006`; "Provision of unpaid care: Provides 50 or more hours unpaid care a week". Unit: "Person". |
 | `geom` | `geometry(MultiPolygon,27700)` | Geometry from uk_baseline.adm_ons_oa_boundaries_dec2021 (England and Wales, Output Area 2021), uk_baseline.adm_nrs_oa_boundary_2022 (Scotland, Output Area 2022) and uk_baseline.adm_nisra_dz_boundary_2021 (Northern Ireland, Data Zone 2021), joined at load on the row's code. |

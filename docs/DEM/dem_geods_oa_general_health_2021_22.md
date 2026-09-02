@@ -1,12 +1,12 @@
-# Geographic Data Service (GeoDS) Unified UK Census 2021/2022, Multiple ethnic groups in household, United Kingdom small-area extent, March 2026
+# Geographic Data Service (GeoDS) Unified UK Census 2021/2022, General health, United Kingdom small-area extent, March 2026
 
-<p class="layer-short">Census 2021 Multiple ethnic groups in household (UK)</p>
+<p class="layer-short">Census 2021/22 General health (UK)</p>
 
-`dem_geods_oa_multiple_ethnic_groups_2021`
+`dem_geods_oa_general_health_2021_22`
 
 **SOURCE**
 
-- Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk023 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 6 source columns copied as published under their source variable identifiers; nothing derived, renamed or filtered.
+- Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk037 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 6 source columns copied as published under their source variable identifiers; nothing derived, renamed or filtered.
 
 **DOCUMENTATION**
 
@@ -19,14 +19,14 @@
 
 - "The Unified UK Census Dataset (2021/2022) is a harmonised, small-area dataset that brings together census data from the three UK census agencies -- ONS (England & Wales), NRS (Scotland), and NISRA (Northern Ireland) -- into a single, comparable release." (GeoDS dataset page)
 - "The dataset available for download contains the counts for all 190 variables plus 25 table totals (215 variables in total) across each of the 239,023 small-area geographies. Data Zones are relabelled as "OA" in the dataset for consistency." (GeoDS dataset page)
-- Table unit: "Household". Population scope: "All Households". (GeoDS Table Notes)
+- Table unit: "Person". Population scope: "All Persons". (GeoDS Table Notes)
 - Census Day: "21 March 2021 for England, Wales, and Northern Ireland, and 20 March 2022 for Scotland." (GeoDS dataset page)
 
 **SCOPE**
 
 - United Kingdom. 239,023 rows, one per small area: England 178,605; Wales 10,275; Scotland 46,363; Northern Ireland 3,780. Codes are Output Area 2021 (E00, W00), Output Area 2022 (S00) and Data Zone 2021 (N20).
-- Counts only; uk023001 is the table total. No percentages are supplied by the publisher and none were computed.
-- Sibling of the other 24 GeoDS Unified UK Census tables named dem_geods_oa_*_2021.
+- Counts only; uk037001 is the table total. No percentages are supplied by the publisher and none were computed.
+- Sibling of the other 24 GeoDS Unified UK Census tables named dem_geods_oa_*_2021_22.
 
 **CRS**
 
@@ -53,10 +53,10 @@
 |---|---|---|
 | `fid` | `integer` |  |
 | `oa` | `character varying(9)` | Source field `OA`; small-area code: "OA21CD (England/Wales), OA22CD (Scotland), DZ21CD (Northern Ireland)" (GeoDS). Northern Ireland Data Zones are labelled OA by the publisher. |
-| `uk023001` | `integer` | Source field `uk023001`; "Multiple ethnic groups in household: Total: All households". Unit: "Household". |
-| `uk023002` | `integer` | Source field `uk023002`; "Multiple ethnic groups in household: One-person household". Unit: "Household". |
-| `uk023003` | `integer` | Source field `uk023003`; "Multiple ethnic groups in household: All household members have the same ethnic group". Unit: "Household". |
-| `uk023004` | `integer` | Source field `uk023004`; "Multiple ethnic groups in household: Ethnic groups differ between generations but not within partnerships". Unit: "Household". |
-| `uk023005` | `integer` | Source field `uk023005`; "Multiple ethnic groups in household: Ethnic groups differ within partnerships". Unit: "Household". |
-| `uk023006` | `integer` | Source field `uk023006`; "Multiple ethnic groups in household: Any other combination of multiple ethnic identities". Unit: "Household". |
+| `uk037001` | `integer` | Source field `uk037001`; "General health: Total: All usual residents". Unit: "Person". |
+| `uk037002` | `integer` | Source field `uk037002`; "General health: Very good health". Unit: "Person". |
+| `uk037003` | `integer` | Source field `uk037003`; "General health: Good health". Unit: "Person". |
+| `uk037004` | `integer` | Source field `uk037004`; "General health: Fair health". Unit: "Person". |
+| `uk037005` | `integer` | Source field `uk037005`; "General health: Bad health". Unit: "Person". |
+| `uk037006` | `integer` | Source field `uk037006`; "General health: Very bad health". Unit: "Person". |
 | `geom` | `geometry(MultiPolygon,27700)` | Geometry from uk_baseline.adm_ons_oa_boundaries_dec2021 (England and Wales, Output Area 2021), uk_baseline.adm_nrs_oa_boundary_2022 (Scotland, Output Area 2022) and uk_baseline.adm_nisra_dz_boundary_2021 (Northern Ireland, Data Zone 2021), joined at load on the row's code. |

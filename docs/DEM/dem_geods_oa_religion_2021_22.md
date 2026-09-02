@@ -1,12 +1,12 @@
-# Geographic Data Service (GeoDS) Unified UK Census 2021/2022, Disability, United Kingdom small-area extent, March 2026
+# Geographic Data Service (GeoDS) Unified UK Census 2021/2022, Religion, United Kingdom small-area extent, March 2026
 
-<p class="layer-short">Census 2021 Disability (UK)</p>
+<p class="layer-short">Census 2021/22 Religion (UK)</p>
 
-`dem_geods_oa_disability_2021`
+`dem_geods_oa_religion_2021_22`
 
 **SOURCE**
 
-- Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk038 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 5 source columns copied as published under their source variable identifiers; nothing derived, renamed or filtered.
+- Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk030 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 7 source columns copied as published under their source variable identifiers; nothing derived, renamed or filtered.
 
 **DOCUMENTATION**
 
@@ -25,8 +25,8 @@
 **SCOPE**
 
 - United Kingdom. 239,023 rows, one per small area: England 178,605; Wales 10,275; Scotland 46,363; Northern Ireland 3,780. Codes are Output Area 2021 (E00, W00), Output Area 2022 (S00) and Data Zone 2021 (N20).
-- Counts only; uk038001 is the table total. No percentages are supplied by the publisher and none were computed.
-- Sibling of the other 24 GeoDS Unified UK Census tables named dem_geods_oa_*_2021.
+- Counts only; uk030001 is the table total. No percentages are supplied by the publisher and none were computed.
+- Sibling of the other 24 GeoDS Unified UK Census tables named dem_geods_oa_*_2021_22.
 
 **CRS**
 
@@ -40,7 +40,7 @@
 
 - "The Scottish census was conducted one year later than the rest of the UK (2022 vs 2021), which may introduce temporal differences in some variables." (GeoDS dataset page)
 - "The data are compiled from the official census releases of the three UK statistical agencies, each of which applies its own disclosure control and data quality procedures." (GeoDS dataset page)
-- Harmonisation notes for this table (GeoDS Table Notes, verbatim): "1. The variable wording differs slightly between countries but the definitions match. 2. An aggregated "Disabled under the Equality Act" is created from the subdivisions for Northern Ireland and Scotland."
+- Harmonisation notes for this table (GeoDS Table Notes, verbatim): "1. The full table is not available for Northern Ireland due to disclosure controls. The best available table does not include variables for "Religion: Jewish", "Religion: Buddist" and "Religion: Sikh". The unified table therefore aggregates these variables into a broader "Other Religion" variable."
 - Northern Ireland geometry was reprojected from Irish Grid with about 3 m accuracy; see uk_baseline.adm_nisra_dz_boundary_2021.
 
 **LOADED INTO uk_baseline**
@@ -54,9 +54,11 @@
 |---|---|---|
 | `fid` | `integer` |  |
 | `oa` | `character varying(9)` | Source field `OA`; small-area code: "OA21CD (England/Wales), OA22CD (Scotland), DZ21CD (Northern Ireland)" (GeoDS). Northern Ireland Data Zones are labelled OA by the publisher. |
-| `uk038001` | `integer` | Source field `uk038001`; "Disability: Total: All usual residents". Unit: "Person". |
-| `uk038002` | `integer` | Source field `uk038002`; "Disability: Disabled under the Equality Act". Unit: "Person". |
-| `uk038003` | `integer` | Source field `uk038003`; "Disability: Disabled under the Equality Act: Day-to-day activities limited a lot". Unit: "Person". |
-| `uk038004` | `integer` | Source field `uk038004`; "Disability: Disabled under the Equality Act: Day-to-day activities limited a little". Unit: "Person". |
-| `uk038005` | `integer` | Source field `uk038005`; "Disability: Not disabled under the Equality Act". Unit: "Person". |
+| `uk030001` | `integer` | Source field `uk030001`; "Religion: Total: All usual residents". Unit: "Person". |
+| `uk030002` | `integer` | Source field `uk030002`; "Religion: No religion". Unit: "Person". |
+| `uk030003` | `integer` | Source field `uk030003`; "Religion: Christian". Unit: "Person". |
+| `uk030004` | `integer` | Source field `uk030004`; "Religion: Hindu". Unit: "Person". |
+| `uk030005` | `integer` | Source field `uk030005`; "Religion: Muslim". Unit: "Person". |
+| `uk030006` | `integer` | Source field `uk030006`; "Religion: Other religion (NI 6 categories defintion)". Unit: "Person". |
+| `uk030007` | `integer` | Source field `uk030007`; "Religion: Not answered". Unit: "Person". |
 | `geom` | `geometry(MultiPolygon,27700)` | Geometry from uk_baseline.adm_ons_oa_boundaries_dec2021 (England and Wales, Output Area 2021), uk_baseline.adm_nrs_oa_boundary_2022 (Scotland, Output Area 2022) and uk_baseline.adm_nisra_dz_boundary_2021 (Northern Ireland, Data Zone 2021), joined at load on the row's code. |

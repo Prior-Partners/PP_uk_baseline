@@ -1,5 +1,7 @@
 # Public Rights of Way (PRoW) for England, compiled from local surveying-authority definitive-map open data
 
+<p class="layer-short">Public Rights of Way</p>
+
 `mob_public_right_of_way`
 
 <img src="../../maps/mob_public_right_of_way.png" alt="Styling preview of mob_public_right_of_way" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">

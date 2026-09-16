@@ -1,5 +1,7 @@
 # HM Land Registry Price Paid Data (PPD), England & Wales, residential property transactions, January 1995 to 2026-04-30
 
+<p class="layer-short">House Price Paid</p>
+
 `hou_hmlandregistry_house_price_paid_jun2026`
 
 <img src="../../maps/hou_hmlandregistry_house_price_paid_jun2026.png" alt="Styling preview of hou_hmlandregistry_house_price_paid_jun2026" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">

@@ -1,6 +1,6 @@
 site_name: uk_baseline data catalogue
 site_description: A guide to every layer in the uk_baseline database.
-copyright: Developed by the Digital Innovation team, Prior + Partners — last updated 03 September 2026
+copyright: Developed by the Digital Innovation team, Prior + Partners — last updated 16 September 2026
 theme:
   name: material
   font: false
@@ -176,14 +176,14 @@ nav:
     - "Flood Zones - Climate Change Allowance": ENV/env_defra_flood_zones_plus_climate_change_july2025.md
     - "Flood Zones 2 and 3 - River and Sea": ENV/env_defra_flood_zones_2_3_river_sea_april2026.md
     - "Green Belt": ENV/env_mhclg_green_belt_may2026.md
+    - "Heathland (Natural England)": ENV/env_naturalengland_heathland_oct2018.md
     - "Historic Landfill Site": ENV/env_defra_historic_landfill_site.md
     - "Local Nature Reserves": ENV/env_naturalengland_local_nature_reserves_apr2026.md
     - "National Nature Reserves": ENV/env_defra_national_nature_reserves_apr2026.md
     - "National Park": ENV/env_ons_national_park_may2026.md
-    - "Natural England Lowland Heathland Extent and Potential (England), October 2018": ENV/env_naturalengland_heathland_oct2018.md
+    - "Open Greenspace": ENV/env_os_green_space_apr2025.md
     - "Open Greenspace access points": ENV/env_os_green_space_access_points_apr2025.md
     - "Open Rivers": ENV/env_os_rivers_apr2025.md
-    - "Ordnance Survey OS Open Greenspace for Great Britain, April 2025": ENV/env_os_green_space_apr2025.md
     - "Priority Habitats Inventory": ENV/env_naturalengland_priority_habitats_inventory_apr2026.md
     - "Ramsar": ENV/env_naturalengland_ramsar_oct2024.md
     - "Special Areas Conservation": ENV/env_naturalengland_special_areas_conservation_oct2024.md
@@ -208,24 +208,24 @@ nav:
     - "World Heritage Sites": HER/her_historicengland_world_heritage_sites_may2026.md
   - "Housing & Living Conditions (HOU)":
     - HOU/index.md
-    - "HM Land Registry Price Paid Data (PPD), England & Wales, residential property transactions, January 1995 to 2026-04-30": HOU/hou_hmlandregistry_house_price_paid_jun2026.md
+    - "House Price Paid": HOU/hou_hmlandregistry_house_price_paid_jun2026.md
   - "Health & Wellbeing (HTH)":
     - HTH/index.md
     - "Childhood Obesity": HTH/hth_ohid_msoa_childhood_obesity_2024.md
-    - "Facility": HTH/hth_nhs_facility_2025.md
-    - "Gp": HTH/hth_nhs_gp_jan2026.md
-    - "Life Expectancy": HTH/hth_ohid_msoa_life_expectancy_2020.md
-    - "Life Expectancy": HTH/hth_ohid_msoa_life_expectancy_2023.md
-    - "Long term disability": HTH/hth_ohid_msoa_long_term_disability_2011.md
+    - "GP Practices": HTH/hth_nhs_gp_jan2026.md
+    - "Life Expectancy 2020": HTH/hth_ohid_msoa_life_expectancy_2020.md
+    - "Life Expectancy 2023": HTH/hth_ohid_msoa_life_expectancy_2023.md
+    - "Long-term Disability": HTH/hth_ohid_msoa_long_term_disability_2011.md
     - "Mortality Rate": HTH/hth_ohid_msoa_mortality_rate.md
+    - "NHS Facilities": HTH/hth_nhs_facility_2025.md
     - "Unemployment": HTH/hth_ohid_msoa_unemployment.md
   - "Transport & Mobility (MOB)":
     - MOB/index.md
-    - "Department for Transport (DfT) Bus Open Data Service (BODS) bus route polylines, Great Britain": MOB/mob_dft_bods_bus_routes.md
-    - "Department for Transport (DfT) Bus Open Data Service (BODS) bus stop points, Great Britain": MOB/mob_dft_bods_bus_stops.md
+    - "Bus Routes": MOB/mob_dft_bods_bus_routes.md
+    - "Bus Stops": MOB/mob_dft_bods_bus_stops.md
     - "National Cycle Network": MOB/mob_wwct_national_cycle_network_sep2024.md
     - "Open Roads": MOB/mob_os_open_roads_apr2025.md
-    - "Public Rights of Way (PRoW) for England, compiled from local surveying-authority definitive-map open data": MOB/mob_public_right_of_way.md
+    - "Public Rights of Way": MOB/mob_public_right_of_way.md
     - "Railway Stations": MOB/mob_os_railway_stations.md
     - "Railway Tracks": MOB/mob_os_railway_tracks.md
     - "Railway Tunnels": MOB/mob_os_railway_tunnels.md

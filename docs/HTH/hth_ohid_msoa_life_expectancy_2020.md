@@ -1,6 +1,6 @@
 # Office for Health Improvement and Disparities (OHID) life expectancy at birth at Middle-layer Super Output Area (MSOA) 2011, period 2016-2020
 
-<p class="layer-short">Life Expectancy</p>
+<p class="layer-short">Life Expectancy 2020</p>
 
 `hth_ohid_msoa_life_expectancy_2020`
 

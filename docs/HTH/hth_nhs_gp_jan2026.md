@@ -1,6 +1,6 @@
 # NHS general practice (GP) directory for England, January 2026
 
-<p class="layer-short">Gp</p>
+<p class="layer-short">GP Practices</p>
 
 `hth_nhs_gp_jan2026`
 

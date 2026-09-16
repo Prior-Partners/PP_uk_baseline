@@ -1,5 +1,7 @@
 # Ordnance Survey OS Open Greenspace for Great Britain, April 2025
 
+<p class="layer-short">Open Greenspace</p>
+
 `env_os_green_space_apr2025`
 
 <img src="../../maps/env_os_green_space_apr2025.png" alt="Styling preview of env_os_green_space_apr2025" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">

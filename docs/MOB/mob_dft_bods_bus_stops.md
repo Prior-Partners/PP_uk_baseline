@@ -1,5 +1,7 @@
 # Department for Transport (DfT) Bus Open Data Service (BODS) bus stop points, Great Britain
 
+<p class="layer-short">Bus Stops</p>
+
 `mob_dft_bods_bus_stops`
 
 <img src="../../maps/mob_dft_bods_bus_stops.png" alt="Styling preview of mob_dft_bods_bus_stops" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">

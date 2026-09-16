@@ -1,6 +1,6 @@
 # NHS health and care facility directory for England, November 2025
 
-<p class="layer-short">Facility</p>
+<p class="layer-short">NHS Facilities</p>
 
 `hth_nhs_facility_2025`
 

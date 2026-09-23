@@ -40,15 +40,22 @@
 
 **DATA QUALITY CAVEATS**
 
+- County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - Released as Experimental Statistics (DfT workbook Metadata sheet); the methodology calls these results provisional.
 - Scores are relative to the best-connected location in England and Wales, not travel times or counts. The workbook's usage notes say scores should be interpreted relative to other areas and that different transport modes should not be directly compared.
 - For public transport the employment column is headed Business (public transport) in the source, where the other modes say Employment. It is carried under the publisher's label as business_public_transport; DfT does not explain the difference.
+- District keys (LAD 2022, LAD 2025, county) filled on all 331 rows, measured 23 September 2026 (lad22cd matched exactly on the district name, then the exact 2022 to 2025 lookup). The SDS columns are NULL on 23 rows by design: 22 in Wales and 1 in the Isles of Scilly.
+
+**ENRICHMENT**
+
+- `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 
 **NOT IN THIS DATASET**
 
 - The workbook's Region sheet (nine English regions and Wales) is not loaded: uk_baseline holds no region boundary.
 - The workbook Metadata sheet defines deciles, but the published sheets carry scores only.
 - The 100-metre grid scores behind the DfT Connectivity Tool, and scores by time of day, are not published in this workbook.
+- MSOA columns (msoa21cd, msoa21nm, msoa21hclnm) are deliberately not added: this is a district-level table, so an MSOA name would be finer than the data.
 
 **LOADED INTO uk_baseline**
 
@@ -97,3 +104,10 @@
 | `residential_overall` | `double precision` | Source field `Residential (overall)`; purpose "residential: Travel to residential addresses for social purposes"; mode overall: walking, cycling and public transport combined, driving excluded. Unit: "connectivity scores range from 0 to 100, where 100 represents the highest level of connectivity." (DfT workbook Metadata sheet) |
 | `overall` | `double precision` | Source field `Overall`; purpose overall: all purposes combined; mode overall: walking, cycling and public transport combined, driving excluded. Unit: "connectivity scores range from 0 to 100, where 100 represents the highest level of connectivity." (DfT workbook Metadata sheet) |
 | `geom` | `geometry(MultiPolygon,27700)` | Geometry from uk_baseline.adm_ons_lad_boundary_may2022, England and Wales rows, matched on the district name. |
+| `lad22cd` | `character varying(9)` | Local Authority District 2022 code, matched exactly at enrichment on `lad22nm` to uk_baseline.adm_ons_lad_boundary_may2022 (England and Wales rows); 331 of 331 matched. Open Government Licence v3.0. |
+| `lad25cd` | `text` | Local Authority District 2025 code (current administering authority). Traced via uk.ref_lad25_ctyua25_sds_lu_jul2026 from the row's Local Authority District 2022 code. Open Government Licence v3.0. |
+| `lad25nm` | `text` | Local Authority District 2025 name (current administering authority). Traced via uk.ref_lad25_ctyua25_sds_lu_jul2026 from the row's Local Authority District 2022 code. Open Government Licence v3.0. |
+| `ctyua25cd` | `text` | County or unitary authority code at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `ctyua25nm` | `text` | County or unitary authority name at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `sds_name` | `text` | Spatial Development Strategy (SDS) area, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `sds_group` | `text` | Devolution status of the Spatial Development Strategy area: Existing Devolution Footprints, Devolution Priority Programme, Other Proposed Geographies or Remaining Areas. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |

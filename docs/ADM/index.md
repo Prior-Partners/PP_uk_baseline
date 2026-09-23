@@ -2,7 +2,7 @@
 
 *Local authority, wards, output areas, built-up areas, postcode boundaries, planning zones, workplace zones*
 
-18 layers.
+19 layers.
 
 <ul class="cat-index">
   <li><a href="adm_nisra_dz_boundary_2021/"><span class="cat-short">Data Zone Boundary 2021 (Northern Ireland)</span><span class="cat-sep"> — </span><span class="cat-full">Northern Ireland Statistics and Research Agency (NISRA) Census 2021 Data Zones, Northern Ireland extent, February 2023</span><span class="cat-sep"> — </span><span class="cat-table">adm_nisra_dz_boundary_2021</span></a></li>
@@ -21,6 +21,7 @@
   <li><a href="adm_ons_oa_boundaries_dec2021/"><span class="cat-short">Output Area Boundary 2021</span><span class="cat-sep"> — </span><span class="cat-full">ONS Output Areas (OA), England &amp; Wales extent, 2021 Census geography, December 2021</span><span class="cat-sep"> — </span><span class="cat-table">adm_ons_oa_boundaries_dec2021</span></a></li>
   <li><a href="adm_nrs_oa_boundary_2022/"><span class="cat-short">Output Area Boundary 2022 (Scotland)</span><span class="cat-sep"> — </span><span class="cat-full">National Records of Scotland (NRS) Census 2022 Output Areas (OA), Scotland extent, clipped to Mean High Water, May 2024</span><span class="cat-sep"> — </span><span class="cat-table">adm_nrs_oa_boundary_2022</span></a></li>
   <li><a href="adm_ons_postcode_centroid_feb2026/"><span class="cat-short">Postcode Centroid</span><span class="cat-sep"> — </span><span class="cat-full">ONS Postcode Directory (ONSPD), United Kingdom, February 2026 edition</span><span class="cat-sep"> — </span><span class="cat-table">adm_ons_postcode_centroid_feb2026</span></a></li>
+  <li><a href="adm_ons_region_boundary_dec2022/"><span class="cat-short">Region Boundary 2022</span><span class="cat-sep"> — </span><span class="cat-full">Office for National Statistics (ONS) regions of England with Wales, full resolution clipped to the coastline, December 2022</span><span class="cat-sep"> — </span><span class="cat-table">adm_ons_region_boundary_dec2022</span></a></li>
   <li><a href="adm_nisra_sdz_boundary_2021/"><span class="cat-short">Super Data Zone Boundary 2021 (Northern Ireland)</span><span class="cat-sep"> — </span><span class="cat-full">Northern Ireland Statistics and Research Agency (NISRA) Census 2021 Super Data Zones, Northern Ireland extent, February 2023</span><span class="cat-sep"> — </span><span class="cat-table">adm_nisra_sdz_boundary_2021</span></a></li>
   <li><a href="adm_ons_ward_boundary_may2025/"><span class="cat-short">Ward Boundary 2025</span><span class="cat-sep"> — </span><span class="cat-full">ONS Wards (electoral wards), England &amp; Wales extent, May 2025</span><span class="cat-sep"> — </span><span class="cat-table">adm_ons_ward_boundary_may2025</span></a></li>
 </ul>

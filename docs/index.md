@@ -17,11 +17,11 @@ with its meaning and units.
 **New to the database?** The **[Staff Data Management Handbook](PP_Staff_Data_Management_Handbook.pdf){ target="_blank" }** explains what the geodatabase
 is, how to connect QGIS, and how to use the data on a project — it opens straight in your browser.
 
-**179 layers across 12 themes.**
+**180 layers across 12 themes.**
 
 | Code | Theme | Typical contents | Layers |
 |---|---|---|---:|
-| **ADM** | [Administrative & Planning Boundaries](ADM/index.md) | Local authority, wards, output areas, built-up areas, postcode boundaries, planning zones, workplace zones | 18 |
+| **ADM** | [Administrative & Planning Boundaries](ADM/index.md) | Local authority, wards, output areas, built-up areas, postcode boundaries, planning zones, workplace zones | 19 |
 | **BLT** | [Built Environment & Land Use](BLT/index.md) | Building footprints, land use classifications, planning applications, retail centres, points of interest | 6 |
 | **COM** | [Community & Social Infrastructure](COM/index.md) | Sports facilities, libraries, community centres, places of worship, cultural venues | 2 |
 | **DEM** | [Demographics & Socio-Economic](DEM/index.md) | Census data (age, ethnicity, religion), deprivation indices, income data, household, travel-to-work data | 50 |

@@ -41,6 +41,7 @@
 - Do not aggregate the Lower Layer Super Output Area rows to district: the district table carries its own Nomis-published figures under a different rounding regime.
 - ONS notice: geographical misreporting affects 2015-2024 outputs for the local authorities of Hillingdon and Hounslow and certain areas within them; ONS will revise the provisional 2024 tables in October 2026 and will not revise earlier years.
 - Wales and the Isles of Scilly carry a county but no Spatial Development Strategy area.
+- 9 geometries repaired on 23 September 2026 to meet the geometry validity rules: Stockport 006C (E01005866), Bristol 027B (E01014674), Thurrock 001C (E01015946), Dorset 008C (E01020541), Colchester 021C (E01021733), Wyre Forest 007C (E01032465), Swale 007G (E01032655), North Somerset 026D (E01032668), Chichester 012H (E01035327). Each outline touched itself at a single point, enclosing a void as part of the outer boundary; the void is now drawn as a separate hole. Areas are unchanged.
 
 **ENRICHMENT**
 

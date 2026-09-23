@@ -1,6 +1,6 @@
 site_name: uk_baseline data catalogue
 site_description: A guide to every layer in the uk_baseline database.
-copyright: Developed by the Digital Innovation team, Prior + Partners — last updated 16 September 2026
+copyright: Developed by the Digital Innovation team, Prior + Partners — last updated 23 September 2026
 theme:
   name: material
   font: false
@@ -230,6 +230,9 @@ nav:
     - "Railway Tracks": MOB/mob_os_railway_tracks.md
     - "Railway Tunnels": MOB/mob_os_railway_tunnels.md
     - "Roads": MOB/mob_osm_roads_may2025.md
+    - "Transport Connectivity 2025 (LAD)": MOB/mob_dft_lad_transport_connectivity_metric_2025.md
+    - "Transport Connectivity 2025 (LSOA)": MOB/mob_dft_lsoa_transport_connectivity_metric_2025.md
+    - "Transport Connectivity 2025 (OA)": MOB/mob_dft_oa_transport_connectivity_metric_2025.md
   - "Infrastructure & Utilities (UTL)":
     - UTL/index.md
     - "Cables": UTL/utl_nationalgrid_cables.md

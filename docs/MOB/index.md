@@ -2,7 +2,7 @@
 
 *Road networks, railway lines, public transport routes, cycling infrastructure, stations, paths, trails*
 
-9 layers.
+12 layers.
 
 <ul class="cat-index">
   <li><a href="mob_dft_bods_bus_routes/"><span class="cat-short">Bus Routes</span><span class="cat-sep"> — </span><span class="cat-full">Department for Transport (DfT) Bus Open Data Service (BODS) bus route polylines, Great Britain</span><span class="cat-sep"> — </span><span class="cat-table">mob_dft_bods_bus_routes</span></a></li>
@@ -14,4 +14,7 @@
   <li><a href="mob_os_railway_tracks/"><span class="cat-short">Railway Tracks</span><span class="cat-sep"> — </span><span class="cat-full">Ordnance Survey OS OpenMap Local - Railway Tracks for Great Britain</span><span class="cat-sep"> — </span><span class="cat-table">mob_os_railway_tracks</span></a></li>
   <li><a href="mob_os_railway_tunnels/"><span class="cat-short">Railway Tunnels</span><span class="cat-sep"> — </span><span class="cat-full">Ordnance Survey OS OpenMap Local - Railway Tunnels for Great Britain</span><span class="cat-sep"> — </span><span class="cat-table">mob_os_railway_tunnels</span></a></li>
   <li><a href="mob_osm_roads_may2025/"><span class="cat-short">Roads</span><span class="cat-sep"> — </span><span class="cat-full">OpenStreetMap roads for Great Britain, May 2025</span><span class="cat-sep"> — </span><span class="cat-table">mob_osm_roads_may2025</span></a></li>
+  <li><a href="mob_dft_lad_transport_connectivity_metric_2025/"><span class="cat-short">Transport Connectivity 2025 (LAD)</span><span class="cat-sep"> — </span><span class="cat-full">Department for Transport (DfT) transport connectivity metric, Local Authority District (LAD) scores, England &amp; Wales, September 2025</span><span class="cat-sep"> — </span><span class="cat-table">mob_dft_lad_transport_connectivity_metric_2025</span></a></li>
+  <li><a href="mob_dft_lsoa_transport_connectivity_metric_2025/"><span class="cat-short">Transport Connectivity 2025 (LSOA)</span><span class="cat-sep"> — </span><span class="cat-full">Department for Transport (DfT) transport connectivity metric, Lower layer Super Output Area (LSOA) scores, England &amp; Wales, September 2025</span><span class="cat-sep"> — </span><span class="cat-table">mob_dft_lsoa_transport_connectivity_metric_2025</span></a></li>
+  <li><a href="mob_dft_oa_transport_connectivity_metric_2025/"><span class="cat-short">Transport Connectivity 2025 (OA)</span><span class="cat-sep"> — </span><span class="cat-full">Department for Transport (DfT) transport connectivity metric, Output Area (OA) scores, England &amp; Wales, September 2025</span><span class="cat-sep"> — </span><span class="cat-table">mob_dft_oa_transport_connectivity_metric_2025</span></a></li>
 </ul>

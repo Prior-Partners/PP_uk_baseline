@@ -43,6 +43,7 @@
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - Higher AHAH score / rank = less healthy environment.
 - `rgn22cd` / `rgn22nm` are empty for Welsh and Scottish rows. Regions are an England-only geography.
+- 1 geometry repaired on 23 September 2026 to meet the geometry validity rules: Dorset 008C (E01020541). Each outline touched itself at a single point, enclosing a void as part of the outer boundary; the void is now drawn as a separate hole. Areas are unchanged.
 
 **ENRICHMENT**
 

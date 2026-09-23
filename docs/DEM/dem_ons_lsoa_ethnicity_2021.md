@@ -39,6 +39,7 @@
 **DATA QUALITY CAVEATS**
 
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
+- 9 geometries repaired on 23 September 2026 to meet the geometry validity rules: Stockport 006C (E01005866), Bristol 027B (E01014674), Thurrock 001C (E01015946), Dorset 008C (E01020541), Colchester 021C (E01021733), Wyre Forest 007C (E01032465), Swale 007G (E01032655), North Somerset 026D (E01032668), Chichester 012H (E01035327). Each outline touched itself at a single point, enclosing a void as part of the outer boundary; the void is now drawn as a separate hole. Areas are unchanged.
 
 **ENRICHMENT**
 

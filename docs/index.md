@@ -17,7 +17,7 @@ with its meaning and units.
 **New to the database?** The **[Staff Data Management Handbook](PP_Staff_Data_Management_Handbook.pdf){ target="_blank" }** explains what the geodatabase
 is, how to connect QGIS, and how to use the data on a project — it opens straight in your browser.
 
-**180 layers across 12 themes.**
+**181 layers across 12 themes.**
 
 | Code | Theme | Typical contents | Layers |
 |---|---|---|---:|
@@ -31,7 +31,7 @@ is, how to connect QGIS, and how to use the data on a project — it opens strai
 | **HER** | [Heritage & Historical Assets](HER/index.md) | Listed buildings, conservation areas, historic parks, archaeological sites | 12 |
 | **HOU** | [Housing & Living Conditions](HOU/index.md) | House prices, housing tenure, property types, energy efficiency ratings, overcrowding metrics, rental costs | 1 |
 | **HTH** | [Health & Wellbeing](HTH/index.md) | GP surgeries, hospitals, health inequalities, disease prevalence, obesity | 8 |
-| **MOB** | [Transport & Mobility](MOB/index.md) | Road networks, railway lines, public transport routes, cycling infrastructure, stations, paths, trails | 12 |
+| **MOB** | [Transport & Mobility](MOB/index.md) | Road networks, railway lines, public transport routes, cycling infrastructure, stations, paths, trails | 13 |
 | **UTL** | [Infrastructure & Utilities](UTL/index.md) | Electricity networks, gas pipelines, water infrastructure, telecoms masts, waste facilities | 7 |
 
 !!! note "How to read a layer page"

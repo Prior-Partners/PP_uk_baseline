@@ -53,7 +53,6 @@
 
 **NOT IN THIS DATASET**
 
-- The workbook's Region sheet (nine English regions and Wales) is not loaded: uk_baseline holds no region boundary.
 - The workbook Metadata sheet defines deciles, but the published sheets carry scores only.
 - The 100-metre grid scores behind the DfT Connectivity Tool, and scores by time of day, are not published in this workbook.
 

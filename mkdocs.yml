@@ -234,6 +234,7 @@ nav:
     - "Transport Connectivity 2025 (LAD)": MOB/mob_dft_lad_transport_connectivity_metric_2025.md
     - "Transport Connectivity 2025 (LSOA)": MOB/mob_dft_lsoa_transport_connectivity_metric_2025.md
     - "Transport Connectivity 2025 (OA)": MOB/mob_dft_oa_transport_connectivity_metric_2025.md
+    - "Transport Connectivity 2025 (RGN)": MOB/mob_dft_rgn_transport_connectivity_metric_2025.md
   - "Infrastructure & Utilities (UTL)":
     - UTL/index.md
     - "Cables": UTL/utl_nationalgrid_cables.md

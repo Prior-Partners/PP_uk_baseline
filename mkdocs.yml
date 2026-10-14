@@ -1,6 +1,6 @@
 site_name: uk_baseline data catalogue
 site_description: A guide to every layer in the uk_baseline database.
-copyright: Developed by the Digital Innovation team, Prior + Partners — last updated 23 September 2026
+copyright: Developed by the Digital Innovation team, Prior + Partners — last updated 14 October 2026
 theme:
   name: material
   font: false
@@ -56,7 +56,9 @@ nav:
     - "National Infrastructure Projects": ADM/adm_national_infrastructure_project.md
     - "Output Area Boundary 2021": ADM/adm_ons_oa_boundaries_dec2021.md
     - "Output Area Boundary 2022 (Scotland)": ADM/adm_nrs_oa_boundary_2022.md
+    - "Parish and Non-Civil Parished Area Boundary 2026": ADM/adm_ons_parish_non_civil_parished_area_may2026.md
     - "Postcode Centroid": ADM/adm_ons_postcode_centroid_feb2026.md
+    - "Proposed Unitary Authorities 2026": ADM/adm_hcl_proposed_unitary_authorities_2026.md
     - "Region Boundary 2022": ADM/adm_ons_region_boundary_dec2022.md
     - "Super Data Zone Boundary 2021 (Northern Ireland)": ADM/adm_nisra_sdz_boundary_2021.md
     - "Ward Boundary 2025": ADM/adm_ons_ward_boundary_may2025.md

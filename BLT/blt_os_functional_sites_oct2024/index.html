@@ -4786,7 +4786,7 @@
   <span class="md-ellipsis">
     
   
-    Sssi
+    SSSI
   
 
     
@@ -6537,37 +6537,37 @@
 <tr>
 <td><code>classification</code></td>
 <td><code>character varying</code></td>
-<td></td>
+<td>Source field "classification". "A description of the actual function of a site (that is, airfield, junior school, hospital and so on.) The valid values are defined in the SiteClassification code list. For sites with multiple functions, the values will be provided together and separated by a ','." (OS Product Guide). Length 90.</td>
 </tr>
 <tr>
 <td><code>distinctive_name</code></td>
 <td><code>character varying</code></td>
-<td></td>
+<td>Source field "distinctiveName". "The name of the site (for example, 'Brighton College'). Note this may be null if the captured value is a house number." (OS Product Guide). Length 120.</td>
 </tr>
 <tr>
 <td><code>feature_code</code></td>
 <td><code>integer</code></td>
-<td></td>
+<td>Source field "featureCode". "A unique feature code to facilitate styling." (OS Product Guide).</td>
 </tr>
 <tr>
 <td><code>site_theme</code></td>
 <td><code>character varying</code></td>
-<td></td>
+<td>Source field "siteTheme". "A description of the theme that a particular site falls under (that is, air transport, education, medical care and so on.). The valid values are defined in the SiteThemeType code list." (OS Product Guide). 5 valid values.</td>
 </tr>
 <tr>
 <td><code>id_original</code></td>
 <td><code>character varying</code></td>
-<td></td>
+<td>Source upstream OS identifier (UUID) preserved at load. NOT strictly unique per row - see caveats.</td>
 </tr>
 <tr>
 <td><code>wd21nm</code></td>
 <td><code>character varying</code></td>
-<td></td>
+<td>Joined at load from spatial intersection with ONS 2021 Ward boundaries; Ward name.</td>
 </tr>
 <tr>
 <td><code>wd21cd</code></td>
 <td><code>character varying</code></td>
-<td></td>
+<td>Joined at load from spatial intersection with ONS 2021 Ward boundaries; Ward GSS code (includes Scottish S-codes).</td>
 </tr>
 <tr>
 <td><code>area_ha</code></td>
@@ -6612,7 +6612,7 @@
 <tr>
 <td><code>geom</code></td>
 <td><code>geometry(MultiPolygon,27700)</code></td>
-<td></td>
+<td>Source field "geometry". "Polygon representing the extent of the functional site." (OS Product Guide). EPSG:27700.</td>
 </tr>
 <tr>
 <td><code>source_fid</code></td>
@@ -6680,7 +6680,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Developed by the Digital Innovation team, Prior + Partners — last updated 14 October 2026
+      Developed by the Digital Innovation team, Prior + Partners — last updated 15 October 2026
     </div>
   
   

@@ -4726,7 +4726,7 @@
   <span class="md-ellipsis">
     
   
-    Sssi
+    SSSI
   
 
     
@@ -6525,87 +6525,87 @@
 <tr>
 <td><code>transaction_id</code></td>
 <td><code>text</code></td>
-<td></td>
+<td>Source field, HM Land Registry transaction unique identifier. "A reference number which is generated automatically recording each published sale." Primary key.</td>
 </tr>
 <tr>
 <td><code>price</code></td>
 <td><code>bigint</code></td>
-<td></td>
+<td>Source field <code>Price</code>. "Sale price stated on the transfer deed." Unit: pounds sterling. Cast to bigint at load.</td>
 </tr>
 <tr>
 <td><code>transfer_date</code></td>
 <td><code>date</code></td>
-<td></td>
+<td>Source field <code>Date of Transfer</code>. "Date when the sale was completed, as stated on the transfer deed." Cast to date at load.</td>
 </tr>
 <tr>
 <td><code>postcode</code></td>
 <td><code>text</code></td>
-<td></td>
+<td>Source field <code>Postcode</code>. Postcode at the time of the transaction; reallocations since are not reflected. Used to derive <code>geom</code>.</td>
 </tr>
 <tr>
 <td><code>property_type</code></td>
 <td><code>text</code></td>
-<td></td>
+<td>Source field <code>Property Type</code>. D = Detached; S = Semi-Detached; T = Terraced; F = Flats/Maisonettes; O = Other.</td>
 </tr>
 <tr>
 <td><code>old_new</code></td>
 <td><code>text</code></td>
-<td></td>
+<td>Source field <code>Old/New</code>. Y = newly built property; N = established building.</td>
 </tr>
 <tr>
 <td><code>duration</code></td>
 <td><code>text</code></td>
-<td></td>
+<td>Source field <code>Duration</code>. F = Freehold; L = Leasehold. Leases of 7 years or less are excluded.</td>
 </tr>
 <tr>
 <td><code>paon</code></td>
 <td><code>text</code></td>
-<td></td>
+<td>Source field <code>PAON</code>. Primary Addressable Object Name (typically the house number or name).</td>
 </tr>
 <tr>
 <td><code>saon</code></td>
 <td><code>text</code></td>
-<td></td>
+<td>Source field <code>SAON</code>. Secondary Addressable Object Name (where a property is sub-divided, e.g. flats).</td>
 </tr>
 <tr>
 <td><code>street</code></td>
 <td><code>text</code></td>
-<td></td>
+<td>Source field <code>Street</code>.</td>
 </tr>
 <tr>
 <td><code>locality</code></td>
 <td><code>text</code></td>
-<td></td>
+<td>Source field <code>Locality</code>.</td>
 </tr>
 <tr>
 <td><code>town_city</code></td>
 <td><code>text</code></td>
-<td></td>
+<td>Source field <code>Town/City</code>.</td>
 </tr>
 <tr>
 <td><code>district</code></td>
 <td><code>text</code></td>
-<td></td>
+<td>Source field <code>District</code>.</td>
 </tr>
 <tr>
 <td><code>county</code></td>
 <td><code>text</code></td>
-<td></td>
+<td>Source field <code>County</code>.</td>
 </tr>
 <tr>
 <td><code>ppd_category_type</code></td>
 <td><code>text</code></td>
-<td></td>
+<td>Source field <code>PPD Category Type</code>. A = Standard Price Paid entry (single residential property sold for value); B = Additional Price Paid entry (repossessions / power-of-sale, buy-to-lets identifiable by a mortgage, transfers to non-private individuals, and sales where property type is 'Other').</td>
 </tr>
 <tr>
 <td><code>record_status</code></td>
 <td><code>text</code></td>
-<td></td>
+<td>Source field <code>Record Status</code>. Monthly-file change indicator: A = addition, C = change, D = delete. The complete-file load is a current snapshot (status A).</td>
 </tr>
 <tr>
 <td><code>geom</code></td>
 <td><code>geometry(Point,27700)</code></td>
-<td></td>
+<td>Point geometry in EPSG:27700, derived at load by joining the normalised <code>postcode</code> to uk_baseline.adm_ons_postcode_centroid_feb2026 (GB postcode-unit centroid). NULL where the postcode is blank or unmatched. Postcode-centroid precision, not exact address location.</td>
 </tr>
 <tr>
 <td><code>msoa21cd</code></td>
@@ -6673,7 +6673,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Developed by the Digital Innovation team, Prior + Partners — last updated 14 October 2026
+      Developed by the Digital Innovation team, Prior + Partners — last updated 15 October 2026
     </div>
   
   

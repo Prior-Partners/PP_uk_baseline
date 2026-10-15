@@ -4726,7 +4726,7 @@
   <span class="md-ellipsis">
     
   
-    Sssi
+    SSSI
   
 
     
@@ -6534,77 +6534,77 @@
 <tr>
 <td><code>route_id</code></td>
 <td><code>character varying(100)</code></td>
-<td></td>
+<td>Internal route identifier.</td>
 </tr>
 <tr>
 <td><code>gtfs_route_id</code></td>
 <td><code>character varying(100)</code></td>
-<td></td>
+<td>Source field "route_id" (GTFS); GTFS route identifier.</td>
 </tr>
 <tr>
 <td><code>gtfs_shape_id</code></td>
 <td><code>character varying(100)</code></td>
-<td></td>
+<td>Source field "shape_id" (GTFS); GTFS shape identifier for the route geometry.</td>
 </tr>
 <tr>
 <td><code>line_name</code></td>
 <td><code>character varying(100)</code></td>
-<td></td>
+<td>Source field; published line name (e.g. service number).</td>
 </tr>
 <tr>
 <td><code>route_long_name</code></td>
 <td><code>character varying(500)</code></td>
-<td></td>
+<td>Source field; full route name.</td>
 </tr>
 <tr>
 <td><code>agency_id</code></td>
 <td><code>character varying(50)</code></td>
-<td></td>
+<td>Source field "agency_id" (GTFS); operator identifier.</td>
 </tr>
 <tr>
 <td><code>agency_name</code></td>
 <td><code>character varying(500)</code></td>
-<td></td>
+<td>Source field "agency_name" (GTFS); operator name.</td>
 </tr>
 <tr>
 <td><code>agency_noc</code></td>
 <td><code>character varying(20)</code></td>
-<td></td>
+<td>Source field; operator National Operator Code (NOC).</td>
 </tr>
 <tr>
 <td><code>stops_served</code></td>
 <td><code>jsonb</code></td>
-<td></td>
+<td>Ordered list of stops served by the route.</td>
 </tr>
 <tr>
 <td><code>stop_count</code></td>
 <td><code>integer</code></td>
-<td></td>
+<td>Number of stops served by the route.</td>
 </tr>
 <tr>
 <td><code>geom_source</code></td>
 <td><code>character varying(50)</code></td>
-<td></td>
+<td>Geometry provenance. Observed values: "gtfs_shape" (published GTFS shape), "reconstructed" (built from the stop sequence).</td>
 </tr>
 <tr>
 <td><code>total_distance_metres</code></td>
 <td><code>numeric</code></td>
-<td></td>
+<td>Route length. Unit: metres.</td>
 </tr>
 <tr>
 <td><code>route_class</code></td>
 <td><code>character varying(20)</code></td>
-<td></td>
+<td>Route class. Observed values: "local", "regional", "intercity", "coach".</td>
 </tr>
 <tr>
 <td><code>feed_source</code></td>
 <td><code>character varying(50)</code></td>
-<td></td>
+<td>Feed provenance. Observed values: "bods_gtfs_all" (national GTFS bundle), "txc_fallback" (per-operator TransXChange).</td>
 </tr>
 <tr>
 <td><code>feed_loaded_at</code></td>
 <td><code>timestamp without time zone</code></td>
-<td></td>
+<td>Timestamp the source feed was loaded.</td>
 </tr>
 <tr>
 <td><code>msoa21cd</code></td>
@@ -6644,7 +6644,7 @@
 <tr>
 <td><code>geom</code></td>
 <td><code>geometry(MultiLineString,27700)</code></td>
-<td></td>
+<td>LineString in EPSG:27700. Bus route polyline.</td>
 </tr>
 <tr>
 <td><code>gid</code></td>
@@ -6702,7 +6702,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Developed by the Digital Innovation team, Prior + Partners — last updated 14 October 2026
+      Developed by the Digital Innovation team, Prior + Partners — last updated 15 October 2026
     </div>
   
   

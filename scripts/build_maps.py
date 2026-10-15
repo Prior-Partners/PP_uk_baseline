@@ -1473,7 +1473,7 @@ def build_specs(cur):
 # Neutral location (sibling of the tileserver folder), overridable for testing.
 STYLES_JSON = Path(os.environ.get(
     "UK_BASELINE_STYLES",
-    r"P:\0_Practice\10_Data management resources\XX_Working\uk_baseline_styles.json"))
+    r"G:\0_Practice\10_Data management resources\XX_Working\uk_baseline_styles.json"))
 
 
 def new_driver(size=FRAME):

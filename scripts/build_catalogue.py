@@ -55,7 +55,7 @@ ROOT = Path(__file__).resolve().parents[2]          # the uk_baseline working di
 OUT = ROOT / "catalogue"                             # MkDocs site source (local)
 DOCS = OUT / "docs"
 # Colleague-facing single-file deliverables live on the practice share.
-SHARE = Path(r"P:\0_Practice\10_Data management resources\04_Spreadsheets")
+SHARE = Path(r"G:\0_Practice\10_Data management resources\04_Spreadsheets")
 # Static preview snapshots (built by build_maps.py) live under docs/maps/ as
 # <table>.png and deploy with the MkDocs site. Interactive / full-extent viewing
 # is now the Dashboard's job (Stream 1); each layer links out to it.
@@ -75,7 +75,7 @@ def dashboard_link(table: str) -> str:
 # (themes are reviewed + deployed one at a time).
 STYLES_JSON = Path(os.environ.get(
     "UK_BASELINE_STYLES",
-    r"P:\0_Practice\10_Data management resources\XX_Working\uk_baseline_styles.json"))
+    r"G:\0_Practice\10_Data management resources\XX_Working\uk_baseline_styles.json"))
 
 
 def _approved_themes() -> set:
@@ -100,7 +100,7 @@ def has_map(table: str) -> bool:
 # the one external lookup, and a blank/missing value simply renders no line.
 REGISTER = Path(os.environ.get(
     "UK_BASELINE_REGISTER",
-    r"P:\0_Practice\10_Data management resources\04_Spreadsheets\DI"
+    r"G:\0_Practice\10_Data management resources\04_Spreadsheets\DI"
     r"\uk_baseline_data_register.xlsx"))
 
 

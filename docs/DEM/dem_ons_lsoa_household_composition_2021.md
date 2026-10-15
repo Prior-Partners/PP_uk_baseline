@@ -33,7 +33,11 @@ A household containing at least one married couple is classified as a married co
 
 **CRS**
 
-- EPSG:27700. Open Government Licence v3.0.
+- EPSG:27700.
+
+**LICENCE**
+
+- Open Government Licence v3.0.
 
 **DATA QUALITY CAVEATS**
 

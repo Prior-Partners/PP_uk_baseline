@@ -61,17 +61,17 @@ MSOA SPLIT (added 3 July 2026)
 | Column | Type | Description / unit |
 |---|---|---|
 | `source_fid` | `bigint` | Primary key of the source feature in the pre-split layer uk.blt_ons_built_up_areas_dec2024__preswap_jul03 (non-unique here: a feature spanning N MSOAs has N rows). |
-| `objectid` | `integer` |  |
-| `gsscode` | `character varying(10)` |  |
-| `bua24cd` | `character varying(10)` |  |
-| `bua24nm` | `character varying(100)` |  |
-| `bua24nmw` | `character varying(100)` |  |
-| `geometry_a` | `double precision` |  |
-| `areahectar` | `double precision` |  |
-| `globalid` | `character varying(38)` |  |
-| `id_original` | `integer` |  |
-| `wd21nm` | `character varying` |  |
-| `wd21cd` | `character varying` |  |
+| `objectid` | `integer` | Source field "OBJECTID"; ArcGIS surrogate from upstream. |
+| `gsscode` | `character varying(10)` | Source field "GSSCode"; ONS GSS code for the BUA (mirrors bua24cd). |
+| `bua24cd` | `character varying(10)` | Source field "BUA24CD"; ONS GSS code for the Built Up Area (e.g. "E63011973"). NOT unique per row - see table comment. |
+| `bua24nm` | `character varying(100)` | Source field "BUA24NM"; human-readable BUA name (English). |
+| `bua24nmw` | `character varying(100)` | Source field "BUA24NMW"; human-readable BUA name (Welsh, populated where applicable). |
+| `geometry_a` | `double precision` | Source field "Geometry_Area"; whole-BUA area. Unit: "square metres". Constant within a bua24cd group. |
+| `areahectar` | `double precision` | Source field "AreaHectares"; whole-BUA area. Unit: "hectares". Constant within a bua24cd group. |
+| `globalid` | `character varying(38)` | Source field "GlobalID"; ArcGIS GUID. |
+| `id_original` | `integer` | Source numeric identifier preserved at load. |
+| `wd21nm` | `character varying` | Joined at load from spatial intersection with ONS 2021 Ward boundaries; Ward name. |
+| `wd21cd` | `character varying` | Joined at load from spatial intersection with ONS 2021 Ward boundaries; Ward GSS code. |
 | `area_ha` | `double precision` | Area in hectares of this row's own geometry, computed at load from the EPSG:27700 geometry. On layers split by Middle Layer Super Output Area this is the area of the piece inside its MSOA, not the area of the whole source feature. |
 | `fid` | `bigint` |  |
 | `msoa21cd` | `character varying` | Middle Layer Super Output Area (MSOA) 2021 code of this piece. Open Government Licence v3.0. |
@@ -81,7 +81,7 @@ MSOA SPLIT (added 3 July 2026)
 | `lad22nm` | `text` | Local Authority District 2022 name (2021 LAD geography), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `lad25cd` | `text` | Local Authority District 2025 code (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
-| `geom` | `geometry(MultiPolygon,27700)` |  |
+| `geom` | `geometry(MultiPolygon,27700)` | Source field "geometry"; Polygon in EPSG:27700 (British National Grid). |
 | `gid` | `bigint` |  |
 | `ctyua25cd` | `text` | County or unitary authority code at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
 | `ctyua25nm` | `text` | County or unitary authority name at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |

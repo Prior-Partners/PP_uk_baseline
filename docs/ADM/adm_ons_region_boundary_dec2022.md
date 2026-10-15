@@ -4,6 +4,8 @@
 
 `adm_ons_region_boundary_dec2022`
 
+<img src="../../maps/adm_ons_region_boundary_dec2022.png" alt="Styling preview of adm_ons_region_boundary_dec2022" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+
 **SOURCE**
 
 - Office for National Statistics (ONS), Open Geography Portal. Two boundary products combined into one table at load on the owner's instruction (23 September 2026): the nine English regions from Regions (December 2022) Boundaries EN BFC (V2), file Regions_December_2022_Boundaries_EN_BFC_V2.gpkg (23,437,312 bytes), and the Wales row from Countries (December 2022) Boundaries UK BFC, file Countries_December_2022_Boundaries_UK_BFC.gpkg (55,173,120 bytes). The source_product column records which file each row came from.

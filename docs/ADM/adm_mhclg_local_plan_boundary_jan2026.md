@@ -62,19 +62,19 @@ MSOA SPLIT (added 30 June 2026)
 | Column | Type | Description / unit |
 |---|---|---|
 | `fid` | `bigint` |  |
-| `dataset` | `character varying` |  |
-| `end_date` | `character varying` |  |
-| `entity` | `character varying` |  |
-| `entry_date` | `date` |  |
-| `name` | `character varying` |  |
-| `organisation_entity` | `character varying` |  |
-| `prefix` | `character varying` |  |
-| `quality` | `character varying` |  |
-| `reference` | `character varying` |  |
-| `start_date` | `character varying` |  |
-| `typology` | `character varying` |  |
-| `organisations` | `character varying` |  |
-| `local_planning_authorities` | `character varying` |  |
+| `dataset` | `character varying` | Source field "dataset"; constant value "local-plan-boundary". |
+| `end_date` | `character varying` | Source field "end-date"; date the boundary was retired upstream (blank if still active). All rows currently active in this load. |
+| `entity` | `character varying` | Source field "entity"; numeric ID assigned by Planning Data; 364 distinct entities in this load. |
+| `entry_date` | `date` | Source field "entry-date"; date this row was first published in the upstream Planning Data dataset. |
+| `name` | `character varying` | Source field "name"; human-readable name of the local-plan area (e.g. "London Borough of Camden"). |
+| `organisation_entity` | `character varying` | Source field "organisation-entity"; numeric ID of the publishing organisation. |
+| `prefix` | `character varying` | Source field "prefix"; constant value "local-plan-boundary" (mirrors dataset). |
+| `quality` | `character varying` | Source field "quality"; upstream data-quality tag (e.g. "authoritative"). |
+| `reference` | `character varying` | Source field "reference"; alphanumeric identifier (often matches the LPA GSS code, e.g. "E60000188"). |
+| `start_date` | `character varying` | Source field "start-date"; date the boundary became effective upstream (often blank). |
+| `typology` | `character varying` | Source field "typology"; upstream taxonomy class. Constant "geography" for this dataset. |
+| `organisations` | `character varying` | Source field "organisations"; ":"-delimited list of upstream organisation slugs (e.g. "local-authority:CMD"). |
+| `local_planning_authorities` | `character varying` | Source field "local-planning-authorities"; LPA reference(s). |
 | `msoa21cd` | `character varying` | Middle Layer Super Output Area (MSOA) 2021 code of this piece. Open Government Licence v3.0. |
 | `msoa21nm` | `character varying` | Official ONS MSOA 2021 name of this piece. Open Government Licence v3.0. |
 | `msoa21hclnm` | `text` | House of Commons Library readable MSOA name of this piece. Open Parliament Licence. |
@@ -82,7 +82,7 @@ MSOA SPLIT (added 30 June 2026)
 | `lad22nm` | `text` | Local Authority District 2022 name (2021 LAD geography), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `lad25cd` | `text` | Local Authority District 2025 code (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
-| `geom` | `geometry(MultiPolygon,27700)` |  |
+| `geom` | `geometry(MultiPolygon,27700)` | Source field "geometry" (multipolygon per upstream spec; exploded to Polygon at load); EPSG:27700. |
 | `source_fid` | `integer` | Primary key of the source feature in the pre-split layer uk.adm_mhclg_local_plan_boundary_jan2026__preswap_jun30 (non-unique here: a feature spanning N MSOAs has N rows). |
 | `gid` | `bigint` |  |
 | `ctyua25cd` | `text` | County or unitary authority code at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |

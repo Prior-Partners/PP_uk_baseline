@@ -50,18 +50,18 @@ MSOA SPLIT (added 4 July 2026)
 | Column | Type | Description / unit |
 |---|---|---|
 | `source_fid` | `bigint` | Primary key of the source feature in the pre-split layer uk.utl_nationalgrid_over_head_line__preswap_jul04 (non-unique here: a feature spanning N MSOAs has N rows). |
-| `gdo_gid` | `numeric` |  |
-| `route_asse` | `character varying(12)` |  |
-| `towers_in` | `character varying(40)` |  |
-| `action_dtt` | `date` |  |
-| `status` | `character varying(1)` |  |
-| `operating_` | `character varying(18)` |  |
-| `circuit1` | `character varying(200)` |  |
-| `circuit2` | `character varying(200)` |  |
-| `id_original` | `integer` |  |
-| `wd21nm` | `character varying` |  |
-| `wd21cd` | `character varying` |  |
-| `length_m` | `double precision` |  |
+| `gdo_gid` | `numeric` | Source field "gdo_gid"; source feature identifier. |
+| `route_asse` | `character varying(12)` | Source field "route_asse"; route asset reference (name truncated). |
+| `towers_in` | `character varying(40)` | Source field "towers_in"; towers on the route (name truncated). |
+| `action_dtt` | `date` | Source field "action_dtt"; action date (name truncated). |
+| `status` | `character varying(1)` | Source field "status"; source status code. Observed values: "C", "E". |
+| `operating_` | `character varying(18)` | Source field "operating_"; operating voltage in kV. Observed values: "400", "275", "132", "33", "25". |
+| `circuit1` | `character varying(200)` | Source field "circuit1"; first circuit identifier. |
+| `circuit2` | `character varying(200)` | Source field "circuit2"; second circuit identifier. |
+| `id_original` | `integer` | Original feature id preserved at load. |
+| `wd21nm` | `character varying` | Joined at load from ONS Ward 2021 lookup; 2021 Ward name. |
+| `wd21cd` | `character varying` | Joined at load from ONS Ward 2021 lookup; 2021 Ward GSS code. |
+| `length_m` | `double precision` | Length in metres. |
 | `msoa21cd` | `character varying` | Middle Layer Super Output Area (MSOA) 2021 code of this piece. Open Government Licence v3.0. |
 | `msoa21nm` | `character varying` | Official ONS MSOA 2021 name of this piece. Open Government Licence v3.0. |
 | `msoa21hclnm` | `text` | House of Commons Library readable MSOA name of this piece. Open Parliament Licence. |
@@ -69,7 +69,7 @@ MSOA SPLIT (added 4 July 2026)
 | `lad22nm` | `text` | Local Authority District 2022 name (2021 LAD geography), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `lad25cd` | `text` | Local Authority District 2025 code (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
-| `geom` | `geometry(MultiLineString,27700)` |  |
+| `geom` | `geometry(MultiLineString,27700)` | LineString in EPSG:27700. Overhead transmission line route. |
 | `gid` | `bigint` |  |
 | `ctyua25cd` | `text` | County or unitary authority code at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
 | `ctyua25nm` | `text` | County or unitary authority name at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |

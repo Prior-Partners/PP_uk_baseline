@@ -4,6 +4,8 @@
 
 `adm_sg_iz_boundary_2022`
 
+<img src="../../maps/adm_sg_iz_boundary_2022.png" alt="Styling preview of adm_sg_iz_boundary_2022" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+
 **SOURCE**
 
 - Scottish Government, Geographic Information Science and Analysis Team. File SG_IntermediateZoneBdry_2022_MHW.shp from SG_IntermediateZoneBdry_2022.zip, published 16 December 2024; the Extent of the Realm file in the same download was not loaded. All source fields copied as published; nothing derived, renamed or filtered.

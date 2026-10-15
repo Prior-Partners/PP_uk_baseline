@@ -4,6 +4,8 @@
 
 `dem_geods_oa_multiple_ethnic_groups_2021_22`
 
+<img src="../../maps/dem_geods_oa_multiple_ethnic_groups_2021_22.png" alt="Styling preview of dem_geods_oa_multiple_ethnic_groups_2021_22" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+
 **SOURCE**
 
 - Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk023 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 6 source columns copied as published; nothing derived or filtered. Columns carry readable names from the GeoDS labels (see SCOPE); the GeoDS identifier is recorded in every column comment.
@@ -13,7 +15,7 @@
 - Dataset page : https://data.geods.ac.uk/dataset/unified-uk-census-data
 - Method paper (Goodwin and Singleton) : https://doi.org/10.1177/23998083261429563
 - Source code : https://github.com/GeographicDataService/unified-uk-census-2021-22
-- Variable Metadata and Table Notes files : shipped with the download; local copy on the P: source folder 260902_GeoDS_Unified UK Census 2021-22.
+- Variable Metadata and Table Notes files : shipped with the download; local copy on the G: source folder 260902_GeoDS_Unified UK Census 2021-22.
 
 **DEFINITIONS**
 

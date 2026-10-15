@@ -84,7 +84,7 @@ MSOA SPLIT (added 30 June 2026)
 | `lad22nm` | `text` | Local Authority District 2022 name (2021 LAD geography), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `lad25cd` | `text` | Local Authority District 2025 code (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
-| `geom` | `geometry(MultiPolygon,27700)` |  |
+| `geom` | `geometry(MultiPolygon,27700)` | MultiPolygonZ in EPSG:27700. Z values inherited from source shapefile; not analytically meaningful. |
 | `source_fid` | `integer` | Primary key of the source feature in the pre-split layer uk.ecn_mhclg_english_enterprise_zone_sites_mar2016__preswap_jun30 (non-unique here: a feature spanning N MSOAs has N rows). |
 | `gid` | `bigint` |  |
 | `ctyua25cd` | `text` | County or unitary authority code at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |

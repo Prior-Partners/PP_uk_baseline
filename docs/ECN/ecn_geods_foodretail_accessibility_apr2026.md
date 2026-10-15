@@ -88,7 +88,7 @@
 | `lad22nm` | `text` | Local Authority District 2022 name (2021 LAD geography), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `lad25cd` | `text` | Local Authority District 2025 code (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
-| `geom` | `geometry(MultiPolygon,27700)` |  |
+| `geom` | `geometry(MultiPolygon,27700)` | Geometry from publisher GPKG (hex_foodretail_accessibility.gpkg). EPSG:27700 (OSGB36 / British National Grid). Polygon - one 350-metre bespoke hexagonal cell per row. |
 | `gid` | `bigint` |  |
 | `ctyua25cd` | `text` | County or unitary authority code at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
 | `ctyua25nm` | `text` | County or unitary authority name at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |

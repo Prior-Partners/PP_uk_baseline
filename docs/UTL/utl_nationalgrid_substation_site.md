@@ -51,16 +51,16 @@ MSOA SPLIT (added 30 June 2026)
 
 | Column | Type | Description / unit |
 |---|---|---|
-| `substation` | `character varying(100)` |  |
-| `operating_` | `character varying(100)` |  |
-| `action_dtt` | `date` |  |
-| `status` | `character varying(1)` |  |
-| `substati_1` | `character varying(200)` |  |
-| `owner_flag` | `character varying(1)` |  |
-| `gdo_gid` | `numeric` |  |
-| `id_original` | `integer` |  |
-| `wd21nm` | `character varying` |  |
-| `wd21cd` | `character varying` |  |
+| `substation` | `character varying(100)` | Source field "substation"; substation name. |
+| `operating_` | `character varying(100)` | Source field "operating_"; operating voltage (name truncated). |
+| `action_dtt` | `date` | Source field "action_dtt"; action date (name truncated). |
+| `status` | `character varying(1)` | Source field "status"; source status code. Observed values: "C", "P", "E". |
+| `substati_1` | `character varying(200)` | Source field "substati_1"; secondary substation name (name truncated). |
+| `owner_flag` | `character varying(1)` | Source field "owner_flag"; ownership flag. |
+| `gdo_gid` | `numeric` | Source field "gdo_gid"; source feature identifier. |
+| `id_original` | `integer` | Original feature id preserved at load. |
+| `wd21nm` | `character varying` | Joined at load from ONS Ward 2021 lookup; 2021 Ward name. |
+| `wd21cd` | `character varying` | Joined at load from ONS Ward 2021 lookup; 2021 Ward GSS code. |
 | `area_ha` | `double precision` | Area in hectares of this row's own geometry, computed at load from the EPSG:27700 geometry. On layers split by Middle Layer Super Output Area this is the area of the piece inside its MSOA, not the area of the whole source feature. |
 | `msoa21cd` | `text` | Middle Layer Super Output Area (MSOA) 2021 code of this piece. Open Government Licence v3.0. |
 | `msoa21nm` | `text` | Official ONS MSOA 2021 name of this piece. Open Government Licence v3.0. |
@@ -69,7 +69,7 @@ MSOA SPLIT (added 30 June 2026)
 | `lad22nm` | `character varying` | Local Authority District 2022 name (2021 LAD geography), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `lad25cd` | `text` | Local Authority District 2025 code (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
-| `geom` | `geometry(MultiPolygon,27700)` |  |
+| `geom` | `geometry(MultiPolygon,27700)` | Polygon in EPSG:27700. Substation site boundary. |
 | `source_fid` | `bigint` | Primary key of the source feature in the pre-split layer uk.utl_nationalgrid_substation_site__preswap_jun30 (non-unique here: a feature spanning N MSOAs has N rows). |
 | `gid` | `bigint` |  |
 | `ctyua25cd` | `text` | County or unitary authority code at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |

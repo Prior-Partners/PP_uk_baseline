@@ -51,13 +51,13 @@ MSOA SPLIT (added 4 July 2026)
 | Column | Type | Description / unit |
 |---|---|---|
 | `source_fid` | `bigint` | Primary key of the source feature in the pre-split layer uk.mob_os_railway_tracks__preswap_jul04 (non-unique here: a feature spanning N MSOAs has N rows). |
-| `id` | `character varying` |  |
-| `classification` | `character varying` |  |
-| `feature_code` | `bigint` |  |
-| `fid_original` | `integer` |  |
-| `wd21nm` | `character varying` |  |
-| `wd21cd` | `character varying` |  |
-| `length_m` | `double precision` |  |
+| `id` | `character varying` | Source field; OS feature identifier. |
+| `classification` | `character varying` | Source field "classification"; track classification. Observed values: "Multi Track", "Single Track", "Narrow Gauge". |
+| `feature_code` | `bigint` | Source field "feature_code"; OS feature code (15300 / 15301 / 15302). |
+| `fid_original` | `integer` | ArcGIS source identifier preserved at load. |
+| `wd21nm` | `character varying` | Joined at load from ONS Ward 2021 lookup; 2021 Ward name. |
+| `wd21cd` | `character varying` | Joined at load from ONS Ward 2021 lookup; 2021 Ward GSS code. |
+| `length_m` | `double precision` | Length in metres. |
 | `msoa21cd` | `character varying` | Middle Layer Super Output Area (MSOA) 2021 code of this piece. Open Government Licence v3.0. |
 | `msoa21nm` | `character varying` | Official ONS MSOA 2021 name of this piece. Open Government Licence v3.0. |
 | `msoa21hclnm` | `text` | House of Commons Library readable MSOA name of this piece. Open Parliament Licence. |
@@ -65,7 +65,7 @@ MSOA SPLIT (added 4 July 2026)
 | `lad22nm` | `text` | Local Authority District 2022 name (2021 LAD geography), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `lad25cd` | `text` | Local Authority District 2025 code (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
-| `geom` | `geometry(MultiLineString,27700)` |  |
+| `geom` | `geometry(MultiLineString,27700)` | LineString in EPSG:27700. Railway track centreline. |
 | `gid` | `bigint` |  |
 | `ctyua25cd` | `text` | County or unitary authority code at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
 | `ctyua25nm` | `text` | County or unitary authority name at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |

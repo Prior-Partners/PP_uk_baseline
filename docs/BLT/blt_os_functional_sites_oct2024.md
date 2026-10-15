@@ -64,13 +64,13 @@ MSOA SPLIT (added 30 June 2026)
 
 | Column | Type | Description / unit |
 |---|---|---|
-| `classification` | `character varying` |  |
-| `distinctive_name` | `character varying` |  |
-| `feature_code` | `integer` |  |
-| `site_theme` | `character varying` |  |
-| `id_original` | `character varying` |  |
-| `wd21nm` | `character varying` |  |
-| `wd21cd` | `character varying` |  |
+| `classification` | `character varying` | Source field "classification". "A description of the actual function of a site (that is, airfield, junior school, hospital and so on.) The valid values are defined in the SiteClassification code list. For sites with multiple functions, the values will be provided together and separated by a ','." (OS Product Guide). Length 90. |
+| `distinctive_name` | `character varying` | Source field "distinctiveName". "The name of the site (for example, 'Brighton College'). Note this may be null if the captured value is a house number." (OS Product Guide). Length 120. |
+| `feature_code` | `integer` | Source field "featureCode". "A unique feature code to facilitate styling." (OS Product Guide). |
+| `site_theme` | `character varying` | Source field "siteTheme". "A description of the theme that a particular site falls under (that is, air transport, education, medical care and so on.). The valid values are defined in the SiteThemeType code list." (OS Product Guide). 5 valid values. |
+| `id_original` | `character varying` | Source upstream OS identifier (UUID) preserved at load. NOT strictly unique per row - see caveats. |
+| `wd21nm` | `character varying` | Joined at load from spatial intersection with ONS 2021 Ward boundaries; Ward name. |
+| `wd21cd` | `character varying` | Joined at load from spatial intersection with ONS 2021 Ward boundaries; Ward GSS code (includes Scottish S-codes). |
 | `area_ha` | `double precision` | Area in hectares of this row's own geometry, computed at load from the EPSG:27700 geometry. On layers split by Middle Layer Super Output Area this is the area of the piece inside its MSOA, not the area of the whole source feature. |
 | `msoa21cd` | `text` | Middle Layer Super Output Area (MSOA) 2021 code of this piece. Open Government Licence v3.0. |
 | `msoa21nm` | `text` | Official ONS MSOA 2021 name of this piece. Open Government Licence v3.0. |
@@ -79,7 +79,7 @@ MSOA SPLIT (added 30 June 2026)
 | `lad22nm` | `character varying` | Local Authority District 2022 name (2021 LAD geography), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `lad25cd` | `text` | Local Authority District 2025 code (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
-| `geom` | `geometry(MultiPolygon,27700)` |  |
+| `geom` | `geometry(MultiPolygon,27700)` | Source field "geometry". "Polygon representing the extent of the functional site." (OS Product Guide). EPSG:27700. |
 | `source_fid` | `bigint` | Primary key of the source feature in the pre-split layer uk.blt_os_functional_sites_oct2024__preswap_jun30 (non-unique here: a feature spanning N MSOAs has N rows). |
 | `gid` | `bigint` |  |
 | `ctyua25cd` | `text` | County or unitary authority code at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |

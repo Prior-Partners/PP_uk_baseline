@@ -14,6 +14,10 @@
 
 - CaBA Data Hub : https://data.catchmentbasedapproach.org/datasets/theriverstrust::area-of-accessible-green-and-blue-space-per-1000-population-england/about
 
+**DEFINITIONS**
+
+- "The area (in hectares) of publicly accessible blue- and green-space per 1000 population within each Middle Layer Super Output Area (MSOA)." (The Rivers Trust, CaBA Data Hub)
+
 **SCOPE**
 
 - England. 6,791 rows (MSOA level).

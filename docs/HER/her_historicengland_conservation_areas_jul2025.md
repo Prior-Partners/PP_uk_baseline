@@ -56,20 +56,20 @@ MSOA SPLIT (added 3 July 2026)
 | Column | Type | Description / unit |
 |---|---|---|
 | `source_fid` | `bigint` | Primary key of the source feature in the pre-split layer uk.her_historicengland_conservation_areas_jul2025__preswap_jul03 (non-unique here: a feature spanning N MSOAs has N rows). |
-| `fid_original` | `integer` |  |
-| `uid` | `double precision` |  |
-| `name` | `character varying` |  |
-| `date_of_de` | `character varying` |  |
-| `date_updat` | `character varying` |  |
-| `lpa` | `character varying` |  |
-| `capture_sc` | `character varying` |  |
-| `x` | `integer` |  |
-| `y` | `integer` |  |
-| `wd25cd` | `character varying` |  |
-| `wd25nm` | `character varying` |  |
+| `fid_original` | `integer` | ArcGIS source identifier preserved at load. |
+| `uid` | `double precision` | Source field "uid"; source unique identifier. |
+| `name` | `character varying` | Source field "name"; conservation area name. |
+| `date_of_de` | `character varying` | Source field "date_of_de…"; date of designation. |
+| `date_updat` | `character varying` | Source field "date_updat…"; date the record was last updated. |
+| `lpa` | `character varying` | Source field "lpa"; Local Planning Authority that designated the area (e.g. "Hastings", "St. Albans"). |
+| `capture_sc` | `character varying` | Source field "capture_sc…"; cartographic scale at which the geometry was captured. |
+| `x` | `integer` | Source field "x"; representative point easting. Unit: metres (EPSG:27700). |
+| `y` | `integer` | Source field "y"; representative point northing. Unit: metres (EPSG:27700). |
+| `wd25cd` | `character varying` | Joined at load from ONS Ward 2025 lookup; 2025 Ward GSS code. |
+| `wd25nm` | `character varying` | Joined at load from ONS Ward 2025 lookup; 2025 Ward name. |
 | `area_ha` | `double precision` | Area in hectares of this row's own geometry, computed at load from the EPSG:27700 geometry. On layers split by Middle Layer Super Output Area this is the area of the piece inside its MSOA, not the area of the whole source feature. |
-| `rgn22cd` | `text` |  |
-| `rgn22nm` | `text` |  |
+| `rgn22cd` | `text` | Joined at load from ONS LAD->Region lookup; 2022 Region GSS code. |
+| `rgn22nm` | `text` | Joined at load from ONS LAD->Region lookup; 2022 Region name. |
 | `msoa21cd` | `character varying` | Middle Layer Super Output Area (MSOA) 2021 code of this piece. Open Government Licence v3.0. |
 | `msoa21nm` | `character varying` | Official ONS MSOA 2021 name of this piece. Open Government Licence v3.0. |
 | `msoa21hclnm` | `text` | House of Commons Library readable MSOA name of this piece. Open Parliament Licence. |
@@ -77,7 +77,7 @@ MSOA SPLIT (added 3 July 2026)
 | `lad22nm` | `text` | Local Authority District 2022 name (2021 LAD geography), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `lad25cd` | `text` | Local Authority District 2025 code (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
-| `geom` | `geometry(MultiPolygon,27700)` |  |
+| `geom` | `geometry(MultiPolygon,27700)` | MultiPolygon in EPSG:27700. Conservation area boundary. |
 | `gid` | `bigint` |  |
 | `ctyua25cd` | `text` | County or unitary authority code at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
 | `ctyua25nm` | `text` | County or unitary authority name at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |

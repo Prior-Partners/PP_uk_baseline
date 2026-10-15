@@ -59,26 +59,26 @@ MSOA SPLIT (added 3 July 2026)
 | Column | Type | Description / unit |
 |---|---|---|
 | `source_fid` | `bigint` | Primary key of the source feature in the pre-split layer uk.com_os_green_space_sport_activity_area__preswap_jul03 (non-unique here: a feature spanning N MSOAs has N rows). |
-| `objectid` | `bigint` |  |
-| `dataset` | `character varying(255)` |  |
-| `accessible` | `character varying(255)` |  |
-| `angst` | `character varying(255)` |  |
-| `naturalness` | `integer` |  |
-| `typologytitle` | `character varying(255)` |  |
-| `license` | `character varying(255)` |  |
-| `greenspacetopology` | `integer` |  |
-| `habitat` | `integer` |  |
-| `designation` | `integer` |  |
-| `attribute` | `character varying(8000)` |  |
-| `typologycode` | `character varying(255)` |  |
-| `orig_area` | `double precision` |  |
-| `perc_manmade` | `double precision` |  |
-| `vxcount` | `integer` |  |
-| `shape_length` | `double precision` |  |
-| `shape_area` | `double precision` |  |
-| `id_original` | `integer` |  |
-| `wd21nm` | `character varying` |  |
-| `wd21cd` | `character varying` |  |
+| `objectid` | `bigint` | Source ArcGIS surrogate from upstream. |
+| `dataset` | `character varying(255)` | Source field "dataset"; upstream dataset tag. Constant value "OS Greenspace" in this load. |
+| `accessible` | `character varying(255)` | Source field "accessible"; Yes/No flag indicating whether the site is publicly accessible. |
+| `angst` | `character varying(255)` | Source field "angst"; Yes/No flag for ANGST (Accessible Natural Greenspace Standard) eligibility. |
+| `naturalness` | `integer` | Source field "naturalness"; integer score (semantics inferred - likely 1-5 scale; verify with upstream). |
+| `typologytitle` | `character varying(255)` | Source field "typologytitle"; human-readable typology label (e.g. "Play Space Provision"). |
+| `license` | `character varying(255)` | Source field "license"; upstream licence tag (e.g. "OGL"). |
+| `greenspacetopology` | `integer` | Source field "greenspacetopology"; integer code (semantics inferred). |
+| `habitat` | `integer` | Source field "habitat"; integer code (semantics inferred). |
+| `designation` | `integer` | Source field "designation"; integer code (semantics inferred). |
+| `attribute` | `character varying(8000)` | Source field "attribute"; free-text greenspace attribute (e.g. "Play Space"). Length 8000. |
+| `typologycode` | `character varying(255)` | Source field "typologycode"; numeric typology code (e.g. "5.5"). |
+| `orig_area` | `double precision` | Source field "orig_area"; upstream-recorded area. Unit: presumed "square metres" (matches shape_area values in samples). |
+| `perc_manmade` | `double precision` | Source field "perc_manmade"; percentage of the polygon that is manmade. Unit: "per cent (0-100)". |
+| `vxcount` | `integer` | Source field "vxcount"; vertex count of the polygon - useful for geometry-complexity analysis. |
+| `shape_length` | `double precision` | Source field "shape_length"; legacy ArcGIS shape perimeter. Unit: "metres". |
+| `shape_area` | `double precision` | Source field "shape_area"; legacy ArcGIS shape area. Unit: "square metres". |
+| `id_original` | `integer` | Source identifier preserved at load. NOT strictly unique per row - see caveats. |
+| `wd21nm` | `character varying` | Joined at load from spatial intersection with ONS 2021 Ward boundaries; Ward name. |
+| `wd21cd` | `character varying` | Joined at load from spatial intersection with ONS 2021 Ward boundaries; Ward GSS code. |
 | `area_ha` | `double precision` | Area in hectares of this row's own geometry, computed at load from the EPSG:27700 geometry. On layers split by Middle Layer Super Output Area this is the area of the piece inside its MSOA, not the area of the whole source feature. |
 | `msoa21cd` | `character varying` | Middle Layer Super Output Area (MSOA) 2021 code of this piece. Open Government Licence v3.0. |
 | `msoa21nm` | `character varying` | Official ONS MSOA 2021 name of this piece. Open Government Licence v3.0. |
@@ -87,7 +87,7 @@ MSOA SPLIT (added 3 July 2026)
 | `lad22nm` | `text` | Local Authority District 2022 name (2021 LAD geography), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `lad25cd` | `text` | Local Authority District 2025 code (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
-| `geom` | `geometry(MultiPolygon,27700)` |  |
+| `geom` | `geometry(MultiPolygon,27700)` | Source field "geometry"; Polygon in EPSG:27700 (British National Grid). |
 | `gid` | `bigint` |  |
 | `ctyua25cd` | `text` | County or unitary authority code at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
 | `ctyua25nm` | `text` | County or unitary authority name at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |

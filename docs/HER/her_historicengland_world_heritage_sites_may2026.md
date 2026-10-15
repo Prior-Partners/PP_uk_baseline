@@ -57,22 +57,22 @@ MSOA SPLIT (added 3 July 2026)
 | Column | Type | Description / unit |
 |---|---|---|
 | `source_fid` | `bigint` | Primary key of the source feature in the pre-split layer uk.her_historicengland_world_heritage_sites_may2026__preswap_jul03 (non-unique here: a feature spanning N MSOAs has N rows). |
-| `fid_original` | `integer` |  |
-| `listentry` | `integer` |  |
-| `name` | `character varying` |  |
-| `inscrdate` | `timestamp with time zone` |  |
-| `amenddate` | `timestamp with time zone` |  |
-| `notes` | `character varying` |  |
-| `capturescale` | `character varying` |  |
-| `hyperlink` | `character varying` |  |
-| `ngr` | `character varying` |  |
-| `easting` | `double precision` |  |
-| `northing` | `double precision` |  |
-| `wd25cd` | `character varying` |  |
-| `wd25nm` | `character varying` |  |
+| `fid_original` | `integer` | ArcGIS source identifier preserved at load; not stable across Historic England re-publications. |
+| `listentry` | `integer` | Source field "ListEntry"; National Heritage List for England (NHLE) List Entry Number — the canonical national identifier for the heritage asset. |
+| `name` | `character varying` | Source field "Name"; heritage asset name as published on the NHLE. |
+| `inscrdate` | `timestamp with time zone` | Source field "InscrDate"; date inscribed on the World Heritage List. |
+| `amenddate` | `timestamp with time zone` | Source field "AmendDate"; date of the most recent amendment to the listing. |
+| `notes` | `character varying` | Source field "Notes"; free-text notes published by Historic England. |
+| `capturescale` | `character varying` | Source field "CaptureScale"; cartographic scale at which the geometry was captured (e.g. "1:1250"). |
+| `hyperlink` | `character varying` | Source field "Hyperlink"; URL of the listing page on the Historic England website. |
+| `ngr` | `character varying` | Source field "NGR"; alphanumeric National Grid Reference (e.g. "SP 12345 67890"). |
+| `easting` | `double precision` | Source field "Easting"; British National Grid easting. Unit: metres (EPSG:27700). |
+| `northing` | `double precision` | Source field "Northing"; British National Grid northing. Unit: metres (EPSG:27700). |
+| `wd25cd` | `character varying` | Joined at load from ONS Ward 2025 lookup; 2025 Ward GSS code. |
+| `wd25nm` | `character varying` | Joined at load from ONS Ward 2025 lookup; 2025 Ward name. |
 | `area_ha` | `double precision` | Area in hectares of this row's own geometry, computed at load from the EPSG:27700 geometry. On layers split by Middle Layer Super Output Area this is the area of the piece inside its MSOA, not the area of the whole source feature. |
-| `rgn22cd` | `text` |  |
-| `rgn22nm` | `text` |  |
+| `rgn22cd` | `text` | Joined at load from ONS LAD->Region lookup; 2022 Region GSS code. |
+| `rgn22nm` | `text` | Joined at load from ONS LAD->Region lookup; 2022 Region name. |
 | `msoa21cd` | `character varying` | Middle Layer Super Output Area (MSOA) 2021 code of this piece. Open Government Licence v3.0. |
 | `msoa21nm` | `character varying` | Official ONS MSOA 2021 name of this piece. Open Government Licence v3.0. |
 | `msoa21hclnm` | `text` | House of Commons Library readable MSOA name of this piece. Open Parliament Licence. |
@@ -80,7 +80,7 @@ MSOA SPLIT (added 3 July 2026)
 | `lad22nm` | `text` | Local Authority District 2022 name (2021 LAD geography), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `lad25cd` | `text` | Local Authority District 2025 code (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
-| `geom` | `geometry(MultiPolygon,27700)` |  |
+| `geom` | `geometry(MultiPolygon,27700)` | MultiPolygon in EPSG:27700. World Heritage Site boundary. |
 | `gid` | `bigint` |  |
 | `ctyua25cd` | `text` | County or unitary authority code at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
 | `ctyua25nm` | `text` | County or unitary authority name at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |

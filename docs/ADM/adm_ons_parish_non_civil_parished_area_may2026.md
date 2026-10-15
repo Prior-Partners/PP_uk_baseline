@@ -4,6 +4,8 @@
 
 `adm_ons_parish_non_civil_parished_area_may2026`
 
+<img src="../../maps/adm_ons_parish_non_civil_parished_area_may2026.png" alt="Styling preview of adm_ons_parish_non_civil_parished_area_may2026" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+
 **SOURCE**
 
 - Office for National Statistics (ONS), Open Geography Portal. Parishes and Non-Civil Parished Areas (May 2026) Boundaries EW BFC, file PARNCP_MAY_2026_EW_BFC_-1299597603504015581.gpkg (314,183,680 bytes), layer PARNCP_MAY_2026_EW_BFC, loaded as published.

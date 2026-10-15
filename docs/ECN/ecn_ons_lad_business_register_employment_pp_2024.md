@@ -4,6 +4,8 @@
 
 `ecn_ons_lad_business_register_employment_pp_2024`
 
+<img src="../../maps/ecn_ons_lad_business_register_employment_pp_2024.png" alt="Styling preview of ecn_ons_lad_business_register_employment_pp_2024" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+
 **SOURCE**
 
 - Office for National Statistics (ONS), distributed via the Nomis dataset Business Register and Employment Survey open access. Pulled from the Nomis application programming interface by Prior + Partners, 27 August 2026 (dual independent pulls verified identical; audit report in the project folder). Measure: Employment, count.

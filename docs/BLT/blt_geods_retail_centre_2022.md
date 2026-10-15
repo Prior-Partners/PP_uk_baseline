@@ -70,17 +70,17 @@ MSOA SPLIT (added 30 June 2026)
 
 | Column | Type | Description / unit |
 |---|---|---|
-| `rc_id` | `character varying` |  |
-| `rc_name` | `character varying` |  |
-| `classification` | `character varying` |  |
-| `country` | `character varying` |  |
-| `region_nm` | `character varying` |  |
-| `h3_count` | `double precision` |  |
-| `retail_n` | `double precision` |  |
-| `area_km2` | `double precision` |  |
-| `id_original` | `integer` |  |
-| `wd21nm` | `character varying` |  |
-| `wd21cd` | `character varying` |  |
+| `rc_id` | `character varying` | Source field "RC_ID"; retail centre identifier, prefixed by country block (e.g. "RC_EW_2423" for England/Wales, "RC_SC_347" for Scotland). NOT unique per row — see table comment; multiple polygon-part rows share the same rc_id. |
+| `rc_name` | `character varying` | Source field "RC_Name"; composed display name "[place]; [LAD] ([region]; [country])". Place names drawn from Ordnance Survey Open Names. |
+| `classification` | `character varying` | Source field "Classification"; one of 11 typology tiers (Regional Centre, Major Town Centre, Town Centre, Market Town, District Centre, Local Centre, Small Local Centre, Large Shopping Centre, Small Shopping Centre, Large Retail Park, Small Retail Park). |
+| `country` | `character varying` | Source field "Country"; constituent UK country ("England", "Scotland", "Wales", or "Northern Ireland"). |
+| `region_nm` | `character varying` | Source field "Region_NM"; ONS region name (English regions) or country name for non-English centres. |
+| `h3_count` | `double precision` | Source field "H3_Count"; count of Uber H3 hexagon cells comprising the retail centre per the delineation methodology. |
+| `retail_n` | `double precision` | Source field "Retail_N"; number of retail units located within the centre. May be 0 for some retail park aggregations. |
+| `area_km2` | `double precision` | Source field "Area_km2"; whole-centre area (constant across all rows sharing an rc_id — i.e. across the polygon parts of one centre). Unit: "square kilometres". |
+| `id_original` | `integer` | Source numeric identifier preserved at load (sequential from upstream). |
+| `wd21nm` | `character varying` | Joined at load from spatial intersection with ONS 2021 Ward boundaries; Ward name. |
+| `wd21cd` | `character varying` | Joined at load from spatial intersection with ONS 2021 Ward boundaries; Ward GSS code (includes Scottish S-codes). |
 | `area_ha` | `double precision` | Area in hectares of this row's own geometry, computed at load from the EPSG:27700 geometry. On layers split by Middle Layer Super Output Area this is the area of the piece inside its MSOA, not the area of the whole source feature. |
 | `msoa21cd` | `character varying` | Middle Layer Super Output Area (MSOA) 2021 code of this piece. Open Government Licence v3.0. |
 | `msoa21nm` | `character varying` | Official ONS MSOA 2021 name of this piece. Open Government Licence v3.0. |
@@ -89,7 +89,7 @@ MSOA SPLIT (added 30 June 2026)
 | `lad22nm` | `text` | Local Authority District 2022 name (2021 LAD geography), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `lad25cd` | `text` | Local Authority District 2025 code (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
-| `geom` | `geometry(MultiPolygon,27700)` |  |
+| `geom` | `geometry(MultiPolygon,27700)` | Source field "geometry"; Polygon in EPSG:27700 (British National Grid). |
 | `source_fid` | `bigint` | Primary key of the source feature in the pre-split layer uk.blt_geods_retail_centre_2022__preswap_jun30 (non-unique here: a feature spanning N MSOAs has N rows). |
 | `gid` | `bigint` |  |
 | `ctyua25cd` | `text` | County or unitary authority code at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |

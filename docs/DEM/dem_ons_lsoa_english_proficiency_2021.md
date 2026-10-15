@@ -35,7 +35,11 @@ The categories are:
 
 **CRS**
 
-- EPSG:27700 (OSGB 1936 / British National Grid). Open Government Licence v3.0.
+- EPSG:27700 (OSGB 1936 / British National Grid).
+
+**LICENCE**
+
+- Open Government Licence v3.0.
 
 **DATA QUALITY CAVEATS**
 

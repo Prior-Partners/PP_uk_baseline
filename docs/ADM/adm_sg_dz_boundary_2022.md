@@ -4,6 +4,8 @@
 
 `adm_sg_dz_boundary_2022`
 
+<img src="../../maps/adm_sg_dz_boundary_2022.png" alt="Styling preview of adm_sg_dz_boundary_2022" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+
 **SOURCE**
 
 - Scottish Government, Geographic Information Science and Analysis Team. File SG_DataZone_Bdry_2022.shp from SG_DataZoneBdry_2022.zip, published 16 December 2024. All source fields copied as published; nothing derived, renamed or filtered.

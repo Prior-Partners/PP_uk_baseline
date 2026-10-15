@@ -57,21 +57,21 @@ MSOA SPLIT (added 4 July 2026)
 | Column | Type | Description / unit |
 |---|---|---|
 | `source_fid` | `integer` | Primary key of the source feature in the pre-split layer uk.mob_dft_bods_bus_routes__preswap_jul04 (non-unique here: a feature spanning N MSOAs has N rows). |
-| `route_id` | `character varying(100)` |  |
-| `gtfs_route_id` | `character varying(100)` |  |
-| `gtfs_shape_id` | `character varying(100)` |  |
-| `line_name` | `character varying(100)` |  |
-| `route_long_name` | `character varying(500)` |  |
-| `agency_id` | `character varying(50)` |  |
-| `agency_name` | `character varying(500)` |  |
-| `agency_noc` | `character varying(20)` |  |
-| `stops_served` | `jsonb` |  |
-| `stop_count` | `integer` |  |
-| `geom_source` | `character varying(50)` |  |
-| `total_distance_metres` | `numeric` |  |
-| `route_class` | `character varying(20)` |  |
-| `feed_source` | `character varying(50)` |  |
-| `feed_loaded_at` | `timestamp without time zone` |  |
+| `route_id` | `character varying(100)` | Internal route identifier. |
+| `gtfs_route_id` | `character varying(100)` | Source field "route_id" (GTFS); GTFS route identifier. |
+| `gtfs_shape_id` | `character varying(100)` | Source field "shape_id" (GTFS); GTFS shape identifier for the route geometry. |
+| `line_name` | `character varying(100)` | Source field; published line name (e.g. service number). |
+| `route_long_name` | `character varying(500)` | Source field; full route name. |
+| `agency_id` | `character varying(50)` | Source field "agency_id" (GTFS); operator identifier. |
+| `agency_name` | `character varying(500)` | Source field "agency_name" (GTFS); operator name. |
+| `agency_noc` | `character varying(20)` | Source field; operator National Operator Code (NOC). |
+| `stops_served` | `jsonb` | Ordered list of stops served by the route. |
+| `stop_count` | `integer` | Number of stops served by the route. |
+| `geom_source` | `character varying(50)` | Geometry provenance. Observed values: "gtfs_shape" (published GTFS shape), "reconstructed" (built from the stop sequence). |
+| `total_distance_metres` | `numeric` | Route length. Unit: metres. |
+| `route_class` | `character varying(20)` | Route class. Observed values: "local", "regional", "intercity", "coach". |
+| `feed_source` | `character varying(50)` | Feed provenance. Observed values: "bods_gtfs_all" (national GTFS bundle), "txc_fallback" (per-operator TransXChange). |
+| `feed_loaded_at` | `timestamp without time zone` | Timestamp the source feed was loaded. |
 | `msoa21cd` | `character varying` | Middle Layer Super Output Area (MSOA) 2021 code of this piece. Open Government Licence v3.0. |
 | `msoa21nm` | `character varying` | Official ONS MSOA 2021 name of this piece. Open Government Licence v3.0. |
 | `msoa21hclnm` | `text` | House of Commons Library readable MSOA name of this piece. Open Parliament Licence. |
@@ -79,7 +79,7 @@ MSOA SPLIT (added 4 July 2026)
 | `lad22nm` | `text` | Local Authority District 2022 name (2021 LAD geography), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `lad25cd` | `text` | Local Authority District 2025 code (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
-| `geom` | `geometry(MultiLineString,27700)` |  |
+| `geom` | `geometry(MultiLineString,27700)` | LineString in EPSG:27700. Bus route polyline. |
 | `gid` | `bigint` |  |
 | `ctyua25cd` | `text` | County or unitary authority code at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
 | `ctyua25nm` | `text` | County or unitary authority name at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |

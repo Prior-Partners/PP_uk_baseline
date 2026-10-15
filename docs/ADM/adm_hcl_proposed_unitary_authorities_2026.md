@@ -4,6 +4,8 @@
 
 `adm_hcl_proposed_unitary_authorities_2026`
 
+<img src="../../maps/adm_hcl_proposed_unitary_authorities_2026.png" alt="Styling preview of adm_hcl_proposed_unitary_authorities_2026" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+
 **SOURCE**
 
 - House of Commons Library (HCL), research briefing CBP-10608, Proposed unitary authorities 2026: Maps, published 18 August 2026, page updated 11 September 2026. File proposed_unitary_authorities_2.gpkg (19,308,544 bytes), layer merged, loaded as published.

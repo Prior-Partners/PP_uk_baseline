@@ -4,6 +4,8 @@
 
 `ecn_ons_lad_gross_value_added_pp_2023`
 
+<img src="../../maps/ecn_ons_lad_gross_value_added_pp_2023.png" alt="Styling preview of ecn_ons_lad_gross_value_added_pp_2023" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+
 **SOURCE**
 
 - Office for National Statistics (ONS). GVA per filled job: subregional productivity Table B3, file labourproductivitylad1.xls, downloaded 27 August 2026. Total GVA: copied from uk_baseline.ecn_ons_lad_gross_value_added_2023 (ONS small area GVA estimates, loaded May 2026).

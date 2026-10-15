@@ -4,6 +4,8 @@
 
 `adm_nrs_oa_boundary_2022`
 
+<img src="../../maps/adm_nrs_oa_boundary_2022.png" alt="Styling preview of adm_nrs_oa_boundary_2022" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+
 **SOURCE**
 
 - National Records of Scotland (NRS), 2022 Census geography products. File OutputArea2022_MHW.shp from output-area-2022-mhw.zip, published 21 May 2024. All source fields copied as published; nothing derived, renamed or filtered.

@@ -1,6 +1,6 @@
 site_name: uk_baseline data catalogue
 site_description: A guide to every layer in the uk_baseline database.
-copyright: Developed by the Digital Innovation team, Prior + Partners — last updated 14 October 2026
+copyright: Developed by the Digital Innovation team, Prior + Partners — last updated 15 October 2026
 theme:
   name: material
   font: false
@@ -191,7 +191,7 @@ nav:
     - "Ramsar": ENV/env_naturalengland_ramsar_oct2024.md
     - "Special Areas Conservation": ENV/env_naturalengland_special_areas_conservation_oct2024.md
     - "Special Protection Areas": ENV/env_naturalengland_special_protection_areas_apr2026.md
-    - "Sssi": ENV/env_naturalengland_sssi_apr2026.md
+    - "SSSI": ENV/env_naturalengland_sssi_apr2026.md
     - "Surface Water": ENV/env_os_surface_water.md
     - "Tidal Water": ENV/env_os_tidal_water.md
     - "Woodland": ENV/env_os_woodland.md

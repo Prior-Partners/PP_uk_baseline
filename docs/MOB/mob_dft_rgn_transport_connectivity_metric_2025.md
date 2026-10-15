@@ -4,6 +4,8 @@
 
 `mob_dft_rgn_transport_connectivity_metric_2025`
 
+<img src="../../maps/mob_dft_rgn_transport_connectivity_metric_2025.png" alt="Styling preview of mob_dft_rgn_transport_connectivity_metric_2025" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+
 **SOURCE**
 
 - Department for Transport (DfT). Transport connectivity metric, workbook "Connectivity metrics 2025" (connectivity_metrics_2025.ods, 68,164,574 bytes), sheet RGN, published 29 September 2025. All 35 score columns copied as published; nothing derived or filtered. Columns carry short readable names; the source header is recorded in every column comment.

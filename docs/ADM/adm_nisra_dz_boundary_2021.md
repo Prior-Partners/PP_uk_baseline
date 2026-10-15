@@ -4,6 +4,8 @@
 
 `adm_nisra_dz_boundary_2021`
 
+<img src="../../maps/adm_nisra_dz_boundary_2021.png" alt="Styling preview of adm_nisra_dz_boundary_2021" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+
 **SOURCE**
 
 - Northern Ireland Statistics and Research Agency (NISRA). File DZ2021.shp from geography-dz2021-esri-shapefile.zip, published 21 February 2023. All source fields copied as published; nothing derived, renamed or filtered. Geometry reprojected at load (see CRS).

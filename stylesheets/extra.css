@@ -1,23 +1,33 @@
 /* =====================================================================
-   Prior + Partners brand skin — uk_baseline data catalogue
+   UK Baseline data catalogue — board skin (Night and Day)
    ---------------------------------------------------------------------
-   Maintained asset. Edit HERE (scripts/catalogue/assets/extra.css);
-   build_catalogue.py copies it into docs/stylesheets/ on every refresh.
-   Tokens sourced from the firm dashboard template:
-     - Place+  src/resources/theme.css   (--prior-sys-* variables)
-     - Benghazi Graphic_standards/design-system.css (Figma "Spec (WIP)")
-   Light scheme  : Cream / Aubergine / Orange  (print-family feel)
-   Dark scheme   : #121212 / #2B242C surfaces, Lime headings — matches
-                   the P+P dashboard look (Benghazi, Place+ dark).
-   Orange is the digital theme value FF511D (brand guide RGB 255/81/29);
-   supersedes the e9511d used in the previous catalogue CSS.
-   Typography    : GT America (300 body / 500 headings) + GT America
-                   Mono for annotations. Licensed to P+P — fonts are
-                   self-hosted in docs/fonts/.
+   Maintained asset. Edit HERE (scripts/assets/extra.css);
+   build_catalogue.py copies it into docs/stylesheets/ on every build.
+
+   Design values are copied from the UK Baseline+ board's source, not
+   sampled from screenshots: its --pp3-* tokens (skin "placeplus",
+   palette "masterplan") and its panel rules (kicker, chips, search box,
+   section labels, collapsible groups, layer rows). Token names are
+   kept, so every value can be traced back to the board.
+
+   Owner decisions, 16 October 2026: Day background #FAFAFA; wordmark
+   "UK Baseline" without the "+"; no theme colour squares; GT America
+   with the Arial fallback only. Where a board value fails WCAG AA for
+   text, the owner approved: Day secondary text #5f5f5f (the board's
+   #8a8a8a stays for non-text marks); orange text only on #121212 or
+   the Night background; Night links #d6e4ff, underlined.
+   Owner review, 17 October 2026: page titles and the menu's theme rows
+   in orange — the brand orange, except the small Day theme rows, which
+   take the same hue darkened to 38% lightness (#C22D00) for AA.
+
+   Typography: GT America Light (300) for reading text, Medium for
+   headings and labels; GT America Mono for interface labels, in
+   capitals with the board's letter-spacing. Licensed to Prior +
+   Partners — fonts are self-hosted in docs/fonts/.
    ===================================================================== */
 
 /* ------------------------------------------------------------------ */
-/* Fonts — GT America (licensed to Prior + Partners, fallback Arial)  */
+/* Fonts — the board's weight ranges                                  */
 /* ------------------------------------------------------------------ */
 @font-face {
   font-family: "GT America";
@@ -29,266 +39,738 @@
 @font-face {
   font-family: "GT America";
   src: url("../fonts/GT-America-Standard-Medium.woff2") format("woff2");
-  font-weight: 500;
+  font-weight: 500 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "GT America Mono";
   src: url("../fonts/GT-America-Mono-Light.woff2") format("woff2");
-  font-weight: 300;
+  font-weight: 300 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "GT America Mono";
   src: url("../fonts/GT-America-Mono-Medium.woff2") format("woff2");
-  font-weight: 500;
+  font-weight: 500 700;
   font-style: normal;
   font-display: swap;
 }
 
 /* ------------------------------------------------------------------ */
-/* Brand tokens                                                       */
+/* Tokens                                                             */
 /* ------------------------------------------------------------------ */
-:root {
-  --md-text-font: "GT America";
-  --md-code-font: "GT America Mono";
+body {
+  /* shared by both modes (board: palette "masterplan") */
+  --pp3-accent: #005DFF;           /* cobalt: active chip, focus ring */
+  --pp3-hover: #d6e4ff;            /* chip hover; Night links */
+  --pp3-orange: #FF511D;           /* kicker — on #121212 or Night only */
+  --pp3-bar: #d9d9d9;              /* light bars in both modes */
+  --pp3-onbar: #121212;
+  --pp3-strip: #121212;            /* the kicker's dark strip */
+  --pp3-radius: 2px;
+  --pp3-mono: "GT America Mono", Arial, sans-serif;
+  --pp3-sans: "GT America", Arial, sans-serif;
+  --pp-kick-h: 1.1rem;             /* kicker strip height */
+  --pp-header-h: 3.5rem;           /* kicker + Material's 2.4rem bar */
 
-  --pp-orange:    #FF511D;
-  --pp-aubergine: #2B242C;
-  --pp-cream:     #F1EEDF;
-  --pp-black:     #121212;
-  --pp-lime:      #DADF50;
-  --pp-cobalt:    #005DFF;
-  --pp-grey-dark:   #717171;
-  --pp-grey-medium: #A9A9A9;
-  --pp-grey-light:  #D0D0D0;
+  /* brand fonts only: replaces Material's fallback lists */
+  --md-text-font-family: var(--pp3-sans);
+  --md-code-font-family: var(--pp3-mono);
+}
+
+/* Day — board default skin, background per owner decision */
+[data-md-color-scheme="default"] {
+  --pp3-bg: hsl(0, 0%, 98%);       /* #FAFAFA */
+  --pp3-bg-alpha: hsla(0, 0%, 98%, .88);
+  --pp3-primary: #000;
+  --pp3-onprimary: #fff;
+  --pp3-type: #5f5f5f;             /* 6.1:1 */
+  --pp3-muted: #5f5f5f;            /* AA: the board's #8a8a8a is 3.3:1 */
+  --pp3-mark: #8a8a8a;             /* non-text marks only (3.3:1) */
+  --pp3-line: rgba(0, 0, 0, .28);
+  --pp3-link: #005DFF;             /* 5.0:1 */
+  --pp-orange-label: #C22D00;      /* theme rows: brand hue at 38%, 5.5:1 (brand orange is 3.1:1) */
+  --pp3-tint: rgba(0, 93, 255, .07);
+  --pp3-highlight: #d6e4ff;
+  color-scheme: light;
+}
+
+/* Night — board dark skin */
+[data-md-color-scheme="slate"] {
+  --pp3-bg: hsl(0, 0%, 4%);        /* #0A0A0A */
+  --pp3-bg-alpha: hsla(0, 0%, 4%, .88);
+  --pp3-primary: #fff;
+  --pp3-onprimary: #000;
+  --pp3-type: #c8c8c8;             /* 11.8:1 */
+  --pp3-muted: #9a9a9a;            /* 7.0:1 */
+  --pp3-mark: #9a9a9a;
+  --pp3-line: rgba(255, 255, 255, .22);
+  --pp3-link: #d6e4ff;             /* AA: cobalt is 3.8:1 here */
+  --pp-orange-label: #FF511D;      /* theme rows: brand orange, 6.1:1 */
+  --pp3-tint: rgba(0, 93, 255, .12);
+  --pp3-highlight: rgba(0, 93, 255, .35);
+  color-scheme: dark;
+}
+
+/* Material's variables, mapped onto the board tokens (both modes) */
+[data-md-color-scheme] {
+  --md-default-bg-color: var(--pp3-bg);
+  --md-default-bg-color--light: var(--pp3-bg-alpha);
+  --md-default-bg-color--lighter: var(--pp3-bg-alpha);
+  --md-default-bg-color--lightest: var(--pp3-tint);
+  --md-default-fg-color: var(--pp3-primary);
+  --md-default-fg-color--light: var(--pp3-muted);
+  --md-default-fg-color--lighter: var(--pp3-mark);
+  --md-default-fg-color--lightest: var(--pp3-line);
+
+  --md-primary-fg-color: var(--pp3-bg);
+  --md-primary-fg-color--light: var(--pp3-bg);
+  --md-primary-fg-color--dark: var(--pp3-bg);
+  --md-primary-bg-color: var(--pp3-primary);
+  --md-primary-bg-color--light: var(--pp3-muted);
+
+  --md-accent-fg-color: var(--pp3-link);
+  --md-accent-fg-color--transparent: var(--pp3-tint);
+  --md-accent-bg-color: var(--pp3-onprimary);
+  --md-accent-bg-color--light: var(--pp3-onprimary);
+
+  --md-typeset-color: var(--pp3-type);
+  --md-typeset-a-color: var(--pp3-link);
+  --md-typeset-mark-color: var(--pp3-highlight);
+  --md-typeset-table-color: var(--pp3-line);
+  --md-typeset-table-color--light: var(--pp3-tint);
+
+  --md-code-bg-color: var(--pp3-bar);
+  --md-code-fg-color: var(--pp3-onbar);
+
+  --md-admonition-bg-color: transparent;
+  --md-admonition-fg-color: var(--pp3-type);
+
+  --md-footer-bg-color: var(--pp3-bg);
+  --md-footer-bg-color--dark: var(--pp3-bg);
+  --md-footer-fg-color: var(--pp3-type);
+  --md-footer-fg-color--light: var(--pp3-muted);
+  --md-footer-fg-color--lighter: var(--pp3-muted);
+
+  --md-shadow-z1: none;
+  --md-shadow-z2: none;
+  --md-shadow-z3: none;
 }
 
 html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
 
-/* GT America ships here in 300 (Light, body) and 500 (Medium,
-   headings). Browsers resolve un-set weight 400 upward to 500, which
-   would set body copy in Medium — pin the weights explicitly. */
+/* ------------------------------------------------------------------ */
+/* Type tiers: sans for reading, mono capitals for interface labels    */
+/* ------------------------------------------------------------------ */
 body, .md-typeset { font-weight: 300; }
+.md-typeset { font-feature-settings: "kern", "liga", "tnum"; }
 .md-typeset strong, .md-typeset b { font-weight: 500; }
-
-/* ------------------------------------------------------------------ */
-/* Light scheme — Cream / Aubergine / Orange, links Cobalt            */
-/* (Cobalt on Cream is an AA pairing in the brand guide; Orange on    */
-/* Cream is below AA for body text, so orange stays decorative.)      */
-/* ------------------------------------------------------------------ */
-[data-md-color-scheme="default"] {
-  --md-primary-fg-color:        var(--pp-aubergine);
-  --md-primary-fg-color--light: #453b47;
-  --md-primary-fg-color--dark:  #1d181e;
-  --md-primary-bg-color:        var(--pp-cream);
-  --md-primary-bg-color--light: rgba(241, 238, 223, 0.7);
-
-  --md-accent-fg-color:              var(--pp-orange);
-  --md-accent-fg-color--transparent: rgba(255, 81, 29, 0.1);
-
-  --md-default-bg-color:           var(--pp-cream);
-  --md-default-fg-color:           var(--pp-black);
-  --md-default-fg-color--light:    rgba(18, 18, 18, 0.64);
-  --md-default-fg-color--lighter:  rgba(18, 18, 18, 0.36);
-  --md-default-fg-color--lightest: rgba(18, 18, 18, 0.09);
-
-  --md-typeset-color:   var(--pp-black);
-  --md-typeset-a-color: var(--pp-cobalt);
-  --md-typeset-mark-color: rgba(218, 223, 80, 0.5);
-
-  --md-code-bg-color: #e7e3d1;
-  --md-code-fg-color: var(--pp-aubergine);
-
-  --md-footer-bg-color:        var(--pp-aubergine);
-  --md-footer-bg-color--dark:  var(--pp-black);
-  --md-footer-fg-color:        var(--pp-cream);
-  --md-footer-fg-color--light: rgba(241, 238, 223, 0.7);
-  --md-footer-fg-color--lighter: rgba(241, 238, 223, 0.45);
-}
-
-[data-md-color-scheme="default"] .md-typeset h1,
-[data-md-color-scheme="default"] .md-typeset h2 {
-  color: var(--pp-aubergine);
-}
-
-/* ------------------------------------------------------------------ */
-/* Dark scheme — #121212 canvas, #2B242C surfaces, Lime headings and  */
-/* links (Lime/Aubergine is AAA in the brand guide), Orange on hover. */
-/* Mirrors the dashboard: narrative #2B242C, background #121212,      */
-/* headings #DADF50.                                                  */
-/* ------------------------------------------------------------------ */
-[data-md-color-scheme="slate"] {
-  --md-primary-fg-color:        var(--pp-aubergine);
-  --md-primary-fg-color--light: #453b47;
-  --md-primary-fg-color--dark:  #1d181e;
-  --md-primary-bg-color:        var(--pp-cream);
-  --md-primary-bg-color--light: rgba(241, 238, 223, 0.7);
-
-  --md-accent-fg-color:              var(--pp-orange);
-  --md-accent-fg-color--transparent: rgba(255, 81, 29, 0.12);
-
-  --md-default-bg-color:           var(--pp-black);
-  --md-default-fg-color:           rgba(241, 238, 223, 0.86);
-  --md-default-fg-color--light:    rgba(241, 238, 223, 0.6);
-  --md-default-fg-color--lighter:  rgba(241, 238, 223, 0.34);
-  --md-default-fg-color--lightest: rgba(241, 238, 223, 0.1);
-
-  --md-typeset-color:   rgba(241, 238, 223, 0.86);
-  --md-typeset-a-color: var(--pp-lime);
-  --md-typeset-mark-color: rgba(218, 223, 80, 0.3);
-
-  --md-code-bg-color: #241f26;
-  --md-code-fg-color: var(--pp-cream);
-
-  --md-footer-bg-color:        var(--pp-aubergine);
-  --md-footer-bg-color--dark:  #0c0b0c;
-  --md-footer-fg-color:        var(--pp-cream);
-  --md-footer-fg-color--light: rgba(241, 238, 223, 0.7);
-  --md-footer-fg-color--lighter: rgba(241, 238, 223, 0.45);
-}
-
-[data-md-color-scheme="slate"] .md-typeset h1,
-[data-md-color-scheme="slate"] .md-typeset h2,
-[data-md-color-scheme="slate"] .md-typeset h3,
-[data-md-color-scheme="slate"] .md-typeset h4 {
-  color: var(--pp-lime);
-}
-
-/* ------------------------------------------------------------------ */
-/* Typography — GT America Medium headings, tight display tracking    */
-/* ------------------------------------------------------------------ */
 .md-typeset h1, .md-typeset h2, .md-typeset h3,
 .md-typeset h4, .md-typeset h5, .md-typeset h6 {
+  font-family: var(--pp3-sans);
   font-weight: 500;
+  letter-spacing: 0;
+  color: var(--pp3-primary);
 }
-.md-typeset h1 { letter-spacing: -0.02em; }
-.md-typeset h2 { letter-spacing: -0.015em; }
-.md-header__topic { font-weight: 500; letter-spacing: -0.01em; }
+/* Page titles in brand orange: large text, so 3:1 is enough (Day 3.1:1, Night 6.1:1) */
+.md-typeset h1 { font-size: 1.6em; line-height: 1.25; margin-bottom: .9em; color: var(--pp3-orange); }
+.md-typeset h2 { font-size: 1.25em; margin-top: 2em; }
 
-/* Mono for the running footer line, per the template's header/footer
-   convention (GT America Mono, used sparingly). */
-.md-copyright {
-  font-family: "GT America Mono", SFMono-Regular, Consolas, monospace;
+/* Links: underlined in running text (colour alone is not enough) */
+.md-typeset a { color: var(--pp3-link); text-underline-offset: .18em; text-decoration-thickness: 1px; }
+.md-typeset p a, .md-typeset li a, .md-typeset td a { text-decoration: underline; }
+.md-typeset a:hover, .md-typeset a:focus { color: var(--pp3-link); text-decoration-thickness: 2px; }
+
+/* Inline code: the board's light bar, in both modes */
+.md-typeset code {
+  background: var(--pp3-bar);
+  color: var(--pp3-onbar);
+  border-radius: var(--pp3-radius);
   font-weight: 300;
+  padding: .1em .35em;
+}
+
+/* Hairlines everywhere instead of shadows and rounded boxes */
+.md-typeset hr { border-bottom: 1px solid var(--pp3-line); }
+
+/* Focus: one visible cobalt ring for every control (3:1 or more) */
+:focus-visible,
+.md-typeset :focus-visible {
+  outline: 2px solid var(--pp3-accent) !important;
+  outline-offset: 2px;
 }
 
 /* ------------------------------------------------------------------ */
-/* Navigation — full wrapped layer names (existing behaviour, kept)   */
+/* Header: flat bar on the page background, hairline below            */
 /* ------------------------------------------------------------------ */
-.md-nav__item .md-ellipsis {
-  white-space: normal;
-  overflow: visible;
-  overflow-wrap: anywhere;
-  word-break: break-word;
-  line-height: 1.3;
+.md-header,
+.md-header--shadow {
+  background: var(--pp3-bg);
+  color: var(--pp3-primary);
+  box-shadow: none;
+  border-bottom: 1px solid var(--pp3-line);
 }
-.md-nav__link { align-items: flex-start; }
-.md-nav__item--nested > .md-nav__link { font-weight: 500; }
-
-/* Theme chips: one colour per top-level theme section, mapped from
-   the Place+ dashboard palettes (theme.css [data-palette]) plus three
-   brand secondaries (Thistle, Berry, Plum) for the themes Place+
-   doesn't cover. ORDER-DEPENDENT on the nav: items 1-2 are Home and
-   the Handbook; 3-14 are the 12 themes alphabetically ADM..UTL. If a
-   theme is added or reordered, renumber below (the durable fix is for
-   build_catalogue.py to emit a per-theme class). */
-.md-nav--primary > .md-nav__list > .md-nav__item:nth-child(n + 3) > .md-nav__link::before {
-  content: "";
-  flex: 0 0 auto;
-  width: 0.55em;
-  height: 0.55em;
-  margin: 0.32em 0.45em 0 0;
-  background: var(--pp-theme, var(--pp-grey-medium));
-}
-.md-nav--primary > .md-nav__list > .md-nav__item:nth-child(3)  { --pp-theme: #C8B5E2; } /* ADM — Thistle (brand secondary) */
-.md-nav--primary > .md-nav__list > .md-nav__item:nth-child(4)  { --pp-theme: #FF8E55; } /* BLT — Place+ "place" */
-.md-nav--primary > .md-nav__list > .md-nav__item:nth-child(5)  { --pp-theme: #FF2A8E; } /* COM — Berry (brand secondary) */
-.md-nav--primary > .md-nav__list > .md-nav__item:nth-child(6)  { --pp-theme: #F5A4DF; } /* DEM — Place+ "people" */
-.md-nav--primary > .md-nav__list > .md-nav__item:nth-child(7)  { --pp-theme: #79B6B3; } /* ECN — Place+ "economy" */
-.md-nav--primary > .md-nav__list > .md-nav__item:nth-child(8)  { --pp-theme: #6586FF; } /* EDU — Place+ "flooding" blues */
-.md-nav--primary > .md-nav__list > .md-nav__item:nth-child(9)  { --pp-theme: #82CA43; } /* ENV — Place+ "environment" */
-.md-nav--primary > .md-nav__list > .md-nav__item:nth-child(10) { --pp-theme: #920F67; } /* HER — Plum (brand secondary) */
-.md-nav--primary > .md-nav__list > .md-nav__item:nth-child(11) { --pp-theme: #FFC15B; } /* HOU — Place+ "housing" */
-.md-nav--primary > .md-nav__list > .md-nav__item:nth-child(12) { --pp-theme: #BDC43C; } /* HTH — Place+ "health" */
-.md-nav--primary > .md-nav__list > .md-nav__item:nth-child(13) { --pp-theme: #F36F70; } /* MOB — Place+ "movement" */
-.md-nav--primary > .md-nav__list > .md-nav__item:nth-child(14) { --pp-theme: #9C7CC9; } /* UTL — Place+ "infrastructure" */
 
 /* ------------------------------------------------------------------ */
-/* Layer short name — sits between the page title and the table name  */
+/* Footer: the board's foot — hairline, small mono print              */
 /* ------------------------------------------------------------------ */
-.layer-short {
-  font-size: 1.15rem;
+.md-footer,
+.md-footer-meta { background: var(--pp3-bg); color: var(--pp3-muted); }
+.md-footer { border-top: 1px solid var(--pp3-line); }
+.md-copyright {
+  font-family: var(--pp3-mono);
+  font-weight: 300;
+  font-size: .5rem;
+  letter-spacing: .04em;
+  color: var(--pp3-muted);
+}
+.md-copyright__highlight { color: var(--pp3-type); }
+.md-footer-meta.md-typeset a { color: var(--pp3-link); text-decoration: underline; }
+
+/* "Copied to clipboard" toast */
+.md-dialog {
+  background: var(--pp3-strip);
+  border-radius: var(--pp3-radius);
+  box-shadow: none;
+}
+.md-dialog__inner {
+  color: #fff;
+  font-family: var(--pp3-mono);
+  font-size: .55rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+/* ------------------------------------------------------------------ */
+/* Header rows: the kicker strip above Material's 2.4rem bar           */
+/* ------------------------------------------------------------------ */
+/* The taller header moves the sticky sidebar and anchor jumps down (the
+   phone drawer is fixed to the top of the screen and keeps its place). */
+@media screen and (min-width: 76.25em) {
+  .md-sidebar { top: var(--pp-header-h); }
+}
+.md-typeset :target { --md-scroll-margin: calc(var(--pp-header-h) + 1.2rem); }
+
+.pp-kick {
+  height: var(--pp-kick-h);
+  background: var(--pp3-strip);
+  color: var(--pp3-orange);            /* 5.8:1 on #121212 */
+}
+.pp-kick__inner {
+  padding: 0 .8rem;
+  font-family: var(--pp3-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  line-height: var(--pp-kick-h);
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* The wordmark stays; the page title never slides over it. */
+.md-header__topic + .md-header__topic { display: none; }
+.md-header__title--active .md-header__topic {
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+  z-index: 0;
+}
+.md-header__topic:first-child { font-weight: inherit; }
+.md-header__button.md-logo { display: none; }
+
+.pp-wordmark {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .7rem;
+  color: var(--pp3-primary);
+  text-decoration: none;
+}
+.pp-wordmark:hover, .pp-wordmark:focus { color: var(--pp3-primary); }
+.pp-wordmark__name {
+  font-family: var(--pp3-sans);
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: 1;
+}
+.pp-wordmark__sub {
+  font-family: var(--pp3-mono);
   font-weight: 500;
-  color: var(--pp-orange);
-  margin: -0.4rem 0 0.2rem;
+  font-size: 10.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--pp3-muted);
+}
+@media screen and (max-width: 44.984375em) {
+  .pp-wordmark { flex-direction: column; align-items: flex-start; gap: 3px; line-height: 1; }
+  .pp-wordmark__name { font-size: 19px; }
+  .pp-wordmark__sub { font-size: 9px; }
+  .md-header__title .md-header__ellipsis { display: flex; align-items: center; }
 }
 
 /* ------------------------------------------------------------------ */
-/* Theme index rows — each layer as three colour-coded parts:         */
-/*   short name (orange) — full name (default) — layer name (link,    */
-/*   mono). One clickable row per layer.                              */
+/* NIGHT / DAY chips (partials/palette.html) — the board's .btn       */
 /* ------------------------------------------------------------------ */
-.md-typeset .cat-index { list-style: none; margin-left: 0; padding-left: 0; }
-.md-typeset .cat-index > li { margin: 0.45em 0; line-height: 1.4; }
-.md-typeset .cat-index a { text-decoration: none; }
-.md-typeset .cat-index a:hover .cat-full { text-decoration: underline; }
-/* Three colours: short name = brand orange; full name = the link colour
-   (Lime in dark, Cobalt in light); layer name = muted body colour, matching
-   the theme blurb. Each span sets its own colour so it wins over the link
-   colour it would otherwise inherit from the wrapping <a>. */
-.md-typeset .cat-short { color: var(--pp-orange); font-weight: 500; }
-.md-typeset .cat-full  { color: var(--md-typeset-a-color); }
-.md-typeset .cat-table {
-  color: var(--md-default-fg-color--light);
-  font-family: "GT America Mono", SFMono-Regular, Consolas, monospace;
-  font-size: 0.82em;
+.pp-mode { align-items: center; gap: 6px; margin: 0 .5rem; }
+.pp-chip {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: var(--pp3-radius);
+  background: var(--pp3-bar);
+  color: var(--pp3-onbar);              /* 13.3:1 */
+  font-family: var(--pp3-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
 }
-.md-typeset .cat-sep { color: var(--md-default-fg-color--lighter); padding: 0 0.15em; }
-
-/* ------------------------------------------------------------------ */
-/* Admonitions — brand orange note                                    */
-/* ------------------------------------------------------------------ */
-.md-typeset .admonition.note,
-.md-typeset details.note { border-color: var(--pp-orange); }
-.md-typeset .note > .admonition-title::before { background-color: var(--pp-orange); }
-[data-md-color-scheme="default"] .md-typeset .note > .admonition-title {
-  background-color: #fbe0d5;
+.pp-chip:hover { background: var(--pp3-hover); color: #121212; }
+/* active chip: the ticked input (kept in step by palette.html), or the
+   page's scheme before that script has run */
+#__palette_0:checked ~ .pp-chip[for="__palette_0"],
+#__palette_1:checked ~ .pp-chip[for="__palette_1"],
+[data-md-color-scheme="slate"] .pp-chip--slate,
+[data-md-color-scheme="default"] .pp-chip--default {
+  background: var(--pp3-accent);        /* white on cobalt 5.2:1 */
+  color: #fff;
 }
-[data-md-color-scheme="slate"] .md-typeset .note > .admonition-title {
-  background-color: rgba(255, 81, 29, 0.15);
-}
-
-/* ------------------------------------------------------------------ */
-/* Tables — Aubergine header band, GT America tabular figures         */
-/* ------------------------------------------------------------------ */
-.md-typeset table:not([class]) { font-feature-settings: "tnum"; }
-.md-typeset table:not([class]) th {
-  background: var(--pp-aubergine);
-  color: var(--pp-cream);
-  font-weight: 500;
+#__palette_0:focus-visible ~ .pp-chip[for="__palette_0"],
+#__palette_1:focus-visible ~ .pp-chip[for="__palette_1"],
+#__palette_0.focus-visible ~ .pp-chip[for="__palette_0"],
+#__palette_1.focus-visible ~ .pp-chip[for="__palette_1"] {
+  outline: 2px solid var(--pp3-accent);
+  outline-offset: 2px;
 }
 
-/* Preview map images sit on the cream/dark canvas — square-cornered
-   hairline frame (no rounded corners, per the house style). */
-.md-typeset img {
-  background: #fff;
-  border: 1px solid var(--md-default-fg-color--lightest);
+/* ------------------------------------------------------------------ */
+/* Header buttons: flat square board buttons, glyph style             */
+/* ------------------------------------------------------------------ */
+@media screen and (max-width: 76.234375em) {
+  .md-header__button[for="__drawer"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    margin: 0 .3rem 0 .4rem;
+    padding: 0;
+    border-radius: var(--pp3-radius);
+    background: var(--pp3-bar);
+    color: var(--pp3-onbar);
+  }
+  .md-header__button[for="__drawer"] svg { display: none; }
+  .md-header__button[for="__drawer"]::before { content: "\2630"; font-size: 15px; line-height: 1; }
+}
+@media screen and (max-width: 59.984375em) {
+  .md-header__button[for="__search"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    margin: 0 .4rem 0 .2rem;
+    padding: 0;
+    border-radius: var(--pp3-radius);
+    background: var(--pp3-bar);
+    color: var(--pp3-onbar);
+  }
+  .md-header__button[for="__search"] svg { width: 16px; height: 16px; }
+}
+
+/* ------------------------------------------------------------------ */
+/* Search box — the board's "Filter layers" field                     */
+/* ------------------------------------------------------------------ */
+/* the suggestion shown behind the typed text must use the same type */
+.md-search__input,
+.md-search__suggest {
+  font-family: var(--pp3-mono);
+  letter-spacing: .08em;
+}
+.md-search__input { color: var(--pp3-primary); }
+/* no colour fade: Material switches the scheme after the first paint */
+.md-search__input::placeholder { color: var(--pp3-muted); text-transform: uppercase; transition: none; }
+@media screen and (min-width: 60em) {
+  .md-search__form,
+  .md-search__form:hover {
+    height: 1.7rem;
+    background: transparent;
+    border: 1px solid var(--pp3-line);
+    border-radius: var(--pp3-radius);
+    box-shadow: none;
+  }
+  [data-md-toggle="search"]:checked ~ .md-header .md-search__form {
+    background: var(--pp3-bg);
+    border-color: var(--pp3-accent);
+    border-radius: var(--pp3-radius) var(--pp3-radius) 0 0;
+  }
+  [dir] .md-search__input,
+  [dir] .md-search__suggest { font-size: 10.5px; padding-left: 9px; }
+  .md-search__icon[for="__search"] { display: none; }
+  .md-search__output {
+    border: 1px solid var(--pp3-line);
+    border-top: 0;
+    border-radius: 0 0 var(--pp3-radius) var(--pp3-radius);
+    box-shadow: none;
+  }
+}
+.md-search__output, .md-search-result__meta { background: var(--pp3-bg); }
+.md-search-result__meta {
+  color: var(--pp3-muted);
+  font-family: var(--pp3-mono);
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--pp3-line);
+}
+.md-search-result__item { box-shadow: 0 -1px var(--pp3-line); }
+.md-search-result__link:focus,
+.md-search-result__link:hover,
+.md-search-result__more > summary:focus > div,
+.md-search-result__more > summary:hover > div { background: var(--pp3-tint); }
+.md-search-result__article h1,
+.md-search-result__article h2 { color: var(--pp3-primary); }
+.md-search-result__icon { color: var(--pp3-mark); }
+.md-search-result mark { color: var(--pp3-link); background: transparent; text-decoration: underline; }
+
+/* ------------------------------------------------------------------ */
+/* Menu — the board's layer list                                      */
+/* ------------------------------------------------------------------ */
+.md-nav { font-family: var(--pp3-mono); }
+.md-nav__link {
+  color: var(--pp3-type);
+  font-size: .6rem;                      /* 12 px layer names (board 10 px) */
+  letter-spacing: .05em;
+  line-height: 1.45;
+}
+.md-nav__link:hover,
+.md-nav__link:focus,
+.md-nav__item .md-nav__link--active,
+.md-nav__item .md-nav__link--active code { color: var(--pp3-primary); }
+.md-nav__item .md-nav__link--active { font-weight: 500; }
+@media screen and (min-width: 76.25em) {
+  .md-nav__link:hover { background: var(--pp3-tint); }
+}
+
+/* The site name above the list: the board's section label */
+.md-nav--primary > .md-nav__title {
+  font-family: var(--pp3-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--pp3-muted);
+}
+
+/* Theme rows: CODE — Name ......... count (partials/nav-item.html) */
+.md-nav--primary > .md-nav__list > .md-nav__item--nested > .md-nav__link {
+  align-items: baseline;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--pp-orange-label);         /* orange, open or closed (owner, 17 October 2026) */
+}
+.pp-theme__sep { padding: 0 .3em; }
+.pp-theme__count {
+  margin-left: auto;
+  padding-left: .6rem;
+  font-size: 9px;
+  font-weight: 300;
+  letter-spacing: .08em;
+  color: var(--pp3-muted);
+}
+.pp-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ▸ / ▾ triangles in place of Material's chevrons, before the label */
+.md-nav__link .md-nav__icon { order: -1; }
+/* Material's automatic left margin would push the triangle into the row */
+[dir] .md-nav--primary .md-nav__link .md-nav__icon { margin-left: 0; margin-right: 0; }
+.md-nav__icon::after {
+  -webkit-mask-image: none;
+  mask-image: none;
+  background: none;
+  content: "\25B8";
+  color: var(--pp3-mark);
+  font-size: 9px;
+  line-height: inherit;
+  text-align: center;
+  transform: none !important;
+}
+.md-nav__toggle:checked ~ .md-nav__link .md-nav__icon::after { content: "\25BE"; }
+/* drawer: "back" in each panel title */
+.md-nav__title .md-nav__icon::after { content: "\25C2"; font-size: 12px; }
+/* drawer panel titles: page background and primary text (Material's grey
+   band with muted text is below AA here) */
+@media screen and (max-width: 76.234375em) {
+  .md-nav--primary .md-nav__title {
+    background: var(--pp3-bg);
+    color: var(--pp3-primary);
+    box-shadow: 0 1px 0 var(--pp3-line);
+  }
+}
+@media screen and (min-width: 76.25em) {
+  .md-nav__link .md-nav__icon { width: .6rem; height: auto; }
+}
+
+/* ------------------------------------------------------------------ */
+/* Home: the themes as board rows (the table inside .cat-themes)      */
+/* ------------------------------------------------------------------ */
+.md-typeset .cat-themes .md-typeset__scrollwrap { margin: 1.2em 0; }
+.md-typeset .cat-themes .md-typeset__table { padding: 0; }
+.md-typeset .cat-themes table:not([class]) {
+  display: table;
+  width: 100%;
+  border: 0;
   border-radius: 0;
+  background: transparent;
+  font-size: .7rem;
+}
+.md-typeset .cat-themes table:not([class]) th {
+  padding: .45em .6em;
+  background: transparent;
+  border-bottom: 1px solid var(--pp3-line);
+  color: var(--pp3-muted);
+  font-family: var(--pp3-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.md-typeset .cat-themes table:not([class]) td {
+  padding: .75em .6em;
+  border-top: 1px solid var(--pp3-line);
+  vertical-align: baseline;
+}
+.md-typeset .cat-themes table:not([class]) tbody tr:first-child td { border-top: 0; }
+.md-typeset .cat-themes table:not([class]) tbody tr:hover { background: var(--pp3-tint); box-shadow: none; }
+.md-typeset .cat-themes td:first-child strong {
+  color: var(--pp3-primary);
+  font-family: var(--pp3-mono);
+  font-weight: 700;
+  letter-spacing: .12em;
+}
+/* a column of theme links, not running text: weight marks them, underline on hover */
+.md-typeset .cat-themes td:nth-child(2) a { font-weight: 500; text-decoration: none; }
+.md-typeset .cat-themes td:nth-child(2) a:hover,
+.md-typeset .cat-themes td:nth-child(2) a:focus-visible { text-decoration: underline; }
+.md-typeset .cat-themes td:last-child { color: var(--pp3-muted); font-family: var(--pp3-mono); }
+@media screen and (max-width: 44.984375em) {
+  .md-typeset .cat-themes thead { display: none; }
+  .md-typeset .cat-themes tr {
+    display: grid;
+    grid-template-columns: 3.4em 1fr auto;
+    column-gap: .6em;
+    padding: .6em 0;
+    border-top: 1px solid var(--pp3-line);
+  }
+  .md-typeset .cat-themes table:not([class]) td { padding: 0; border: 0; }
+  .md-typeset .cat-themes td:nth-child(3) { grid-column: 2 / 4; grid-row: 2; padding-top: .3em; }
+  .md-typeset .cat-themes td:nth-child(4) { grid-column: 3; grid-row: 1; }
 }
 
 /* ------------------------------------------------------------------ */
-/* Homepage footer block (data info, contact, version)                */
+/* Theme pages: one clean row per layer                               */
+/* (short name · title · table name; the dashes stay in the page      */
+/* text for search, hidden here)                                      */
 /* ------------------------------------------------------------------ */
+.md-typeset .cat-index {
+  list-style: none;
+  margin: 1.2em 0 0;
+  padding: 0;
+  border-bottom: 1px solid var(--pp3-line);
+}
+.md-typeset .cat-index > li { margin: 0; border-top: 1px solid var(--pp3-line); line-height: 1.4; }
+.md-typeset .cat-index a {
+  display: grid;
+  grid-template-columns: minmax(8rem, 13rem) 1fr;
+  column-gap: 1.2rem;
+  row-gap: .15rem;
+  padding: .65rem .4rem;
+  color: inherit;
+  text-decoration: none;
+}
+.md-typeset .cat-index a:hover,
+.md-typeset .cat-index a:focus-visible { background: var(--pp3-tint); }
+.md-typeset .cat-sep { display: none; }
+.md-typeset .cat-short { grid-column: 1; grid-row: 1 / span 2; color: var(--pp3-primary); font-weight: 500; }
+.md-typeset .cat-full { grid-column: 2; color: var(--pp3-link); }
+.md-typeset .cat-index a:hover .cat-full { text-decoration: underline; }
+.md-typeset .cat-table {
+  grid-column: 2;
+  color: var(--pp3-muted);
+  font-family: var(--pp3-mono);
+  font-size: .62rem;
+  letter-spacing: .03em;
+  overflow-wrap: anywhere;
+}
+@media screen and (max-width: 44.984375em) {
+  .md-typeset .cat-index a { grid-template-columns: 1fr; }
+  .md-typeset .cat-short { grid-row: auto; }
+  .md-typeset .cat-full, .md-typeset .cat-table { grid-column: 1; }
+}
+
+/* Admonition ("How to read a layer page"): hairline box, orange rule */
+.md-typeset .admonition,
+.md-typeset details {
+  border: 1px solid var(--pp3-line);
+  border-left: 2px solid var(--pp3-orange);
+  border-radius: var(--pp3-radius);
+  background: transparent;
+  box-shadow: none;
+  font-size: .7rem;
+}
+.md-typeset .note > .admonition-title,
+.md-typeset .note > summary {
+  background: transparent;
+  color: var(--pp3-primary);
+  font-family: var(--pp3-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.md-typeset .note > .admonition-title::before,
+.md-typeset .note > summary::before { background-color: var(--pp3-orange); }
+
+/* Home footer block (about, contact, version) */
 .cat-footer {
-  display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 3rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--md-default-fg-color--lightest);
-  color: var(--md-default-fg-color--light);
-  font-size: 0.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 3rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--pp3-line);
+  color: var(--pp3-muted);
+  font-size: .7rem;
 }
 .cat-footer > div { flex: 1; min-width: 200px; }
-.cat-footer strong { color: var(--md-default-fg-color); }
-.cat-footer a { color: var(--md-typeset-a-color); }
+.cat-footer strong {
+  color: var(--pp3-primary);
+  font-family: var(--pp3-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.cat-footer a { color: var(--pp3-link); text-decoration: underline; }
+
+/* ------------------------------------------------------------------ */
+/* Layer pages                                                        */
+/* ------------------------------------------------------------------ */
+/* Short name: a mono capital label under the title */
+.md-typeset .layer-short {
+  margin: -.5rem 0 .7rem;
+  color: var(--pp3-primary);
+  font-family: var(--pp3-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+/* Table name: a mono chip with a flat square copy button */
+/* chip and button stay side by side; a long name wraps inside the chip */
+.md-typeset .layer-table {
+  display: grid;
+  grid-template-columns: minmax(0, max-content) auto;
+  justify-content: start;
+  align-items: start;
+  gap: 6px;
+}
+.md-typeset .layer-table code {
+  padding: 6px 9px;
+  font-size: .65rem;
+  letter-spacing: .02em;
+  overflow-wrap: anywhere;
+}
+.md-typeset .layer-table .md-clipboard {
+  position: static;
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: var(--pp3-radius);
+  background: var(--pp3-bar);
+  color: var(--pp3-onbar);
+}
+.md-typeset .layer-table .md-clipboard:hover,
+.md-typeset .layer-table .md-clipboard:focus { background: var(--pp3-hover); color: #121212; }
+.md-typeset .layer-table .md-clipboard::after { width: 14px; height: 14px; margin: 0; }
+
+/* Preview map: flat hairline frame, 2 px corners (was an inline style) */
+.md-typeset img.layer-map {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 6px 0 4px;
+  border: 1px solid var(--pp3-line);
+  border-radius: var(--pp3-radius);
+  background: transparent;
+}
+
+/* SOURCE, DOCUMENTATION, …: the board's panel section labels */
+.md-typeset .sec-label {
+  margin: 1.8em 0 .5em;
+  padding-top: .55em;
+  border-top: 1px solid var(--pp3-line);
+  color: var(--pp3-muted);
+  font-family: var(--pp3-mono);
+  font-size: 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.md-typeset .sec-label strong { font-weight: 700; }
+
+/* Columns table: hairline rows, mono names and types */
+.md-typeset table:not([class]) {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  font-size: .66rem;
+}
+.md-typeset table:not([class]) th {
+  background: var(--pp3-bg);
+  border-bottom: 1px solid var(--pp3-line);
+  color: var(--pp3-muted);
+  font-family: var(--pp3-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.md-typeset table:not([class]) td { border-top: 1px solid var(--pp3-line); vertical-align: top; }
+.md-typeset table:not([class]) tbody tr:first-child td { border-top: 0; }
+.md-typeset table:not([class]) tbody tr:hover { background: var(--pp3-tint); box-shadow: none; }
+.md-typeset table:not([class]) td code {
+  padding: 0;
+  background: transparent;
+  color: var(--pp3-primary);
+}
+/* Sticky header on wide screens: Material's scroll wrappers would trap it */
+@media screen and (min-width: 76.25em) {
+  .md-typeset__scrollwrap { overflow-x: visible; }
+  .md-typeset__table { display: block; }
+  .md-typeset__table table:not([class]) { overflow: visible; }
+  .md-typeset table:not([class]) th {
+    position: sticky;
+    top: var(--pp-header-h);
+    z-index: 1;
+  }
+}

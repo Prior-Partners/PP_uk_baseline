@@ -25,7 +25,7 @@
     
     
       
-        <title>Open Rivers - uk_baseline data catalogue</title>
+        <title>Open Rivers - UK Baseline data catalogue</title>
       
     
     
@@ -45,7 +45,7 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css?v=1ca01c8b">
+      <link rel="stylesheet" href="../../stylesheets/extra.css?v=c49c3033">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -87,12 +87,14 @@
   
 
 <header class="md-header md-header--shadow" data-md-component="header">
+  <div class="pp-kick">
+    <div class="pp-kick__inner md-grid">
+      Prior + Partners &middot; uk_baseline &middot; 183 layers
+    </div>
+  </div>
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="uk_baseline data catalogue" class="md-header__button md-logo" aria-label="uk_baseline data catalogue" data-md-component="logo">
+    <a href="../.." title="UK Baseline data catalogue" class="md-header__button md-logo" aria-label="UK Baseline data catalogue" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
-
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
@@ -101,9 +103,10 @@
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
-          <span class="md-ellipsis">
-            uk_baseline data catalogue
-          </span>
+          <a class="pp-wordmark" href="../.." aria-label="UK Baseline data catalogue, home">
+            <span class="pp-wordmark__name">UK Baseline</span>
+            <span class="pp-wordmark__sub">Data catalogue</span>
+          </a>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
@@ -116,29 +119,29 @@
     </div>
     
       
-        <form class="md-header__option" data-md-component="palette">
+        <form class="md-header__option pp-mode" data-md-component="palette" role="radiogroup" aria-label="Colour mode">
   
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
-    
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
-      </label>
-    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Day" type="radio" name="__palette" id="__palette_0">
+    <span class="pp-mode__slot" hidden></span>
   
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Night" type="radio" name="__palette" id="__palette_1">
+    <span class="pp-mode__slot" hidden></span>
+  
+  
     
-      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
-      </label>
+    <label class="pp-chip pp-chip--slate" for="__palette_1">Night</label>
+  
     
+    <label class="pp-chip pp-chip--default" for="__palette_0">Day</label>
   
 </form>
+<script>!function(){function s(){var c=document.body.getAttribute("data-md-color-scheme");document.querySelectorAll('input[name="__palette"]').forEach(function(i){i.checked=i.getAttribute("data-md-color-scheme")===c})}new MutationObserver(s).observe(document.body,{attributes:!0,attributeFilter:["data-md-color-scheme"]}),s()}()</script>
       
     
     
@@ -216,13 +219,10 @@
 
 <nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="uk_baseline data catalogue" class="md-nav__button md-logo" aria-label="uk_baseline data catalogue" data-md-component="logo">
+    <a href="../.." title="UK Baseline data catalogue" class="md-nav__button md-logo" aria-label="UK Baseline data catalogue" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
-
     </a>
-    uk_baseline data catalogue
+    UK Baseline data catalogue
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -268,7 +268,7 @@
   <span class="md-ellipsis">
     
   
-    📕 Staff Handbook (PDF)
+    Staff handbook (PDF) ↗
   
 
     
@@ -301,19 +301,20 @@
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
+              
   
   
-  <span class="md-ellipsis">
     
-  
-    Administrative & Planning Boundaries (ADM)
+    
+    <span class="md-ellipsis pp-theme">
+      <span class="pp-theme__code">ADM</span>
+      <span class="pp-theme__sep" aria-hidden="true">&mdash;</span>
+      <span class="pp-theme__name">Administrative & Planning Boundaries</span>
+    </span>
+    <span class="pp-theme__count">21<span class="pp-sr"> layers</span></span>
   
 
-    
-  </span>
-  
-  
-
+            
             <span class="md-nav__icon md-icon"></span>
           </label>
         
@@ -971,19 +972,20 @@
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
+              
   
   
-  <span class="md-ellipsis">
     
-  
-    Built Environment & Land Use (BLT)
+    
+    <span class="md-ellipsis pp-theme">
+      <span class="pp-theme__code">BLT</span>
+      <span class="pp-theme__sep" aria-hidden="true">&mdash;</span>
+      <span class="pp-theme__name">Built Environment & Land Use</span>
+    </span>
+    <span class="pp-theme__count">6<span class="pp-sr"> layers</span></span>
   
 
-    
-  </span>
-  
-  
-
+            
             <span class="md-nav__icon md-icon"></span>
           </label>
         
@@ -1221,19 +1223,20 @@
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
+              
   
   
-  <span class="md-ellipsis">
     
-  
-    Community & Social Infrastructure (COM)
+    
+    <span class="md-ellipsis pp-theme">
+      <span class="pp-theme__code">COM</span>
+      <span class="pp-theme__sep" aria-hidden="true">&mdash;</span>
+      <span class="pp-theme__name">Community & Social Infrastructure</span>
+    </span>
+    <span class="pp-theme__count">2<span class="pp-sr"> layers</span></span>
   
 
-    
-  </span>
-  
-  
-
+            
             <span class="md-nav__icon md-icon"></span>
           </label>
         
@@ -1359,19 +1362,20 @@
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
             
+              
   
   
-  <span class="md-ellipsis">
     
-  
-    Demographics & Socio-Economic (DEM)
+    
+    <span class="md-ellipsis pp-theme">
+      <span class="pp-theme__code">DEM</span>
+      <span class="pp-theme__sep" aria-hidden="true">&mdash;</span>
+      <span class="pp-theme__name">Demographics & Socio-Economic</span>
+    </span>
+    <span class="pp-theme__count">50<span class="pp-sr"> layers</span></span>
   
 
-    
-  </span>
-  
-  
-
+            
             <span class="md-nav__icon md-icon"></span>
           </label>
         
@@ -2841,19 +2845,20 @@
           
           <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
             
+              
   
   
-  <span class="md-ellipsis">
     
-  
-    Economy & Employment (ECN)
+    
+    <span class="md-ellipsis pp-theme">
+      <span class="pp-theme__code">ECN</span>
+      <span class="pp-theme__sep" aria-hidden="true">&mdash;</span>
+      <span class="pp-theme__name">Economy & Employment</span>
+    </span>
+    <span class="pp-theme__count">29<span class="pp-sr"> layers</span></span>
   
 
-    
-  </span>
-  
-  
-
+            
             <span class="md-nav__icon md-icon"></span>
           </label>
         
@@ -3735,19 +3740,20 @@
           
           <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
             
+              
   
   
-  <span class="md-ellipsis">
     
-  
-    Education (EDU)
+    
+    <span class="md-ellipsis pp-theme">
+      <span class="pp-theme__code">EDU</span>
+      <span class="pp-theme__sep" aria-hidden="true">&mdash;</span>
+      <span class="pp-theme__name">Education</span>
+    </span>
+    <span class="pp-theme__count">3<span class="pp-sr"> layers</span></span>
   
 
-    
-  </span>
-  
-  
-
+            
             <span class="md-nav__icon md-icon"></span>
           </label>
         
@@ -3903,19 +3909,20 @@
           
           <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
             
+              
   
   
-  <span class="md-ellipsis">
     
-  
-    Environment & Natural Assets (ENV)
+    
+    <span class="md-ellipsis pp-theme">
+      <span class="pp-theme__code">ENV</span>
+      <span class="pp-theme__sep" aria-hidden="true">&mdash;</span>
+      <span class="pp-theme__name">Environment & Natural Assets</span>
+    </span>
+    <span class="pp-theme__count">31<span class="pp-sr"> layers</span></span>
   
 
-    
-  </span>
-  
-  
-
+            
             <span class="md-nav__icon md-icon"></span>
           </label>
         
@@ -4911,19 +4918,20 @@
           
           <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
             
+              
   
   
-  <span class="md-ellipsis">
     
-  
-    Heritage & Historical Assets (HER)
+    
+    <span class="md-ellipsis pp-theme">
+      <span class="pp-theme__code">HER</span>
+      <span class="pp-theme__sep" aria-hidden="true">&mdash;</span>
+      <span class="pp-theme__name">Heritage & Historical Assets</span>
+    </span>
+    <span class="pp-theme__count">12<span class="pp-sr"> layers</span></span>
   
 
-    
-  </span>
-  
-  
-
+            
             <span class="md-nav__icon md-icon"></span>
           </label>
         
@@ -5329,19 +5337,20 @@
           
           <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
             
+              
   
   
-  <span class="md-ellipsis">
     
-  
-    Housing & Living Conditions (HOU)
+    
+    <span class="md-ellipsis pp-theme">
+      <span class="pp-theme__code">HOU</span>
+      <span class="pp-theme__sep" aria-hidden="true">&mdash;</span>
+      <span class="pp-theme__name">Housing & Living Conditions</span>
+    </span>
+    <span class="pp-theme__count">1<span class="pp-sr"> layer</span></span>
   
 
-    
-  </span>
-  
-  
-
+            
             <span class="md-nav__icon md-icon"></span>
           </label>
         
@@ -5439,19 +5448,20 @@
           
           <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
             
+              
   
   
-  <span class="md-ellipsis">
     
-  
-    Health & Wellbeing (HTH)
+    
+    <span class="md-ellipsis pp-theme">
+      <span class="pp-theme__code">HTH</span>
+      <span class="pp-theme__sep" aria-hidden="true">&mdash;</span>
+      <span class="pp-theme__name">Health & Wellbeing</span>
+    </span>
+    <span class="pp-theme__count">8<span class="pp-sr"> layers</span></span>
   
 
-    
-  </span>
-  
-  
-
+            
             <span class="md-nav__icon md-icon"></span>
           </label>
         
@@ -5745,19 +5755,20 @@
           
           <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
             
+              
   
   
-  <span class="md-ellipsis">
     
-  
-    Transport & Mobility (MOB)
+    
+    <span class="md-ellipsis pp-theme">
+      <span class="pp-theme__code">MOB</span>
+      <span class="pp-theme__sep" aria-hidden="true">&mdash;</span>
+      <span class="pp-theme__name">Transport & Mobility</span>
+    </span>
+    <span class="pp-theme__count">13<span class="pp-sr"> layers</span></span>
   
 
-    
-  </span>
-  
-  
-
+            
             <span class="md-nav__icon md-icon"></span>
           </label>
         
@@ -6191,19 +6202,20 @@
           
           <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
             
+              
   
   
-  <span class="md-ellipsis">
     
-  
-    Infrastructure & Utilities (UTL)
+    
+    <span class="md-ellipsis pp-theme">
+      <span class="pp-theme__code">UTL</span>
+      <span class="pp-theme__sep" aria-hidden="true">&mdash;</span>
+      <span class="pp-theme__name">Infrastructure & Utilities</span>
+    </span>
+    <span class="pp-theme__count">7<span class="pp-sr"> layers</span></span>
   
 
-    
-  </span>
-  
-  
-
+            
             <span class="md-nav__icon md-icon"></span>
           </label>
         
@@ -6469,39 +6481,39 @@
 <h1 id="ordnance-survey-os-open-rivers-watercourse-network-for-great-britain-april-2025">Ordnance Survey OS Open Rivers — watercourse network for Great Britain, April 2025<a class="headerlink" href="#ordnance-survey-os-open-rivers-watercourse-network-for-great-britain-april-2025" title="Permanent link">&para;</a></h1>
 <p class="layer-short">Open Rivers</p>
 
-<p><code>env_os_rivers_apr2025</code></p>
-<p><img src="../../maps/env_os_rivers_apr2025.png" alt="Styling preview of env_os_rivers_apr2025" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;"></p>
-<p><strong>SOURCE</strong></p>
+<p class="layer-table"><code>env_os_rivers_apr2025</code><button class="md-clipboard md-icon" data-clipboard-text="env_os_rivers_apr2025" title="Copy table name" aria-label="Copy table name" data-search-exclude></button></p>
+<p><img src="../../maps/env_os_rivers_apr2025.png" alt="Styling preview of env_os_rivers_apr2025" loading="lazy" class="layer-map"></p>
+<p class="sec-label"><strong>SOURCE</strong></p>
 <ul>
 <li>Ordnance Survey (OS), OS Open Rivers product.</li>
 </ul>
-<p><strong>DOCUMENTATION</strong></p>
+<p class="sec-label"><strong>DOCUMENTATION</strong></p>
 <ul>
 <li>OS Open Rivers : https://www.ordnancesurvey.co.uk/products/os-open-rivers</li>
 </ul>
-<p><strong>DEFINITIONS</strong></p>
+<p class="sec-label"><strong>DEFINITIONS</strong></p>
 <ul>
 <li>"An open dataset of the high-level view of watercourses in Great Britain." (OS Open Rivers product page)</li>
 </ul>
-<p><strong>SCOPE</strong></p>
+<p class="sec-label"><strong>SCOPE</strong></p>
 <ul>
 <li>Great Britain. 570,566 rows.</li>
 </ul>
-<p><strong>CRS</strong></p>
+<p class="sec-label"><strong>CRS</strong></p>
 <ul>
 <li>EPSG:27700 (OSGB 1936 / British National Grid). Geometry type LineString.</li>
 </ul>
-<p><strong>LICENCE</strong></p>
+<p class="sec-label"><strong>LICENCE</strong></p>
 <ul>
 <li>OS OpenData Licence (incorporates Open Government Licence v3.0; attribution "Contains OS data © Crown copyright and database right" required).</li>
 </ul>
-<p><strong>DATA QUALITY CAVEATS</strong></p>
+<p class="sec-label"><strong>DATA QUALITY CAVEATS</strong></p>
 <ul>
 <li>The row count counts split pieces, not source features: this layer was split by Middle Layer Super Output Area, so it holds one row per feature per MSOA piece, plus whole and remainder rows to keep 100% of the source geometry. 666,380 rows represent 570,566 source features, measured 25 August 2026. <code>source_fid</code> identifies the originating feature.</li>
 <li>Geography keys are NULL on 157,469 of 666,380 rows, measured 25 August 2026: 18,424 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence; 3,844 are residual fragments left by the MSOA split, each under 100 sqm or 10 m; 134,711 are in Scotland or Northern Ireland, outside the England and Wales lookup; 490 fall outside every district — offshore, inter-tidal, or beyond Great Britain.</li>
 <li>County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.</li>
 </ul>
-<p><strong>ENRICHMENT</strong></p>
+<p class="sec-label"><strong>ENRICHMENT</strong></p>
 <ul>
 <li><code>sds_name</code> / <code>sds_group</code> — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.</li>
 <li>Geometry split to one row per source feature per MSOA (2021).</li>
@@ -6509,7 +6521,7 @@
 <li>The source feature's original primary key is preserved as <code>source_fid</code>; <code>gid</code> is a fresh surrogate primary key.</li>
 <li>Features with no MSOA overlap (offshore or outside England &amp; Wales) are kept whole, with NULL geography columns.</li>
 </ul>
-<p><strong>LOADED INTO uk_baseline</strong></p>
+<p class="sec-label"><strong>LOADED INTO uk_baseline</strong></p>
 <ul>
 <li>Loaded by PNC, May 2026.</li>
 </ul>

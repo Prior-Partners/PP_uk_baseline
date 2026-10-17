@@ -2,48 +2,58 @@
 
 <p class="layer-short">GP Practices</p>
 
-`hth_nhs_gp_jan2026`
+`hth_nhs_gp_jan2026`<button class="md-clipboard md-icon" data-clipboard-text="hth_nhs_gp_jan2026" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/hth_nhs_gp_jan2026.png" alt="Styling preview of hth_nhs_gp_jan2026" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/hth_nhs_gp_jan2026.png" alt="Styling preview of hth_nhs_gp_jan2026" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - NHS England (formerly NHS Digital). GP practice register (Organisation Data Service), Patients Registered at a GP Practice, and General Practice Workforce. Compiled by Prior + Partners.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - NHS Organisation Data Service          : https://digital.nhs.uk/services/organisation-data-service
 - Patients registered at a GP practice   : https://digital.nhs.uk/data-and-information/publications/statistical/patients-registered-at-a-gp-practice
 - General Practice Workforce             : https://digital.nhs.uk/data-and-information/publications/statistical/general-and-personal-medical-services
 
 **DEFINITIONS**
+{: .sec-label }
 
 - Patients Registered at a GP Practice is "The number of patients registered at a GP on the first day of each month." (NHS England)
 - The General Practice Workforce data gives "full-time equivalent (FTE) and headcount figures by four staff groups, (GPs, Nurses, Direct Patient Care (DPC) and administrative staff)." (NHS England)
 
 **SCOPE**
+{: .sec-label }
 
 - England. 15,369 rows.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid). Geometry type Point.
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0 (confirm before re-publication).
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - Geography keys are NULL on 91 of 15,369 rows, measured 25 August 2026: 91 hold no usable coordinates.
 - A further 12 rows carry a Scottish or Northern Irish district code, so they hold a district but no county or Spatial Development Strategy — the lookup covers England and Wales only.
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, January 2026.
 

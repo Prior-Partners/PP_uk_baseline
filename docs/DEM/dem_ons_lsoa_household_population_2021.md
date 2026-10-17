@@ -2,49 +2,59 @@
 
 <p class="layer-short">Census 2021 Household Population</p>
 
-`dem_ons_lsoa_household_population_2021`
+`dem_ons_lsoa_household_population_2021`<button class="md-clipboard md-icon" data-clipboard-text="dem_ons_lsoa_household_population_2021" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/dem_ons_lsoa_household_population_2021.png" alt="Styling preview of dem_ons_lsoa_household_population_2021" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/dem_ons_lsoa_household_population_2021.png" alt="Styling preview of dem_ons_lsoa_household_population_2021" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Office for National Statistics (ONS), Census 2021, England and Wales.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - ONS dataset (TS001) : https://www.ons.gov.uk/datasets/TS001/editions/2021/versions/3
 - ONS Census 2021 landing page : https://www.ons.gov.uk/census/2021
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "The number of usual residents living in households or in communal establishments." (ONS Census 2021 Resident type variable)
 - "A communal establishment is an establishment providing managed full-time or part-time supervision of residential accommodation (e.g. care home, prison, hostel, boarding school)." (ONS Census 2021 Resident type variable)
 
 **SCOPE**
+{: .sec-label }
 
 - England and Wales.
 - Base populations: all usual residents AND households (depending on the column — see column comments).
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid).
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - Some columns are aggregations (sums of sub-category counts); refer to the column descriptions.
 - Population base may vary by column; refer to the column descriptions.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - `msoa21hclnm` — House of Commons Library readable MSOA name, joined at load on msoa21cd from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Data: Census Day 21 March 2021.
 

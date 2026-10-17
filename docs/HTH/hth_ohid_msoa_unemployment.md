@@ -2,42 +2,51 @@
 
 <p class="layer-short">Unemployment</p>
 
-`hth_ohid_msoa_unemployment`
+`hth_ohid_msoa_unemployment`<button class="md-clipboard md-icon" data-clipboard-text="hth_ohid_msoa_unemployment" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/hth_ohid_msoa_unemployment.png" alt="Styling preview of hth_ohid_msoa_unemployment" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/hth_ohid_msoa_unemployment.png" alt="Styling preview of hth_ohid_msoa_unemployment" loading="lazy" class="layer-map">
 
 Via the Fingertips platform.
 
 **SOURCE**
+{: .sec-label }
 
 - Office for Health Improvement and Disparities (OHID), via the Fingertips public health data platform.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - Fingertips : https://fingertips.phe.org.uk/
 
 **DEFINITIONS**
+{: .sec-label }
 
 - Unemployment (Office for National Statistics / International Labour Organization basis): people "without a job, have been actively seeking work in the past four weeks and are available to start work in the next two weeks." (Office for National Statistics, A guide to labour market statistics)
 
 **SCOPE**
+{: .sec-label }
 
 - England. 7,283 rows (MSOA 2011 level).
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid). Geometry type MultiPolygon.
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - This table is published on 2011 MSOA boundaries and its values are 2011-vintage; `msoa21hclnm` is a readable label for the corresponding 2021 MSOA and does not re-aggregate any value onto 2021 geography. For MSOAs unchanged in 2021 the name is exact. For the small number of 2011 MSOAs that were split, the column lists every successor name separated by a semicolon, so those rows carry more than one name and cannot be joined to a single msoa21cd. No 2021 geography codes are recorded on this table.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - `msoa21hclnm` — House of Commons Library readable MSOA name for the 2021 MSOA corresponding to this row's 2011 MSOA, joined at load via uk.ref_msoa11_msoa21_name_lu. Open Parliament Licence.

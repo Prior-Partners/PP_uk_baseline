@@ -2,38 +2,46 @@
 
 <p class="layer-short">Important Buildings</p>
 
-`blt_os_important_buildings`
+`blt_os_important_buildings`<button class="md-clipboard md-icon" data-clipboard-text="blt_os_important_buildings" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/blt_os_important_buildings.png" alt="Styling preview of blt_os_important_buildings" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/blt_os_important_buildings.png" alt="Styling preview of blt_os_important_buildings" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Ordnance Survey (OS), Open Map Local product.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - Product page : https://osdatahub.os.uk/data/downloads/open/OpenMapLocal
 - Product guide : https://www.ordnancesurvey.co.uk/documents/os-open-map-local-product-guide.pdf
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "A generalised building that belongs to a FunctionalSite." (OS OpenMap Local Product Guide, Land Use / ImportantBuilding)
 - Building themes (11): Attraction and Leisure, Air Transport, Cultural Facility, Education facility, Emergency Services, Medical Facility, Religious Building, Retail, Road Transport, Sports and Leisure Facility, Water Transport.
 
 **SCOPE**
+{: .sec-label }
 
 - Great Britain (England, Wales, Scotland).
 - 238,089 distinct buildings by id; 238,730 rows total (641 id duplicates carried from upstream - see caveats).
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (British National Grid / BNG).
 
 **LICENCE**
+{: .sec-label }
 
 - OS OpenData Licence (incorporates Open Government Licence v3.0; attribution "Contains OS data (c) Crown copyright and database right [year]" required).
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - Geography keys are NULL on 20,687 of 238,730 rows, measured 25 August 2026: 25 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence; 18 are residual fragments left by the MSOA split, each under 100 sqm or 10 m; 20,644 are in Scotland or Northern Ireland, outside the England and Wales lookup.
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
@@ -41,6 +49,7 @@
 - The OS Product Guide says BuildingTheme uses the "SiteThemeType code list", but the BuildingTheme code list contains 11 values while SiteTheme contains only 5 - the published code lists are different. Use the actual values observed in the column rather than the SiteTheme list.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - `msoa21hclnm` — House of Commons Library readable MSOA name, assigned at load via the polygon's 2021 MSOA (representative interior point in uk_baseline.adm_ons_msoa_boundary_2021). Open Parliament Licence.

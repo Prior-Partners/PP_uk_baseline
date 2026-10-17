@@ -1,0 +1,9 @@
+# Keep the site skin byte-stable across checkouts: build_catalogue.py hashes
+# extra.css for cache-busting, so a CRLF checkout would change the site.
+scripts/assets/*.css text eol=lf
+# cmd.exe needs CRLF in batch files.
+*.bat text eol=crlf
+# Binary files, including the synthetic test fixtures.
+*.woff2 binary
+*.png binary
+*.pdf binary

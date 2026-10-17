@@ -2,36 +2,44 @@
 
 <p class="layer-short">Ancient Woodland</p>
 
-`env_naturalengland_ancient_woodland_mar2026`
+`env_naturalengland_ancient_woodland_mar2026`<button class="md-clipboard md-icon" data-clipboard-text="env_naturalengland_ancient_woodland_mar2026" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/env_naturalengland_ancient_woodland_mar2026.png" alt="Styling preview of env_naturalengland_ancient_woodland_mar2026" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/env_naturalengland_ancient_woodland_mar2026.png" alt="Styling preview of env_naturalengland_ancient_woodland_mar2026" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Natural England, via the NE Open Data Hub. Ancient Woodland (England) dataset.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - NE Open Data Hub          : https://naturalengland-defra.opendata.arcgis.com/
 - Ancient woodland guidance : https://www.gov.uk/guidance/ancient-woodland-and-veteran-trees-protection-surveys-licences
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "Ancient woodland is an area that has been wooded continuously since at least 1600AD." (data.gov.uk, Ancient Woodland (England), Natural England)
 
 **SCOPE**
+{: .sec-label }
 
 - England. 64,639 rows.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid). Geometry type MultiPolygon.
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0. © Natural England.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - The row count counts split pieces, not source features: this layer was split by Middle Layer Super Output Area, so it holds one row per feature per MSOA piece, plus whole and remainder rows to keep 100% of the source geometry. 64,639 rows represent 55,647 source features, measured 25 August 2026. `source_fid` identifies the originating feature.
 - Geography keys are NULL on 165 of 64,639 rows, measured 25 August 2026: 117 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence; 47 are residual fragments left by the MSOA split, each under 100 sqm or 10 m; 1 are in Scotland or Northern Ireland, outside the England and Wales lookup.
@@ -39,6 +47,7 @@
 - Some areas overlap with Ancient Woodland - Revised (uk_baseline.env_naturalengland_ancient_woodland_revised_apr2026); the two datasets are not mutually exclusive.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - Geometry split to one row per source feature per MSOA (2021).
@@ -47,6 +56,7 @@
 - Features with no MSOA overlap (offshore or outside England & Wales) are kept whole, with NULL geography columns.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, May 2026.
 

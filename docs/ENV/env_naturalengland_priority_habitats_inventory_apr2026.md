@@ -2,36 +2,44 @@
 
 <p class="layer-short">Priority Habitats Inventory</p>
 
-`env_naturalengland_priority_habitats_inventory_apr2026`
+`env_naturalengland_priority_habitats_inventory_apr2026`<button class="md-clipboard md-icon" data-clipboard-text="env_naturalengland_priority_habitats_inventory_apr2026" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/env_naturalengland_priority_habitats_inventory_apr2026.png" alt="Styling preview of env_naturalengland_priority_habitats_inventory_apr2026" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/env_naturalengland_priority_habitats_inventory_apr2026.png" alt="Styling preview of env_naturalengland_priority_habitats_inventory_apr2026" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Natural England, via the NE Open Data Hub. Priority Habitats Inventory (England) dataset.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - NE Open Data Hub : https://naturalengland-defra.opendata.arcgis.com/
 - data.gov.uk PHI  : https://www.data.gov.uk/dataset/4b6ddab7-6c0f-4407-946e-d6499f19fcde/priority-habitats-inventory-england
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "The Priority Habitat Inventory is a spatial dataset that maps priority habitats identified in the UK Biodiversity Action Plan" - habitats "listed as being of principal importance for the purpose of conserving or enhancing biodiversity, under Section 41 of the Natural Environment and Rural Communities Act (2006)." (data.gov.uk, Priority Habitats Inventory (England), Natural England)
 
 **SCOPE**
+{: .sec-label }
 
 - England. 910,679 rows.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid). Geometry type MultiPolygon.
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0. © Natural England.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - The row count counts split pieces, not source features: this layer was split by Middle Layer Super Output Area, so it holds one row per feature per MSOA piece, plus whole and remainder rows to keep 100% of the source geometry. 910,679 rows represent 814,471 source features, measured 25 August 2026. `source_fid` identifies the originating feature.
 - Geography keys are NULL on 149 of 910,679 rows, measured 25 August 2026: 149 are in Scotland or Northern Ireland, outside the England and Wales lookup.
@@ -39,6 +47,7 @@
 - 37,664 rows carry a district but no Middle Layer Super Output Area: they lie outside every 2021 MSOA but inside a district, so the district was assigned from the feature's representative point while the MSOA columns stay NULL.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - Geometry split to one row per source feature per MSOA (2021).
@@ -47,6 +56,7 @@
 - Features with no MSOA overlap (offshore or outside England & Wales) are kept whole, with NULL geography columns.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, May 2026.
 

@@ -2,46 +2,56 @@
 
 <p class="layer-short">Middle Layer Super Output Area Boundary 2021</p>
 
-`adm_ons_msoa_boundary_2021`
+`adm_ons_msoa_boundary_2021`<button class="md-clipboard md-icon" data-clipboard-text="adm_ons_msoa_boundary_2021" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/adm_ons_msoa_boundary_2021.png" alt="Styling preview of adm_ons_msoa_boundary_2021" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/adm_ons_msoa_boundary_2021.png" alt="Styling preview of adm_ons_msoa_boundary_2021" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Office for National Statistics (ONS), Open Geography Portal.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - Dataset page : https://geoportal.statistics.gov.uk/datasets/middle-layer-super-output-areas-december-2021-boundaries-ew-bgc-v3-2/about
 - Digital boundaries methods : https://www.ons.gov.uk/methodology/geography/geographicalproducts/digitalboundaries
 
 **DEFINITIONS**
+{: .sec-label }
 
 - Middle Layer Super Output Areas (MSOAs) are census statistical areas built from groups of LSOAs, of similar population size — about 7,200 residents on average (roughly 5,000–15,000 people).
 
 **SCOPE**
+{: .sec-label }
 
 - England & Wales.
 - 7,264 MSOAs (2021 Census geography).
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (British National Grid / BNG).
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - `msoa21hclnm` — House of Commons Library readable MSOA name, joined at load on msoa21cd from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, May 2026.
 

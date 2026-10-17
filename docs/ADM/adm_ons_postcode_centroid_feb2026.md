@@ -2,38 +2,46 @@
 
 <p class="layer-short">Postcode Centroid</p>
 
-`adm_ons_postcode_centroid_feb2026`
+`adm_ons_postcode_centroid_feb2026`<button class="md-clipboard md-icon" data-clipboard-text="adm_ons_postcode_centroid_feb2026" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/adm_ons_postcode_centroid_feb2026.png" alt="Styling preview of adm_ons_postcode_centroid_feb2026" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/adm_ons_postcode_centroid_feb2026.png" alt="Styling preview of adm_ons_postcode_centroid_feb2026" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Office for National Statistics (ONS), ONS Geography. Postcode centroids derived from Code-Point Open (Ordnance Survey) and Royal Mail postcode data via the Gridlink process. Northern Ireland grid references from Land and Property Services (LPS) 'Pointer'.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - Dataset      : https://geoportal.statistics.gov.uk/datasets/3080229224424c9cb53c0b48f5a64d27
 - Postcode products : https://www.ons.gov.uk/methodology/geography/geographicalproducts/postcodeproducts
 - User Guide   : "ONSPD User Guide February 2026" (bundled with the release zip)
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "The ONS Postcode Directory (ONSPD) relates both current and terminated postcodes in the United Kingdom to a range of current statutory administrative, electoral, health and other area geographies." (ONSPD User Guide)
 
 **SCOPE**
+{: .sec-label }
 
 - 2,723,596 unit postcodes (live and terminated), UK + Channel Islands + Isle of Man.
 - 915,867 are terminated postcodes (retained by ONS, with `doterm` set).
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB36 British National Grid). `geom` is populated for Great Britain postcodes only, directly from `east1m`/`north1m`. Northern Ireland grid references use the Irish National Grid and Channel Islands / Isle of Man have no grid reference, so those rows carry NULL geom; their WGS84 `lat`/`long` are retained.
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0. Attribution required: "Contains OS data (c) Crown copyright and database right 2026"; "Contains Royal Mail data (c) Royal Mail copyright and database right 2026"; "Source: Office for National Statistics licensed under the Open Government Licence v.3.0". Northern Ireland (BT) postcodes require a separate Land and Property Services licence for commercial use.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - A further 314,761 rows carry a Scottish or Northern Irish district code, so they hold a district but no county or Spatial Development Strategy — the lookup covers England and Wales only.
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
@@ -41,12 +49,14 @@
 - This is a postcode-centroid reference layer for joining postcode-only datasets (e.g. HM Land Registry Price Paid Data) to coordinates and admin geographies; it is not address-level.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - `msoa21nm` — Office for National Statistics MSOA 2021 name, joined at load on msoa21cd from uk_baseline.adm_ons_msoa_boundary_2021.
 - `msoa21hclnm` — House of Commons Library readable MSOA name, joined at load on msoa21cd from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, 1 June 2026.
 

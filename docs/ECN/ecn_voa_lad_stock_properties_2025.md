@@ -2,20 +2,24 @@
 
 <p class="layer-short">VOA Stock of Properties - LAD</p>
 
-`ecn_voa_lad_stock_properties_2025`
+`ecn_voa_lad_stock_properties_2025`<button class="md-clipboard md-icon" data-clipboard-text="ecn_voa_lad_stock_properties_2025" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/ecn_voa_lad_stock_properties_2025.png" alt="Styling preview of ecn_voa_lad_stock_properties_2025" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/ecn_voa_lad_stock_properties_2025.png" alt="Styling preview of ecn_voa_lad_stock_properties_2025" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Valuation Office Agency (VOA) Non-Domestic Rating (NDR), gov.uk publication 2025-06 (reference date 31 March 2025).
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - Dataset page : https://www.gov.uk/government/statistics/non-domestic-rating-stock-of-properties-2025
 - Background information : https://www.gov.uk/government/statistics/non-domestic-rating-stock-of-properties-2025/non-domestic-rating-stock-of-properties-background-information
 
 **DEFINITIONS**
+{: .sec-label }
 
 - Stock of Properties: "The statistics provide information on the number and value of the stock of rateable properties (known as 'hereditaments'), broken down by sector, geographic location, Special Category (SCat), property type and rateable value band." (gov.uk background-information page)
 - Hereditament: "A rateable property is a property on which rates may be charged and is the unit to which the VOA assigns RV. In general, rateable properties are buildings or premises within buildings, appropriate for or used for single occupation. Rateable properties can be occupied or vacant." (gov.uk background-information page)
@@ -23,26 +27,32 @@
 - Rating list mapping: "those for 2011-2017 are based on the 2010 rating list; 2018-2023 are based on the 2017 rating list and 2024-2025 are based on the 2023 rating list." (gov.uk background-information page)
 
 **SCOPE**
+{: .sec-label }
 
 - Local Authority District (LAD) May 2024 boundaries, England and Wales. 318 rows (E: 296; W: 22). Source CSV rows filtered to geography = 'LAUA'.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (British National Grid).
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0 (OGL). © Crown copyright. https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, May 2026.
 

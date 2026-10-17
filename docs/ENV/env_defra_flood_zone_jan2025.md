@@ -2,21 +2,25 @@
 
 <p class="layer-short">Flood Zone 2 and 3</p>
 
-`env_defra_flood_zone_jan2025`
+`env_defra_flood_zone_jan2025`<button class="md-clipboard md-icon" data-clipboard-text="env_defra_flood_zone_jan2025" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/env_defra_flood_zone_jan2025.png" alt="Styling preview of env_defra_flood_zone_jan2025" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/env_defra_flood_zone_jan2025.png" alt="Styling preview of env_defra_flood_zone_jan2025" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Environment Agency (EA), part of the Department for Environment, Food and Rural Affairs (Defra). Flood Map for Planning product. Distributed via data.gov.uk.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - EA Flood Map for Planning landing : https://environment.data.gov.uk/dataset/bed63fc1-dd26-4685-b143-2941088923b3
 - EA Flood Map guidance             : https://www.gov.uk/guidance/flood-map-for-planning
 - gov.uk Flood Map for Planning     : https://flood-map-for-planning.service.gov.uk/
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "The Flood Map for Planning shows river and sea flooding data for England." (gov.uk Flood Map guidance)
 - Flood Zone 2 — medium probability (EA Flood Map guidance). Chance of flooding in any year:
@@ -27,22 +31,27 @@
     - from the sea: 1 in 200 (0.5%) or greater.
 
 **SCOPE**
+{: .sec-label }
 
 - England. 12,535,046 rows.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid).
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0. © Environment Agency copyright and database right.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - The row count counts split pieces, not source features: this layer was split by Middle Layer Super Output Area, so it holds one row per feature per MSOA piece, plus whole and remainder rows to keep 100% of the source geometry. 12,535,046 rows represent 12,247,889 source features, measured 25 August 2026. `source_fid` identifies the originating feature.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - Geometry split to one row per source feature per MSOA (2021).
 - Each row carries that MSOA's `msoa21cd`, `msoa21nm`, `msoa21hclnm`, `lad22cd`, `lad22nm`, `lad25cd`, `lad25nm`.
@@ -50,6 +59,7 @@
 - Features with no MSOA overlap (offshore or outside England & Wales) are kept whole, with NULL geography columns.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded January 2025.
 

@@ -2,20 +2,24 @@
 
 <p class="layer-short">Agricultural Land Classification - Survey</p>
 
-`env_naturalengland_agricultural_land_class_nov2024`
+`env_naturalengland_agricultural_land_class_nov2024`<button class="md-clipboard md-icon" data-clipboard-text="env_naturalengland_agricultural_land_class_nov2024" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/env_naturalengland_agricultural_land_class_nov2024.png" alt="Styling preview of env_naturalengland_agricultural_land_class_nov2024" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/env_naturalengland_agricultural_land_class_nov2024.png" alt="Styling preview of env_naturalengland_agricultural_land_class_nov2024" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Natural England, via the NE Open Data Hub. Agricultural Land Classification (post-war survey) dataset.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - NE Open Data Hub : https://naturalengland-defra.opendata.arcgis.com/
 - ALC guidance     : https://www.gov.uk/government/publications/agricultural-land-assess-proposals-for-development/guide-to-assessing-development-proposals-on-agricultural-land
 
 **DEFINITIONS**
+{: .sec-label }
 
 - Agricultural Land Classification (ALC) grades agricultural land by quality — the extent to which soil, site and climate limit its use — from Grade 1 (best) to Grade 5 (poorest), to inform land-use planning. (Natural England / Defra ALC guidance)
 - Grades in this survey (grade 3 is not subdivided into 3a/3b):
@@ -29,18 +33,22 @@
     - Exclusion — land excluded from the classification.
 
 **SCOPE**
+{: .sec-label }
 
 - England. 44,489 rows.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid). Geometry type MultiPolygon.
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0. © Natural England.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - The row count counts split pieces, not source features: this layer was split by Middle Layer Super Output Area, so it holds one row per feature per MSOA piece, plus whole and remainder rows to keep 100% of the source geometry. 44,489 rows represent 5,926 source features, measured 25 August 2026. `source_fid` identifies the originating feature.
 - Geography keys are NULL on 916 of 44,489 rows, measured 25 August 2026: 800 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence; 103 are residual fragments left by the MSOA split, each under 100 sqm or 10 m; 13 are in Scotland or Northern Ireland, outside the England and Wales lookup.
@@ -49,6 +57,7 @@
 - RELATED: for a modelled national prediction of agricultural land, please see Agricultural Land Classification - Predictive (uk_baseline.env_defra_predictive_agricultural_land_class_mar2026).
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - Geometry split to one row per source feature per MSOA (2021).
@@ -57,6 +66,7 @@
 - Geometry outside every MSOA (offshore, estuarine, or beyond the coastline) is kept as rows with NULL geography columns, so the layer holds the complete source geometry.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, May 2026.
 

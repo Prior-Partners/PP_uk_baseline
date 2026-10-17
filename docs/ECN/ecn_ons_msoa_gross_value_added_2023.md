@@ -2,52 +2,63 @@
 
 <p class="layer-short">Gross value added (GVA) - MSOA</p>
 
-`ecn_ons_msoa_gross_value_added_2023`
+`ecn_ons_msoa_gross_value_added_2023`<button class="md-clipboard md-icon" data-clipboard-text="ecn_ons_msoa_gross_value_added_2023" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/ecn_ons_msoa_gross_value_added_2023.png" alt="Styling preview of ecn_ons_msoa_gross_value_added_2023" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/ecn_ons_msoa_gross_value_added_2023.png" alt="Styling preview of ecn_ons_msoa_gross_value_added_2023" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Office for National Statistics (ONS), Regional Accounts. ONS publishes GVA at small-area level (LSOA in E+W, DZ in Scotland, SOA in NI) only; there is no MSOA-level GVA series from the publisher. This table is therefore a derivation.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - Dataset landing page : https://www.ons.gov.uk/economy/grossvalueaddedgva/datasets/uksmallareagvaestimates
 - Upstream source file : uksmallareagvaestimates1998to2023.xlsx (publication 22 Sep 2025)
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "These data are annual subnational gross value added (GVA) disaggregated to lower layer super output areas (LSOA) in England and Wales, data zones (DZ) in Scotland, and super output areas (SOA) in Northern Ireland." (ONS)
 
 **SCOPE**
+{: .sec-label }
 
 - England & Wales.
 - 7,201 MSOA 2011 rows.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (British National Grid / BNG).
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - This table is published on 2011 MSOA boundaries and its values are 2011-vintage; `msoa21hclnm` is a readable label for the corresponding 2021 MSOA and does not re-aggregate any value onto 2021 geography. For MSOAs unchanged in 2021 the name is exact. For the small number of 2011 MSOAs that were split, the column lists every successor name separated by a semicolon, so those rows carry more than one name and cannot be joined to a single msoa21cd. No 2021 geography codes are recorded on this table.
 - For LAD level dataset, please refer to Gross value added (GVA) - LAD.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - `msoa21hclnm` — House of Commons Library readable MSOA name for the 2021 MSOA corresponding to this row's 2011 MSOA, joined at load via uk.ref_msoa11_msoa21_name_lu. Open Parliament Licence.
 
 **DERIVED FROM**
+{: .sec-label }
 
 - Sum of gva_YYYY grouped by MSOA, taken from uk_baseline.ecn_ons_lsoa_gross_value_added_2023.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, May 2026.
 

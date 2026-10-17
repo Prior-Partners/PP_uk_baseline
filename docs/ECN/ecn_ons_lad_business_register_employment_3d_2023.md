@@ -2,21 +2,25 @@
 
 <p class="layer-short">BRES Employment - LAD, 2023, 3D</p>
 
-`ecn_ons_lad_business_register_employment_3d_2023`
+`ecn_ons_lad_business_register_employment_3d_2023`<button class="md-clipboard md-icon" data-clipboard-text="ecn_ons_lad_business_register_employment_3d_2023" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/ecn_ons_lad_business_register_employment_3d_2023.png" alt="Styling preview of ecn_ons_lad_business_register_employment_3d_2023" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/ecn_ons_lad_business_register_employment_3d_2023.png" alt="Styling preview of ecn_ons_lad_business_register_employment_3d_2023" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Office for National Statistics (ONS). Distributed via Nomis dataset - Business Register and Employment Survey.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - Nomis dataset page : https://www.nomisweb.co.uk/datasets/newbres6pub
 - ONS BRES methodology : https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/methodologies/businessregisterandemploymentsurveybres
 - ONS BRES QMI : https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/methodologies/businessregisteremploymentsurveybresqmi
 
 **DEFINITIONS**
+{: .sec-label }
 
 - Employees: people aged 16 or over paid directly through the employer's payroll (full-time, part-time or on a training scheme) on the survey reference date. (ONS BRES QMI)
 - Working owners: business owners (sole traders, sole proprietors and partners) who take a share of the profits rather than being paid a wage through the payroll. (ONS BRES QMI)
@@ -24,18 +28,22 @@
 - Employment is broken down by 3-digit SIC2007 industry group.
 
 **SCOPE**
+{: .sec-label }
 
 - England and Wales. Local Authority District as of April 2021; 331 rows (309 England + 22 Wales) after post-load Scotland filter. Reference date 1 January 2023.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid).
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0 (OGL v3.0).
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - NULL means the cell was suppressed by ONS for disclosure control; 0 means genuinely zero employment. Suppression bites harder at fine geographies (LSOA) and small industries, so expect many NULLs across the industry row.
@@ -43,10 +51,12 @@
 - LAD edition: BRES ships LAD codes as of April 2021 (`lad21cd`). The geometry is joined from uk_baseline.adm_ons_lad_boundary_may2022 which carries `lad22cd`; values match 1:1 for the 331 E&W LADs after Scotland is removed.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 
 **NOT IN THIS DATASET**
+{: .sec-label }
 
 - The narrower Employees-only measure (payroll only, excluding working owners).
 - Full-time and part-time breakdowns of Employees.
@@ -54,6 +64,7 @@
 - Scotland LADs (S12*): BRES open-access publishes no data for Scotland at LAD level (all cells were zero). 32 Scotland LADs were removed post-load.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, 27 May 2026.
 

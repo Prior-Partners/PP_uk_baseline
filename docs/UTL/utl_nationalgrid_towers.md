@@ -2,39 +2,48 @@
 
 <p class="layer-short">Towers</p>
 
-`utl_nationalgrid_towers`
+`utl_nationalgrid_towers`<button class="md-clipboard md-icon" data-clipboard-text="utl_nationalgrid_towers" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/utl_nationalgrid_towers.png" alt="Styling preview of utl_nationalgrid_towers" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/utl_nationalgrid_towers.png" alt="Styling preview of utl_nationalgrid_towers" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - National Grid Electricity Transmission. High-voltage transmission tower (pylon) assets.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - National Grid Electricity Transmission : https://www.nationalgrid.com/electricity-transmission
 
 **DEFINITIONS**
+{: .sec-label }
 
 - Transmission towers (pylons) are the steel lattice structures that carry National Grid high-voltage overhead lines. (National Grid)
 
 **SCOPE**
+{: .sec-label }
 
 - England and Wales. 21,965 rows.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid). Geometry type Point.
 
 **LICENCE**
+{: .sec-label }
 
 - © National Grid. Licence - confirm with National Grid before re-publication.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 

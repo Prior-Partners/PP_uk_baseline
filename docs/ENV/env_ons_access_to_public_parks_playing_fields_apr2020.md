@@ -2,46 +2,56 @@
 
 <p class="layer-short">Access to public parks and playing fields</p>
 
-`env_ons_access_to_public_parks_playing_fields_apr2020`
+`env_ons_access_to_public_parks_playing_fields_apr2020`<button class="md-clipboard md-icon" data-clipboard-text="env_ons_access_to_public_parks_playing_fields_apr2020" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/env_ons_access_to_public_parks_playing_fields_apr2020.png" alt="Styling preview of env_ons_access_to_public_parks_playing_fields_apr2020" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/env_ons_access_to_public_parks_playing_fields_apr2020.png" alt="Styling preview of env_ons_access_to_public_parks_playing_fields_apr2020" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Office for National Statistics (ONS). "Access to public parks and playing fields, Great Britain, April 2020", part of the dataset "Access to gardens and public green space in Great Britain". Values are the LSOA-level figures from the reference workbook (file ospublicgreenspacereferencetables.xlsx, sheet "LSOA Parks and Playing Fields"). Underlying source: Ordnance Survey greenspace data.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - ONS dataset page : https://www.ons.gov.uk/economy/environmentalaccounts/datasets/accesstogardensandpublicgreenspaceingreatbritain
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "Analysis of Ordnance Survey (OS) data on access to private gardens, public parks and playing fields in Great Britain, available by country, region, Local Authority and Middle Layer Super Output Area." (ONS, Access to gardens and public green space in Great Britain)
 
 **SCOPE**
+{: .sec-label }
 
 - Great Britain (LSOA level). 34,753 rows. Carries both LSOA 2011 and LSOA 2021 codes.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid). Geometry type MultiPolygon.
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - Published on 2011 LSOA boundaries. Each row's msoa21cd, msoa21nm, msoa21hclnm and lad22/lad25 codes are best-fit onto 2021 geography — the 2021 MSOA the row's 2011 LSOA overlaps most by area (uk.ref_lsoa11_msoa21_bestfit_lu). LSOAs that straddle a 2011-to-2021 boundary change are assigned to their largest-overlap MSOA, so for those a small share of the LSOA area lies outside the assigned MSOA.
 - ONS states its source "cannot distinguish public and private playing fields so some of these areas may not be publicly accessible." (ONS, Access to gardens and public green space in Great Britain)
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - `msoa21hclnm` — House of Commons Library readable MSOA name, best-fit assigned at load from the row's 2011 LSOA by largest-area-overlap 2021 MSOA (uk.ref_lsoa11_msoa21_bestfit_lu). Open Parliament Licence.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, May 2026.
 

@@ -2,33 +2,40 @@
 
 <p class="layer-short">Local Authority District Boundary 2011</p>
 
-`adm_ons_lad_boundary_2011`
+`adm_ons_lad_boundary_2011`<button class="md-clipboard md-icon" data-clipboard-text="adm_ons_lad_boundary_2011" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/adm_ons_lad_boundary_2011.png" alt="Styling preview of adm_ons_lad_boundary_2011" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/adm_ons_lad_boundary_2011.png" alt="Styling preview of adm_ons_lad_boundary_2011" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Office for National Statistics (ONS), Open Geography Portal.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - Dataset page : https://geoportal.statistics.gov.uk/datasets/ons::local-authority-districts-december-2011-boundaries-ew-bfe-2/about
 - Digital boundaries methods : https://www.ons.gov.uk/methodology/geography/geographicalproducts/digitalboundaries
 
 **DEFINITIONS**
+{: .sec-label }
 
 - Local Authority (LA) boundaries define the exact geographic limits of a council's jurisdiction.
 
 **SCOPE**
+{: .sec-label }
 
 - England & Wales.
 - 348 LADs (2011 boundary set).
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (British National Grid / BNG).
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0.
 

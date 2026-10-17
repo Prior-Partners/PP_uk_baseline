@@ -2,48 +2,58 @@
 
 <p class="layer-short">Census 2021 Residents Households</p>
 
-`dem_ons_oa_household_residents_2021`
+`dem_ons_oa_household_residents_2021`<button class="md-clipboard md-icon" data-clipboard-text="dem_ons_oa_household_residents_2021" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/dem_ons_oa_household_residents_2021.png" alt="Styling preview of dem_ons_oa_household_residents_2021" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/dem_ons_oa_household_residents_2021.png" alt="Styling preview of dem_ons_oa_household_residents_2021" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Office for National Statistics (ONS), Census 2021, England and Wales.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - ONS dataset (TS001 at OA level) : https://www.ons.gov.uk/datasets/TS001/editions/2021/versions/3
 - ONS Census 2021 landing page : https://www.ons.gov.uk/census/2021
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "A usual resident is anyone who, on Census Day, was in the UK and had stayed or intended to stay in the UK for a period of 12 months or more, or had a permanent UK address and was outside the UK and intended to be outside the UK for less than 12 months." (ONS Census 2021 Demography variables)
 - "The number of usual residents living in households or in communal establishments." (ONS Census 2021 Resident type variable)
 
 **SCOPE**
+{: .sec-label }
 
 - England and Wales. Output Area 2021 boundary; 188,880 OAs.
 - Base population: all usual residents.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid).
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - Output Area is the lowest published Census geography.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - `msoa21hclnm` — House of Commons Library readable MSOA name, joined at load on oa21cd via the ONS 2021 output-area hierarchy (uk_baseline.adm_ons_msoa_boundary_2021). Open Parliament Licence.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Data: Census Day 21 March 2021.
 

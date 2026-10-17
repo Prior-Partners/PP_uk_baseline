@@ -2,15 +2,18 @@
 
 <p class="layer-short">Transport Connectivity 2025 (RGN)</p>
 
-`mob_dft_rgn_transport_connectivity_metric_2025`
+`mob_dft_rgn_transport_connectivity_metric_2025`<button class="md-clipboard md-icon" data-clipboard-text="mob_dft_rgn_transport_connectivity_metric_2025" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/mob_dft_rgn_transport_connectivity_metric_2025.png" alt="Styling preview of mob_dft_rgn_transport_connectivity_metric_2025" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/mob_dft_rgn_transport_connectivity_metric_2025.png" alt="Styling preview of mob_dft_rgn_transport_connectivity_metric_2025" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Department for Transport (DfT). Transport connectivity metric, workbook "Connectivity metrics 2025" (connectivity_metrics_2025.ods, 68,164,574 bytes), sheet RGN, published 29 September 2025. All 35 score columns copied as published; nothing derived or filtered. Columns carry short readable names; the source header is recorded in every column comment.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - Publication page : https://www.gov.uk/government/publications/transport-connectivity-metric
 - Methodology      : https://www.gov.uk/government/publications/transport-connectivity-metric/transport-connectivity-metric
@@ -18,6 +21,7 @@
 - Metadata         : Metadata sheet inside the workbook (definitions of modes, purposes and scores)
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "The metric defines connectivity as someone’s ability to get where they want to go. It measures opportunity to travel to various destinations, weighted by people’s overall proclivity to take those options." (DfT publication page)
 - "connectivity scores range from 0 to 100, where 100 represents the highest level of connectivity." (DfT workbook Metadata sheet)
@@ -27,30 +31,36 @@
 - "A cut-off point has been set for a maximum travel time of 60 minutes." (DfT methodology)
 
 **SCOPE**
+{: .sec-label }
 
 - England and Wales. 10 rows: the nine English regions and Wales, every row of uk_baseline.adm_ons_region_boundary_dec2022.
 - Reference period October to December 2024 (DfT workbook Metadata sheet). Destination data are a mix of Q4 2024 and Q1 2025, except jobs, which use 2023 provisional Business Register and Employment Survey (BRES) figures (DfT methodology).
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (British National Grid). The source sheet has no geometry; geometry is copied from uk_baseline.adm_ons_region_boundary_dec2022 by matching the region name `RGN22NM` to rgn22nm (Wales matches the ONS country outline held in that table). No reprojection.
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0 (DfT publication page). The workbook's own Metadata sheet leaves its licence field as TBA.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - Released as Experimental Statistics (DfT workbook Metadata sheet); the methodology calls these results provisional.
 - Scores are relative to the best-connected location in England and Wales, not travel times or counts. The workbook's usage notes say scores should be interpreted relative to other areas and that different transport modes should not be directly compared.
 - For public transport the employment column is headed Business (public transport) in the source, where the other modes say Employment. It is carried under the publisher's label as business_public_transport; DfT does not explain the difference.
 
 **NOT IN THIS DATASET**
+{: .sec-label }
 
 - The workbook Metadata sheet defines deciles, but the published sheets carry scores only.
 - The 100-metre grid scores behind the DfT Connectivity Tool, and scores by time of day, are not published in this workbook.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, 23 September 2026.
 

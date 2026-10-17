@@ -2,15 +2,18 @@
 
 <p class="layer-short">Parish and Non-Civil Parished Area Boundary 2026</p>
 
-`adm_ons_parish_non_civil_parished_area_may2026`
+`adm_ons_parish_non_civil_parished_area_may2026`<button class="md-clipboard md-icon" data-clipboard-text="adm_ons_parish_non_civil_parished_area_may2026" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/adm_ons_parish_non_civil_parished_area_may2026.png" alt="Styling preview of adm_ons_parish_non_civil_parished_area_may2026" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/adm_ons_parish_non_civil_parished_area_may2026.png" alt="Styling preview of adm_ons_parish_non_civil_parished_area_may2026" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Office for National Statistics (ONS), Open Geography Portal. Parishes and Non-Civil Parished Areas (May 2026) Boundaries EW BFC, file PARNCP_MAY_2026_EW_BFC_-1299597603504015581.gpkg (314,183,680 bytes), layer PARNCP_MAY_2026_EW_BFC, loaded as published.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - Parishes and Non-Civil Parished Areas (May 2026) EW BFC : https://open-geography-portalx-ons.hub.arcgis.com/datasets/ons::parishes-and-non-civil-parished-areas-may-2026-boundaries-ew-bfc
 - Catalogue record, data.gov.uk                            : https://ckan.publishing.service.gov.uk/dataset/parishes-and-non-civil-parished-areas-may-2026-boundaries-ew-bfc
@@ -19,6 +22,7 @@
 - ONS geography licences                                   : https://www.ons.gov.uk/methodology/geography/licences
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "The smallest type of administrative area in England is the parish (aka 'civil parish'); the equivalent unit in Wales is the community." (ONS administrative geography page, England)
 - "Non-civil parish areas (NCP) refer to the area in a local authority not comprised of parishes, that is unparished areas." (ONS administrative geography page, England)
@@ -28,18 +32,22 @@
 - "(BFC) Full resolution - clipped to the coastline (Mean High Water mark)." (ONS Open Geography Portal)
 
 **SCOPE**
+{: .sec-label }
 
 - England and Wales. 11,542 rows, one per area: 10,464 parishes in England (codes E04), 200 non-civil parished areas in England (codes E43, each named "<district>, unparished area") and 878 communities in Wales (codes W04). Each row carries its local authority district (318 districts).
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (British National Grid), as supplied in the GeoPackage. No reprojection.
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0. Attribution required by ONS for digital boundary products: Source: Office for National Statistics licensed under the Open Government Licence v.3.0. Contains OS data © Crown copyright and database right 2026.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - parncp26nw holds Welsh-language names on the 878 Welsh rows only (455 of them the same as the English name); on the 10,664 English rows ONS supplies a single space, not an empty value.
 - lad26cd and lad26nm match the May 2025 district codes and names for all 318 districts, so they join directly to adm_ons_lad_boundary_may2025.
@@ -48,6 +56,7 @@
 - 363 of the 14,460 polygon parts are smaller than 1 sqm, in 37 rows. They are kept as supplied, not repaired.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, 14 October 2026.
 

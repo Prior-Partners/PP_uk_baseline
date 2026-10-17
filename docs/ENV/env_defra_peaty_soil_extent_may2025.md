@@ -2,36 +2,44 @@
 
 <p class="layer-short">England Peat Map - Peaty Soil Extent</p>
 
-`env_defra_peaty_soil_extent_may2025`
+`env_defra_peaty_soil_extent_may2025`<button class="md-clipboard md-icon" data-clipboard-text="env_defra_peaty_soil_extent_may2025" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/env_defra_peaty_soil_extent_may2025.png" alt="Styling preview of env_defra_peaty_soil_extent_may2025" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/env_defra_peaty_soil_extent_may2025.png" alt="Styling preview of env_defra_peaty_soil_extent_may2025" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Department for Environment, Food and Rural Affairs (Defra). Produced under the England Peat Map project, funded by the Nature for Climate Fund and the Natural Capital and Ecosystem Assessment (NCEA) programme.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - Dataset record : https://environment.data.gov.uk/dataset/ab92bc06-bd99-47c4-89a3-b93aa9c0db4d
 - Project report : England Peat Map (NERR149), https://publications.naturalengland.org.uk/publication/5075614867128320
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "Peaty soil is defined as soil with an organic content of 20% or more. This layer maps the extent of this, as modelled by the England Peat Map project, where the probability of occurrence is above 50%." (Defra)
 
 **SCOPE**
+{: .sec-label }
 
 - England. 254,732 rows (after the MSOA split; see ENRICHMENT).
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (British National Grid).
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - The row count counts split pieces, not source features: this layer was split by Middle Layer Super Output Area, so it holds one row per feature per MSOA piece, plus whole and remainder rows to keep 100% of the source geometry. 254,732 rows represent 249,743 source features, measured 25 August 2026. `source_fid` identifies the originating feature.
 - Geography keys are NULL on 201 of 254,732 rows, measured 25 August 2026: 118 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence; 69 are residual fragments left by the MSOA split, each under 100 sqm or 10 m; 13 are in Scotland or Northern Ireland, outside the England and Wales lookup; 1 fall outside every district — offshore, inter-tidal, or beyond Great Britain.
@@ -40,6 +48,7 @@
 - Presence-only extent. Polygons cover only where the modelled probability of peaty soil is above 50%; the absence of a polygon is not evidence that no peat is present.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - Geometry split to one row per source feature per MSOA (2021).
@@ -48,10 +57,12 @@
 - Features with no MSOA overlap (offshore or outside England & Wales) are kept whole, with NULL geography columns.
 
 **NOT IN THIS DATASET**
+{: .sec-label }
 
 - The England Peat Map also publishes separate peat depth, peatland vegetation and land cover, and upland peat erosion and drainage layers; only the peaty-soil extent is held here.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by AA, July 2026.
 

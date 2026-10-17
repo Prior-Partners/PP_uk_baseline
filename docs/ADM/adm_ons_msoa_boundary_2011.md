@@ -2,33 +2,40 @@
 
 <p class="layer-short">Middle Layer Super Output Area Boundary 2011</p>
 
-`adm_ons_msoa_boundary_2011`
+`adm_ons_msoa_boundary_2011`<button class="md-clipboard md-icon" data-clipboard-text="adm_ons_msoa_boundary_2011" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/adm_ons_msoa_boundary_2011.png" alt="Styling preview of adm_ons_msoa_boundary_2011" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/adm_ons_msoa_boundary_2011.png" alt="Styling preview of adm_ons_msoa_boundary_2011" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Office for National Statistics (ONS), Open Geography Portal.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - Dataset page : https://geoportal.statistics.gov.uk/datasets/ons::middle-layer-super-output-areas-december-2011-boundaries-ew-bgc-v3-1/about
 - Digital boundaries methods : https://www.ons.gov.uk/methodology/geography/geographicalproducts/digitalboundaries
 
 **DEFINITIONS**
+{: .sec-label }
 
 - Middle Layer Super Output Areas (MSOAs) are census statistical areas built from groups of LSOAs, of similar population size — about 7,200 residents on average (roughly 5,000–15,000 people).
 
 **SCOPE**
+{: .sec-label }
 
 - England & Wales.
 - 7,201 MSOAs (2011 Census geography).
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (British National Grid / BNG).
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0.
 

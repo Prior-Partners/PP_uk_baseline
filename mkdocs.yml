@@ -1,8 +1,9 @@
-site_name: uk_baseline data catalogue
+site_name: UK Baseline data catalogue
 site_description: A guide to every layer in the uk_baseline database.
 copyright: Developed by the Digital Innovation team, Prior + Partners — last updated 15 October 2026
 theme:
   name: material
+  custom_dir: overrides
   font: false
   palette:
     - media: "(prefers-color-scheme: light)"
@@ -31,14 +32,17 @@ plugins:
 markdown_extensions:
   - admonition
   - attr_list
+  - md_in_html
   - tables
   - toc:
       permalink: true
 extra_css:
-  - stylesheets/extra.css?v=1ca01c8b
+  - stylesheets/extra.css?v=c49c3033
+extra:
+  layer_count: 183
 nav:
   - "Home": index.md
-  - "📕 Staff Handbook (PDF)": https://prior-partners.github.io/PP_uk_baseline/PP_Staff_Data_Management_Handbook.pdf
+  - "Staff handbook (PDF) ↗": https://prior-partners.github.io/PP_uk_baseline/PP_Staff_Data_Management_Handbook.pdf
   - "Administrative & Planning Boundaries (ADM)":
     - ADM/index.md
     - "Data Zone Boundary 2021 (Northern Ireland)": ADM/adm_nisra_dz_boundary_2021.md

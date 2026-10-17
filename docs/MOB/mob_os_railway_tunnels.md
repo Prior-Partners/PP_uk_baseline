@@ -2,32 +2,39 @@
 
 <p class="layer-short">Railway Tunnels</p>
 
-`mob_os_railway_tunnels`
+`mob_os_railway_tunnels`<button class="md-clipboard md-icon" data-clipboard-text="mob_os_railway_tunnels" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/mob_os_railway_tunnels.png" alt="Styling preview of mob_os_railway_tunnels" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/mob_os_railway_tunnels.png" alt="Styling preview of mob_os_railway_tunnels" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Ordnance Survey (OS), OS OpenMap Local product.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - OS OpenMap Local   : https://www.ordnancesurvey.co.uk/products/os-open-map-local
 - RailwayTunnel spec : https://docs.os.uk/os-downloads/products/maps-and-imagery-portfolio/os-openmap-local/os-openmap-local-technical-specification/feature-types/railwaytunnel
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "Railway tunnels are represented as approximate centrelines of the railway that runs through the tunnel." (OS OpenMap Local Technical Specification, RailwayTunnel)
 
 **SCOPE**
+{: .sec-label }
 
 - Great Britain. 2,755 rows.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid). Geometry type LineString.
 
 **LICENCE**
+{: .sec-label }
 
 - OS OpenData Licence (incorporates Open Government Licence v3.0; attribution required).
 
@@ -36,12 +43,14 @@ MSOA SPLIT (added 4 July 2026)
 - Geometry split to one row per (source feature x MSOA 2021). Each row carries that MSOA's msoa21cd / msoa21nm / msoa21hclnm and best-fit lad22 / lad25. The source feature's original primary key is preserved as `source_fid`; `gid` is a fresh surrogate primary key. Geometry outside every MSOA (offshore or outside England & Wales) is retained as rows with NULL geography columns, so the layer holds the complete source geometry.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - The row count counts split pieces, not source features: this layer was split by Middle Layer Super Output Area, so it holds one row per feature per MSOA piece, plus whole and remainder rows to keep 100% of the source geometry. 3,584 rows represent 2,755 source features, measured 25 August 2026. `source_fid` identifies the originating feature.
 - Geography keys are NULL on 285 of 3,584 rows, measured 25 August 2026: 44 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence; 241 are in Scotland or Northern Ireland, outside the England and Wales lookup.
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 

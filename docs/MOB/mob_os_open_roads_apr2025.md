@@ -2,31 +2,38 @@
 
 <p class="layer-short">Open Roads</p>
 
-`mob_os_open_roads_apr2025`
+`mob_os_open_roads_apr2025`<button class="md-clipboard md-icon" data-clipboard-text="mob_os_open_roads_apr2025" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/mob_os_open_roads_apr2025.png" alt="Styling preview of mob_os_open_roads_apr2025" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/mob_os_open_roads_apr2025.png" alt="Styling preview of mob_os_open_roads_apr2025" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Ordnance Survey (OS), OS Open Roads product.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - OS Open Roads : https://www.ordnancesurvey.co.uk/products/os-open-roads
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "A structured link-and-node network, which represents the central alignment of all classified and unclassified roads in Great Britain." (Ordnance Survey, OS Open Roads)
 
 **SCOPE**
+{: .sec-label }
 
 - Great Britain. 4,207,717 rows.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid). Geometry type LineString.
 
 **LICENCE**
+{: .sec-label }
 
 - OS OpenData Licence (incorporates Open Government Licence v3.0; attribution "Contains OS data (c) Crown copyright and database right" required).
 
@@ -35,12 +42,14 @@ MSOA SPLIT (added 4 July 2026)
 - Geometry split to one row per (source feature x MSOA 2021). Each row carries that MSOA's msoa21cd / msoa21nm / msoa21hclnm and best-fit lad22 / lad25. The source feature's original primary key is preserved as `source_fid`; `gid` is a fresh surrogate primary key. Geometry outside every MSOA (offshore or outside England & Wales) is retained as rows with NULL geography columns, so the layer holds the complete source geometry.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - The row count counts split pieces, not source features: this layer was split by Middle Layer Super Output Area, so it holds one row per feature per MSOA piece, plus whole and remainder rows to keep 100% of the source geometry. 4,407,998 rows represent 4,208,256 source features, measured 25 August 2026. `source_fid` identifies the originating feature.
 - Geography keys are NULL on 492,244 of 4,407,998 rows, measured 25 August 2026: 1,069 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence; 429 are residual fragments left by the MSOA split, each under 100 sqm or 10 m; 490,739 are in Scotland or Northern Ireland, outside the England and Wales lookup; 7 fall outside every district — offshore, inter-tidal, or beyond Great Britain.
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 

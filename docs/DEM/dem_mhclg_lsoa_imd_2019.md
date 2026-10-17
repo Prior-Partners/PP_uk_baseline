@@ -2,43 +2,52 @@
 
 <p class="layer-short">IMD 2019</p>
 
-`dem_mhclg_lsoa_imd_2019`
+`dem_mhclg_lsoa_imd_2019`<button class="md-clipboard md-icon" data-clipboard-text="dem_mhclg_lsoa_imd_2019" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/dem_mhclg_lsoa_imd_2019.png" alt="Styling preview of dem_mhclg_lsoa_imd_2019" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/dem_mhclg_lsoa_imd_2019.png" alt="Styling preview of dem_mhclg_lsoa_imd_2019" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Ministry of Housing, Communities and Local Government (MHCLG). Includes score / rank / decile columns, sub-domain columns, supplementary index columns (IDACI, IDAOPI), and historical data from 2010 / 2015.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - IoD 2019 landing page : https://www.gov.uk/government/statistics/english-indices-of-deprivation-2019
 - Statistical Release (PDF) : https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/835115/IoD2019_Statistical_Release.pdf
 - Technical Report (PDF) : https://assets.publishing.service.gov.uk/media/5d8b387740f0b609909b5908/IoD2019_Technical_Report.pdf
 
 **DEFINITIONS**
+{: .sec-label }
 
 - The Index of Multiple Deprivation (IMD) measures relative deprivation across small areas in England (Lower Layer Super Output Area, LSOA).
 - LSOAs are ranked from 1 (most deprived) to 32,844 (least deprived) and divided into ten equal deciles (decile 1 = most deprived 10%, decile 10 = least deprived 10%).
 
 **SCOPE**
+{: .sec-label }
 
 - IMD values are populated for England only in LSOA 2011.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB36 / British National Grid).
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - Published on 2011 LSOA boundaries. Each row's msoa21cd, msoa21nm, msoa21hclnm and lad22/lad25 codes are best-fit onto 2021 geography — the 2021 MSOA the row's 2011 LSOA overlaps most by area (uk.ref_lsoa11_msoa21_bestfit_lu). LSOAs that straddle a 2011-to-2021 boundary change are assigned to their largest-overlap MSOA, so for those a small share of the LSOA area lies outside the assigned MSOA.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - `msoa21hclnm` — House of Commons Library readable MSOA name, best-fit assigned at load from the row's 2011 LSOA by largest-area-overlap 2021 MSOA (uk.ref_lsoa11_msoa21_bestfit_lu). Open Parliament Licence.

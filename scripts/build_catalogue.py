@@ -4,16 +4,30 @@ Input/output CRS: n/a (reads metadata only). Data layer: catalogue generation.
 
 Single source of truth is the live PostGIS database: every layer's
 ``COMMENT ON TABLE`` and ``COMMENT ON COLUMN`` text. This script reads that
-metadata (read-only, no writes) and emits, side by side:
+metadata (read-only session, no writes) and emits, side by side:
 
-  * ``catalogue/uk_baseline_data_dictionary.xlsx`` — one workbook, a Layers
-    sheet (one row per layer) and a Columns sheet (one row per column).
-  * ``catalogue/uk_baseline_catalogue.html`` — one self-contained, offline
+  * ``uk_baseline_catalogue.xlsx`` on the practice share (``SHARE``) — one
+    workbook, a Layers sheet (one row per layer) and a Columns sheet.
+  * ``uk_baseline_catalogue.html`` on the share — one self-contained, offline
     HTML page with a live search box; nothing to install, just open it.
-  * ``catalogue/docs/`` + ``catalogue/mkdocs.yml`` — MkDocs Material source
+  * ``docs/`` + ``mkdocs.yml`` in this repository — MkDocs Material source
     for the browsable GitHub Pages site (one page per layer).
-  * ``catalogue/.catalogue_fingerprint.json`` — a hash of all metadata, so a
-    later hook can tell whether the published catalogue has drifted from the DB.
+  * ``.catalogue_fingerprint.json`` in this repository — a hash of all
+    metadata, so a later hook can tell whether the site has drifted from the DB.
+
+This copy, in the catalogue repository's ``scripts/``, is the single source;
+the older working copy in ``uk_baseline/scripts/catalogue/`` becomes a shim
+that calls it at the switch-over.
+Development options, so a build never has to touch the share:
+
+  * ``--site-only`` — write only ``docs/``, ``mkdocs.yml`` and the
+    fingerprint; the Excel and HTML on the share are never written.
+  * ``--out-dir`` / ``--maps-dir`` — write the MkDocs source elsewhere; read
+    the preview PNGs from another folder.
+  * ``--save-snapshot`` / ``--from-snapshot`` — store, or replay, the exact
+    render inputs (records, short names, approved themes, map list, build
+    date), so a replay needs no database, register or styles file.
+  * ``--built`` — the "last updated" date, e.g. ``"15 October 2026"``.
 
 Nothing about the database connection (host, user, credentials, internal file
 paths) is ever written into a catalogue output — the published artefacts carry
@@ -23,12 +37,14 @@ British English throughout. Re-run any time the DB metadata changes.
 """
 from __future__ import annotations
 
+import argparse
 import hashlib
 import html
 import json
 import logging
 import os
 import re
+import shutil
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -51,15 +67,18 @@ ENV = Path(os.environ.get(
     r"C:\Users\po.nienchen\OneDrive - priorpartners.com"
     r"\Documents\05_Code_Scripts\data_import\Natural_England\.env"))
 SCHEMA = "uk_baseline"
-ROOT = Path(__file__).resolve().parents[2]          # the uk_baseline working dir
-OUT = ROOT / "catalogue"                             # MkDocs site source (local)
+REPO = Path(__file__).resolve().parents[1]          # the catalogue repository
+OUT = REPO                                           # MkDocs site source (--out-dir overrides)
 DOCS = OUT / "docs"
+# Brand-skin assets (Prior + Partners): extra.css + GT America woff2 fonts,
+# copied into the site on every build so a refresh reproduces the skin.
+ASSETS = Path(__file__).resolve().parent / "assets"
 # Colleague-facing single-file deliverables live on the practice share.
 SHARE = Path(r"G:\0_Practice\10_Data management resources\04_Spreadsheets")
 # Static preview snapshots (built by build_maps.py) live under docs/maps/ as
 # <table>.png and deploy with the MkDocs site. Interactive / full-extent viewing
 # is now the Dashboard's job (Stream 1); each layer links out to it.
-MAPS_DIR = DOCS / "maps"
+MAPS_DIR = REPO / "docs" / "maps"                   # --maps-dir overrides
 MAP_SITE_BASE = "https://prior-partners.github.io/PP_uk_baseline/maps/"
 # The Dashboard runs per-user locally (BYO-local model); the base URL is the same
 # localhost for every colleague. Deep-link keys on the bare uk_baseline table name.
@@ -85,12 +104,18 @@ def _approved_themes() -> set:
         return set()
 
 
-APPROVED = _approved_themes()
+# Filled by main() — from the styles file, or from a snapshot — so importing
+# this module reads nothing on the share.
+APPROVED: set[str] = set()
+# Tables with a preview PNG, frozen in a snapshot; None = look in MAPS_DIR.
+MAP_TABLES: set[str] | None = None
 
 
 def has_map(table: str) -> bool:
     """True if a preview snapshot exists AND its theme is approved for the site."""
     theme = table.split("_", 1)[0].upper()
+    if MAP_TABLES is not None:              # replaying a snapshot: map list frozen with it
+        return theme in APPROVED and table in MAP_TABLES
     return theme in APPROVED and (MAPS_DIR / f"{table}.png").exists()
 
 
@@ -345,6 +370,7 @@ def read_metadata() -> list[dict[str, Any]]:
     """Read every base table in the schema with its comments and columns."""
     records: list[dict[str, Any]] = []
     with psycopg.connect(conninfo(), row_factory=dict_row) as conn:
+        conn.read_only = True               # metadata reads only: the session cannot write
         with conn.cursor() as cur:
             cur.execute(
                 """
@@ -714,7 +740,8 @@ def _section_md(sections: dict[str, str]) -> str:
             continue
         if head not in sections or not sections[head].strip():
             continue
-        out.append(f"**{head}**\n")
+        # attr_list adds the label class; the search index keeps the same text.
+        out.append(f"**{head}**\n{{: .sec-label }}\n")
         for kind, content in parse_blocks(sections[head]):
             if kind == "para":
                 out.append(content)
@@ -739,38 +766,24 @@ def render_mkdocs(records: list[dict[str, Any]], built: str) -> None:
     # Show the FULL layer name in the left nav — table names are long and
     # underscore-joined, which MkDocs Material truncates with an ellipsis.
     # Allow them to wrap (break on underscores) and never clip.
+    # Prior + Partners brand skin. The stylesheet and the GT America woff2
+    # fonts are maintained assets under scripts/catalogue/assets/ (see ASSETS),
+    # copied verbatim into the site. Keeping them as files — rather than inline
+    # strings here — means a catalogue refresh REPRODUCES the skin instead of
+    # reverting it, and the CSS can be edited without touching this script.
     css_dir = DOCS / "stylesheets"
     css_dir.mkdir(exist_ok=True)
-    (css_dir / "extra.css").write_text(
-        "/* Catalogue nav: show full, wrapped layer names (no ellipsis truncation). */\n"
-        ".md-nav__item .md-ellipsis {\n"
-        "  white-space: normal;\n"
-        "  overflow: visible;\n"
-        "  overflow-wrap: anywhere;\n"
-        "  word-break: break-word;\n"
-        "  line-height: 1.3;\n"
-        "}\n"
-        ".md-nav__link { align-items: flex-start; }\n"
-        "/* Layer short name: sits between the page title and the table name. */\n"
-        ".layer-short {\n"
-        "  font-size: 1.15rem;\n"
-        "  font-weight: 600;\n"
-        "  color: #e9511d;\n"
-        "  margin: -0.4rem 0 0.2rem;\n"
-        "}\n"
-        "/* Brand-orange admonition (note) instead of Material blue. */\n"
-        ".md-typeset .admonition.note,\n"
-        ".md-typeset details.note { border-color: #e9511d; }\n"
-        ".md-typeset .note > .admonition-title { background-color: #fbe6db; }\n"
-        ".md-typeset .note > .admonition-title::before { background-color: #e9511d; }\n"
-        "/* Homepage footer block (data info, contact, version). */\n"
-        ".cat-footer { display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 3rem;\n"
-        "  padding-top: 1.5rem; border-top: 1px solid #d9d3c4; color: #6b6357; font-size: .8rem; }\n"
-        ".cat-footer > div { flex: 1; min-width: 200px; }\n"
-        ".cat-footer strong { color: #2b242c; }\n"
-        ".cat-footer a { color: #e9511d; }\n",
-        encoding="utf-8",
-    )
+    shutil.copyfile(ASSETS / "extra.css", css_dir / "extra.css")
+    fonts_dir = DOCS / "fonts"
+    fonts_dir.mkdir(exist_ok=True)
+    for _font in sorted((ASSETS / "fonts").glob("*.woff2")):
+        shutil.copyfile(_font, fonts_dir / _font.name)
+    # mkdocs.yml names theme.custom_dir "overrides" (the board's header and menu
+    # partials). In this repository they are already beside it; any other
+    # --out-dir gets a copy, so that output builds on its own.
+    overrides = REPO / "overrides"
+    if overrides.is_dir() and OUT.resolve() != REPO.resolve():
+        shutil.copytree(overrides, OUT / "overrides", dirs_exist_ok=True)
     themes = sorted({r["theme"] for r in records})
 
     # Landing page
@@ -800,9 +813,13 @@ is, how to connect QGIS, and how to use the data on a project — it opens strai
 
 **{len(records)} layers across {len(themes)} themes.**
 
+<div class="cat-themes" markdown>
+
 | Code | Theme | Typical contents | Layers |
 |---|---|---|---:|
 {rows}
+
+</div>
 
 !!! note "How to read a layer page"
     Each layer page shows a short description, where the data came from
@@ -824,24 +841,47 @@ is, how to connect QGIS, and how to use the data on a project — it opens strai
         encoding="utf-8",
     )
 
+    def _title(rec: dict[str, Any]) -> str:
+        return first_sentence(rec["description"]).rstrip(".").strip() or rec["table"]
+
+    def _label(rec: dict[str, Any]) -> str:
+        # nav / ordering label: short name, else the plain-English title.
+        return rec.get("short_name") or _title(rec)
+
+    def _cat_row(rec: dict[str, Any]) -> str:
+        # Theme-index row: short name / full name / layer (table) name, each in its
+        # own colour (see .cat-* in extra.css). Raw HTML so the three parts can be
+        # coloured; href is the directory URL relative to the theme index page.
+        parts = []
+        short = rec.get("short_name", "")
+        if short:
+            parts.append(f'<span class="cat-short">{html.escape(short)}</span>')
+        parts.append(f'<span class="cat-full">{html.escape(_title(rec))}</span>')
+        parts.append(f'<span class="cat-table">{rec["table"]}</span>')
+        inner = '<span class="cat-sep"> — </span>'.join(parts)
+        return f'  <li><a href="{rec["table"]}/">{inner}</a></li>'
+
     nav_themes = []
     for t in themes:
         tdir = DOCS / t
         tdir.mkdir(exist_ok=True)
-        layers = [r for r in records if r["theme"] == t]
+        # Order layers within a theme by display label (short name), so short-name
+        # families (e.g. the two Agricultural Land Classification layers) sit
+        # together instead of being split apart by source-org table-name order.
+        layers = sorted((r for r in records if r["theme"] == t),
+                        key=lambda r: _label(r).lower())
 
-        def _title(rec: dict[str, Any]) -> str:
-            return first_sentence(rec["description"]).rstrip(".").strip() or rec["table"]
-
-        lst = "\n".join(f"- [{_title(r)}]({r['table']}.md) · `{r['table']}`"
-                        for r in layers)
+        lst = ('<ul class="cat-index">\n'
+               + "\n".join(_cat_row(r) for r in layers)
+               + "\n</ul>")
         blurb = THEME_DESC.get(t, "")
         (tdir / "index.md").write_text(
             f"# {THEME_LABELS.get(t, t)} ({t})\n\n*{blurb}*\n\n{len(layers)} layer{'s' if len(layers) != 1 else ''}.\n\n{lst}\n",
             encoding="utf-8",
         )
-        # nav label = plain-English title (table name stays on the page)
-        nav_pages = [{_title(r): f"{t}/{r['table']}.md"} for r in layers]
+        # nav label = short name (falls back to the plain-English title when a
+        # layer has no short name); the full title stays as the page H1.
+        nav_pages = [{_label(r): f"{t}/{r['table']}.md"} for r in layers]
         nav_themes.append({f"{THEME_LABELS.get(t, t)} ({t})":
                            [f"{t}/index.md"] + nav_pages})
 
@@ -862,16 +902,22 @@ is, how to connect QGIS, and how to use the data on a project — it opens strai
             if has_map(r["table"]):
                 img = (f'<img src="../../maps/{r["table"]}.png" '
                        f'alt="Styling preview of {r["table"]}" loading="lazy" '
-                       f'style="width:100%;border:1px solid #d9d3c4;'
-                       f'border-radius:8px;margin:6px 0 4px;">\n\n')
+                       f'class="layer-map">\n\n')         # frame: .layer-map in extra.css
             # Dashboard not yet released — show the preview image only (no deep-link).
             map_block = f"{img}" if img else ""
             sn = r.get("short_name", "")
             short_html = f'<p class="layer-short">{html.escape(sn)}</p>\n\n' if sn else ""
+            # Table name: a chip with a copy button. Material's own clipboard
+            # hook copies data-clipboard-text; data-search-exclude keeps the
+            # button out of the search index, and with no space before it the
+            # index text stays exactly as it was.
+            copy_btn = (f'<button class="md-clipboard md-icon" data-clipboard-text="{r["table"]}" '
+                        'title="Copy table name" aria-label="Copy table name" data-search-exclude></button>')
             (tdir / f"{r['table']}.md").write_text(
                 f"""# {_title(r)}
 
-{short_html}`{r['table']}`
+{short_html}`{r['table']}`{copy_btn}
+{{: .layer-table }}
 
 {map_block}{rest_block}{_section_md(r['sections'])}
 
@@ -885,18 +931,41 @@ is, how to connect QGIS, and how to use the data on a project — it opens strai
             )
 
     nav = [{"Home": "index.md"},
-           {"📕 Staff Handbook (PDF)":
+           {"Staff handbook (PDF) ↗":
             "https://prior-partners.github.io/PP_uk_baseline/PP_Staff_Data_Management_Handbook.pdf"}] + nav_themes
     mkdocs_yml = OUT / "mkdocs.yml"
+    # Cache-bust the (unhashed) brand stylesheet: append a short content hash as
+    # ?v=…, so a CSS change lands for every viewer without a manual hard refresh.
+    css_ver = hashlib.sha256((ASSETS / "extra.css").read_bytes()).hexdigest()[:8]
     yaml_lines = [
-        "site_name: uk_baseline data catalogue",
+        "site_name: UK Baseline data catalogue",
         "site_description: A guide to every layer in the uk_baseline database.",
         f"copyright: Developed by the Digital Innovation team, Prior + Partners — last updated {built}",
         "theme:",
         "  name: material",
+        # Small overrides of Material's partials (overrides/partials/): the
+        # board's header (wordmark, kicker, NIGHT / DAY chips) and menu rows.
+        "  custom_dir: overrides",
+        # font: false → use the self-hosted GT America faces from the brand
+        # skin (docs/fonts/, wired in extra.css) instead of Material's Google
+        # Fonts default. Dual palette = the board's Day and Night modes,
+        # switched by the NIGHT / DAY chips in the header.
+        "  font: false",
         "  palette:",
-        "    primary: deep orange",
-        "    accent: deep orange",
+        '    - media: "(prefers-color-scheme: light)"',
+        "      scheme: default",
+        "      primary: custom",
+        "      accent: custom",
+        "      toggle:",
+        "        icon: material/brightness-7",
+        "        name: Switch to dark mode",
+        '    - media: "(prefers-color-scheme: dark)"',
+        "      scheme: slate",
+        "      primary: custom",
+        "      accent: custom",
+        "      toggle:",
+        "        icon: material/brightness-4",
+        "        name: Switch to light mode",
         "  features:",
         "    - navigation.instant",
         "    - navigation.tracking",
@@ -909,11 +978,17 @@ is, how to connect QGIS, and how to use the data on a project — it opens strai
         "markdown_extensions:",
         "  - admonition",
         "  - attr_list",
+        # md_in_html: the home page's themes table sits in a classed <div>
+        # (the board rows' CSS hook); the table itself stays plain Markdown.
+        "  - md_in_html",
         "  - tables",
         "  - toc:",
         "      permalink: true",
         "extra_css:",
-        "  - stylesheets/extra.css",
+        f"  - stylesheets/extra.css?v={css_ver}",
+        # The header's kicker strip shows the layer count.
+        "extra:",
+        f"  layer_count: {len(records)}",
         "nav:",
     ]
     yaml_lines += _yaml_nav(nav, indent=1)
@@ -938,21 +1013,92 @@ def _yaml_nav(items: list[Any], indent: int) -> list[str]:
     return lines
 
 
+# --- snapshot --------------------------------------------------------------
+def save_snapshot(path: Path, records: list[dict[str, Any]], built: str) -> None:
+    """Write the exact render inputs to ``path`` so a later build can replay them.
+
+    Holds the records (with resolved short names), the approved themes, the
+    tables that have a preview PNG, and the build date. Keep it outside the
+    public repository: it is a working file, not a site source.
+    """
+    if MAP_TABLES is not None:              # re-saving a replay: keep its frozen map list
+        maps = sorted(MAP_TABLES)
+    else:
+        maps = sorted(r["table"] for r in records if (MAPS_DIR / f"{r['table']}.png").exists())
+    snap = {"schema": SCHEMA, "built": built, "approved": sorted(APPROVED),
+            "maps": maps, "records": records}
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(snap, ensure_ascii=False, indent=1), encoding="utf-8")
+    log.info("Saved snapshot of %d layers (%d maps) to %s", len(records), len(maps), path)
+
+
+def load_snapshot(path: Path) -> dict[str, Any]:
+    """Read a snapshot written by :func:`save_snapshot`."""
+    snap = json.loads(path.read_text(encoding="utf-8"))
+    for key in ("schema", "built", "approved", "maps", "records"):
+        if key not in snap:
+            raise ValueError(f"{path} is not a catalogue snapshot (no '{key}')")
+    if snap["schema"] != SCHEMA:
+        raise ValueError(f"{path} is a snapshot of {snap['schema']!r}, not {SCHEMA!r}")
+    return snap
+
+
 # --- main ------------------------------------------------------------------
-def main() -> None:
-    built = datetime.now(timezone.utc).strftime("%d %B %Y")
-    records = read_metadata()
-    shorts = read_short_names()
-    for r in records:
-        # Short name: prefer the DB comment's SHORT NAME section (Option B);
-        # fall back to the register for themes not yet migrated.
-        r["short_name"] = (first_bullet(r["sections"].get("SHORT NAME", ""))
-                           or shorts.get(r["table"], ""))
-    log.info("Read %d layers from %s (%d short names)",
-             len(records), SCHEMA, sum(1 for r in records if r["short_name"]))
+def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
+    """Command-line options; with none, the full refresh runs as before."""
+    p = argparse.ArgumentParser(
+        description="Build the uk_baseline data catalogue from the database metadata.")
+    p.add_argument("--site-only", action="store_true",
+                   help="write only docs/, mkdocs.yml and the fingerprint; "
+                        "never the Excel or HTML on the share")
+    p.add_argument("--out-dir", type=Path,
+                   help="folder for docs/, mkdocs.yml and the fingerprint (default: this repository)")
+    p.add_argument("--maps-dir", type=Path,
+                   help="folder holding the preview PNGs (default: <repository>/docs/maps)")
+    p.add_argument("--save-snapshot", type=Path, metavar="JSON",
+                   help="save the render inputs (records, short names, approved themes, "
+                        "map list, build date) to this file")
+    p.add_argument("--from-snapshot", type=Path, metavar="JSON",
+                   help="render from a saved snapshot instead of the database, register and styles file")
+    p.add_argument("--built", metavar="DATE",
+                   help='"last updated" date, e.g. "15 October 2026" '
+                        "(default: the snapshot's date, else today)")
+    return p.parse_args(argv)
+
+
+def main(argv: list[str] | None = None) -> None:
+    global OUT, DOCS, MAPS_DIR, APPROVED, MAP_TABLES
+    args = parse_args(argv)
+    if args.out_dir:
+        OUT = args.out_dir.resolve()
+        DOCS = OUT / "docs"
+    if args.maps_dir:
+        MAPS_DIR = args.maps_dir.resolve()
+
+    if args.from_snapshot:
+        snap = load_snapshot(args.from_snapshot)
+        built = args.built or snap["built"]
+        records = snap["records"]
+        APPROVED = set(snap["approved"])
+        MAP_TABLES = set(snap["maps"])
+        log.info("Replaying %d layers from snapshot %s (built %s)",
+                 len(records), args.from_snapshot, built)
+    else:
+        built = args.built or datetime.now(timezone.utc).strftime("%d %B %Y")
+        APPROVED = _approved_themes()
+        records = read_metadata()
+        shorts = read_short_names()
+        for r in records:
+            # Short name: prefer the DB comment's SHORT NAME section (Option B);
+            # fall back to the register for themes not yet migrated.
+            r["short_name"] = (first_bullet(r["sections"].get("SHORT NAME", ""))
+                               or shorts.get(r["table"], ""))
+        log.info("Read %d layers from %s (%d short names)",
+                 len(records), SCHEMA, sum(1 for r in records if r["short_name"]))
+    if args.save_snapshot:
+        save_snapshot(args.save_snapshot, records, built)
 
     OUT.mkdir(parents=True, exist_ok=True)
-    SHARE.mkdir(parents=True, exist_ok=True)
 
     def _guarded(fn, path: Path, label: str) -> None:
         """Run a renderer; if the target is locked (open in Excel), warn and skip."""
@@ -962,15 +1108,18 @@ def main() -> None:
             log.warning("SKIPPED %s — %s is open/locked. Close it and re-run to refresh.",
                         label, path.name)
 
-    # Single-file deliverables on the practice share, for colleagues.
-    _guarded(render_xlsx, SHARE / "uk_baseline_catalogue.xlsx", "Excel")
-    _guarded(render_html, SHARE / "uk_baseline_catalogue.html", "HTML")
+    if not args.site_only:
+        # Single-file deliverables on the practice share, for colleagues.
+        SHARE.mkdir(parents=True, exist_ok=True)
+        _guarded(render_xlsx, SHARE / "uk_baseline_catalogue.xlsx", "Excel")
+        _guarded(render_html, SHARE / "uk_baseline_catalogue.html", "HTML")
     # MkDocs site source stays local (built / published separately).
     render_mkdocs(records, built)
 
-    # Remove any earlier local copies of the single-file outputs.
-    for stale in (OUT / "uk_baseline_catalogue.xlsx", OUT / "uk_baseline_catalogue.html"):
-        stale.unlink(missing_ok=True)
+    if not args.site_only:
+        # Remove any earlier local copies of the single-file outputs.
+        for stale in (OUT / "uk_baseline_catalogue.xlsx", OUT / "uk_baseline_catalogue.html"):
+            stale.unlink(missing_ok=True)
 
     fp = fingerprint(records)
     (OUT / ".catalogue_fingerprint.json").write_text(
@@ -979,7 +1128,10 @@ def main() -> None:
         encoding="utf-8",
     )
     log.info("Fingerprint %s", fp[:16])
-    log.info("Single-file deliverables: %s", SHARE)
+    if args.site_only:
+        log.info("Site only: the Excel and HTML on the share were not touched.")
+    else:
+        log.info("Single-file deliverables: %s", SHARE)
     log.info("MkDocs site source: %s", OUT)
 
 

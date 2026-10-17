@@ -2,44 +2,54 @@
 
 <p class="layer-short">Open Greenspace access points</p>
 
-`env_os_green_space_access_points_apr2025`
+`env_os_green_space_access_points_apr2025`<button class="md-clipboard md-icon" data-clipboard-text="env_os_green_space_access_points_apr2025" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/env_os_green_space_access_points_apr2025.png" alt="Styling preview of env_os_green_space_access_points_apr2025" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/env_os_green_space_access_points_apr2025.png" alt="Styling preview of env_os_green_space_access_points_apr2025" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Ordnance Survey (OS), OS Open Greenspace product (Access Points layer).
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - OS Open Greenspace : https://www.ordnancesurvey.co.uk/products/os-open-greenspace
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "access points for entering and exiting urban and rural green spaces." (OS Open Greenspace product page)
 
 **SCOPE**
+{: .sec-label }
 
 - Great Britain. 342,351 rows.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid). Geometry type Point.
 
 **LICENCE**
+{: .sec-label }
 
 - OS OpenData Licence (incorporates Open Government Licence v3.0; attribution "Contains OS data © Crown copyright and database right" required).
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - A further 41,223 rows carry a Scottish or Northern Irish district code, so they hold a district but no county or Spatial Development Strategy — the lookup covers England and Wales only.
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, May 2026.
 

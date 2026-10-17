@@ -2,22 +2,26 @@
 
 <p class="layer-short">London Nighttime Access to Food Retail</p>
 
-`ecn_geods_foodretail_accessibility_apr2026`
+`ecn_geods_foodretail_accessibility_apr2026`<button class="md-clipboard md-icon" data-clipboard-text="ecn_geods_foodretail_accessibility_apr2026" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/ecn_geods_foodretail_accessibility_apr2026.png" alt="Styling preview of ecn_geods_foodretail_accessibility_apr2026" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/ecn_geods_foodretail_accessibility_apr2026.png" alt="Styling preview of ecn_geods_foodretail_accessibility_apr2026" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Geographic Data Service (GeoDS), Smart Data Research UK (SDR UK): University College London (UCL), University of Liverpool, University of Oxford, University of Edinburgh.
 - Dataset created Jan 2026; last updated by publisher Apr 2026.
 - Underlying analysis: Iliev, M., Cheshire, J., & Law, S. (2026). "Revealing the geography of food (in)accessibility for nighttime workers in the Greater London Area." Urban Studies, 0(0).
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - Catalogue page : https://data.geods.ac.uk/dataset/london-nighttime-access-to-food-retail-options
 - Source files : hex_foodretail_accessibility.gpkg, hex_food_variable_dictionary.csv, hex_food_data_summary.csv, food_travel_time_allhex.csv
 
 **DEFINITIONS**
+{: .sec-label }
 
 - Hex_ID: "Unique cell ID of bespoke BT hexagonal grid" (hex_food_variable_dictionary.csv)
 - travel_time_xxxx_yy: "Travel-time to the closest open food retail outlet on day xxxx (Friday or Saturday) at yy (hour of the day)" (hex_food_variable_dictionary.csv)
@@ -28,20 +32,24 @@
 - General Transit Feed Specification (GTFS) schedules used: 1-2 March 2024. Multimodal routing combines walking, waiting and transfer times. (catalogue page)
 
 **SCOPE**
+{: .sec-label }
 
 - Greater London Authority (GLA) area; outlet capture extends to outlets within 2,000 metres of the GLA boundary.
 - 15,041 hexagonal cells, 350-metre spacing.
 - Temporal coverage: Friday 06:00 to Saturday 06:00, snapshot of 1-2 March 2024.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB36 / British National Grid). Native CRS as published; no reprojection at load.
 
 **LICENCE**
+{: .sec-label }
 
 - UK Open Government Licence (OGL) v3.0.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - The row count counts split pieces, not source features: this layer was split by Middle Layer Super Output Area, so it holds one row per feature per MSOA piece, plus whole and remainder rows to keep 100% of the source geometry. 27,815 rows represent 15,041 source features, measured 25 August 2026. `source_fid` identifies the originating feature.
 - Geography keys are NULL on 484 of 27,815 rows, measured 25 August 2026: 477 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence; 7 are residual fragments left by the MSOA split, each under 100 sqm or 10 m.
@@ -50,11 +58,13 @@
 - Hex_ID is stored as double precision but the publisher's data summary reports type=integer. Values are well within int4 range.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - msoa21cd, msoa21nm, msoa21hclnm, lad22cd, lad22nm, lad25cd, lad25nm, source_fid, gid
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, 28 May 2026.
 

@@ -2,22 +2,26 @@
 
 <p class="layer-short">BRES Employment - LAD, 2024, broad groups (P+P)</p>
 
-`ecn_ons_lad_business_register_employment_pp_2024`
+`ecn_ons_lad_business_register_employment_pp_2024`<button class="md-clipboard md-icon" data-clipboard-text="ecn_ons_lad_business_register_employment_pp_2024" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/ecn_ons_lad_business_register_employment_pp_2024.png" alt="Styling preview of ecn_ons_lad_business_register_employment_pp_2024" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/ecn_ons_lad_business_register_employment_pp_2024.png" alt="Styling preview of ecn_ons_lad_business_register_employment_pp_2024" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Office for National Statistics (ONS), distributed via the Nomis dataset Business Register and Employment Survey open access. Pulled from the Nomis application programming interface by Prior + Partners, 27 August 2026 (dual independent pulls verified identical; audit report in the project folder). Measure: Employment, count.
 - Prior + Partners processing, 27 August 2026: rows limited to England and Wales; the long-format Nomis extract pivoted to one row per area with one column per broad industry group; a derived motor-wholesale-retail sum column added. No published value altered.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - Nomis dataset page : https://www.nomisweb.co.uk/datasets/newbres6pub
 - ONS BRES methodology : https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/methodologies/businessregisterandemploymentsurveybres
 - Nomis rounding article : https://www.nomisweb.co.uk/articles/1103.aspx
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "Employees: people aged 16 or over paid directly through the employer's payroll (full-time, part-time or on a training scheme) on the survey reference date." (ONS BRES QMI)
 - "Working owners: business owners (sole traders, sole proprietors and partners) who take a share of the profits rather than being paid a wage through the payroll." (ONS BRES QMI)
@@ -25,18 +29,22 @@
 - Employment is broken down by the 18 Nomis broad industry groups over SIC2007.
 
 **SCOPE**
+{: .sec-label }
 
 - England and Wales. Districts as of April 2023; 318 rows. Survey year 2024.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (British National Grid); source data is non-spatial, geometry joined from the boundary layer named on the geom column.
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0 (OGL v3.0).
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - Values carry Nomis rounding, which varies by estimate.
 - Total columns are Nomis-published and independently rounded; the sector columns may not sum to the total.
@@ -45,10 +53,12 @@
 - Wales and the Isles of Scilly carry a county but no Spatial Development Strategy area.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - sds_name / sds_group - Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over MHCLG English devolution policy, joined at enrichment via uk_baseline.adm_ons_lad_boundary_may2024.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, 28 August 2026.
 

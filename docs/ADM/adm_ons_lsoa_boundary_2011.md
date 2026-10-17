@@ -2,33 +2,40 @@
 
 <p class="layer-short">Lower Layer Super Output Area Boundary 2011</p>
 
-`adm_ons_lsoa_boundary_2011`
+`adm_ons_lsoa_boundary_2011`<button class="md-clipboard md-icon" data-clipboard-text="adm_ons_lsoa_boundary_2011" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/adm_ons_lsoa_boundary_2011.png" alt="Styling preview of adm_ons_lsoa_boundary_2011" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/adm_ons_lsoa_boundary_2011.png" alt="Styling preview of adm_ons_lsoa_boundary_2011" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Office for National Statistics (ONS), Open Geography Portal.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - Dataset page : https://geoportal.statistics.gov.uk/datasets/ons::lower-layer-super-output-areas-december-2011-boundaries-ew-bfc-v3/about
 - Digital boundaries methods : https://www.ons.gov.uk/methodology/geography/geographicalproducts/digitalboundaries
 
 **DEFINITIONS**
+{: .sec-label }
 
 - Lower Layer Super Output Areas (LSOAs) are small, stable census statistical areas built from groups of Output Areas, of similar population size — about 1,500 residents on average (roughly 1,000–3,000 people).
 
 **SCOPE**
+{: .sec-label }
 
 - England & Wales.
 - 34,753 LSOAs (2011 Census geography).
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (British National Grid / BNG).
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0.
 

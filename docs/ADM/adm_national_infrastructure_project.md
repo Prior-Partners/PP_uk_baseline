@@ -2,37 +2,45 @@
 
 <p class="layer-short">National Infrastructure Projects</p>
 
-`adm_national_infrastructure_project`
+`adm_national_infrastructure_project`<button class="md-clipboard md-icon" data-clipboard-text="adm_national_infrastructure_project" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/adm_national_infrastructure_project.png" alt="Styling preview of adm_national_infrastructure_project" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/adm_national_infrastructure_project.png" alt="Styling preview of adm_national_infrastructure_project" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Planning Inspectorate (PINS), National Infrastructure Consenting service. Downloaded from the projects-map "download all project boundaries" endpoint on 23 July 2026.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - Projects map      : https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects-map
 - Service home      : https://national-infrastructure-consenting.planninginspectorate.gov.uk/
 - Boundary download : https://national-infrastructure-consenting.planninginspectorate.gov.uk/projects-map/download-boundaries
 
 **DEFINITIONS**
+{: .sec-label }
 
 - Nationally Significant Infrastructure Projects (NSIP): "These are large scale projects like power stations, highways and power lines." (Planning Inspectorate, National Infrastructure Consenting service)
 
 **SCOPE**
+{: .sec-label }
 
 - England & Wales, including offshore project envelopes. 351 boundary features across 268 distinct case references. Boundaries received between 6 September 2017 and 20 July 2026. Held here as 2,273 rows after the split by Middle Layer Super Output Area (MSOA) 2021 (see DATA QUALITY CAVEATS).
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (British National Grid). Reprojected at load from EPSG:4326 (WGS 84), the source GeoJSON coordinate reference system.
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0. Crown copyright.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - "Project boundaries and markers are approximate" (National Infrastructure Consenting projects map); not a substitute for the definitive Development Consent Order application plans.
 - One source feature is one boundary submission, not one project: 351 features across 268 case references, so some projects carry more than one boundary submission.
@@ -47,16 +55,19 @@
 - Geometry is conserved at 100.000% against the pre-split layer: the split neither gained nor lost measurable area.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - area_ha: hectares computed at load from the British National Grid geometry.
 - msoa21cd, msoa21nm, msoa21hclnm, lad22cd, lad22nm, lad25cd, lad25nm from the MSOA 2021 boundary each piece falls in; ctyua25cd, ctyua25nm, sds_name, sds_group joined from the LAD 2025 lookup.
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 
 **NOT IN THIS DATASET**
+{: .sec-label }
 
 - Project stage, sector or type, applicant, key dates and documents are not in the boundary download. They are on each project page, keyed by case_reference, at the National Infrastructure Consenting service, and in the planning.data.gov.uk Nationally Significant Infrastructure Project datasets.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, 23 July 2026.
 

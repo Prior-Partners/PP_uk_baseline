@@ -2,49 +2,59 @@
 
 <p class="layer-short">Listed Building Points</p>
 
-`her_historicengland_listed_building_points_may2026`
+`her_historicengland_listed_building_points_may2026`<button class="md-clipboard md-icon" data-clipboard-text="her_historicengland_listed_building_points_may2026" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/her_historicengland_listed_building_points_may2026.png" alt="Styling preview of her_historicengland_listed_building_points_may2026" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/her_historicengland_listed_building_points_may2026.png" alt="Styling preview of her_historicengland_listed_building_points_may2026" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Historic England, National Heritage List for England (NHLE), Listed Buildings dataset (point geometry).
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - NHLE              : https://historicengland.org.uk/listing/the-list/
 - HE data downloads : https://historicengland.org.uk/listing/the-list/data-downloads/
 - Listed Buildings : https://historicengland.org.uk/listing/what-is-designation/listed-buildings/
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "Listed buildings are buildings of special architectural or historic interest with legal protection." (Historic England, Listed Buildings)
 - Listing grades: Grade I — buildings of exceptional interest; Grade II* — particularly important buildings of more than special interest; Grade II — buildings of special interest. (Historic England, Listed Buildings)
 
 **SCOPE**
+{: .sec-label }
 
 - England. 379,664 rows.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid). Geometry type MultiPoint.
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0. © Historic England.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - Geography keys are NULL on 432 of 379,664 rows, measured 25 August 2026: 417 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence; 15 fall outside every district — offshore, inter-tidal, or beyond Great Britain.
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - 417 coastal and offshore listed structures (0.11% of the layer) lie outside every MSOA polygon and so carry NULL msoa21cd, msoa21nm and msoa21hclnm.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - `msoa21hclnm` — House of Commons Library readable MSOA name, assigned at load from the listed-building point in its 2021 MSOA (uk_baseline.adm_ons_msoa_boundary_2021). Open Parliament Licence.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, May 2026.
 

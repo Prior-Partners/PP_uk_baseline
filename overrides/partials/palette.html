@@ -1,0 +1,29 @@
+{#-
+  Override of Material for MkDocs 9.7.6 partials/palette.html (UK Baseline
+  board skin): the sun / moon toggle becomes two chips, NIGHT and DAY, as on
+  the board.
+  - Material's radio inputs keep their ids and data attributes, so its script
+    still switches the scheme and remembers the choice.
+  - Material's script hides the element straight after each input; an empty
+    spacer takes that role, so both chips always show.
+  - Each chip is a label for its own input. Material never ticks the input of
+    the scheme in use, so the small script below keeps the ticked input in
+    step with the page's scheme: screen readers then hear which mode is on,
+    and the CSS can mark the active chip. Keyboard: Tab to the group, then
+    the arrow keys or Enter.
+  Re-check this file against Material when upgrading.
+-#}
+<form class="md-header__option pp-mode" data-md-component="palette" role="radiogroup" aria-label="Colour mode">
+  {% for option in config.theme.palette %}
+    {% set scheme  = option.scheme  | d("default", true) %}
+    {% set primary = option.primary | d("indigo", true) %}
+    {% set accent  = option.accent  | d("indigo", true) %}
+    <input class="md-option" data-md-color-media="{{ option.media }}" data-md-color-scheme="{{ scheme | replace(' ', '-') }}" data-md-color-primary="{{ primary | replace(' ', '-') }}" data-md-color-accent="{{ accent | replace(' ', '-') }}" aria-label="{{ 'Night' if scheme == 'slate' else 'Day' }}" type="radio" name="__palette" id="__palette_{{ loop.index0 }}">
+    <span class="pp-mode__slot" hidden></span>
+  {% endfor %}
+  {% for option in config.theme.palette | reverse %}
+    {% set scheme = option.scheme | d("default", true) %}
+    <label class="pp-chip pp-chip--{{ scheme | replace(' ', '-') }}" for="__palette_{{ loop.revindex0 }}">{{ "Night" if scheme == "slate" else "Day" }}</label>
+  {% endfor %}
+</form>
+<script>!function(){function s(){var c=document.body.getAttribute("data-md-color-scheme");document.querySelectorAll('input[name="__palette"]').forEach(function(i){i.checked=i.getAttribute("data-md-color-scheme")===c})}new MutationObserver(s).observe(document.body,{attributes:!0,attributeFilter:["data-md-color-scheme"]}),s()}()</script>

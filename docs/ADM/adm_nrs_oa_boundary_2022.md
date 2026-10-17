@@ -2,40 +2,48 @@
 
 <p class="layer-short">Output Area Boundary 2022 (Scotland)</p>
 
-`adm_nrs_oa_boundary_2022`
+`adm_nrs_oa_boundary_2022`<button class="md-clipboard md-icon" data-clipboard-text="adm_nrs_oa_boundary_2022" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/adm_nrs_oa_boundary_2022.png" alt="Styling preview of adm_nrs_oa_boundary_2022" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/adm_nrs_oa_boundary_2022.png" alt="Styling preview of adm_nrs_oa_boundary_2022" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - National Records of Scotland (NRS), 2022 Census geography products. File OutputArea2022_MHW.shp from output-area-2022-mhw.zip, published 21 May 2024. All source fields copied as published; nothing derived, renamed or filtered.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - 2022 Census geography products : https://www.nrscotland.gov.uk/publications/2022-census-geography-products
 - Metadata record (spatialdata.gov.scot) : https://spatialdata.gov.scot/geonetwork/srv/api/records/a0a643ba-c0ed-4860-93a9-5fee11ac492a
 - File specification : Census2022_SpatialDatasetsFileSpecification.pdf, shipped inside the download.
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "Output Areas (OAs) are the key geography for dissemination of small area statistics from the Census. OAs are large enough for Census statistics to be released without infringing confidentiality. They are designed to have relatively small numbers of households (in the range of 25 to 89) and population (>=60), while nesting within Council areas. They also act as the basic 'building-blocks' for the creation of other geographies such as Data Zones. There are 46,363 Census 2022 OAs in Scotland." (NRS metadata record)
 - "Output Areas created by aggregating frozen postcodes." (NRS file specification)
 - "The boundaries are available at Extent of the Realm and clipped to the Mean High Water (MHW) Mark with inland water removed." (NRS file specification)
 
 **SCOPE**
+{: .sec-label }
 
 - Scotland. 46,363 Output Areas, the clipped to Mean High Water edition with inland water removed.
 - Companion to uk_baseline.adm_ons_oa_boundaries_dec2021 (England and Wales) and uk_baseline.adm_nisra_dz_boundary_2021 (Northern Ireland); together the three give small-area geometry for the whole United Kingdom at the Census 2021/2022 level.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid), as shipped.
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0. Attribution: "Copyright National Records of Scotland, contains Ordnance Survey data (c) Crown copyright and database right (insert year)."
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - 9 of 46,363 polygons were published with a ring touching itself at a single vertex (S00136407, S00136544, S00138851, S00142130, S00148144, S00162192, S00176070, S00177785, S00181661). Repaired on 2 September 2026 with the data manager's approval; each remains a single polygon with no change in area (0.00 sq m).
 - hhcount and popcount carry cell key perturbation: "Cell Key Perturbation has been applied to Scotland's Census 2022 outputs. This means that small adjustments are made automatically to cells in tables, including the Postcode to Output Area lookup." (NRS file specification)
@@ -43,6 +51,7 @@
 - Key column is named `code`, as published by NRS. It holds the Output Area 2022 code (OA22CD), the Scottish equivalent of `oa21cd` on uk_baseline.adm_ons_oa_boundaries_dec2021. Deliberately not renamed to `oa22cd` (data manager decision, 2 September 2026) so the table matches the source file; join on `code`.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, 2 September 2026.
 

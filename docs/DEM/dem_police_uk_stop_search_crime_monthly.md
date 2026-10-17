@@ -2,54 +2,65 @@
 
 <p class="layer-short">Crime - Stop and search</p>
 
-`dem_police_uk_stop_search_crime_monthly`
+`dem_police_uk_stop_search_crime_monthly`<button class="md-clipboard md-icon" data-clipboard-text="dem_police_uk_stop_search_crime_monthly" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/dem_police_uk_stop_search_crime_monthly.png" alt="Styling preview of dem_police_uk_stop_search_crime_monthly" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/dem_police_uk_stop_search_crime_monthly.png" alt="Styling preview of dem_police_uk_stop_search_crime_monthly" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Data published by data.police.uk (Home Office). 43 territorial police forces in England and Wales contribute CSV files. No Crime ID in the source — this table is an independent entity, cannot be joined to dem_police_uk_street_crime_monthly.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - Archive index : https://data.police.uk/data/archive/
 - Data definitions : https://data.police.uk/about/
 
 **DEFINITIONS**
+{: .sec-label }
 
 - Search types: typically "Person search" or "Vehicle search".
 - Stop-and-search events are recorded per Police and Criminal Evidence Act (PACE) Code A and related legislation; the legislation column carries the specific authority cited.
 
 **SCOPE**
+{: .sec-label }
 
 - Police forces in England and Wales (plus British Transport Police for the rail network).
 - Rolling 36-month window — months falling out of the window freeze at their last-published state.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (British National Grid / BNG). Reprojected at load from EPSG:4326 lat/lon supplied in the source CSV.
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - No upstream Crime ID — rows cannot be linked to dem_police_uk_street_crime_monthly.
 - 100% row-stable across archive releases (verified by internal archive-comparison checks) — no case progression to worry about, unlike the street table.
 - Some rows have NULL geom where the source CSV had blank lat/lon.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - force : parsed from CSV filename slug (source CSV has no force column).
 - record_month : derived from search_ts (YYYY-MM truncation).
 - geom : reprojected from lat/lon at load.
 
 **NOT IN THIS DATASET**
+{: .sec-label }
 
 - Northern Ireland (PSNI) and Scotland (Police Scotland) do not publish via data.police.uk archives.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, Monthly.
 

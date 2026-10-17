@@ -2,43 +2,52 @@
 
 <p class="layer-short">National Trust Land</p>
 
-`her_historicengland_national_trust_land_aug2024`
+`her_historicengland_national_trust_land_aug2024`<button class="md-clipboard md-icon" data-clipboard-text="her_historicengland_national_trust_land_aug2024" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/her_historicengland_national_trust_land_aug2024.png" alt="Styling preview of her_historicengland_national_trust_land_aug2024" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/her_historicengland_national_trust_land_aug2024.png" alt="Styling preview of her_historicengland_national_trust_land_aug2024" loading="lazy" class="layer-map">
 
 One row per National Trust land parcel.
 
 **SOURCE**
+{: .sec-label }
 
 - The National Trust. National Trust open data — land.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - National Trust : https://www.nationaltrust.org.uk/
 
 **SCOPE**
+{: .sec-label }
 
 - 2,785 rows.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid). Geometry type MultiPolygon.
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0 (confirm with the National Trust before re-publication).
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - The row count counts split pieces, not source features: this layer was split by Middle Layer Super Output Area, so it holds one row per feature per MSOA piece, plus whole and remainder rows to keep 100% of the source geometry. 4,109 rows represent 2,785 source features, measured 25 August 2026. `source_fid` identifies the originating feature.
 - Geography keys are NULL on 338 of 4,109 rows, measured 25 August 2026: 280 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence; 52 are residual fragments left by the MSOA split, each under 100 sqm or 10 m; 6 fall outside every district — offshore, inter-tidal, or beyond Great Britain.
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded August 2024.
 

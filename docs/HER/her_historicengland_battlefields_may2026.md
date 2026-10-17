@@ -2,48 +2,58 @@
 
 <p class="layer-short">Battlefields</p>
 
-`her_historicengland_battlefields_may2026`
+`her_historicengland_battlefields_may2026`<button class="md-clipboard md-icon" data-clipboard-text="her_historicengland_battlefields_may2026" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/her_historicengland_battlefields_may2026.png" alt="Styling preview of her_historicengland_battlefields_may2026" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/her_historicengland_battlefields_may2026.png" alt="Styling preview of her_historicengland_battlefields_may2026" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Historic England, National Heritage List for England (NHLE), Battlefields dataset.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - NHLE              : https://historicengland.org.uk/listing/the-list/
 - HE data downloads : https://historicengland.org.uk/listing/the-list/data-downloads/
 - Registered Battlefields : https://historicengland.org.uk/listing/what-is-designation/registered-battlefields/
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "Registered battlefields are sites where significant battles took place. They include sites with archaeological remains as well as those where the events are well documented but no physical traces survive." (Historic England, Registered Battlefields)
 - The National Heritage List for England (NHLE) is the official, up-to-date register of all nationally protected historic buildings and sites in England. (Historic England)
 
 **SCOPE**
+{: .sec-label }
 
 - England. 97 rows.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid). Geometry type MultiPolygon.
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0. © Historic England.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - The row count counts split pieces, not source features: this layer was split by Middle Layer Super Output Area, so it holds one row per feature per MSOA piece, plus whole and remainder rows to keep 100% of the source geometry. 184 rows represent 97 source features, measured 25 August 2026. `source_fid` identifies the originating feature.
 - Geography keys are NULL on 3 of 184 rows, measured 25 August 2026: 2 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence; 1 are residual fragments left by the MSOA split, each under 100 sqm or 10 m.
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, May 2026.
 

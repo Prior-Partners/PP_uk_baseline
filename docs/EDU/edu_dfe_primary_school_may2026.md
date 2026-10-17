@@ -2,16 +2,19 @@
 
 <p class="layer-short">Primary School</p>
 
-`edu_dfe_primary_school_may2026`
+`edu_dfe_primary_school_may2026`<button class="md-clipboard md-icon" data-clipboard-text="edu_dfe_primary_school_may2026" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/edu_dfe_primary_school_may2026.png" alt="Styling preview of edu_dfe_primary_school_may2026" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/edu_dfe_primary_school_may2026.png" alt="Styling preview of edu_dfe_primary_school_may2026" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Department for Education (DfE), Get Information About Schools, May 2026 extract. This table is a filtered subset of uk_baseline.edu_dfe_school_may2026.
 - Ofsted, Management Information — state-funded schools — latest inspections as at 28 Feb 2026. Source of the two enriched columns ofsted_overall_rate_code and ofsted_overall_rate (see ENRICHMENT).
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - DfE schools service         : https://get-information-schools.service.gov.uk/
 - DfE schools gov.uk guidance : https://www.gov.uk/guidance/get-information-about-schools
@@ -20,6 +23,7 @@
 - Parent table                : uk_baseline.edu_dfe_school_may2026
 
 **DEFINITIONS**
+{: .sec-label }
 
 - DfE phase classification:
     - Primary — primary-phase school (statutory ages typically 4-11).
@@ -28,6 +32,7 @@
 - See parent (uk_baseline.edu_dfe_school_may2026) for full URN / phase / status definitions and the glossary reference.
 
 **SCOPE**
+{: .sec-label }
 
 - England only. 16,865 rows, one per primary-phase open URN.
 - Includes three primary-phase groupings: Primary, Middle deemed primary, and All-through.
@@ -35,14 +40,17 @@
 - Excludes Closed primaries: about 13,300 of the 30,100 Primary-phase records in the parent are Closed and are dropped here.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid). Geometry type MultiPoint (one point per URN).
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - Geography keys are NULL on 1 of 16,865 rows, measured 25 August 2026: 1 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence.
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
@@ -50,6 +58,7 @@
 - ofsted_overall_rate / _code are NULL where no clean graded inspection or qualifying ungraded-reaffirm outcome maps to the URN. Do not treat NULL as "Inadequate".
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - `msoa21hclnm` — House of Commons Library readable MSOA name, joined at load on `msoa_code` from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.
@@ -60,10 +69,12 @@
     - 4 — Inadequate
 
 **DERIVED FROM**
+{: .sec-label }
 
 - uk_baseline.edu_dfe_school_may2026. Subset created 13 May 2026.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, 13 May 2026.
 

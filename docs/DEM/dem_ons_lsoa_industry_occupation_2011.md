@@ -2,50 +2,60 @@
 
 <p class="layer-short">Census 2011 Industry and Occupation</p>
 
-`dem_ons_lsoa_industry_occupation_2011`
+`dem_ons_lsoa_industry_occupation_2011`<button class="md-clipboard md-icon" data-clipboard-text="dem_ons_lsoa_industry_occupation_2011" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/dem_ons_lsoa_industry_occupation_2011.png" alt="Styling preview of dem_ons_lsoa_industry_occupation_2011" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/dem_ons_lsoa_industry_occupation_2011.png" alt="Styling preview of dem_ons_lsoa_industry_occupation_2011" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Office for National Statistics (ONS), Census 2011, England and Wales. Source: table QS605EW "Industry by sex" (or KS605EW summary). Reference date 27 March 2011. Loaded via an earlier Prior + Partners pass.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - NOMIS Census 2011 QS605EW : https://www.nomisweb.co.uk/census/2011/qs605ew
 - ONS Census 2011 landing page : https://www.ons.gov.uk/census/2011census
 - SIC 2007 classification : https://onsdigital.github.io/dp-classification-tools/standard-industrial-classification/ONS_SIC_hierarchy_view.html
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "This information is used to assign a code to the industry an individual works in using the UK Standard Industrial Classification of Economic Activities (UKSIC)." (NOMIS Census 2011 QS605EW)
 - Base population: usual residents aged 16-74 in employment in the week before Census Day (27 March 2011).
 
 **SCOPE**
+{: .sec-label }
 
 - England and Wales. LSOA 2011 boundary; 34,753 distinct lsoa11cd.
 - Base population: usual residents aged 16-74 in employment.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid).
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - This is Census 2011 data — superseded by Census 2021 (`dem_ons_lsoa_industry_occupation_2021`). Use the 2021 layer for current analysis; this layer for historic comparison only.
 - LSOA 2011 boundary; NOT directly comparable cell-by-cell to LSOA 2021 (boundaries changed in ~10% of areas). Use ONS LSOA11->LSOA21 best-fit lookup for cross-year comparison.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - `msoa21hclnm` — House of Commons Library readable MSOA name, joined at load on msoa21cd from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Data: Census Day 27 March 2011.
 

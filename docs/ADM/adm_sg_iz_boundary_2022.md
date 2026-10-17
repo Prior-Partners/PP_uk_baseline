@@ -2,42 +2,51 @@
 
 <p class="layer-short">Intermediate Zone Boundary 2022</p>
 
-`adm_sg_iz_boundary_2022`
+`adm_sg_iz_boundary_2022`<button class="md-clipboard md-icon" data-clipboard-text="adm_sg_iz_boundary_2022" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/adm_sg_iz_boundary_2022.png" alt="Styling preview of adm_sg_iz_boundary_2022" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/adm_sg_iz_boundary_2022.png" alt="Styling preview of adm_sg_iz_boundary_2022" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Scottish Government, Geographic Information Science and Analysis Team. File SG_IntermediateZoneBdry_2022_MHW.shp from SG_IntermediateZoneBdry_2022.zip, published 16 December 2024; the Extent of the Realm file in the same download was not loaded. All source fields copied as published; nothing derived, renamed or filtered.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - Metadata record (spatialdata.gov.scot) : https://spatialdata.gov.scot/geonetwork/srv/api/records/2978ed67-dade-42ec-b8e1-644e0b1f8cd8
 - Small area statistics collection : https://www.gov.scot/collections/small-area-statistics/
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "Intermediate Zones are a statistical geography that sit between Data Zones and local authorities, originally created for use with the Scottish Neighbourhood Statistics (SNS) programme (now known as statistics.gov.scot) and the wider public sector. Intermediate Zones are used for the dissemination of statistics that are not suitable for release at the Data Zone level because of the sensitive nature of the statistic, or for reasons of reliability. Intermediate Zones were designed to meet constraints on population thresholds (2,500 - 6,000 household residents), to nest within local authorities (at the time of the Census), and to be built up from aggregations of Data Zones." (Scottish Government metadata record)
 - "Following the update to Intermediate Zones using 2022 Census data, there are now 1,334 Intermediate Zones covering the whole of Scotland." (Scottish Government metadata record)
 
 **SCOPE**
+{: .sec-label }
 
 - Scotland. 1,334 Intermediate Zones, clipped to Mean High Water edition. The Scottish counterpart of the Middle layer Super Output Area (MSOA); built from the Data Zones in uk_baseline.adm_sg_dz_boundary_2022.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid), as shipped.
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence. Attribution: "Copyright Scottish Government, contains Ordnance Survey data (c) Crown copyright and database right (insert year)."
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - The publisher gives no field-level definitions for the population, household and area columns; they are carried under their source names. "Note that the standard area measurements will differ from the automated Shape_Area attributes. This will be due to the different coastlines/inland water, and also can be due to the Output Areas policy to remove non-contiguous parts, which was applied after the standard areas were calculated." (Scottish Government metadata record)
 - Key column is named `izcode`, as published. It holds the Intermediate Zone 2022 code, the Scottish equivalent of `msoa21cd`; deliberately not renamed (data manager decision, 2 September 2026). Join on `izcode`.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, 2 September 2026.
 

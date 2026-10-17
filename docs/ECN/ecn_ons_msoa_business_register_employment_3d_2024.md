@@ -2,21 +2,25 @@
 
 <p class="layer-short">BRES Employment - MSOA, 2024, 3D</p>
 
-`ecn_ons_msoa_business_register_employment_3d_2024`
+`ecn_ons_msoa_business_register_employment_3d_2024`<button class="md-clipboard md-icon" data-clipboard-text="ecn_ons_msoa_business_register_employment_3d_2024" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/ecn_ons_msoa_business_register_employment_3d_2024.png" alt="Styling preview of ecn_ons_msoa_business_register_employment_3d_2024" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/ecn_ons_msoa_business_register_employment_3d_2024.png" alt="Styling preview of ecn_ons_msoa_business_register_employment_3d_2024" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Office for National Statistics (ONS). Distributed via Nomis dataset - Business Register and Employment Survey.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - Nomis dataset page : https://www.nomisweb.co.uk/datasets/newbres6pub
 - ONS BRES methodology : https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/methodologies/businessregisterandemploymentsurveybres
 - ONS BRES QMI : https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/methodologies/businessregisteremploymentsurveybresqmi
 
 **DEFINITIONS**
+{: .sec-label }
 
 - Employees: people aged 16 or over paid directly through the employer's payroll (full-time, part-time or on a training scheme) on the survey reference date. (ONS BRES QMI)
 - Working owners: business owners (sole traders, sole proprietors and partners) who take a share of the profits rather than being paid a wage through the payroll. (ONS BRES QMI)
@@ -24,29 +28,35 @@
 - Employment is broken down by 3-digit SIC2007 industry group.
 
 **SCOPE**
+{: .sec-label }
 
 - England and Wales. Middle Layer Super Output Area (MSOA) 2021; 7,264 rows. Reference date 1 January 2024.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid).
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0 (OGL v3.0).
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - NULL means the cell was suppressed by ONS for disclosure control; 0 means genuinely zero employment. Suppression bites harder at fine geographies (LSOA) and small industries, so expect many NULLs across the industry row.
 - Reading values: a NULL in an industry column does NOT mean the area has no employment in that industry. It means ONS withheld the value because fewer than ~3 businesses operate there in that division/group. Sum across industries with caution.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - `msoa21hclnm` — House of Commons Library readable MSOA name, joined at load on msoa21cd from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.
 
 **NOT IN THIS DATASET**
+{: .sec-label }
 
 - The narrower Employees-only measure (payroll only, excluding working owners).
 - Full-time and part-time breakdowns of Employees.
@@ -54,6 +64,7 @@
 - Scotland and Northern Ireland: the MSOA 2021 boundary covers only England and Wales.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, 27 May 2026.
 

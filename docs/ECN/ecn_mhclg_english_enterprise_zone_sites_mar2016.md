@@ -2,37 +2,45 @@
 
 <p class="layer-short">English Enterprise Zone</p>
 
-`ecn_mhclg_english_enterprise_zone_sites_mar2016`
+`ecn_mhclg_english_enterprise_zone_sites_mar2016`<button class="md-clipboard md-icon" data-clipboard-text="ecn_mhclg_english_enterprise_zone_sites_mar2016" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/ecn_mhclg_english_enterprise_zone_sites_mar2016.png" alt="Styling preview of ecn_mhclg_english_enterprise_zone_sites_mar2016" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/ecn_mhclg_english_enterprise_zone_sites_mar2016.png" alt="Styling preview of ecn_mhclg_english_enterprise_zone_sites_mar2016" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Ministry of Housing, Communities and Local Government (MHCLG), distributed via data.gov.uk dataset "English Enterprise Zone Sites" (publication 17 March 2016).
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - Dataset landing page : https://www.data.gov.uk/dataset/9244b0fe-23ce-4d1c-895b-5716b441c4df/english-enterprise-zone-sites
 - Enterprise Zones programme : https://www.gov.uk/guidance/enterprise-zones
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "Enterprise Zones are designated areas aimed at stimulating economic growth by offering incentives to businesses to establish or expand their operations within them." (gov.uk "Enterprise Zones" guidance)
 - Programme context: zones announced March 2011 and rolled out from 2012 onwards; the March 2016 dataset captures the position at that point with 48 zones operational.
 
 **SCOPE**
+{: .sec-label }
 
 - England. 535 polygon site features across 48 Enterprise Zones as of 17 March 2016.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid).
 
 **LICENCE**
+{: .sec-label }
 
 - Ordnance Survey Public Sector End User Licence - INSPIRE (per the data.gov.uk dataset metadata). Not standard Open Government Licence v3.0; check downstream re-use terms against the OS Public Sector / INSPIRE licence wording.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - The row count counts split pieces, not source features: this layer was split by Middle Layer Super Output Area, so it holds one row per feature per MSOA piece, plus whole and remainder rows to keep 100% of the source geometry. 676 rows represent 535 source features, measured 25 August 2026. `source_fid` identifies the originating feature.
 - Geography keys are NULL on 10 of 676 rows, measured 25 August 2026: 10 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence.
@@ -41,15 +49,18 @@
 - `date_start` is stored as text (varchar(20)), not a typed date.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - `msoa21hclnm` — House of Commons Library readable MSOA name, assigned at load via the polygon's 2021 MSOA (representative interior point in uk_baseline.adm_ons_msoa_boundary_2021). Open Parliament Licence.
 
 **UPDATE REQUIRED**
+{: .sec-label }
 
 - This dataset is a 2016 release of an ongoing programme. The current Enterprise Zones position is published via gov.uk and the Cities and Local Growth Unit. If a current-edition layer is needed, refresh from the latest publication.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, March 2026.
 

@@ -19,6 +19,8 @@ is, how to connect QGIS, and how to use the data on a project — it opens strai
 
 **183 layers across 12 themes.**
 
+<div class="cat-themes" markdown>
+
 | Code | Theme | Typical contents | Layers |
 |---|---|---|---:|
 | **ADM** | [Administrative & Planning Boundaries](ADM/index.md) | Local authority, wards, output areas, built-up areas, postcode boundaries, planning zones, workplace zones | 21 |
@@ -33,6 +35,8 @@ is, how to connect QGIS, and how to use the data on a project — it opens strai
 | **HTH** | [Health & Wellbeing](HTH/index.md) | GP surgeries, hospitals, health inequalities, disease prevalence, obesity | 8 |
 | **MOB** | [Transport & Mobility](MOB/index.md) | Road networks, railway lines, public transport routes, cycling infrastructure, stations, paths, trails | 13 |
 | **UTL** | [Infrastructure & Utilities](UTL/index.md) | Electricity networks, gas pipelines, water infrastructure, telecoms masts, waste facilities | 7 |
+
+</div>
 
 !!! note "How to read a layer page"
     Each layer page shows a short description, where the data came from

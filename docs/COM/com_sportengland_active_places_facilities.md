@@ -2,42 +2,51 @@
 
 <p class="layer-short">Sport England sport facilities</p>
 
-`com_sportengland_active_places_facilities`
+`com_sportengland_active_places_facilities`<button class="md-clipboard md-icon" data-clipboard-text="com_sportengland_active_places_facilities" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/com_sportengland_active_places_facilities.png" alt="Styling preview of com_sportengland_active_places_facilities" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/com_sportengland_active_places_facilities.png" alt="Styling preview of com_sportengland_active_places_facilities" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Sport England, Active Places product (national sports-facility database for England).
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - Open data home : https://activeplaces.github.io/
 - Active Places Power : https://www.activeplacespower.com/
 - data.gov.uk listing : https://www.data.gov.uk/dataset/c39c69e5-5c80-4dad-a1d5-e9023a25f3da/active-places
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "Sport facility data for England maintained by Sport England on behalf of the sport sector. The Active Places database contains information on around 41,000 sports sites nationwide, with details on 115,000 sports facilities."
 
 **SCOPE**
+{: .sec-label }
 
 - England.
 - 44,114 facilities (1:1 with id_original - no row duplication).
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (British National Grid / BNG). Reprojected at load from upstream WGS84 lat/long.
 
 **LICENCE**
+{: .sec-label }
 
 - Creative Commons Attribution v4.0 (CC-BY 4.0). Attribution required: "Contains Data (c) Sport England".
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - `msoa21cd` / `msoa21nm` / `msoa21hclnm` — 2021 MSOA code, name and House of Commons Library readable name, assigned at load by point-in-polygon of each facility against uk_baseline.adm_ons_msoa_boundary_2021 (House of Commons Library MSOA Names v2.3, Open Parliament Licence). The source `msoa_code` is a 2011 MSOA code.
@@ -45,6 +54,7 @@
 - wd21cd, wd21nm : spatial intersect with ONS 2021 Ward boundaries.
 
 **NOT IN THIS DATASET**
+{: .sec-label }
 
 - Sports facilities outside England (Scotland, Wales, Northern Ireland) are out of Sport England's remit and not in this product.
 

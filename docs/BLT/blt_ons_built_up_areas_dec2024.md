@@ -2,37 +2,45 @@
 
 <p class="layer-short">Built Up Areas</p>
 
-`blt_ons_built_up_areas_dec2024`
+`blt_ons_built_up_areas_dec2024`<button class="md-clipboard md-icon" data-clipboard-text="blt_ons_built_up_areas_dec2024" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/blt_ons_built_up_areas_dec2024.png" alt="Styling preview of blt_ons_built_up_areas_dec2024" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/blt_ons_built_up_areas_dec2024.png" alt="Styling preview of blt_ons_built_up_areas_dec2024" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Office for National Statistics (ONS), Open Geography Portal. Underlying boundaries derived from Ordnance Survey (OS) Open Built Up Areas product.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - Dataset page : https://open-geography-portalx-ons.hub.arcgis.com/datasets/ons::built-up-areas-december-2024-boundaries-ew-bgg-v2
 - ONS digital boundaries methods : https://www.ons.gov.uk/methodology/geography/geographicalproducts/digitalboundaries
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "The built up area boundaries are generalised and created using an automated approach based on a 25m grid squares (BGG) and have been created from OS Open Built Up Areas." (data.gov.uk / ONS-OS background)
 
 **SCOPE**
+{: .sec-label }
 
 - England & Wales.
 - 7,775 distinct Built Up Areas represented across 121,072 polygon rows. The upstream geometry is multipolygon; the loader exploded each multipolygon BUA into single-part Polygon rows (avg ~15.6 parts per BUA).
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (British National Grid / BNG).
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - The row count counts split pieces, not source features: this layer was split by Middle Layer Super Output Area, so it holds one row per feature per MSOA piece, plus whole and remainder rows to keep 100% of the source geometry. 184,783 rows represent 121,072 source features, measured 25 August 2026. `source_fid` identifies the originating feature.
 - Geography keys are NULL on 2,830 of 184,783 rows, measured 25 August 2026: 2,181 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence; 644 are residual fragments left by the MSOA split, each under 100 sqm or 10 m; 5 fall outside every district — offshore, inter-tidal, or beyond Great Britain.
@@ -41,6 +49,7 @@
 - areahectar is the whole-BUA area (constant across all rows sharing a bua24cd). area_ha is the area of THIS polygon part only.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - lad22cd, lad22nm : spatial intersect with ONS 2022 LAD boundaries.
@@ -48,6 +57,7 @@
 - area_ha : derived from geom at load (area in hectares, computed from the geometry at load). Per-part area. For whole-BUA area use areahectar (constant within a bua24cd group).
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded November 2024.
 

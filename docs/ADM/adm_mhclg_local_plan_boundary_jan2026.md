@@ -2,37 +2,45 @@
 
 <p class="layer-short">Local Plan Boundary 2026</p>
 
-`adm_mhclg_local_plan_boundary_jan2026`
+`adm_mhclg_local_plan_boundary_jan2026`<button class="md-clipboard md-icon" data-clipboard-text="adm_mhclg_local_plan_boundary_jan2026" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/adm_mhclg_local_plan_boundary_jan2026.png" alt="Styling preview of adm_mhclg_local_plan_boundary_jan2026" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/adm_mhclg_local_plan_boundary_jan2026.png" alt="Styling preview of adm_mhclg_local_plan_boundary_jan2026" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Ministry of Housing, Communities and Local Government (MHCLG), published via Planning Data (planning.data.gov.uk).
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - Dataset page : https://www.planning.data.gov.uk/dataset/local-plan-boundary
 - Field specification : https://digital-land.github.io/specification/dataset/local-plan-boundary
 
 **DEFINITIONS**
+{: .sec-label }
 
 - Local plan boundary is the development plan area prepared by a local planning authority.
 
 **SCOPE**
+{: .sec-label }
 
 - England only.
 - 575 polygon rows representing 364 distinct upstream entity IDs across 363 local planning authorities.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (British National Grid / BNG).
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - The row count counts split pieces, not source features: this layer was split by Middle Layer Super Output Area, so it holds one row per feature per MSOA piece, plus whole and remainder rows to keep 100% of the source geometry. 15,358 rows represent 575 source features, measured 25 August 2026. `source_fid` identifies the originating feature.
 - Geography keys are NULL on 307 of 15,358 rows, measured 25 August 2026: 282 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence; 19 are residual fragments left by the MSOA split, each under 100 sqm or 10 m; 1 are in Scotland or Northern Ireland, outside the England and Wales lookup; 5 fall outside every district — offshore, inter-tidal, or beyond Great Britain.
@@ -40,14 +48,17 @@
 - The upstream geometry is multipolygon; the loader exploded each multipolygon into single-part Polygon rows. One entity can occupy many rows (entity 4211319 has 53 parts).
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 
 **UPDATE REQUIRED**
+{: .sec-label }
 
 - New data found from data source on 18 March 2026. Current data is 9 January 2026. An update is scheduled in the next turn.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, January 2026.
 

@@ -2,40 +2,49 @@
 
 <p class="layer-short">Substation Site</p>
 
-`utl_nationalgrid_substation_site`
+`utl_nationalgrid_substation_site`<button class="md-clipboard md-icon" data-clipboard-text="utl_nationalgrid_substation_site" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/utl_nationalgrid_substation_site.png" alt="Styling preview of utl_nationalgrid_substation_site" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/utl_nationalgrid_substation_site.png" alt="Styling preview of utl_nationalgrid_substation_site" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - National Grid Electricity Transmission. High-voltage transmission substation site assets.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - National Grid Electricity Transmission : https://www.nationalgrid.com/electricity-transmission
 
 **DEFINITIONS**
+{: .sec-label }
 
 - Substations connect sources of electricity generation to the transmission network and onward to the distribution system that reaches homes and businesses; this layer represents National Grid substation sites. (National Grid)
 
 **SCOPE**
+{: .sec-label }
 
 - England and Wales. 505 rows.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid). Geometry type Polygon.
 
 **LICENCE**
+{: .sec-label }
 
 - © National Grid. Licence - confirm with National Grid before re-publication.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - The row count counts split pieces, not source features: this layer was split by Middle Layer Super Output Area, so it holds one row per feature per MSOA piece, plus whole and remainder rows to keep 100% of the source geometry. 524 rows represent 505 source features, measured 25 August 2026. `source_fid` identifies the originating feature.
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - `msoa21hclnm` — House of Commons Library readable MSOA name, assigned at load via the polygon's 2021 MSOA (representative interior point in uk_baseline.adm_ons_msoa_boundary_2021). Open Parliament Licence.

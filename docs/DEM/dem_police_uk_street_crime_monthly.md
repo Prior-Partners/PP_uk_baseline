@@ -2,20 +2,24 @@
 
 <p class="layer-short">Crime - Street crime</p>
 
-`dem_police_uk_street_crime_monthly`
+`dem_police_uk_street_crime_monthly`<button class="md-clipboard md-icon" data-clipboard-text="dem_police_uk_street_crime_monthly" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/dem_police_uk_street_crime_monthly.png" alt="Styling preview of dem_police_uk_street_crime_monthly" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/dem_police_uk_street_crime_monthly.png" alt="Styling preview of dem_police_uk_street_crime_monthly" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Data published by data.police.uk (Home Office). 43 territorial police forces in England and Wales, plus British Transport Police, contribute CSV files.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - Archive index : https://data.police.uk/data/archive/
 - Data definitions : https://data.police.uk/about/
 
 **DEFINITIONS**
+{: .sec-label }
 
 - Crime types: 14 standardised categories assigned by the police force at time of recording (full list at https://data.police.uk/about/):
     - Anti-social behaviour
@@ -35,19 +39,23 @@
 - Last outcome category: a snapshot, as of the archive publication month, of the case progression status. Mutates over time as cases progress; the loader's rolling window picks up corrections to the trailing 35 months automatically.
 
 **SCOPE**
+{: .sec-label }
 
 - Police forces in England and Wales, plus British Transport Police.
 - Rolling 36-month window — months that fall out of the window freeze at their last-published state.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (British National Grid / BNG). Reprojected at load from EPSG:4326 lat/lon supplied in the source CSV.
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - crime_id is nullable — blank for Anti-Social Behaviour (ASB) rows in the source CSV.
 - last_outcome is a SNAPSHOT, not a live status. Cases in published months outside the rolling 36-month window are frozen and may not reflect current case state.
@@ -55,10 +63,12 @@
 - ~17-67% of "Last outcome category" values mutate across releases for the same row — verified by internal archive-comparison checks. Treat the column as a historical-snapshot, not a current-state indicator.
 
 **NOT IN THIS DATASET**
+{: .sec-label }
 
 - Northern Ireland (PSNI) and Scotland (Police Scotland) do not publish via data.police.uk archives.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, Monthly.
 

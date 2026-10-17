@@ -2,36 +2,44 @@
 
 <p class="layer-short">Conservation Areas</p>
 
-`her_historicengland_conservation_areas_jul2025`
+`her_historicengland_conservation_areas_jul2025`<button class="md-clipboard md-icon" data-clipboard-text="her_historicengland_conservation_areas_jul2025" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/her_historicengland_conservation_areas_jul2025.png" alt="Styling preview of her_historicengland_conservation_areas_jul2025" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/her_historicengland_conservation_areas_jul2025.png" alt="Styling preview of her_historicengland_conservation_areas_jul2025" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Historic England (compiler). Conservation areas are designated by Local Planning Authorities (LPAs) under the Planning (Listed Buildings and Conservation Areas) Act 1990.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - HE data downloads  : https://historicengland.org.uk/listing/the-list/data-downloads/
 - Conservation Areas : https://historicengland.org.uk/advice/your-home/owning-historic-property/conservation-area/
 
 **DEFINITIONS**
+{: .sec-label }
 
 - Conservation areas protect the special architectural and historic interest of a place — the features that make it unique and distinctive. (Historic England, Conservation Areas)
 
 **SCOPE**
+{: .sec-label }
 
 - England. 14,017 rows.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid). Geometry type MultiPolygon.
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0. © Historic England.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - The row count counts split pieces, not source features: this layer was split by Middle Layer Super Output Area, so it holds one row per feature per MSOA piece, plus whole and remainder rows to keep 100% of the source geometry. 29,788 rows represent 14,017 source features, measured 25 August 2026. `source_fid` identifies the originating feature.
 - Geography keys are NULL on 199 of 29,788 rows, measured 25 August 2026: 50 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence; 143 are residual fragments left by the MSOA split, each under 100 sqm or 10 m; 6 fall outside every district — offshore, inter-tidal, or beyond Great Britain.
@@ -39,10 +47,12 @@
 - Compiled from Local Planning Authority sources; completeness and boundary precision vary by LPA.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, May 2026.
 

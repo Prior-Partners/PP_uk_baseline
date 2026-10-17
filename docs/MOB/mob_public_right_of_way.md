@@ -2,36 +2,44 @@
 
 <p class="layer-short">Public Rights of Way</p>
 
-`mob_public_right_of_way`
+`mob_public_right_of_way`<button class="md-clipboard md-icon" data-clipboard-text="mob_public_right_of_way" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/mob_public_right_of_way.png" alt="Styling preview of mob_public_right_of_way" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/mob_public_right_of_way.png" alt="Styling preview of mob_public_right_of_way" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Local surveying authorities (local highway authorities) of England, via their published definitive-map / PRoW open data, aggregated through the Public Rights of Way open-data project (osm.mathmos.net/prow). Per-row provenance in authority_name, source_url, source_licence and source_published_date.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - PRoW open data project        : https://osm.mathmos.net/prow/open-data/
 - gov.uk Use public rights of way : https://www.gov.uk/right-of-way-open-access-land/use-public-rights-of-way
 
 **DEFINITIONS**
+{: .sec-label }
 
 - A public right of way is a highway over which the public has a right to pass and repass. Categories by permitted use (gov.uk): footpaths are "for walking, running, mobility scooters or powered wheelchairs"; bridleways are "for walking, horse riding, bicycles, mobility scooters or powered wheelchairs"; restricted byways are "for any transport without a motor and mobility scooters or powered wheelchairs"; byways open to all traffic are "for any kind of transport, including cars (but they're mainly used by walkers, cyclists and horse riders)." (gov.uk, Use public rights of way)
 
 **SCOPE**
+{: .sec-label }
 
 - England. 509,469 rows.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid). Geometry type LineString.
 
 **LICENCE**
+{: .sec-label }
 
 - Per row - see source_licence (observed "Open Government Licence (v3)" and "OS OpenData Licence"). Confirm per authority before re-publication.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - The row count counts split pieces, not source features: this layer was split by Middle Layer Super Output Area, so it holds one row per feature per MSOA piece, plus whole and remainder rows to keep 100% of the source geometry. 554,975 rows represent 508,819 source features, measured 25 August 2026. `source_fid` identifies the originating feature.
 - Geography keys are NULL on 1,804 of 554,975 rows, measured 25 August 2026: 1,258 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence; 365 are residual fragments left by the MSOA split, each under 100 sqm or 10 m; 7 are in Scotland or Northern Ireland, outside the England and Wales lookup; 174 fall outside every district — offshore, inter-tidal, or beyond Great Britain.
@@ -39,10 +47,12 @@
 - Compiled from many surveying authorities; completeness, attribute conventions and update dates vary by authority (see authority_name, source_published_date, update_date).
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, May 2026.
 

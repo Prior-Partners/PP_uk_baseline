@@ -2,45 +2,54 @@
 
 <p class="layer-short">Fuel Poverty 2023</p>
 
-`dem_desnz_lsoa_fuel_poverty_2023`
+`dem_desnz_lsoa_fuel_poverty_2023`<button class="md-clipboard md-icon" data-clipboard-text="dem_desnz_lsoa_fuel_poverty_2023" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/dem_desnz_lsoa_fuel_poverty_2023.png" alt="Styling preview of dem_desnz_lsoa_fuel_poverty_2023" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/dem_desnz_lsoa_fuel_poverty_2023.png" alt="Styling preview of dem_desnz_lsoa_fuel_poverty_2023" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Department for Energy Security and Net Zero (DESNZ), formerly the Department for Business, Energy & Industrial Strategy (BEIS); department split April 2023.
 - Modelled from the English Housing Survey (EHS) and aggregated to Lower layer Super Output Areas 2021.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - Statistical release : https://www.gov.uk/government/statistics/sub-regional-fuel-poverty-2023-2021-data
 - Methodology : https://www.gov.uk/government/publications/fuel-poverty-sub-regional-methodology-and-documentation/sub-regional-fuel-poverty-statistics-methodology
 - data.gov.uk catalogue : https://www.data.gov.uk/dataset/f3009590-2bc9-40d9-8dc3-571e6fddae45/fuel-poverty-in-england-sub-regional
 
 **DEFINITIONS**
+{: .sec-label }
 
 - Estimated percentage of households in fuel poverty in each LSOA.
 - LILEE (Low Income Low Energy Efficiency). A household is fuel poor if: 1. their home has a Fuel Poverty Energy Efficiency Rating of band D or below, and 2. after modelled energy and housing costs, their residual income is below the poverty line.
 
 **SCOPE**
+{: .sec-label }
 
 - England only.
 - 33,755 rows at LSOA 2021 level.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (British National Grid / BNG). Geometry joined at load from the LSOA21 boundary set.
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - Fuel poverty estimates at LSOA have very small sample sizes; focus on general trends and area comparison, not on identifying trends over time within an LSOA.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - `msoa21hclnm` — House of Commons Library readable MSOA name, joined at load on msoa21cd from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.

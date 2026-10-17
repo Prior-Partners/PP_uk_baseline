@@ -2,36 +2,44 @@
 
 <p class="layer-short">Flood Zones - Climate Change Allowance</p>
 
-`env_defra_flood_zones_plus_climate_change_july2025`
+`env_defra_flood_zones_plus_climate_change_july2025`<button class="md-clipboard md-icon" data-clipboard-text="env_defra_flood_zones_plus_climate_change_july2025" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/env_defra_flood_zones_plus_climate_change_july2025.png" alt="Styling preview of env_defra_flood_zones_plus_climate_change_july2025" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/env_defra_flood_zones_plus_climate_change_july2025.png" alt="Styling preview of env_defra_flood_zones_plus_climate_change_july2025" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Environment Agency (EA), part of the Department for Environment, Food and Rural Affairs (Defra). Flood Map for Planning — climate-change extent dataset.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - EA Flood Map for Planning  : https://environment.data.gov.uk/dataset/bed63fc1-dd26-4685-b143-2941088923b3
 - EA climate-change guidance : https://www.gov.uk/guidance/flood-risk-assessments-climate-change-allowances
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "Climate change allowances are predictions of anticipated change for: peak river flow, peak rainfall intensity, sea level rise, offshore wind speed and extreme wave height." (gov.uk "What climate change allowances are")
 
 **SCOPE**
+{: .sec-label }
 
 - England. 789,039 rows.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid).
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0. © Environment Agency.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - The row count counts split pieces, not source features: this layer was split by Middle Layer Super Output Area, so it holds one row per feature per MSOA piece, plus whole and remainder rows to keep 100% of the source geometry. 789,039 rows represent 672,790 source features, measured 25 August 2026. `source_fid` identifies the originating feature.
 - Geography keys are NULL on 58 of 789,039 rows, measured 25 August 2026: 55 are in Scotland or Northern Ireland, outside the England and Wales lookup; 3 fall outside every district — offshore, inter-tidal, or beyond Great Britain.
@@ -39,6 +47,7 @@
 - 25,816 rows carry a district but no Middle Layer Super Output Area: they lie outside every 2021 MSOA but inside a district, so the district was assigned from the feature's representative point while the MSOA columns stay NULL.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - Geometry split to one row per source feature per MSOA (2021).
@@ -47,6 +56,7 @@
 - Features with no MSOA overlap (offshore or outside England & Wales) are kept whole, with NULL geography columns.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, May 2026.
 

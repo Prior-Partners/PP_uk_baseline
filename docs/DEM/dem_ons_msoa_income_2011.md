@@ -2,50 +2,60 @@
 
 <p class="layer-short">Income 2011</p>
 
-`dem_ons_msoa_income_2011`
+`dem_ons_msoa_income_2011`<button class="md-clipboard md-icon" data-clipboard-text="dem_ons_msoa_income_2011" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/dem_ons_msoa_income_2011.png" alt="Styling preview of dem_ons_msoa_income_2011" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/dem_ons_msoa_income_2011.png" alt="Styling preview of dem_ons_msoa_income_2011" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Office for National Statistics (ONS), "Small Area Income Estimates for Middle layer Super Output Areas, England and Wales".
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - ONS Small Area Income landing : https://www.ons.gov.uk/peoplepopulationandcommunity/personalandhouseholdfinances/incomeandwealth/bulletins/smallareamodelbasedincomeestimates
 - ONS methodology : https://www.ons.gov.uk/peoplepopulationandcommunity/personalandhouseholdfinances/incomeandwealth/methodologies/estimatingdistributionsofhouseholdincomeformiddlelayersuperoutputareasin2011usingsmallareaestimationmethods
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "Net weekly household income adjusted for household size and composition (equivalised), after housing costs." (ONS Small Area Income methodology)
 - "Equivalised income represents the income level of every individual in the household. Equivalisation considers the household size and composition, and acknowledges that, for example, two people do not need double the income of one person to have the same living standards." (ONS Small Area Income bulletin)
 - These are MODEL-BASED estimates, not survey-direct measurements. ONS combined administrative tax records with the Family Resources Survey using small-area estimation methods to produce MSOA-level estimates.
 
 **SCOPE**
+{: .sec-label }
 
 - England and Wales. MSOA 2011 boundary.
 - Reference period: financial year 2011/12.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid).
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - This table is published on 2011 MSOA boundaries and its values are 2011-vintage; `msoa21hclnm` is a readable label for the corresponding 2021 MSOA and does not re-aggregate any value onto 2021 geography. For MSOAs unchanged in 2021 the name is exact. For the small number of 2011 MSOAs that were split, the column lists every successor name separated by a semicolon, so those rows carry more than one name and cannot be joined to a single msoa21cd. No 2021 geography codes are recorded on this table.
 - "The modelling process tends to shrink estimates towards the average level, so the true distribution of MSOA average incomes will have more extreme high and low values than the estimated values." (ONS methodology page)
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - `msoa21hclnm` — House of Commons Library readable MSOA name for the 2021 MSOA corresponding to this row's 2011 MSOA, joined at load via uk.ref_msoa11_msoa21_name_lu. Open Parliament Licence.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Data: 2011/12 (ONS publication 2014/2015).
 

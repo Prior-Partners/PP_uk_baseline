@@ -2,47 +2,57 @@
 
 <p class="layer-short">Protected Wrecks</p>
 
-`her_historicengland_protected_wrecks_may2026`
+`her_historicengland_protected_wrecks_may2026`<button class="md-clipboard md-icon" data-clipboard-text="her_historicengland_protected_wrecks_may2026" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/her_historicengland_protected_wrecks_may2026.png" alt="Styling preview of her_historicengland_protected_wrecks_may2026" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/her_historicengland_protected_wrecks_may2026.png" alt="Styling preview of her_historicengland_protected_wrecks_may2026" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Historic England, National Heritage List for England (NHLE), Protected Wreck Sites dataset.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - NHLE              : https://historicengland.org.uk/listing/the-list/
 - HE data downloads : https://historicengland.org.uk/listing/the-list/data-downloads/
 - Protected Wreck Sites : https://historicengland.org.uk/listing/what-is-designation/protected-wreck-sites/
 
 **DEFINITIONS**
+{: .sec-label }
 
 - The remains of ships and boats which meet the criteria set out in the Protection of Wrecks Act 1973 can be protected, to prevent uncontrolled interference. (Historic England, Protected Wreck Sites)
 
 **SCOPE**
+{: .sec-label }
 
 - England. 9 rows.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid). Geometry type MultiPolygon.
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0. © Historic England.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - The row count counts split pieces, not source features: this layer was split by Middle Layer Super Output Area, so it holds one row per feature per MSOA piece, plus whole and remainder rows to keep 100% of the source geometry. 12 rows represent 9 source features, measured 25 August 2026. `source_fid` identifies the originating feature.
 - Geography keys are NULL on 5 of 12 rows, measured 25 August 2026: 5 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence.
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, May 2026.
 

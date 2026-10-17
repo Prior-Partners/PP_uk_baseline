@@ -2,48 +2,58 @@
 
 <p class="layer-short">Output Area Boundary 2021</p>
 
-`adm_ons_oa_boundaries_dec2021`
+`adm_ons_oa_boundaries_dec2021`<button class="md-clipboard md-icon" data-clipboard-text="adm_ons_oa_boundaries_dec2021" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/adm_ons_oa_boundaries_dec2021.png" alt="Styling preview of adm_ons_oa_boundaries_dec2021" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/adm_ons_oa_boundaries_dec2021.png" alt="Styling preview of adm_ons_oa_boundaries_dec2021" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Office for National Statistics (ONS), via data.gov.uk.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - Dataset page : https://www.data.gov.uk/dataset/4d4e021d-fe98-4a0e-88e2-3ead84538537/output-areas-december-2021-boundaries-ew-bgc-v21
 - Digital boundaries methods : https://www.ons.gov.uk/methodology/geography/geographicalproducts/digitalboundaries
 
 **DEFINITIONS**
+{: .sec-label }
 
 - Output Areas (OAs) are the smallest census geography, built from postcodes to be socially homogeneous, with at least 100 residents and 40 households (about 125 households on average).
 
 **SCOPE**
+{: .sec-label }
 
 - England & Wales.
 - 188,880 OAs.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (British National Grid / BNG).
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - Enrichment coverage measured 5 August 2026 across 188,880 rows: msoa21cd, msoa21nm, msoa21hclnm, lad22cd, lad22nm, lad25cd, lad25nm, ctyua25cd and ctyua25nm are all filled on 188,880 rows with no NULLs; sds_name and sds_group are filled on 178,596 rows and NULL on 10,284, being Wales 10,275 and the Isles of Scilly 9. Every NULL is a fact about geography; none is recoverable.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - Route attr_join on lsoa21cd, applied 5 August 2026 through the uk_new staging schema. LSOAs nest wholly within MSOAs, so the join is exact rather than best-fit, and the row count is unchanged at 188,880. No numeric value was changed, recomputed or apportioned. Backbone uk_baseline.adm_ons_msoa_boundary_2021; county and SDS lookup uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - `msoa21hclnm` — House of Commons Library readable MSOA name, joined at load on lsoa21cd via the ONS 2021 output-area hierarchy (uk_baseline.adm_ons_msoa_boundary_2021). Open Parliament Licence.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, February 2026.
 

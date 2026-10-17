@@ -2,42 +2,51 @@
 
 <p class="layer-short">Lower Layer Super Output Area Boundary 2021</p>
 
-`adm_ons_lsoa_boundary_2021`
+`adm_ons_lsoa_boundary_2021`<button class="md-clipboard md-icon" data-clipboard-text="adm_ons_lsoa_boundary_2021" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/adm_ons_lsoa_boundary_2021.png" alt="Styling preview of adm_ons_lsoa_boundary_2021" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/adm_ons_lsoa_boundary_2021.png" alt="Styling preview of adm_ons_lsoa_boundary_2021" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Office for National Statistics (ONS), Open Geography Portal.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - Dataset page : https://geoportal.statistics.gov.uk/datasets/ons::lower-layer-super-output-areas-december-2021-boundaries-ew-bsc-v4-2/about
 - Digital boundaries methods : https://www.ons.gov.uk/methodology/geography/geographicalproducts/digitalboundaries
 
 **DEFINITIONS**
+{: .sec-label }
 
 - Lower Layer Super Output Areas (LSOAs) are small, stable census statistical areas built from groups of Output Areas, of similar population size — about 1,500 residents on average (roughly 1,000–3,000 people).
 
 **SCOPE**
+{: .sec-label }
 
 - England & Wales.
 - 35,672 LSOAs (2021 Census geography).
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (British National Grid / BNG).
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - 9 geometries repaired on 23 September 2026 to meet the geometry validity rules: Stockport 006C (E01005866), Bristol 027B (E01014674), Thurrock 001C (E01015946), Dorset 008C (E01020541), Colchester 021C (E01021733), Wyre Forest 007C (E01032465), Swale 007G (E01032655), North Somerset 026D (E01032668), Chichester 012H (E01035327). Each outline touched itself at a single point, enclosing a void as part of the outer boundary; the void is now drawn as a separate hole. Areas are unchanged.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - `msoa21hclnm` — House of Commons Library readable MSOA name, joined at load on msoa21cd from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.

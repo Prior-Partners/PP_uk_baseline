@@ -2,47 +2,57 @@
 
 <p class="layer-short">VOA Business Floorspace - MSOA</p>
 
-`ecn_voa_msoa_business_floorspace_2023`
+`ecn_voa_msoa_business_floorspace_2023`<button class="md-clipboard md-icon" data-clipboard-text="ecn_voa_msoa_business_floorspace_2023" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/ecn_voa_msoa_business_floorspace_2023.png" alt="Styling preview of ecn_voa_msoa_business_floorspace_2023" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/ecn_voa_msoa_business_floorspace_2023.png" alt="Styling preview of ecn_voa_msoa_business_floorspace_2023" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Valuation Office Agency (VOA) Non-Domestic Rating (NDR), gov.uk publication 2023-11.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - Dataset page : https://www.gov.uk/government/statistics/non-domestic-rating-stock-of-properties-including-business-floorspace-2023
 - Background information : https://www.gov.uk/government/statistics/non-domestic-rating-stock-of-properties-including-business-floorspace-2023/non-domestic-rating-stock-of-properties-including-business-floorspace-background-information
 
 **DEFINITIONS**
+{: .sec-label }
 
 - Floorspace: "Floorspace is defined as the internal area in metres squared used to calculate a property's rateable value. In most instances, this will not include communal areas such as kitchens and facilities such as toilets." (gov.uk background-information page)
 - Rateable Value (RV): "The RV of a property is broadly the value at which a property might be expected to be let for one year." (gov.uk background-information page)
 - Rating list mapping: "those for 2001-2005 are based on the 2000 rating list; 2006-2010 are based on the 2005 rating list; 2011-2017 are based on the 2010 rating list and 2018-2023 are based on the 2017 rating list." (gov.uk background-information page)
 
 **SCOPE**
+{: .sec-label }
 
 - Middle Super Output Area (MSOA) 2021 boundaries, England and Wales. 7,264 rows (E: 6,856; W: 408). Source CSV rows filtered to geography = 'MSOA'.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (British National Grid).
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0 (OGL). © Crown copyright. https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - `msoa21hclnm` — House of Commons Library readable MSOA name, joined at load on msoa21cd from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, May 2026.
 

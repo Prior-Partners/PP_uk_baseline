@@ -2,41 +2,50 @@
 
 <p class="layer-short">Permitted Waste Authorised Landfill</p>
 
-`utl_defra_permitted_waste_authorised_landfill`
+`utl_defra_permitted_waste_authorised_landfill`<button class="md-clipboard md-icon" data-clipboard-text="utl_defra_permitted_waste_authorised_landfill" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/utl_defra_permitted_waste_authorised_landfill.png" alt="Styling preview of utl_defra_permitted_waste_authorised_landfill" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/utl_defra_permitted_waste_authorised_landfill.png" alt="Styling preview of utl_defra_permitted_waste_authorised_landfill" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Environment Agency (EA), part of the Department for Environment, Food and Rural Affairs (Defra). Permitted Waste Sites - Authorised Landfill Site Boundaries dataset.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - EA dataset record : https://environment.data.gov.uk/dataset/692eaecf-d465-11e4-ac2e-f0def148f590
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "The Permitted Waste Sites - Authorised Landfill Site Boundaries is a polygon dataset that contains the boundaries of landfill sites that are currently authorised by the Environment Agency under Environmental Permitting Regulations." (Environment Agency)
 
 **SCOPE**
+{: .sec-label }
 
 - England. 2,406 rows.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid). Geometry type Polygon.
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0. © Environment Agency.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - The row count counts split pieces, not source features: this layer was split by Middle Layer Super Output Area, so it holds one row per feature per MSOA piece, plus whole and remainder rows to keep 100% of the source geometry. 2,847 rows represent 2,406 source features, measured 25 August 2026. `source_fid` identifies the originating feature.
 - Geography keys are NULL on 14 of 2,847 rows, measured 25 August 2026: 7 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence; 7 are residual fragments left by the MSOA split, each under 100 sqm or 10 m.
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - `msoa21hclnm` — House of Commons Library readable MSOA name, assigned at load via the polygon's 2021 MSOA (representative interior point in uk_baseline.adm_ons_msoa_boundary_2021). Open Parliament Licence.

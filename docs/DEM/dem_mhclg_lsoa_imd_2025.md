@@ -2,49 +2,59 @@
 
 <p class="layer-short">IMD 2025</p>
 
-`dem_mhclg_lsoa_imd_2025`
+`dem_mhclg_lsoa_imd_2025`<button class="md-clipboard md-icon" data-clipboard-text="dem_mhclg_lsoa_imd_2025" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/dem_mhclg_lsoa_imd_2025.png" alt="Styling preview of dem_mhclg_lsoa_imd_2025" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/dem_mhclg_lsoa_imd_2025.png" alt="Styling preview of dem_mhclg_lsoa_imd_2025" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Ministry of Housing, Communities and Local Government (MHCLG). Includes score / rank / decile columns for the IMD, its seven domains and six sub-domains, and the two supplementary income indices (IDACI, IDAOPI).
 - Population denominator columns derive from Office for National Statistics (ONS) Mid-2022 Population Estimates by LSOA.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - IoD 2025 landing page : https://www.gov.uk/government/statistics/english-indices-of-deprivation-2025
 - Statistical Release : https://www.gov.uk/government/statistics/english-indices-of-deprivation-2025/english-indices-of-deprivation-2025-statistical-release
 - Technical Report (PDF) : https://assets.publishing.service.gov.uk/media/68ff59c80f801e57b5bef907/ID_2025_Technical_Report.pdf
 
 **DEFINITIONS**
+{: .sec-label }
 
 - The Index of Multiple Deprivation (IMD) measures relative deprivation across small areas in England (Lower Layer Super Output Area, LSOA).
 - LSOAs are ranked from 1 (most deprived) to 33,755 (least deprived) and divided into ten equal deciles (decile 1 = most deprived 10%, decile 10 = least deprived 10%).
 
 **SCOPE**
+{: .sec-label }
 
 - IMD values are populated for England only in LSOA 2021.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB36 / British National Grid).
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - Not directly comparable to IMD 2019 (dem_mhclg_lsoa_imd_2019) — MHCLG used new datasets, new and modified indicators, and the LSOA 2021 boundary (rather than LSOA 2011). Cross-year analyses should treat 2025 as a fresh baseline.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - `msoa21hclnm` — House of Commons Library readable MSOA name, joined at load on lsoa21cd via the ONS 2021 output-area hierarchy (uk_baseline.adm_ons_msoa_boundary_2021). Open Parliament Licence.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, November 2025.
 

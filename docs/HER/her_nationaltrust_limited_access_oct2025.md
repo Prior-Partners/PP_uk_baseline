@@ -2,45 +2,55 @@
 
 <p class="layer-short">Limited Access</p>
 
-`her_nationaltrust_limited_access_oct2025`
+`her_nationaltrust_limited_access_oct2025`<button class="md-clipboard md-icon" data-clipboard-text="her_nationaltrust_limited_access_oct2025" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/her_nationaltrust_limited_access_oct2025.png" alt="Styling preview of her_nationaltrust_limited_access_oct2025" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/her_nationaltrust_limited_access_oct2025.png" alt="Styling preview of her_nationaltrust_limited_access_oct2025" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - The National Trust. National Trust Open Data — Land, Limited Access.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - National Trust Limited Access (data.gov.uk) : https://www.data.gov.uk/dataset/ded1ab59-afa7-4632-8ff4-24d07cba1e42/national-trust-open-data-land-limited-access
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "The National Trust Limited Access data shows areas where access is restricted for at least one of the following reasons: The land is enclosed as part of a National Trust Estate. Access is restricted to a dense path network. There are specific reasons the land is not Always Open e.g. Safety concerns." (National Trust Open Data, Land Limited Access)
 
 **SCOPE**
+{: .sec-label }
 
 - 596 rows.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid). Geometry type MultiPolygon.
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0 (confirm with the National Trust before re-publication).
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - The row count counts split pieces, not source features: this layer was split by Middle Layer Super Output Area, so it holds one row per feature per MSOA piece, plus whole and remainder rows to keep 100% of the source geometry. 745 rows represent 596 source features, measured 25 August 2026. `source_fid` identifies the originating feature.
 - Geography keys are NULL on 9 of 745 rows, measured 25 August 2026: 5 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence; 4 are residual fragments left by the MSOA split, each under 100 sqm or 10 m.
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, May 2026.
 

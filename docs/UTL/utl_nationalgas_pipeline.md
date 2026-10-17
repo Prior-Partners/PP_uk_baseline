@@ -2,31 +2,38 @@
 
 <p class="layer-short">Pipeline</p>
 
-`utl_nationalgas_pipeline`
+`utl_nationalgas_pipeline`<button class="md-clipboard md-icon" data-clipboard-text="utl_nationalgas_pipeline" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/utl_nationalgas_pipeline.png" alt="Styling preview of utl_nationalgas_pipeline" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/utl_nationalgas_pipeline.png" alt="Styling preview of utl_nationalgas_pipeline" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - National Gas (formerly National Grid Gas). National Transmission System pipeline network.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - National Gas network and assets : https://www.nationalgas.com/our-businesses/our-network-and-assets
 
 **DEFINITIONS**
+{: .sec-label }
 
 - National Gas Transmission owns and operates Britain's National Transmission System (NTS) for gas; the NTS consists of nearly 5,000 miles of high-pressure steel pipes and more than 500 above-ground installations. (National Gas)
 
 **SCOPE**
+{: .sec-label }
 
 - Great Britain. 3,175 rows.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid). Geometry type Polygon.
 
 **LICENCE**
+{: .sec-label }
 
 - © National Gas. Licence - confirm with National Gas before re-publication.
 
@@ -36,12 +43,14 @@ MSOA SPLIT (added 3 July 2026)
 - Keep-everything (3 July 2026): geometry outside every MSOA — offshore, estuarine, or beyond the generalised coastline — is retained as rows with NULL geography columns (source_fid links the parts), so the layer holds the complete source geometry.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - The row count counts split pieces, not source features: this layer was split by Middle Layer Super Output Area, so it holds one row per feature per MSOA piece, plus whole and remainder rows to keep 100% of the source geometry. 4,846 rows represent 3,175 source features, measured 25 August 2026. `source_fid` identifies the originating feature.
 - Geography keys are NULL on 546 of 4,846 rows, measured 25 August 2026: 64 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence; 3 are residual fragments left by the MSOA split, each under 100 sqm or 10 m; 479 are in Scotland or Northern Ireland, outside the England and Wales lookup.
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 

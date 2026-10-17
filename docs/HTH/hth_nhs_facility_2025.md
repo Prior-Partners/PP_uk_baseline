@@ -2,35 +2,43 @@
 
 <p class="layer-short">NHS Facilities</p>
 
-`hth_nhs_facility_2025`
+`hth_nhs_facility_2025`<button class="md-clipboard md-icon" data-clipboard-text="hth_nhs_facility_2025" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/hth_nhs_facility_2025.png" alt="Styling preview of hth_nhs_facility_2025" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/hth_nhs_facility_2025.png" alt="Styling preview of hth_nhs_facility_2025" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - NHS England (formerly NHS Digital). Organisation Data Service (ODS) / organisations directory, harvested by Prior + Partners from the NHS Digital API (fetch time in fetched_at).
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - NHS Organisation Data Service : https://digital.nhs.uk/services/organisation-data-service
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "The Organisation Data Service (ODS) is a national service for managing reference information about organisations that are involved in health and social care in England and beyond." (NHS England, Organisation Data Service)
 
 **SCOPE**
+{: .sec-label }
 
 - England. 154,497 rows.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid). Geometry type Point.
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0 (confirm before re-publication).
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - Geography keys are NULL on 3 of 154,497 rows, measured 25 August 2026: 3 fall outside every district — offshore, inter-tidal, or beyond Great Britain.
 - A further 13 rows carry a Scottish or Northern Irish district code, so they hold a district but no county or Spatial Development Strategy — the lookup covers England and Wales only.
@@ -38,10 +46,12 @@
 - raw_json column present but not populated in this load; the raw API response (including ODS codes and organisation subtypes) was therefore not retained. Available fields are limited to organisation_id (the NHS Service Search internal identifier, not the ODS code), organisation_name, organisation_type, organisation_type_id, postcode, latitude, longitude, geom, last_updated_utc and fetched_at. Rows cannot be joined to other NHS datasets by ODS code.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, 7 November 2025.
 

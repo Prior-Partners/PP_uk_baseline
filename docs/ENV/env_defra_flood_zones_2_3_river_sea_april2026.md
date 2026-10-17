@@ -2,20 +2,24 @@
 
 <p class="layer-short">Flood Zones 2 and 3 - River and Sea</p>
 
-`env_defra_flood_zones_2_3_river_sea_april2026`
+`env_defra_flood_zones_2_3_river_sea_april2026`<button class="md-clipboard md-icon" data-clipboard-text="env_defra_flood_zones_2_3_river_sea_april2026" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/env_defra_flood_zones_2_3_river_sea_april2026.png" alt="Styling preview of env_defra_flood_zones_2_3_river_sea_april2026" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/env_defra_flood_zones_2_3_river_sea_april2026.png" alt="Styling preview of env_defra_flood_zones_2_3_river_sea_april2026" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Environment Agency (EA), part of the Department for Environment, Food and Rural Affairs (Defra). Flood Map for Planning product.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - EA Flood Map for Planning : https://environment.data.gov.uk/dataset/bed63fc1-dd26-4685-b143-2941088923b3
 - EA Flood Map guidance     : https://www.gov.uk/guidance/flood-map-for-planning
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "The Flood Map for Planning shows river and sea flooding data for England." (gov.uk Flood Map guidance)
 - Flood Zone 2 — medium probability (EA Flood Map guidance). Chance of flooding in any year:
@@ -26,18 +30,22 @@
     - from the sea: 1 in 200 (0.5%) or greater.
 
 **SCOPE**
+{: .sec-label }
 
 - England. 3,728,128 rows.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid).
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0. © Environment Agency.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - The row count counts split pieces, not source features: this layer was split by Middle Layer Super Output Area, so it holds one row per feature per MSOA piece, plus whole and remainder rows to keep 100% of the source geometry. 3,728,128 rows represent 3,559,142 source features, measured 25 August 2026. `source_fid` identifies the originating feature.
 - Geography keys are NULL on 67 of 3,728,128 rows, measured 25 August 2026: 59 are in Scotland or Northern Ireland, outside the England and Wales lookup; 8 fall outside every district — offshore, inter-tidal, or beyond Great Britain.
@@ -45,6 +53,7 @@
 - 47,522 rows carry a district but no Middle Layer Super Output Area: they lie outside every 2021 MSOA but inside a district, so the district was assigned from the feature's representative point while the MSOA columns stay NULL.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - Geometry split to one row per source feature per MSOA (2021).
@@ -53,6 +62,7 @@
 - Features with no MSOA overlap (offshore or outside England & Wales) are kept whole, with NULL geography columns.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, May 2026.
 

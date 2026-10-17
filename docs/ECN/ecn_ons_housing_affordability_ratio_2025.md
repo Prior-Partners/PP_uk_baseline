@@ -2,38 +2,46 @@
 
 <p class="layer-short">Housing Affordability Ratio</p>
 
-`ecn_ons_housing_affordability_ratio_2025`
+`ecn_ons_housing_affordability_ratio_2025`<button class="md-clipboard md-icon" data-clipboard-text="ecn_ons_housing_affordability_ratio_2025" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/ecn_ons_housing_affordability_ratio_2025.png" alt="Styling preview of ecn_ons_housing_affordability_ratio_2025" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/ecn_ons_housing_affordability_ratio_2025.png" alt="Styling preview of ecn_ons_housing_affordability_ratio_2025" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Office for National Statistics (ONS), "Housing affordability in England and Wales" bulletin 2025 release.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - ONS bulletin : https://www.ons.gov.uk/peoplepopulationandcommunity/housing/bulletins/housingaffordabilityinenglandandwales/2025
 - ONS dataset : https://www.ons.gov.uk/peoplepopulationandcommunity/housing/datasets/ratioofhousepricetoworkplacebasedearningslowerquartileandmedian
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "Dividing house prices by annual earnings to create a ratio that enables comparisons across time and between areas. A higher number indicates less affordable housing." (ONS Housing affordability in England and Wales 2025 bulletin)
 - "Ratios compare median house prices from a 12-month period ending in September against median annual earnings from mid-April of the same year. The bulletin uses a threshold of five years of earnings as a broad indicator of affordability." (ONS Housing affordability in England and Wales 2025 bulletin)
 
 **SCOPE**
+{: .sec-label }
 
 - England only, 296 distinct LADs at the May 2025.
 - 10 years of data: 2016 through 2025.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid).
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0 (OGL v3.0).
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - Earnings come from the Annual Survey of Hours and Earnings (ASHE), a 1% sample survey of employee earnings - small-area estimates carry sampling uncertainty that ONS quantifies via confidence intervals (not loaded into this table).
@@ -42,6 +50,7 @@
 - House prices are from HM Land Registry Price Paid Data (a complete administrative record), 12-month moving window ending in September of the reference year.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 

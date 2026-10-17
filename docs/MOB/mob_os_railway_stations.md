@@ -2,41 +2,50 @@
 
 <p class="layer-short">Railway Stations</p>
 
-`mob_os_railway_stations`
+`mob_os_railway_stations`<button class="md-clipboard md-icon" data-clipboard-text="mob_os_railway_stations" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/mob_os_railway_stations.png" alt="Styling preview of mob_os_railway_stations" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/mob_os_railway_stations.png" alt="Styling preview of mob_os_railway_stations" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Ordnance Survey (OS), OS OpenMap Local product.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - OS OpenMap Local    : https://www.ordnancesurvey.co.uk/products/os-open-map-local
 - RailwayStation spec : https://docs.os.uk/os-downloads/products/maps-and-imagery-portfolio/os-openmap-local/os-openmap-local-technical-specification/feature-types/railwaystation
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "Point feature representing the buildings and platforms by a railway line where a train may stop to pick-up or drop-off goods or passengers." (OS OpenMap Local Technical Specification, RailwayStation)
 
 **SCOPE**
+{: .sec-label }
 
 - Great Britain. 3,539 rows.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid). Geometry type Point.
 
 **LICENCE**
+{: .sec-label }
 
 - OS OpenData Licence (incorporates Open Government Licence v3.0; attribution required).
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - A further 412 rows carry a Scottish or Northern Irish district code, so they hold a district but no county or Spatial Development Strategy — the lookup covers England and Wales only.
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 

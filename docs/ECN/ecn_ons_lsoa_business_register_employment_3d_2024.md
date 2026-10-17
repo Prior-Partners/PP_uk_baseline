@@ -2,21 +2,25 @@
 
 <p class="layer-short">BRES Employment - LSOA, 2024, 3D</p>
 
-`ecn_ons_lsoa_business_register_employment_3d_2024`
+`ecn_ons_lsoa_business_register_employment_3d_2024`<button class="md-clipboard md-icon" data-clipboard-text="ecn_ons_lsoa_business_register_employment_3d_2024" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/ecn_ons_lsoa_business_register_employment_3d_2024.png" alt="Styling preview of ecn_ons_lsoa_business_register_employment_3d_2024" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/ecn_ons_lsoa_business_register_employment_3d_2024.png" alt="Styling preview of ecn_ons_lsoa_business_register_employment_3d_2024" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Office for National Statistics (ONS). Distributed via Nomis dataset - Business Register and Employment Survey.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - Nomis dataset page : https://www.nomisweb.co.uk/datasets/newbres6pub
 - ONS BRES methodology : https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/methodologies/businessregisterandemploymentsurveybres
 - ONS BRES QMI : https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/methodologies/businessregisteremploymentsurveybresqmi
 
 **DEFINITIONS**
+{: .sec-label }
 
 - Employees: people aged 16 or over paid directly through the employer's payroll (full-time, part-time or on a training scheme) on the survey reference date. (ONS BRES QMI)
 - Working owners: business owners (sole traders, sole proprietors and partners) who take a share of the profits rather than being paid a wage through the payroll. (ONS BRES QMI)
@@ -24,18 +28,22 @@
 - Employment is broken down by 3-digit SIC2007 industry group.
 
 **SCOPE**
+{: .sec-label }
 
 - England and Wales. Lower Layer Super Output Area (LSOA) 2021. Reference date 1 January 2024.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid).
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0 (OGL v3.0).
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - NULL means the cell was suppressed by ONS for disclosure control; 0 means genuinely zero employment. Suppression bites harder at fine geographies (LSOA) and small industries, so expect many NULLs across the industry row.
@@ -43,11 +51,13 @@
 - 9 geometries repaired on 23 September 2026 to meet the geometry validity rules: Stockport 006C (E01005866), Bristol 027B (E01014674), Thurrock 001C (E01015946), Dorset 008C (E01020541), Colchester 021C (E01021733), Wyre Forest 007C (E01032465), Swale 007G (E01032655), North Somerset 026D (E01032668), Chichester 012H (E01035327). Each outline touched itself at a single point, enclosing a void as part of the outer boundary; the void is now drawn as a separate hole. Areas are unchanged.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - `msoa21hclnm` — House of Commons Library readable MSOA name, joined at load on lsoa21cd via the ONS 2021 output-area hierarchy (uk_baseline.adm_ons_msoa_boundary_2021). Open Parliament Licence.
 
 **NOT IN THIS DATASET**
+{: .sec-label }
 
 - The narrower Employees-only measure (payroll only, excluding working owners).
 - Full-time and part-time breakdowns of Employees.
@@ -55,6 +65,7 @@
 - Scotland and Northern Ireland: the LSOA 2021 boundary covers only England and Wales.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, 27 May 2026.
 

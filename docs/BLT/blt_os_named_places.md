@@ -2,50 +2,60 @@
 
 <p class="layer-short">Named Places</p>
 
-`blt_os_named_places`
+`blt_os_named_places`<button class="md-clipboard md-icon" data-clipboard-text="blt_os_named_places" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/blt_os_named_places.png" alt="Styling preview of blt_os_named_places" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/blt_os_named_places.png" alt="Styling preview of blt_os_named_places" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Ordnance Survey (OS), Open Map Local product.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - Product page : https://osdatahub.os.uk/data/downloads/open/OpenMapLocal
 - Product guide : https://www.ordnancesurvey.co.uk/documents/os-open-map-local-product-guide.pdf
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "A representative point feature giving the general location of a settlement name or geographic place name, for the purposes of text placement." (OS OpenMap Local Product Guide, Land Use / NamedPlace)
 - Classifications (5): Populated Place, Landform, Woodland or Forest, Hydrography, Landcover. (OS OpenMap Local Product Guide)
 
 **SCOPE**
+{: .sec-label }
 
 - Great Britain (England, Wales, Scotland).
 - 476,602 named places (1:1, no row duplication).
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (British National Grid / BNG).
 
 **LICENCE**
+{: .sec-label }
 
 - OS OpenData Licence (incorporates Open Government Licence v3.0; attribution "Contains OS data (c) Crown copyright and database right [year]" required).
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - Geography keys are NULL on 18 of 476,602 rows, measured 25 August 2026: 18 fall outside every district — offshore, inter-tidal, or beyond Great Britain.
 - A further 120,595 rows carry a Scottish or Northern Irish district code, so they hold a district but no county or Spatial Development Strategy — the lookup covers England and Wales only.
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - lad22cd, lad22nm : spatial intersect with ONS 2022 LAD boundaries.
 - wd21cd, wd21nm : spatial intersect with ONS 2021 Ward boundaries.
 
 **NOT IN THIS DATASET**
+{: .sec-label }
 
 - ESRI Shapefile format does not natively support Welsh diacritics. The OS Product Guide documents alternative encodings (DISTNAME plain ASCII, HTMLNAME with numeric HTML entities). Our load preserves UTF-8 text, so distinctive_name should render Welsh characters correctly in PostGIS / QGIS.
 

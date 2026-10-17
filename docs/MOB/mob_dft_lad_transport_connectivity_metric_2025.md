@@ -2,15 +2,18 @@
 
 <p class="layer-short">Transport Connectivity 2025 (LAD)</p>
 
-`mob_dft_lad_transport_connectivity_metric_2025`
+`mob_dft_lad_transport_connectivity_metric_2025`<button class="md-clipboard md-icon" data-clipboard-text="mob_dft_lad_transport_connectivity_metric_2025" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/mob_dft_lad_transport_connectivity_metric_2025.png" alt="Styling preview of mob_dft_lad_transport_connectivity_metric_2025" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/mob_dft_lad_transport_connectivity_metric_2025.png" alt="Styling preview of mob_dft_lad_transport_connectivity_metric_2025" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Department for Transport (DfT). Transport connectivity metric, workbook "Connectivity metrics 2025" (connectivity_metrics_2025.ods, 68,164,574 bytes), sheet LAD, published 29 September 2025. All 35 score columns copied as published; nothing derived or filtered. Columns carry short readable names; the source header is recorded in every column comment.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - Publication page : https://www.gov.uk/government/publications/transport-connectivity-metric
 - Methodology      : https://www.gov.uk/government/publications/transport-connectivity-metric/transport-connectivity-metric
@@ -18,6 +21,7 @@
 - Metadata         : Metadata sheet inside the workbook (definitions of modes, purposes and scores)
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "The metric defines connectivity as someone’s ability to get where they want to go. It measures opportunity to travel to various destinations, weighted by people’s overall proclivity to take those options." (DfT publication page)
 - "connectivity scores range from 0 to 100, where 100 represents the highest level of connectivity." (DfT workbook Metadata sheet)
@@ -28,19 +32,23 @@
 - "A cut-off point has been set for a maximum travel time of 60 minutes." (DfT methodology)
 
 **SCOPE**
+{: .sec-label }
 
 - England and Wales. 331 rows, one per Local Authority District (May 2022 boundary): every English and Welsh district in uk_baseline.adm_ons_lad_boundary_may2022.
 - Reference period October to December 2024 (DfT workbook Metadata sheet). Destination data are a mix of Q4 2024 and Q1 2025, except jobs, which use 2023 provisional Business Register and Employment Survey (BRES) figures (DfT methodology).
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (British National Grid). The source sheet has no geometry; geometry is copied from uk_baseline.adm_ons_lad_boundary_may2022 by matching the district name `LAD22NM` to lad22nm (three names aligned to the boundary's spelling, see the lad22nm column comment). No reprojection.
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0 (DfT publication page). The workbook's own Metadata sheet leaves its licence field as TBA.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - Released as Experimental Statistics (DfT workbook Metadata sheet); the methodology calls these results provisional.
@@ -49,16 +57,19 @@
 - District keys (LAD 2022, LAD 2025, county) filled on all 331 rows, measured 23 September 2026 (lad22cd matched exactly on the district name, then the exact 2022 to 2025 lookup). The SDS columns are NULL on 23 rows by design: 22 in Wales and 1 in the Isles of Scilly.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 
 **NOT IN THIS DATASET**
+{: .sec-label }
 
 - The workbook Metadata sheet defines deciles, but the published sheets carry scores only.
 - The 100-metre grid scores behind the DfT Connectivity Tool, and scores by time of day, are not published in this workbook.
 - MSOA columns (msoa21cd, msoa21nm, msoa21hclnm) are deliberately not added: this is a district-level table, so an MSOA name would be finer than the data.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, 23 September 2026.
 

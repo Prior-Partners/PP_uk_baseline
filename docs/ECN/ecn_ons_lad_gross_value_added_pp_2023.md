@@ -2,47 +2,57 @@
 
 <p class="layer-short">GVA per filled job - LAD (P+P)</p>
 
-`ecn_ons_lad_gross_value_added_pp_2023`
+`ecn_ons_lad_gross_value_added_pp_2023`<button class="md-clipboard md-icon" data-clipboard-text="ecn_ons_lad_gross_value_added_pp_2023" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/ecn_ons_lad_gross_value_added_pp_2023.png" alt="Styling preview of ecn_ons_lad_gross_value_added_pp_2023" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/ecn_ons_lad_gross_value_added_pp_2023.png" alt="Styling preview of ecn_ons_lad_gross_value_added_pp_2023" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Office for National Statistics (ONS). GVA per filled job: subregional productivity Table B3, file labourproductivitylad1.xls, downloaded 27 August 2026. Total GVA: copied from uk_baseline.ecn_ons_lad_gross_value_added_2023 (ONS small area GVA estimates, loaded May 2026).
 - Prior + Partners processing, 27 August 2026: Table B3 per-filled-job values carried unaltered; total gross value added copied from the small-area-derived district layer. No published value altered.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - ONS subregional productivity : https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/labourproductivity/datasets/subregionalproductivitylabourproductivityindicesbylocalauthoritydistrict
 - ONS small area GVA estimates : https://www.ons.gov.uk/economy/grossvalueaddedgva/datasets/uksmallareagvaestimates
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "These data are annual subnational gross value added (GVA) disaggregated to lower layer super output areas (LSOA) in England and Wales, data zones (DZ) in Scotland, and super output areas (SOA) in Northern Ireland." (ONS)
 
 **SCOPE**
+{: .sec-label }
 
 - England and Wales. 318 districts. GVA per filled job 2002-2023; total GVA 2023.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (British National Grid); source data is non-spatial, geometry joined from the boundary layer named on the geom column.
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0 (OGL v3.0).
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - GVA per filled job values are ONS-smoothed current-price estimates.
 - Total GVA is in pounds million; GVA per filled job is in pounds. The two come from different ONS publications and are not derived from each other here.
 - Wales and the Isles of Scilly carry a county but no Spatial Development Strategy area.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - sds_name / sds_group - Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over MHCLG English devolution policy, joined at enrichment via uk_baseline.adm_ons_lad_boundary_may2024.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, 28 August 2026.
 

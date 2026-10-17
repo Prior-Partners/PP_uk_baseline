@@ -2,44 +2,53 @@
 
 <p class="layer-short">Data Zone Boundary 2022</p>
 
-`adm_sg_dz_boundary_2022`
+`adm_sg_dz_boundary_2022`<button class="md-clipboard md-icon" data-clipboard-text="adm_sg_dz_boundary_2022" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/adm_sg_dz_boundary_2022.png" alt="Styling preview of adm_sg_dz_boundary_2022" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/adm_sg_dz_boundary_2022.png" alt="Styling preview of adm_sg_dz_boundary_2022" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Scottish Government, Geographic Information Science and Analysis Team. File SG_DataZone_Bdry_2022.shp from SG_DataZoneBdry_2022.zip, published 16 December 2024. All source fields copied as published; nothing derived, renamed or filtered.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - Dataset record (data.gov.uk) : https://www.data.gov.uk/dataset/afe1aca6-bea2-4283-8847-eecf98ab41a4/data-zone-boundaries-2022
 - Small area statistics collection : https://www.gov.scot/collections/small-area-statistics/
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "Data Zones are the key geography for the dissemination of small area statistics in Scotland and are widely used across the public sector. Composed of groups of Census Output Areas, Data Zones are large enough that statistics can be presented accurately without fear of disclosure and yet small enough that they can be used to represent communities. They are designed to have roughly standard populations of 500 to 1,000 household residents, nest within local authorities (at the time of the Census), and have compact shapes that respect physical boundaries where possible." (Scottish Government metadata record)
 - "Following the update to Data Zones using 2022 Census data, there are now 7,392 Data Zones covering the whole of Scotland." (Scottish Government metadata record)
 
 **SCOPE**
+{: .sec-label }
 
 - Scotland. 7,392 Data Zones. The Scottish counterpart of the Lower layer Super Output Area (LSOA); built from the Census 2022 Output Areas in uk_baseline.adm_nrs_oa_boundary_2022.
 - The publisher ships one file; its extent coincides with the clipped to Mean High Water Output Area edition.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid), as shipped.
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence. Attribution: "Copyright Scottish Government, contains Ordnance Survey data (c) Crown copyright and database right (insert year)."
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - 1 of 7,392 polygons (S01019073) was published with a ring touching itself at a single vertex. Repaired on 2 September 2026 with the data manager's approval; it remains a single polygon with no change in area (0.00 sq m).
 - The publisher gives no field-level definitions for the population, household and area columns; they are carried under their source names. "Note that the standard area measurements will differ from the automated Shape_Area attributes. This will be due to the different coastlines/inland water, and also can be due to the Output Areas policy to remove non-contiguous parts, which was applied after the standard areas were calculated." (Scottish Government metadata record)
 - Key column is named `dzcode`, as published. It holds the Data Zone 2022 code, the Scottish equivalent of `lsoa21cd`; deliberately not renamed (data manager decision, 2 September 2026). Join on `dzcode`.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, 2 September 2026.
 

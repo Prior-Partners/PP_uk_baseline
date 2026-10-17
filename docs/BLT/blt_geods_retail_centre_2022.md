@@ -2,41 +2,49 @@
 
 <p class="layer-short">Retail Centre</p>
 
-`blt_geods_retail_centre_2022`
+`blt_geods_retail_centre_2022`<button class="md-clipboard md-icon" data-clipboard-text="blt_geods_retail_centre_2022" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/blt_geods_retail_centre_2022.png" alt="Styling preview of blt_geods_retail_centre_2022" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/blt_geods_retail_centre_2022.png" alt="Styling preview of blt_geods_retail_centre_2022" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Geographic Data Service (GeoDS, formerly Consumer Data Research Centre / CDRC), developed at UCL, University of Liverpool, University of Oxford and University of Edinburgh.
 - Methodology: Macdonald, J.L., Dolega, L. & Singleton, A. (2022) "An open source delineation and hierarchical classification of UK retail agglomerations", Scientific Data 9: 541.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - GeoDS dataset page : https://data.geods.ac.uk/dataset/retail-centre-boundaries-and-open-indicators
 - Methodology paper : https://www.nature.com/articles/s41597-022-01556-3
 - Source code (GitHub): https://github.com/ESRC-CDRC/Retail-Centre-Boundaries
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "The Retail Centre Boundaries are an openly available suite of data products representing the location, extent and function of retail agglomeration areas across the UK." (GeoDS dataset page)
 - "Boundaries are delineated using openly available and geocoded retail-specific unit locations and land use. Self-contained mutually exclusive tracts of consistently-sized hexagon geometries are overlaid on retail clusters, with a network-based algorithmic fine-tuning based on absolute sizes and densities." (GeoDS dataset page)
 - Hierarchical classification: 11 typology tiers — Regional Centre, Major Town Centre, Town Centre, Market Town, District Centre, Local Centre, Small Local Centre, Large Shopping Centre, Small Shopping Centre, Large Retail Park, Small Retail Park.
 
 **SCOPE**
+{: .sec-label }
 
 - United Kingdom (England, Wales, Scotland, Northern Ireland).
 - 6,344 distinct retail centres represented across 12,681 polygon rows. The upstream geometry is multipolygon (per Macdonald et al methodology); the loader exploded each multipolygon centre into single-part Polygon rows. Most fragmented: RC_EW_1927 "City of London" with 38 parts.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (British National Grid / BNG).
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0 (per GeoDS dataset page).
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - The row count counts split pieces, not source features: this layer was split by Middle Layer Super Output Area, so it holds one row per feature per MSOA piece, plus whole and remainder rows to keep 100% of the source geometry. 19,538 rows represent 12,681 source features, measured 25 August 2026. `source_fid` identifies the originating feature.
 - Geography keys are NULL on 840 of 19,538 rows, measured 25 August 2026: 172 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence; 39 are residual fragments left by the MSOA split, each under 100 sqm or 10 m; 629 are in Scotland or Northern Ireland, outside the England and Wales lookup.
@@ -46,6 +54,7 @@
 - lad22cd / lad22nm are NULL for Scottish centres in this load (Scottish LAD codes use the 'S' prefix; the load's spatial join was restricted to English and Welsh LAD codes). Country / region_nm and the Scottish wd21cd (S-prefix) are populated correctly.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - lad22cd, lad22nm : spatial intersect with ONS 2022 LAD boundaries. NULL for Scottish centres in this load (see caveats below).
@@ -53,10 +62,12 @@
 - area_ha : derived from geom at load (area in hectares, computed from the geometry at load). Per-part area.
 
 **UPDATE REQUIRED**
+{: .sec-label }
 
 - GeoDS released V3.0 of this dataset on 2026-04-15 with 6,423 retail centres (methodology refined since V1). This load is the V1 / 2022 release with 6,344 distinct centres across 12,681 polygon rows. Refresh planned.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded 2022.
 

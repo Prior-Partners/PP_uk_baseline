@@ -2,15 +2,18 @@
 
 <p class="layer-short">Census 2021/22 Ethnic group (UK)</p>
 
-`dem_geods_oa_ethnic_group_2021_22`
+`dem_geods_oa_ethnic_group_2021_22`<button class="md-clipboard md-icon" data-clipboard-text="dem_geods_oa_ethnic_group_2021_22" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/dem_geods_oa_ethnic_group_2021_22.png" alt="Styling preview of dem_geods_oa_ethnic_group_2021_22" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/dem_geods_oa_ethnic_group_2021_22.png" alt="Styling preview of dem_geods_oa_ethnic_group_2021_22" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Geographic Data Service (GeoDS), Smart Data Research UK. Unified UK Census Data (2021/2), topic table uk021 from variable_tables_csv.zip (published 19 February 2026, last modified 3 March 2026). Harmonised by GeoDS from Office for National Statistics (ONS), National Records of Scotland (NRS) and Northern Ireland Statistics and Research Agency (NISRA) census outputs. All 13 source columns copied as published; nothing derived or filtered. Columns carry readable names from the GeoDS labels (see SCOPE); the GeoDS identifier is recorded in every column comment.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - Dataset page : https://data.geods.ac.uk/dataset/unified-uk-census-data
 - Method paper (Goodwin and Singleton) : https://doi.org/10.1177/23998083261429563
@@ -18,6 +21,7 @@
 - Variable Metadata and Table Notes files : shipped with the download; local copy on the G: source folder 260902_GeoDS_Unified UK Census 2021-22.
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "The Unified UK Census Dataset (2021/2022) is a harmonised, small-area dataset that brings together census data from the three UK census agencies -- ONS (England & Wales), NRS (Scotland), and NISRA (Northern Ireland) -- into a single, comparable release." (GeoDS dataset page)
 - "The dataset available for download contains the counts for all 190 variables plus 25 table totals (215 variables in total) across each of the 239,023 small-area geographies. Data Zones are relabelled as "OA" in the dataset for consistency." (GeoDS dataset page)
@@ -25,6 +29,7 @@
 - Census Day: "21 March 2021 for England, Wales, and Northern Ireland, and 20 March 2022 for Scotland." (GeoDS dataset page)
 
 **SCOPE**
+{: .sec-label }
 
 - United Kingdom. 239,023 rows, one per small area: England 178,605; Wales 10,275; Scotland 46,363; Northern Ireland 3,780. Codes are Output Area 2021 (E00, W00), Output Area 2022 (S00) and Data Zone 2021 (N20).
 - Counts only; `total` (GeoDS uk021001) is the table total. No percentages are supplied by the publisher and none were computed.
@@ -32,14 +37,17 @@
 - Sibling of the other 24 GeoDS Unified UK Census tables named dem_geods_oa_*_2021_22.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid). Geometry from uk_baseline.adm_ons_oa_boundaries_dec2021 (England and Wales, Output Area 2021), uk_baseline.adm_nrs_oa_boundary_2022 (Scotland, Output Area 2022) and uk_baseline.adm_nisra_dz_boundary_2021 (Northern Ireland, Data Zone 2021), joined at load on the row's code.
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0. Attribution: "The data for this research have been provided by the Geographic Data Service (geods.ac.uk), a Smart Data Research UK Investment: ES/Z504464/1. These were created as part of an ESRC Census data opportunity grant - ES/Z50273X/1. Contains data from: ONS, NRS, NISRA"
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - "The Scottish census was conducted one year later than the rest of the UK (2022 vs 2021), which may introduce temporal differences in some variables." (GeoDS dataset page)
 - "The data are compiled from the official census releases of the three UK statistical agencies, each of which applies its own disclosure control and data quality procedures." (GeoDS dataset page)
@@ -49,6 +57,7 @@
 - Geography coverage by nation: lad22*/lad25* filled on all 239,023 rows; msoa21cd/msoa21nm/msoa21hclnm and ctyua25* filled on the 188,880 England and Wales rows only; iz22* on the 46,363 Scotland rows only; sdz21* on the 3,780 Northern Ireland rows only; sds_name/sds_group on 178,596 England rows (NULL for Wales, Scotland, Northern Ireland and 9 Isles of Scilly Output Areas).
 
 **ENRICHMENT**
+{: .sec-label }
 
 - Route attr_join on `oa`, applied 2 September 2026 through the uk_new staging schema. England and Wales rows carry Output Area 2021 codes, which nest wholly within LSOA 2021 and MSOA 2021, so the join is exact rather than best-fit; all eleven geography columns were copied from uk_baseline.adm_ons_oa_boundaries_dec2021 (itself enriched 5 August 2026: MSOA 2021 via the ONS 2021 output-area hierarchy, Local Authority District 2022 and 2025, county or unitary authority 2025 and Spatial Development Strategy via uk.ref_lad25_ctyua25_sds_lu_jul2026). Row count unchanged at 239,023. No numeric value was changed, recomputed or apportioned.
 - Scotland (Output Area 2022) and Northern Ireland (Data Zone 2021) rows, 50,143 in all, have no MSOA, county or Spatial Development Strategy in this scheme and are NULL in those columns; their Local Authority District columns were filled on 3 September 2026 (next bullet). Wales carries a county but no SDS.
@@ -56,6 +65,7 @@
 - Intermediate Zones (2,500 to 6,000 household residents) and Super Data Zones (about 2,240 people) are each nation's next level above the small area; they are not the same size as an MSOA (5,000 to 15,000 people) and must not be compared with MSOA figures as like for like. `msoa21cd`, `msoa21nm`, `msoa21hclnm`, `ctyua25cd`, `ctyua25nm`, `sds_name` and `sds_group` remain NULL outside England and Wales because those geographies and classifications do not exist there (Wales has a county but no SDS).
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, 2 September 2026.
 

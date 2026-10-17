@@ -2,17 +2,20 @@
 
 <p class="layer-short">Life Expectancy 2023</p>
 
-`hth_ohid_msoa_life_expectancy_2023`
+`hth_ohid_msoa_life_expectancy_2023`<button class="md-clipboard md-icon" data-clipboard-text="hth_ohid_msoa_life_expectancy_2023" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/hth_ohid_msoa_life_expectancy_2023.png" alt="Styling preview of hth_ohid_msoa_life_expectancy_2023" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/hth_ohid_msoa_life_expectancy_2023.png" alt="Styling preview of hth_ohid_msoa_life_expectancy_2023" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Office for Health Improvement and Disparities (OHID), Department of Health and Social Care, via Fingertips Public Health Profiles. Indicator 93283. Numerator and denominator originate from Office for National Statistics (ONS) annual births and mortality extracts.
 - Boundary attributes (LAD May 2022, Region 2022) joined from ONS Open Geography Portal best-fit lookup.
 - Geometry inherited from uk_baseline.adm_ons_msoa_boundary_2021.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - Indicator data (API)     : https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=93283&child_area_type_id=3&parent_area_type_id=15
 - Indicator metadata (API) : https://fingertips.phe.org.uk/api/indicator_metadata/csv/by_indicator_id?indicator_ids=93283
@@ -20,34 +23,41 @@
 - MSOA21->LAD22->RGN22 LU  : https://geoportal.statistics.gov.uk/datasets/ons::msoa-2021-to-bua-to-lad-to-region-december-2022-best-fit-lookup-in-ew-v2/about
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "Life expectancy is the average number of years a person would expect to live based on contemporary mortality rates. For a particular area and time period, it is an estimate of the average number of years a newborn baby would survive if he or she experienced the age specific mortality rates for that area and time period throughout his or her life. Figures reflect mortality among those living in an area in each time period, rather than mortality among those born in the area. The figures are not therefore the number of years a baby born in the area could actually expect to live, both because the mortality rates of the area are likely to change in the future and because many of those born in the area will live elsewhere for at least some part of their lives." (Fingertips indicator 93283 metadata, Definition)
 
 **SCOPE**
+{: .sec-label }
 
 - England. 6,856 MSOAs (2021 boundary).
 - Time period: 2019 to 2023 (5-year pooled).
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (British National Grid).
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0, additionally constrained by Fingertips terms: "Non commercial use only. Any reuse of these data must carry the recognition of Crown Copyright and acknowledge the Office for National Statistics and the Office for Health Improvement and Disparities as the data source." (Fingertips indicator 93283 metadata, Data re-use)
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - Suppression rule: "Life expectancy values have not been presented for areas where: the person-years in any given age interval is zero; the population is less than 5,000; there are no deaths in the 90 years and over age group; the number of deaths in an age group is greater than the population estimate for that age group; the confidence interval around the life expectancy value is greater than 20 years." (Fingertips indicator 93283 metadata, Disclosure control). Where suppression applies, the value columns are NULL and the corresponding *_value_note column carries the publisher's suppression text.
 - Boundary attributes (lad22cd, lad22nm, rgn22cd, rgn22nm) are LAD May 2022 / Region 2022 vintage. The April 2023 LAD reorganisations (creation of Cumberland, Westmorland and Furness, North Yorkshire UA, Somerset UA, and the Buckinghamshire merger) are not reflected. Region codes E12000001 to E12000009 are stable across vintages, so rgn22cd values would be identical if labelled rgn23cd or rgn24cd.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - `msoa21hclnm` — House of Commons Library readable MSOA name, joined at load on msoa21cd from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, 29 May 2026.
 

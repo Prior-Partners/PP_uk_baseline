@@ -2,47 +2,57 @@
 
 <p class="layer-short">Scheduled Monuments</p>
 
-`her_historicengland_scheduled_monuments_may2026`
+`her_historicengland_scheduled_monuments_may2026`<button class="md-clipboard md-icon" data-clipboard-text="her_historicengland_scheduled_monuments_may2026" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/her_historicengland_scheduled_monuments_may2026.png" alt="Styling preview of her_historicengland_scheduled_monuments_may2026" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/her_historicengland_scheduled_monuments_may2026.png" alt="Styling preview of her_historicengland_scheduled_monuments_may2026" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Historic England, National Heritage List for England (NHLE), Scheduled Monuments dataset.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - NHLE              : https://historicengland.org.uk/listing/the-list/
 - HE data downloads : https://historicengland.org.uk/listing/the-list/data-downloads/
 - Scheduled Monuments : https://historicengland.org.uk/listing/what-is-designation/scheduled-monuments/
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "'Scheduling' is the selection of nationally important archaeological sites." (Historic England, Scheduled Monuments)
 
 **SCOPE**
+{: .sec-label }
 
 - England. 21,317 rows.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid). Geometry type MultiPolygon.
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0. © Historic England.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - The row count counts split pieces, not source features: this layer was split by Middle Layer Super Output Area, so it holds one row per feature per MSOA piece, plus whole and remainder rows to keep 100% of the source geometry. 22,979 rows represent 21,317 source features, measured 25 August 2026. `source_fid` identifies the originating feature.
 - Geography keys are NULL on 20 of 22,979 rows, measured 25 August 2026: 9 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence; 9 are residual fragments left by the MSOA split, each under 100 sqm or 10 m; 2 are in Scotland or Northern Ireland, outside the England and Wales lookup.
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, May 2026.
 

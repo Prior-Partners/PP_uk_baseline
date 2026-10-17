@@ -2,38 +2,46 @@
 
 <p class="layer-short">Functional Sites</p>
 
-`blt_os_functional_sites_oct2024`
+`blt_os_functional_sites_oct2024`<button class="md-clipboard md-icon" data-clipboard-text="blt_os_functional_sites_oct2024" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/blt_os_functional_sites_oct2024.png" alt="Styling preview of blt_os_functional_sites_oct2024" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/blt_os_functional_sites_oct2024.png" alt="Styling preview of blt_os_functional_sites_oct2024" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Ordnance Survey (OS), Open Map Local product.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - Product page : https://osdatahub.os.uk/data/downloads/open/OpenMapLocal
 - Product guide : https://www.ordnancesurvey.co.uk/documents/os-open-map-local-product-guide.pdf
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "A polygon feature that represents the area or extent of certain types of function or activity with appropriate attribution." (OS OpenMap Local Product Guide, Land Use / FunctionalSite)
 - "Each site has a theme, classification and is named (where appropriate)." (OS OpenMap Local Product Guide, Functional Sites)
 
 **SCOPE**
+{: .sec-label }
 
 - Great Britain (England, Wales, Scotland).
 - 37,618 distinct functional sites (by id_original) represented across 46,532 polygon rows (avg ratio ~1.24 - most sites are single polygons; a small fraction are multipolygon sites that have been exploded).
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (British National Grid / BNG).
 
 **LICENCE**
+{: .sec-label }
 
 - OS OpenData Licence (incorporates Open Government Licence v3.0; attribution "Contains OS data (c) Crown copyright and database right [year]" required).
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - The row count counts split pieces, not source features: this layer was split by Middle Layer Super Output Area, so it holds one row per feature per MSOA piece, plus whole and remainder rows to keep 100% of the source geometry. 51,177 rows represent 46,532 source features, measured 25 August 2026. `source_fid` identifies the originating feature.
 - Geography keys are NULL on 4,263 of 51,177 rows, measured 25 August 2026: 130 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence; 94 are residual fragments left by the MSOA split, each under 100 sqm or 10 m; 4,038 are in Scotland or Northern Ireland, outside the England and Wales lookup; 1 fall outside every district — offshore, inter-tidal, or beyond Great Britain.
@@ -42,6 +50,7 @@
 - lad22cd / lad22nm are NULL for Scottish sites in this load.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - `msoa21hclnm` — House of Commons Library readable MSOA name, assigned at load via the polygon's 2021 MSOA (representative interior point in uk_baseline.adm_ons_msoa_boundary_2021). Open Parliament Licence.
@@ -50,6 +59,7 @@
 - area_ha : derived from geom at load (area in hectares, computed from the geometry at load).
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded October 2024.
 

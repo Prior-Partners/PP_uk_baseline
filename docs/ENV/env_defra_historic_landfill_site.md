@@ -2,43 +2,52 @@
 
 <p class="layer-short">Historic Landfill Site</p>
 
-`env_defra_historic_landfill_site`
+`env_defra_historic_landfill_site`<button class="md-clipboard md-icon" data-clipboard-text="env_defra_historic_landfill_site" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/env_defra_historic_landfill_site.png" alt="Styling preview of env_defra_historic_landfill_site" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/env_defra_historic_landfill_site.png" alt="Styling preview of env_defra_historic_landfill_site" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Environment Agency (EA), part of the Department for Environment, Food and Rural Affairs (Defra). Historic Landfill dataset.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - EA Historic Landfill dataset (data.gov.uk) : https://www.data.gov.uk/dataset/17edf94f-6de3-4034-b66b-004ebd0dd010/historic-landfill-sites
 - EA dataset record (env data portal)        : https://environment.data.gov.uk/dataset/17edf94f-6de3-4034-b66b-004ebd0dd010
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "An historic landfill is a site where there is no environmental permit in force." (data.gov.uk Summary)
 - "This data is a national historic landfill dataset that defines the location of and provides specific attributes for known historic landfill sites." (data.gov.uk Summary)
 
 **SCOPE**
+{: .sec-label }
 
 - England. 28,707 rows.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid).
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0. © Environment Agency.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - The row count counts split pieces, not source features: this layer was split by Middle Layer Super Output Area, so it holds one row per feature per MSOA piece, plus whole and remainder rows to keep 100% of the source geometry. 28,707 rows represent 25,187 source features, measured 25 August 2026. `source_fid` identifies the originating feature.
 - Geography keys are NULL on 97 of 28,707 rows, measured 25 August 2026: 67 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence; 30 are residual fragments left by the MSOA split, each under 100 sqm or 10 m.
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - Geometry split to one row per source feature per MSOA (2021); features within a single MSOA are kept whole.

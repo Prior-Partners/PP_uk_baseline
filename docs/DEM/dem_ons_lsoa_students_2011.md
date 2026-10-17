@@ -2,38 +2,46 @@
 
 <p class="layer-short">Census 2011 Students</p>
 
-`dem_ons_lsoa_students_2011`
+`dem_ons_lsoa_students_2011`<button class="md-clipboard md-icon" data-clipboard-text="dem_ons_lsoa_students_2011" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/dem_ons_lsoa_students_2011.png" alt="Styling preview of dem_ons_lsoa_students_2011" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/dem_ons_lsoa_students_2011.png" alt="Styling preview of dem_ons_lsoa_students_2011" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Office for National Statistics (ONS), Census 2011, England and Wales.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - NOMIS Census 2011 KS501UK : https://www.nomisweb.co.uk/census/2011/ks501uk
 - ONS Census 2011 landing page : https://www.ons.gov.uk/census/2011census
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "A student is a person who is in full-time education either at school or in higher or further education." (Scotland's Census schoolchild / student indicator definition — same definition used by ONS for E&W Census 2011)
 - "Schoolchildren and full-time students aged 16 and over were classified as economically active or inactive based on whether they were also in some form of employment in the week before Census Day." (ONS Census 2011 economic activity guidance)
 
 **SCOPE**
+{: .sec-label }
 
 - England and Wales. LSOA 2011 boundary; 34,753 distinct lsoa11cd.
 - Base population: schoolchildren and full-time students at home address; subset breakdowns by age and economic activity.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid).
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - Published on 2011 LSOA boundaries. Each row's msoa21cd, msoa21nm, msoa21hclnm and lad22/lad25 codes are best-fit onto 2021 geography — the 2021 MSOA the row's 2011 LSOA overlaps most by area (uk.ref_lsoa11_msoa21_bestfit_lu). LSOAs that straddle a 2011-to-2021 boundary change are assigned to their largest-overlap MSOA, so for those a small share of the LSOA area lies outside the assigned MSOA.
@@ -41,11 +49,13 @@
 - Census 2011 counted higher-education students at their term-time address (same convention as 2021). University-town LSOAs show inflated student counts in term time.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - `msoa21hclnm` — House of Commons Library readable MSOA name, best-fit assigned at load from the row's 2011 LSOA by largest-area-overlap 2021 MSOA (uk.ref_lsoa11_msoa21_bestfit_lu). Open Parliament Licence.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Data: Census Day 27 March 2011.
 

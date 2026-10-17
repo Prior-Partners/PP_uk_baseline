@@ -2,16 +2,19 @@
 
 <p class="layer-short">Access to Healthy Assets and Hazards (AHAH) 2026</p>
 
-`dem_ons_lsoa_access_healthy_assets_hazards_may2026`
+`dem_ons_lsoa_access_healthy_assets_hazards_may2026`<button class="md-clipboard md-icon" data-clipboard-text="dem_ons_lsoa_access_healthy_assets_hazards_may2026" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/dem_ons_lsoa_access_healthy_assets_hazards_may2026.png" alt="Styling preview of dem_ons_lsoa_access_healthy_assets_hazards_may2026" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/dem_ons_lsoa_access_healthy_assets_hazards_may2026.png" alt="Styling preview of dem_ons_lsoa_access_healthy_assets_hazards_may2026" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - Geographic Data Service (GeoDS), part of Smart Data Research UK, hosted by UCL, University of Liverpool, University of Oxford, and University of Edinburgh.
 - Composite index built from inputs published by NHS Digital, NHS Scotland, NHS Organisation Data Service, Spatial Hub Scotland, DEFRA Pollution Climate Mapping, Sentinel-2 (via Google Earth Engine), OS Open Greenspace, OS Open Rivers, OpenStreetMap, the Local Data Company, and the ONS Postcode Directory.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - GeoDS AHAH dataset page : https://data.geods.ac.uk/dataset/access-to-healthy-assets-hazards-ahah
 - Previous versions       : https://data.geods.ac.uk/dataset/access-to-healthy-assets-hazards-ahah-previous-versions
@@ -20,24 +23,29 @@
 - Citation                : Daras K, Green MA, Davies A, Barr B, Singleton A (2019). Open data on health-related neighbourhood features in Great Britain. Scientific Data 6, 107. https://doi.org/10.1038/s41597-019-0114-6
 
 **DEFINITIONS**
+{: .sec-label }
 
 - AHAH is a multi-dimensional index measuring how 'healthy' a neighbourhood is, based on accessibility to health-promoting and health-damaging features of the built environment.
 - Four domains: Retail environment (e.g. fast food, gambling outlets), Health services (e.g. GP surgeries, pharmacies, A&E), Physical environment (greenspace, blue space), and Air quality (NO2, PM10, SO2).
 
 **SCOPE**
+{: .sec-label }
 
 - Great Britain. 43,064 areas: LSOA 2021 codes (E01, W01) for England + Wales and Data Zone 2022 codes (S01*) for Scotland.
 - Natural key: `lsoa21cd`. Geometry: small-area polygon from the GeoDS parquet geofile.
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid).
 
 **LICENCE**
+{: .sec-label }
 
 - UK Open Government Licence (OGL) v3.
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - Geography keys are NULL on 7,392 of 43,064 rows, measured 25 August 2026: 7,392 are in Scotland or Northern Ireland, outside the England and Wales lookup.
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
@@ -46,17 +54,20 @@
 - 1 geometry repaired on 23 September 2026 to meet the geometry validity rules: Dorset 008C (E01020541). Each outline touched itself at a single point, enclosing a void as part of the outer boundary; the void is now drawn as a separate hole. Areas are unchanged.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - `msoa21hclnm` — House of Commons Library readable MSOA name, joined at load on msoa21cd from House of Commons Library MSOA Names v2.3 (13 February 2026). Open Parliament Licence.
 - Geography codes/names joined from uk_baseline.adm_ons_lsoa_boundary_2021 by `lsoa21cd`: lsoa21nm, msoa21cd, msoa21nm, wd22cd, wd22nm, lad22cd, lad22nm, rgn22cd, rgn22nm. NULL for Scottish rows.
 
 **NOT IN THIS DATASET**
+{: .sec-label }
 
 - Northern Ireland not included (publisher decision).
 - Time-series — only the current cross-section is published; historical AHAH versions are separate datasets.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, 28 May 2026.
 

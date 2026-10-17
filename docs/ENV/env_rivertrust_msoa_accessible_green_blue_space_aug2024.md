@@ -2,46 +2,56 @@
 
 <p class="layer-short">Accessible Green Blue Space</p>
 
-`env_rivertrust_msoa_accessible_green_blue_space_aug2024`
+`env_rivertrust_msoa_accessible_green_blue_space_aug2024`<button class="md-clipboard md-icon" data-clipboard-text="env_rivertrust_msoa_accessible_green_blue_space_aug2024" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
+{: .layer-table }
 
-<img src="../../maps/env_rivertrust_msoa_accessible_green_blue_space_aug2024.png" alt="Styling preview of env_rivertrust_msoa_accessible_green_blue_space_aug2024" loading="lazy" style="width:100%;border:1px solid #d9d3c4;border-radius:8px;margin:6px 0 4px;">
+<img src="../../maps/env_rivertrust_msoa_accessible_green_blue_space_aug2024.png" alt="Styling preview of env_rivertrust_msoa_accessible_green_blue_space_aug2024" loading="lazy" class="layer-map">
 
 **SOURCE**
+{: .sec-label }
 
 - The Rivers Trust, produced with Natural England, the Department for Environment, Food and Rural Affairs (Defra), and the University of Manchester. Distributed via the Catchment Based Approach (CaBA) Data Hub.
 
 **DOCUMENTATION**
+{: .sec-label }
 
 - CaBA Data Hub : https://data.catchmentbasedapproach.org/datasets/theriverstrust::area-of-accessible-green-and-blue-space-per-1000-population-england/about
 
 **DEFINITIONS**
+{: .sec-label }
 
 - "The area (in hectares) of publicly accessible blue- and green-space per 1000 population within each Middle Layer Super Output Area (MSOA)." (The Rivers Trust, CaBA Data Hub)
 
 **SCOPE**
+{: .sec-label }
 
 - England. 6,791 rows (MSOA level).
 
 **CRS**
+{: .sec-label }
 
 - EPSG:27700 (OSGB 1936 / British National Grid). Geometry type MultiPolygon.
 
 **LICENCE**
+{: .sec-label }
 
 - Open Government Licence v3.0 (confirm with The Rivers Trust before re-publication).
 
 **DATA QUALITY CAVEATS**
+{: .sec-label }
 
 - Geography keys are NULL on 114 of 6,791 rows, measured 25 August 2026: 114 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence.
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 - This table is published on 2011 MSOA boundaries and its values are 2011-vintage; `msoa21hclnm` is a readable label for the corresponding 2021 MSOA and does not re-aggregate any value onto 2021 geography. For MSOAs unchanged in 2021 the name is exact. For the small number of 2011 MSOAs that were split, the column lists every successor name separated by a semicolon, so those rows carry more than one name and cannot be joined to a single msoa21cd. No 2021 geography codes are recorded on this table.
 
 **ENRICHMENT**
+{: .sec-label }
 
 - `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
 - `msoa21hclnm` — House of Commons Library readable MSOA name for the 2021 MSOA corresponding to this row's 2011 MSOA, joined at load via uk.ref_msoa11_msoa21_name_lu. Open Parliament Licence.
 
 **LOADED INTO uk_baseline**
+{: .sec-label }
 
 - Loaded by PNC, May 2026.
 

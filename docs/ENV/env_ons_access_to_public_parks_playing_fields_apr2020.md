@@ -5,7 +5,7 @@
 `env_ons_access_to_public_parks_playing_fields_apr2020`<button class="md-clipboard md-icon" data-clipboard-text="env_ons_access_to_public_parks_playing_fields_apr2020" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }
 
-<img src="../../maps/env_ons_access_to_public_parks_playing_fields_apr2020.png" alt="Styling preview of env_ons_access_to_public_parks_playing_fields_apr2020" loading="lazy" class="layer-map">
+<img src="../../maps/env_ons_access_to_public_parks_playing_fields_apr2020.png" alt="Styling preview of env_ons_access_to_public_parks_playing_fields_apr2020" loading="lazy" class="layer-map layer-map--day"><img src="../../maps/night/env_ons_access_to_public_parks_playing_fields_apr2020.png" alt="Styling preview of env_ons_access_to_public_parks_playing_fields_apr2020" loading="lazy" class="layer-map layer-map--night">
 
 **SOURCE**
 {: .sec-label }

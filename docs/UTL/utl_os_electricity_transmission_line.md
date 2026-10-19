@@ -5,7 +5,7 @@
 `utl_os_electricity_transmission_line`<button class="md-clipboard md-icon" data-clipboard-text="utl_os_electricity_transmission_line" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }
 
-<img src="../../maps/utl_os_electricity_transmission_line.png" alt="Styling preview of utl_os_electricity_transmission_line" loading="lazy" class="layer-map">
+<img src="../../maps/utl_os_electricity_transmission_line.png" alt="Styling preview of utl_os_electricity_transmission_line" loading="lazy" class="layer-map layer-map--day"><img src="../../maps/night/utl_os_electricity_transmission_line.png" alt="Styling preview of utl_os_electricity_transmission_line" loading="lazy" class="layer-map layer-map--night">
 
 **SOURCE**
 {: .sec-label }

@@ -173,13 +173,13 @@ def contact_sheet(out: Path) -> Path:
 
 
 def decode_maps(site: Path) -> tuple[int, list[str]]:
-    """Verify, then fully decode, every preview PNG; return (count, problems).
+    """Verify, then fully decode, every preview PNG (Day and Night); return (count, problems).
 
     ``verify()`` checks the file's structure and checksums only; ``load()``
     decodes the pixels, so a broken image stream is caught too.
     """
     problems = []
-    files = sorted((site / "maps").glob("*.png"))
+    files = sorted((site / "maps").glob("**/*.png"))
     for path in files:
         try:
             with Image.open(path) as img:
@@ -187,7 +187,7 @@ def decode_maps(site: Path) -> tuple[int, list[str]]:
             with Image.open(path) as img:              # verify() leaves the image unusable
                 img.load()
         except Exception as exc:  # noqa: BLE001 - every unreadable map is reported, then the next
-            problems.append(f"{path.name}: {exc}")
+            problems.append(f"{path.relative_to(site / 'maps').as_posix()}: {exc}")
     return len(files), problems
 
 

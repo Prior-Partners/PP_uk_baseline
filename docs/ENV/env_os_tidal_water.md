@@ -5,7 +5,7 @@
 `env_os_tidal_water`<button class="md-clipboard md-icon" data-clipboard-text="env_os_tidal_water" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }
 
-<img src="../../maps/env_os_tidal_water.png" alt="Styling preview of env_os_tidal_water" loading="lazy" class="layer-map">
+<img src="../../maps/env_os_tidal_water.png" alt="Styling preview of env_os_tidal_water" loading="lazy" class="layer-map layer-map--day"><img src="../../maps/night/env_os_tidal_water.png" alt="Styling preview of env_os_tidal_water" loading="lazy" class="layer-map layer-map--night">
 
 **SOURCE**
 {: .sec-label }

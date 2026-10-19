@@ -20,7 +20,10 @@ Serves a built site on 127.0.0.1 and drives it with Playwright (Chromium):
   * colours (owner review, 17 October 2026) — in Night and Day, page titles
     are the brand orange; theme rows are orange when closed, hovered, focused,
     open and in the phone drawer; the theme count and search-result titles
-    keep their own colours.
+    keep their own colours;
+  * map pictures (owner review, 19 October 2026) — a layer page shows the
+    Night picture in Night and the Day picture in Day, swaps (and loads the
+    other) on a chip switch, and draws no frame line.
 
 Usage:
     python scripts/dev/check_browser.py <built site> [--report <json>]
@@ -281,11 +284,53 @@ def check_colours(browser: Browser, base: str) -> str:
     return "titles and theme rows orange in Night and Day (closed, hovered, focused, open, drawer); count and search titles unchanged"
 
 
+def loaded(page: Page, cls: str) -> None:
+    page.wait_for_function(f"(() => {{ const i = document.querySelector('img.{cls}');"
+                           f" return i && i.complete && i.naturalWidth > 0; }})()", timeout=15000)
+
+
+def check_pictures(browser: Browser, base: str) -> str:
+    for mode, (system, _, _) in MODES.items():
+        want, other = (("layer-map--night", "layer-map--day") if mode == "Night"
+                       else ("layer-map--day", "layer-map--night"))
+        context = browser.new_context(viewport={"width": 1440, "height": 900}, color_scheme=system)
+        page = context.new_page()
+        fetched: list[str] = []
+        page.on("request", lambda request: fetched.append(request.url) if "/maps/" in request.url else None)
+        page.goto(base + LAYER, wait_until="networkidle")
+        state = page.evaluate("""() => [...document.querySelectorAll('img.layer-map')].map(i => ({
+            cls: i.className, shown: getComputedStyle(i).display !== 'none',
+            border: getComputedStyle(i).borderTopWidth}))""")
+        expect(len(state) == 2, f"{mode}: {len(state)} map pictures, expected Day and Night")
+        expect(shown_pictures(page) == [f"layer-map {want}"], f"{mode}: shown {shown_pictures(page)}, expected {want}")
+        expect(all(s["border"] == "0px" for s in state), f"{mode}: a frame line is still drawn")
+        page.locator(f"img.{want}").scroll_into_view_if_needed()
+        loaded(page, want)
+        hidden = page.evaluate(f"document.querySelector('img.{other}').src")
+        expect(hidden not in fetched, f"{mode}: the hidden picture was downloaded before switching")
+        page.click(".pp-chip--default" if mode == "Night" else ".pp-chip--slate")
+        page.wait_for_function("document.body.getAttribute('data-md-color-scheme') === "
+                               f"'{'default' if mode == 'Night' else 'slate'}'")
+        loaded(page, other)                           # the other picture appears and loads on the switch
+        expect(shown_pictures(page) == [f"layer-map {other}"],
+               f"{mode}: after switching, shown {shown_pictures(page)}, expected only {other}")
+        expect(hidden in fetched, f"{mode}: the other picture was not fetched after switching")
+        context.close()
+    return ("Night shows only the Night picture, Day only the Day one; the hidden one is not downloaded "
+            "until a chip switch, which shows and loads it; no frame line")
+
+
+def shown_pictures(page: Page) -> list[str]:
+    return page.evaluate("[...document.querySelectorAll('img.layer-map')]"
+                         ".filter(i => getComputedStyle(i).display !== 'none').map(i => i.className)")
+
+
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     p.add_argument("site", type=Path, help="built site folder (mkdocs build output)")
     p.add_argument("--report", type=Path, help="write the results as JSON")
-    p.add_argument("--only", help="comma-separated subset: header, chips, search, menu, copy, sticky, sideways, colours")
+    p.add_argument("--only", help="comma-separated subset: header, chips, search, menu, copy, sticky, sideways, "
+                                  "colours, pictures")
     args = p.parse_args(argv)
     wanted = {name.strip() for name in args.only.split(",")} if args.only else None
     site = args.site.resolve()
@@ -308,6 +353,7 @@ def main(argv: list[str] | None = None) -> int:
                 ("sticky", "sticky header", lambda: check_sticky(browser, base)),
                 ("sideways", "no sideways scroll", lambda: check_no_sideways(browser, base)),
                 ("colours", "colours", lambda: check_colours(browser, base)),
+                ("pictures", "map pictures", lambda: check_pictures(browser, base)),
             ]
             for key, name, fn in plan:
                 if wanted is None or key in wanted:

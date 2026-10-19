@@ -5,7 +5,7 @@
 `ecn_geods_foodretail_accessibility_apr2026`<button class="md-clipboard md-icon" data-clipboard-text="ecn_geods_foodretail_accessibility_apr2026" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }
 
-<img src="../../maps/ecn_geods_foodretail_accessibility_apr2026.png" alt="Styling preview of ecn_geods_foodretail_accessibility_apr2026" loading="lazy" class="layer-map">
+<img src="../../maps/ecn_geods_foodretail_accessibility_apr2026.png" alt="Styling preview of ecn_geods_foodretail_accessibility_apr2026" loading="lazy" class="layer-map layer-map--day"><img src="../../maps/night/ecn_geods_foodretail_accessibility_apr2026.png" alt="Styling preview of ecn_geods_foodretail_accessibility_apr2026" loading="lazy" class="layer-map layer-map--night">
 
 **SOURCE**
 {: .sec-label }

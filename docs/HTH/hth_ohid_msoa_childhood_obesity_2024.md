@@ -5,7 +5,7 @@
 `hth_ohid_msoa_childhood_obesity_2024`<button class="md-clipboard md-icon" data-clipboard-text="hth_ohid_msoa_childhood_obesity_2024" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }
 
-<img src="../../maps/hth_ohid_msoa_childhood_obesity_2024.png" alt="Styling preview of hth_ohid_msoa_childhood_obesity_2024" loading="lazy" class="layer-map">
+<img src="../../maps/hth_ohid_msoa_childhood_obesity_2024.png" alt="Styling preview of hth_ohid_msoa_childhood_obesity_2024" loading="lazy" class="layer-map layer-map--day"><img src="../../maps/night/hth_ohid_msoa_childhood_obesity_2024.png" alt="Styling preview of hth_ohid_msoa_childhood_obesity_2024" loading="lazy" class="layer-map layer-map--night">
 
 From the National Child Measurement Programme via the Fingertips platform.
 

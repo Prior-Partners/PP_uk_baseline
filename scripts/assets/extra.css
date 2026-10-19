@@ -715,15 +715,19 @@ body, .md-typeset { font-weight: 300; }
 .md-typeset .layer-table .md-clipboard::after { width: 14px; height: 14px; margin: 0; }
 
 /* Preview map: flat hairline frame, 2 px corners (was an inline style) */
+/* No frame: the picture's panel is drawn on the page colour, so only the cream map shows
+   as a block (owner review, 19 October 2026). */
 .md-typeset img.layer-map {
   display: block;
   width: 100%;
   height: auto;
   margin: 6px 0 4px;
-  border: 1px solid var(--pp3-line);
-  border-radius: var(--pp3-radius);
+  border: 0;
   background: transparent;
 }
+/* Day and Night pictures: the NIGHT / DAY chips show one; the hidden one is lazy, never fetched */
+[data-md-color-scheme="default"] .md-typeset img.layer-map--night,
+[data-md-color-scheme="slate"] .md-typeset img.layer-map--day { display: none; }
 
 /* SOURCE, DOCUMENTATION, …: the board's panel section labels */
 .md-typeset .sec-label {

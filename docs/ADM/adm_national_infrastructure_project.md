@@ -5,7 +5,7 @@
 `adm_national_infrastructure_project`<button class="md-clipboard md-icon" data-clipboard-text="adm_national_infrastructure_project" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }
 
-<img src="../../maps/adm_national_infrastructure_project.png" alt="Styling preview of adm_national_infrastructure_project" loading="lazy" class="layer-map">
+<img src="../../maps/adm_national_infrastructure_project.png" alt="Styling preview of adm_national_infrastructure_project" loading="lazy" class="layer-map layer-map--day"><img src="../../maps/night/adm_national_infrastructure_project.png" alt="Styling preview of adm_national_infrastructure_project" loading="lazy" class="layer-map layer-map--night">
 
 **SOURCE**
 {: .sec-label }

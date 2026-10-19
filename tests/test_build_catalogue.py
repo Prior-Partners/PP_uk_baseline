@@ -173,6 +173,27 @@ def test_snapshot_replay_renders_the_same_site(gen: ModuleType, monkeypatch: pyt
     assert "last updated 15 October 2026" in (second / "mkdocs.yml").read_text(encoding="utf-8")
 
 
+def test_night_picture_is_paired_with_the_day_picture(gen: ModuleType, tmp_path: Path) -> None:
+    maps = tmp_path / "maps"
+    (maps / "night").mkdir(parents=True)
+    (maps / "adm_test_boundary_2026.png").write_bytes(b"png")
+    out = tmp_path / "out"
+    gen.main(["--site-only", "--out-dir", str(out), "--maps-dir", str(maps)])
+    single = (out / "docs" / "ADM" / "adm_test_boundary_2026.md").read_text(encoding="utf-8")
+    assert 'class="layer-map">' in single and "maps/night/" not in single
+
+    (maps / "night" / "adm_test_boundary_2026.png").write_bytes(b"png")
+    gen.main(["--site-only", "--out-dir", str(out), "--maps-dir", str(maps)])
+    paired = (out / "docs" / "ADM" / "adm_test_boundary_2026.md").read_text(encoding="utf-8")
+    day = '<img src="../../maps/adm_test_boundary_2026.png"'
+    night = '<img src="../../maps/night/adm_test_boundary_2026.png"'
+    assert day in paired and night in paired
+    line = next(text for text in paired.splitlines() if day in text)
+    assert night in line                       # one paragraph: no change to the search text
+    assert line.index(day) < line.index(night)
+    assert 'class="layer-map layer-map--day"' in line and 'class="layer-map layer-map--night"' in line
+
+
 def test_resaving_a_replay_keeps_its_map_list(gen: ModuleType, tmp_path: Path) -> None:
     maps = tmp_path / "maps"
     maps.mkdir()

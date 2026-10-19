@@ -2,6 +2,11 @@
 
 Input/output CRS: n/a (built site files only).
 Data layer: catalogue development checks.
+
+With --night-maps the candidate may carry Day and Night pictures: each Day map reference must be
+followed by its Night twin (maps/night/<name>.png), both files must exist, and instead of whole-file
+hashes the map area of every Day and Night picture must equal the baseline picture's map area
+pixel for pixel (only the panel beside the map is redrawn). That comparison needs Pillow.
 """
 
 from __future__ import annotations
@@ -14,6 +19,9 @@ from pathlib import Path
 import posixpath
 import sys
 from urllib.parse import unquote, urlsplit
+
+# The map panel of a 150 dpi preview picture, in pixels (left, top, right, bottom).
+MAP_AREA = (47, 47, 1205, 1193)
 
 
 class PageParser(HTMLParser):
@@ -122,7 +130,7 @@ def read_site(root: Path) -> dict:
     if pages["index.html"].primary_nav_count != 1:
         raise ValueError(f"{root / 'index.html'}: expected one nav.md-nav--primary")
     assets = {}
-    for folder, pattern in (("maps", "*.png"), ("fonts", "*.woff2")):
+    for folder, pattern in (("maps", "**/*.png"), ("fonts", "*.woff2")):
         hashes = {}
         for path in sorted((root / folder).glob(pattern)):
             with path.open("rb") as stream:
@@ -181,7 +189,44 @@ def search_differences(before: dict, after: dict) -> list[str]:
     return differences
 
 
-def compare_sites(baseline: Path, candidate: Path, labels: dict[str, str] | None = None) -> list[dict]:
+def night_of(reference: str) -> str:
+    """The Night twin of a Day map reference: maps/<name>.png -> maps/night/<name>.png."""
+    return posixpath.join(posixpath.dirname(reference), "night", posixpath.basename(reference))
+
+
+def is_night(reference: str) -> bool:
+    return posixpath.basename(posixpath.dirname(urlsplit(reference).path)) == "night"
+
+
+def map_area_differences(baseline: Path, candidate: Path, old: dict, new: dict) -> list[str]:
+    """Day and Night files pair up, and every map area equals the baseline picture's."""
+    from PIL import Image                      # only needed with --night-maps
+
+    differences = []
+    old_day = {path for path in old["maps"] if path.count("/") == 1}
+    new_day = {path for path in new["maps"] if path.count("/") == 1}
+    new_night = {path for path in new["maps"] if path.count("/") == 2 and is_night(path)}
+    others = sorted(set(new["maps"]) - new_day - new_night)
+    differences += [f"Map file missing: {path}" for path in sorted(old_day - new_day)]
+    differences += [f"Map file added: {path}" for path in sorted(new_day - old_day)]
+    differences += [f"Unexpected map file: {path}" for path in others]
+    differences += [f"Night picture missing: {night_of(path)}" for path in sorted(new_day)
+                    if night_of(path) not in new_night]
+    differences += [f"Night picture without a Day picture: {path}" for path in sorted(new_night)
+                    if posixpath.join("maps", posixpath.basename(path)) not in new_day]
+    for path in sorted(old_day & new_day):             # RGBA: a transparent map area must fail too
+        with Image.open(baseline / path) as image:
+            expected = image.convert("RGBA").crop(MAP_AREA).tobytes()
+        for twin in (path, night_of(path)):
+            if twin in new["maps"]:
+                with Image.open(candidate / twin) as image:
+                    if image.convert("RGBA").crop(MAP_AREA).tobytes() != expected:
+                        differences.append(f"Map area changed: {twin}")
+    return differences
+
+
+def compare_sites(baseline: Path, candidate: Path, labels: dict[str, str] | None = None,
+                  night_maps: bool = False) -> list[dict]:
     """Return checks with baseline/candidate counts and all preservation differences."""
     old, new = read_site(baseline), read_site(candidate)
     labels = labels or {}
@@ -226,15 +271,30 @@ def compare_sites(baseline: Path, candidate: Path, labels: dict[str, str] | None
     checks[-1]["permitted"] = permitted
     checks[-1]["unused"] = [f"Unused label mapping: {serialise(before)} -> {serialise(after)}"
                              for before, after in labels.items() if before not in used_labels]
+    night_diffs, night_count = [], 0
     for name, attribute in (("Headings", "headings"), ("Map references", "maps")):
-        differences = []
+        differences, right_count = [], 0
         for route in sorted(left_routes | right_routes):
             left = getattr(old["pages"][route], attribute) if route in left_routes else []
             right = getattr(new["pages"][route], attribute) if route in right_routes else []
+            if attribute == "maps" and night_maps:
+                night = [reference for reference in right if is_night(reference)]
+                right = [reference for reference in right if not is_night(reference)]
+                night_count += len(night)
+                # every Day picture whose Night file exists is followed by it, and nothing else
+                expected = [twin for reference in right for twin in
+                            ((reference, night_of(reference)) if night_of(reference) in new["maps"] else (reference,))]
+                actual = getattr(new["pages"][route], attribute) if route in right_routes else []
+                if actual != expected:
+                    night_diffs.append(f"Night pictures in {route}: expected {serialise(expected)}, "
+                                       f"found {serialise(actual)}")
+            right_count += len(right)
             differences.extend(sequence_differences(f"{name} in {route}", left, right))
-        add(name, sum(len(getattr(page, attribute)) for page in old["pages"].values()),
-            sum(len(getattr(page, attribute)) for page in new["pages"].values()), differences)
-    for folder, name in (("maps", "Map hashes"), ("fonts", "Font hashes")):
+        add(name, sum(len(getattr(page, attribute)) for page in old["pages"].values()), right_count, differences)
+    if night_maps:
+        add("Night pictures", checks[-1]["candidate"], night_count, night_diffs)
+        add("Map areas", len(old["maps"]), len(new["maps"]), map_area_differences(baseline, candidate, old, new))
+    for folder, name in ((("fonts", "Font hashes"),) if night_maps else (("maps", "Map hashes"), ("fonts", "Font hashes"))):
         left, right = old[folder], new[folder]
         differences = []
         for path in sorted(left.keys() | right.keys()):
@@ -264,6 +324,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("candidate", type=Path)
     parser.add_argument("--labels", type=Path, help="JSON object mapping permitted old labels to new labels")
     parser.add_argument("--report", type=Path, help="Write differences and label mapping usage to Markdown")
+    parser.add_argument("--night-maps", action="store_true",
+                        help="Candidate adds Night pictures: pair them and compare map areas, not file hashes")
     args = parser.parse_args(argv)
     try:
         labels = json.loads(args.labels.read_text(encoding="utf-8-sig")) if args.labels else {}
@@ -276,7 +338,7 @@ def main(argv: list[str] | None = None) -> int:
                 raise ValueError("--report must be outside both input sites")
             if args.labels and report == args.labels.resolve():
                 raise ValueError("--report must not overwrite --labels")
-        checks = compare_sites(args.baseline, args.candidate, labels)
+        checks = compare_sites(args.baseline, args.candidate, labels, args.night_maps)
         if args.report:
             lines = ["# Built-site preservation report", "", f"Baseline: {args.baseline}",
                      f"Candidate: {args.candidate}", ""]

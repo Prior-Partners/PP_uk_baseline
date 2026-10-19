@@ -898,11 +898,19 @@ is, how to connect QGIS, and how to use the data on a project — it opens strai
             # every layer (it serves them all). With use_directory_urls the layer
             # page is at /<THEME>/<table>/, so the image (site /maps/) is two
             # levels up; mkdocs does not rewrite raw-HTML attributes.
+            # Day and Night pictures (maps/night/<table>.png beside the Day one) share one
+            # paragraph; the NIGHT / DAY chips show one of them (extra.css), and the hidden one
+            # is lazy, so it is never downloaded. Without a Night picture, one image as before.
             img = ""
             if has_map(r["table"]):
-                img = (f'<img src="../../maps/{r["table"]}.png" '
-                       f'alt="Styling preview of {r["table"]}" loading="lazy" '
-                       f'class="layer-map">\n\n')         # frame: .layer-map in extra.css
+                alt = f'alt="Styling preview of {r["table"]}" loading="lazy"'
+                if (MAPS_DIR / "night" / f"{r['table']}.png").exists():
+                    img = (f'<img src="../../maps/{r["table"]}.png" {alt} class="layer-map layer-map--day">'
+                           f'<img src="../../maps/night/{r["table"]}.png" {alt} '
+                           f'class="layer-map layer-map--night">\n\n')
+                else:
+                    img = (f'<img src="../../maps/{r["table"]}.png" {alt} '
+                           f'class="layer-map">\n\n')     # .layer-map in extra.css
             # Dashboard not yet released — show the preview image only (no deep-link).
             map_block = f"{img}" if img else ""
             sn = r.get("short_name", "")

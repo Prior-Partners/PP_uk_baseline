@@ -5,7 +5,7 @@
 `ecn_voa_lsoa_business_floorspace_2023`<button class="md-clipboard md-icon" data-clipboard-text="ecn_voa_lsoa_business_floorspace_2023" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }
 
-<img src="../../maps/ecn_voa_lsoa_business_floorspace_2023.png" alt="Styling preview of ecn_voa_lsoa_business_floorspace_2023" loading="lazy" class="layer-map">
+<img src="../../maps/ecn_voa_lsoa_business_floorspace_2023.png" alt="Styling preview of ecn_voa_lsoa_business_floorspace_2023" loading="lazy" class="layer-map layer-map--day"><img src="../../maps/night/ecn_voa_lsoa_business_floorspace_2023.png" alt="Styling preview of ecn_voa_lsoa_business_floorspace_2023" loading="lazy" class="layer-map layer-map--night">
 
 **SOURCE**
 {: .sec-label }

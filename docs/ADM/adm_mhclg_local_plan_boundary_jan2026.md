@@ -5,7 +5,7 @@
 `adm_mhclg_local_plan_boundary_jan2026`<button class="md-clipboard md-icon" data-clipboard-text="adm_mhclg_local_plan_boundary_jan2026" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }
 
-<img src="../../maps/adm_mhclg_local_plan_boundary_jan2026.png" alt="Styling preview of adm_mhclg_local_plan_boundary_jan2026" loading="lazy" class="layer-map">
+<img src="../../maps/adm_mhclg_local_plan_boundary_jan2026.png" alt="Styling preview of adm_mhclg_local_plan_boundary_jan2026" loading="lazy" class="layer-map layer-map--day"><img src="../../maps/night/adm_mhclg_local_plan_boundary_jan2026.png" alt="Styling preview of adm_mhclg_local_plan_boundary_jan2026" loading="lazy" class="layer-map layer-map--night">
 
 **SOURCE**
 {: .sec-label }

@@ -5,7 +5,7 @@
 `com_os_green_space_sport_activity_area`<button class="md-clipboard md-icon" data-clipboard-text="com_os_green_space_sport_activity_area" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }
 
-<img src="../../maps/com_os_green_space_sport_activity_area.png" alt="Styling preview of com_os_green_space_sport_activity_area" loading="lazy" class="layer-map">
+<img src="../../maps/com_os_green_space_sport_activity_area.png" alt="Styling preview of com_os_green_space_sport_activity_area" loading="lazy" class="layer-map layer-map--day"><img src="../../maps/night/com_os_green_space_sport_activity_area.png" alt="Styling preview of com_os_green_space_sport_activity_area" loading="lazy" class="layer-map layer-map--night">
 
 **SOURCE**
 {: .sec-label }

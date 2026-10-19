@@ -5,7 +5,7 @@
 `hou_hmlandregistry_house_price_paid_jun2026`<button class="md-clipboard md-icon" data-clipboard-text="hou_hmlandregistry_house_price_paid_jun2026" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }
 
-<img src="../../maps/hou_hmlandregistry_house_price_paid_jun2026.png" alt="Styling preview of hou_hmlandregistry_house_price_paid_jun2026" loading="lazy" class="layer-map">
+<img src="../../maps/hou_hmlandregistry_house_price_paid_jun2026.png" alt="Styling preview of hou_hmlandregistry_house_price_paid_jun2026" loading="lazy" class="layer-map layer-map--day"><img src="../../maps/night/hou_hmlandregistry_house_price_paid_jun2026.png" alt="Styling preview of hou_hmlandregistry_house_price_paid_jun2026" loading="lazy" class="layer-map layer-map--night">
 
 **SOURCE**
 {: .sec-label }

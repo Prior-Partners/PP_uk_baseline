@@ -5,7 +5,7 @@
 `env_ons_national_park_may2026`<button class="md-clipboard md-icon" data-clipboard-text="env_ons_national_park_may2026" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }
 
-<img src="../../maps/env_ons_national_park_may2026.png" alt="Styling preview of env_ons_national_park_may2026" loading="lazy" class="layer-map">
+<img src="../../maps/env_ons_national_park_may2026.png" alt="Styling preview of env_ons_national_park_may2026" loading="lazy" class="layer-map layer-map--day"><img src="../../maps/night/env_ons_national_park_may2026.png" alt="Styling preview of env_ons_national_park_may2026" loading="lazy" class="layer-map layer-map--night">
 
 Published via planning.data.gov.uk (digital-land).
 

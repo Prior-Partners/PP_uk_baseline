@@ -5,7 +5,7 @@
 `dem_geods_oa_household_composition_2021_22`<button class="md-clipboard md-icon" data-clipboard-text="dem_geods_oa_household_composition_2021_22" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }
 
-<img src="../../maps/dem_geods_oa_household_composition_2021_22.png" alt="Styling preview of dem_geods_oa_household_composition_2021_22" loading="lazy" class="layer-map">
+<img src="../../maps/dem_geods_oa_household_composition_2021_22.png" alt="Styling preview of dem_geods_oa_household_composition_2021_22" loading="lazy" class="layer-map layer-map--day"><img src="../../maps/night/dem_geods_oa_household_composition_2021_22.png" alt="Styling preview of dem_geods_oa_household_composition_2021_22" loading="lazy" class="layer-map layer-map--night">
 
 **SOURCE**
 {: .sec-label }

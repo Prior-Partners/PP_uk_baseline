@@ -37,7 +37,7 @@ markdown_extensions:
   - toc:
       permalink: true
 extra_css:
-  - stylesheets/extra.css?v=c49c3033
+  - stylesheets/extra.css?v=fe01b2f2
 extra:
   layer_count: 183
 nav:

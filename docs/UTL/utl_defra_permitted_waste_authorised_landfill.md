@@ -5,7 +5,7 @@
 `utl_defra_permitted_waste_authorised_landfill`<button class="md-clipboard md-icon" data-clipboard-text="utl_defra_permitted_waste_authorised_landfill" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }
 
-<img src="../../maps/utl_defra_permitted_waste_authorised_landfill.png" alt="Styling preview of utl_defra_permitted_waste_authorised_landfill" loading="lazy" class="layer-map">
+<img src="../../maps/utl_defra_permitted_waste_authorised_landfill.png" alt="Styling preview of utl_defra_permitted_waste_authorised_landfill" loading="lazy" class="layer-map layer-map--day"><img src="../../maps/night/utl_defra_permitted_waste_authorised_landfill.png" alt="Styling preview of utl_defra_permitted_waste_authorised_landfill" loading="lazy" class="layer-map layer-map--night">
 
 **SOURCE**
 {: .sec-label }

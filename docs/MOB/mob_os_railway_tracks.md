@@ -5,7 +5,7 @@
 `mob_os_railway_tracks`<button class="md-clipboard md-icon" data-clipboard-text="mob_os_railway_tracks" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }
 
-<img src="../../maps/mob_os_railway_tracks.png" alt="Styling preview of mob_os_railway_tracks" loading="lazy" class="layer-map">
+<img src="../../maps/mob_os_railway_tracks.png" alt="Styling preview of mob_os_railway_tracks" loading="lazy" class="layer-map layer-map--day"><img src="../../maps/night/mob_os_railway_tracks.png" alt="Styling preview of mob_os_railway_tracks" loading="lazy" class="layer-map layer-map--night">
 
 **SOURCE**
 {: .sec-label }

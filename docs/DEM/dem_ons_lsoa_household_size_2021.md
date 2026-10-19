@@ -5,7 +5,7 @@
 `dem_ons_lsoa_household_size_2021`<button class="md-clipboard md-icon" data-clipboard-text="dem_ons_lsoa_household_size_2021" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }
 
-<img src="../../maps/dem_ons_lsoa_household_size_2021.png" alt="Styling preview of dem_ons_lsoa_household_size_2021" loading="lazy" class="layer-map">
+<img src="../../maps/dem_ons_lsoa_household_size_2021.png" alt="Styling preview of dem_ons_lsoa_household_size_2021" loading="lazy" class="layer-map layer-map--day"><img src="../../maps/night/dem_ons_lsoa_household_size_2021.png" alt="Styling preview of dem_ons_lsoa_household_size_2021" loading="lazy" class="layer-map layer-map--night">
 
 **SOURCE**
 {: .sec-label }

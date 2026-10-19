@@ -5,7 +5,7 @@
 `her_historicengland_national_trust_land_aug2024`<button class="md-clipboard md-icon" data-clipboard-text="her_historicengland_national_trust_land_aug2024" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }
 
-<img src="../../maps/her_historicengland_national_trust_land_aug2024.png" alt="Styling preview of her_historicengland_national_trust_land_aug2024" loading="lazy" class="layer-map">
+<img src="../../maps/her_historicengland_national_trust_land_aug2024.png" alt="Styling preview of her_historicengland_national_trust_land_aug2024" loading="lazy" class="layer-map layer-map--day"><img src="../../maps/night/her_historicengland_national_trust_land_aug2024.png" alt="Styling preview of her_historicengland_national_trust_land_aug2024" loading="lazy" class="layer-map layer-map--night">
 
 One row per National Trust land parcel.
 

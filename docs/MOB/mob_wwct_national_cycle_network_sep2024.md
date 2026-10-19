@@ -5,7 +5,7 @@
 `mob_wwct_national_cycle_network_sep2024`<button class="md-clipboard md-icon" data-clipboard-text="mob_wwct_national_cycle_network_sep2024" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }
 
-<img src="../../maps/mob_wwct_national_cycle_network_sep2024.png" alt="Styling preview of mob_wwct_national_cycle_network_sep2024" loading="lazy" class="layer-map">
+<img src="../../maps/mob_wwct_national_cycle_network_sep2024.png" alt="Styling preview of mob_wwct_national_cycle_network_sep2024" loading="lazy" class="layer-map layer-map--day"><img src="../../maps/night/mob_wwct_national_cycle_network_sep2024.png" alt="Styling preview of mob_wwct_national_cycle_network_sep2024" loading="lazy" class="layer-map layer-map--night">
 
 **SOURCE**
 {: .sec-label }

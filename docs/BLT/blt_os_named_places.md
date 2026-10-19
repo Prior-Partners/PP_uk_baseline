@@ -5,7 +5,7 @@
 `blt_os_named_places`<button class="md-clipboard md-icon" data-clipboard-text="blt_os_named_places" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }
 
-<img src="../../maps/blt_os_named_places.png" alt="Styling preview of blt_os_named_places" loading="lazy" class="layer-map">
+<img src="../../maps/blt_os_named_places.png" alt="Styling preview of blt_os_named_places" loading="lazy" class="layer-map layer-map--day"><img src="../../maps/night/blt_os_named_places.png" alt="Styling preview of blt_os_named_places" loading="lazy" class="layer-map layer-map--night">
 
 **SOURCE**
 {: .sec-label }

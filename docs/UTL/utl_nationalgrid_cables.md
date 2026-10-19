@@ -5,7 +5,7 @@
 `utl_nationalgrid_cables`<button class="md-clipboard md-icon" data-clipboard-text="utl_nationalgrid_cables" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }
 
-<img src="../../maps/utl_nationalgrid_cables.png" alt="Styling preview of utl_nationalgrid_cables" loading="lazy" class="layer-map">
+<img src="../../maps/utl_nationalgrid_cables.png" alt="Styling preview of utl_nationalgrid_cables" loading="lazy" class="layer-map layer-map--day"><img src="../../maps/night/utl_nationalgrid_cables.png" alt="Styling preview of utl_nationalgrid_cables" loading="lazy" class="layer-map layer-map--night">
 
 **SOURCE**
 {: .sec-label }

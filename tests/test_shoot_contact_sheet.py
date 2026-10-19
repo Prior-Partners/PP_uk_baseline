@@ -57,3 +57,15 @@ def test_decode_maps_catches_a_broken_image_stream(tmp_path: Path) -> None:
     assert count == 2
     assert len(problems) == 1
     assert problems[0].startswith("broken.png")
+
+
+def test_decode_maps_includes_night_pictures(tmp_path: Path) -> None:
+    night = tmp_path / "maps" / "night"
+    night.mkdir(parents=True)
+    Image.new("RGB", (4, 4), (250, 250, 250)).save(tmp_path / "maps" / "layer.png")
+    (night / "layer.png").write_bytes(broken_png())
+
+    count, problems = load().decode_maps(tmp_path)
+
+    assert count == 2
+    assert [p.split(":")[0] for p in problems] == ["night/layer.png"]

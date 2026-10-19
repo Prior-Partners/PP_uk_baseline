@@ -5,7 +5,7 @@
 `env_os_rivers_apr2025`<button class="md-clipboard md-icon" data-clipboard-text="env_os_rivers_apr2025" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }
 
-<img src="../../maps/env_os_rivers_apr2025.png" alt="Styling preview of env_os_rivers_apr2025" loading="lazy" class="layer-map">
+<img src="../../maps/env_os_rivers_apr2025.png" alt="Styling preview of env_os_rivers_apr2025" loading="lazy" class="layer-map layer-map--day"><img src="../../maps/night/env_os_rivers_apr2025.png" alt="Styling preview of env_os_rivers_apr2025" loading="lazy" class="layer-map layer-map--night">
 
 **SOURCE**
 {: .sec-label }

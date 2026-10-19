@@ -258,6 +258,81 @@ def test_asset_bytes_and_file_sets_are_preserved(sites, folder, file, check, act
     assert expected in differences(sites, check)
 
 
+@pytest.fixture()
+def picture_sites(sites: tuple[Path, Path]) -> tuple[Path, Path]:
+    """The fixture sites with real (cream) map pictures, so map areas can be decoded."""
+    from PIL import Image
+
+    for root in sites:
+        for name in ("home.png", "heritage.png"):
+            Image.new("RGB", (1300, 1300), (241, 238, 223)).save(root / "maps" / name)
+    return sites
+
+
+def add_night(root: Path, colour: tuple[int, int, int] | None = None) -> None:
+    """Night twins for both fixture maps, and their references after each Day reference."""
+    from PIL import Image
+
+    (root / "maps" / "night").mkdir()
+    for name in ("home.png", "heritage.png"):
+        source = root / "maps" / name
+        if colour is None:
+            shutil.copyfile(source, root / "maps" / "night" / name)
+        else:
+            Image.new("RGB", (1300, 1300), colour).save(root / "maps" / "night" / name)
+    replace(root, "index.html", '<img src="maps/home.png" alt="Home preview">',
+            '<img src="maps/home.png" alt="Home preview"><img src="maps/night/home.png" alt="Home preview">')
+    replace(root, "HER/index.html", 'src="../maps/heritage.png"',
+            'src="../maps/heritage.png"><img src="../maps/night/heritage.png"')
+
+
+def night_check(sites: tuple[Path, Path], name: str) -> dict:
+    return next(check for check in site.compare_sites(*sites, night_maps=True) if check["name"] == name)
+
+
+def test_night_pictures_pass_when_paired_and_map_areas_match(picture_sites):
+    sites = picture_sites
+    add_night(sites[1])
+    checks = {check["name"]: check for check in site.compare_sites(*sites, night_maps=True)}
+    assert not any(check["differences"] for check in checks.values())
+    assert checks["Night pictures"]["candidate"] == 2 and "Map hashes" not in checks
+    assert site.main([*map(str, sites), "--night-maps"]) == 0
+
+
+def test_night_pictures_fail_without_the_option(sites):
+    add_night(sites[1])
+    assert "added" in differences(sites, "Map references")
+    assert "added" in differences(sites, "Map hashes")
+
+
+def test_night_picture_out_of_order_or_missing_fails(picture_sites):
+    sites = picture_sites
+    add_night(sites[1])
+    replace(sites[1], "index.html", '<img src="maps/night/home.png" alt="Home preview">', "")
+    assert "Night pictures in index.html" in "\n".join(night_check(sites, "Night pictures")["differences"])
+    (sites[1] / "maps" / "night" / "heritage.png").unlink()
+    message = "\n".join(night_check(sites, "Map areas")["differences"])
+    assert "Night picture missing: maps/night/heritage.png" in message
+
+
+def test_transparent_map_area_fails(picture_sites):
+    from PIL import Image
+
+    sites = picture_sites
+    add_night(sites[1])
+    Image.new("RGBA", (1300, 1300), (241, 238, 223, 0)).save(sites[1] / "maps" / "night" / "home.png")
+    message = "\n".join(night_check(sites, "Map areas")["differences"])
+    assert "Map area changed: maps/night/home.png" in message
+
+
+def test_changed_map_area_fails(picture_sites):
+    sites = picture_sites
+    add_night(sites[1], colour=(10, 10, 10))
+    message = "\n".join(night_check(sites, "Map areas")["differences"])
+    assert "Map area changed: maps/night/home.png" in message
+    assert "Map area changed: maps/home.png" not in message
+
+
 @pytest.mark.parametrize("payload", ["not json", "[]", '{"config":{},"docs":{}}',
                                     '{"config":{},"docs":[{"location":"a"}]}',
                                     '{"config":[],"docs":[]}'])

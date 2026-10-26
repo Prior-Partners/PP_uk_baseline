@@ -224,8 +224,6 @@ def test_a_fresh_output_folder_builds_on_its_own(gen: ModuleType, tmp_path: Path
     gen.main(["--site-only", "--out-dir", str(out), "--maps-dir", str(tmp_path / "maps")])
     for name in ("header.html", "palette.html", "logo.html", "nav-item.html"):
         assert (out / "overrides" / "partials" / name).is_file(), f"overrides/partials/{name} not copied"
-    # The home page links the handbook PDF, which lives in the real docs/ only.
-    (out / "docs" / "PP_Staff_Data_Management_Handbook.pdf").write_bytes(b"%PDF-1.4")
     built = subprocess.run([sys.executable, "-m", "mkdocs", "build", "--strict", "--quiet",
                             "-f", str(out / "mkdocs.yml"), "-d", str(tmp_path / "site")],
                            capture_output=True, text=True)

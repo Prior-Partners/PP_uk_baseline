@@ -14,8 +14,10 @@ has its own page with a description, a short name, its database table name, a pr
 where the data came from (source, licence and documentation), and a table of every column
 with its meaning and units.
 
-**New to the database?** The **[Staff Data Management Handbook](PP_Staff_Data_Management_Handbook.pdf){ target="_blank" }** explains what the geodatabase
-is, how to connect QGIS, and how to use the data on a project — it opens straight in your browser.
+**New to the database?** The **Staff data management handbook** explains what the geodatabase
+is, how to connect QGIS, and how to use the data on a project. It is kept on the office drive
+(office network or VPN): open the latest *P+P Staff data management handbook* PDF in
+`G:\0_Practice\10_Data management resources\01_Manuals\InDesign\`.
 
 **183 layers across 12 themes.**
 

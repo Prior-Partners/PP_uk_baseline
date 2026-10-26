@@ -42,7 +42,6 @@ extra:
   layer_count: 183
 nav:
   - "Home": index.md
-  - "Staff handbook (PDF) ↗": https://prior-partners.github.io/PP_uk_baseline/PP_Staff_Data_Management_Handbook.pdf
   - "Administrative & Planning Boundaries (ADM)":
     - ADM/index.md
     - "Data Zone Boundary 2021 (Northern Ireland)": ADM/adm_nisra_dz_boundary_2021.md

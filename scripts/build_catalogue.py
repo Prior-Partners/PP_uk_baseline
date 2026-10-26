@@ -808,8 +808,10 @@ has its own page with a description, a short name, its database table name, a pr
 where the data came from (source, licence and documentation), and a table of every column
 with its meaning and units.
 
-**New to the database?** The **[Staff Data Management Handbook](PP_Staff_Data_Management_Handbook.pdf){{ target="_blank" }}** explains what the geodatabase
-is, how to connect QGIS, and how to use the data on a project — it opens straight in your browser.
+**New to the database?** The **Staff data management handbook** explains what the geodatabase
+is, how to connect QGIS, and how to use the data on a project. It is kept on the office drive
+(office network or VPN): open the latest *P+P Staff data management handbook* PDF in
+`G:\\0_Practice\\10_Data management resources\\01_Manuals\\InDesign\\`.
 
 **{len(records)} layers across {len(themes)} themes.**
 
@@ -938,9 +940,9 @@ is, how to connect QGIS, and how to use the data on a project — it opens strai
                 encoding="utf-8",
             )
 
-    nav = [{"Home": "index.md"},
-           {"Staff handbook (PDF) ↗":
-            "https://prior-partners.github.io/PP_uk_baseline/PP_Staff_Data_Management_Handbook.pdf"}] + nav_themes
+    # The staff handbook is internal: the home page names its G: folder, the site carries no copy
+    # (Po, 26 October 2026).
+    nav = [{"Home": "index.md"}] + nav_themes
     mkdocs_yml = OUT / "mkdocs.yml"
     # Cache-bust the (unhashed) brand stylesheet: append a short content hash as
     # ?v=…, so a CSS change lands for every viewer without a manual hard refresh.

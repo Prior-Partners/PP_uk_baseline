@@ -1,4 +1,4 @@
-# Ordnance Survey OS OpenMap Local - Electricity Transmission Lines for Great Britain
+# OS OpenMap - Local electricity transmission lines, Great Britain
 
 <p class="layer-short">Electricity Transmission Line</p>
 
@@ -10,13 +10,14 @@
 **SOURCE**
 {: .sec-label }
 
-- Ordnance Survey (OS), OS OpenMap Local product.
+- Ordnance Survey (OS), OS OpenMap - Local product, ElectricityTransmissionLine feature type.
 
 **DOCUMENTATION**
 {: .sec-label }
 
-- OS OpenMap Local                 : https://www.ordnancesurvey.co.uk/products/os-open-map-local
+- OS OpenMap - Local               : https://www.ordnancesurvey.co.uk/products/os-open-map-local
 - ElectricityTransmissionLine spec : https://docs.os.uk/os-downloads/products/maps-and-imagery-portfolio/os-openmap-local/os-openmap-local-technical-specification/feature-types/electricitytransmissionline
+- Copyright acknowledgements       : https://www.ordnancesurvey.co.uk/customers/public-sector/public-sector-licensing/copyright-acknowledgments
 
 **DEFINITIONS**
 {: .sec-label }
@@ -31,12 +32,12 @@
 **CRS**
 {: .sec-label }
 
-- EPSG:27700 (OSGB 1936 / British National Grid). Geometry type LineString.
+- EPSG:27700 (OSGB 1936 / British National Grid). Geometry type MultiLineString.
 
 **LICENCE**
 {: .sec-label }
 
-- OS OpenData Licence (incorporates Open Government Licence v3.0; attribution "Contains OS data (c) Crown copyright and database right" required).
+- Open Government Licence v3.0. Attribution: Contains OS data © Crown copyright and database right.
 
 MSOA SPLIT (added 4 July 2026)
 
@@ -60,7 +61,7 @@ MSOA SPLIT (added 4 July 2026)
 | Column | Type | Description / unit |
 |---|---|---|
 | `source_fid` | `bigint` | Primary key of the source feature in the pre-split layer uk.utl_os_electricity_transmission_line__preswap_jul04 (non-unique here: a feature spanning N MSOAs has N rows). |
-| `feature_code` | `integer` | Source field "feature_code"; OS feature code (15102). |
+| `feature_code` | `integer` | Source field `feature_code`; Ordnance Survey (OS) feature code (15102). |
 | `id_original` | `character varying` | Original feature id preserved at load. |
 | `wd21nm` | `character varying` | Joined at load from ONS Ward 2021 lookup; 2021 Ward name. |
 | `wd21cd` | `character varying` | Joined at load from ONS Ward 2021 lookup; 2021 Ward GSS code. |
@@ -72,7 +73,7 @@ MSOA SPLIT (added 4 July 2026)
 | `lad22nm` | `text` | Local Authority District 2022 name (2021 LAD geography), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `lad25cd` | `text` | Local Authority District 2025 code (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
-| `geom` | `geometry(MultiLineString,27700)` | LineString in EPSG:27700. Electricity transmission line. |
+| `geom` | `geometry(MultiLineString,27700)` | MultiLineString in EPSG:27700. Electricity transmission line. |
 | `gid` | `bigint` |  |
 | `ctyua25cd` | `text` | County or unitary authority code at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
 | `ctyua25nm` | `text` | County or unitary authority name at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |

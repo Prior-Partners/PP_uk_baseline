@@ -1,6 +1,6 @@
-# National Grid Electricity Transmission - transmission towers (pylons), England and Wales
+# National Grid Electricity Transmission towers (pylons), England and Wales
 
-<p class="layer-short">Towers</p>
+<p class="layer-short">National Grid Transmission Towers</p>
 
 `utl_nationalgrid_towers`<button class="md-clipboard md-icon" data-clipboard-text="utl_nationalgrid_towers" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }
@@ -15,12 +15,13 @@
 **DOCUMENTATION**
 {: .sec-label }
 
-- National Grid Electricity Transmission : https://www.nationalgrid.com/electricity-transmission
+- Transmission network downloads : https://www.nationalgrid.com/electricity-transmission/network-and-infrastructure/network-route-maps
+- Pylon construction             : https://www.nationalgrid.com/electricity-transmission/hinkley-connection/construction-information-building-and-removing-pylons
 
 **DEFINITIONS**
 {: .sec-label }
 
-- Transmission towers (pylons) are the steel lattice structures that carry National Grid high-voltage overhead lines. (National Grid)
+- Transmission towers (pylons) support the conductors of high-voltage overhead electricity lines. (National Grid)
 
 **SCOPE**
 {: .sec-label }
@@ -35,11 +36,12 @@
 **LICENCE**
 {: .sec-label }
 
-- © National Grid. Licence - confirm with National Grid before re-publication.
+- Emergency and land use planning only; commercial use prohibited. Attribution: © National Grid UK.
 
 **DATA QUALITY CAVEATS**
 {: .sec-label }
 
+- Locations are indicative only.
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 
 **ENRICHMENT**
@@ -52,14 +54,14 @@
 
 | Column | Type | Description / unit |
 |---|---|---|
-| `tower_asse` | `character varying(12)` | Source field "tower_asse"; tower asset reference (name truncated). |
-| `action_dtt` | `date` | Source field "action_dtt"; action date (name truncated). |
-| `status` | `character varying(1)` | Source field "status"; source status code. |
-| `line_serie` | `character varying(200)` | Source field "line_serie"; line series (name truncated). |
-| `tower_cons` | `character varying(30)` | Source field "tower_cons"; tower construction type. Observed values: "D", "D30", "D60", "D10". |
-| `year_of_in` | `integer` | Source field "year_of_in"; year installed (name truncated). |
-| `tower_heig` | `double precision` | Source field "tower_heig"; tower height (name truncated). |
-| `gdo_gid` | `numeric` | Source field "gdo_gid"; source feature identifier. |
+| `tower_asse` | `character varying(12)` | Source field `tower_asse`; tower asset reference (source field name truncated). |
+| `action_dtt` | `date` | Source field `action_dtt`; action date (source field name truncated). |
+| `status` | `character varying(1)` | Source field `status`; source status code. |
+| `line_serie` | `character varying(200)` | Source field `line_serie`; line series (source field name truncated). |
+| `tower_cons` | `character varying(30)` | Source field `tower_cons`; tower construction type. Observed values: "D", "D30", "D60", "D10". |
+| `year_of_in` | `integer` | Source field `year_of_in`; installation year (source field name truncated). |
+| `tower_heig` | `double precision` | Source field `tower_heig`; tower height (source field name truncated). |
+| `gdo_gid` | `numeric` | Source field `gdo_gid`; source feature identifier. |
 | `id_original` | `integer` | Original feature id preserved at load. |
 | `lad22nm` | `character varying` | Local Authority District 2022 name (2021 LAD geography). Assigned at load by point-in-polygon location against uk_baseline.adm_ons_lad_boundary_may2022. Open Government Licence v3.0. |
 | `lad22cd` | `character varying` | Local Authority District 2022 code (2021 LAD geography, anchored to the MSOA 2021 name scoping). Assigned at load by point-in-polygon location against uk_baseline.adm_ons_lad_boundary_may2022. Open Government Licence v3.0. |

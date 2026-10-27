@@ -1,6 +1,6 @@
-# National Grid Electricity Transmission - overhead lines, England and Wales
+# National Grid Electricity Transmission overhead lines, England and Wales
 
-<p class="layer-short">Over Head Line</p>
+<p class="layer-short">National Grid Overhead Lines</p>
 
 `utl_nationalgrid_over_head_line`<button class="md-clipboard md-icon" data-clipboard-text="utl_nationalgrid_over_head_line" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }
@@ -15,12 +15,12 @@
 **DOCUMENTATION**
 {: .sec-label }
 
-- National Grid Electricity Transmission : https://www.nationalgrid.com/electricity-transmission
+- Transmission network downloads : https://www.nationalgrid.com/electricity-transmission/network-and-infrastructure/network-route-maps
 
 **DEFINITIONS**
 {: .sec-label }
 
-- An overhead transmission line transmits power from the generating source into the national grid network, and on to substations that provide power to homes and businesses. (National Grid)
+- Overhead line assets carrying high-voltage electricity through National Grid Electricity Transmission's network in England and Wales. (National Grid)
 
 **SCOPE**
 {: .sec-label }
@@ -30,12 +30,12 @@
 **CRS**
 {: .sec-label }
 
-- EPSG:27700 (OSGB 1936 / British National Grid). Geometry type LineString.
+- EPSG:27700 (OSGB 1936 / British National Grid). Geometry type MultiLineString.
 
 **LICENCE**
 {: .sec-label }
 
-- © National Grid. Licence - confirm with National Grid before re-publication.
+- Emergency and land use planning only; commercial use prohibited. Attribution: © National Grid UK.
 
 MSOA SPLIT (added 4 July 2026)
 
@@ -44,6 +44,7 @@ MSOA SPLIT (added 4 July 2026)
 **DATA QUALITY CAVEATS**
 {: .sec-label }
 
+- Locations are indicative only.
 - The row count counts split pieces, not source features: this layer was split by Middle Layer Super Output Area, so it holds one row per feature per MSOA piece, plus whole and remainder rows to keep 100% of the source geometry. 6,206 rows represent 3,780 source features, measured 25 August 2026. `source_fid` identifies the originating feature.
 - Geography keys are NULL on 142 of 6,206 rows, measured 25 August 2026: 127 fall inside an England or Wales district and could carry one, so their keys are a gap rather than an absence; 15 are residual fragments left by the MSOA split, each under 100 sqm or 10 m.
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
@@ -59,14 +60,14 @@ MSOA SPLIT (added 4 July 2026)
 | Column | Type | Description / unit |
 |---|---|---|
 | `source_fid` | `bigint` | Primary key of the source feature in the pre-split layer uk.utl_nationalgrid_over_head_line__preswap_jul04 (non-unique here: a feature spanning N MSOAs has N rows). |
-| `gdo_gid` | `numeric` | Source field "gdo_gid"; source feature identifier. |
-| `route_asse` | `character varying(12)` | Source field "route_asse"; route asset reference (name truncated). |
-| `towers_in` | `character varying(40)` | Source field "towers_in"; towers on the route (name truncated). |
-| `action_dtt` | `date` | Source field "action_dtt"; action date (name truncated). |
-| `status` | `character varying(1)` | Source field "status"; source status code. Observed values: "C", "E". |
-| `operating_` | `character varying(18)` | Source field "operating_"; operating voltage in kV. Observed values: "400", "275", "132", "33", "25". |
-| `circuit1` | `character varying(200)` | Source field "circuit1"; first circuit identifier. |
-| `circuit2` | `character varying(200)` | Source field "circuit2"; second circuit identifier. |
+| `gdo_gid` | `numeric` | Source field `gdo_gid`; source feature identifier. |
+| `route_asse` | `character varying(12)` | Source field `route_asse`; route asset reference (source field name truncated). |
+| `towers_in` | `character varying(40)` | Source field `towers_in`; towers on the route (source field name truncated). |
+| `action_dtt` | `date` | Source field `action_dtt`; action date (source field name truncated). |
+| `status` | `character varying(1)` | Source field `status`; source status code. Observed values: "C", "E". |
+| `operating_` | `character varying(18)` | Source field `operating_`; operating voltage in kilovolts (kV). Observed values: "400", "275", "132", "33", "25". |
+| `circuit1` | `character varying(200)` | Source field `circuit1`; first circuit identifier. |
+| `circuit2` | `character varying(200)` | Source field `circuit2`; second circuit identifier. |
 | `id_original` | `integer` | Original feature id preserved at load. |
 | `wd21nm` | `character varying` | Joined at load from ONS Ward 2021 lookup; 2021 Ward name. |
 | `wd21cd` | `character varying` | Joined at load from ONS Ward 2021 lookup; 2021 Ward GSS code. |
@@ -78,7 +79,7 @@ MSOA SPLIT (added 4 July 2026)
 | `lad22nm` | `text` | Local Authority District 2022 name (2021 LAD geography), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `lad25cd` | `text` | Local Authority District 2025 code (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
-| `geom` | `geometry(MultiLineString,27700)` | LineString in EPSG:27700. Overhead transmission line route. |
+| `geom` | `geometry(MultiLineString,27700)` | MultiLineString in EPSG:27700. Overhead transmission line route. |
 | `gid` | `bigint` |  |
 | `ctyua25cd` | `text` | County or unitary authority code at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
 | `ctyua25nm` | `text` | County or unitary authority name at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |

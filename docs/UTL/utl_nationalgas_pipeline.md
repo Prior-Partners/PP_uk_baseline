@@ -1,6 +1,6 @@
-# National Gas - National Transmission System (NTS) gas transmission pipelines, Great Britain
+# National Gas transmission pipelines, Great Britain
 
-<p class="layer-short">Pipeline</p>
+<p class="layer-short">National Gas Pipelines</p>
 
 `utl_nationalgas_pipeline`<button class="md-clipboard md-icon" data-clipboard-text="utl_nationalgas_pipeline" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }
@@ -10,17 +10,18 @@
 **SOURCE**
 {: .sec-label }
 
-- National Gas (formerly National Grid Gas). National Transmission System pipeline network.
+- National Gas (formerly National Grid Gas). National Transmission System (NTS) pipeline network, owned and operated by National Gas Transmission.
 
 **DOCUMENTATION**
 {: .sec-label }
 
 - National Gas network and assets : https://www.nationalgas.com/our-businesses/our-network-and-assets
+- Network maps and public data    : https://www.nationalgas.com/our-businesses/network-route-maps
 
 **DEFINITIONS**
 {: .sec-label }
 
-- National Gas Transmission owns and operates Britain's National Transmission System (NTS) for gas; the NTS consists of nearly 5,000 miles of high-pressure steel pipes and more than 500 above-ground installations. (National Gas)
+- "The National Transmission System consists of nearly 5,000 miles of high-pressure steel pipes and more than 500 above-ground installations." (National Gas)
 
 **SCOPE**
 {: .sec-label }
@@ -30,12 +31,12 @@
 **CRS**
 {: .sec-label }
 
-- EPSG:27700 (OSGB 1936 / British National Grid). Geometry type Polygon.
+- EPSG:27700 (OSGB 1936 / British National Grid). Geometry type MultiPolygon.
 
 **LICENCE**
 {: .sec-label }
 
-- © National Gas. Licence - confirm with National Gas before re-publication.
+- © National Gas. Confirm the licence with National Gas before republication.
 
 MSOA SPLIT (added 3 July 2026)
 
@@ -60,13 +61,13 @@ MSOA SPLIT (added 3 July 2026)
 | Column | Type | Description / unit |
 |---|---|---|
 | `source_fid` | `bigint` | Primary key of the source feature in the pre-split layer uk.utl_nationalgas_pipeline__preswap_jul03 (non-unique here: a feature spanning N MSOAs has N rows). |
-| `actualinte` | `double precision` | Source field "actualinte"; attribute carried from source (name truncated). |
-| `owner` | `character varying(3)` | Source field "owner"; pipeline owner. Observed value: "NGT" (National Gas Transmission). |
-| `pipegrade` | `character varying(15)` | Source field "pipegrade"; steel pipe grade (e.g. "X60", "X52", "X80", "L555"). |
-| `inserviced` | `date` | Source field "inserviced"; in-service date (name truncated). |
-| `pipe_name` | `character varying(100)` | Source field "pipe_name"; pipeline name. |
-| `featureid` | `double precision` | Source field "featureid"; source feature identifier. |
-| `shape_leng` | `double precision` | Source field "Shape_Length"; legacy ArcGIS shape length. |
+| `actualinte` | `double precision` | Source field `actualinte`; attribute with a truncated source field name. |
+| `owner` | `character varying(3)` | Source field `owner`; pipeline owner. Observed value: "NGT" (National Gas Transmission). |
+| `pipegrade` | `character varying(15)` | Source field `pipegrade`; steel pipe grade. Examples: "X60", "X52", "X80", "L555". |
+| `inserviced` | `date` | Source field `inserviced`; in-service date (source field name truncated). |
+| `pipe_name` | `character varying(100)` | Source field `pipe_name`; pipeline name. |
+| `featureid` | `double precision` | Source field `featureid`; source feature identifier. |
+| `shape_leng` | `double precision` | Source field `Shape_Length`; legacy ArcGIS shape length. |
 | `id_original` | `integer` | Original feature id preserved at load. |
 | `wd21nm` | `character varying` | Joined at load from ONS Ward 2021 lookup; 2021 Ward name. |
 | `wd21cd` | `character varying` | Joined at load from ONS Ward 2021 lookup; 2021 Ward GSS code. |
@@ -79,7 +80,7 @@ MSOA SPLIT (added 3 July 2026)
 | `lad22nm` | `text` | Local Authority District 2022 name (2021 LAD geography), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `lad25cd` | `text` | Local Authority District 2025 code (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
-| `geom` | `geometry(MultiPolygon,27700)` | Polygon in EPSG:27700. Gas transmission pipeline corridor. |
+| `geom` | `geometry(MultiPolygon,27700)` | MultiPolygon in EPSG:27700. Gas transmission pipeline corridor. |
 | `gid` | `bigint` |  |
 | `ctyua25cd` | `text` | County or unitary authority code at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
 | `ctyua25nm` | `text` | County or unitary authority name at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |

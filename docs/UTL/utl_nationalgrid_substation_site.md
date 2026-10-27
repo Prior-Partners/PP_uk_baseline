@@ -1,6 +1,6 @@
-# National Grid Electricity Transmission - substation sites, England and Wales
+# National Grid Electricity Transmission substation sites, England and Wales
 
-<p class="layer-short">Substation Site</p>
+<p class="layer-short">National Grid Substation Sites</p>
 
 `utl_nationalgrid_substation_site`<button class="md-clipboard md-icon" data-clipboard-text="utl_nationalgrid_substation_site" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }
@@ -15,12 +15,12 @@
 **DOCUMENTATION**
 {: .sec-label }
 
-- National Grid Electricity Transmission : https://www.nationalgrid.com/electricity-transmission
+- Transmission network downloads : https://www.nationalgrid.com/electricity-transmission/network-and-infrastructure/network-route-maps
 
 **DEFINITIONS**
 {: .sec-label }
 
-- Substations connect sources of electricity generation to the transmission network and onward to the distribution system that reaches homes and businesses; this layer represents National Grid substation sites. (National Grid)
+- Substations connect sources of electricity generation to the transmission network and onward to the distribution system serving homes and businesses. This layer represents National Grid substation sites. (National Grid)
 
 **SCOPE**
 {: .sec-label }
@@ -30,16 +30,17 @@
 **CRS**
 {: .sec-label }
 
-- EPSG:27700 (OSGB 1936 / British National Grid). Geometry type Polygon.
+- EPSG:27700 (OSGB 1936 / British National Grid). Geometry type MultiPolygon.
 
 **LICENCE**
 {: .sec-label }
 
-- © National Grid. Licence - confirm with National Grid before re-publication.
+- Emergency and land use planning only; commercial use prohibited. Attribution: © National Grid UK.
 
 **DATA QUALITY CAVEATS**
 {: .sec-label }
 
+- Locations are indicative only.
 - The row count counts split pieces, not source features: this layer was split by Middle Layer Super Output Area, so it holds one row per feature per MSOA piece, plus whole and remainder rows to keep 100% of the source geometry. 524 rows represent 505 source features, measured 25 August 2026. `source_fid` identifies the originating feature.
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
 
@@ -60,13 +61,13 @@ MSOA SPLIT (added 30 June 2026)
 
 | Column | Type | Description / unit |
 |---|---|---|
-| `substation` | `character varying(100)` | Source field "substation"; substation name. |
-| `operating_` | `character varying(100)` | Source field "operating_"; operating voltage (name truncated). |
-| `action_dtt` | `date` | Source field "action_dtt"; action date (name truncated). |
-| `status` | `character varying(1)` | Source field "status"; source status code. Observed values: "C", "P", "E". |
-| `substati_1` | `character varying(200)` | Source field "substati_1"; secondary substation name (name truncated). |
-| `owner_flag` | `character varying(1)` | Source field "owner_flag"; ownership flag. |
-| `gdo_gid` | `numeric` | Source field "gdo_gid"; source feature identifier. |
+| `substation` | `character varying(100)` | Source field `substation`; substation name. |
+| `operating_` | `character varying(100)` | Source field `operating_`; operating voltage (source field name truncated). |
+| `action_dtt` | `date` | Source field `action_dtt`; action date (source field name truncated). |
+| `status` | `character varying(1)` | Source field `status`; source status code. Observed values: "C", "P", "E". |
+| `substati_1` | `character varying(200)` | Source field `substati_1`; secondary substation name (source field name truncated). |
+| `owner_flag` | `character varying(1)` | Source field `owner_flag`; ownership flag. |
+| `gdo_gid` | `numeric` | Source field `gdo_gid`; source feature identifier. |
 | `id_original` | `integer` | Original feature id preserved at load. |
 | `wd21nm` | `character varying` | Joined at load from ONS Ward 2021 lookup; 2021 Ward name. |
 | `wd21cd` | `character varying` | Joined at load from ONS Ward 2021 lookup; 2021 Ward GSS code. |
@@ -78,7 +79,7 @@ MSOA SPLIT (added 30 June 2026)
 | `lad22nm` | `character varying` | Local Authority District 2022 name (2021 LAD geography), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `lad25cd` | `text` | Local Authority District 2025 code (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
 | `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
-| `geom` | `geometry(MultiPolygon,27700)` | Polygon in EPSG:27700. Substation site boundary. |
+| `geom` | `geometry(MultiPolygon,27700)` | MultiPolygon in EPSG:27700. Substation site boundary. |
 | `source_fid` | `bigint` | Primary key of the source feature in the pre-split layer uk.utl_nationalgrid_substation_site__preswap_jun30 (non-unique here: a feature spanning N MSOAs has N rows). |
 | `gid` | `bigint` |  |
 | `ctyua25cd` | `text` | County or unitary authority code at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |

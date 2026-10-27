@@ -242,10 +242,10 @@ nav:
     - "Transport Connectivity 2025 (RGN)": MOB/mob_dft_rgn_transport_connectivity_metric_2025.md
   - "Infrastructure & Utilities (UTL)":
     - UTL/index.md
-    - "Cables": UTL/utl_nationalgrid_cables.md
+    - "Authorised Landfill Sites": UTL/utl_defra_permitted_waste_authorised_landfill.md
     - "Electricity Transmission Line": UTL/utl_os_electricity_transmission_line.md
-    - "Over Head Line": UTL/utl_nationalgrid_over_head_line.md
-    - "Permitted Waste Authorised Landfill": UTL/utl_defra_permitted_waste_authorised_landfill.md
-    - "Pipeline": UTL/utl_nationalgas_pipeline.md
-    - "Substation Site": UTL/utl_nationalgrid_substation_site.md
-    - "Towers": UTL/utl_nationalgrid_towers.md
+    - "National Gas Pipelines": UTL/utl_nationalgas_pipeline.md
+    - "National Grid Overhead Lines": UTL/utl_nationalgrid_over_head_line.md
+    - "National Grid Substation Sites": UTL/utl_nationalgrid_substation_site.md
+    - "National Grid Transmission Towers": UTL/utl_nationalgrid_towers.md
+    - "National Grid Underground Cables": UTL/utl_nationalgrid_cables.md

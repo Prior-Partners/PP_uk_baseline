@@ -1,6 +1,6 @@
 # Defra - Department for Environment, Food and Rural Affairs, England Peat Map Peaty Soil Extent, May 2025
 
-<p class="layer-short">England Peat Map - Peaty Soil Extent</p>
+<p class="layer-short">Peaty Soil Extent</p>
 
 `env_defra_peaty_soil_extent_may2025`<button class="md-clipboard md-icon" data-clipboard-text="env_defra_peaty_soil_extent_may2025" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }

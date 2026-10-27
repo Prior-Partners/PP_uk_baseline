@@ -1,6 +1,6 @@
 # Ministry of Housing, Communities and Local Government (MHCLG) Brownfield Land register for England, May 2026
 
-<p class="layer-short">Brownfield land</p>
+<p class="layer-short">Brownfield Land</p>
 
 `env_mhclg_brownfield_land_may2026`<button class="md-clipboard md-icon" data-clipboard-text="env_mhclg_brownfield_land_may2026" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }

@@ -1,6 +1,6 @@
 # ONS gross value added (GVA) per filled job 2002-2023 and total GVA 2023 at Local Authority District, Prior + Partners edition, 2023
 
-<p class="layer-short">GVA per filled job - LAD (P+P)</p>
+<p class="layer-short">GVA per Job, Districts (P+P)</p>
 
 `ecn_ons_lad_gross_value_added_pp_2023`<button class="md-clipboard md-icon" data-clipboard-text="ecn_ons_lad_gross_value_added_pp_2023" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }

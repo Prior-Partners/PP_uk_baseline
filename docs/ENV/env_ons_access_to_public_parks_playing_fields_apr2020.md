@@ -1,6 +1,6 @@
 # ONS Access to public parks and playing fields, Great Britain, April 2020
 
-<p class="layer-short">Access to public parks and playing fields</p>
+<p class="layer-short">Access to Public Parks and Playing Fields</p>
 
 `env_ons_access_to_public_parks_playing_fields_apr2020`<button class="md-clipboard md-icon" data-clipboard-text="env_ons_access_to_public_parks_playing_fields_apr2020" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }

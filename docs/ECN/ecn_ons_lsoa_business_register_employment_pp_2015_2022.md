@@ -1,6 +1,6 @@
 # ONS Business Register and Employment Survey (BRES) employment change 2015 to 2022 by 18 broad industry groups, LSOA 2011 boundary, Prior + Partners edition, 2022
 
-<p class="layer-short">BRES Employment change 2015-22 - LSOA (P+P)</p>
+<p class="layer-short">BRES Employment Change 2015–22, LSOA (P+P)</p>
 
 `ecn_ons_lsoa_business_register_employment_pp_2015_2022`<button class="md-clipboard md-icon" data-clipboard-text="ecn_ons_lsoa_business_register_employment_pp_2015_2022" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }

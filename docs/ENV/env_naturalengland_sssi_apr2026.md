@@ -1,6 +1,6 @@
 # Natural England Sites of Special Scientific Interest (SSSI) for England, April 2026
 
-<p class="layer-short">SSSI</p>
+<p class="layer-short">Sites of Special Scientific Interest (SSSI)</p>
 
 `env_naturalengland_sssi_apr2026`<button class="md-clipboard md-icon" data-clipboard-text="env_naturalengland_sssi_apr2026" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }

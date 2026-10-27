@@ -1,6 +1,6 @@
 # ONS Business Register and Employment Survey (BRES) employment change 2015 to 2022 by 18 broad industry groups at Local Authority District, April 2021 districts, Prior + Partners edition, 2022
 
-<p class="layer-short">BRES Employment change 2015-22 - LAD (P+P)</p>
+<p class="layer-short">BRES Employment Change 2015–22, Districts (P+P)</p>
 
 `ecn_ons_lad_business_register_employment_pp_2015_2022`<button class="md-clipboard md-icon" data-clipboard-text="ecn_ons_lad_business_register_employment_pp_2015_2022" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }

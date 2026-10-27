@@ -1,6 +1,6 @@
 # Defra - Department for Environment, Food and Rural Affairs — Environment Agency Historic Landfill Sites for England
 
-<p class="layer-short">Historic Landfill Site</p>
+<p class="layer-short">Historic Landfill Sites</p>
 
 `env_defra_historic_landfill_site`<button class="md-clipboard md-icon" data-clipboard-text="env_defra_historic_landfill_site" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }

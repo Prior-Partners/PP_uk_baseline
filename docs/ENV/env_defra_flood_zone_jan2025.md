@@ -1,6 +1,6 @@
 # Defra - Department for Environment, Food and Rural Affairs — Environment Agency Flood Map for Planning, Flood Zones 2 and 3, January 2025
 
-<p class="layer-short">Flood Zone 2 and 3</p>
+<p class="layer-short">Flood Zones 2 and 3 (2025)</p>
 
 `env_defra_flood_zone_jan2025`<button class="md-clipboard md-icon" data-clipboard-text="env_defra_flood_zone_jan2025" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }

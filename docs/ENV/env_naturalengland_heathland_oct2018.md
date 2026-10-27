@@ -1,6 +1,6 @@
 # Natural England Lowland Heathland Extent and Potential (England), October 2018
 
-<p class="layer-short">Heathland (Natural England)</p>
+<p class="layer-short">Lowland Heathland</p>
 
 `env_naturalengland_heathland_oct2018`<button class="md-clipboard md-icon" data-clipboard-text="env_naturalengland_heathland_oct2018" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }

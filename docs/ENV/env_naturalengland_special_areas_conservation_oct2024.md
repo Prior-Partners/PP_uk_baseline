@@ -1,6 +1,6 @@
 # Natural England Special Areas of Conservation (SAC) for England, October 2024
 
-<p class="layer-short">Special Areas Conservation</p>
+<p class="layer-short">Special Areas of Conservation</p>
 
 `env_naturalengland_special_areas_conservation_oct2024`<button class="md-clipboard md-icon" data-clipboard-text="env_naturalengland_special_areas_conservation_oct2024" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }

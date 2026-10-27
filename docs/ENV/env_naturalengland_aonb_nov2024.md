@@ -1,6 +1,6 @@
 # Natural England Areas of Outstanding Natural Beauty (AONB) for England, November 2024
 
-<p class="layer-short">Areas of Outstanding Natural Beauty (AONB)</p>
+<p class="layer-short">National Landscapes (AONB)</p>
 
 `env_naturalengland_aonb_nov2024`<button class="md-clipboard md-icon" data-clipboard-text="env_naturalengland_aonb_nov2024" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }

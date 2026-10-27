@@ -1,6 +1,6 @@
 # Natural England Ramsar sites for England, October 2024
 
-<p class="layer-short">Ramsar</p>
+<p class="layer-short">Ramsar Sites</p>
 
 `env_naturalengland_ramsar_oct2024`<button class="md-clipboard md-icon" data-clipboard-text="env_naturalengland_ramsar_oct2024" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }

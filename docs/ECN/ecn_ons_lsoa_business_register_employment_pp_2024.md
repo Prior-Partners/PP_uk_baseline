@@ -1,6 +1,6 @@
 # ONS Business Register and Employment Survey (BRES) employment by 18 broad industry groups, LSOA 2021 boundary, Prior + Partners edition, 2024
 
-<p class="layer-short">BRES Employment - LSOA, 2024, broad groups (P+P)</p>
+<p class="layer-short">BRES Employment by Sector 2024, LSOA (P+P)</p>
 
 `ecn_ons_lsoa_business_register_employment_pp_2024`<button class="md-clipboard md-icon" data-clipboard-text="ecn_ons_lsoa_business_register_employment_pp_2024" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }

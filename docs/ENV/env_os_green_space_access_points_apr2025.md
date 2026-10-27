@@ -1,6 +1,6 @@
 # Ordnance Survey OS Open Greenspace — Access Points for Great Britain, April 2025
 
-<p class="layer-short">Open Greenspace access points</p>
+<p class="layer-short">Open Greenspace Access Points</p>
 
 `env_os_green_space_access_points_apr2025`<button class="md-clipboard md-icon" data-clipboard-text="env_os_green_space_access_points_apr2025" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }

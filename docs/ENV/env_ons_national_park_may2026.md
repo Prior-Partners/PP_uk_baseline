@@ -1,6 +1,6 @@
 # ONS National Parks (England), May 2026
 
-<p class="layer-short">National Park</p>
+<p class="layer-short">National Parks</p>
 
 `env_ons_national_park_may2026`<button class="md-clipboard md-icon" data-clipboard-text="env_ons_national_park_may2026" title="Copy table name" aria-label="Copy table name" data-search-exclude></button>
 {: .layer-table }

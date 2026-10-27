@@ -30,7 +30,7 @@ APPROVED = {
     r'\[data-md-color-scheme="default"\]': {
         "--pp3-bg": "hsl(0, 0%, 98%)", "--pp3-primary": "#000", "--pp3-type": "#5f5f5f",
         "--pp3-muted": "#5f5f5f", "--pp3-mark": "#8a8a8a", "--pp3-line": "rgba(0, 0, 0, .28)",
-        "--pp3-link": "#005DFF", "--pp-orange-label": "#C22D00",
+        "--pp3-link": "#005DFF", "--pp-orange-label": "#FF511D",
     },
     r'\[data-md-color-scheme="slate"\]': {
         "--pp3-bg": "hsl(0, 0%, 4%)", "--pp3-primary": "#fff", "--pp3-type": "#c8c8c8",

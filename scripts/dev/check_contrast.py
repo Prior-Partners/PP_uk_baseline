@@ -102,8 +102,11 @@ TOKEN_PAIRS.append({"mode": "Night", "name": "Orange on Night background", "fg":
 # Owner review, 17 October 2026: orange page titles (large text) and theme rows.
 TOKEN_PAIRS.append({"mode": "Day", "name": "Orange page titles (large text)", "fg": "#FF511D",
                     "bg": "#FAFAFA", "minimum": 3.0})
-TOKEN_PAIRS.append({"mode": "Day", "name": "Orange theme rows", "fg": "#C22D00",
-                    "bg": "#FAFAFA", "minimum": 4.5})
+# Owner, 27 October 2026: the Day theme rows take the title orange, accepted below AA.
+TOKEN_PAIRS.append({"mode": "Day", "name": "Orange theme rows", "fg": "#FF511D",
+                    "bg": "#FAFAFA", "minimum": 4.5, "accepted": "owner, 27 October 2026"})
+ACCEPTED_LIVE = {"mode": "Day", "colour": "rgb(255, 81, 29)",
+                 "why": "theme rows in the title orange, below AA by the owner's choice (27 October 2026)"}
 
 
 LIVE_PAGES = ("", "HER/", "HER/her_historicengland_battlefields_may2026/", "DEM/dem_geods_oa_age_2021_22/")
@@ -161,10 +164,14 @@ def main(argv: list[str] | None = None) -> int:
         for pair in TOKEN_PAIRS:
             measured = ratio(pair["fg"], pair["bg"])
             minimum = pair["minimum"]
-            failed = minimum is not None and measured < minimum
+            below = minimum is not None and measured < minimum
+            failed = below and not pair.get("accepted")
             failures += int(failed)
-            status = "INFO" if minimum is None else "FAIL" if failed else "PASS"
-            requirement = "decorative, reported only" if minimum is None else f"minimum {minimum:.1f}:1"
+            status = ("INFO" if minimum is None else "FAIL" if failed else
+                      "ACCEPTED" if below else "PASS")
+            requirement = ("decorative, reported only" if minimum is None else
+                           f"minimum {minimum:.1f}:1, accepted below it ({pair['accepted']})" if status == "ACCEPTED"
+                           else f"minimum {minimum:.1f}:1")
             print(f"{status} {pair['mode']} / {pair['name']}: {measured:.2f}:1 "
                   f"({pair['fg']} on {pair['bg']}; {requirement})")
     except (ValueError, KeyError, TypeError) as error:
@@ -175,12 +182,16 @@ def main(argv: list[str] | None = None) -> int:
         if not (args.live / "index.html").is_file():
             print(f"ERROR: {args.live} is not a built site", file=sys.stderr)
             return 2
-        sampled, live_failures = check_live(args.live.resolve())
+        sampled, below = check_live(args.live.resolve())
+        accepted = [f for f in below if f.get("theme_row") and f["mode"] == ACCEPTED_LIVE["mode"]
+                    and f["colour"] == ACCEPTED_LIVE["colour"]]
+        live_failures = [f for f in below if f not in accepted]
         for failure in live_failures:
             print(f"FAIL {failure['mode']} {failure['width']} {failure['page']}: {failure['ratio']}:1 "
                   f"(needs {failure['need']}) {failure['element']} {failure['text']!r}")
         print(f"{'FAIL' if live_failures else 'PASS'} Live contrast: {sampled} text samples in "
-              f"{len(LIVE_VIEWS) * len(LIVE_PAGES)} views, {len(live_failures)} below AA")
+              f"{len(LIVE_VIEWS) * len(LIVE_PAGES)} views, {len(live_failures)} below AA"
+              f"{f'; {len(accepted)} accepted: ' + ACCEPTED_LIVE['why'] if accepted else ''}")
         if args.report:
             args.report.write_text(json.dumps(live_failures, indent=2, ensure_ascii=False), encoding="utf-8")
         failures += len(live_failures)

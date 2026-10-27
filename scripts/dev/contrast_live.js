@@ -49,8 +49,9 @@
     const ratio = (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
     const size = parseFloat(cs.fontSize), weight = parseInt(cs.fontWeight, 10);
     const large = size >= 24 || (size >= 18.66 && weight >= 700);
+    const themeRow = !!el.closest(".md-nav--primary > .md-nav__list > .md-nav__item--nested > .md-nav__link");
     return { text: text.slice(0, 48), exact: ratio, ratio: Math.round(ratio * 100) / 100,
-             need: large ? 3 : 4.5, colour, opacity: Math.round(opacityOf(el) * 1000) / 1000,
+             need: large ? 3 : 4.5, colour, theme_row: themeRow, opacity: Math.round(opacityOf(el) * 1000) / 1000,
              background: `rgb(${Math.round(bg.r)}, ${Math.round(bg.g)}, ${Math.round(bg.b)})`,
              element: el.tagName.toLowerCase() + (el.className && typeof el.className === "string"
                ? "." + el.className.trim().split(/\s+/).join(".") : "") };

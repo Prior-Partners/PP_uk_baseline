@@ -98,7 +98,7 @@ def test_token_colours_match_approved_palette():
         ("Night", "Hairlines"): ("rgba(255,255,255,.22)", "hsl(0,0%,4%)"),
         ("Night", "Orange on Night background"): ("#FF511D", "hsl(0,0%,4%)"),
         ("Day", "Orange page titles (large text)"): ("#FF511D", "#FAFAFA"),
-        ("Day", "Orange theme rows"): ("#C22D00", "#FAFAFA"),
+        ("Day", "Orange theme rows"): ("#FF511D", "#FAFAFA"),
     }
     actual = {(pair["mode"], pair["name"]): (pair["fg"], pair["bg"])
               for pair in contrast.TOKEN_PAIRS}
@@ -153,3 +153,22 @@ def test_cli_default_and_bad_arguments():
     assert result.returncode == 0 and "PASS Contrast:" in result.stdout
     result = subprocess.run([sys.executable, "-B", str(SCRIPT), "--unknown"], capture_output=True, text=True)
     assert result.returncode == 2
+
+
+def test_accepted_pair_is_reported_not_failed(capsys):
+    assert contrast.main([]) == 0
+    output = capsys.readouterr().out
+    assert "ACCEPTED Day / Orange theme rows" in output
+    assert "accepted below it (owner, 27 October 2026)" in output
+
+
+def test_live_accepts_only_day_theme_rows_in_the_title_orange(monkeypatch, tmp_path, capsys):
+    (tmp_path / "index.html").write_text("<p>x</p>", encoding="utf-8")
+    row = {"mode": "Day", "width": 1440, "page": "home", "ratio": 3.12, "need": 4.5,
+           "element": "span", "text": "ADM", "colour": "rgb(255, 81, 29)", "theme_row": True}
+    monkeypatch.setattr(contrast, "check_live", lambda site: (10, [row]))
+    assert contrast.main(["--live", str(tmp_path)]) == 0
+    assert "1 accepted" in capsys.readouterr().out
+    for other in (dict(row, theme_row=False), dict(row, mode="Night"), dict(row, colour="rgb(1, 2, 3)")):
+        monkeypatch.setattr(contrast, "check_live", lambda site, other=other: (10, [other]))
+        assert contrast.main(["--live", str(tmp_path)]) == 1

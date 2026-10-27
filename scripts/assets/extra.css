@@ -17,8 +17,9 @@
    #8a8a8a stays for non-text marks); orange text only on #121212 or
    the Night background; Night links #d6e4ff, underlined.
    Owner review, 17 October 2026: page titles and the menu's theme rows
-   in orange — the brand orange, except the small Day theme rows, which
-   take the same hue darkened to 38% lightness (#C22D00) for AA.
+   in orange. Owner, 27 October 2026: the Day theme rows use the same
+   brand orange as the titles (#FF511D), accepted below AA for small text
+   (3.1:1 on #FAFAFA); the darker #C22D00 is no longer used.
 
    Typography: GT America Light (300) for reading text, Medium for
    headings and labels; GT America Mono for interface labels, in
@@ -91,7 +92,7 @@ body {
   --pp3-mark: #8a8a8a;             /* non-text marks only (3.3:1) */
   --pp3-line: rgba(0, 0, 0, .28);
   --pp3-link: #005DFF;             /* 5.0:1 */
-  --pp-orange-label: #C22D00;      /* theme rows: brand hue at 38%, 5.5:1 (brand orange is 3.1:1) */
+  --pp-orange-label: #FF511D;      /* theme rows: brand orange, 3.1:1, below AA by the owner's choice */
   --pp3-tint: rgba(0, 93, 255, .07);
   --pp3-highlight: #d6e4ff;
   color-scheme: light;

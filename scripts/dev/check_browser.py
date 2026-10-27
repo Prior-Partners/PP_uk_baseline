@@ -51,7 +51,7 @@ COBALT = "rgb(0, 93, 255)"
 ORANGE = "rgb(255, 81, 29)"                       # #FF511D, the brand orange
 # Per mode: (system colour scheme, theme-row orange, primary text)
 MODES = {"Night": ("dark", ORANGE, "rgb(255, 255, 255)"),
-         "Day": ("light", "rgb(194, 45, 0)", "rgb(0, 0, 0)")}   # #C22D00 for AA on #FAFAFA
+         "Day": ("light", ORANGE, "rgb(0, 0, 0)")}   # title orange in Day too (owner, 27 October 2026)
 THEME_ROW = ".md-nav--primary > .md-nav__list > .md-nav__item--nested > label.md-nav__link"
 
 

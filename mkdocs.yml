@@ -1,6 +1,6 @@
 site_name: UK Baseline data catalogue
 site_description: A guide to every layer in the uk_baseline database.
-copyright: Developed by the Digital Innovation team, Prior + Partners — last updated 27 October 2026
+copyright: Developed by the Digital Innovation team, Prior + Partners — last updated 28 October 2026
 theme:
   name: material
   custom_dir: overrides

@@ -784,6 +784,10 @@ def render_mkdocs(records: list[dict[str, Any]], built: str) -> None:
     overrides = REPO / "overrides"
     if overrides.is_dir() and OUT.resolve() != REPO.resolve():
         shutil.copytree(overrides, OUT / "overrides", dirs_exist_ok=True)
+    # The same for hooks/ (column_breaks.py: break points in the Columns tables, 28 October 2026).
+    hooks = REPO / "hooks"
+    if hooks.is_dir() and OUT.resolve() != REPO.resolve():
+        shutil.copytree(hooks, OUT / "hooks", dirs_exist_ok=True)
     themes = sorted({r["theme"] for r in records})
 
     # Landing page
@@ -985,6 +989,9 @@ is, how to connect QGIS, and how to use the data on a project. It is kept on the
         "    - content.code.copy",
         "plugins:",
         "  - search",
+        # Column names and geometry types break only after "_", "&", "(" or "," (hooks/column_breaks.py).
+        "hooks:",
+        "  - hooks/column_breaks.py",
         "markdown_extensions:",
         "  - admonition",
         "  - attr_list",

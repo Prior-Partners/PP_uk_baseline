@@ -782,6 +782,11 @@ body, .md-typeset { font-weight: 300; }
   background: transparent;
   color: var(--pp3-primary);
 }
+/* Column names and geometry types break only at the points hooks/column_breaks.py marks (after
+   "_", "&", "(" or ","), never mid-word; a single part wider than the screen still wraps
+   (owner, 28 October 2026) */
+.md-typeset table:not([class]) td:first-child code,
+.md-typeset table:not([class]) td:nth-child(2) code { word-break: normal; overflow-wrap: break-word; }
 /* Sticky header on wide screens: Material's scroll wrappers would trap it */
 @media screen and (min-width: 76.25em) {
   .md-typeset__scrollwrap { overflow-x: visible; }

@@ -94,7 +94,7 @@
 | `2021_total_population_count` | `bigint` | Source field; count of "2021 total population" in LSOA usual residents. |
 | `2021_female_population_count` | `bigint` | Source field; count of "2021 female population" in LSOA usual residents. |
 | `2021_male_population_count` | `bigint` | Source field; count of "2021 male population" in LSOA usual residents. |
-| `2021_female_population_perc` | `double precision` | Source field; percentage of "2021 female population" in LSOA usual residents. Unit: "percent (0 to 100)". |
+| `2021_female_population_perc` | `double precision` | Derived: percentage of "2021 female population" in LSOA usual residents, from `2021_female_population_count` divided by `2021_total_population_count`, times 100. Recomputed 28 October 2026 because the source value was one tenth of the true percentage. Unit: "percent (0 to 100)". |
 | `2021_male_population_perc` | `double precision` | Source field; percentage of "2021 male population" in LSOA usual residents. Unit: "percent (0 to 100)". |
 | `aged_0_to_9_years_count` | `bigint` | Source field; count of "aged 0 to 9 years" in LSOA usual residents. |
 | `aged_10_to_15_years_count` | `bigint` | Source field; count of "aged 10 to 15 years" in LSOA usual residents. |

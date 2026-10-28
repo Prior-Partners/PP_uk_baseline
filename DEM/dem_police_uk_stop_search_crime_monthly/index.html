@@ -45,7 +45,7 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css?v=6a3035f9">
+      <link rel="stylesheet" href="../../stylesheets/extra.css?v=271158a4">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -6519,27 +6519,27 @@
 <td></td>
 </tr>
 <tr>
-<td><code>search_type</code></td>
+<td><code>search_<wbr>type</code></td>
 <td><code>text</code></td>
 <td>Source field "Type"; "Person search" or "Vehicle search".</td>
 </tr>
 <tr>
-<td><code>search_ts</code></td>
+<td><code>search_<wbr>ts</code></td>
 <td><code>timestamp with time zone</code></td>
 <td>Full ISO timestamp from the Date column (kept; not truncated to day).</td>
 </tr>
 <tr>
-<td><code>record_month</code></td>
+<td><code>record_<wbr>month</code></td>
 <td><code>text</code></td>
 <td>YYYY-MM derived from search_ts.</td>
 </tr>
 <tr>
-<td><code>part_of_op</code></td>
+<td><code>part_<wbr>of_<wbr>op</code></td>
 <td><code>boolean</code></td>
 <td>Source field "Part of a policing operation"; boolean.</td>
 </tr>
 <tr>
-<td><code>policing_op</code></td>
+<td><code>policing_<wbr>op</code></td>
 <td><code>text</code></td>
 <td>Source field "Policing operation"; free-text name of the operation, where applicable.</td>
 </tr>
@@ -6559,17 +6559,17 @@
 <td>Source field "Gender"; gender of the searched subject as recorded by the officer.</td>
 </tr>
 <tr>
-<td><code>age_range</code></td>
+<td><code>age_<wbr>range</code></td>
 <td><code>text</code></td>
 <td>Source field "Age range"; banded age (e.g. "10-17", "18-24", "25-34", "over 34").</td>
 </tr>
 <tr>
-<td><code>self_ethnicity</code></td>
+<td><code>self_<wbr>ethnicity</code></td>
 <td><code>text</code></td>
 <td>Source field "Self-defined ethnicity"; ethnicity as stated by the subject.</td>
 </tr>
 <tr>
-<td><code>officer_ethnicity</code></td>
+<td><code>officer_<wbr>ethnicity</code></td>
 <td><code>text</code></td>
 <td>Source field "Officer-defined ethnicity"; ethnicity as observed by the officer.</td>
 </tr>
@@ -6579,7 +6579,7 @@
 <td>Source field "Legislation"; statutory authority cited for the search (e.g. PACE 1984 s.1).</td>
 </tr>
 <tr>
-<td><code>object_of_search</code></td>
+<td><code>object_<wbr>of_<wbr>search</code></td>
 <td><code>text</code></td>
 <td>Source field "Object of search"; what officers were looking for (e.g. "Stolen goods", "Controlled drugs").</td>
 </tr>
@@ -6589,18 +6589,18 @@
 <td>Source field "Outcome"; result of the search (e.g. "Arrest", "Nothing found - no further action").</td>
 </tr>
 <tr>
-<td><code>outcome_linked</code></td>
+<td><code>outcome_<wbr>linked</code></td>
 <td><code>boolean</code></td>
 <td>Source field "Outcome linked to object of search"; boolean.</td>
 </tr>
 <tr>
-<td><code>outer_removal</code></td>
+<td><code>outer_<wbr>removal</code></td>
 <td><code>boolean</code></td>
 <td>Source field "Removal of more than just outer clothing"; boolean indicating strip-search.</td>
 </tr>
 <tr>
 <td><code>geom</code></td>
-<td><code>geometry(Point,27700)</code></td>
+<td><code>geometry(<wbr>Point,<wbr>27700)</code></td>
 <td>Reprojected from EPSG:4326 (longitude, latitude) at load time.</td>
 </tr>
 <tr>
@@ -6609,12 +6609,12 @@
 <td>Police force slug parsed from CSV filename. Source CSV has no force column.</td>
 </tr>
 <tr>
-<td><code>source_file</code></td>
+<td><code>source_<wbr>file</code></td>
 <td><code>text</code></td>
 <td>CSV filename this row came from. Used as the idempotency key by the loader.</td>
 </tr>
 <tr>
-<td><code>load_ts</code></td>
+<td><code>load_<wbr>ts</code></td>
 <td><code>date</code></td>
 <td>Date this row was loaded into PostGIS (CURRENT_DATE default).</td>
 </tr>

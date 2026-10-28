@@ -45,7 +45,7 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css?v=6a3035f9">
+      <link rel="stylesheet" href="../../stylesheets/extra.css?v=271158a4">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -6526,7 +6526,7 @@
 </tr>
 <tr>
 <td><code>geom</code></td>
-<td><code>geometry(MultiPolygon,27700)</code></td>
+<td><code>geometry(<wbr>MultiPolygon,<wbr>27700)</code></td>
 <td>MultiPolygon in EPSG:27700. Boundary geometry joined at load.</td>
 </tr>
 <tr>
@@ -6560,452 +6560,452 @@
 <td>Joined at load from ONS LSOA-&gt;Region lookup; 2022 Region name.</td>
 </tr>
 <tr>
-<td><code>data_source</code></td>
+<td><code>data_<wbr>source</code></td>
 <td><code>text</code></td>
 <td>Added during an earlier Prior + Partners loading pass. Fixed-string annotation; same value every row.</td>
 </tr>
 <tr>
-<td><code>data_resolution</code></td>
+<td><code>data_<wbr>resolution</code></td>
 <td><code>text</code></td>
 <td>Added during an earlier Prior + Partners loading pass. Fixed-string annotation; same value every row.</td>
 </tr>
 <tr>
-<td><code>data_time_period</code></td>
+<td><code>data_<wbr>time_<wbr>period</code></td>
 <td><code>timestamp without time zone</code></td>
 <td>Added during an earlier Prior + Partners loading pass. Fixed annotation; same value every row.</td>
 </tr>
 <tr>
-<td><code>data_web_link</code></td>
+<td><code>data_<wbr>web_<wbr>link</code></td>
 <td><code>text</code></td>
 <td>Added during an earlier Prior + Partners loading pass. Fixed annotation; URL to the ONS dataset page.</td>
 </tr>
 <tr>
-<td><code>area_ha</code></td>
+<td><code>area_<wbr>ha</code></td>
 <td><code>double precision</code></td>
 <td>Area in hectares, computed at load from the geometry. Unit: hectares. Stale if geometry is later edited.</td>
 </tr>
 <tr>
-<td><code>mid_2011_population_count</code></td>
+<td><code>mid_<wbr>2011_<wbr>population_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "mid 2011 population" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>mid_2016_population_count</code></td>
+<td><code>mid_<wbr>2016_<wbr>population_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "mid 2016 population" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>mid_2021_population_count</code></td>
+<td><code>mid_<wbr>2021_<wbr>population_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "mid 2021 population" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>mid_2011_people_per_ha</code></td>
+<td><code>mid_<wbr>2011_<wbr>people_<wbr>per_<wbr>ha</code></td>
 <td><code>double precision</code></td>
 <td>Added during an earlier Prior + Partners loading pass. Derived population density for the LSOA in mid-2011: ONS Mid-2011 population estimate / area_ha. Unit: "persons per hectare".</td>
 </tr>
 <tr>
-<td><code>mid_2016_people_per_ha</code></td>
+<td><code>mid_<wbr>2016_<wbr>people_<wbr>per_<wbr>ha</code></td>
 <td><code>double precision</code></td>
 <td>Added during an earlier Prior + Partners loading pass. Derived population density for the LSOA in mid-2016: ONS Mid-2016 population estimate / area_ha. Unit: "persons per hectare".</td>
 </tr>
 <tr>
-<td><code>mid_2021_people_per_ha</code></td>
+<td><code>mid_<wbr>2021_<wbr>people_<wbr>per_<wbr>ha</code></td>
 <td><code>double precision</code></td>
 <td>Added during an earlier Prior + Partners loading pass. Derived population density for the LSOA in mid-2021: ONS Mid-2021 population estimate / area_ha. Unit: "persons per hectare".</td>
 </tr>
 <tr>
-<td><code>change_in_population_2021_10yr</code></td>
+<td><code>change_<wbr>in_<wbr>population_<wbr>2021_<wbr>10yr</code></td>
 <td><code>bigint</code></td>
 <td>Added during an earlier Prior + Partners loading pass. Change in LSOA population over the last 10 years to 2021 (2021 ONS estimate - 2011 ONS estimate). Unit: "persons".</td>
 </tr>
 <tr>
-<td><code>change_in_population_2021_5yr</code></td>
+<td><code>change_<wbr>in_<wbr>population_<wbr>2021_<wbr>5yr</code></td>
 <td><code>bigint</code></td>
 <td>Added during an earlier Prior + Partners loading pass. Change in LSOA population over the last 5 years to 2021 (2021 ONS estimate - 2016 ONS estimate). Unit: "persons".</td>
 </tr>
 <tr>
-<td><code>change_in_population_density_2021_10yr_change</code></td>
+<td><code>change_<wbr>in_<wbr>population_<wbr>density_<wbr>2021_<wbr>10yr_<wbr>change</code></td>
 <td><code>double precision</code></td>
 <td>Added during an earlier Prior + Partners loading pass. Change in LSOA population density over the last 10 years to 2021. Unit: "persons per hectare".</td>
 </tr>
 <tr>
-<td><code>change_in_population_density_2021_5yr_change</code></td>
+<td><code>change_<wbr>in_<wbr>population_<wbr>density_<wbr>2021_<wbr>5yr_<wbr>change</code></td>
 <td><code>double precision</code></td>
 <td>Added during an earlier Prior + Partners loading pass. Change in LSOA population density over the last 5 years to 2021. Unit: "persons per hectare".</td>
 </tr>
 <tr>
-<td><code>2021_households_count</code></td>
+<td><code>2021_<wbr>households_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "2021 households" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>2021_households_per_ha</code></td>
+<td><code>2021_<wbr>households_<wbr>per_<wbr>ha</code></td>
 <td><code>double precision</code></td>
 <td>Added during an earlier Prior + Partners loading pass. Derived households density for the LSOA: total households / area_ha. Unit: "households per hectare". Column name is digit-led — use double-quoted identifier in SQL.</td>
 </tr>
 <tr>
-<td><code>2021_total_population_count</code></td>
+<td><code>2021_<wbr>total_<wbr>population_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "2021 total population" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>2021_female_population_count</code></td>
+<td><code>2021_<wbr>female_<wbr>population_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "2021 female population" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>2021_male_population_count</code></td>
+<td><code>2021_<wbr>male_<wbr>population_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "2021 male population" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>2021_female_population_perc</code></td>
+<td><code>2021_<wbr>female_<wbr>population_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "2021 female population" in LSOA usual residents. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>2021_male_population_perc</code></td>
+<td><code>2021_<wbr>male_<wbr>population_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "2021 male population" in LSOA usual residents. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>aged_0_to_9_years_count</code></td>
+<td><code>aged_<wbr>0_<wbr>to_<wbr>9_<wbr>years_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "aged 0 to 9 years" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>aged_10_to_15_years_count</code></td>
+<td><code>aged_<wbr>10_<wbr>to_<wbr>15_<wbr>years_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "aged 10 to 15 years" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>aged_16_to_19_years_count</code></td>
+<td><code>aged_<wbr>16_<wbr>to_<wbr>19_<wbr>years_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "aged 16 to 19 years" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>aged_20_to_29_years_count</code></td>
+<td><code>aged_<wbr>20_<wbr>to_<wbr>29_<wbr>years_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "aged 20 to 29 years" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>aged_30_to_39_years_count</code></td>
+<td><code>aged_<wbr>30_<wbr>to_<wbr>39_<wbr>years_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "aged 30 to 39 years" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>aged_40_to_49_years_count</code></td>
+<td><code>aged_<wbr>40_<wbr>to_<wbr>49_<wbr>years_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "aged 40 to 49 years" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>aged_50_to_59_years_count</code></td>
+<td><code>aged_<wbr>50_<wbr>to_<wbr>59_<wbr>years_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "aged 50 to 59 years" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>aged_60_to_64_years_count</code></td>
+<td><code>aged_<wbr>60_<wbr>to_<wbr>64_<wbr>years_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "aged 60 to 64 years" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>aged_65_to_69_years_count</code></td>
+<td><code>aged_<wbr>65_<wbr>to_<wbr>69_<wbr>years_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "aged 65 to 69 years" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>aged_70_to_79_years_count</code></td>
+<td><code>aged_<wbr>70_<wbr>to_<wbr>79_<wbr>years_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "aged 70 to 79 years" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>aged_80_and_above_years_count</code></td>
+<td><code>aged_<wbr>80_<wbr>and_<wbr>above_<wbr>years_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "aged 80 and above years" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>aged_0_to_9_years_perc</code></td>
+<td><code>aged_<wbr>0_<wbr>to_<wbr>9_<wbr>years_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "aged 0 to 9 years" in LSOA usual residents. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>aged_10_to_15_years_perc</code></td>
+<td><code>aged_<wbr>10_<wbr>to_<wbr>15_<wbr>years_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "aged 10 to 15 years" in LSOA usual residents. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>aged_16_to_19_years_perc</code></td>
+<td><code>aged_<wbr>16_<wbr>to_<wbr>19_<wbr>years_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "aged 16 to 19 years" in LSOA usual residents. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>aged_20_to_29_years_perc</code></td>
+<td><code>aged_<wbr>20_<wbr>to_<wbr>29_<wbr>years_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "aged 20 to 29 years" in LSOA usual residents. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>aged_30_to_39_years_perc</code></td>
+<td><code>aged_<wbr>30_<wbr>to_<wbr>39_<wbr>years_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "aged 30 to 39 years" in LSOA usual residents. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>aged_40_to_49_years_perc</code></td>
+<td><code>aged_<wbr>40_<wbr>to_<wbr>49_<wbr>years_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "aged 40 to 49 years" in LSOA usual residents. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>aged_50_to_59_years_perc</code></td>
+<td><code>aged_<wbr>50_<wbr>to_<wbr>59_<wbr>years_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "aged 50 to 59 years" in LSOA usual residents. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>aged_60_to_64_years_perc</code></td>
+<td><code>aged_<wbr>60_<wbr>to_<wbr>64_<wbr>years_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "aged 60 to 64 years" in LSOA usual residents. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>aged_65_to_69_years_perc</code></td>
+<td><code>aged_<wbr>65_<wbr>to_<wbr>69_<wbr>years_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "aged 65 to 69 years" in LSOA usual residents. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>aged_70_to_79_years_perc</code></td>
+<td><code>aged_<wbr>70_<wbr>to_<wbr>79_<wbr>years_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "aged 70 to 79 years" in LSOA usual residents. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>aged_80_and_above_years_perc</code></td>
+<td><code>aged_<wbr>80_<wbr>and_<wbr>above_<wbr>years_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "aged 80 and above years" in LSOA usual residents. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>aged_0_to_9_years_female_count</code></td>
+<td><code>aged_<wbr>0_<wbr>to_<wbr>9_<wbr>years_<wbr>female_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "aged 0 to 9 years female" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>aged_10_to_15_years_female_count</code></td>
+<td><code>aged_<wbr>10_<wbr>to_<wbr>15_<wbr>years_<wbr>female_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "aged 10 to 15 years female" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>aged_16_to_19_years_female_count</code></td>
+<td><code>aged_<wbr>16_<wbr>to_<wbr>19_<wbr>years_<wbr>female_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "aged 16 to 19 years female" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>aged_20_to_29_years_female_count</code></td>
+<td><code>aged_<wbr>20_<wbr>to_<wbr>29_<wbr>years_<wbr>female_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "aged 20 to 29 years female" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>aged_30_to_39_years_female_count</code></td>
+<td><code>aged_<wbr>30_<wbr>to_<wbr>39_<wbr>years_<wbr>female_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "aged 30 to 39 years female" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>aged_40_to_49_years_female_count</code></td>
+<td><code>aged_<wbr>40_<wbr>to_<wbr>49_<wbr>years_<wbr>female_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "aged 40 to 49 years female" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>aged_50_to_59_years_female_count</code></td>
+<td><code>aged_<wbr>50_<wbr>to_<wbr>59_<wbr>years_<wbr>female_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "aged 50 to 59 years female" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>aged_60_to_64_years_female_count</code></td>
+<td><code>aged_<wbr>60_<wbr>to_<wbr>64_<wbr>years_<wbr>female_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "aged 60 to 64 years female" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>aged_65_to_69_years_female_count</code></td>
+<td><code>aged_<wbr>65_<wbr>to_<wbr>69_<wbr>years_<wbr>female_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "aged 65 to 69 years female" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>aged_70_to_79_years_female_count</code></td>
+<td><code>aged_<wbr>70_<wbr>to_<wbr>79_<wbr>years_<wbr>female_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "aged 70 to 79 years female" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>aged_80_and_above_years_female_count</code></td>
+<td><code>aged_<wbr>80_<wbr>and_<wbr>above_<wbr>years_<wbr>female_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "aged 80 and above years female" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>aged_0_to_9_years_female_perc</code></td>
+<td><code>aged_<wbr>0_<wbr>to_<wbr>9_<wbr>years_<wbr>female_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "aged 0 to 9 years female" in LSOA usual residents. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>aged_10_to_15_years_female_perc</code></td>
+<td><code>aged_<wbr>10_<wbr>to_<wbr>15_<wbr>years_<wbr>female_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "aged 10 to 15 years female" in LSOA usual residents. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>aged_16_to_19_years_female_perc</code></td>
+<td><code>aged_<wbr>16_<wbr>to_<wbr>19_<wbr>years_<wbr>female_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "aged 16 to 19 years female" in LSOA usual residents. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>aged_20_to_29_years_female_perc</code></td>
+<td><code>aged_<wbr>20_<wbr>to_<wbr>29_<wbr>years_<wbr>female_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "aged 20 to 29 years female" in LSOA usual residents. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>aged_30_to_39_years_female_perc</code></td>
+<td><code>aged_<wbr>30_<wbr>to_<wbr>39_<wbr>years_<wbr>female_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "aged 30 to 39 years female" in LSOA usual residents. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>aged_40_to_49_years_female_perc</code></td>
+<td><code>aged_<wbr>40_<wbr>to_<wbr>49_<wbr>years_<wbr>female_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "aged 40 to 49 years female" in LSOA usual residents. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>aged_50_to_59_years_female_perc</code></td>
+<td><code>aged_<wbr>50_<wbr>to_<wbr>59_<wbr>years_<wbr>female_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "aged 50 to 59 years female" in LSOA usual residents. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>aged_60_to_64_years_female_perc</code></td>
+<td><code>aged_<wbr>60_<wbr>to_<wbr>64_<wbr>years_<wbr>female_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "aged 60 to 64 years female" in LSOA usual residents. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>aged_65_to_69_years_female_perc</code></td>
+<td><code>aged_<wbr>65_<wbr>to_<wbr>69_<wbr>years_<wbr>female_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "aged 65 to 69 years female" in LSOA usual residents. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>aged_70_to_79_years_female_perc</code></td>
+<td><code>aged_<wbr>70_<wbr>to_<wbr>79_<wbr>years_<wbr>female_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "aged 70 to 79 years female" in LSOA usual residents. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>aged_80_and_above_years_female_perc</code></td>
+<td><code>aged_<wbr>80_<wbr>and_<wbr>above_<wbr>years_<wbr>female_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "aged 80 and above years female" in LSOA usual residents. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>aged_0_to_9_years_male_count</code></td>
+<td><code>aged_<wbr>0_<wbr>to_<wbr>9_<wbr>years_<wbr>male_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "aged 0 to 9 years male" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>aged_10_to_15_years_male_count</code></td>
+<td><code>aged_<wbr>10_<wbr>to_<wbr>15_<wbr>years_<wbr>male_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "aged 10 to 15 years male" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>aged_16_to_19_years_male_count</code></td>
+<td><code>aged_<wbr>16_<wbr>to_<wbr>19_<wbr>years_<wbr>male_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "aged 16 to 19 years male" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>aged_20_to_29_years_male_count</code></td>
+<td><code>aged_<wbr>20_<wbr>to_<wbr>29_<wbr>years_<wbr>male_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "aged 20 to 29 years male" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>aged_30_to_39_years_male_count</code></td>
+<td><code>aged_<wbr>30_<wbr>to_<wbr>39_<wbr>years_<wbr>male_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "aged 30 to 39 years male" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>aged_40_to_49_years_male_count</code></td>
+<td><code>aged_<wbr>40_<wbr>to_<wbr>49_<wbr>years_<wbr>male_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "aged 40 to 49 years male" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>aged_50_to_59_years_male_count</code></td>
+<td><code>aged_<wbr>50_<wbr>to_<wbr>59_<wbr>years_<wbr>male_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "aged 50 to 59 years male" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>aged_60_to_64_years_male_count</code></td>
+<td><code>aged_<wbr>60_<wbr>to_<wbr>64_<wbr>years_<wbr>male_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "aged 60 to 64 years male" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>aged_65_to_69_years_male_count</code></td>
+<td><code>aged_<wbr>65_<wbr>to_<wbr>69_<wbr>years_<wbr>male_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "aged 65 to 69 years male" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>aged_70_to_79_years_male_count</code></td>
+<td><code>aged_<wbr>70_<wbr>to_<wbr>79_<wbr>years_<wbr>male_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "aged 70 to 79 years male" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>aged_80_and_above_years_male_count</code></td>
+<td><code>aged_<wbr>80_<wbr>and_<wbr>above_<wbr>years_<wbr>male_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "aged 80 and above years male" in LSOA usual residents.</td>
 </tr>
 <tr>
-<td><code>aged_0_to_9_years_male_perc</code></td>
+<td><code>aged_<wbr>0_<wbr>to_<wbr>9_<wbr>years_<wbr>male_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "aged 0 to 9 years male" in LSOA usual residents. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>aged_10_to_15_years_male_perc</code></td>
+<td><code>aged_<wbr>10_<wbr>to_<wbr>15_<wbr>years_<wbr>male_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "aged 10 to 15 years male" in LSOA usual residents. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>aged_16_to_19_years_male_perc</code></td>
+<td><code>aged_<wbr>16_<wbr>to_<wbr>19_<wbr>years_<wbr>male_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "aged 16 to 19 years male" in LSOA usual residents. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>aged_20_to_29_years_male_perc</code></td>
+<td><code>aged_<wbr>20_<wbr>to_<wbr>29_<wbr>years_<wbr>male_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "aged 20 to 29 years male" in LSOA usual residents. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>aged_30_to_39_years_male_perc</code></td>
+<td><code>aged_<wbr>30_<wbr>to_<wbr>39_<wbr>years_<wbr>male_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "aged 30 to 39 years male" in LSOA usual residents. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>aged_40_to_49_years_male_perc</code></td>
+<td><code>aged_<wbr>40_<wbr>to_<wbr>49_<wbr>years_<wbr>male_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "aged 40 to 49 years male" in LSOA usual residents. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>aged_50_to_59_years_male_perc</code></td>
+<td><code>aged_<wbr>50_<wbr>to_<wbr>59_<wbr>years_<wbr>male_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "aged 50 to 59 years male" in LSOA usual residents. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>aged_60_to_64_years_male_perc</code></td>
+<td><code>aged_<wbr>60_<wbr>to_<wbr>64_<wbr>years_<wbr>male_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "aged 60 to 64 years male" in LSOA usual residents. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>aged_65_to_69_years_male_perc</code></td>
+<td><code>aged_<wbr>65_<wbr>to_<wbr>69_<wbr>years_<wbr>male_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "aged 65 to 69 years male" in LSOA usual residents. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>aged_70_to_79_years_male_perc</code></td>
+<td><code>aged_<wbr>70_<wbr>to_<wbr>79_<wbr>years_<wbr>male_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "aged 70 to 79 years male" in LSOA usual residents. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>aged_80_and_above_years_male_perc</code></td>
+<td><code>aged_<wbr>80_<wbr>and_<wbr>above_<wbr>years_<wbr>male_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "aged 80 and above years male" in LSOA usual residents. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>dominant_sex</code></td>
+<td><code>dominant_<wbr>sex</code></td>
 <td><code>text</code></td>
 <td>Added during an earlier Prior + Partners loading pass. Label of the modal sex group for the LSOA.</td>
 </tr>
 <tr>
-<td><code>dominant_age_group</code></td>
+<td><code>dominant_<wbr>age_<wbr>group</code></td>
 <td><code>text</code></td>
 <td>Derived during an earlier Prior + Partners loading pass; label of the modal category for this LSOA.</td>
 </tr>
@@ -7050,12 +7050,12 @@
 <td>County or unitary authority name at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0.</td>
 </tr>
 <tr>
-<td><code>sds_name</code></td>
+<td><code>sds_<wbr>name</code></td>
 <td><code>text</code></td>
 <td>Spatial Development Strategy (SDS) area, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0.</td>
 </tr>
 <tr>
-<td><code>sds_group</code></td>
+<td><code>sds_<wbr>group</code></td>
 <td><code>text</code></td>
 <td>Devolution status of the Spatial Development Strategy area: Existing Devolution Footprints, Devolution Priority Programme, Other Proposed Geographies or Remaining Areas. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0.</td>
 </tr>

@@ -45,7 +45,7 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css?v=6a3035f9">
+      <link rel="stylesheet" href="../../stylesheets/extra.css?v=271158a4">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -6513,32 +6513,32 @@
 <td>Surrogate row identifier.</td>
 </tr>
 <tr>
-<td><code>atco_code</code></td>
+<td><code>atco_<wbr>code</code></td>
 <td><code>character varying(50)</code></td>
 <td>Source field; NaPTAN ATCO code - the National Public Transport Access Node identifier for the stop.</td>
 </tr>
 <tr>
-<td><code>naptan_code</code></td>
+<td><code>naptan_<wbr>code</code></td>
 <td><code>character varying(50)</code></td>
 <td>Source field; short NaPTAN (SMS) code.</td>
 </tr>
 <tr>
-<td><code>stop_name</code></td>
+<td><code>stop_<wbr>name</code></td>
 <td><code>character varying(500)</code></td>
 <td>Source field; stop name.</td>
 </tr>
 <tr>
-<td><code>platform_code</code></td>
+<td><code>platform_<wbr>code</code></td>
 <td><code>character varying(50)</code></td>
 <td>Source field; platform / stand code where applicable.</td>
 </tr>
 <tr>
-<td><code>routes_served</code></td>
+<td><code>routes_<wbr>served</code></td>
 <td><code>jsonb</code></td>
 <td>Routes serving this stop (derived by reverse-lookup from mob_bus_routes).</td>
 </tr>
 <tr>
-<td><code>route_count</code></td>
+<td><code>route_<wbr>count</code></td>
 <td><code>integer</code></td>
 <td>Number of routes serving this stop.</td>
 </tr>
@@ -6554,16 +6554,16 @@
 </tr>
 <tr>
 <td><code>geom</code></td>
-<td><code>geometry(Point,27700)</code></td>
+<td><code>geometry(<wbr>Point,<wbr>27700)</code></td>
 <td>Point in EPSG:27700. Bus stop point.</td>
 </tr>
 <tr>
-<td><code>feed_source</code></td>
+<td><code>feed_<wbr>source</code></td>
 <td><code>character varying(50)</code></td>
 <td>Feed provenance. Observed values: "bods_gtfs_all", "txc_fallback".</td>
 </tr>
 <tr>
-<td><code>feed_loaded_at</code></td>
+<td><code>feed_<wbr>loaded_<wbr>at</code></td>
 <td><code>timestamp without time zone</code></td>
 <td>Timestamp the source feed was loaded.</td>
 </tr>
@@ -6613,12 +6613,12 @@
 <td>County or unitary authority name at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0.</td>
 </tr>
 <tr>
-<td><code>sds_name</code></td>
+<td><code>sds_<wbr>name</code></td>
 <td><code>text</code></td>
 <td>Spatial Development Strategy (SDS) area, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0.</td>
 </tr>
 <tr>
-<td><code>sds_group</code></td>
+<td><code>sds_<wbr>group</code></td>
 <td><code>text</code></td>
 <td>Devolution status of the Spatial Development Strategy area: Existing Devolution Footprints, Devolution Priority Programme, Other Proposed Geographies or Remaining Areas. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0.</td>
 </tr>

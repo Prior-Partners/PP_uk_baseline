@@ -45,7 +45,7 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css?v=6a3035f9">
+      <link rel="stylesheet" href="../../stylesheets/extra.css?v=271158a4">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -6511,62 +6511,62 @@
 </thead>
 <tbody>
 <tr>
-<td><code>source_fid</code></td>
+<td><code>source_<wbr>fid</code></td>
 <td><code>bigint</code></td>
 <td>Primary key of the source feature in the pre-split layer uk.mob_public_right_of_way__preswap_jul04 (non-unique here: a feature spanning N MSOAs has N rows).</td>
 </tr>
 <tr>
-<td><code>authority_gss</code></td>
+<td><code>authority_<wbr>gss</code></td>
 <td><code>text</code></td>
 <td>Source field; surveying authority ONS GSS code.</td>
 </tr>
 <tr>
-<td><code>authority_name</code></td>
+<td><code>authority_<wbr>name</code></td>
 <td><code>text</code></td>
 <td>Source field; surveying authority name (e.g. "Barnsley", "Bedford").</td>
 </tr>
 <tr>
-<td><code>prow_ref</code></td>
+<td><code>prow_<wbr>ref</code></td>
 <td><code>text</code></td>
 <td>Source field; the authority's PRoW reference for the segment.</td>
 </tr>
 <tr>
-<td><code>prow_type_norm</code></td>
+<td><code>prow_<wbr>type_<wbr>norm</code></td>
 <td><code>text</code></td>
 <td>Normalised PRoW type. Observed values: "footpath", "bridleway", "restricted_byway", "boat" (byway open to all traffic), "cycle_track", "other".</td>
 </tr>
 <tr>
-<td><code>prow_type_raw</code></td>
+<td><code>prow_<wbr>type_<wbr>raw</code></td>
 <td><code>text</code></td>
 <td>Source field; the authority's raw PRoW type value before normalisation.</td>
 </tr>
 <tr>
-<td><code>length_m</code></td>
+<td><code>length_<wbr>m</code></td>
 <td><code>double precision</code></td>
 <td>Length in metres.</td>
 </tr>
 <tr>
-<td><code>source_url</code></td>
+<td><code>source_<wbr>url</code></td>
 <td><code>text</code></td>
 <td>Source field; URL of the authority's source dataset for this segment.</td>
 </tr>
 <tr>
-<td><code>source_licence</code></td>
+<td><code>source_<wbr>licence</code></td>
 <td><code>text</code></td>
 <td>Source field; licence of the authority's source data. Observed values: "Open Government Licence (v3)", "OS OpenData Licence".</td>
 </tr>
 <tr>
-<td><code>source_published_date</code></td>
+<td><code>source_<wbr>published_<wbr>date</code></td>
 <td><code>date</code></td>
 <td>Source field; publication date of the authority's source data.</td>
 </tr>
 <tr>
-<td><code>source_sha256</code></td>
+<td><code>source_<wbr>sha256</code></td>
 <td><code>text</code></td>
 <td>SHA-256 checksum of the source file the segment was loaded from.</td>
 </tr>
 <tr>
-<td><code>update_date</code></td>
+<td><code>update_<wbr>date</code></td>
 <td><code>text</code></td>
 <td>Date the segment was loaded or last updated in uk_baseline.</td>
 </tr>
@@ -6607,7 +6607,7 @@
 </tr>
 <tr>
 <td><code>geom</code></td>
-<td><code>geometry(MultiLineString,27700)</code></td>
+<td><code>geometry(<wbr>MultiLineString,<wbr>27700)</code></td>
 <td>LineString in EPSG:27700. PRoW segment geometry.</td>
 </tr>
 <tr>
@@ -6626,12 +6626,12 @@
 <td>County or unitary authority name at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0.</td>
 </tr>
 <tr>
-<td><code>sds_name</code></td>
+<td><code>sds_<wbr>name</code></td>
 <td><code>text</code></td>
 <td>Spatial Development Strategy (SDS) area, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0.</td>
 </tr>
 <tr>
-<td><code>sds_group</code></td>
+<td><code>sds_<wbr>group</code></td>
 <td><code>text</code></td>
 <td>Devolution status of the Spatial Development Strategy area: Existing Devolution Footprints, Devolution Priority Programme, Other Proposed Geographies or Remaining Areas. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0.</td>
 </tr>

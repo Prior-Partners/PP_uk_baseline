@@ -45,7 +45,7 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css?v=6a3035f9">
+      <link rel="stylesheet" href="../../stylesheets/extra.css?v=271158a4">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -6514,16 +6514,16 @@
 </tr>
 <tr>
 <td><code>geom</code></td>
-<td><code>geometry(Point,27700)</code></td>
+<td><code>geometry(<wbr>Point,<wbr>27700)</code></td>
 <td>Point in EPSG:27700. GP practice location.</td>
 </tr>
 <tr>
-<td><code>practice_code</code></td>
+<td><code>practice_<wbr>code</code></td>
 <td><code>character varying</code></td>
 <td>Source field; GP practice code (ODS).</td>
 </tr>
 <tr>
-<td><code>practice_name</code></td>
+<td><code>practice_<wbr>name</code></td>
 <td><code>character varying</code></td>
 <td>Source field; GP practice name.</td>
 </tr>
@@ -6538,77 +6538,77 @@
 <td>Source field; practice status. Observed values: "ACTIVE", "INACTIVE", "DORMANT".</td>
 </tr>
 <tr>
-<td><code>prac_code</code></td>
+<td><code>prac_<wbr>code</code></td>
 <td><code>character varying</code></td>
 <td>Source field; practice code from the General Practice Workforce source.</td>
 </tr>
 <tr>
-<td><code>prac_name</code></td>
+<td><code>prac_<wbr>name</code></td>
 <td><code>character varying</code></td>
 <td>Source field; practice name from the General Practice Workforce source.</td>
 </tr>
 <tr>
-<td><code>pcn_name</code></td>
+<td><code>pcn_<wbr>name</code></td>
 <td><code>character varying</code></td>
 <td>Source field; Primary Care Network (PCN) name.</td>
 </tr>
 <tr>
-<td><code>sub_icb_code</code></td>
+<td><code>sub_<wbr>icb_<wbr>code</code></td>
 <td><code>character varying</code></td>
 <td>Source field; Sub-Integrated Care Board (Sub-ICB) code.</td>
 </tr>
 <tr>
-<td><code>sub_icb_name</code></td>
+<td><code>sub_<wbr>icb_<wbr>name</code></td>
 <td><code>character varying</code></td>
 <td>Source field; Sub-Integrated Care Board (Sub-ICB) name.</td>
 </tr>
 <tr>
-<td><code>icb_name</code></td>
+<td><code>icb_<wbr>name</code></td>
 <td><code>character varying</code></td>
 <td>Source field; Integrated Care Board (ICB) name.</td>
 </tr>
 <tr>
-<td><code>region_name</code></td>
+<td><code>region_<wbr>name</code></td>
 <td><code>character varying</code></td>
 <td>Source field; NHS region name.</td>
 </tr>
 <tr>
-<td><code>total_patients</code></td>
+<td><code>total_<wbr>patients</code></td>
 <td><code>integer</code></td>
 <td>Registered patients at the practice.</td>
 </tr>
 <tr>
-<td><code>gp_source</code></td>
+<td><code>gp_<wbr>source</code></td>
 <td><code>character varying</code></td>
 <td>Estimate-quality flag for the GP FTE figures. Observed values include "Includes FTE Estimates", "Fully estimated - no valid or current data".</td>
 </tr>
 <tr>
-<td><code>nurse_source</code></td>
+<td><code>nurse_<wbr>source</code></td>
 <td><code>character varying</code></td>
 <td>Estimate-quality flag for the nurse FTE figures.</td>
 </tr>
 <tr>
-<td><code>dpc_source</code></td>
+<td><code>dpc_<wbr>source</code></td>
 <td><code>character varying</code></td>
 <td>Estimate-quality flag for the Direct Patient Care FTE figures.</td>
 </tr>
 <tr>
-<td><code>admin_source</code></td>
+<td><code>admin_<wbr>source</code></td>
 <td><code>character varying</code></td>
 <td>Estimate-quality flag for the administrative-staff figures.</td>
 </tr>
 <tr>
-<td><code>total_gp_fte</code></td>
+<td><code>total_<wbr>gp_<wbr>fte</code></td>
 <td><code>numeric</code></td>
 <td>Total GP full-time equivalent (FTE).</td>
 </tr>
 <tr>
-<td><code>total_nurses_fte</code></td>
+<td><code>total_<wbr>nurses_<wbr>fte</code></td>
 <td><code>numeric</code></td>
 <td>Total nurse full-time equivalent (FTE).</td>
 </tr>
 <tr>
-<td><code>total_dpc_fte</code></td>
+<td><code>total_<wbr>dpc_<wbr>fte</code></td>
 <td><code>numeric</code></td>
 <td>Total Direct Patient Care (DPC) staff full-time equivalent (FTE).</td>
 </tr>
@@ -6668,12 +6668,12 @@
 <td>County or unitary authority name at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0.</td>
 </tr>
 <tr>
-<td><code>sds_name</code></td>
+<td><code>sds_<wbr>name</code></td>
 <td><code>text</code></td>
 <td>Spatial Development Strategy (SDS) area, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0.</td>
 </tr>
 <tr>
-<td><code>sds_group</code></td>
+<td><code>sds_<wbr>group</code></td>
 <td><code>text</code></td>
 <td>Devolution status of the Spatial Development Strategy area: Existing Devolution Footprints, Devolution Priority Programme, Other Proposed Geographies or Remaining Areas. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0.</td>
 </tr>

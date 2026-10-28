@@ -45,7 +45,7 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css?v=6a3035f9">
+      <link rel="stylesheet" href="../../stylesheets/extra.css?v=271158a4">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -6534,18 +6534,18 @@
 <td>Source field <code>uk001001</code>; "Residence type: Total". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>lives_in_household</code></td>
+<td><code>lives_<wbr>in_<wbr>household</code></td>
 <td><code>integer</code></td>
 <td>Source field <code>uk001002</code>; "Residence type: Lives in a household". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>lives_in_communal_establishment</code></td>
+<td><code>lives_<wbr>in_<wbr>communal_<wbr>establishment</code></td>
 <td><code>integer</code></td>
 <td>Source field <code>uk001003</code>; "Residence type: Lives in a communal establishment". Unit: "Person". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
 <td><code>geom</code></td>
-<td><code>geometry(MultiPolygon,27700)</code></td>
+<td><code>geometry(<wbr>MultiPolygon,<wbr>27700)</code></td>
 <td>Geometry from uk_baseline.adm_ons_oa_boundaries_dec2021 (England and Wales, Output Area 2021), uk_baseline.adm_nrs_oa_boundary_2022 (Scotland, Output Area 2022) and uk_baseline.adm_nisra_dz_boundary_2021 (Northern Ireland, Data Zone 2021), joined at load on the row's code.</td>
 </tr>
 <tr>
@@ -6594,12 +6594,12 @@
 <td>County or unitary authority name at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. Copied at load from uk_baseline.adm_ons_oa_boundaries_dec2021 on <code>oa</code> (Output Area 2021 code); NULL for every Scotland and Northern Ireland row.</td>
 </tr>
 <tr>
-<td><code>sds_name</code></td>
+<td><code>sds_<wbr>name</code></td>
 <td><code>text</code></td>
 <td>Spatial Development Strategy (SDS) area, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. Copied at load from uk_baseline.adm_ons_oa_boundaries_dec2021 on <code>oa</code> (Output Area 2021 code); NULL for every Scotland and Northern Ireland row.</td>
 </tr>
 <tr>
-<td><code>sds_group</code></td>
+<td><code>sds_<wbr>group</code></td>
 <td><code>text</code></td>
 <td>Devolution status of the Spatial Development Strategy area: Existing Devolution Footprints, Devolution Priority Programme, Other Proposed Geographies or Remaining Areas. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. Copied at load from uk_baseline.adm_ons_oa_boundaries_dec2021 on <code>oa</code> (Output Area 2021 code); NULL for every Scotland and Northern Ireland row.</td>
 </tr>

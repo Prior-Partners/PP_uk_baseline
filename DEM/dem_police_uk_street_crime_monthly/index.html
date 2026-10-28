@@ -45,7 +45,7 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css?v=6a3035f9">
+      <link rel="stylesheet" href="../../stylesheets/extra.css?v=271158a4">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -6530,22 +6530,22 @@
 <td></td>
 </tr>
 <tr>
-<td><code>crime_id</code></td>
+<td><code>crime_<wbr>id</code></td>
 <td><code>text</code></td>
 <td>Source field "Crime ID"; upstream identifier. NULLABLE - blank for Anti-Social Behaviour (ASB) rows.</td>
 </tr>
 <tr>
-<td><code>record_month</code></td>
+<td><code>record_<wbr>month</code></td>
 <td><code>text</code></td>
 <td>YYYY-MM string from source "Month" column.</td>
 </tr>
 <tr>
-<td><code>reported_by</code></td>
+<td><code>reported_<wbr>by</code></td>
 <td><code>text</code></td>
 <td>Source field "Reported by"; police force that recorded the crime.</td>
 </tr>
 <tr>
-<td><code>falls_within</code></td>
+<td><code>falls_<wbr>within</code></td>
 <td><code>text</code></td>
 <td>Source field "Falls within"; jurisdictional force (often identical to reported_by).</td>
 </tr>
@@ -6560,27 +6560,27 @@
 <td>Source field "Latitude"; raw lat/lon from CSV. Unit: "degrees" (EPSG:4326).</td>
 </tr>
 <tr>
-<td><code>location_text</code></td>
+<td><code>location_<wbr>text</code></td>
 <td><code>text</code></td>
 <td>Source field "Location"; anonymised free-text location, e.g. "On or near High Street".</td>
 </tr>
 <tr>
-<td><code>lsoa_code</code></td>
+<td><code>lsoa_<wbr>code</code></td>
 <td><code>text</code></td>
 <td>Source field "LSOA code"; LSOA 2011 GSS code (source uses 2011).</td>
 </tr>
 <tr>
-<td><code>lsoa_name</code></td>
+<td><code>lsoa_<wbr>name</code></td>
 <td><code>text</code></td>
 <td>Source field "LSOA name"; human-readable 2011 LSOA name.</td>
 </tr>
 <tr>
-<td><code>crime_type</code></td>
+<td><code>crime_<wbr>type</code></td>
 <td><code>text</code></td>
 <td>Source field "Crime type"; one of ~14 standardised Home Office categories.</td>
 </tr>
 <tr>
-<td><code>last_outcome</code></td>
+<td><code>last_<wbr>outcome</code></td>
 <td><code>text</code></td>
 <td>Outcome snapshot as of the archive that published this row. Stale by design.</td>
 </tr>
@@ -6591,16 +6591,16 @@
 </tr>
 <tr>
 <td><code>geom</code></td>
-<td><code>geometry(Point,27700)</code></td>
+<td><code>geometry(<wbr>Point,<wbr>27700)</code></td>
 <td>Reprojected from EPSG:4326 (longitude, latitude) at load time.</td>
 </tr>
 <tr>
-<td><code>source_file</code></td>
+<td><code>source_<wbr>file</code></td>
 <td><code>text</code></td>
 <td>CSV filename this row came from. Used as the idempotency key by the loader.</td>
 </tr>
 <tr>
-<td><code>load_ts</code></td>
+<td><code>load_<wbr>ts</code></td>
 <td><code>date</code></td>
 <td>Date this row was loaded into PostGIS (CURRENT_DATE default).</td>
 </tr>

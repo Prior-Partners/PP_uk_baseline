@@ -45,7 +45,7 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css?v=6a3035f9">
+      <link rel="stylesheet" href="../../stylesheets/extra.css?v=271158a4">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -6512,7 +6512,7 @@
 </thead>
 <tbody>
 <tr>
-<td><code>source_fid</code></td>
+<td><code>source_<wbr>fid</code></td>
 <td><code>bigint</code></td>
 <td>Primary key of the source feature in the pre-split layer uk.env_defra_predictive_agricultural_land_class_mar2026__preswap_j (non-unique here: a feature spanning N MSOAs has N rows).</td>
 </tr>
@@ -6522,7 +6522,7 @@
 <td>Source feature identifier, repeated across a feature's per-MSOA split rows. Not a unique key here — use <code>gid</code>.</td>
 </tr>
 <tr>
-<td><code>fid_original</code></td>
+<td><code>fid_<wbr>original</code></td>
 <td><code>bigint</code></td>
 <td>Original source feature identifier, preserved at load.</td>
 </tr>
@@ -6537,7 +6537,7 @@
 <td>Predictive ALC grade — "1", "2", "3a", "3b", "4", "5", "NA" (non-agricultural) or "U" (urban).</td>
 </tr>
 <tr>
-<td><code>area_ha</code></td>
+<td><code>area_<wbr>ha</code></td>
 <td><code>double precision</code></td>
 <td>Area in hectares of this row's own geometry, computed at load from the EPSG:27700 geometry. On layers split by Middle Layer Super Output Area this is the area of the piece inside its MSOA, not the area of the whole source feature.</td>
 </tr>
@@ -6588,7 +6588,7 @@
 </tr>
 <tr>
 <td><code>geom</code></td>
-<td><code>geometry(MultiPolygon,27700)</code></td>
+<td><code>geometry(<wbr>MultiPolygon,<wbr>27700)</code></td>
 <td>Predictive ALC polygon geometry in EPSG:27700 (British National Grid); one part per MSOA (2021) after the split.</td>
 </tr>
 <tr>
@@ -6607,17 +6607,17 @@
 <td>County or unitary authority name at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0.</td>
 </tr>
 <tr>
-<td><code>sds_name</code></td>
+<td><code>sds_<wbr>name</code></td>
 <td><code>text</code></td>
 <td>Spatial Development Strategy (SDS) area, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0.</td>
 </tr>
 <tr>
-<td><code>sds_group</code></td>
+<td><code>sds_<wbr>group</code></td>
 <td><code>text</code></td>
 <td>Devolution status of the Spatial Development Strategy area: Existing Devolution Footprints, Devolution Priority Programme, Other Proposed Geographies or Remaining Areas. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0.</td>
 </tr>
 <tr>
-<td><code>msoa_area_ha</code></td>
+<td><code>msoa_<wbr>area_<wbr>ha</code></td>
 <td><code>double precision</code></td>
 <td>Area in hectares of the Middle Layer Super Output Area this row falls in, computed from uk_baseline.adm_ons_msoa_boundary_2021 — the same boundary the layer was split against. Provided as the denominator for MSOA coverage shares. NULL wherever msoa21cd is NULL. Open Government Licence v3.0.</td>
 </tr>

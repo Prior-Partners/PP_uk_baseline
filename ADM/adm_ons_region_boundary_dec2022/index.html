@@ -45,7 +45,7 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css?v=6a3035f9">
+      <link rel="stylesheet" href="../../stylesheets/extra.css?v=271158a4">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -6531,12 +6531,12 @@
 <td>Source field <code>RGN22NM</code> (regions file); on the Wales row, <code>CTRY22NM</code> from the countries file.</td>
 </tr>
 <tr>
-<td><code>bng_e</code></td>
+<td><code>bng_<wbr>e</code></td>
 <td><code>integer</code></td>
 <td>Source field <code>BNG_E</code>; ONS publishes no definition for it with the file.</td>
 </tr>
 <tr>
-<td><code>bng_n</code></td>
+<td><code>bng_<wbr>n</code></td>
 <td><code>integer</code></td>
 <td>Source field <code>BNG_N</code>; ONS publishes no definition for it with the file.</td>
 </tr>
@@ -6556,13 +6556,13 @@
 <td>Source field <code>GlobalID</code> (regions file only; empty on the Wales row).</td>
 </tr>
 <tr>
-<td><code>source_product</code></td>
+<td><code>source_<wbr>product</code></td>
 <td><code>character varying</code></td>
 <td>Derived at load: the ONS product the row came from, Regions (December 2022) Boundaries EN BFC (V2) or Countries (December 2022) Boundaries UK BFC (owner decision, 23 September 2026).</td>
 </tr>
 <tr>
 <td><code>geom</code></td>
-<td><code>geometry(MultiPolygon,27700)</code></td>
+<td><code>geometry(<wbr>MultiPolygon,<wbr>27700)</code></td>
 <td>Geometry as supplied in the ONS GeoPackages, MultiPolygon in EPSG:27700: the regions file for the nine English regions, the countries file for Wales.</td>
 </tr>
 </tbody>

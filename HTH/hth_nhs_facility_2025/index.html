@@ -45,7 +45,7 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css?v=6a3035f9">
+      <link rel="stylesheet" href="../../stylesheets/extra.css?v=271158a4">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -6512,26 +6512,26 @@
 </tr>
 <tr>
 <td><code>geom</code></td>
-<td><code>geometry(Point,27700)</code></td>
+<td><code>geometry(<wbr>Point,<wbr>27700)</code></td>
 <td>Point in EPSG:27700. Facility location.</td>
 </tr>
 <tr>
-<td><code>organisation_id</code></td>
+<td><code>organisation_<wbr>id</code></td>
 <td><code>character varying</code></td>
 <td>Source field; NHS organisation identifier (ODS code).</td>
 </tr>
 <tr>
-<td><code>organisation_name</code></td>
+<td><code>organisation_<wbr>name</code></td>
 <td><code>character varying</code></td>
 <td>Source field; organisation / facility name.</td>
 </tr>
 <tr>
-<td><code>organisation_type</code></td>
+<td><code>organisation_<wbr>type</code></td>
 <td><code>character varying</code></td>
 <td>Source field; organisation type. Observed values include "Generic Directory of Services", "Care homes and care at home", "Social care provider", "Clinic", "Pharmacy", "GP", "Dentists", "Opticians", "Hospital", "Trust", "Area Team".</td>
 </tr>
 <tr>
-<td><code>organisation_type_id</code></td>
+<td><code>organisation_<wbr>type_<wbr>id</code></td>
 <td><code>character varying</code></td>
 <td>Source field; organisation-type identifier.</td>
 </tr>
@@ -6541,7 +6541,7 @@
 <td>Source field; facility postcode.</td>
 </tr>
 <tr>
-<td><code>last_updated_utc</code></td>
+<td><code>last_<wbr>updated_<wbr>utc</code></td>
 <td><code>timestamp without time zone</code></td>
 <td>Source field; last-updated timestamp from the source (UTC).</td>
 </tr>
@@ -6556,12 +6556,12 @@
 <td>Source field; facility longitude (WGS84 degrees).</td>
 </tr>
 <tr>
-<td><code>raw_json</code></td>
+<td><code>raw_<wbr>json</code></td>
 <td><code>jsonb</code></td>
 <td>Full source API response retained at harvest (JSON).</td>
 </tr>
 <tr>
-<td><code>fetched_at</code></td>
+<td><code>fetched_<wbr>at</code></td>
 <td><code>timestamp without time zone</code></td>
 <td>Timestamp the record was harvested from the NHS Digital API.</td>
 </tr>
@@ -6611,12 +6611,12 @@
 <td>County or unitary authority name at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0.</td>
 </tr>
 <tr>
-<td><code>sds_name</code></td>
+<td><code>sds_<wbr>name</code></td>
 <td><code>text</code></td>
 <td>Spatial Development Strategy (SDS) area, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0.</td>
 </tr>
 <tr>
-<td><code>sds_group</code></td>
+<td><code>sds_<wbr>group</code></td>
 <td><code>text</code></td>
 <td>Devolution status of the Spatial Development Strategy area: Existing Devolution Footprints, Devolution Priority Programme, Other Proposed Geographies or Remaining Areas. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0.</td>
 </tr>

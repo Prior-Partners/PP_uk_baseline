@@ -45,7 +45,7 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css?v=6a3035f9">
+      <link rel="stylesheet" href="../../stylesheets/extra.css?v=271158a4">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -6540,43 +6540,43 @@
 <td>Source field <code>uk054002</code>; "Tenure of household: Owned (Including Shared Ownership)". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>owned_outright</code></td>
+<td><code>owned_<wbr>outright</code></td>
 <td><code>integer</code></td>
 <td>Source field <code>uk054003</code>; "Tenure of household: Owned: Owns outright". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>owned_with_mortgage_or_shared_ownership</code></td>
+<td><code>owned_<wbr>with_<wbr>mortgage_<wbr>or_<wbr>shared_<wbr>ownership</code></td>
 <td><code>integer</code></td>
 <td>Source field <code>uk054004</code>; "Tenure of household: Owned: Owns with a mortgage, loan or shared ownership". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>social_rented</code></td>
+<td><code>social_<wbr>rented</code></td>
 <td><code>integer</code></td>
 <td>Source field <code>uk054005</code>; "Tenure of household: Social rented". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>private_rented</code></td>
+<td><code>private_<wbr>rented</code></td>
 <td><code>integer</code></td>
 <td>Source field <code>uk054006</code>; "Tenure of household: Private rented". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>private_rented_landlord_or_agency</code></td>
+<td><code>private_<wbr>rented_<wbr>landlord_<wbr>or_<wbr>agency</code></td>
 <td><code>integer</code></td>
 <td>Source field <code>uk054007</code>; "Tenure of household: Private rented: Private landlord or letting agency". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>private_rented_other</code></td>
+<td><code>private_<wbr>rented_<wbr>other</code></td>
 <td><code>integer</code></td>
 <td>Source field <code>uk054008</code>; "Tenure of household: Private rented: Other private rented". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
-<td><code>lives_rent_free</code></td>
+<td><code>lives_<wbr>rent_<wbr>free</code></td>
 <td><code>integer</code></td>
 <td>Source field <code>uk054009</code>; "Tenure of household: Lives rent free". Unit: "Household". Column renamed from the GeoDS identifier on 2 September 2026 (data manager sign-off).</td>
 </tr>
 <tr>
 <td><code>geom</code></td>
-<td><code>geometry(MultiPolygon,27700)</code></td>
+<td><code>geometry(<wbr>MultiPolygon,<wbr>27700)</code></td>
 <td>Geometry from uk_baseline.adm_ons_oa_boundaries_dec2021 (England and Wales, Output Area 2021), uk_baseline.adm_nrs_oa_boundary_2022 (Scotland, Output Area 2022) and uk_baseline.adm_nisra_dz_boundary_2021 (Northern Ireland, Data Zone 2021), joined at load on the row's code.</td>
 </tr>
 <tr>
@@ -6625,12 +6625,12 @@
 <td>County or unitary authority name at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. Copied at load from uk_baseline.adm_ons_oa_boundaries_dec2021 on <code>oa</code> (Output Area 2021 code); NULL for every Scotland and Northern Ireland row.</td>
 </tr>
 <tr>
-<td><code>sds_name</code></td>
+<td><code>sds_<wbr>name</code></td>
 <td><code>text</code></td>
 <td>Spatial Development Strategy (SDS) area, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. Copied at load from uk_baseline.adm_ons_oa_boundaries_dec2021 on <code>oa</code> (Output Area 2021 code); NULL for every Scotland and Northern Ireland row.</td>
 </tr>
 <tr>
-<td><code>sds_group</code></td>
+<td><code>sds_<wbr>group</code></td>
 <td><code>text</code></td>
 <td>Devolution status of the Spatial Development Strategy area: Existing Devolution Footprints, Devolution Priority Programme, Other Proposed Geographies or Remaining Areas. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. Copied at load from uk_baseline.adm_ons_oa_boundaries_dec2021 on <code>oa</code> (Output Area 2021 code); NULL for every Scotland and Northern Ireland row.</td>
 </tr>

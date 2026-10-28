@@ -45,7 +45,7 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css?v=6a3035f9">
+      <link rel="stylesheet" href="../../stylesheets/extra.css?v=271158a4">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -6532,7 +6532,7 @@
 </tr>
 <tr>
 <td><code>geom</code></td>
-<td><code>geometry(MultiPolygon,27700)</code></td>
+<td><code>geometry(<wbr>MultiPolygon,<wbr>27700)</code></td>
 <td>MultiPolygon in EPSG:27700. Boundary geometry joined at load.</td>
 </tr>
 <tr>
@@ -6566,112 +6566,112 @@
 <td>Joined at load from ONS LSOA-&gt;Region lookup; 2022 Region name.</td>
 </tr>
 <tr>
-<td><code>data_source</code></td>
+<td><code>data_<wbr>source</code></td>
 <td><code>text</code></td>
 <td>Added during an earlier Prior + Partners loading pass. Fixed-string annotation; same value every row.</td>
 </tr>
 <tr>
-<td><code>data_resolution</code></td>
+<td><code>data_<wbr>resolution</code></td>
 <td><code>text</code></td>
 <td>Added during an earlier Prior + Partners loading pass. Fixed-string annotation; same value every row.</td>
 </tr>
 <tr>
-<td><code>data_time_period</code></td>
+<td><code>data_<wbr>time_<wbr>period</code></td>
 <td><code>timestamp without time zone</code></td>
 <td>Added during an earlier Prior + Partners loading pass. Fixed annotation; same value every row.</td>
 </tr>
 <tr>
-<td><code>data_web_link</code></td>
+<td><code>data_<wbr>web_<wbr>link</code></td>
 <td><code>text</code></td>
 <td>Added during an earlier Prior + Partners loading pass. Fixed annotation; URL to the ONS dataset page.</td>
 </tr>
 <tr>
-<td><code>area_ha</code></td>
+<td><code>area_<wbr>ha</code></td>
 <td><code>double precision</code></td>
 <td>Area in hectares, computed at load from the geometry. Unit: hectares. Stale if geometry is later edited.</td>
 </tr>
 <tr>
-<td><code>detached_count</code></td>
+<td><code>detached_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "detached" in LSOA households.</td>
 </tr>
 <tr>
-<td><code>semi_detached_count</code></td>
+<td><code>semi_<wbr>detached_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "semi detached" in LSOA households.</td>
 </tr>
 <tr>
-<td><code>terraced_count</code></td>
+<td><code>terraced_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "terraced" in LSOA households.</td>
 </tr>
 <tr>
-<td><code>in_a_purpose_built_block_of_flats_or_tenement_count</code></td>
+<td><code>in_<wbr>a_<wbr>purpose_<wbr>built_<wbr>block_<wbr>of_<wbr>flats_<wbr>or_<wbr>tenement_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "in a purpose built block of flats or tenement" in LSOA households.</td>
 </tr>
 <tr>
-<td><code>part_of_a_converted_or_shared_house_including_bedsits_count</code></td>
+<td><code>part_<wbr>of_<wbr>a_<wbr>converted_<wbr>or_<wbr>shared_<wbr>house_<wbr>including_<wbr>bedsits_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "part of a converted or shared house including bedsits" in LSOA households.</td>
 </tr>
 <tr>
-<td><code>part_of_another_converted_building_count</code></td>
+<td><code>part_<wbr>of_<wbr>another_<wbr>converted_<wbr>building_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "part of another converted building" in LSOA households.</td>
 </tr>
 <tr>
-<td><code>in_commercial building_count</code></td>
+<td><code>in_<wbr>commercial building_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of households in a commercial building. Column name has a space (use double-quoted identifier in SQL).</td>
 </tr>
 <tr>
-<td><code>caravan_or_other_mobile_or_temporary_structure_count</code></td>
+<td><code>caravan_<wbr>or_<wbr>other_<wbr>mobile_<wbr>or_<wbr>temporary_<wbr>structure_<wbr>count</code></td>
 <td><code>bigint</code></td>
 <td>Source field; count of "caravan or other mobile or temporary structure" in LSOA households.</td>
 </tr>
 <tr>
-<td><code>detached_perc</code></td>
+<td><code>detached_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "detached" in LSOA households. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>semi_detached_perc</code></td>
+<td><code>semi_<wbr>detached_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "semi detached" in LSOA households. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>terraced_perc</code></td>
+<td><code>terraced_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "terraced" in LSOA households. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>in_a_purpose_built_block_of_flats_or_tenement_perc</code></td>
+<td><code>in_<wbr>a_<wbr>purpose_<wbr>built_<wbr>block_<wbr>of_<wbr>flats_<wbr>or_<wbr>tenement_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "in a purpose built block of flats or tenement" in LSOA households. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>part_of_a_converted_or_shared_house_including_bedsits_perc</code></td>
+<td><code>part_<wbr>of_<wbr>a_<wbr>converted_<wbr>or_<wbr>shared_<wbr>house_<wbr>including_<wbr>bedsits_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "part of a converted or shared house including bedsits" in LSOA households. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>part_of_another_converted_building_perc</code></td>
+<td><code>part_<wbr>of_<wbr>another_<wbr>converted_<wbr>building_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "part of another converted building" in LSOA households. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>in_commercial building_perc</code></td>
+<td><code>in_<wbr>commercial building_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of households in a commercial building. Unit: "percent (0 to 100)". Column name has a space.</td>
 </tr>
 <tr>
-<td><code>caravan_or_other_mobile_or_temporary_structure_perc</code></td>
+<td><code>caravan_<wbr>or_<wbr>other_<wbr>mobile_<wbr>or_<wbr>temporary_<wbr>structure_<wbr>perc</code></td>
 <td><code>double precision</code></td>
 <td>Source field; percentage of "caravan or other mobile or temporary structure" in LSOA households. Unit: "percent (0 to 100)".</td>
 </tr>
 <tr>
-<td><code>dominant_accomodation_type_group</code></td>
+<td><code>dominant_<wbr>accomodation_<wbr>type_<wbr>group</code></td>
 <td><code>text</code></td>
 <td>Derived during an earlier Prior + Partners loading pass; label of the modal accommodation type for the LSOA. Note: column name preserves the upstream misspelling "accomodation" (should be "accommodation").</td>
 </tr>
@@ -6716,17 +6716,17 @@
 <td>County or unitary authority name at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0.</td>
 </tr>
 <tr>
-<td><code>sds_name</code></td>
+<td><code>sds_<wbr>name</code></td>
 <td><code>text</code></td>
 <td>Spatial Development Strategy (SDS) area, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0.</td>
 </tr>
 <tr>
-<td><code>sds_group</code></td>
+<td><code>sds_<wbr>group</code></td>
 <td><code>text</code></td>
 <td>Devolution status of the Spatial Development Strategy area: Existing Devolution Footprints, Devolution Priority Programme, Other Proposed Geographies or Remaining Areas. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0.</td>
 </tr>
 <tr>
-<td><code>total_households_count</code></td>
+<td><code>total_<wbr>households_<wbr>count</code></td>
 <td><code>integer</code></td>
 <td></td>
 </tr>

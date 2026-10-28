@@ -45,7 +45,7 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css?v=6a3035f9">
+      <link rel="stylesheet" href="../../stylesheets/extra.css?v=271158a4">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -6506,7 +6506,7 @@
 </thead>
 <tbody>
 <tr>
-<td><code>fid_original</code></td>
+<td><code>fid_<wbr>original</code></td>
 <td><code>integer</code></td>
 <td>Original feature id preserved at load.</td>
 </tr>
@@ -6516,7 +6516,7 @@
 <td>Source field "dataset"; digital-land dataset slug. Observed value: "brownfield-land".</td>
 </tr>
 <tr>
-<td><code>end_date</code></td>
+<td><code>end_<wbr>date</code></td>
 <td><code>character varying</code></td>
 <td>Source field "end-date"; entity end date (blank where current). Stored as text.</td>
 </tr>
@@ -6526,7 +6526,7 @@
 <td>Source field "entity"; digital-land national entity identifier.</td>
 </tr>
 <tr>
-<td><code>entry_date</code></td>
+<td><code>entry_<wbr>date</code></td>
 <td><code>character varying</code></td>
 <td>Source field "entry-date"; date the record entered the digital-land collection. Stored as text.</td>
 </tr>
@@ -6536,7 +6536,7 @@
 <td>Source field "name"; site name.</td>
 </tr>
 <tr>
-<td><code>organisation_entity</code></td>
+<td><code>organisation_<wbr>entity</code></td>
 <td><code>character varying</code></td>
 <td>Source field "organisation-entity"; digital-land entity id of the publishing organisation (the Local Planning Authority).</td>
 </tr>
@@ -6556,7 +6556,7 @@
 <td>Source field "reference"; the publishing Local Planning Authority's own site reference.</td>
 </tr>
 <tr>
-<td><code>start_date</code></td>
+<td><code>start_<wbr>date</code></td>
 <td><code>character varying</code></td>
 <td>Source field "start-date"; entity start date. Stored as text.</td>
 </tr>
@@ -6571,22 +6571,22 @@
 <td>Source field "deliverable"; value as published by the LPA.</td>
 </tr>
 <tr>
-<td><code>planning_permission_date</code></td>
+<td><code>planning_<wbr>permission_<wbr>date</code></td>
 <td><code>date</code></td>
 <td>Source field "planning-permission-date"; date planning permission granted. Typed date.</td>
 </tr>
 <tr>
-<td><code>planning_permission_history</code></td>
+<td><code>planning_<wbr>permission_<wbr>history</code></td>
 <td><code>character varying</code></td>
 <td>Source field "planning-permission-history"; free-text planning-permission history.</td>
 </tr>
 <tr>
-<td><code>planning_permission_status</code></td>
+<td><code>planning_<wbr>permission_<wbr>status</code></td>
 <td><code>character varying</code></td>
 <td>Source field "planning-permission-status". Observed values: "permissioned", "not-permissioned", "non-permissioned", "pending-decision", "completed". See planning_permission_status_clean.</td>
 </tr>
 <tr>
-<td><code>hazardous_substances</code></td>
+<td><code>hazardous_<wbr>substances</code></td>
 <td><code>character varying</code></td>
 <td>Source field "hazardous-substances".</td>
 </tr>
@@ -6596,7 +6596,7 @@
 <td>Source field "hectares"; site area as published by the LPA. Stored as text. Unit: "hectares".</td>
 </tr>
 <tr>
-<td><code>site_plan_url</code></td>
+<td><code>site_<wbr>plan_<wbr>url</code></td>
 <td><code>character varying</code></td>
 <td>Source field "site-plan-url"; URL to the LPA site plan.</td>
 </tr>
@@ -6606,27 +6606,27 @@
 <td>Source field "notes"; free-text notes from the LPA.</td>
 </tr>
 <tr>
-<td><code>site_address</code></td>
+<td><code>site_<wbr>address</code></td>
 <td><code>character varying</code></td>
 <td>Source field "site-address"; site address.</td>
 </tr>
 <tr>
-<td><code>minimum_net_dwellings</code></td>
+<td><code>minimum_<wbr>net_<wbr>dwellings</code></td>
 <td><code>character varying</code></td>
 <td>Source field "minimum-net-dwellings"; LPA estimate. Stored as text.</td>
 </tr>
 <tr>
-<td><code>ownership_status</code></td>
+<td><code>ownership_<wbr>status</code></td>
 <td><code>character varying</code></td>
 <td>Source field "ownership-status". Observed values: "not-owned-by-a-public-authority", "owned-by-a-public-authority", "mixed-ownership", "unknown-ownership", "Unknown".</td>
 </tr>
 <tr>
-<td><code>maximum_net_dwellings</code></td>
+<td><code>maximum_<wbr>net_<wbr>dwellings</code></td>
 <td><code>character varying</code></td>
 <td>Source field "maximum-net-dwellings"; LPA estimate. Stored as text.</td>
 </tr>
 <tr>
-<td><code>planning_permission_type</code></td>
+<td><code>planning_<wbr>permission_<wbr>type</code></td>
 <td><code>character varying</code></td>
 <td>Source field "planning-permission-type".</td>
 </tr>
@@ -6652,7 +6652,7 @@
 </tr>
 <tr>
 <td><code>geom</code></td>
-<td><code>geometry(MultiPoint,27700)</code></td>
+<td><code>geometry(<wbr>MultiPoint,<wbr>27700)</code></td>
 <td>MultiPoint in EPSG:27700. Brownfield site point.</td>
 </tr>
 <tr>
@@ -6661,7 +6661,7 @@
 <td>Loader surrogate row identifier.</td>
 </tr>
 <tr>
-<td><code>planning_permission_status_clean</code></td>
+<td><code>planning_<wbr>permission_<wbr>status_<wbr>clean</code></td>
 <td><code>text</code></td>
 <td>Canonical Title Case value derived from planning_permission_status via uk_baseline.lut_planning_permission_status. 'No Data' = source was NULL OR was an unmappable/ambiguous value (REC, bare numeric codes, 'Mixed ownership', 'Finally Disposed Of', explicit 'Unknown'). 'Unknown' merged into 'No Data' on 13 May 2026.</td>
 </tr>
@@ -6701,12 +6701,12 @@
 <td>County or unitary authority name at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0.</td>
 </tr>
 <tr>
-<td><code>sds_name</code></td>
+<td><code>sds_<wbr>name</code></td>
 <td><code>text</code></td>
 <td>Spatial Development Strategy (SDS) area, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0.</td>
 </tr>
 <tr>
-<td><code>sds_group</code></td>
+<td><code>sds_<wbr>group</code></td>
 <td><code>text</code></td>
 <td>Devolution status of the Spatial Development Strategy area: Existing Devolution Footprints, Devolution Priority Programme, Other Proposed Geographies or Remaining Areas. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0.</td>
 </tr>

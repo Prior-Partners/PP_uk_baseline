@@ -45,7 +45,7 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css?v=6a3035f9">
+      <link rel="stylesheet" href="../../stylesheets/extra.css?v=271158a4">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -6514,12 +6514,12 @@
 <td>Source ArcGIS surrogate from upstream.</td>
 </tr>
 <tr>
-<td><code>site_name</code></td>
+<td><code>site_<wbr>name</code></td>
 <td><code>character varying(254)</code></td>
 <td>Source field "SiteName"; name of the sports site (e.g. "GREAT FIELDS PARK"). Length 254.</td>
 </tr>
 <tr>
-<td><code>post_code</code></td>
+<td><code>post_<wbr>code</code></td>
 <td><code>character varying(254)</code></td>
 <td>Source field "PostCode"; UK postcode of the site.</td>
 </tr>
@@ -6534,57 +6534,57 @@
 <td>Source field "Management"; management category (e.g. "Local Authority (in house)", "Sport Club").</td>
 </tr>
 <tr>
-<td><code>facility_type</code></td>
+<td><code>facility_<wbr>type</code></td>
 <td><code>character varying(255)</code></td>
 <td>Source field "FacilityType"; type of sports facility (e.g. "Outdoor Tennis Courts", "Grass Pitches").</td>
 </tr>
 <tr>
-<td><code>access_group</code></td>
+<td><code>access_<wbr>group</code></td>
 <td><code>character varying(255)</code></td>
 <td>Source field "AccessGroup"; top-level access category (e.g. "Public Access").</td>
 </tr>
 <tr>
-<td><code>access_type</code></td>
+<td><code>access_<wbr>type</code></td>
 <td><code>character varying(255)</code></td>
 <td>Source field "AccessType"; detailed access type (e.g. "Free Public Access", "Sports Club / Community Association").</td>
 </tr>
 <tr>
-<td><code>lsoa_code</code></td>
+<td><code>lsoa_<wbr>code</code></td>
 <td><code>character varying(255)</code></td>
 <td>Source field "LSOA_Code"; ONS LSOA GSS code where the facility falls (edition per upstream).</td>
 </tr>
 <tr>
-<td><code>msoa_code</code></td>
+<td><code>msoa_<wbr>code</code></td>
 <td><code>character varying(255)</code></td>
 <td>Source field "MSOA_Code"; ONS MSOA GSS code where the facility falls.</td>
 </tr>
 <tr>
-<td><code>local_authority_code</code></td>
+<td><code>local_<wbr>authority_<wbr>code</code></td>
 <td><code>character varying(255)</code></td>
 <td>Source field "LocalAuthorityCode"; ONS LAD GSS code (upstream-supplied; edition may differ from our enrichment lad22cd).</td>
 </tr>
 <tr>
-<td><code>local_authority_name</code></td>
+<td><code>local_<wbr>authority_<wbr>name</code></td>
 <td><code>character varying(255)</code></td>
 <td>Source field "LocalAuthorityName"; LAD name as recorded upstream.</td>
 </tr>
 <tr>
-<td><code>county_code</code></td>
+<td><code>county_<wbr>code</code></td>
 <td><code>character varying(255)</code></td>
 <td>Source field "CountyCode"; upstream county/region code (999999999 used as sentinel for Greater London Authority).</td>
 </tr>
 <tr>
-<td><code>county_name</code></td>
+<td><code>county_<wbr>name</code></td>
 <td><code>character varying(255)</code></td>
 <td>Source field "CountyName"; upstream county/region name.</td>
 </tr>
 <tr>
-<td><code>site_id</code></td>
+<td><code>site_<wbr>id</code></td>
 <td><code>integer</code></td>
 <td>Source field "SiteID"; Sport England's internal site identifier.</td>
 </tr>
 <tr>
-<td><code>id_original</code></td>
+<td><code>id_<wbr>original</code></td>
 <td><code>integer</code></td>
 <td>Source identifier preserved at load (matches objectid in samples). Unique per row.</td>
 </tr>
@@ -6610,7 +6610,7 @@
 </tr>
 <tr>
 <td><code>geom</code></td>
-<td><code>geometry(Point,27700)</code></td>
+<td><code>geometry(<wbr>Point,<wbr>27700)</code></td>
 <td>Source field "geometry"; Point in EPSG:27700 (British National Grid).</td>
 </tr>
 <tr>
@@ -6654,12 +6654,12 @@
 <td>County or unitary authority name at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0.</td>
 </tr>
 <tr>
-<td><code>sds_name</code></td>
+<td><code>sds_<wbr>name</code></td>
 <td><code>text</code></td>
 <td>Spatial Development Strategy (SDS) area, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0.</td>
 </tr>
 <tr>
-<td><code>sds_group</code></td>
+<td><code>sds_<wbr>group</code></td>
 <td><code>text</code></td>
 <td>Devolution status of the Spatial Development Strategy area: Existing Devolution Footprints, Devolution Priority Programme, Other Proposed Geographies or Remaining Areas. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0.</td>
 </tr>

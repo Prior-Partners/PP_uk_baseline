@@ -45,7 +45,7 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css?v=6a3035f9">
+      <link rel="stylesheet" href="../../stylesheets/extra.css?v=271158a4">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -6519,17 +6519,17 @@
 </thead>
 <tbody>
 <tr>
-<td><code>primary_name</code></td>
+<td><code>primary_<wbr>name</code></td>
 <td><code>character varying</code></td>
 <td>Source field "primary_name"; canonical display name of the POI (Overture schema). May be NULL for incompletely-attributed POIs.</td>
 </tr>
 <tr>
-<td><code>main_category</code></td>
+<td><code>main_<wbr>category</code></td>
 <td><code>character varying</code></td>
 <td>Source field "main_category"; top-level Overture POI category (e.g. "education", "religious_organization").</td>
 </tr>
 <tr>
-<td><code>alternate_category</code></td>
+<td><code>alternate_<wbr>category</code></td>
 <td><code>character varying</code></td>
 <td>Source field "alternate_category"; secondary Overture categories, pipe-delimited (e.g. "shopping|pet_store"). NULL when only the main category is set.</td>
 </tr>
@@ -6564,7 +6564,7 @@
 <td>Source field "source"; upstream POI provider — typically "meta" or "microsoft". See quality caveat in table comment regarding Microsoft-sourced POIs.</td>
 </tr>
 <tr>
-<td><code>source_record_id</code></td>
+<td><code>source_<wbr>record_<wbr>id</code></td>
 <td><code>character varying</code></td>
 <td>Source field "source_record_id"; POI identifier in the upstream provider system.</td>
 </tr>
@@ -6579,7 +6579,7 @@
 <td>Source field "long"; longitude of POI. Unit: "degrees".</td>
 </tr>
 <tr>
-<td><code>h3_15</code></td>
+<td><code>h3_<wbr>15</code></td>
 <td><code>character varying</code></td>
 <td>Source field "h3_15"; Uber H3 hierarchical spatial index at resolution 15 (~0.9 m^2 per cell, finest level). 15-character hexadecimal.</td>
 </tr>
@@ -6599,7 +6599,7 @@
 <td>Joined at load from spatial intersection with ONS 2021 LSOA boundaries; LSOA GSS code.</td>
 </tr>
 <tr>
-<td><code>id_original</code></td>
+<td><code>id_<wbr>original</code></td>
 <td><code>character varying</code></td>
 <td>Internal POI identifier preserved at load (concatenation of H3 cell and a source-specific hash).</td>
 </tr>
@@ -6625,7 +6625,7 @@
 </tr>
 <tr>
 <td><code>geom</code></td>
-<td><code>geometry(Point,27700)</code></td>
+<td><code>geometry(<wbr>Point,<wbr>27700)</code></td>
 <td>Source field "geometry" reprojected from EPSG:4326 to EPSG:27700; Point.</td>
 </tr>
 <tr>
@@ -6669,12 +6669,12 @@
 <td>County or unitary authority name at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0.</td>
 </tr>
 <tr>
-<td><code>sds_name</code></td>
+<td><code>sds_<wbr>name</code></td>
 <td><code>text</code></td>
 <td>Spatial Development Strategy (SDS) area, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0.</td>
 </tr>
 <tr>
-<td><code>sds_group</code></td>
+<td><code>sds_<wbr>group</code></td>
 <td><code>text</code></td>
 <td>Devolution status of the Spatial Development Strategy area: Existing Devolution Footprints, Devolution Priority Programme, Other Proposed Geographies or Remaining Areas. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0.</td>
 </tr>

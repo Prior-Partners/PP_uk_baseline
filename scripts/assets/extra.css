@@ -21,10 +21,12 @@
    brand orange as the titles (#FF511D), accepted below AA for small text
    (3.1:1 on #FAFAFA); the darker #C22D00 is no longer used.
 
-   Typography: GT America Light (300) for reading text, Medium for
-   headings and labels; GT America Mono for interface labels, in
-   capitals with the board's letter-spacing. Licensed to Prior +
-   Partners — fonts are self-hosted in docs/fonts/.
+   Typography: GT America Mono Light (300) for reading text, at the
+   columns table's size (owner, 28 October 2026); GT America Medium for
+   page titles and headings; GT America Mono for interface labels and
+   the "UK BASELINE" wordmark, in capitals with the board's
+   letter-spacing. Licensed to Prior + Partners — fonts are self-hosted
+   in docs/fonts/.
    ===================================================================== */
 
 /* ------------------------------------------------------------------ */
@@ -163,10 +165,18 @@ body {
 html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
 
 /* ------------------------------------------------------------------ */
-/* Type tiers: sans for reading, mono capitals for interface labels    */
+/* Type tiers: mono for reading, sans for headings, mono capitals for  */
+/* interface labels                                                   */
 /* ------------------------------------------------------------------ */
 body, .md-typeset { font-weight: 300; }
-.md-typeset { font-feature-settings: "kern", "liga", "tnum"; }
+/* Reading text like the columns table (owner, 28 October 2026) */
+.md-typeset {
+  font-family: var(--pp3-mono);
+  font-size: .66rem;
+  line-height: 1.7;
+  letter-spacing: .01em;
+  font-feature-settings: "kern", "liga", "tnum";
+}
 .md-typeset strong, .md-typeset b { font-weight: 500; }
 .md-typeset h1, .md-typeset h2, .md-typeset h3,
 .md-typeset h4, .md-typeset h5, .md-typeset h6 {
@@ -175,9 +185,10 @@ body, .md-typeset { font-weight: 300; }
   letter-spacing: 0;
   color: var(--pp3-primary);
 }
-/* Page titles in brand orange: large text, so 3:1 is enough (Day 3.1:1, Night 6.1:1) */
-.md-typeset h1 { font-size: 1.6em; line-height: 1.25; margin-bottom: .9em; color: var(--pp3-orange); }
-.md-typeset h2 { font-size: 1.25em; margin-top: 2em; }
+/* Page titles in brand orange: large text, so 3:1 is enough (Day 3.1:1, Night 6.1:1).
+   Sizes in rem keep titles and headings as large as before the mono reading text. */
+.md-typeset h1 { font-size: 1.28rem; line-height: 1.25; margin-bottom: .9em; color: var(--pp3-orange); }
+.md-typeset h2 { font-size: 1rem; margin-top: 2em; }
 
 /* Links: underlined in running text (colour alone is not enough) */
 .md-typeset a { color: var(--pp3-link); text-underline-offset: .18em; text-decoration-thickness: 1px; }
@@ -291,12 +302,14 @@ body, .md-typeset { font-weight: 300; }
   text-decoration: none;
 }
 .pp-wordmark:hover, .pp-wordmark:focus { color: var(--pp3-primary); }
+/* Mono capitals, like the menu's first line (owner, 28 October 2026) */
 .pp-wordmark__name {
-  font-family: var(--pp3-sans);
+  font-family: var(--pp3-mono);
   font-weight: 700;
-  font-size: 24px;
-  letter-spacing: 0;
+  font-size: 17px;
+  letter-spacing: .14em;
   line-height: 1;
+  text-transform: uppercase;
 }
 .pp-wordmark__sub {
   font-family: var(--pp3-mono);
@@ -308,7 +321,7 @@ body, .md-typeset { font-weight: 300; }
 }
 @media screen and (max-width: 44.984375em) {
   .pp-wordmark { flex-direction: column; align-items: flex-start; gap: 3px; line-height: 1; }
-  .pp-wordmark__name { font-size: 19px; }
+  .pp-wordmark__name { font-size: 14px; }
   .pp-wordmark__sub { font-size: 9px; }
   .md-header__title .md-header__ellipsis { display: flex; align-items: center; }
 }
@@ -760,7 +773,8 @@ body, .md-typeset { font-weight: 300; }
   letter-spacing: .12em;
   text-transform: uppercase;
 }
-.md-typeset table:not([class]) td { border-top: 1px solid var(--pp3-line); vertical-align: top; }
+/* descriptions in the same light mono as the names */
+.md-typeset table:not([class]) td { border-top: 1px solid var(--pp3-line); vertical-align: top; font-weight: 300; }
 .md-typeset table:not([class]) tbody tr:first-child td { border-top: 0; }
 .md-typeset table:not([class]) tbody tr:hover { background: var(--pp3-tint); box-shadow: none; }
 .md-typeset table:not([class]) td code {

@@ -43,6 +43,7 @@
 {: .sec-label }
 
 - County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
+- District corrected on 29 October 2026 for MSOA E02004651 (Stroud 001): the ONS best-fit lookup assigns it to E07000081 Gloucester, but 5,438.6 of its 5,443.4 ha and all 389 of its postcodes lie in E07000082 Stroud. This row and the rows copied from it into the enriched uk_baseline layers now hold Stroud.
 
 **ENRICHMENT**
 {: .sec-label }

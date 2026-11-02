@@ -19,7 +19,7 @@ is, how to connect QGIS, and how to use the data on a project. It is kept on the
 (office network or VPN): open the latest *P+P Staff data management handbook* PDF in
 `G:\0_Practice\10_Data management resources\01_Manuals\InDesign\`.
 
-**183 layers across 12 themes.**
+**188 layers across 12 themes.**
 
 <div class="cat-themes" markdown>
 
@@ -28,13 +28,13 @@ is, how to connect QGIS, and how to use the data on a project. It is kept on the
 | **ADM** | [Administrative & Planning Boundaries](ADM/index.md) | Local authority, wards, output areas, built-up areas, postcode boundaries, planning zones, workplace zones | 21 |
 | **BLT** | [Built Environment & Land Use](BLT/index.md) | Building footprints, land use classifications, planning applications, retail centres, points of interest | 6 |
 | **COM** | [Community & Social Infrastructure](COM/index.md) | Sports facilities, libraries, community centres, places of worship, cultural venues | 2 |
-| **DEM** | [Demographics & Socio-Economic](DEM/index.md) | Census data (age, ethnicity, religion), deprivation indices, income data, household, travel-to-work data | 50 |
+| **DEM** | [Demographics & Socio-Economic](DEM/index.md) | Census data (age, ethnicity, religion), deprivation indices, income data, household, travel-to-work data | 54 |
 | **ECN** | [Economy & Employment](ECN/index.md) | Employment by sector, business registers, economic output, unemployment rates | 29 |
 | **EDU** | [Education](EDU/index.md) | Schools database, Ofsted ratings, university locations | 3 |
 | **ENV** | [Environment & Natural Assets](ENV/index.md) | Protected sites, woodland, green spaces, flood zones, air quality, noise monitoring, radiation monitoring | 31 |
 | **HER** | [Heritage & Historical Assets](HER/index.md) | Listed buildings, conservation areas, historic parks, archaeological sites | 12 |
 | **HOU** | [Housing & Living Conditions](HOU/index.md) | House prices, housing tenure, property types, energy efficiency ratings, overcrowding metrics, rental costs | 1 |
-| **HTH** | [Health & Wellbeing](HTH/index.md) | GP surgeries, hospitals, health inequalities, disease prevalence, obesity | 8 |
+| **HTH** | [Health & Wellbeing](HTH/index.md) | GP surgeries, hospitals, health inequalities, disease prevalence, obesity | 9 |
 | **MOB** | [Transport & Mobility](MOB/index.md) | Road networks, railway lines, public transport routes, cycling infrastructure, stations, paths, trails | 13 |
 | **UTL** | [Infrastructure & Utilities](UTL/index.md) | Electricity networks, gas pipelines, water infrastructure, telecoms masts, waste facilities | 7 |
 
@@ -53,6 +53,6 @@ is, how to connect QGIS, and how to use the data on a project. It is kept on the
   Digital Innovation team, Prior + Partners<br>
   <a href="mailto:info@priorpartners.com">info@priorpartners.com</a></div>
   <div><strong>Version</strong><br>
-  Last updated 30 October 2026<br>
+  Last updated 02 November 2026<br>
   Developed by the Digital Innovation team</div>
 </div>

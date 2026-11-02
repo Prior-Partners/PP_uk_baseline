@@ -1,6 +1,6 @@
 site_name: UK Baseline data catalogue
 site_description: A guide to every layer in the uk_baseline database.
-copyright: Developed by the Digital Innovation team, Prior + Partners — last updated 30 October 2026
+copyright: Developed by the Digital Innovation team, Prior + Partners — last updated 02 November 2026
 theme:
   name: material
   custom_dir: overrides
@@ -41,7 +41,7 @@ markdown_extensions:
 extra_css:
   - stylesheets/extra.css?v=271158a4
 extra:
-  layer_count: 183
+  layer_count: 188
 nav:
   - "Home": index.md
   - "Administrative & Planning Boundaries (ADM)":
@@ -86,6 +86,7 @@ nav:
     - "Census 2011 Students": DEM/dem_ons_lsoa_students_2011.md
     - "Census 2021 Age Alternate Bands": DEM/dem_ons_lsoa_age_alternate_bands_2021.md
     - "Census 2021 Car Availability": DEM/dem_ons_lsoa_car_availability_2021.md
+    - "Census 2021 Distance Travelled to Work": DEM/dem_ons_lsoa_distance_travelled_to_work_2021.md
     - "Census 2021 Education - highest level of qualification": DEM/dem_ons_lsoa_education_2021.md
     - "Census 2021 English Proficiency": DEM/dem_ons_lsoa_english_proficiency_2021.md
     - "Census 2021 Ethnicity": DEM/dem_ons_lsoa_ethnicity_2021.md
@@ -96,6 +97,7 @@ nav:
     - "Census 2021 Housing Tenure": DEM/dem_ons_lsoa_housing_tenure_2021.md
     - "Census 2021 Industry and Occupation": DEM/dem_ons_lsoa_industry_occupation_2021.md
     - "Census 2021 National Identity": DEM/dem_ons_lsoa_national_identity_2021.md
+    - "Census 2021 Occupancy Rating for Bedrooms": DEM/dem_ons_lsoa_occupancy_rating_for_bedrooms_2021.md
     - "Census 2021 Passport Held": DEM/dem_ons_lsoa_passport_held_2021.md
     - "Census 2021 Religion": DEM/dem_ons_lsoa_religion_2021.md
     - "Census 2021 Residents Households": DEM/dem_ons_oa_household_residents_2021.md
@@ -131,6 +133,8 @@ nav:
     - "IMD 2019": DEM/dem_mhclg_lsoa_imd_2019.md
     - "IMD 2025": DEM/dem_mhclg_lsoa_imd_2025.md
     - "Income 2011": DEM/dem_ons_msoa_income_2011.md
+    - "LSOA Population Density 2011 to 2024": DEM/dem_ons_lsoa_population_density_2011_2024.md
+    - "Small Area Income Estimates 2023 (MSOA)": DEM/dem_ons_msoa_small_area_income_estimates_2023.md
   - "Economy & Employment (ECN)":
     - ECN/index.md
     - "BRES Employment - LAD, 2023, 2D": ECN/ecn_ons_lad_business_register_employment_2d_2023.md
@@ -226,6 +230,7 @@ nav:
     - "Long-term Disability": HTH/hth_ohid_msoa_long_term_disability_2011.md
     - "Mortality Rate": HTH/hth_ohid_msoa_mortality_rate.md
     - "NHS Facilities": HTH/hth_nhs_facility_2025.md
+    - "Personal Well-being by Local Authority 2011 to 2023": HTH/hth_ons_lad_personal_wellbeing_2011_2023.md
     - "Unemployment": HTH/hth_ohid_msoa_unemployment.md
   - "Transport & Mobility (MOB)":
     - MOB/index.md

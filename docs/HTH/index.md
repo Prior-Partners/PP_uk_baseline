@@ -2,7 +2,7 @@
 
 *GP surgeries, hospitals, health inequalities, disease prevalence, obesity*
 
-8 layers.
+9 layers.
 
 <ul class="cat-index">
   <li><a href="hth_ohid_msoa_childhood_obesity_2024/"><span class="cat-short">Childhood Obesity</span><span class="cat-sep"> — </span><span class="cat-full">Office for Health Improvement and Disparities (OHID) childhood obesity and overweight prevalence at Middle-layer Super Output Area (MSOA) 2011, period 2021/22-2023/24</span><span class="cat-sep"> — </span><span class="cat-table">hth_ohid_msoa_childhood_obesity_2024</span></a></li>
@@ -12,5 +12,6 @@
   <li><a href="hth_ohid_msoa_long_term_disability_2011/"><span class="cat-short">Long-term Disability</span><span class="cat-sep"> — </span><span class="cat-full">Office for Health Improvement and Disparities (OHID) limiting long-term illness or disability at Middle-layer Super Output Area (MSOA) 2011, 2011 Census</span><span class="cat-sep"> — </span><span class="cat-table">hth_ohid_msoa_long_term_disability_2011</span></a></li>
   <li><a href="hth_ohid_msoa_mortality_rate/"><span class="cat-short">Mortality Rate</span><span class="cat-sep"> — </span><span class="cat-full">Office for Health Improvement and Disparities (OHID) mortality rates at Middle-layer Super Output Area (MSOA) 2011, period 2016-2020</span><span class="cat-sep"> — </span><span class="cat-table">hth_ohid_msoa_mortality_rate</span></a></li>
   <li><a href="hth_nhs_facility_2025/"><span class="cat-short">NHS Facilities</span><span class="cat-sep"> — </span><span class="cat-full">NHS health and care facility directory for England, November 2025</span><span class="cat-sep"> — </span><span class="cat-table">hth_nhs_facility_2025</span></a></li>
+  <li><a href="hth_ons_lad_personal_wellbeing_2011_2023/"><span class="cat-short">Personal Well-being by Local Authority 2011 to 2023</span><span class="cat-sep"> — </span><span class="cat-full">Office for National Statistics (ONS) personal well-being estimates by local authority, districts of the United Kingdom, April 2011 to March 2023, November 2023</span><span class="cat-sep"> — </span><span class="cat-table">hth_ons_lad_personal_wellbeing_2011_2023</span></a></li>
   <li><a href="hth_ohid_msoa_unemployment/"><span class="cat-short">Unemployment</span><span class="cat-sep"> — </span><span class="cat-full">Office for Health Improvement and Disparities (OHID) unemployment at Middle-layer Super Output Area (MSOA) 2011, period 2021/22</span><span class="cat-sep"> — </span><span class="cat-table">hth_ohid_msoa_unemployment</span></a></li>
 </ul>

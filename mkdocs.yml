@@ -41,7 +41,7 @@ markdown_extensions:
 extra_css:
   - stylesheets/extra.css?v=271158a4
 extra:
-  layer_count: 188
+  layer_count: 193
 nav:
   - "Home": index.md
   - "Administrative & Planning Boundaries (ADM)":
@@ -133,6 +133,7 @@ nav:
     - "IMD 2019": DEM/dem_mhclg_lsoa_imd_2019.md
     - "IMD 2025": DEM/dem_mhclg_lsoa_imd_2025.md
     - "Income 2011": DEM/dem_ons_msoa_income_2011.md
+    - "IoD 2025 District Summaries": DEM/dem_mhclg_lad_iod_district_summaries_2025.md
     - "LSOA Population Density 2011 to 2024": DEM/dem_ons_lsoa_population_density_2011_2024.md
     - "Small Area Income Estimates 2023 (MSOA)": DEM/dem_ons_msoa_small_area_income_estimates_2023.md
   - "Economy & Employment (ECN)":
@@ -196,9 +197,11 @@ nav:
     - "Open Greenspace Access Points": ENV/env_os_green_space_access_points_apr2025.md
     - "Open Rivers": ENV/env_os_rivers_apr2025.md
     - "Peaty Soil Extent": ENV/env_defra_peaty_soil_extent_may2025.md
+    - "Pollution Incidents (Category 1 and 2) 2026": ENV/env_defra_pollution_incidents_oct2026.md
     - "Priority Habitats Inventory": ENV/env_naturalengland_priority_habitats_inventory_apr2026.md
     - "Ramsar Sites": ENV/env_naturalengland_ramsar_oct2024.md
     - "Sites of Special Scientific Interest (SSSI)": ENV/env_naturalengland_sssi_apr2026.md
+    - "Spatial Flood Defences 2026": ENV/env_defra_aims_spatial_flood_defences_oct2026.md
     - "Special Areas of Conservation": ENV/env_naturalengland_special_areas_conservation_oct2024.md
     - "Special Protection Areas": ENV/env_naturalengland_special_protection_areas_apr2026.md
     - "Surface Water": ENV/env_os_surface_water.md
@@ -221,6 +224,8 @@ nav:
   - "Housing & Living Conditions (HOU)":
     - HOU/index.md
     - "House Price Paid": HOU/hou_hmlandregistry_house_price_paid_jun2026.md
+    - "Statutory Homelessness Jan to Mar 2026": HOU/hou_mhclg_lad_statutory_homelessness_mar2026.md
+    - "Traveller Caravan Count Jan 2026": HOU/hou_mhclg_lad_traveller_caravan_count_jan2026.md
   - "Health & Wellbeing (HTH)":
     - HTH/index.md
     - "Childhood Obesity": HTH/hth_ohid_msoa_childhood_obesity_2024.md

@@ -2,7 +2,7 @@
 
 *Census data (age, ethnicity, religion), deprivation indices, income data, household, travel-to-work data*
 
-54 layers.
+55 layers.
 
 <ul class="cat-index">
   <li><a href="dem_ons_lsoa_access_healthy_assets_hazards_may2026/"><span class="cat-short">Access to Healthy Assets and Hazards (AHAH) 2026</span><span class="cat-sep"> — </span><span class="cat-full">ONS Access to Healthy Assets and Hazards (AHAH) composite index, May 2026</span><span class="cat-sep"> — </span><span class="cat-table">dem_ons_lsoa_access_healthy_assets_hazards_may2026</span></a></li>
@@ -57,6 +57,7 @@
   <li><a href="dem_mhclg_lsoa_imd_2019/"><span class="cat-short">IMD 2019</span><span class="cat-sep"> — </span><span class="cat-full">MHCLG Index of Multiple Deprivation (IMD) 2019 at LSOA 2011, England</span><span class="cat-sep"> — </span><span class="cat-table">dem_mhclg_lsoa_imd_2019</span></a></li>
   <li><a href="dem_mhclg_lsoa_imd_2025/"><span class="cat-short">IMD 2025</span><span class="cat-sep"> — </span><span class="cat-full">MHCLG Index of Multiple Deprivation (IMD) 2025 at LSOA 2021, England</span><span class="cat-sep"> — </span><span class="cat-table">dem_mhclg_lsoa_imd_2025</span></a></li>
   <li><a href="dem_ons_msoa_income_2011/"><span class="cat-short">Income 2011</span><span class="cat-sep"> — </span><span class="cat-full">ONS small area model-based income estimates at Middle-layer Super Output Area (MSOA) 2011</span><span class="cat-sep"> — </span><span class="cat-table">dem_ons_msoa_income_2011</span></a></li>
+  <li><a href="dem_mhclg_lad_iod_district_summaries_2025/"><span class="cat-short">IoD 2025 District Summaries</span><span class="cat-sep"> — </span><span class="cat-full">Ministry of Housing, Communities and Local Government (MHCLG) English Indices of Deprivation 2025, local authority district summaries (File 10, lower tier, version 2), England, November 2025</span><span class="cat-sep"> — </span><span class="cat-table">dem_mhclg_lad_iod_district_summaries_2025</span></a></li>
   <li><a href="dem_ons_lsoa_population_density_2011_2024/"><span class="cat-short">LSOA Population Density 2011 to 2024</span><span class="cat-sep"> — </span><span class="cat-full">Office for National Statistics (ONS) Lower layer Super Output Area (LSOA) 2021 population density, mid-2011 to mid-2024, England and Wales, November 2025</span><span class="cat-sep"> — </span><span class="cat-table">dem_ons_lsoa_population_density_2011_2024</span></a></li>
   <li><a href="dem_ons_msoa_small_area_income_estimates_2023/"><span class="cat-short">Small Area Income Estimates 2023 (MSOA)</span><span class="cat-sep"> — </span><span class="cat-full">Office for National Statistics (ONS) income estimates for small areas, Middle layer Super Output Area (MSOA) 2021, England and Wales, financial year ending March 2023, published December 2025</span><span class="cat-sep"> — </span><span class="cat-table">dem_ons_msoa_small_area_income_estimates_2023</span></a></li>
 </ul>

@@ -53,6 +53,6 @@ is, how to connect QGIS, and how to use the data on a project. It is kept on the
   Digital Innovation team, Prior + Partners<br>
   <a href="mailto:info@priorpartners.com">info@priorpartners.com</a></div>
   <div><strong>Version</strong><br>
-  Last updated 02 November 2026<br>
+  Last updated 03 November 2026<br>
   Developed by the Digital Innovation team</div>
 </div>

@@ -47,10 +47,22 @@
 **DATA QUALITY CAVEATS**
 {: .sec-label }
 
+- Geography keys are NULL on 27 of 169,120 rows, measured 2 November 2026: 27 fall outside every district — offshore, inter-tidal, or beyond Great Britain.
+- 5,714 rows carry a district but no Middle Layer Super Output Area: they lie outside every 2021 MSOA but inside a district, so the district was assigned from the feature's representative point while the MSOA columns stay NULL.
+- County and Spatial Development Strategy columns are England and Wales only; rows elsewhere carry no county or SDS. Wales and the Isles of Scilly carry a county but no SDS. Rows with no Local Authority District code are NULL in all four columns.
+- asset_length is the whole asset's published length and is repeated on every piece of a split asset; summing it over pieces counts an asset more than once.
+- 77 source features double back over themselves (overlapping segments, 7,673 m in all); the split stores each stretch once, so their pieces measure 39,096 m against 46,769 m published. Measured against the source with overlapping segments merged, the split keeps 100% of the geometry.
+- The row count counts split pieces, not source features: this layer was split by Middle Layer Super Output Area, so it holds one row per feature per MSOA piece, plus whole and remainder rows to keep the source geometry. 169,120 rows represent 141,416 source features, measured 2 November 2026. `source_fid` identifies the originating feature.
 - Updated by the EA "daily (weekdays only)"; this table is the build of 22 October 2026 and will drift from the live product.
 - Published attributes include blanks: current_condition is blank on 104,514 assets and design_sop_dqf on 139,037; the reasons are not established. Dates are text in DD/MM/YYYY form, as published.
 - The product description omits measurement units; the EA Data Requirements Library specifies metres for calculated asset length and mAOD (metres above Ordnance Datum) for crest and toe levels.
 - local_authority contains names rather than codes; 18 assets have no published value.
+
+**ENRICHMENT**
+{: .sec-label }
+
+- `sds_name` / `sds_group` — Spatial Development Strategy area and devolution status, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy, joined at load on the row's Local Authority District 2025 code via uk.ref_lad25_ctyua25_sds_lu_jul2026.
+- `msoa21cd`, `msoa21nm`, `msoa21hclnm`, `lad22cd` / `lad22nm`, `lad25cd` / `lad25nm` — from the MSOA 2021 piece each row lies in, after splitting the lines by uk_baseline.adm_ons_msoa_boundary_2021 on 2 November 2026; MSOA and district codes and names are ONS (Open Government Licence v3.0); `msoa21hclnm` is the House of Commons Library readable MSOA name (Open Parliament Licence).
 
 **LOADED INTO uk_baseline**
 {: .sec-label }
@@ -62,14 +74,14 @@
 
 | Column | Type | Description / unit |
 |---|---|---|
-| `gid` | `integer` | Source GeoPackage feature id (`fid`), carried as the primary key. |
+| `source_fid` | `integer` | Source GeoPackage feature id (`fid`): the primary key of the feature in the pre-split layer uk.env_defra_aims_spatial_flood_defences_oct2026__preswap_nov02 (non-unique here: a feature spanning N MSOAs has N rows). |
 | `asset_id` | `character varying` | Source field `asset_id`; "The Asset ID from the AIMS OM system" (EA product description, October 2025). |
 | `asset_name` | `character varying` | Source field `asset_name`; "The name of the asset if it has one" (EA product description, October 2025). |
 | `asset_sub_type` | `character varying` | Source field `asset_sub_type`; "The type of asset" (EA product description, October 2025). |
 | `primary_purpose` | `character varying` | Source field `primary_purpose`; "The main purpose of the asset" (EA product description, October 2025). |
 | `alternative_purpose_1` | `character varying` | Source field `alternative_purpose_1`; "An alternative purpose of the asset" (EA product description, October 2025). |
 | `alternative_purpose_2` | `character varying` | Source field `alternative_purpose_2`; "An alternative purpose of the asset" (EA product description, October 2025). |
-| `asset_length` | `double precision` | Source field `asset_length`; "The length of the asset (calculated from the digitised line feature)" (EA product description, October 2025). Unit: metres (EA Data Requirements Library). |
+| `asset_length` | `double precision` | Source field `asset_length`; "The length of the asset (calculated from the digitised line feature)" (EA product description, October 2025). Unit: metres (EA Data Requirements Library). After the MSOA split each piece carries the whole asset's published length, not the length of the piece. |
 | `toe_level` | `double precision` | Source field `toe_level`; "The toe level at the exposed face" (EA product description, October 2025). Unit: metres above Ordnance Datum (mAOD), as specified in the EA Data Requirements Library. |
 | `protection_type` | `character varying` | Source field `protection_type`; "The type of protection the asset gives" (EA product description, October 2025). |
 | `asset_maintainer` | `character varying` | Source field `asset_maintainer`; "The organisation or private individual recognised to be the maintainer of the asset" (EA product description, October 2025). |
@@ -99,4 +111,16 @@
 | `local_authority` | `character varying` | Source field `local_authority`; "The local authority within which the asset falls" (EA product description, October 2025). |
 | `frms_code` | `character varying` | Source field `frms_code`; "The code of the Flood Risk Management System covering the asset" (EA product description, October 2025). |
 | `water_course_name` | `character varying` | Source field `water_course_name`; "The name of the Watercourse where the Asset is located" (EA product description, October 2025). |
+| `msoa21cd` | `character varying` | Middle Layer Super Output Area (MSOA) 2021 code of this piece. Open Government Licence v3.0. |
+| `msoa21nm` | `character varying` | Official ONS MSOA 2021 name of this piece. Open Government Licence v3.0. |
+| `msoa21hclnm` | `text` | House of Commons Library readable MSOA name of this piece. Open Parliament Licence. |
+| `lad22cd` | `text` | Local Authority District 2022 code (2021 LAD geography, anchored to the MSOA 2021 name scoping), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad22nm` | `text` | Local Authority District 2022 name (2021 LAD geography), best-fit from this piece's msoa21cd. Open Government Licence v3.0. |
+| `lad25cd` | `text` | Local Authority District 2025 code (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. Rows lying outside every 2021 MSOA were assigned at load from the feature's representative point located in uk_baseline.adm_ons_lad_boundary_may2025. |
+| `lad25nm` | `text` | Local Authority District 2025 name (current administering authority), best-fit from this piece's msoa21cd. Open Government Licence v3.0. Rows lying outside every 2021 MSOA were assigned at load from the feature's representative point located in uk_baseline.adm_ons_lad_boundary_may2025. |
 | `geom` | `geometry(MultiLineString,27700)` | Source field `shape`; "The geographic representation of the asset" (EA product description, October 2025); MultiLineString in EPSG:27700, coordinate units metres; no reprojection. |
+| `gid` | `bigint` |  |
+| `ctyua25cd` | `text` | County or unitary authority code at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `ctyua25nm` | `text` | County or unitary authority name at 1 April 2025. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `sds_name` | `text` | Spatial Development Strategy (SDS) area, a Prior + Partners categorisation over Ministry of Housing, Communities and Local Government (MHCLG) English devolution policy. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |
+| `sds_group` | `text` | Devolution status of the Spatial Development Strategy area: Existing Devolution Footprints, Devolution Priority Programme, Other Proposed Geographies or Remaining Areas. Joined at load via uk.ref_lad25_ctyua25_sds_lu_jul2026 on the row's Local Authority District 2025 code. Open Government Licence v3.0. |

@@ -74,7 +74,7 @@
 
 | Column | Type | Description / unit |
 |---|---|---|
-| `source_fid` | `integer` | Source GeoPackage feature id (`fid`): the primary key of the feature in the pre-split layer uk.env_defra_aims_spatial_flood_defences_oct2026__preswap_nov02 (non-unique here: a feature spanning N MSOAs has N rows). |
+| `source_fid` | `integer` | Source GeoPackage feature id (`fid`) of the asset before the MSOA split (non-unique here: a feature spanning N MSOAs has N rows). |
 | `asset_id` | `character varying` | Source field `asset_id`; "The Asset ID from the AIMS OM system" (EA product description, October 2025). |
 | `asset_name` | `character varying` | Source field `asset_name`; "The name of the asset if it has one" (EA product description, October 2025). |
 | `asset_sub_type` | `character varying` | Source field `asset_sub_type`; "The type of asset" (EA product description, October 2025). |

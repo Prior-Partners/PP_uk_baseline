@@ -2,7 +2,7 @@
 
 *Electricity networks, gas pipelines, water infrastructure, telecoms masts, waste facilities*
 
-7 layers.
+8 layers.
 
 <ul class="cat-index">
   <li><a href="utl_defra_permitted_waste_authorised_landfill/"><span class="cat-short">Authorised Landfill Sites</span><span class="cat-sep"> — </span><span class="cat-full">Defra - Department for Environment, Food and Rural Affairs — Environment Agency authorised landfill site boundaries, England</span><span class="cat-sep"> — </span><span class="cat-table">utl_defra_permitted_waste_authorised_landfill</span></a></li>
@@ -12,4 +12,5 @@
   <li><a href="utl_nationalgrid_substation_site/"><span class="cat-short">National Grid Substation Sites</span><span class="cat-sep"> — </span><span class="cat-full">National Grid Electricity Transmission substation sites, England and Wales</span><span class="cat-sep"> — </span><span class="cat-table">utl_nationalgrid_substation_site</span></a></li>
   <li><a href="utl_nationalgrid_towers/"><span class="cat-short">National Grid Transmission Towers</span><span class="cat-sep"> — </span><span class="cat-full">National Grid Electricity Transmission towers (pylons), England and Wales</span><span class="cat-sep"> — </span><span class="cat-table">utl_nationalgrid_towers</span></a></li>
   <li><a href="utl_nationalgrid_cables/"><span class="cat-short">National Grid Underground Cables</span><span class="cat-sep"> — </span><span class="cat-full">National Grid Electricity Transmission underground cables, England and Wales</span><span class="cat-sep"> — </span><span class="cat-table">utl_nationalgrid_cables</span></a></li>
+  <li><a href="utl_desnz_renewable_energy_planning_jul2026/"><span class="cat-short">Renewable Energy Planning Database Jul 2026</span><span class="cat-sep"> — </span><span class="cat-full">Department for Energy Security and Net Zero (DESNZ) Renewable Energy Planning Database (REPD), project points, United Kingdom, July 2026</span><span class="cat-sep"> — </span><span class="cat-table">utl_desnz_renewable_energy_planning_jul2026</span></a></li>
 </ul>

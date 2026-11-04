@@ -1,6 +1,6 @@
 site_name: UK Baseline data catalogue
 site_description: A guide to every layer in the uk_baseline database.
-copyright: Developed by the Digital Innovation team, Prior + Partners — last updated 03 November 2026
+copyright: Developed by the Digital Innovation team, Prior + Partners — last updated 04 November 2026
 theme:
   name: material
   custom_dir: overrides
@@ -41,7 +41,7 @@ markdown_extensions:
 extra_css:
   - stylesheets/extra.css?v=271158a4
 extra:
-  layer_count: 193
+  layer_count: 196
 nav:
   - "Home": index.md
   - "Administrative & Planning Boundaries (ADM)":
@@ -241,6 +241,7 @@ nav:
     - MOB/index.md
     - "Bus Routes": MOB/mob_dft_bods_bus_routes.md
     - "Bus Stops": MOB/mob_dft_bods_bus_stops.md
+    - "NaPTAN Access Nodes 2026": MOB/mob_dft_naptan_access_nodes_nov2026.md
     - "National Cycle Network": MOB/mob_wwct_national_cycle_network_sep2024.md
     - "Open Roads": MOB/mob_os_open_roads_apr2025.md
     - "Public Rights of Way": MOB/mob_public_right_of_way.md
@@ -248,6 +249,7 @@ nav:
     - "Railway Tracks": MOB/mob_os_railway_tracks.md
     - "Railway Tunnels": MOB/mob_os_railway_tunnels.md
     - "Roads": MOB/mob_osm_roads_may2025.md
+    - "SRN Travel Time Metrics 2020 to 2025": MOB/mob_dft_srn_travel_time_metrics_2020_2025.md
     - "Transport Connectivity 2025 (LAD)": MOB/mob_dft_lad_transport_connectivity_metric_2025.md
     - "Transport Connectivity 2025 (LSOA)": MOB/mob_dft_lsoa_transport_connectivity_metric_2025.md
     - "Transport Connectivity 2025 (OA)": MOB/mob_dft_oa_transport_connectivity_metric_2025.md
@@ -261,3 +263,4 @@ nav:
     - "National Grid Substation Sites": UTL/utl_nationalgrid_substation_site.md
     - "National Grid Transmission Towers": UTL/utl_nationalgrid_towers.md
     - "National Grid Underground Cables": UTL/utl_nationalgrid_cables.md
+    - "Renewable Energy Planning Database Jul 2026": UTL/utl_desnz_renewable_energy_planning_jul2026.md

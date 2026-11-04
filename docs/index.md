@@ -19,7 +19,7 @@ is, how to connect QGIS, and how to use the data on a project. It is kept on the
 (office network or VPN): open the latest *P+P Staff data management handbook* PDF in
 `G:\0_Practice\10_Data management resources\01_Manuals\InDesign\`.
 
-**193 layers across 12 themes.**
+**196 layers across 12 themes.**
 
 <div class="cat-themes" markdown>
 
@@ -35,8 +35,8 @@ is, how to connect QGIS, and how to use the data on a project. It is kept on the
 | **HER** | [Heritage & Historical Assets](HER/index.md) | Listed buildings, conservation areas, historic parks, archaeological sites | 12 |
 | **HOU** | [Housing & Living Conditions](HOU/index.md) | House prices, housing tenure, property types, energy efficiency ratings, overcrowding metrics, rental costs | 3 |
 | **HTH** | [Health & Wellbeing](HTH/index.md) | GP surgeries, hospitals, health inequalities, disease prevalence, obesity | 9 |
-| **MOB** | [Transport & Mobility](MOB/index.md) | Road networks, railway lines, public transport routes, cycling infrastructure, stations, paths, trails | 13 |
-| **UTL** | [Infrastructure & Utilities](UTL/index.md) | Electricity networks, gas pipelines, water infrastructure, telecoms masts, waste facilities | 7 |
+| **MOB** | [Transport & Mobility](MOB/index.md) | Road networks, railway lines, public transport routes, cycling infrastructure, stations, paths, trails | 15 |
+| **UTL** | [Infrastructure & Utilities](UTL/index.md) | Electricity networks, gas pipelines, water infrastructure, telecoms masts, waste facilities | 8 |
 
 </div>
 
@@ -53,6 +53,6 @@ is, how to connect QGIS, and how to use the data on a project. It is kept on the
   Digital Innovation team, Prior + Partners<br>
   <a href="mailto:info@priorpartners.com">info@priorpartners.com</a></div>
   <div><strong>Version</strong><br>
-  Last updated 03 November 2026<br>
+  Last updated 04 November 2026<br>
   Developed by the Digital Innovation team</div>
 </div>
